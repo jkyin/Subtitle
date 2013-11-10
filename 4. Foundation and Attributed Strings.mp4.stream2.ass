@@ -1,0 +1,1728 @@
+[Script Info]
+ScriptType: v4.00+
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,方正黑体简体,20,&H00FFFFFF,&HF0000000,&H00000000,&H32000000,0,0,0,0,100,100,0,0.00,1,2,1,2,5,5,2,134
+
+[Events]
+Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:05.05,0:00:05.98,Default,NTP,0000,0000,0000,,\N{\fs14}>> Stanford University.
+Dialogue: 0,0:00:06.52,0:00:11.07,Default,NTP,0000,0000,0000,,\N{\fs14}[ Pause ]
+Dialogue: 0,0:00:11.57,0:00:11.81,Default,NTP,0000,0000,0000,,\N{\fs14}>> All right.
+Dialogue: 0,0:00:11.81,0:00:15.17,Default,NTP,0000,0000,0000,,\N{\fs14}Well, welcome to lecture four,\Nthen, of CS 193P for fall
+Dialogue: 0,0:00:15.17,0:00:20.70,Default,NTP,0000,0000,0000,,\N{\fs14}of 2013/14 -- academic\Nyear 2013/14.
+Dialogue: 0,0:00:21.14,0:00:23.68,Default,NTP,0000,0000,0000,,\N{\fs14}Today I'm going to do\Npretty much all slides.
+Dialogue: 0,0:00:24.11,0:00:28.32,Default,NTP,0000,0000,0000,,\N{\fs14}I do have one brief time when\Nwe'll stop and do a little demo.
+Dialogue: 0,0:00:28.32,0:00:30.97,Default,NTP,0000,0000,0000,,\N{\fs14}And then at the beginning\Nof next lecture,
+Dialogue: 0,0:00:31.26,0:00:34.41,Default,NTP,0000,0000,0000,,\N{\fs14}I'll be doing a demo that pretty\Nmuch demonstrates the vast
+Dialogue: 0,0:00:34.41,0:00:37.21,Default,NTP,0000,0000,0000,,\N{\fs14}majority of what I talk\Nabout in the slides today.
+Dialogue: 0,0:00:37.21,0:00:39.30,Default,NTP,0000,0000,0000,,\N{\fs14}And remember, that's kind of\Nhow it's always going to go:
+Dialogue: 0,0:00:39.30,0:00:41.68,Default,NTP,0000,0000,0000,,\N{\fs14}I'll show it to you in\Nslides, we'll talk about it,
+Dialogue: 0,0:00:42.05,0:00:42.97,Default,NTP,0000,0000,0000,,\N{\fs14}then I'll demo it to you.
+Dialogue: 0,0:00:42.97,0:00:45.35,Default,NTP,0000,0000,0000,,\N{\fs14}Because when you see a demo,\Nit all makes a lot more sense
+Dialogue: 0,0:00:45.38,0:00:46.25,Default,NTP,0000,0000,0000,,\N{\fs14}than if someone's just talking
+Dialogue: 0,0:00:46.25,0:00:48.31,Default,NTP,0000,0000,0000,,\N{\fs14}in an abstract conceptually\Nabout an API.
+Dialogue: 0,0:00:48.99,0:00:50.77,Default,NTP,0000,0000,0000,,\N{\fs14}And then your homework\Nis usually going
+Dialogue: 0,0:00:50.77,0:00:51.54,Default,NTP,0000,0000,0000,,\N{\fs14}to ask you to do this.
+Dialogue: 0,0:00:51.54,0:00:54.54,Default,NTP,0000,0000,0000,,\N{\fs14}So it's, you know, you get a\Nlot out of paying attention
+Dialogue: 0,0:00:54.54,0:00:55.83,Default,NTP,0000,0000,0000,,\N{\fs14}in the lectures because\NI'm pretty much going
+Dialogue: 0,0:00:55.83,0:00:58.21,Default,NTP,0000,0000,0000,,\N{\fs14}to give you hints and\Nbasically tell you a lot of how
+Dialogue: 0,0:00:58.21,0:01:01.86,Default,NTP,0000,0000,0000,,\N{\fs14}to do the homework -- at\Nleast from the iOS side of it.
+Dialogue: 0,0:01:01.86,0:01:03.77,Default,NTP,0000,0000,0000,,\N{\fs14}I'm still going to ask you to\Ndo the thinking side of it,
+Dialogue: 0,0:01:03.77,0:01:06.15,Default,NTP,0000,0000,0000,,\N{\fs14}the designing side of it.
+Dialogue: 0,0:01:06.27,0:01:08.71,Default,NTP,0000,0000,0000,,\N{\fs14}So today we're going\Nto start off by talking
+Dialogue: 0,0:01:08.71,0:01:11.40,Default,NTP,0000,0000,0000,,\N{\fs14}about a little bit more\Nmiscellaneous Objective-C.
+Dialogue: 0,0:01:11.40,0:01:13.91,Default,NTP,0000,0000,0000,,\N{\fs14}And then I'm going to go into\Ntalking about Foundation,
+Dialogue: 0,0:01:13.91,0:01:15.43,Default,NTP,0000,0000,0000,,\N{\fs14}which is this framework\Nthat has arrays,
+Dialogue: 0,0:01:15.43,0:01:16.84,Default,NTP,0000,0000,0000,,\N{\fs14}and dictionaries,\Nand all that in it.
+Dialogue: 0,0:01:17.20,0:01:20.75,Default,NTP,0000,0000,0000,,\N{\fs14}And we'll start to transition\Nout of Foundation at the end
+Dialogue: 0,0:01:20.75,0:01:23.90,Default,NTP,0000,0000,0000,,\N{\fs14}of that and start talking about\Nthings like fonts and colors,
+Dialogue: 0,0:01:23.90,0:01:25.36,Default,NTP,0000,0000,0000,,\N{\fs14}which are obviously\Nnot in Foundation
+Dialogue: 0,0:01:25.36,0:01:28.45,Default,NTP,0000,0000,0000,,\N{\fs14}because Foundation is\Nreally not a UI-based thing;
+Dialogue: 0,0:01:28.45,0:01:31.13,Default,NTP,0000,0000,0000,,\N{\fs14}it's for building\Nboth your model,
+Dialogue: 0,0:01:31.13,0:01:32.81,Default,NTP,0000,0000,0000,,\N{\fs14}and your controller,\Nand your view.
+Dialogue: 0,0:01:32.81,0:01:35.69,Default,NTP,0000,0000,0000,,\N{\fs14}But it's, you know, a layer\Nbelow the user interface layer.
+Dialogue: 0,0:01:36.37,0:01:37.85,Default,NTP,0000,0000,0000,,\N{\fs14}So let's dive right in.
+Dialogue: 0,0:01:38.10,0:01:39.89,Default,NTP,0000,0000,0000,,\N{\fs14}Let's talk about\Ncreating objects.
+Dialogue: 0,0:01:39.89,0:01:42.43,Default,NTP,0000,0000,0000,,\N{\fs14}A few of these things are pretty\Nobvious I hope, but I just want
+Dialogue: 0,0:01:42.43,0:01:44.81,Default,NTP,0000,0000,0000,,\N{\fs14}to put them on slides so that\Nyou have them in writing here.
+Dialogue: 0,0:01:45.54,0:01:47.84,Default,NTP,0000,0000,0000,,\N{\fs14}You know that most of the\Ntime when we create objects
+Dialogue: 0,0:01:47.84,0:01:50.64,Default,NTP,0000,0000,0000,,\N{\fs14}in the heap, we do it with this\Nalloc init business, right?
+Dialogue: 0,0:01:50.64,0:01:52.91,Default,NTP,0000,0000,0000,,\N{\fs14}So sometimes the\Ninit is just init
+Dialogue: 0,0:01:52.91,0:01:54.57,Default,NTP,0000,0000,0000,,\N{\fs14}like NSMutableArray alloc init,
+Dialogue: 0,0:01:54.57,0:01:56.80,Default,NTP,0000,0000,0000,,\N{\fs14}and sometimes it's more\Ncomplicated init like we had
+Dialogue: 0,0:01:56.80,0:01:58.02,Default,NTP,0000,0000,0000,,\N{\fs14}with our card matching game --
+Dialogue: 0,0:01:58.37,0:02:01.18,Default,NTP,0000,0000,0000,,\N{\fs14}init with card count using deck\N-- so that you're used to that.
+Dialogue: 0,0:02:01.62,0:02:03.57,Default,NTP,0000,0000,0000,,\N{\fs14}And you've also seen\Nus create objects
+Dialogue: 0,0:02:03.57,0:02:06.60,Default,NTP,0000,0000,0000,,\N{\fs14}in the heap using class\Nmethods like string with format.
+Dialogue: 0,0:02:06.60,0:02:08.42,Default,NTP,0000,0000,0000,,\N{\fs14}Remember, we did NSString,\Nstring with format.
+Dialogue: 0,0:02:08.42,0:02:09.64,Default,NTP,0000,0000,0000,,\N{\fs14}And that's a class\Nmethod, right?
+Dialogue: 0,0:02:09.64,0:02:11.68,Default,NTP,0000,0000,0000,,\N{\fs14}Because it's open square\Nbracket, name of a class,
+Dialogue: 0,0:02:11.68,0:02:13.23,Default,NTP,0000,0000,0000,,\N{\fs14}and then class method.
+Dialogue: 0,0:02:13.45,0:02:16.07,Default,NTP,0000,0000,0000,,\N{\fs14}So it gets kind of two different\Nways you've seen already
+Dialogue: 0,0:02:16.07,0:02:17.18,Default,NTP,0000,0000,0000,,\N{\fs14}to create objects.
+Dialogue: 0,0:02:17.69,0:02:19.94,Default,NTP,0000,0000,0000,,\N{\fs14}Sometimes for some methods,
+Dialogue: 0,0:02:19.94,0:02:22.86,Default,NTP,0000,0000,0000,,\N{\fs14}there's both an init\Nand a class method.
+Dialogue: 0,0:02:23.22,0:02:26.22,Default,NTP,0000,0000,0000,,\N{\fs14}So string with format is an\Nexample that there's alloc init
+Dialogue: 0,0:02:26.22,0:02:29.38,Default,NTP,0000,0000,0000,,\N{\fs14}with format and there's\NNSString, string with format.
+Dialogue: 0,0:02:29.73,0:02:31.45,Default,NTP,0000,0000,0000,,\N{\fs14}They do exactly the same thing.
+Dialogue: 0,0:02:32.33,0:02:35.21,Default,NTP,0000,0000,0000,,\N{\fs14}Both of them are there for\Nkind of historical reasons.
+Dialogue: 0,0:02:35.51,0:02:38.78,Default,NTP,0000,0000,0000,,\N{\fs14}Back before we had this\Nautomatic reference counting --
+Dialogue: 0,0:02:38.78,0:02:40.23,Default,NTP,0000,0000,0000,,\N{\fs14}you know, the strong\Nand weak thing --
+Dialogue: 0,0:02:40.78,0:02:43.20,Default,NTP,0000,0000,0000,,\N{\fs14}you had to be much more\Nexplicit about things
+Dialogue: 0,0:02:43.20,0:02:46.07,Default,NTP,0000,0000,0000,,\N{\fs14}when you were going to,\Nyou know, reference them,
+Dialogue: 0,0:02:46.07,0:02:47.99,Default,NTP,0000,0000,0000,,\N{\fs14}and when they got dereferenced,\Nand when you cleared them
+Dialogue: 0,0:02:47.99,0:02:49.74,Default,NTP,0000,0000,0000,,\N{\fs14}out of the heap,\Nand all that stuff.
+Dialogue: 0,0:02:49.74,0:02:52.34,Default,NTP,0000,0000,0000,,\N{\fs14}And one of the ways that was\Ndone was using these class
+Dialogue: 0,0:02:52.34,0:02:56.28,Default,NTP,0000,0000,0000,,\N{\fs14}methods to create\Nthe string in a way
+Dialogue: 0,0:02:56.28,0:02:57.88,Default,NTP,0000,0000,0000,,\N{\fs14}that it would get\Nreleased in certain ways.
+Dialogue: 0,0:02:57.88,0:02:59.46,Default,NTP,0000,0000,0000,,\N{\fs14}So all of that doesn't\Nmatter anymore.
+Dialogue: 0,0:02:59.68,0:03:02.18,Default,NTP,0000,0000,0000,,\N{\fs14}So now we're kind of stuck with\Nhaving both of these things.
+Dialogue: 0,0:03:02.18,0:03:05.22,Default,NTP,0000,0000,0000,,\N{\fs14}It seems to me that iOS,\Nthe designers at Apple --
+Dialogue: 0,0:03:05.42,0:03:07.13,Default,NTP,0000,0000,0000,,\N{\fs14}I don't work at Apple,\Nby the way.
+Dialogue: 0,0:03:07.13,0:03:08.20,Default,NTP,0000,0000,0000,,\N{\fs14}Some people have asked\Nme if I work at Apple;
+Dialogue: 0,0:03:08.20,0:03:08.98,Default,NTP,0000,0000,0000,,\N{\fs14}I don't work at Apple.
+Dialogue: 0,0:03:09.10,0:03:11.88,Default,NTP,0000,0000,0000,,\N{\fs14}So I'm just seeing iOS from\Nthe outside just like you are.
+Dialogue: 0,0:03:11.88,0:03:15.12,Default,NTP,0000,0000,0000,,\N{\fs14}It looks to me like iOS people\Nare moving towards alloc init,
+Dialogue: 0,0:03:15.52,0:03:19.78,Default,NTP,0000,0000,0000,,\N{\fs14}okay, and kind of away\Nfrom the class methods.
+Dialogue: 0,0:03:19.78,0:03:21.37,Default,NTP,0000,0000,0000,,\N{\fs14}Although I still see\Nthe class methods coming
+Dialogue: 0,0:03:21.37,0:03:22.59,Default,NTP,0000,0000,0000,,\N{\fs14}up in certain circumstances,\Ntoo.
+Dialogue: 0,0:03:22.59,0:03:24.24,Default,NTP,0000,0000,0000,,\N{\fs14}And there's probably\Nsome reasoning behind it.
+Dialogue: 0,0:03:24.56,0:03:27.63,Default,NTP,0000,0000,0000,,\N{\fs14}I haven't seen it put in\Nwriting by Apple as to
+Dialogue: 0,0:03:27.63,0:03:30.32,Default,NTP,0000,0000,0000,,\N{\fs14}when they choose which,\Nbut you're certainly safe
+Dialogue: 0,0:03:30.32,0:03:33.19,Default,NTP,0000,0000,0000,,\N{\fs14}in this class until they start\Nmarketing some of these things
+Dialogue: 0,0:03:33.19,0:03:35.09,Default,NTP,0000,0000,0000,,\N{\fs14}as deprecated, like,\Ndon't use them anymore,
+Dialogue: 0,0:03:35.42,0:03:37.04,Default,NTP,0000,0000,0000,,\N{\fs14}to use either form, okay?
+Dialogue: 0,0:03:37.10,0:03:39.47,Default,NTP,0000,0000,0000,,\N{\fs14}I tend to try to go for the\Nalloc inits most of the time,
+Dialogue: 0,0:03:39.47,0:03:41.64,Default,NTP,0000,0000,0000,,\N{\fs14}unless there isn't an alloc\Ninit that does what I want;
+Dialogue: 0,0:03:41.73,0:03:42.69,Default,NTP,0000,0000,0000,,\N{\fs14}then I'll use a class method.
+Dialogue: 0,0:03:43.59,0:03:45.69,Default,NTP,0000,0000,0000,,\N{\fs14}But there's other ways\Nto create objects.
+Dialogue: 0,0:03:45.69,0:03:48.98,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? You can create objects\Nby asking another object
+Dialogue: 0,0:03:49.06,0:03:50.24,Default,NTP,0000,0000,0000,,\N{\fs14}to create an object for you.
+Dialogue: 0,0:03:50.49,0:03:52.69,Default,NTP,0000,0000,0000,,\N{\fs14}So that's like string\Nby appending string.
+Dialogue: 0,0:03:52.97,0:03:54.71,Default,NTP,0000,0000,0000,,\N{\fs14}That's not a class\Nmethod in string;
+Dialogue: 0,0:03:54.71,0:03:55.62,Default,NTP,0000,0000,0000,,\N{\fs14}that's an instance method.
+Dialogue: 0,0:03:55.62,0:03:59.83,Default,NTP,0000,0000,0000,,\N{\fs14}You send it to another string,\Nyou give it a second string,
+Dialogue: 0,0:04:00.01,0:04:02.24,Default,NTP,0000,0000,0000,,\N{\fs14}and it will create\Na new string for you
+Dialogue: 0,0:04:02.24,0:04:03.40,Default,NTP,0000,0000,0000,,\N{\fs14}since strings are immutable.
+Dialogue: 0,0:04:03.40,0:04:04.72,Default,NTP,0000,0000,0000,,\N{\fs14}NSString is immutable.
+Dialogue: 0,0:04:04.92,0:04:07.66,Default,NTP,0000,0000,0000,,\N{\fs14}It creates a new string that\Nis the string you sent it
+Dialogue: 0,0:04:07.66,0:04:10.38,Default,NTP,0000,0000,0000,,\N{\fs14}to with the one you passed as\Nan argument added on, right?
+Dialogue: 0,0:04:10.38,0:04:12.66,Default,NTP,0000,0000,0000,,\N{\fs14}So there it's creating a\Nnew object for you, okay?
+Dialogue: 0,0:04:13.02,0:04:16.56,Default,NTP,0000,0000,0000,,\N{\fs14}And a very interesting\Ninstance method
+Dialogue: 0,0:04:16.56,0:04:21.96,Default,NTP,0000,0000,0000,,\N{\fs14}that you can ask an object to do\Nfor you is mutable copy, okay?
+Dialogue: 0,0:04:22.23,0:04:25.60,Default,NTP,0000,0000,0000,,\N{\fs14}So mutable copy makes a copy\Nof an object but it's mutable.
+Dialogue: 0,0:04:25.60,0:04:27.73,Default,NTP,0000,0000,0000,,\N{\fs14}So if you had an NSString\Nand you send it mutable copy,
+Dialogue: 0,0:04:27.73,0:04:29.73,Default,NTP,0000,0000,0000,,\N{\fs14}you'll get back an\NNSMutableString.
+Dialogue: 0,0:04:29.96,0:04:32.53,Default,NTP,0000,0000,0000,,\N{\fs14}Or if you have an NSArray and\Nyou send it a mutable copy,
+Dialogue: 0,0:04:32.53,0:04:34.65,Default,NTP,0000,0000,0000,,\N{\fs14}you'll get an NSMutableArray.
+Dialogue: 0,0:04:34.65,0:04:37.78,Default,NTP,0000,0000,0000,,\N{\fs14}So that's another\Nway that that happens
+Dialogue: 0,0:04:37.78,0:04:39.04,Default,NTP,0000,0000,0000,,\N{\fs14}that you're creating objects.
+Dialogue: 0,0:04:39.39,0:04:41.25,Default,NTP,0000,0000,0000,,\N{\fs14}Of course, not all methods
+Dialogue: 0,0:04:41.25,0:04:43.98,Default,NTP,0000,0000,0000,,\N{\fs14}that return an object are\Ncreating an object like we saw
+Dialogue: 0,0:04:44.05,0:04:46.33,Default,NTP,0000,0000,0000,,\N{\fs14}in NSArray -- last\Nobject, and first object,
+Dialogue: 0,0:04:46.33,0:04:47.43,Default,NTP,0000,0000,0000,,\N{\fs14}and object date index.
+Dialogue: 0,0:04:47.43,0:04:48.98,Default,NTP,0000,0000,0000,,\N{\fs14}Those aren't creating\Nnew objects;
+Dialogue: 0,0:04:48.98,0:04:51.20,Default,NTP,0000,0000,0000,,\N{\fs14}they're just giving you\Npointers to the objects
+Dialogue: 0,0:04:51.20,0:04:52.18,Default,NTP,0000,0000,0000,,\N{\fs14}that are in those array.
+Dialogue: 0,0:04:52.58,0:04:56.16,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? That should be completely\Nobvious to you but just want
+Dialogue: 0,0:04:56.16,0:04:59.03,Default,NTP,0000,0000,0000,,\N{\fs14}to make it clear, you know,\Nthese are pointers to objects.
+Dialogue: 0,0:04:59.03,0:05:00.75,Default,NTP,0000,0000,0000,,\N{\fs14}And you're allowed to\Nhave multiple pointers.
+Dialogue: 0,0:05:01.37,0:05:05.68,Default,NTP,0000,0000,0000,,\N{\fs14}And this is normal pointers\Nhere being passed around.
+Dialogue: 0,0:05:06.03,0:05:10.29,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So basically, unless\Na method has the word "copy"
+Dialogue: 0,0:05:10.29,0:05:12.95,Default,NTP,0000,0000,0000,,\N{\fs14}in it, then if it's\Nreturning to you an object
+Dialogue: 0,0:05:12.95,0:05:15.23,Default,NTP,0000,0000,0000,,\N{\fs14}that exists somewhere else, it's\Ngoing to be returning a pointer
+Dialogue: 0,0:05:15.23,0:05:18.18,Default,NTP,0000,0000,0000,,\N{\fs14}to that object, okay, unless it\Nhas the word "copy" in it like
+Dialogue: 0,0:05:18.18,0:05:21.03,Default,NTP,0000,0000,0000,,\N{\fs14}"mutable copy" or "copy."
+Dialogue: 0,0:05:21.03,0:05:24.23,Default,NTP,0000,0000,0000,,\N{\fs14}And if the object that you're\Ngetting back doesn't exist
+Dialogue: 0,0:05:24.23,0:05:26.77,Default,NTP,0000,0000,0000,,\N{\fs14}somewhere, then it's going\Nto make a new one for you.
+Dialogue: 0,0:05:27.57,0:05:28.34,Default,NTP,0000,0000,0000,,\N{\fs14}All right.
+Dialogue: 0,0:05:28.92,0:05:30.11,Default,NTP,0000,0000,0000,,\N{\fs14}That's it on creating objects.
+Dialogue: 0,0:05:30.38,0:05:31.12,Default,NTP,0000,0000,0000,,\N{\fs14}Pretty straightforward there.
+Dialogue: 0,0:05:31.62,0:05:33.43,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. Nil, I already\Ntalked about this,
+Dialogue: 0,0:05:33.43,0:05:37.71,Default,NTP,0000,0000,0000,,\N{\fs14}that we can send messages\Nthrough a pointer that is nil,
+Dialogue: 0,0:05:37.71,0:05:39.58,Default,NTP,0000,0000,0000,,\N{\fs14}i.e. that pointer does\Nnot point to anything.
+Dialogue: 0,0:05:39.90,0:05:41.84,Default,NTP,0000,0000,0000,,\N{\fs14}And no code gets executed.
+Dialogue: 0,0:05:41.94,0:05:44.47,Default,NTP,0000,0000,0000,,\N{\fs14}So if I do this init\NI equals obj method
+Dialogue: 0,0:05:44.47,0:05:48.48,Default,NTP,0000,0000,0000,,\N{\fs14}which returns an init, no code\Ngets executed to execute method
+Dialogue: 0,0:05:48.48,0:05:50.68,Default,NTP,0000,0000,0000,,\N{\fs14}which returns an init; however,
+Dialogue: 0,0:05:50.82,0:05:54.45,Default,NTP,0000,0000,0000,,\N{\fs14}that message sending square\Nbracket thing will return zero.
+Dialogue: 0,0:05:55.32,0:05:57.16,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So that's important\Nto know.
+Dialogue: 0,0:05:57.50,0:05:59.65,Default,NTP,0000,0000,0000,,\N{\fs14}And zero is also what nil is.
+Dialogue: 0,0:05:59.65,0:06:02.44,Default,NTP,0000,0000,0000,,\N{\fs14}So if you had a method that\Nreturned an object and you sent
+Dialogue: 0,0:06:02.44,0:06:06.09,Default,NTP,0000,0000,0000,,\N{\fs14}that message to nil,\Nthen you get back nil.
+Dialogue: 0,0:06:06.44,0:06:09.03,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And we can use that,\Nactually, to our advantage.
+Dialogue: 0,0:06:09.27,0:06:13.28,Default,NTP,0000,0000,0000,,\N{\fs14}For example, in our\Nthing we did on Monday,
+Dialogue: 0,0:06:13.44,0:06:15.01,Default,NTP,0000,0000,0000,,\N{\fs14}we did draw a random\Ncard, right?
+Dialogue: 0,0:06:15.01,0:06:16.77,Default,NTP,0000,0000,0000,,\N{\fs14}Self.deck draw a random card.
+Dialogue: 0,0:06:17.06,0:06:20.01,Default,NTP,0000,0000,0000,,\N{\fs14}And that returned nil if\Nthe deck was out of cards.
+Dialogue: 0,0:06:20.30,0:06:22.75,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? If the deck\Nitself had been nil,
+Dialogue: 0,0:06:22.97,0:06:24.30,Default,NTP,0000,0000,0000,,\N{\fs14}that also would return nil.
+Dialogue: 0,0:06:24.75,0:06:27.28,Default,NTP,0000,0000,0000,,\N{\fs14}So we can write one if\Nthat deals with the fact
+Dialogue: 0,0:06:27.28,0:06:29.31,Default,NTP,0000,0000,0000,,\N{\fs14}that we can't get\Nanother card, whether it's
+Dialogue: 0,0:06:29.31,0:06:31.46,Default,NTP,0000,0000,0000,,\N{\fs14}because the deck is empty\Nor because there is no deck
+Dialogue: 0,0:06:31.46,0:06:32.57,Default,NTP,0000,0000,0000,,\N{\fs14}because the deck is nil.
+Dialogue: 0,0:06:32.91,0:06:34.98,Default,NTP,0000,0000,0000,,\N{\fs14}Either way, the code's going\Nto look exactly the same.
+Dialogue: 0,0:06:35.37,0:06:38.33,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So you'll get\Nused to that.
+Dialogue: 0,0:06:38.58,0:06:39.94,Default,NTP,0000,0000,0000,,\N{\fs14}It's definitely different\Nfrom other languages
+Dialogue: 0,0:06:39.94,0:06:42.60,Default,NTP,0000,0000,0000,,\N{\fs14}where you're protecting\Nagainst sending messages to nil.
+Dialogue: 0,0:06:42.94,0:06:44.34,Default,NTP,0000,0000,0000,,\N{\fs14}But you'll get used to it.
+Dialogue: 0,0:06:44.34,0:06:45.34,Default,NTP,0000,0000,0000,,\N{\fs14}You do have to be careful.
+Dialogue: 0,0:06:45.34,0:06:48.62,Default,NTP,0000,0000,0000,,\N{\fs14}If the return type of a\Nmessage send is a struct
+Dialogue: 0,0:06:49.05,0:06:51.64,Default,NTP,0000,0000,0000,,\N{\fs14}because you don't get back a\Nstruct with all its members set
+Dialogue: 0,0:06:51.64,0:06:54.21,Default,NTP,0000,0000,0000,,\N{\fs14}to zero; you get back\Nan undefined struct.
+Dialogue: 0,0:06:54.28,0:06:56.07,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? What's in there\Nis undefined.
+Dialogue: 0,0:06:56.46,0:06:58.89,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? This struct is being\Nreturned to you on the stack.
+Dialogue: 0,0:06:59.30,0:07:00.58,Default,NTP,0000,0000,0000,,\N{\fs14}You might get stack garbage,
+Dialogue: 0,0:07:00.58,0:07:02.53,Default,NTP,0000,0000,0000,,\N{\fs14}you might get zero.struct,\Nyou just don't know.
+Dialogue: 0,0:07:02.53,0:07:03.58,Default,NTP,0000,0000,0000,,\N{\fs14}So you can't rely on it.
+Dialogue: 0,0:07:03.87,0:07:06.19,Default,NTP,0000,0000,0000,,\N{\fs14}So here you should never\Nrely on that in your code.
+Dialogue: 0,0:07:06.58,0:07:08.26,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? If you call a\Nmethod, it returns a struct,
+Dialogue: 0,0:07:08.64,0:07:10.65,Default,NTP,0000,0000,0000,,\N{\fs14}you got to check to make sure\Nyou're not sending it to nil.
+Dialogue: 0,0:07:11.58,0:07:14.29,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? All right.
+Dialogue: 0,0:07:14.79,0:07:15.69,Default,NTP,0000,0000,0000,,\N{\fs14}Dynamic binding.
+Dialogue: 0,0:07:15.69,0:07:20.96,Default,NTP,0000,0000,0000,,\N{\fs14}So Objective-C handles the\Ndispatching and calling
+Dialogue: 0,0:07:20.96,0:07:23.51,Default,NTP,0000,0000,0000,,\N{\fs14}of methods differently\Nthan languages
+Dialogue: 0,0:07:23.51,0:07:24.88,Default,NTP,0000,0000,0000,,\N{\fs14}that most of you are used to.
+Dialogue: 0,0:07:25.50,0:07:27.16,Default,NTP,0000,0000,0000,,\N{\fs14}It does what's called\N"dynamic binding."
+Dialogue: 0,0:07:27.42,0:07:30.67,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And you'll see\Nwhat dynamic binding is
+Dialogue: 0,0:07:30.67,0:07:31.88,Default,NTP,0000,0000,0000,,\N{\fs14}as we go through this slide.
+Dialogue: 0,0:07:32.34,0:07:35.39,Default,NTP,0000,0000,0000,,\N{\fs14}But the important thing to\Nunderstand about dynamic binding
+Dialogue: 0,0:07:35.39,0:07:37.39,Default,NTP,0000,0000,0000,,\N{\fs14}and about Objective-C is\Nthat there's a really,
+Dialogue: 0,0:07:37.39,0:07:41.28,Default,NTP,0000,0000,0000,,\N{\fs14}really important type in\NObjective-C called "ID," okay?
+Dialogue: 0,0:07:42.00,0:07:42.78,Default,NTP,0000,0000,0000,,\N{\fs14}We call it "ID."
+Dialogue: 0,0:07:42.78,0:07:45.75,Default,NTP,0000,0000,0000,,\N{\fs14}We don't call it id by\Nthe way; ID we call it.
+Dialogue: 0,0:07:46.16,0:07:49.40,Default,NTP,0000,0000,0000,,\N{\fs14}So here in that line of code I\Nwould say that's ID my object.
+Dialogue: 0,0:07:49.89,0:07:52.35,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So I'm declaring\Na pointer,
+Dialogue: 0,0:07:52.48,0:07:54.53,Default,NTP,0000,0000,0000,,\N{\fs14}my object, which is a type ID.
+Dialogue: 0,0:07:54.87,0:07:58.46,Default,NTP,0000,0000,0000,,\N{\fs14}So ID means pointer\N-- ID is a pointer,
+Dialogue: 0,0:07:58.82,0:08:01.11,Default,NTP,0000,0000,0000,,\N{\fs14}so we don't use ID\Nstar; ID is a pointer --
+Dialogue: 0,0:08:01.52,0:08:04.76,Default,NTP,0000,0000,0000,,\N{\fs14}it means a pointer to an object\Nwhere I don't know its class.
+Dialogue: 0,0:08:05.31,0:08:08.07,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Of unknown type or\Nunspecified type, okay?
+Dialogue: 0,0:08:08.07,0:08:09.89,Default,NTP,0000,0000,0000,,\N{\fs14}So it's just a pointer\Nto an object;
+Dialogue: 0,0:08:09.89,0:08:13.01,Default,NTP,0000,0000,0000,,\N{\fs14}I do not know anything\Nabout that object.
+Dialogue: 0,0:08:13.01,0:08:16.33,Default,NTP,0000,0000,0000,,\N{\fs14}Really, all pointers\Nin Objective-C are IDs
+Dialogue: 0,0:08:16.98,0:08:20.65,Default,NTP,0000,0000,0000,,\N{\fs14}in that the decision\Nabout what code to execute
+Dialogue: 0,0:08:20.65,0:08:23.31,Default,NTP,0000,0000,0000,,\N{\fs14}when you send a message to\Nan object is not determined
+Dialogue: 0,0:08:23.45,0:08:25.69,Default,NTP,0000,0000,0000,,\N{\fs14}until runtime when\Nyou send that message.
+Dialogue: 0,0:08:26.24,0:08:27.98,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? When you send a message,
+Dialogue: 0,0:08:28.22,0:08:30.62,Default,NTP,0000,0000,0000,,\N{\fs14}it's essentially calling\Na function that's looking
+Dialogue: 0,0:08:30.62,0:08:34.82,Default,NTP,0000,0000,0000,,\N{\fs14}up the right code to execute\Nfor that particular class
+Dialogue: 0,0:08:35.08,0:08:37.21,Default,NTP,0000,0000,0000,,\N{\fs14}that you're pointing to at the\Ntime you send the message, okay?
+Dialogue: 0,0:08:37.51,0:08:40.94,Default,NTP,0000,0000,0000,,\N{\fs14}That's called dynamic\Nor late binding, okay?
+Dialogue: 0,0:08:41.10,0:08:44.19,Default,NTP,0000,0000,0000,,\N{\fs14}And all message sends -- all\Nof them in Objective-C --
+Dialogue: 0,0:08:44.44,0:08:46.23,Default,NTP,0000,0000,0000,,\N{\fs14}are done this way, okay?
+Dialogue: 0,0:08:46.82,0:08:48.15,Default,NTP,0000,0000,0000,,\N{\fs14}Now, what does this mean?
+Dialogue: 0,0:08:49.39,0:08:50.19,Default,NTP,0000,0000,0000,,\N{\fs14}All right?
+Dialogue: 0,0:08:50.51,0:08:54.32,Default,NTP,0000,0000,0000,,\N{\fs14}It means that -- well,\Nis this safe, right?
+Dialogue: 0,0:08:54.32,0:08:56.93,Default,NTP,0000,0000,0000,,\N{\fs14}Because you're worried, I'm\Nsure, "What if I send a message
+Dialogue: 0,0:08:56.93,0:08:58.85,Default,NTP,0000,0000,0000,,\N{\fs14}to an object and it\Ndoesn't understand it?"
+Dialogue: 0,0:08:59.25,0:09:02.20,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. Well, nothing stops\Nyou from doing that.
+Dialogue: 0,0:09:02.29,0:09:05.03,Default,NTP,0000,0000,0000,,\N{\fs14}And not only that, if you do\Nthat, your program will crash.
+Dialogue: 0,0:09:05.32,0:09:06.61,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? It will raise\Nan exception.
+Dialogue: 0,0:09:06.77,0:09:08.42,Default,NTP,0000,0000,0000,,\N{\fs14}Unless you catch the\Nexception, it will crash.
+Dialogue: 0,0:09:08.81,0:09:11.05,Default,NTP,0000,0000,0000,,\N{\fs14}And so you're probably\Nfeeling like, "Wow.
+Dialogue: 0,0:09:11.05,0:09:13.39,Default,NTP,0000,0000,0000,,\N{\fs14}These Objective-C programs\Nmust be crashing all the time
+Dialogue: 0,0:09:13.58,0:09:16.05,Default,NTP,0000,0000,0000,,\N{\fs14}because you accidentally\Nsend a message to an object;
+Dialogue: 0,0:09:16.37,0:09:17.74,Default,NTP,0000,0000,0000,,\N{\fs14}it doesn't understand\Nthat message."
+Dialogue: 0,0:09:18.14,0:09:19.64,Default,NTP,0000,0000,0000,,\N{\fs14}But actually, it doesn't happen.
+Dialogue: 0,0:09:19.77,0:09:21.05,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. Why doesn't that happen?
+Dialogue: 0,0:09:21.33,0:09:22.46,Default,NTP,0000,0000,0000,,\N{\fs14}And there's really two reasons.
+Dialogue: 0,0:09:22.46,0:09:25.16,Default,NTP,0000,0000,0000,,\N{\fs14}One is we use static\Ntyping a lot.
+Dialogue: 0,0:09:25.16,0:09:26.99,Default,NTP,0000,0000,0000,,\N{\fs14}We don't use ID that much.
+Dialogue: 0,0:09:26.99,0:09:28.82,Default,NTP,0000,0000,0000,,\N{\fs14}We use, like, NSString star.
+Dialogue: 0,0:09:29.03,0:09:32.06,Default,NTP,0000,0000,0000,,\N{\fs14}Now, NSString star is\Nexactly the same as using ID,
+Dialogue: 0,0:09:32.06,0:09:36.15,Default,NTP,0000,0000,0000,,\N{\fs14}except that the compiler,\Nwhile it's compiling your code,
+Dialogue: 0,0:09:36.38,0:09:38.85,Default,NTP,0000,0000,0000,,\N{\fs14}knows that you at least intend
+Dialogue: 0,0:09:39.08,0:09:40.45,Default,NTP,0000,0000,0000,,\N{\fs14}that that pointer\Npoints to a string.
+Dialogue: 0,0:09:40.71,0:09:42.63,Default,NTP,0000,0000,0000,,\N{\fs14}So if you tried to send\Na nonstring message
+Dialogue: 0,0:09:42.63,0:09:44.34,Default,NTP,0000,0000,0000,,\N{\fs14}to that pointer, it's\Ngoing to complain.
+Dialogue: 0,0:09:44.34,0:09:46.03,Default,NTP,0000,0000,0000,,\N{\fs14}It's going to, you\Nknow, give you warnings.
+Dialogue: 0,0:09:46.03,0:09:49.22,Default,NTP,0000,0000,0000,,\N{\fs14}And so when you compile your\NObjective-C programs they should
+Dialogue: 0,0:09:49.22,0:09:52.59,Default,NTP,0000,0000,0000,,\N{\fs14}always have no warnings, and\Nthen you can be pretty sure
+Dialogue: 0,0:09:52.59,0:09:53.73,Default,NTP,0000,0000,0000,,\N{\fs14}that you're not going\Nto have this problem
+Dialogue: 0,0:09:53.73,0:09:55.26,Default,NTP,0000,0000,0000,,\N{\fs14}where you send a message\Nto an object at runtime
+Dialogue: 0,0:09:55.26,0:09:57.10,Default,NTP,0000,0000,0000,,\N{\fs14}and it doesn't understand\Nit and it crashes.
+Dialogue: 0,0:09:57.51,0:10:00.90,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So that's the\Nnumber one way.
+Dialogue: 0,0:10:01.09,0:10:03.65,Default,NTP,0000,0000,0000,,\N{\fs14}And the second way I'm going\Nto talk about is that a lot
+Dialogue: 0,0:10:03.65,0:10:05.43,Default,NTP,0000,0000,0000,,\N{\fs14}of times we will\Ncheck at runtime.
+Dialogue: 0,0:10:05.81,0:10:08.42,Default,NTP,0000,0000,0000,,\N{\fs14}We'll look at that\NID pointer, okay?
+Dialogue: 0,0:10:08.81,0:10:11.19,Default,NTP,0000,0000,0000,,\N{\fs14}And we will check and\Nsee if it responds
+Dialogue: 0,0:10:11.19,0:10:12.31,Default,NTP,0000,0000,0000,,\N{\fs14}to something before we send it.
+Dialogue: 0,0:10:12.31,0:10:15.34,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So you know\Nabout static typing,
+Dialogue: 0,0:10:15.34,0:10:17.37,Default,NTP,0000,0000,0000,,\N{\fs14}that's the NSString\Nstar S equals
+Dialogue: 0,0:10:17.37,0:10:21.14,Default,NTP,0000,0000,0000,,\N{\fs14}at sign X. This is really safe,\Nreally good, nothing bad's going
+Dialogue: 0,0:10:21.14,0:10:22.54,Default,NTP,0000,0000,0000,,\N{\fs14}to happen here because\Nthe compiler
+Dialogue: 0,0:10:22.54,0:10:25.05,Default,NTP,0000,0000,0000,,\N{\fs14}at compile time has a pretty\Ngood idea what you intend
+Dialogue: 0,0:10:25.05,0:10:26.36,Default,NTP,0000,0000,0000,,\N{\fs14}and it will warn you if not.
+Dialogue: 0,0:10:26.65,0:10:30.98,Default,NTP,0000,0000,0000,,\N{\fs14}However, the compiler\Nis not doing the binding
+Dialogue: 0,0:10:30.98,0:10:33.49,Default,NTP,0000,0000,0000,,\N{\fs14}between what codes\Nexecutes at this time;
+Dialogue: 0,0:10:33.49,0:10:34.43,Default,NTP,0000,0000,0000,,\N{\fs14}it's just warning you.
+Dialogue: 0,0:10:34.43,0:10:35.78,Default,NTP,0000,0000,0000,,\N{\fs14}It's syntactic sugar.
+Dialogue: 0,0:10:35.97,0:10:38.55,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? It's syntax that it\Ncan look at to warn you,
+Dialogue: 0,0:10:38.83,0:10:41.07,Default,NTP,0000,0000,0000,,\N{\fs14}but it's not actually\Nenforcing anything here.
+Dialogue: 0,0:10:41.07,0:10:45.22,Default,NTP,0000,0000,0000,,\N{\fs14}It's perfectly legal\Nto say ID obj equals S,
+Dialogue: 0,0:10:45.61,0:10:46.85,Default,NTP,0000,0000,0000,,\N{\fs14}where S is the line before.
+Dialogue: 0,0:10:47.46,0:10:49.12,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And that will not\Neven generate a warning.
+Dialogue: 0,0:10:49.67,0:10:52.08,Default,NTP,0000,0000,0000,,\N{\fs14}Because ID obj is a pointer\Nto any kind of object;
+Dialogue: 0,0:10:52.48,0:10:54.53,Default,NTP,0000,0000,0000,,\N{\fs14}S is a pointer to\Nany kind of object.
+Dialogue: 0,0:10:54.53,0:10:56.76,Default,NTP,0000,0000,0000,,\N{\fs14}It's a pointer to a string,\Naccording to the previous line.
+Dialogue: 0,0:10:57.13,0:10:59.72,Default,NTP,0000,0000,0000,,\N{\fs14}But since those are both\Npointers to objects,
+Dialogue: 0,0:10:59.80,0:11:00.57,Default,NTP,0000,0000,0000,,\N{\fs14}that's perfectly legal.
+Dialogue: 0,0:11:00.57,0:11:01.66,Default,NTP,0000,0000,0000,,\N{\fs14}Compiler will not warn you.
+Dialogue: 0,0:11:01.66,0:11:04.37,Default,NTP,0000,0000,0000,,\N{\fs14}This is a little bit of a\Ndangerous line of code, right?
+Dialogue: 0,0:11:04.59,0:11:07.00,Default,NTP,0000,0000,0000,,\N{\fs14}Because you just\Nwent from having S --
+Dialogue: 0,0:11:07.04,0:11:10.17,Default,NTP,0000,0000,0000,,\N{\fs14}this nice variable that's typed\Nand the compiler can warn you
+Dialogue: 0,0:11:10.17,0:11:12.24,Default,NTP,0000,0000,0000,,\N{\fs14}if you do the wrong thing\N-- to having an obj,
+Dialogue: 0,0:11:12.43,0:11:13.85,Default,NTP,0000,0000,0000,,\N{\fs14}which is this untyped pointer
+Dialogue: 0,0:11:14.01,0:11:15.42,Default,NTP,0000,0000,0000,,\N{\fs14}where you can send\Nany message you want
+Dialogue: 0,0:11:15.42,0:11:16.59,Default,NTP,0000,0000,0000,,\N{\fs14}and the compiler's\Nnot going to warn you.
+Dialogue: 0,0:11:17.22,0:11:21.87,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? You can also do this\NNSArray star A equals obj.
+Dialogue: 0,0:11:21.94,0:11:24.99,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. Now you have\NNSArray variable
+Dialogue: 0,0:11:24.99,0:11:26.16,Default,NTP,0000,0000,0000,,\N{\fs14}that points to a string.
+Dialogue: 0,0:11:26.49,0:11:29.48,Default,NTP,0000,0000,0000,,\N{\fs14}Now, that's extremely likely\Nto cause a problem, okay?
+Dialogue: 0,0:11:29.78,0:11:33.97,Default,NTP,0000,0000,0000,,\N{\fs14}This is also legal because\NNSArray star A is a pointer
+Dialogue: 0,0:11:33.97,0:11:36.10,Default,NTP,0000,0000,0000,,\N{\fs14}to an object; obj is a\Npointer to an object,
+Dialogue: 0,0:11:36.10,0:11:38.50,Default,NTP,0000,0000,0000,,\N{\fs14}so it allows this assignment.
+Dialogue: 0,0:11:38.94,0:11:39.68,Default,NTP,0000,0000,0000,,\N{\fs14}Very dangerous.
+Dialogue: 0,0:11:39.68,0:11:40.68,Default,NTP,0000,0000,0000,,\N{\fs14}Obviously wrong.
+Dialogue: 0,0:11:40.85,0:11:42.87,Default,NTP,0000,0000,0000,,\N{\fs14}If these three lines of code\Nare there, that's clearly wrong.
+Dialogue: 0,0:11:42.87,0:11:45.33,Default,NTP,0000,0000,0000,,\N{\fs14}You would not want to have an\NNSArray pointing to an NSString.
+Dialogue: 0,0:11:45.83,0:11:48.89,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So ID can be\Ndangerous in this way.
+Dialogue: 0,0:11:49.05,0:11:50.35,Default,NTP,0000,0000,0000,,\N{\fs14}And in fact, in the code
+Dialogue: 0,0:11:50.35,0:11:53.76,Default,NTP,0000,0000,0000,,\N{\fs14}that we've written we already\Ndid this kind of silently.
+Dialogue: 0,0:11:54.12,0:11:57.66,Default,NTP,0000,0000,0000,,\N{\fs14}Remember that in playing cards\Nmatch we put a line in there
+Dialogue: 0,0:11:57.66,0:12:00.92,Default,NTP,0000,0000,0000,,\N{\fs14}that said, "Playing card star\Nother car equals other card's
+Dialogue: 0,0:12:00.92,0:12:01.80,Default,NTP,0000,0000,0000,,\N{\fs14}first object."
+Dialogue: 0,0:12:02.00,0:12:02.55,Default,NTP,0000,0000,0000,,\N{\fs14}Remember that?
+Dialogue: 0,0:12:02.91,0:12:06.48,Default,NTP,0000,0000,0000,,\N{\fs14}Well, the method first object\Nin an NSArray returns an ID.
+Dialogue: 0,0:12:06.48,0:12:08.85,Default,NTP,0000,0000,0000,,\N{\fs14}If you go look it up\Nin the documentation,
+Dialogue: 0,0:12:09.05,0:12:11.39,Default,NTP,0000,0000,0000,,\N{\fs14}look at its return\Ntype -- parenthesis ID.
+Dialogue: 0,0:12:12.02,0:12:15.15,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So we just assigned\Na playing card to an ID.
+Dialogue: 0,0:12:15.60,0:12:17.07,Default,NTP,0000,0000,0000,,\N{\fs14}So that object that came out of
+Dialogue: 0,0:12:17.07,0:12:18.80,Default,NTP,0000,0000,0000,,\N{\fs14}that array better\Nbe a playing card
+Dialogue: 0,0:12:18.93,0:12:19.99,Default,NTP,0000,0000,0000,,\N{\fs14}or we're going to\Ncrash at runtime.
+Dialogue: 0,0:12:20.04,0:12:22.30,Default,NTP,0000,0000,0000,,\N{\fs14}And a little later in\Nthis lecture I'm going
+Dialogue: 0,0:12:22.30,0:12:25.45,Default,NTP,0000,0000,0000,,\N{\fs14}to show you how we can\Nprotect our code to make sure
+Dialogue: 0,0:12:25.64,0:12:27.44,Default,NTP,0000,0000,0000,,\N{\fs14}that we don't crash\Nin this case.
+Dialogue: 0,0:12:27.88,0:12:30.92,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Does everyone see why\Nthis is a little dangerous?
+Dialogue: 0,0:12:30.92,0:12:32.05,Default,NTP,0000,0000,0000,,\N{\fs14}All right.
+Dialogue: 0,0:12:32.88,0:12:33.54,Default,NTP,0000,0000,0000,,\N{\fs14}Questions about that?
+Dialogue: 0,0:12:35.10,0:12:37.65,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. And a reminder:\NNever use ID star.
+Dialogue: 0,0:12:37.65,0:12:39.88,Default,NTP,0000,0000,0000,,\N{\fs14}ID star makes no sense\Nbecause ID is a pointer.
+Dialogue: 0,0:12:39.88,0:12:41.68,Default,NTP,0000,0000,0000,,\N{\fs14}So ID star would be a\Npointer to a pointer.
+Dialogue: 0,0:12:41.95,0:12:44.16,Default,NTP,0000,0000,0000,,\N{\fs14}We don't do that in\NObjective-C, okay,
+Dialogue: 0,0:12:44.59,0:12:47.17,Default,NTP,0000,0000,0000,,\N{\fs14}especially a pointer\Nto an ID [inaudible].
+Dialogue: 0,0:12:47.64,0:12:47.91,Default,NTP,0000,0000,0000,,\N{\fs14}All right.
+Dialogue: 0,0:12:47.91,0:12:50.89,Default,NTP,0000,0000,0000,,\N{\fs14}So to summarize all this I'm\Ngoing to show you this example.
+Dialogue: 0,0:12:51.09,0:12:53.40,Default,NTP,0000,0000,0000,,\N{\fs14}I've got two classes:\NI got a vehicle class,
+Dialogue: 0,0:12:53.59,0:12:54.79,Default,NTP,0000,0000,0000,,\N{\fs14}which has what method move --
+Dialogue: 0,0:12:54.79,0:12:55.90,Default,NTP,0000,0000,0000,,\N{\fs14}you can move the\Nvehicle around --
+Dialogue: 0,0:12:56.06,0:12:59.50,Default,NTP,0000,0000,0000,,\N{\fs14}and I got a ship which is a\Nvehicle, inherits from vehicle,
+Dialogue: 0,0:12:59.69,0:13:01.09,Default,NTP,0000,0000,0000,,\N{\fs14}and it's only got\None method, shoot.
+Dialogue: 0,0:13:01.09,0:13:02.90,Default,NTP,0000,0000,0000,,\N{\fs14}So this ship can\Nshoot other ships.
+Dialogue: 0,0:13:02.93,0:13:04.72,Default,NTP,0000,0000,0000,,\N{\fs14}And they can also move\Nbecause they're vehicles.
+Dialogue: 0,0:13:05.14,0:13:09.71,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So if I declare a\Nlocal variable ship, ship S,
+Dialogue: 0,0:13:09.71,0:13:12.61,Default,NTP,0000,0000,0000,,\N{\fs14}which is a ship star, and\NI allocate init a ship,
+Dialogue: 0,0:13:12.97,0:13:16.16,Default,NTP,0000,0000,0000,,\N{\fs14}I can say "S shoot" or "S\Nmove" -- works fine, right?
+Dialogue: 0,0:13:16.46,0:13:19.65,Default,NTP,0000,0000,0000,,\N{\fs14}Because ships implement\Nshoot and they inherit move.
+Dialogue: 0,0:13:19.93,0:13:22.02,Default,NTP,0000,0000,0000,,\N{\fs14}So everybody's totally\Nhappy here.
+Dialogue: 0,0:13:22.02,0:13:27.23,Default,NTP,0000,0000,0000,,\N{\fs14}I can also do vehicle star V\Nequals S. That's perfectly legal
+Dialogue: 0,0:13:27.45,0:13:30.88,Default,NTP,0000,0000,0000,,\N{\fs14}because V is a vehicle\Nand S is a vehicle
+Dialogue: 0,0:13:31.04,0:13:33.74,Default,NTP,0000,0000,0000,,\N{\fs14}because it inherits its\Nvehicle-ness from ship.
+Dialogue: 0,0:13:33.74,0:13:36.56,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. This is like deck equals\Nplaying card deck alloc init --
+Dialogue: 0,0:13:36.61,0:13:39.10,Default,NTP,0000,0000,0000,,\N{\fs14}perfectly legal object to run\Nin your programming, right?
+Dialogue: 0,0:13:39.73,0:13:43.69,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. But now let's try\Nto say V shoot, okay?
+Dialogue: 0,0:13:43.69,0:13:45.25,Default,NTP,0000,0000,0000,,\N{\fs14}Now, what's going\Nto happen here?
+Dialogue: 0,0:13:45.71,0:13:46.03,Default,NTP,0000,0000,0000,,\N{\fs14}All right.
+Dialogue: 0,0:13:46.03,0:13:48.14,Default,NTP,0000,0000,0000,,\N{\fs14}At compile time you're\Ngoing to get a warning
+Dialogue: 0,0:13:48.47,0:13:51.22,Default,NTP,0000,0000,0000,,\N{\fs14}because vehicles do\Nnot implement shoot;
+Dialogue: 0,0:13:51.57,0:13:53.30,Default,NTP,0000,0000,0000,,\N{\fs14}ships do but not vehicles.
+Dialogue: 0,0:13:53.30,0:13:55.40,Default,NTP,0000,0000,0000,,\N{\fs14}So do you see why this is\Ngoing to give you a warning?
+Dialogue: 0,0:13:56.37,0:13:58.19,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? What about at runtime?
+Dialogue: 0,0:13:58.98,0:14:02.09,Default,NTP,0000,0000,0000,,\N{\fs14}This code will not\Ncrash because we know
+Dialogue: 0,0:14:02.09,0:14:03.45,Default,NTP,0000,0000,0000,,\N{\fs14}that V actually is a ship.
+Dialogue: 0,0:14:03.94,0:14:05.39,Default,NTP,0000,0000,0000,,\N{\fs14}So this will work\Nfine at runtime.
+Dialogue: 0,0:14:06.34,0:14:08.37,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? See that?
+Dialogue: 0,0:14:08.37,0:14:10.30,Default,NTP,0000,0000,0000,,\N{\fs14}So this is where\Nyou get a warning
+Dialogue: 0,0:14:10.30,0:14:13.45,Default,NTP,0000,0000,0000,,\N{\fs14}at compile time;\Nruns fine at runtime.
+Dialogue: 0,0:14:14.57,0:14:19.09,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Now, what about this case\Nwhere I declare an obj, okay,
+Dialogue: 0,0:14:19.30,0:14:20.99,Default,NTP,0000,0000,0000,,\N{\fs14}and it can be anything we want.
+Dialogue: 0,0:14:21.15,0:14:25.74,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Alloc init it somehow\Nand you say "obj shoot," okay?
+Dialogue: 0,0:14:26.00,0:14:27.71,Default,NTP,0000,0000,0000,,\N{\fs14}No matter what obj is --
+Dialogue: 0,0:14:27.81,0:14:29.63,Default,NTP,0000,0000,0000,,\N{\fs14}and I intentionally\Ndidn't tell you what obj is
+Dialogue: 0,0:14:29.63,0:14:31.05,Default,NTP,0000,0000,0000,,\N{\fs14}because it doesn't\Nmatter what obj is.
+Dialogue: 0,0:14:31.36,0:14:32.83,Default,NTP,0000,0000,0000,,\N{\fs14}The compiler is not\Ngoing to warn you here.
+Dialogue: 0,0:14:33.36,0:14:35.20,Default,NTP,0000,0000,0000,,\N{\fs14}Anytime you send\Na message to obj,
+Dialogue: 0,0:14:35.53,0:14:37.25,Default,NTP,0000,0000,0000,,\N{\fs14}as long as that message\Nexists somewhere,
+Dialogue: 0,0:14:37.51,0:14:38.54,Default,NTP,0000,0000,0000,,\N{\fs14}the compiler will not warn you.
+Dialogue: 0,0:14:39.23,0:14:43.62,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? At runtime, if obj is\Nnot a ship or some other object
+Dialogue: 0,0:14:43.62,0:14:45.48,Default,NTP,0000,0000,0000,,\N{\fs14}that responds to\Nshoot, it will crash.
+Dialogue: 0,0:14:46.49,0:14:46.84,Default,NTP,0000,0000,0000,,\N{\fs14}Question?
+Dialogue: 0,0:14:47.20,0:14:50.74,Default,NTP,0000,0000,0000,,\N{\fs14}>> Is ID special in that way?
+Dialogue: 0,0:14:50.74,0:14:51.10,Default,NTP,0000,0000,0000,,\N{\fs14}>> In what way?
+Dialogue: 0,0:14:51.33,0:14:54.45,Default,NTP,0000,0000,0000,,\N{\fs14}>> Because it seems\Nlike it's a similar case
+Dialogue: 0,0:14:55.53,0:15:04.92,Default,NTP,0000,0000,0000,,\N{\fs14}where whatever you've assigned\Nobj is a pointer to an object
+Dialogue: 0,0:15:05.52,0:15:06.65,Default,NTP,0000,0000,0000,,\N{\fs14}but it may or may\Nnot have this method.
+Dialogue: 0,0:15:06.65,0:15:07.95,Default,NTP,0000,0000,0000,,\N{\fs14}>> Well, so the question is:\NIs ID special in that way?
+Dialogue: 0,0:15:07.95,0:15:11.34,Default,NTP,0000,0000,0000,,\N{\fs14}You mean is ID special in that\NI can send it any message I want
+Dialogue: 0,0:15:11.34,0:15:12.53,Default,NTP,0000,0000,0000,,\N{\fs14}and the compiler won't warn me?
+Dialogue: 0,0:15:12.84,0:15:14.99,Default,NTP,0000,0000,0000,,\N{\fs14}Yes. Because that's kind\Nof the semantics of ID.
+Dialogue: 0,0:15:15.10,0:15:17.53,Default,NTP,0000,0000,0000,,\N{\fs14}ID means a pointer to some\Nobject I don't know the
+Dialogue: 0,0:15:17.53,0:15:18.08,Default,NTP,0000,0000,0000,,\N{\fs14}class of.
+Dialogue: 0,0:15:18.08,0:15:20.63,Default,NTP,0000,0000,0000,,\N{\fs14}So there's no way for the\Ncompiler to give you a warning.
+Dialogue: 0,0:15:20.86,0:15:23.77,Default,NTP,0000,0000,0000,,\N{\fs14}So it just assumes "Okay,\Nsomebody responds to shoot.
+Dialogue: 0,0:15:23.77,0:15:26.47,Default,NTP,0000,0000,0000,,\N{\fs14}So it might be this one, so\NI'm not going to warn you."
+Dialogue: 0,0:15:26.47,0:15:28.30,Default,NTP,0000,0000,0000,,\N{\fs14}So yeah, ID is special\Nin that way, I guess.
+Dialogue: 0,0:15:28.50,0:15:33.80,Default,NTP,0000,0000,0000,,\N{\fs14}That's why we don't want to\Nuse ID unadorned like this.
+Dialogue: 0,0:15:34.01,0:15:36.46,Default,NTP,0000,0000,0000,,\N{\fs14}If I'd say obj some method name
+Dialogue: 0,0:15:36.46,0:15:38.45,Default,NTP,0000,0000,0000,,\N{\fs14}that doesn't exist,\Nthen it will warn me.
+Dialogue: 0,0:15:38.93,0:15:41.73,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So if it can't find\Nthat method anywhere,
+Dialogue: 0,0:15:41.86,0:15:44.33,Default,NTP,0000,0000,0000,,\N{\fs14}no object that the compiler's\Never heard of implements
+Dialogue: 0,0:15:44.33,0:15:45.96,Default,NTP,0000,0000,0000,,\N{\fs14}that method, then it\Nwill at least warn you.
+Dialogue: 0,0:15:46.25,0:15:48.00,Default,NTP,0000,0000,0000,,\N{\fs14}Because then it's likely\Nyou had a syntax error.
+Dialogue: 0,0:15:48.00,0:15:48.92,Default,NTP,0000,0000,0000,,\N{\fs14}You mistyped it.
+Dialogue: 0,0:15:49.05,0:15:51.24,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And so the compiler\Nis going to help you there.
+Dialogue: 0,0:15:51.57,0:15:56.23,Default,NTP,0000,0000,0000,,\N{\fs14}So let's say I had an\NNSString star hello.
+Dialogue: 0,0:15:56.51,0:15:58.61,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And I'm going to make\Nit equal to at sign hello.
+Dialogue: 0,0:15:58.95,0:16:01.69,Default,NTP,0000,0000,0000,,\N{\fs14}If I say hello shoot, the\Ncompiler's obviously going
+Dialogue: 0,0:16:01.69,0:16:04.65,Default,NTP,0000,0000,0000,,\N{\fs14}to warn me and say, "Strings\Ndon't respond to shoot."
+Dialogue: 0,0:16:04.80,0:16:08.93,Default,NTP,0000,0000,0000,,\N{\fs14}And at runtime this would\Ncrash because, of course,
+Dialogue: 0,0:16:08.93,0:16:10.04,Default,NTP,0000,0000,0000,,\N{\fs14}strings don't respond to shoot.
+Dialogue: 0,0:16:10.04,0:16:11.02,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, so this is all good.
+Dialogue: 0,0:16:11.02,0:16:13.90,Default,NTP,0000,0000,0000,,\N{\fs14}This is the way we want things.
+Dialogue: 0,0:16:14.36,0:16:18.73,Default,NTP,0000,0000,0000,,\N{\fs14}What if I did this, ship star\Nhello ship equals cast --
+Dialogue: 0,0:16:18.97,0:16:20.60,Default,NTP,0000,0000,0000,,\N{\fs14}okay, everyone knows\Nabout casting, right,
+Dialogue: 0,0:16:20.60,0:16:23.48,Default,NTP,0000,0000,0000,,\N{\fs14}all languages have\Ncasting pretty much; well,
+Dialogue: 0,0:16:23.59,0:16:25.47,Default,NTP,0000,0000,0000,,\N{\fs14}most languages that you know --
+Dialogue: 0,0:16:26.38,0:16:28.99,Default,NTP,0000,0000,0000,,\N{\fs14}parenthesis ship\Nstar hello, okay?
+Dialogue: 0,0:16:29.11,0:16:30.14,Default,NTP,0000,0000,0000,,\N{\fs14}This is perfectly legal.
+Dialogue: 0,0:16:30.23,0:16:32.29,Default,NTP,0000,0000,0000,,\N{\fs14}And the compiler will\Nnot warn me, okay?
+Dialogue: 0,0:16:32.54,0:16:37.01,Default,NTP,0000,0000,0000,,\N{\fs14}So I've now taken a string and\Nput it in a ship star pointer.
+Dialogue: 0,0:16:37.26,0:16:40.75,Default,NTP,0000,0000,0000,,\N{\fs14}And the compiler now thinks\Nthat that hello ship is a ship.
+Dialogue: 0,0:16:40.75,0:16:43.38,Default,NTP,0000,0000,0000,,\N{\fs14}And so it's only going to\Ncomplain if you do things to it
+Dialogue: 0,0:16:43.38,0:16:46.41,Default,NTP,0000,0000,0000,,\N{\fs14}that don't look like ship,\Neven though we know we know
+Dialogue: 0,0:16:46.41,0:16:47.77,Default,NTP,0000,0000,0000,,\N{\fs14}that that is a string.
+Dialogue: 0,0:16:48.37,0:16:51.17,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. So casting can\Nbe super dangerous,
+Dialogue: 0,0:16:51.17,0:16:53.15,Default,NTP,0000,0000,0000,,\N{\fs14}just like in any language\Ncasting can be dangerous.
+Dialogue: 0,0:16:53.15,0:16:54.29,Default,NTP,0000,0000,0000,,\N{\fs14}It can be dangerous here.
+Dialogue: 0,0:16:54.47,0:16:56.52,Default,NTP,0000,0000,0000,,\N{\fs14}But we do do cast sometimes.
+Dialogue: 0,0:16:56.73,0:17:00.12,Default,NTP,0000,0000,0000,,\N{\fs14}And the times we cast are the\Nsame kind of times we use ID,
+Dialogue: 0,0:17:00.16,0:17:01.57,Default,NTP,0000,0000,0000,,\N{\fs14}which is protected times.
+Dialogue: 0,0:17:01.57,0:17:04.56,Default,NTP,0000,0000,0000,,\N{\fs14}I'm going talk about that\Nprotection on the next slide.
+Dialogue: 0,0:17:05.16,0:17:09.08,Default,NTP,0000,0000,0000,,\N{\fs14}So if we then said\Nhello ship shoot, okay,
+Dialogue: 0,0:17:09.27,0:17:12.80,Default,NTP,0000,0000,0000,,\N{\fs14}that would not generate\Na compiling error
+Dialogue: 0,0:17:12.80,0:17:15.98,Default,NTP,0000,0000,0000,,\N{\fs14}because hello ship is a ship\Nstar; however, it would crash
+Dialogue: 0,0:17:15.98,0:17:18.32,Default,NTP,0000,0000,0000,,\N{\fs14}at runtime because strings\Ndon't respond to shoot.
+Dialogue: 0,0:17:19.28,0:17:20.68,Default,NTP,0000,0000,0000,,\N{\fs14}Everybody cool?
+Dialogue: 0,0:17:21.10,0:17:21.25,Default,NTP,0000,0000,0000,,\N{\fs14}Yeah?
+Dialogue: 0,0:17:21.46,0:17:23.46,Default,NTP,0000,0000,0000,,\N{\fs14}>> [Inaudible]
+Dialogue: 0,0:17:23.67,0:17:28.15,Default,NTP,0000,0000,0000,,\N{\fs14}>> Okay, the typecasting\Nreally doesn't do anything;
+Dialogue: 0,0:17:28.38,0:17:30.05,Default,NTP,0000,0000,0000,,\N{\fs14}that is just tricking\Nthe compiler.
+Dialogue: 0,0:17:30.05,0:17:33.71,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? That's not even executing\Nreally any code per se.
+Dialogue: 0,0:17:33.71,0:17:36.88,Default,NTP,0000,0000,0000,,\N{\fs14}It's when you send the shoot,\Nit tries to dispatch that shoot
+Dialogue: 0,0:17:37.20,0:17:39.50,Default,NTP,0000,0000,0000,,\N{\fs14}to that variable, that\Nhello ship variable.
+Dialogue: 0,0:17:39.65,0:17:41.07,Default,NTP,0000,0000,0000,,\N{\fs14}The thing turns out\Nto be a string,
+Dialogue: 0,0:17:41.11,0:17:42.15,Default,NTP,0000,0000,0000,,\N{\fs14}and it crashes right there.
+Dialogue: 0,0:17:42.74,0:17:48.36,Default,NTP,0000,0000,0000,,\N{\fs14}You can also do this:\NID hello shoot.
+Dialogue: 0,0:17:48.71,0:17:52.47,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So hello is the\NNSString star, and I casted it
+Dialogue: 0,0:17:52.47,0:17:53.85,Default,NTP,0000,0000,0000,,\N{\fs14}to ID and sent it shoot.
+Dialogue: 0,0:17:53.85,0:17:55.90,Default,NTP,0000,0000,0000,,\N{\fs14}And that will suppress\Nall warnings as well
+Dialogue: 0,0:17:56.32,0:17:58.64,Default,NTP,0000,0000,0000,,\N{\fs14}because now I'm sending\Nshoot to an ID.
+Dialogue: 0,0:17:58.91,0:18:01.01,Default,NTP,0000,0000,0000,,\N{\fs14}And I just want to show you\Nhere that you can cast it right
+Dialogue: 0,0:18:01.01,0:18:02.99,Default,NTP,0000,0000,0000,,\N{\fs14}in line; you don't have to\Ncreate another variable.
+Dialogue: 0,0:18:02.99,0:18:05.61,Default,NTP,0000,0000,0000,,\N{\fs14}If you cast it right in line,\Nyou fake out the compiler.
+Dialogue: 0,0:18:06.02,0:18:07.74,Default,NTP,0000,0000,0000,,\N{\fs14}Now, we don't want to be\Nfaking out the compiler.
+Dialogue: 0,0:18:07.74,0:18:08.83,Default,NTP,0000,0000,0000,,\N{\fs14}Compiler is our friend.
+Dialogue: 0,0:18:08.83,0:18:10.00,Default,NTP,0000,0000,0000,,\N{\fs14}It helps us find bugs, okay?
+Dialogue: 0,0:18:10.00,0:18:11.37,Default,NTP,0000,0000,0000,,\N{\fs14}But this all can be done.
+Dialogue: 0,0:18:12.36,0:18:14.80,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Mostly I put this up\Nhere to see the difference
+Dialogue: 0,0:18:14.80,0:18:17.16,Default,NTP,0000,0000,0000,,\N{\fs14}between the compiler catching\Nsomething and it crashing
+Dialogue: 0,0:18:17.16,0:18:20.20,Default,NTP,0000,0000,0000,,\N{\fs14}at runtime, okay, and\Nwhen it does which.
+Dialogue: 0,0:18:21.23,0:18:21.54,Default,NTP,0000,0000,0000,,\N{\fs14}All right.
+Dialogue: 0,0:18:21.71,0:18:25.26,Default,NTP,0000,0000,0000,,\N{\fs14}So when would we ever use this\Nridiculously dangerous thing
+Dialogue: 0,0:18:25.26,0:18:25.94,Default,NTP,0000,0000,0000,,\N{\fs14}of ID?
+Dialogue: 0,0:18:25.94,0:18:28.55,Default,NTP,0000,0000,0000,,\N{\fs14}Well, someone asked earlier,\N"Can I have an NSArray
+Dialogue: 0,0:18:28.55,0:18:30.08,Default,NTP,0000,0000,0000,,\N{\fs14}that has different\Nkinds of things in it --
+Dialogue: 0,0:18:30.35,0:18:32.76,Default,NTP,0000,0000,0000,,\N{\fs14}some strings, some\Nnumbers, something else?"
+Dialogue: 0,0:18:32.93,0:18:33.71,Default,NTP,0000,0000,0000,,\N{\fs14}Absolutely you can.
+Dialogue: 0,0:18:33.71,0:18:36.73,Default,NTP,0000,0000,0000,,\N{\fs14}And there's plenty of times when\Nyou absolutely want that, okay?
+Dialogue: 0,0:18:36.95,0:18:37.91,Default,NTP,0000,0000,0000,,\N{\fs14}So it's great for that.
+Dialogue: 0,0:18:38.12,0:18:41.24,Default,NTP,0000,0000,0000,,\N{\fs14}Now, other language like Java\Nlets you actually tell the
+Dialogue: 0,0:18:41.24,0:18:44.08,Default,NTP,0000,0000,0000,,\N{\fs14}compiler that this\Narray has strings in it
+Dialogue: 0,0:18:44.19,0:18:46.28,Default,NTP,0000,0000,0000,,\N{\fs14}so that the compiler,\Nwhen you pull objects out,
+Dialogue: 0,0:18:46.28,0:18:48.97,Default,NTP,0000,0000,0000,,\N{\fs14}it knows what type they are and\Nit can kind of help you out.
+Dialogue: 0,0:18:48.97,0:18:50.07,Default,NTP,0000,0000,0000,,\N{\fs14}Objective-C doesn't have that.
+Dialogue: 0,0:18:50.07,0:18:52.50,Default,NTP,0000,0000,0000,,\N{\fs14}So the compiler cannot help\Nyou with contents array.
+Dialogue: 0,0:18:52.69,0:18:54.24,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So it's kind of\Nyour responsibility.
+Dialogue: 0,0:18:54.65,0:18:56.03,Default,NTP,0000,0000,0000,,\N{\fs14}I'm going to show you\Nhow we deal with that.
+Dialogue: 0,0:18:56.43,0:18:58.68,Default,NTP,0000,0000,0000,,\N{\fs14}The second one is --\Nremember the NBC talk?
+Dialogue: 0,0:18:58.68,0:19:02.19,Default,NTP,0000,0000,0000,,\N{\fs14}I talked about all this blind\Nstructured communication, right,
+Dialogue: 0,0:19:02.23,0:19:03.40,Default,NTP,0000,0000,0000,,\N{\fs14}this blind communication.
+Dialogue: 0,0:19:03.58,0:19:05.42,Default,NTP,0000,0000,0000,,\N{\fs14}Well, to have blind\Ncommunication you got
+Dialogue: 0,0:19:05.42,0:19:08.23,Default,NTP,0000,0000,0000,,\N{\fs14}to have pointers to objects\Nof types you don't know.
+Dialogue: 0,0:19:08.75,0:19:12.76,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? There's no way that the\Nview can send the target action
+Dialogue: 0,0:19:12.76,0:19:14.96,Default,NTP,0000,0000,0000,,\N{\fs14}thing to the controller\Nwithout knowing the class
+Dialogue: 0,0:19:14.96,0:19:17.25,Default,NTP,0000,0000,0000,,\N{\fs14}of the controller, unless\Nthe view can have some kind
+Dialogue: 0,0:19:17.25,0:19:19.96,Default,NTP,0000,0000,0000,,\N{\fs14}of pointer to a controller that\Nit doesn't know the type of.
+Dialogue: 0,0:19:20.61,0:19:23.44,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And that's big use of ID.
+Dialogue: 0,0:19:24.13,0:19:27.42,Default,NTP,0000,0000,0000,,\N{\fs14}However, we need to\Nprotect ourselves,
+Dialogue: 0,0:19:27.42,0:19:30.05,Default,NTP,0000,0000,0000,,\N{\fs14}and there's two big ways that we\Nprotect ourselves against IDs.
+Dialogue: 0,0:19:30.05,0:19:31.94,Default,NTP,0000,0000,0000,,\N{\fs14}One is introspection,\Nwhich I'm going to talk
+Dialogue: 0,0:19:31.94,0:19:35.75,Default,NTP,0000,0000,0000,,\N{\fs14}about in the next few slides,\Nwhich is we can ask an ID
+Dialogue: 0,0:19:35.75,0:19:37.90,Default,NTP,0000,0000,0000,,\N{\fs14}at runtime, "What\Nclass are you?"
+Dialogue: 0,0:19:37.90,0:19:39.65,Default,NTP,0000,0000,0000,,\N{\fs14}or "What methods\Ndo you respond to?"
+Dialogue: 0,0:19:39.65,0:19:41.43,Default,NTP,0000,0000,0000,,\N{\fs14}So that's a great way\Nto protect ourselves.
+Dialogue: 0,0:19:41.80,0:19:43.93,Default,NTP,0000,0000,0000,,\N{\fs14}And then another way\Nis called "protocols."
+Dialogue: 0,0:19:44.09,0:19:47.08,Default,NTP,0000,0000,0000,,\N{\fs14}And protocols is a way\Nusing little angle brackets
+Dialogue: 0,0:19:47.12,0:19:50.21,Default,NTP,0000,0000,0000,,\N{\fs14}after an ID to say,\N"This is an ID,
+Dialogue: 0,0:19:50.28,0:19:53.48,Default,NTP,0000,0000,0000,,\N{\fs14}a pointer to some class I don't\Nknow what it is, but it responds
+Dialogue: 0,0:19:53.48,0:19:55.68,Default,NTP,0000,0000,0000,,\N{\fs14}to this set of methods\Nthat I'm going to define
+Dialogue: 0,0:19:55.88,0:19:57.67,Default,NTP,0000,0000,0000,,\N{\fs14}with this little\Nangle bracket thing
+Dialogue: 0,0:19:57.67,0:19:58.91,Default,NTP,0000,0000,0000,,\N{\fs14}like UI scroll view delegate."
+Dialogue: 0,0:19:58.91,0:20:00.70,Default,NTP,0000,0000,0000,,\N{\fs14}And that's how we\Ndo the delegation
+Dialogue: 0,0:20:00.70,0:20:01.77,Default,NTP,0000,0000,0000,,\N{\fs14}and data source thing.
+Dialogue: 0,0:20:01.77,0:20:03.76,Default,NTP,0000,0000,0000,,\N{\fs14}So we're not going to\Ntalk about protocols today
+Dialogue: 0,0:20:03.76,0:20:04.72,Default,NTP,0000,0000,0000,,\N{\fs14}because you don't\Nquite need them.
+Dialogue: 0,0:20:04.72,0:20:07.59,Default,NTP,0000,0000,0000,,\N{\fs14}We'll probably talk about them\Nnext week or the week after.
+Dialogue: 0,0:20:07.69,0:20:10.23,Default,NTP,0000,0000,0000,,\N{\fs14}But that's another way we\Nprotect ourselves against ID
+Dialogue: 0,0:20:10.23,0:20:13.77,Default,NTP,0000,0000,0000,,\N{\fs14}by having like -- an ID with\Nthe angle brackets is kind of in
+Dialogue: 0,0:20:13.77,0:20:16.58,Default,NTP,0000,0000,0000,,\N{\fs14}between pure ID and\Nstatic typing.
+Dialogue: 0,0:20:16.58,0:20:17.61,Default,NTP,0000,0000,0000,,\N{\fs14}It's kind of in the\Nmiddle, right?
+Dialogue: 0,0:20:17.81,0:20:19.44,Default,NTP,0000,0000,0000,,\N{\fs14}Instead of static\Ntyping the type,
+Dialogue: 0,0:20:19.54,0:20:21.15,Default,NTP,0000,0000,0000,,\N{\fs14}we're just static\Ntyping the messages
+Dialogue: 0,0:20:21.15,0:20:22.47,Default,NTP,0000,0000,0000,,\N{\fs14}that the thing can respond to.
+Dialogue: 0,0:20:22.92,0:20:24.96,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So it's kind of in the\Nmiddle in terms of safety.
+Dialogue: 0,0:20:25.74,0:20:26.09,Default,NTP,0000,0000,0000,,\N{\fs14}All right?
+Dialogue: 0,0:20:26.75,0:20:29.10,Default,NTP,0000,0000,0000,,\N{\fs14}So let's talk about\Nintrospection, though.
+Dialogue: 0,0:20:29.31,0:20:33.63,Default,NTP,0000,0000,0000,,\N{\fs14}There's a few introspection\Nmethods in NSObject.
+Dialogue: 0,0:20:33.91,0:20:35.70,Default,NTP,0000,0000,0000,,\N{\fs14}I'm going to talk about\Nthree of them here.
+Dialogue: 0,0:20:35.70,0:20:38.75,Default,NTP,0000,0000,0000,,\N{\fs14}Is kind of class, is member of\Nclass, and responds to selector.
+Dialogue: 0,0:20:39.00,0:20:40.74,Default,NTP,0000,0000,0000,,\N{\fs14}So is kind of class\Nand is member
+Dialogue: 0,0:20:40.78,0:20:43.31,Default,NTP,0000,0000,0000,,\N{\fs14}of class lets you ask\Nan NSObject or anything
+Dialogue: 0,0:20:43.31,0:20:46.82,Default,NTP,0000,0000,0000,,\N{\fs14}that inherits from NSObject,\N"Are you of this kind of class?
+Dialogue: 0,0:20:47.08,0:20:50.81,Default,NTP,0000,0000,0000,,\N{\fs14}Or is member of class means,\N"Are you actually this class?"
+Dialogue: 0,0:20:51.34,0:20:53.18,Default,NTP,0000,0000,0000,,\N{\fs14}Not this class or something\Nthat inherits from it,
+Dialogue: 0,0:20:53.18,0:20:55.05,Default,NTP,0000,0000,0000,,\N{\fs14}but actually this actual class.
+Dialogue: 0,0:20:55.05,0:20:58.68,Default,NTP,0000,0000,0000,,\N{\fs14}And then response to selector\Nsays, "Does this object
+Dialogue: 0,0:20:58.68,0:21:02.90,Default,NTP,0000,0000,0000,,\N{\fs14}that this ID points to, does it\Nrespond to a certain method?"
+Dialogue: 0,0:21:03.78,0:21:07.01,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So the arguments\Nunfortunately
+Dialogue: 0,0:21:07.01,0:21:09.43,Default,NTP,0000,0000,0000,,\N{\fs14}to these methods are\Nreally kind of wonky.
+Dialogue: 0,0:21:09.68,0:21:11.65,Default,NTP,0000,0000,0000,,\N{\fs14}And just you're going to\Nhave to take my word for it
+Dialogue: 0,0:21:11.65,0:21:15.13,Default,NTP,0000,0000,0000,,\N{\fs14}on these ones because when\NI spit out the sentence
+Dialogue: 0,0:21:15.13,0:21:17.14,Default,NTP,0000,0000,0000,,\N{\fs14}in a second here that\Ndescribes what the argument is,
+Dialogue: 0,0:21:17.14,0:21:19.28,Default,NTP,0000,0000,0000,,\N{\fs14}I'm going to use the\Nword "class" four times
+Dialogue: 0,0:21:19.28,0:21:20.93,Default,NTP,0000,0000,0000,,\N{\fs14}and it's going to mean\Nfour different things.
+Dialogue: 0,0:21:21.02,0:21:24.24,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So the argument\Nis kind of class,
+Dialogue: 0,0:21:24.48,0:21:29.95,Default,NTP,0000,0000,0000,,\N{\fs14}you get by sending the class\Nmethod class to the class,
+Dialogue: 0,0:21:30.14,0:21:33.77,Default,NTP,0000,0000,0000,,\N{\fs14}which will give you a capital\NC Class, which is the argument
+Dialogue: 0,0:21:33.83,0:21:35.88,Default,NTP,0000,0000,0000,,\N{\fs14}to the is kind of class method.
+Dialogue: 0,0:21:36.18,0:21:39.55,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So there's\Nthis method class.
+Dialogue: 0,0:21:39.55,0:21:41.01,Default,NTP,0000,0000,0000,,\N{\fs14}You see it there,\NNSString class.
+Dialogue: 0,0:21:41.37,0:21:45.01,Default,NTP,0000,0000,0000,,\N{\fs14}It's a class method on NSString\Nreturns a capital C Class.
+Dialogue: 0,0:21:45.52,0:21:47.40,Default,NTP,0000,0000,0000,,\N{\fs14}And that's the thing that's\Nthe argument is kind of class.
+Dialogue: 0,0:21:47.67,0:21:50.16,Default,NTP,0000,0000,0000,,\N{\fs14}It's always of this form,\Nobj is kind of class,
+Dialogue: 0,0:21:50.16,0:21:52.84,Default,NTP,0000,0000,0000,,\N{\fs14}open spare bracket, the\Nclass you want, class,
+Dialogue: 0,0:21:52.84,0:21:54.31,Default,NTP,0000,0000,0000,,\N{\fs14}close square bracket,\Nclosed square bracket.
+Dialogue: 0,0:21:54.31,0:21:55.71,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So it always\Nlooks like this.
+Dialogue: 0,0:21:56.15,0:21:56.96,Default,NTP,0000,0000,0000,,\N{\fs14}So just do it.
+Dialogue: 0,0:21:56.96,0:21:59.84,Default,NTP,0000,0000,0000,,\N{\fs14}If you didn't understand\Nmy four-class sentence,
+Dialogue: 0,0:22:00.10,0:22:02.81,Default,NTP,0000,0000,0000,,\N{\fs14}just do it just like this, okay?
+Dialogue: 0,0:22:03.39,0:22:06.02,Default,NTP,0000,0000,0000,,\N{\fs14}Once I see that an\Nobject kind of a class,
+Dialogue: 0,0:22:06.22,0:22:07.46,Default,NTP,0000,0000,0000,,\N{\fs14}then I might want to cast it.
+Dialogue: 0,0:22:07.46,0:22:10.73,Default,NTP,0000,0000,0000,,\N{\fs14}You see here I'm casting obj\Nto be an NSString star there
+Dialogue: 0,0:22:11.05,0:22:13.10,Default,NTP,0000,0000,0000,,\N{\fs14}because I know at that\Npoint it's an NSString star.
+Dialogue: 0,0:22:13.10,0:22:14.77,Default,NTP,0000,0000,0000,,\N{\fs14}So it's okay to fool\Nthe compiler,
+Dialogue: 0,0:22:15.13,0:22:17.35,Default,NTP,0000,0000,0000,,\N{\fs14}or really I'm teaching the\Ncompiler a little bit more
+Dialogue: 0,0:22:17.35,0:22:19.24,Default,NTP,0000,0000,0000,,\N{\fs14}about what obj is by doing that.
+Dialogue: 0,0:22:19.53,0:22:20.35,Default,NTP,0000,0000,0000,,\N{\fs14}Not really tricking it.
+Dialogue: 0,0:22:20.35,0:22:23.19,Default,NTP,0000,0000,0000,,\N{\fs14}And it's perfectly safe to do\Nthat because I know that obj
+Dialogue: 0,0:22:23.27,0:22:26.24,Default,NTP,0000,0000,0000,,\N{\fs14}at runtime is that\Nkind of class.
+Dialogue: 0,0:22:26.35,0:22:28.27,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Questions about that?
+Dialogue: 0,0:22:28.81,0:22:28.91,Default,NTP,0000,0000,0000,,\N{\fs14}Yeah?
+Dialogue: 0,0:22:28.91,0:22:29.32,Default,NTP,0000,0000,0000,,\N{\fs14}>> [Inaudible]
+Dialogue: 0,0:22:29.32,0:22:29.74,Default,NTP,0000,0000,0000,,\N{\fs14}>> Okay, the question is:
+Dialogue: 0,0:22:29.74,0:22:36.36,Default,NTP,0000,0000,0000,,\N{\fs14}What does the instance method\Nclass -- so I can say, you know,
+Dialogue: 0,0:22:36.36,0:22:42.12,Default,NTP,0000,0000,0000,,\N{\fs14}trying to think of an example\Nwhere we use that, like deck.
+Dialogue: 0,0:22:42.12,0:22:44.82,Default,NTP,0000,0000,0000,,\N{\fs14}I might say deck\Nclass, for example.
+Dialogue: 0,0:22:45.35,0:22:50.71,Default,NTP,0000,0000,0000,,\N{\fs14}That returns essentially\Nthe same thing as here,
+Dialogue: 0,0:22:50.71,0:22:53.55,Default,NTP,0000,0000,0000,,\N{\fs14}and you probably\Ncould say is kind
+Dialogue: 0,0:22:53.55,0:22:55.64,Default,NTP,0000,0000,0000,,\N{\fs14}of class open square bracket\Ninstance [inaudible] class.
+Dialogue: 0,0:22:55.67,0:22:57.93,Default,NTP,0000,0000,0000,,\N{\fs14}But your reader would pretty\Ndarn confused by that.
+Dialogue: 0,0:22:58.92,0:23:01.70,Default,NTP,0000,0000,0000,,\N{\fs14}So there's an instance\Nmethod and a class method;
+Dialogue: 0,0:23:01.70,0:23:03.34,Default,NTP,0000,0000,0000,,\N{\fs14}probably both return\Nthe same thing,
+Dialogue: 0,0:23:03.34,0:23:04.71,Default,NTP,0000,0000,0000,,\N{\fs14}capital C class, I believe.
+Dialogue: 0,0:23:04.71,0:23:06.40,Default,NTP,0000,0000,0000,,\N{\fs14}But we would never do that here,
+Dialogue: 0,0:23:06.40,0:23:08.39,Default,NTP,0000,0000,0000,,\N{\fs14}so don't put an instance\Ncall there,
+Dialogue: 0,0:23:08.45,0:23:09.57,Default,NTP,0000,0000,0000,,\N{\fs14}just the class method you want.
+Dialogue: 0,0:23:10.39,0:23:10.95,Default,NTP,0000,0000,0000,,\N{\fs14}Good question.
+Dialogue: 0,0:23:12.36,0:23:12.65,Default,NTP,0000,0000,0000,,\N{\fs14}All right.
+Dialogue: 0,0:23:12.73,0:23:15.14,Default,NTP,0000,0000,0000,,\N{\fs14}How about the selector\None, the method one rather?
+Dialogue: 0,0:23:15.14,0:23:18.53,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. So methods, when we\Nuse them in this response
+Dialogue: 0,0:23:18.53,0:23:20.45,Default,NTP,0000,0000,0000,,\N{\fs14}to selector thing, we\Ncall them "selectors."
+Dialogue: 0,0:23:20.45,0:23:24.67,Default,NTP,0000,0000,0000,,\N{\fs14}A selector is really kind of\Nan identifier for a method name
+Dialogue: 0,0:23:25.25,0:23:27.07,Default,NTP,0000,0000,0000,,\N{\fs14}because if you have\Nthe method shoot,
+Dialogue: 0,0:23:27.55,0:23:30.70,Default,NTP,0000,0000,0000,,\N{\fs14}it's the same selector no\Nmatter what class you're talking
+Dialogue: 0,0:23:30.70,0:23:31.53,Default,NTP,0000,0000,0000,,\N{\fs14}about implementing it in.
+Dialogue: 0,0:23:31.53,0:23:33.30,Default,NTP,0000,0000,0000,,\N{\fs14}Even if they don't\Ninherit from each other,
+Dialogue: 0,0:23:33.30,0:23:34.40,Default,NTP,0000,0000,0000,,\N{\fs14}they're completely unrelated.
+Dialogue: 0,0:23:34.40,0:23:36.97,Default,NTP,0000,0000,0000,,\N{\fs14}You might have a gun\Nclass that says shoot
+Dialogue: 0,0:23:36.97,0:23:38.50,Default,NTP,0000,0000,0000,,\N{\fs14}and you might have a ship\Nclass that says shoot --
+Dialogue: 0,0:23:38.73,0:23:40.29,Default,NTP,0000,0000,0000,,\N{\fs14}the selector shoot\Nwould be the same.
+Dialogue: 0,0:23:40.47,0:23:42.13,Default,NTP,0000,0000,0000,,\N{\fs14}And we get that selector\Nby saying
+Dialogue: 0,0:23:42.13,0:23:46.41,Default,NTP,0000,0000,0000,,\N{\fs14}at sign selector parenthesis,\Nthe name of the method, okay?
+Dialogue: 0,0:23:46.53,0:23:49.37,Default,NTP,0000,0000,0000,,\N{\fs14}Shoot. And if the method\Nhas multiple arguments,
+Dialogue: 0,0:23:49.37,0:23:50.83,Default,NTP,0000,0000,0000,,\N{\fs14}we just put the colons in there.
+Dialogue: 0,0:23:50.83,0:23:53.76,Default,NTP,0000,0000,0000,,\N{\fs14}So shoot at colon\Nhas one argument
+Dialogue: 0,0:23:53.76,0:23:56.65,Default,NTP,0000,0000,0000,,\N{\fs14}or add card colon at top colon.
+Dialogue: 0,0:23:56.71,0:23:59.47,Default,NTP,0000,0000,0000,,\N{\fs14}We just say that, at sign\Nselector, open parenthesis,
+Dialogue: 0,0:23:59.57,0:24:02.03,Default,NTP,0000,0000,0000,,\N{\fs14}add card colon, add top\Ncolon, close parenthesis.
+Dialogue: 0,0:24:02.12,0:24:04.07,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And that gives\Nus the selector,
+Dialogue: 0,0:24:04.29,0:24:05.95,Default,NTP,0000,0000,0000,,\N{\fs14}and we say responds to selector.
+Dialogue: 0,0:24:05.95,0:24:07.96,Default,NTP,0000,0000,0000,,\N{\fs14}And that will tell\Nus whether the object
+Dialogue: 0,0:24:08.37,0:24:10.14,Default,NTP,0000,0000,0000,,\N{\fs14}that we're sending\Nresponds to selector
+Dialogue: 0,0:24:10.14,0:24:11.31,Default,NTP,0000,0000,0000,,\N{\fs14}to responds to that method.
+Dialogue: 0,0:24:12.30,0:24:14.91,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Now, these selectors,\Nthere's actually a type,
+Dialogue: 0,0:24:14.91,0:24:18.38,Default,NTP,0000,0000,0000,,\N{\fs14}kind of a type def in\NObjective-C for these selectors.
+Dialogue: 0,0:24:18.43,0:24:21.17,Default,NTP,0000,0000,0000,,\N{\fs14}All caps SEL, kind of\Nlike all caps BOOL, right?
+Dialogue: 0,0:24:21.17,0:24:23.26,Default,NTP,0000,0000,0000,,\N{\fs14}So this type def thing is added.
+Dialogue: 0,0:24:23.56,0:24:28.07,Default,NTP,0000,0000,0000,,\N{\fs14}And you can declare\Nvariables that are of type SEL
+Dialogue: 0,0:24:28.07,0:24:29.15,Default,NTP,0000,0000,0000,,\N{\fs14}and store things in there.
+Dialogue: 0,0:24:29.47,0:24:31.98,Default,NTP,0000,0000,0000,,\N{\fs14}And there are actually other\Nmethods besides respond
+Dialogue: 0,0:24:31.98,0:24:34.32,Default,NTP,0000,0000,0000,,\N{\fs14}to selector that\Ntake a selector.
+Dialogue: 0,0:24:34.64,0:24:38.04,Default,NTP,0000,0000,0000,,\N{\fs14}For example, object\Nhas perform selector
+Dialogue: 0,0:24:38.37,0:24:40.60,Default,NTP,0000,0000,0000,,\N{\fs14}and perform selector\Nwith object, okay?
+Dialogue: 0,0:24:40.80,0:24:45.53,Default,NTP,0000,0000,0000,,\N{\fs14}They will perform that\Nmethod on another object.
+Dialogue: 0,0:24:45.53,0:24:46.85,Default,NTP,0000,0000,0000,,\N{\fs14}Now, why would you\Never want to do this?
+Dialogue: 0,0:24:46.85,0:24:49.18,Default,NTP,0000,0000,0000,,\N{\fs14}Well, you might have\Nsome parameterized thing
+Dialogue: 0,0:24:49.18,0:24:51.45,Default,NTP,0000,0000,0000,,\N{\fs14}where you're going to do one\Nof three different methods,
+Dialogue: 0,0:24:51.45,0:24:53.22,Default,NTP,0000,0000,0000,,\N{\fs14}depending on something\Nthe user chooses.
+Dialogue: 0,0:24:53.22,0:24:54.70,Default,NTP,0000,0000,0000,,\N{\fs14}And you can say perform selector
+Dialogue: 0,0:24:54.94,0:24:59.02,Default,NTP,0000,0000,0000,,\N{\fs14}and then have three SEL\Nvariables, one for each method,
+Dialogue: 0,0:24:59.02,0:25:01.23,Default,NTP,0000,0000,0000,,\N{\fs14}and pass that as the argument\Nyou want to perform selected.
+Dialogue: 0,0:25:01.73,0:25:03.04,Default,NTP,0000,0000,0000,,\N{\fs14}Perform selected with object,
+Dialogue: 0,0:25:03.31,0:25:05.32,Default,NTP,0000,0000,0000,,\N{\fs14}that method would\Nhave one argument.
+Dialogue: 0,0:25:05.56,0:25:08.16,Default,NTP,0000,0000,0000,,\N{\fs14}So the selector name\Nbetter be something colon
+Dialogue: 0,0:25:08.16,0:25:09.22,Default,NTP,0000,0000,0000,,\N{\fs14}because it's got one argument.
+Dialogue: 0,0:25:09.44,0:25:10.84,Default,NTP,0000,0000,0000,,\N{\fs14}And the argument\Nhas to be an object.
+Dialogue: 0,0:25:11.35,0:25:13.23,Default,NTP,0000,0000,0000,,\N{\fs14}So coordinate here would\Nbe some sort of object.
+Dialogue: 0,0:25:14.40,0:25:16.15,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So just a little\Nlimitation.
+Dialogue: 0,0:25:16.15,0:25:17.85,Default,NTP,0000,0000,0000,,\N{\fs14}It can only have no arguments
+Dialogue: 0,0:25:17.85,0:25:19.30,Default,NTP,0000,0000,0000,,\N{\fs14}or have one argument\Nthat's an object.
+Dialogue: 0,0:25:19.30,0:25:21.63,Default,NTP,0000,0000,0000,,\N{\fs14}You can also do cool things
+Dialogue: 0,0:25:21.63,0:25:24.38,Default,NTP,0000,0000,0000,,\N{\fs14}like ask an array\Nmake all the objects
+Dialogue: 0,0:25:24.38,0:25:27.35,Default,NTP,0000,0000,0000,,\N{\fs14}in yourself perform\Nthis selector.
+Dialogue: 0,0:25:28.05,0:25:29.62,Default,NTP,0000,0000,0000,,\N{\fs14}This is a very cool method.
+Dialogue: 0,0:25:29.62,0:25:32.43,Default,NTP,0000,0000,0000,,\N{\fs14}And if you get used to using\Nmethods like this in Array,
+Dialogue: 0,0:25:32.64,0:25:34.04,Default,NTP,0000,0000,0000,,\N{\fs14}you'll find your\Ncode will shrink
+Dialogue: 0,0:25:34.04,0:25:37.60,Default,NTP,0000,0000,0000,,\N{\fs14}down really small because,\Nyou know, for ins and things
+Dialogue: 0,0:25:37.60,0:25:40.35,Default,NTP,0000,0000,0000,,\N{\fs14}like you have to really\Nzoomed down to one-liners,
+Dialogue: 0,0:25:40.35,0:25:42.23,Default,NTP,0000,0000,0000,,\N{\fs14}make object perform\Nselector, okay,
+Dialogue: 0,0:25:42.23,0:25:44.07,Default,NTP,0000,0000,0000,,\N{\fs14}or make object perform\Nselector with object.
+Dialogue: 0,0:25:44.44,0:25:46.42,Default,NTP,0000,0000,0000,,\N{\fs14}So that's an NSArray thing.
+Dialogue: 0,0:25:46.68,0:25:49.18,Default,NTP,0000,0000,0000,,\N{\fs14}And of course, we do target\Naction with selectors.
+Dialogue: 0,0:25:49.30,0:25:52.16,Default,NTP,0000,0000,0000,,\N{\fs14}The method, if you wanted\Nto set up target action,
+Dialogue: 0,0:25:52.44,0:25:54.87,Default,NTP,0000,0000,0000,,\N{\fs14}not doing control drag but\Nactually setting up in code,
+Dialogue: 0,0:25:55.13,0:25:58.66,Default,NTP,0000,0000,0000,,\N{\fs14}is in UI control actually,\Nwhich button inheritance from.
+Dialogue: 0,0:25:58.92,0:26:01.23,Default,NTP,0000,0000,0000,,\N{\fs14}Add target colon, action colon.
+Dialogue: 0,0:26:01.29,0:26:02.25,Default,NTP,0000,0000,0000,,\N{\fs14}There's some other arguments.
+Dialogue: 0,0:26:02.59,0:26:05.03,Default,NTP,0000,0000,0000,,\N{\fs14}But you can see that\Nadd target takes an ID
+Dialogue: 0,0:26:05.03,0:26:07.69,Default,NTP,0000,0000,0000,,\N{\fs14}and then it takes an action\Ncolon, takes a selector.
+Dialogue: 0,0:26:07.89,0:26:10.51,Default,NTP,0000,0000,0000,,\N{\fs14}So it says what message\Nto send to what object --
+Dialogue: 0,0:26:10.61,0:26:12.12,Default,NTP,0000,0000,0000,,\N{\fs14}what's the target,\Nwhat's the action?
+Dialogue: 0,0:26:13.39,0:26:14.89,Default,NTP,0000,0000,0000,,\N{\fs14}Everyone understand that?
+Dialogue: 0,0:26:16.28,0:26:18.88,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. So this selection stuff,
+Dialogue: 0,0:26:19.03,0:26:21.02,Default,NTP,0000,0000,0000,,\N{\fs14}pretty selector stuff\Nis pretty powerful.
+Dialogue: 0,0:26:21.67,0:26:21.96,Default,NTP,0000,0000,0000,,\N{\fs14}All right.
+Dialogue: 0,0:26:21.96,0:26:24.12,Default,NTP,0000,0000,0000,,\N{\fs14}So let's take a look\Nat how match --
+Dialogue: 0,0:26:24.32,0:26:27.38,Default,NTP,0000,0000,0000,,\N{\fs14}the playing card match -- might\Nbe improved with introspection.
+Dialogue: 0,0:26:27.38,0:26:31.57,Default,NTP,0000,0000,0000,,\N{\fs14}I'm going to go here\Nback to Xcode.
+Dialogue: 0,0:26:31.57,0:26:36.48,Default,NTP,0000,0000,0000,,\N{\fs14}And I'm just going to\Nopen back up Machismo
+Dialogue: 0,0:26:36.48,0:26:36.98,Default,NTP,0000,0000,0000,,\N{\fs14}where we left off here.
+Dialogue: 0,0:26:37.52,0:26:45.28,Default,NTP,0000,0000,0000,,\N{\fs14}[ Pause ]
+Dialogue: 0,0:26:45.78,0:26:48.77,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. And then let's go\Ndown to playing card.
+Dialogue: 0,0:26:49.46,0:26:51.22,Default,NTP,0000,0000,0000,,\N{\fs14}So here's playing\Ncard and here's match.
+Dialogue: 0,0:26:51.59,0:26:52.99,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. So you all remember match.
+Dialogue: 0,0:26:53.27,0:26:56.03,Default,NTP,0000,0000,0000,,\N{\fs14}And here's the line of code\Nthat's a little bit of trouble.
+Dialogue: 0,0:26:56.37,0:27:00.32,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Because this first object\Nhere, this returns an ID.
+Dialogue: 0,0:27:00.59,0:27:02.70,Default,NTP,0000,0000,0000,,\N{\fs14}So what we could do\Nhere, for example,
+Dialogue: 0,0:27:02.75,0:27:06.66,Default,NTP,0000,0000,0000,,\N{\fs14}is we could say ID\Ncard equals this.
+Dialogue: 0,0:27:06.66,0:27:11.85,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Just to be\Ntotally clear here.
+Dialogue: 0,0:27:11.85,0:27:12.70,Default,NTP,0000,0000,0000,,\N{\fs14}So we got this card.
+Dialogue: 0,0:27:12.70,0:27:16.58,Default,NTP,0000,0000,0000,,\N{\fs14}And then I can say if\Ncard is kind of class,
+Dialogue: 0,0:27:16.93,0:27:21.36,Default,NTP,0000,0000,0000,,\N{\fs14}playing card class, okay,\Nthen I'll do all this.
+Dialogue: 0,0:27:22.34,0:27:25.68,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? All right?
+Dialogue: 0,0:27:25.68,0:27:27.97,Default,NTP,0000,0000,0000,,\N{\fs14}And I'm going to set\Nthe other card here
+Dialogue: 0,0:27:28.18,0:27:32.52,Default,NTP,0000,0000,0000,,\N{\fs14}to be playing card, star card.
+Dialogue: 0,0:27:32.52,0:27:34.37,Default,NTP,0000,0000,0000,,\N{\fs14}So I'm going to cast it.
+Dialogue: 0,0:27:34.92,0:27:37.87,Default,NTP,0000,0000,0000,,\N{\fs14}So now the compiler knows\Nabout this variable.
+Dialogue: 0,0:27:37.87,0:27:40.26,Default,NTP,0000,0000,0000,,\N{\fs14}And from here on out,\Nwhenever I touch other card,
+Dialogue: 0,0:27:40.26,0:27:41.69,Default,NTP,0000,0000,0000,,\N{\fs14}it knows it's going\Nto be a playing card.
+Dialogue: 0,0:27:41.97,0:27:44.10,Default,NTP,0000,0000,0000,,\N{\fs14}And here I've checked\Nat runtime to make sure
+Dialogue: 0,0:27:44.10,0:27:45.22,Default,NTP,0000,0000,0000,,\N{\fs14}that it's actually\Nthe playing card
+Dialogue: 0,0:27:45.22,0:27:46.47,Default,NTP,0000,0000,0000,,\N{\fs14}so that I'll never crash here.
+Dialogue: 0,0:27:47.10,0:27:50.31,Default,NTP,0000,0000,0000,,\N{\fs14}Now, if you say match\Ncolon other cards
+Dialogue: 0,0:27:50.31,0:27:53.34,Default,NTP,0000,0000,0000,,\N{\fs14}and the other cards are\Nlike, some not playing cards,
+Dialogue: 0,0:27:53.34,0:27:55.55,Default,NTP,0000,0000,0000,,\N{\fs14}they're regular cards\Nor they're strings
+Dialogue: 0,0:27:55.90,0:27:57.25,Default,NTP,0000,0000,0000,,\N{\fs14}or something, then that's okay.
+Dialogue: 0,0:27:57.25,0:27:58.51,Default,NTP,0000,0000,0000,,\N{\fs14}This method's going to work\Nfine because it's going
+Dialogue: 0,0:27:58.51,0:28:00.66,Default,NTP,0000,0000,0000,,\N{\fs14}to return zero, a score\Nof zero, which is right
+Dialogue: 0,0:28:00.66,0:28:02.25,Default,NTP,0000,0000,0000,,\N{\fs14}because a playing card\Nwouldn't match a string
+Dialogue: 0,0:28:02.25,0:28:03.26,Default,NTP,0000,0000,0000,,\N{\fs14}or any other kind of card.
+Dialogue: 0,0:28:04.20,0:28:06.20,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Make sense?
+Dialogue: 0,0:28:06.75,0:28:08.53,Default,NTP,0000,0000,0000,,\N{\fs14}See how we used introspection\Nthere?
+Dialogue: 0,0:28:09.03,0:28:11.56,Default,NTP,0000,0000,0000,,\N{\fs14}So you will have to use\Nintrospection most likely
+Dialogue: 0,0:28:11.56,0:28:13.53,Default,NTP,0000,0000,0000,,\N{\fs14}in your solution to\Nnext week's homework --
+Dialogue: 0,0:28:13.53,0:28:14.75,Default,NTP,0000,0000,0000,,\N{\fs14}not the one you're\Ncurrently working on.
+Dialogue: 0,0:28:15.08,0:28:17.83,Default,NTP,0000,0000,0000,,\N{\fs14}By the way, I should take\Ntime out to say I'd almost --
+Dialogue: 0,0:28:18.04,0:28:20.47,Default,NTP,0000,0000,0000,,\N{\fs14}if I ever show you\Nsomething in a lecture
+Dialogue: 0,0:28:20.47,0:28:24.35,Default,NTP,0000,0000,0000,,\N{\fs14}after I've assigned something\Nto you, you almost never need it
+Dialogue: 0,0:28:24.41,0:28:25.33,Default,NTP,0000,0000,0000,,\N{\fs14}in that week's homework.
+Dialogue: 0,0:28:25.38,0:28:27.67,Default,NTP,0000,0000,0000,,\N{\fs14}And I would tell you\Nif that were the case.
+Dialogue: 0,0:28:27.99,0:28:29.53,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? You know what I'm saying?
+Dialogue: 0,0:28:29.91,0:28:31.55,Default,NTP,0000,0000,0000,,\N{\fs14}So, like, you've got an\Nassignment on Monday;
+Dialogue: 0,0:28:32.05,0:28:34.48,Default,NTP,0000,0000,0000,,\N{\fs14}I wouldn't be showing you\Nthings today that you needed
+Dialogue: 0,0:28:34.66,0:28:35.42,Default,NTP,0000,0000,0000,,\N{\fs14}for the assignment on Monday.
+Dialogue: 0,0:28:35.42,0:28:37.12,Default,NTP,0000,0000,0000,,\N{\fs14}I've already shown you\Neverything you need
+Dialogue: 0,0:28:37.56,0:28:40.04,Default,NTP,0000,0000,0000,,\N{\fs14}by the time you get [inaudible].
+Dialogue: 0,0:28:40.49,0:28:46.28,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Question?
+Dialogue: 0,0:28:46.28,0:28:46.34,Default,NTP,0000,0000,0000,,\N{\fs14}>> [Inaudible]
+Dialogue: 0,0:28:46.34,0:28:47.90,Default,NTP,0000,0000,0000,,\N{\fs14}>> Okay. So the question is:\NIs introspection only used
+Dialogue: 0,0:28:47.97,0:28:49.98,Default,NTP,0000,0000,0000,,\N{\fs14}like this when you're\Npulling items out of Array?
+Dialogue: 0,0:28:50.17,0:28:52.61,Default,NTP,0000,0000,0000,,\N{\fs14}And remember, I told you a\Ncouple slides ago there are two
+Dialogue: 0,0:28:52.61,0:28:55.13,Default,NTP,0000,0000,0000,,\N{\fs14}major times when we use\Nintrospection -- one is this.
+Dialogue: 0,0:28:55.40,0:28:59.39,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Second one is all that\NMVC blind communication, right?
+Dialogue: 0,0:28:59.39,0:29:03.50,Default,NTP,0000,0000,0000,,\N{\fs14}Target action, and\Ndelegation, and all that stuff.
+Dialogue: 0,0:29:03.68,0:29:05.50,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So that's that.
+Dialogue: 0,0:29:06.07,0:29:07.82,Default,NTP,0000,0000,0000,,\N{\fs14}Now let's move onto Foundation.
+Dialogue: 0,0:29:08.04,0:29:08.90,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So we're going to talk
+Dialogue: 0,0:29:08.90,0:29:10.42,Default,NTP,0000,0000,0000,,\N{\fs14}about a Foundation\Nframework here.
+Dialogue: 0,0:29:10.63,0:29:13.57,Default,NTP,0000,0000,0000,,\N{\fs14}I'm going to really go\Nfast through object, Array,
+Dialogue: 0,0:29:13.57,0:29:14.64,Default,NTP,0000,0000,0000,,\N{\fs14}dictionary, things like that
+Dialogue: 0,0:29:14.64,0:29:16.87,Default,NTP,0000,0000,0000,,\N{\fs14}because we've already\Nseen a lot of Array.
+Dialogue: 0,0:29:16.87,0:29:18.96,Default,NTP,0000,0000,0000,,\N{\fs14}I think you pretty much got\Na good feel for what it is.
+Dialogue: 0,0:29:18.96,0:29:20.88,Default,NTP,0000,0000,0000,,\N{\fs14}So I don't want to waste\Nthe time talking about that.
+Dialogue: 0,0:29:20.88,0:29:22.63,Default,NTP,0000,0000,0000,,\N{\fs14}We got a lot more new\Nstuff to talk about.
+Dialogue: 0,0:29:22.93,0:29:25.59,Default,NTP,0000,0000,0000,,\N{\fs14}But you know that NSObject is\Nthe base class for all objects.
+Dialogue: 0,0:29:25.59,0:29:28.14,Default,NTP,0000,0000,0000,,\N{\fs14}It implements those\Nintrospection things.
+Dialogue: 0,0:29:28.41,0:29:30.47,Default,NTP,0000,0000,0000,,\N{\fs14}It also implements this\Nvery important method
+Dialogue: 0,0:29:30.47,0:29:31.39,Default,NTP,0000,0000,0000,,\N{\fs14}called description.
+Dialogue: 0,0:29:31.87,0:29:35.06,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So description, it\Njust returns an NSString.
+Dialogue: 0,0:29:35.06,0:29:36.90,Default,NTP,0000,0000,0000,,\N{\fs14}And it's supposed\Nto return a string
+Dialogue: 0,0:29:36.90,0:29:39.09,Default,NTP,0000,0000,0000,,\N{\fs14}that describes this object.
+Dialogue: 0,0:29:39.55,0:29:41.22,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? When do we ever use this?
+Dialogue: 0,0:29:41.68,0:29:42.33,Default,NTP,0000,0000,0000,,\N{\fs14}Two places.
+Dialogue: 0,0:29:42.41,0:29:43.76,Default,NTP,0000,0000,0000,,\N{\fs14}One, NS log.
+Dialogue: 0,0:29:43.76,0:29:47.62,Default,NTP,0000,0000,0000,,\N{\fs14}When we're debugging, we like\Nto NS log percent at sign.
+Dialogue: 0,0:29:47.62,0:29:49.47,Default,NTP,0000,0000,0000,,\N{\fs14}And when we do percent at sign,
+Dialogue: 0,0:29:49.72,0:29:51.81,Default,NTP,0000,0000,0000,,\N{\fs14}the matching objects\Nget sent description,
+Dialogue: 0,0:29:51.81,0:29:53.16,Default,NTP,0000,0000,0000,,\N{\fs14}and that's what gets sent out.
+Dialogue: 0,0:29:53.46,0:29:58.53,Default,NTP,0000,0000,0000,,\N{\fs14}Now, NSString implements a\Ndescription by returning self.
+Dialogue: 0,0:29:59.00,0:30:02.43,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? NSObject implements\Ndescription very badly.
+Dialogue: 0,0:30:02.43,0:30:04.31,Default,NTP,0000,0000,0000,,\N{\fs14}It returns like the pointer,
+Dialogue: 0,0:30:04.31,0:30:07.12,Default,NTP,0000,0000,0000,,\N{\fs14}a string with the pointer\Nin it or something.
+Dialogue: 0,0:30:07.43,0:30:08.68,Default,NTP,0000,0000,0000,,\N{\fs14}Description becomes valuable
+Dialogue: 0,0:30:08.68,0:30:10.58,Default,NTP,0000,0000,0000,,\N{\fs14}when you implement it\Nin your own classes.
+Dialogue: 0,0:30:10.95,0:30:14.54,Default,NTP,0000,0000,0000,,\N{\fs14}So you could imagine\Nimplementing in playing card,
+Dialogue: 0,0:30:14.54,0:30:16.40,Default,NTP,0000,0000,0000,,\N{\fs14}or even in card you could\Nimplement description
+Dialogue: 0,0:30:16.40,0:30:18.24,Default,NTP,0000,0000,0000,,\N{\fs14}that would return self.contents.
+Dialogue: 0,0:30:18.96,0:30:22.13,Default,NTP,0000,0000,0000,,\N{\fs14}Right? And then in the\Ndebugger there's a way --
+Dialogue: 0,0:30:22.13,0:30:24.15,Default,NTP,0000,0000,0000,,\N{\fs14}in which you'll see\Nthis Friday's section --
+Dialogue: 0,0:30:24.45,0:30:26.54,Default,NTP,0000,0000,0000,,\N{\fs14}there's a way to print an\Nobject in the debugger.
+Dialogue: 0,0:30:26.54,0:30:28.64,Default,NTP,0000,0000,0000,,\N{\fs14}It will call description\Nfor you and return it.
+Dialogue: 0,0:30:28.64,0:30:30.17,Default,NTP,0000,0000,0000,,\N{\fs14}So for card you'd\Nsee the contents.
+Dialogue: 0,0:30:30.17,0:30:30.87,Default,NTP,0000,0000,0000,,\N{\fs14}So that's really cool.
+Dialogue: 0,0:30:31.34,0:30:32.75,Default,NTP,0000,0000,0000,,\N{\fs14}And the string shows\Nyou the string.
+Dialogue: 0,0:30:32.91,0:30:35.54,Default,NTP,0000,0000,0000,,\N{\fs14}Arrays and dictionaries\Nimplement description to print
+Dialogue: 0,0:30:35.54,0:30:36.85,Default,NTP,0000,0000,0000,,\N{\fs14}out the contents of the array.
+Dialogue: 0,0:30:37.98,0:30:40.20,Default,NTP,0000,0000,0000,,\N{\fs14}So description's a really\Ncool little function
+Dialogue: 0,0:30:40.20,0:30:41.47,Default,NTP,0000,0000,0000,,\N{\fs14}to know about in NSObject.
+Dialogue: 0,0:30:42.05,0:30:46.78,Default,NTP,0000,0000,0000,,\N{\fs14}NSObject kind of implements\Nthis framework for copying,
+Dialogue: 0,0:30:46.78,0:30:49.59,Default,NTP,0000,0000,0000,,\N{\fs14}but it doesn't actually\Nimplement copy immutable copy.
+Dialogue: 0,0:30:49.59,0:30:51.23,Default,NTP,0000,0000,0000,,\N{\fs14}If you look in NSObject,
+Dialogue: 0,0:30:51.23,0:30:53.28,Default,NTP,0000,0000,0000,,\N{\fs14}you'll see that these\Nmethods are implemented there
+Dialogue: 0,0:30:53.28,0:30:55.06,Default,NTP,0000,0000,0000,,\N{\fs14}or there's a protocol\Nfor them there.
+Dialogue: 0,0:30:55.39,0:30:58.88,Default,NTP,0000,0000,0000,,\N{\fs14}Copy and mutable copy are --
+Dialogue: 0,0:30:59.17,0:31:01.83,Default,NTP,0000,0000,0000,,\N{\fs14}the semantics of them\Nvary from class to class.
+Dialogue: 0,0:31:01.83,0:31:04.24,Default,NTP,0000,0000,0000,,\N{\fs14}So it's up the class\Nto implement it, okay?
+Dialogue: 0,0:31:04.65,0:31:05.97,Default,NTP,0000,0000,0000,,\N{\fs14}Don't be fooled by\Nthe fact that copy
+Dialogue: 0,0:31:05.97,0:31:07.34,Default,NTP,0000,0000,0000,,\N{\fs14}and mutable copy\Nare in NSObject.
+Dialogue: 0,0:31:07.34,0:31:09.67,Default,NTP,0000,0000,0000,,\N{\fs14}You can't just send copy to\Nany object and it will copy it.
+Dialogue: 0,0:31:10.05,0:31:13.15,Default,NTP,0000,0000,0000,,\N{\fs14}But NSArray, for example,\NNSDictionary, these things,
+Dialogue: 0,0:31:13.15,0:31:14.78,Default,NTP,0000,0000,0000,,\N{\fs14}they implement copy\Nand mutable copy,
+Dialogue: 0,0:31:14.78,0:31:15.76,Default,NTP,0000,0000,0000,,\N{\fs14}and they do the right thing.
+Dialogue: 0,0:31:16.56,0:31:19.74,Default,NTP,0000,0000,0000,,\N{\fs14}One thing to note about\Ncopy is if you send copy
+Dialogue: 0,0:31:19.74,0:31:22.06,Default,NTP,0000,0000,0000,,\N{\fs14}to a mutable object\Nlike a mutable array,
+Dialogue: 0,0:31:22.53,0:31:24.10,Default,NTP,0000,0000,0000,,\N{\fs14}you don't get a mutable\Narray back,
+Dialogue: 0,0:31:24.52,0:31:25.92,Default,NTP,0000,0000,0000,,\N{\fs14}even though you just\Ncopied a mutable array.
+Dialogue: 0,0:31:26.10,0:31:28.46,Default,NTP,0000,0000,0000,,\N{\fs14}You get an immutable\Narray back, okay?
+Dialogue: 0,0:31:28.77,0:31:32.01,Default,NTP,0000,0000,0000,,\N{\fs14}The semantics copy are,\N"Give me an immutable copy
+Dialogue: 0,0:31:32.01,0:31:33.91,Default,NTP,0000,0000,0000,,\N{\fs14}of this object back\Nif possible."
+Dialogue: 0,0:31:35.07,0:31:37.32,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? The semantics\Nof mutable copy are,
+Dialogue: 0,0:31:37.48,0:31:40.20,Default,NTP,0000,0000,0000,,\N{\fs14}"Give me a mutable\Ncopy of this thing."
+Dialogue: 0,0:31:40.65,0:31:42.88,Default,NTP,0000,0000,0000,,\N{\fs14}No matter whether the receiver\Nis mutable or immutable,
+Dialogue: 0,0:31:43.22,0:31:45.23,Default,NTP,0000,0000,0000,,\N{\fs14}mutable copy means\Ngive me a mutable copy;
+Dialogue: 0,0:31:45.67,0:31:47.83,Default,NTP,0000,0000,0000,,\N{\fs14}copy means give me\Nan immutable copy.
+Dialogue: 0,0:31:48.20,0:31:51.26,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Understand that?
+Dialogue: 0,0:31:51.26,0:31:54.83,Default,NTP,0000,0000,0000,,\N{\fs14}And again, certain\Nclasses implement this;
+Dialogue: 0,0:31:54.83,0:31:56.36,Default,NTP,0000,0000,0000,,\N{\fs14}NSObject really does not.
+Dialogue: 0,0:31:56.79,0:31:58.73,Default,NTP,0000,0000,0000,,\N{\fs14}You would have to implement\Nit yourself if you wanted
+Dialogue: 0,0:31:58.73,0:32:00.18,Default,NTP,0000,0000,0000,,\N{\fs14}to have your objects\Nbe copyable,
+Dialogue: 0,0:32:00.18,0:32:01.36,Default,NTP,0000,0000,0000,,\N{\fs14}which is pretty rare by the way.
+Dialogue: 0,0:32:01.77,0:32:04.37,Default,NTP,0000,0000,0000,,\N{\fs14}Really not generally doing that.
+Dialogue: 0,0:32:04.80,0:32:07.63,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. NSArray is an ordered\Ncollection of objects.
+Dialogue: 0,0:32:07.66,0:32:08.68,Default,NTP,0000,0000,0000,,\N{\fs14}It's immutable.
+Dialogue: 0,0:32:08.94,0:32:11.05,Default,NTP,0000,0000,0000,,\N{\fs14}When you create an NSArray,\Nwhatever objects are in it
+Dialogue: 0,0:32:11.05,0:32:12.43,Default,NTP,0000,0000,0000,,\N{\fs14}when you create it,\Nthose are the objects
+Dialogue: 0,0:32:12.43,0:32:13.41,Default,NTP,0000,0000,0000,,\N{\fs14}that will be in there for life.
+Dialogue: 0,0:32:13.41,0:32:14.85,Default,NTP,0000,0000,0000,,\N{\fs14}You can't remove any,\Nyou can't add any.
+Dialogue: 0,0:32:15.50,0:32:19.31,Default,NTP,0000,0000,0000,,\N{\fs14}All objects in an array are\Nheld onto strongly in the heap.
+Dialogue: 0,0:32:19.50,0:32:22.56,Default,NTP,0000,0000,0000,,\N{\fs14}So as long as that array\Nitself is in the heap, okay,
+Dialogue: 0,0:32:22.56,0:32:24.77,Default,NTP,0000,0000,0000,,\N{\fs14}as long as someone has a strong\Npointer to the array itself,
+Dialogue: 0,0:32:24.84,0:32:27.28,Default,NTP,0000,0000,0000,,\N{\fs14}all the objects that are in\Nthe array will stay in the heap
+Dialogue: 0,0:32:27.28,0:32:30.65,Default,NTP,0000,0000,0000,,\N{\fs14}as well because it has strong\Npointers to all of them.
+Dialogue: 0,0:32:31.23,0:32:33.66,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? You usually\Ncreate an NSArray
+Dialogue: 0,0:32:33.92,0:32:38.56,Default,NTP,0000,0000,0000,,\N{\fs14}by sometimes calling a class\Nmethod or even alloc init.
+Dialogue: 0,0:32:38.56,0:32:41.34,Default,NTP,0000,0000,0000,,\N{\fs14}But usually most commonly we do
+Dialogue: 0,0:32:41.34,0:32:42.80,Default,NTP,0000,0000,0000,,\N{\fs14}that at sign square\Nbracket thing,
+Dialogue: 0,0:32:43.25,0:32:44.85,Default,NTP,0000,0000,0000,,\N{\fs14}like how we created\Nrank strings.
+Dialogue: 0,0:32:44.85,0:32:50.24,Default,NTP,0000,0000,0000,,\N{\fs14}Remember rank strings in\Nplaying card, at sign,
+Dialogue: 0,0:32:50.24,0:32:51.72,Default,NTP,0000,0000,0000,,\N{\fs14}square bracket, and\Nthe elements?
+Dialogue: 0,0:32:51.72,0:32:53.18,Default,NTP,0000,0000,0000,,\N{\fs14}That's usually how\Nwe create arrays.
+Dialogue: 0,0:32:53.24,0:32:56.12,Default,NTP,0000,0000,0000,,\N{\fs14}Sometimes we'll create\Narrays by asking other arrays
+Dialogue: 0,0:32:56.12,0:32:58.66,Default,NTP,0000,0000,0000,,\N{\fs14}to add an object to themselves\Nand give us a new array
+Dialogue: 0,0:32:58.66,0:33:00.15,Default,NTP,0000,0000,0000,,\N{\fs14}since they can't be mutated;
+Dialogue: 0,0:33:00.15,0:33:01.65,Default,NTP,0000,0000,0000,,\N{\fs14}they have to make a new\None and give it back.
+Dialogue: 0,0:33:01.65,0:33:02.26,Default,NTP,0000,0000,0000,,\N{\fs14}So that's another way.
+Dialogue: 0,0:33:02.70,0:33:04.27,Default,NTP,0000,0000,0000,,\N{\fs14}And you know the\Nbasic, you know,
+Dialogue: 0,0:33:04.31,0:33:06.91,Default,NTP,0000,0000,0000,,\N{\fs14}get the count, object at index.
+Dialogue: 0,0:33:07.42,0:33:09.88,Default,NTP,0000,0000,0000,,\N{\fs14}There's a lot of other really\Ncool methods in an array.
+Dialogue: 0,0:33:09.88,0:33:12.22,Default,NTP,0000,0000,0000,,\N{\fs14}You really should familiarize\Nyourself with this class.
+Dialogue: 0,0:33:12.34,0:33:13.85,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. It's a lot of stuff.
+Dialogue: 0,0:33:14.05,0:33:15.68,Default,NTP,0000,0000,0000,,\N{\fs14}We talked about make\Nobjects perform.
+Dialogue: 0,0:33:15.95,0:33:18.17,Default,NTP,0000,0000,0000,,\N{\fs14}There's sorted array\Nusing selector.
+Dialogue: 0,0:33:18.58,0:33:21.60,Default,NTP,0000,0000,0000,,\N{\fs14}So you give it a selector\Nthat takes another --
+Dialogue: 0,0:33:21.79,0:33:24.80,Default,NTP,0000,0000,0000,,\N{\fs14}that basically gets sent\Nto each object in the array
+Dialogue: 0,0:33:24.80,0:33:25.95,Default,NTP,0000,0000,0000,,\N{\fs14}and takes one of\Nthe other objects
+Dialogue: 0,0:33:25.95,0:33:26.93,Default,NTP,0000,0000,0000,,\N{\fs14}in the array as an argument.
+Dialogue: 0,0:33:26.93,0:33:28.40,Default,NTP,0000,0000,0000,,\N{\fs14}So you got to make sure\Nthey have the right type
+Dialogue: 0,0:33:28.40,0:33:29.08,Default,NTP,0000,0000,0000,,\N{\fs14}of argument there.
+Dialogue: 0,0:33:29.54,0:33:32.54,Default,NTP,0000,0000,0000,,\N{\fs14}And it will just use that\Nto create a sorted version
+Dialogue: 0,0:33:32.54,0:33:34.45,Default,NTP,0000,0000,0000,,\N{\fs14}of the array and give you back\Na new array that's sorted.
+Dialogue: 0,0:33:34.68,0:33:37.69,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. So one line of code as\Nlong as you have a selector
+Dialogue: 0,0:33:37.69,0:33:39.74,Default,NTP,0000,0000,0000,,\N{\fs14}for a method that can\Ncompare two objects that are
+Dialogue: 0,0:33:39.74,0:33:41.26,Default,NTP,0000,0000,0000,,\N{\fs14}in an array, you can sort it.
+Dialogue: 0,0:33:41.92,0:33:44.64,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So you really should\Nknow about all these kind
+Dialogue: 0,0:33:44.64,0:33:45.98,Default,NTP,0000,0000,0000,,\N{\fs14}of whacky things in NSArray.
+Dialogue: 0,0:33:46.61,0:33:49.49,Default,NTP,0000,0000,0000,,\N{\fs14}Now, NSArray can't be modified.
+Dialogue: 0,0:33:49.63,0:33:53.99,Default,NTP,0000,0000,0000,,\N{\fs14}Sometimes that's a limitation --\Nnot as often as you might think.
+Dialogue: 0,0:33:54.34,0:33:56.32,Default,NTP,0000,0000,0000,,\N{\fs14}But there's a mutable\Nversion of Array, of course,
+Dialogue: 0,0:33:56.32,0:33:58.65,Default,NTP,0000,0000,0000,,\N{\fs14}called NSMutableArray,\Nwhich we've also used.
+Dialogue: 0,0:33:59.51,0:34:02.94,Default,NTP,0000,0000,0000,,\N{\fs14}We usually create\Nit using alloc init
+Dialogue: 0,0:34:03.28,0:34:05.88,Default,NTP,0000,0000,0000,,\N{\fs14}or sometimes we use Array\Nwith capacity, okay?
+Dialogue: 0,0:34:05.88,0:34:07.86,Default,NTP,0000,0000,0000,,\N{\fs14}Array with capacity is --
+Dialogue: 0,0:34:07.93,0:34:10.30,Default,NTP,0000,0000,0000,,\N{\fs14}that capacity argument\Nis just performance hint.
+Dialogue: 0,0:34:10.71,0:34:13.12,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? It's not saying that\Nthe array starts out with
+Dialogue: 0,0:34:13.12,0:34:15.81,Default,NTP,0000,0000,0000,,\N{\fs14}that many items; it just means,\N"I think this array is going
+Dialogue: 0,0:34:15.81,0:34:16.98,Default,NTP,0000,0000,0000,,\N{\fs14}to have a hundred things in it."
+Dialogue: 0,0:34:16.98,0:34:18.54,Default,NTP,0000,0000,0000,,\N{\fs14}So creating an array\Nwith a hundred --
+Dialogue: 0,0:34:18.54,0:34:19.66,Default,NTP,0000,0000,0000,,\N{\fs14}it's a performance hint only.
+Dialogue: 0,0:34:19.66,0:34:23.22,Default,NTP,0000,0000,0000,,\N{\fs14}You know that NSMutableArray\Ninherits everything
+Dialogue: 0,0:34:23.22,0:34:25.97,Default,NTP,0000,0000,0000,,\N{\fs14}from NSArray, of course,\Nand then it adds add object,
+Dialogue: 0,0:34:26.02,0:34:28.54,Default,NTP,0000,0000,0000,,\N{\fs14}insert object data,\Nmove object at index.
+Dialogue: 0,0:34:28.83,0:34:31.53,Default,NTP,0000,0000,0000,,\N{\fs14}And you know that you can use\Nthe square brackets notation,
+Dialogue: 0,0:34:31.77,0:34:34.95,Default,NTP,0000,0000,0000,,\N{\fs14}right, like self.cards\Nopen square bracket, index,
+Dialogue: 0,0:34:34.95,0:34:37.73,Default,NTP,0000,0000,0000,,\N{\fs14}closed square brackets to\Nboth put things into an array
+Dialogue: 0,0:34:37.73,0:34:39.10,Default,NTP,0000,0000,0000,,\N{\fs14}and get things out of an array.
+Dialogue: 0,0:34:39.64,0:34:44.15,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And using that notation\Nis really just calling object
+Dialogue: 0,0:34:44.15,0:34:47.95,Default,NTP,0000,0000,0000,,\N{\fs14}at subscripted index and set\Nobject at subscripted index.
+Dialogue: 0,0:34:47.95,0:34:49.93,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. It's just calling those\Nmethods; that's all it's doing.
+Dialogue: 0,0:34:50.28,0:34:51.70,Default,NTP,0000,0000,0000,,\N{\fs14}But it looks really\Nnice in your code
+Dialogue: 0,0:34:51.70,0:34:52.93,Default,NTP,0000,0000,0000,,\N{\fs14}to use those square brackets.
+Dialogue: 0,0:34:54.43,0:34:58.93,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Enumeration, we saw how\Nto do this for in business.
+Dialogue: 0,0:34:59.22,0:35:01.79,Default,NTP,0000,0000,0000,,\N{\fs14}Don't forget that\Nthat control variable
+Dialogue: 0,0:35:01.79,0:35:04.52,Default,NTP,0000,0000,0000,,\N{\fs14}like NSString star\Nstring in my array --
+Dialogue: 0,0:35:04.52,0:35:05.82,Default,NTP,0000,0000,0000,,\N{\fs14}you see the NSString\Nstar string --
+Dialogue: 0,0:35:06.10,0:35:08.45,Default,NTP,0000,0000,0000,,\N{\fs14}that's essentially\Nyour casting, okay?
+Dialogue: 0,0:35:08.45,0:35:11.40,Default,NTP,0000,0000,0000,,\N{\fs14}Your casting, whatever comes out\Nof that array to be an NSString.
+Dialogue: 0,0:35:11.57,0:35:13.74,Default,NTP,0000,0000,0000,,\N{\fs14}You're telling the\Ncompiler, "I know that what's
+Dialogue: 0,0:35:13.74,0:35:15.42,Default,NTP,0000,0000,0000,,\N{\fs14}in that array is strings."
+Dialogue: 0,0:35:15.42,0:35:18.00,Default,NTP,0000,0000,0000,,\N{\fs14}Now, if you don't know what's\Nin there, you could say --
+Dialogue: 0,0:35:18.00,0:35:19.29,Default,NTP,0000,0000,0000,,\N{\fs14}or if it's a mixed things --
+Dialogue: 0,0:35:19.29,0:35:22.24,Default,NTP,0000,0000,0000,,\N{\fs14}you would say for\NID obj in my array.
+Dialogue: 0,0:35:22.55,0:35:25.55,Default,NTP,0000,0000,0000,,\N{\fs14}Then the iteration variable will\Nbe an obj and you'll likely want
+Dialogue: 0,0:35:25.55,0:35:27.01,Default,NTP,0000,0000,0000,,\N{\fs14}to use introspection to find
+Dialogue: 0,0:35:27.01,0:35:29.95,Default,NTP,0000,0000,0000,,\N{\fs14}out what the thing you got back\Nis each time around the loop.
+Dialogue: 0,0:35:30.97,0:35:31.51,Default,NTP,0000,0000,0000,,\N{\fs14}Make sense?
+Dialogue: 0,0:35:33.34,0:35:35.69,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Next NSNumber.
+Dialogue: 0,0:35:35.69,0:35:36.11,Default,NTP,0000,0000,0000,,\N{\fs14}All right.
+Dialogue: 0,0:35:36.11,0:35:40.41,Default,NTP,0000,0000,0000,,\N{\fs14}NSNumber is a class that is\Nused to wrap primitive types
+Dialogue: 0,0:35:40.41,0:35:42.90,Default,NTP,0000,0000,0000,,\N{\fs14}like integers, floats, doubles,\NBooles, things like that.
+Dialogue: 0,0:35:42.90,0:35:44.29,Default,NTP,0000,0000,0000,,\N{\fs14}And why do you want\Nto wrap them?
+Dialogue: 0,0:35:44.29,0:35:45.90,Default,NTP,0000,0000,0000,,\N{\fs14}Usually because you want\Nto put them in Array
+Dialogue: 0,0:35:46.00,0:35:47.08,Default,NTP,0000,0000,0000,,\N{\fs14}or a dictionary, okay?
+Dialogue: 0,0:35:47.74,0:35:49.74,Default,NTP,0000,0000,0000,,\N{\fs14}So you can't put an\Nint into an array;
+Dialogue: 0,0:35:49.74,0:35:51.53,Default,NTP,0000,0000,0000,,\N{\fs14}you need to have\Nan NSNumber object.
+Dialogue: 0,0:35:51.53,0:35:55.82,Default,NTP,0000,0000,0000,,\N{\fs14}You can create them with class\Nmethods like number with int --
+Dialogue: 0,0:35:56.03,0:35:59.22,Default,NTP,0000,0000,0000,,\N{\fs14}that's a class number in\Na class method NSNumber --
+Dialogue: 0,0:35:59.47,0:36:02.20,Default,NTP,0000,0000,0000,,\N{\fs14}or you can use at\Nsign parenthesis.
+Dialogue: 0,0:36:02.61,0:36:05.41,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So we already saw at\Nsign square bracket for arrays,
+Dialogue: 0,0:36:05.41,0:36:08.02,Default,NTP,0000,0000,0000,,\N{\fs14}there's also at sign\Nparenthesis, or even just
+Dialogue: 0,0:36:08.11,0:36:10.85,Default,NTP,0000,0000,0000,,\N{\fs14}at sign number if you\Nwant to create a number.
+Dialogue: 0,0:36:10.85,0:36:11.90,Default,NTP,0000,0000,0000,,\N{\fs14}So you could say at sign three.
+Dialogue: 0,0:36:11.90,0:36:13.51,Default,NTP,0000,0000,0000,,\N{\fs14}You could also say at sign 3.2,
+Dialogue: 0,0:36:13.77,0:36:15.04,Default,NTP,0000,0000,0000,,\N{\fs14}and that would create\Nan NSNumber
+Dialogue: 0,0:36:15.04,0:36:16.51,Default,NTP,0000,0000,0000,,\N{\fs14}that would contain\Nthat primitive type.
+Dialogue: 0,0:36:16.85,0:36:19.46,Default,NTP,0000,0000,0000,,\N{\fs14}If you put the parenthesis,\Nthen you could put things inside
+Dialogue: 0,0:36:19.70,0:36:22.54,Default,NTP,0000,0000,0000,,\N{\fs14}like calls to methods that\Nreturn a primitive type,
+Dialogue: 0,0:36:22.93,0:36:24.99,Default,NTP,0000,0000,0000,,\N{\fs14}or e nums, or anything\Nyou want in there --
+Dialogue: 0,0:36:25.14,0:36:26.67,Default,NTP,0000,0000,0000,,\N{\fs14}any expression that evaluates
+Dialogue: 0,0:36:26.67,0:36:29.35,Default,NTP,0000,0000,0000,,\N{\fs14}to a primitive time can be\Nput inside of parenthesis.
+Dialogue: 0,0:36:29.35,0:36:30.43,Default,NTP,0000,0000,0000,,\N{\fs14}You say at sign parenthesis
+Dialogue: 0,0:36:30.43,0:36:32.49,Default,NTP,0000,0000,0000,,\N{\fs14}and it will create an\NNSNumber with the result.
+Dialogue: 0,0:36:33.63,0:36:36.86,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Everybody understand\Nthat syntax?
+Dialogue: 0,0:36:38.01,0:36:40.07,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. So other languages kind
+Dialogue: 0,0:36:40.07,0:36:43.09,Default,NTP,0000,0000,0000,,\N{\fs14}of have this autoboxing\Nkind of stuff in there.
+Dialogue: 0,0:36:43.68,0:36:47.34,Default,NTP,0000,0000,0000,,\N{\fs14}NSValue, I'm not going to\Ntalk too much about it.
+Dialogue: 0,0:36:47.34,0:36:48.54,Default,NTP,0000,0000,0000,,\N{\fs14}It's essentially a way
+Dialogue: 0,0:36:48.54,0:36:51.99,Default,NTP,0000,0000,0000,,\N{\fs14}to encapsulate more complicated\Ntypes than primitive types,
+Dialogue: 0,0:36:51.99,0:36:54.60,Default,NTP,0000,0000,0000,,\N{\fs14}so structs basically, C structs.
+Dialogue: 0,0:36:54.98,0:36:58.75,Default,NTP,0000,0000,0000,,\N{\fs14}And NSValue knows how to\Nwrap up a few different kinds
+Dialogue: 0,0:36:58.75,0:37:00.27,Default,NTP,0000,0000,0000,,\N{\fs14}of structs that are in iOS.
+Dialogue: 0,0:37:00.27,0:37:00.92,Default,NTP,0000,0000,0000,,\N{\fs14}And you can go look
+Dialogue: 0,0:37:00.92,0:37:03.04,Default,NTP,0000,0000,0000,,\N{\fs14}at the documentations\Nto see which ones.
+Dialogue: 0,0:37:03.15,0:37:06.12,Default,NTP,0000,0000,0000,,\N{\fs14}One thing I'm going to give you\Na little tip right here, okay,
+Dialogue: 0,0:37:06.39,0:37:09.89,Default,NTP,0000,0000,0000,,\N{\fs14}sometimes a good way\Nto wrap up a struct is
+Dialogue: 0,0:37:09.89,0:37:11.21,Default,NTP,0000,0000,0000,,\N{\fs14}to turn it into a string.
+Dialogue: 0,0:37:12.20,0:37:13.75,Default,NTP,0000,0000,0000,,\N{\fs14}Then you can put it in\Nthe array as a string.
+Dialogue: 0,0:37:13.75,0:37:15.32,Default,NTP,0000,0000,0000,,\N{\fs14}It's nice because you print\Nit out in the debugger
+Dialogue: 0,0:37:15.32,0:37:16.54,Default,NTP,0000,0000,0000,,\N{\fs14}and you can see it\Nreally nicely.
+Dialogue: 0,0:37:16.85,0:37:19.41,Default,NTP,0000,0000,0000,,\N{\fs14}And then there's\Nways to turn things
+Dialogue: 0,0:37:19.41,0:37:21.29,Default,NTP,0000,0000,0000,,\N{\fs14}from strings back\Ninto C structs.
+Dialogue: 0,0:37:21.53,0:37:25.39,Default,NTP,0000,0000,0000,,\N{\fs14}So there are C functions in iOS\Nthat turn most of the structs
+Dialogue: 0,0:37:25.39,0:37:28.04,Default,NTP,0000,0000,0000,,\N{\fs14}in iOS into strings and\Nthen other C functions
+Dialogue: 0,0:37:28.04,0:37:29.72,Default,NTP,0000,0000,0000,,\N{\fs14}that turn the strings\Nback into the structs.
+Dialogue: 0,0:37:29.72,0:37:34.31,Default,NTP,0000,0000,0000,,\N{\fs14}So NSValue -- I think most of\Nthe time you can use strings.
+Dialogue: 0,0:37:34.31,0:37:35.69,Default,NTP,0000,0000,0000,,\N{\fs14}It's probably more\Nefficient to store something
+Dialogue: 0,0:37:35.69,0:37:38.23,Default,NTP,0000,0000,0000,,\N{\fs14}as an NSValue but,\Nagain, don't overoptimize.
+Dialogue: 0,0:37:38.51,0:37:42.14,Default,NTP,0000,0000,0000,,\N{\fs14}Turning into a string\Nis just as performant
+Dialogue: 0,0:37:42.17,0:37:43.31,Default,NTP,0000,0000,0000,,\N{\fs14}in the case you're using it.
+Dialogue: 0,0:37:43.49,0:37:45.85,Default,NTP,0000,0000,0000,,\N{\fs14}It's nice because it's a string\Nand it's easy to look at.
+Dialogue: 0,0:37:46.46,0:37:50.39,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? NSData is another\NFoundation class,
+Dialogue: 0,0:37:50.60,0:37:51.64,Default,NTP,0000,0000,0000,,\N{\fs14}just a bag of bits.
+Dialogue: 0,0:37:51.64,0:37:53.13,Default,NTP,0000,0000,0000,,\N{\fs14}And we're going to\Nbe using NSDatas.
+Dialogue: 0,0:37:53.13,0:37:54.57,Default,NTP,0000,0000,0000,,\N{\fs14}We'll talk about them\Nmore when we get to that.
+Dialogue: 0,0:37:54.57,0:37:57.29,Default,NTP,0000,0000,0000,,\N{\fs14}But it's just basically\Na certain count of bytes,
+Dialogue: 0,0:37:57.29,0:37:58.64,Default,NTP,0000,0000,0000,,\N{\fs14}that's what NSData is.
+Dialogue: 0,0:37:59.33,0:38:01.76,Default,NTP,0000,0000,0000,,\N{\fs14}NSDate is a date, right?
+Dialogue: 0,0:38:01.76,0:38:03.27,Default,NTP,0000,0000,0000,,\N{\fs14}It has some internal\Nrepresentation.
+Dialogue: 0,0:38:03.27,0:38:05.62,Default,NTP,0000,0000,0000,,\N{\fs14}It's probably the UNIX\Nrepresentation like the number
+Dialogue: 0,0:38:05.62,0:38:08.37,Default,NTP,0000,0000,0000,,\N{\fs14}of seconds since 1970\Nor whatever it is.
+Dialogue: 0,0:38:08.81,0:38:11.93,Default,NTP,0000,0000,0000,,\N{\fs14}One thing to think about\Nwith NSDates, if you're going
+Dialogue: 0,0:38:11.93,0:38:15.42,Default,NTP,0000,0000,0000,,\N{\fs14}to put a date in your UI, you\Ngot to know what you're doing.
+Dialogue: 0,0:38:16.41,0:38:17.59,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Why is that?
+Dialogue: 0,0:38:18.02,0:38:20.99,Default,NTP,0000,0000,0000,,\N{\fs14}That's because dates\Nvary dramatically all
+Dialogue: 0,0:38:20.99,0:38:21.75,Default,NTP,0000,0000,0000,,\N{\fs14}around the world.
+Dialogue: 0,0:38:21.96,0:38:24.32,Default,NTP,0000,0000,0000,,\N{\fs14}And I'm not just talking\Nabout in French, you know,
+Dialogue: 0,0:38:24.32,0:38:26.71,Default,NTP,0000,0000,0000,,\N{\fs14}the month names are\Ndifferent, but you know,
+Dialogue: 0,0:38:26.71,0:38:28.65,Default,NTP,0000,0000,0000,,\N{\fs14}the order of whether\Nthe month comes first
+Dialogue: 0,0:38:28.65,0:38:30.15,Default,NTP,0000,0000,0000,,\N{\fs14}or the date comes first varies.
+Dialogue: 0,0:38:30.36,0:38:32.13,Default,NTP,0000,0000,0000,,\N{\fs14}Some places on earth,
+Dialogue: 0,0:38:32.13,0:38:35.39,Default,NTP,0000,0000,0000,,\N{\fs14}some locales don't even use\Nthe same calendar as we use.
+Dialogue: 0,0:38:35.39,0:38:38.73,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So there is an enormous\Namount of infrastructure in iOS
+Dialogue: 0,0:38:38.73,0:38:39.78,Default,NTP,0000,0000,0000,,\N{\fs14}for dealing with this.
+Dialogue: 0,0:38:40.04,0:38:41.77,Default,NTP,0000,0000,0000,,\N{\fs14}Classes like NSCalendar,
+Dialogue: 0,0:38:41.77,0:38:43.49,Default,NTP,0000,0000,0000,,\N{\fs14}and date formatter,\Nand things like that.
+Dialogue: 0,0:38:43.83,0:38:45.76,Default,NTP,0000,0000,0000,,\N{\fs14}If you're going to\Nput in your UI,
+Dialogue: 0,0:38:45.97,0:38:47.90,Default,NTP,0000,0000,0000,,\N{\fs14}familiarize yourself\Nwith all of that.
+Dialogue: 0,0:38:47.90,0:38:50.62,Default,NTP,0000,0000,0000,,\N{\fs14}I don't have time to go over it\Nall in lecture unfortunately.
+Dialogue: 0,0:38:50.86,0:38:51.81,Default,NTP,0000,0000,0000,,\N{\fs14}But you just need to know
+Dialogue: 0,0:38:51.81,0:38:53.12,Default,NTP,0000,0000,0000,,\N{\fs14}that there's something\Nyou need to know.
+Dialogue: 0,0:38:53.12,0:38:55.69,Default,NTP,0000,0000,0000,,\N{\fs14}You can't just say\NNSDate description
+Dialogue: 0,0:38:55.69,0:38:57.96,Default,NTP,0000,0000,0000,,\N{\fs14}and put it in the UI, okay?
+Dialogue: 0,0:38:58.22,0:39:01.31,Default,NTP,0000,0000,0000,,\N{\fs14}Dates are a little\Nbit complicated.
+Dialogue: 0,0:39:01.31,0:39:05.14,Default,NTP,0000,0000,0000,,\N{\fs14}There's NSSet, which a set is\Nan unword collection of objects,
+Dialogue: 0,0:39:05.14,0:39:06.13,Default,NTP,0000,0000,0000,,\N{\fs14}so the objects are unique.
+Dialogue: 0,0:39:06.52,0:39:08.51,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So you put the same\Nobjects in there twice,
+Dialogue: 0,0:39:08.51,0:39:10.51,Default,NTP,0000,0000,0000,,\N{\fs14}it only goes in there once.
+Dialogue: 0,0:39:11.47,0:39:14.62,Default,NTP,0000,0000,0000,,\N{\fs14}So sets are what you would\Nthink of in term of sets.
+Dialogue: 0,0:39:14.62,0:39:16.76,Default,NTP,0000,0000,0000,,\N{\fs14}And there's actually an ordered\Nset, which is like a cross
+Dialogue: 0,0:39:16.76,0:39:18.18,Default,NTP,0000,0000,0000,,\N{\fs14}between the set and an array.
+Dialogue: 0,0:39:18.55,0:39:19.64,Default,NTP,0000,0000,0000,,\N{\fs14}And you can look those up.
+Dialogue: 0,0:39:19.64,0:39:21.59,Default,NTP,0000,0000,0000,,\N{\fs14}You're not going to\Nneed those probably --
+Dialogue: 0,0:39:21.77,0:39:22.96,Default,NTP,0000,0000,0000,,\N{\fs14}well, you might need set.
+Dialogue: 0,0:39:22.96,0:39:24.78,Default,NTP,0000,0000,0000,,\N{\fs14}Set is nice because you can\Ndo things if you have --
+Dialogue: 0,0:39:25.16,0:39:27.86,Default,NTP,0000,0000,0000,,\N{\fs14}set is very good at telling you\Nwhether something's in the set.
+Dialogue: 0,0:39:27.86,0:39:30.83,Default,NTP,0000,0000,0000,,\N{\fs14}Whereas an array, if you had\Nan array of a thousand things,
+Dialogue: 0,0:39:31.30,0:39:33.35,Default,NTP,0000,0000,0000,,\N{\fs14}the array might have to do\Nsome binary searching or --
+Dialogue: 0,0:39:33.35,0:39:34.69,Default,NTP,0000,0000,0000,,\N{\fs14}well, I guess it can't\Neven binary search
+Dialogue: 0,0:39:34.69,0:39:35.44,Default,NTP,0000,0000,0000,,\N{\fs14}because it doesn't\Nknow the order.
+Dialogue: 0,0:39:35.44,0:39:37.36,Default,NTP,0000,0000,0000,,\N{\fs14}So it's got to look\Naround in there.
+Dialogue: 0,0:39:37.60,0:39:38.77,Default,NTP,0000,0000,0000,,\N{\fs14}It's hard for it to find things.
+Dialogue: 0,0:39:38.77,0:39:42.25,Default,NTP,0000,0000,0000,,\N{\fs14}But a set is probably\Nhashed and high efficiency.
+Dialogue: 0,0:39:42.25,0:39:44.34,Default,NTP,0000,0000,0000,,\N{\fs14}It can tell you if you had a\Nset of ten thousand objects
+Dialogue: 0,0:39:44.34,0:39:45.94,Default,NTP,0000,0000,0000,,\N{\fs14}and you ask it, "Is\Nthis object in there?"
+Dialogue: 0,0:39:46.19,0:39:47.73,Default,NTP,0000,0000,0000,,\N{\fs14}it could probably tell\Nyou really efficiently.
+Dialogue: 0,0:39:48.18,0:39:51.69,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So there are some values\Nsometimes sets versus Array.
+Dialogue: 0,0:39:52.60,0:39:54.36,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. Dictionary.
+Dialogue: 0,0:39:54.92,0:39:57.40,Default,NTP,0000,0000,0000,,\N{\fs14}This is the second most\Nimportant collection class
+Dialogue: 0,0:39:57.40,0:39:58.70,Default,NTP,0000,0000,0000,,\N{\fs14}behind Array probably.
+Dialogue: 0,0:39:59.04,0:40:03.41,Default,NTP,0000,0000,0000,,\N{\fs14}It's an immutable\Ncollection of key value pairs.
+Dialogue: 0,0:40:03.67,0:40:04.51,Default,NTP,0000,0000,0000,,\N{\fs14}It's like a hash table.
+Dialogue: 0,0:40:04.84,0:40:09.50,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? All the keys and values\Nare held onto strongly, okay?
+Dialogue: 0,0:40:09.56,0:40:11.44,Default,NTP,0000,0000,0000,,\N{\fs14}So if they're in there\Nas a key or a value,
+Dialogue: 0,0:40:12.05,0:40:13.82,Default,NTP,0000,0000,0000,,\N{\fs14}then they're in the heap.
+Dialogue: 0,0:40:13.82,0:40:14.75,Default,NTP,0000,0000,0000,,\N{\fs14}And they stay in there as long
+Dialogue: 0,0:40:14.75,0:40:15.94,Default,NTP,0000,0000,0000,,\N{\fs14}as the dictionary\Nstays in the heap.
+Dialogue: 0,0:40:16.32,0:40:19.17,Default,NTP,0000,0000,0000,,\N{\fs14}The keys and values,\Nobviously, are both objects.
+Dialogue: 0,0:40:19.17,0:40:20.67,Default,NTP,0000,0000,0000,,\N{\fs14}We'll talk about what\Nthe key has to do
+Dialogue: 0,0:40:20.67,0:40:22.69,Default,NTP,0000,0000,0000,,\N{\fs14}to be a key in a second here.
+Dialogue: 0,0:40:22.74,0:40:26.37,Default,NTP,0000,0000,0000,,\N{\fs14}You usually create immutable\NNSDictionaries using another
+Dialogue: 0,0:40:26.37,0:40:29.69,Default,NTP,0000,0000,0000,,\N{\fs14}at sign syntax called\N"at sign curly brace."
+Dialogue: 0,0:40:30.08,0:40:34.17,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. So it's at sign curly\Nbrace, key colon value, comma,
+Dialogue: 0,0:40:34.17,0:40:37.13,Default,NTP,0000,0000,0000,,\N{\fs14}key colon value, comma, key\Ncolon value, end curly brace.
+Dialogue: 0,0:40:37.86,0:40:39.91,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So this is kind of like\Nthe at sign square brackets
+Dialogue: 0,0:40:39.91,0:40:42.33,Default,NTP,0000,0000,0000,,\N{\fs14}for arrays or the at sign\Nparenthesis for NSNumbers.
+Dialogue: 0,0:40:42.33,0:40:45.93,Default,NTP,0000,0000,0000,,\N{\fs14}This is NSDictionary's\Nversion of that.
+Dialogue: 0,0:40:46.39,0:40:49.30,Default,NTP,0000,0000,0000,,\N{\fs14}You look up things\Ninside a dictionary.
+Dialogue: 0,0:40:49.30,0:40:51.62,Default,NTP,0000,0000,0000,,\N{\fs14}You can obviously\Ndo object for key.
+Dialogue: 0,0:40:51.62,0:40:54.19,Default,NTP,0000,0000,0000,,\N{\fs14}That's a nice method for\Nlooking the value up by key.
+Dialogue: 0,0:40:54.43,0:40:56.66,Default,NTP,0000,0000,0000,,\N{\fs14}But you can also use square\Nbrackets that looks kind
+Dialogue: 0,0:40:56.66,0:40:58.65,Default,NTP,0000,0000,0000,,\N{\fs14}of like looking up an array.
+Dialogue: 0,0:40:58.82,0:41:00.96,Default,NTP,0000,0000,0000,,\N{\fs14}So if I had that colors\Ndictionary that's showing right
+Dialogue: 0,0:41:00.96,0:41:03.94,Default,NTP,0000,0000,0000,,\N{\fs14}there and I had a string that\Nwas either green, or blue,
+Dialogue: 0,0:41:03.94,0:41:07.12,Default,NTP,0000,0000,0000,,\N{\fs14}or red, and I wanted to look\Nit up, I can just say colors,
+Dialogue: 0,0:41:07.12,0:41:08.95,Default,NTP,0000,0000,0000,,\N{\fs14}open square bracket,\Nthe color string.
+Dialogue: 0,0:41:09.54,0:41:10.89,Default,NTP,0000,0000,0000,,\N{\fs14}And it will look up that string.
+Dialogue: 0,0:41:10.89,0:41:14.06,Default,NTP,0000,0000,0000,,\N{\fs14}It would return nil if\Nthere's no such key in there.
+Dialogue: 0,0:41:14.59,0:41:17.69,Default,NTP,0000,0000,0000,,\N{\fs14}And it will return the\Nvalue, the actual UI color.
+Dialogue: 0,0:41:17.69,0:41:20.24,Default,NTP,0000,0000,0000,,\N{\fs14}So we're going to talk about\NUI colors in a couple slides.
+Dialogue: 0,0:41:20.97,0:41:25.04,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So this is also\Nreally cool UI --
+Dialogue: 0,0:41:25.47,0:41:28.63,Default,NTP,0000,0000,0000,,\N{\fs14}or syntax rather --\Nfor accessing stuff.
+Dialogue: 0,0:41:28.72,0:41:31.07,Default,NTP,0000,0000,0000,,\N{\fs14}These at sign square\Nbrackets, at sign curly brace,
+Dialogue: 0,0:41:31.07,0:41:34.94,Default,NTP,0000,0000,0000,,\N{\fs14}at sign parenthesis -- big\Nimprovement to Objective-C.
+Dialogue: 0,0:41:35.43,0:41:38.59,Default,NTP,0000,0000,0000,,\N{\fs14}Of course, you can see\Nhow many objects in there.
+Dialogue: 0,0:41:38.59,0:41:40.24,Default,NTP,0000,0000,0000,,\N{\fs14}You can do object\Nfor key to get it.
+Dialogue: 0,0:41:40.53,0:41:44.08,Default,NTP,0000,0000,0000,,\N{\fs14}Key has to implement\Nhash and is equal, right?
+Dialogue: 0,0:41:44.08,0:41:44.94,Default,NTP,0000,0000,0000,,\N{\fs14}It's a hash table.
+Dialogue: 0,0:41:44.94,0:41:46.61,Default,NTP,0000,0000,0000,,\N{\fs14}You have to be able\Nto hash the key
+Dialogue: 0,0:41:46.75,0:41:48.15,Default,NTP,0000,0000,0000,,\N{\fs14}so we can have an\Nefficient lookup.
+Dialogue: 0,0:41:48.38,0:41:50.63,Default,NTP,0000,0000,0000,,\N{\fs14}But then two things might\Nhash to the same thing,
+Dialogue: 0,0:41:50.63,0:41:53.25,Default,NTP,0000,0000,0000,,\N{\fs14}so you have to have is equal\Ndetermine whether two objects
+Dialogue: 0,0:41:53.25,0:41:55.82,Default,NTP,0000,0000,0000,,\N{\fs14}that hash to the same\Nthing are actually equal.
+Dialogue: 0,0:41:56.19,0:42:00.16,Default,NTP,0000,0000,0000,,\N{\fs14}NSObject implements\Nthis very poorly, okay?
+Dialogue: 0,0:42:00.38,0:42:03.60,Default,NTP,0000,0000,0000,,\N{\fs14}So you would never use a\Ngeneric object or some subclass
+Dialogue: 0,0:42:03.60,0:42:05.69,Default,NTP,0000,0000,0000,,\N{\fs14}of object that you've created.
+Dialogue: 0,0:42:06.15,0:42:07.32,Default,NTP,0000,0000,0000,,\N{\fs14}You would never use it as a key.
+Dialogue: 0,0:42:07.32,0:42:10.65,Default,NTP,0000,0000,0000,,\N{\fs14}You're probably going\Nto do pointer hashing.
+Dialogue: 0,0:42:10.65,0:42:13.16,Default,NTP,0000,0000,0000,,\N{\fs14}So it would only do it if your\Nobjects are always unique.
+Dialogue: 0,0:42:13.20,0:42:15.24,Default,NTP,0000,0000,0000,,\N{\fs14}In the heap there's never\Ntwo objects that are the same
+Dialogue: 0,0:42:15.24,0:42:17.39,Default,NTP,0000,0000,0000,,\N{\fs14}that have different pointers.
+Dialogue: 0,0:42:17.49,0:42:20.74,Default,NTP,0000,0000,0000,,\N{\fs14}Strings are excellent\Nkeys in NSDictionaries.
+Dialogue: 0,0:42:20.74,0:42:23.02,Default,NTP,0000,0000,0000,,\N{\fs14}And so I would say\Nstrings are the key
+Dialogue: 0,0:42:23.17,0:42:25.30,Default,NTP,0000,0000,0000,,\N{\fs14}in a dictionary 90\Npercent of the time.
+Dialogue: 0,0:42:26.15,0:42:27.42,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? They're very good.
+Dialogue: 0,0:42:27.42,0:42:28.52,Default,NTP,0000,0000,0000,,\N{\fs14}They hash really well.
+Dialogue: 0,0:42:28.76,0:42:31.87,Default,NTP,0000,0000,0000,,\N{\fs14}They're very fast and\Ndo is equal, etc. Okay?
+Dialogue: 0,0:42:32.98,0:42:35.38,Default,NTP,0000,0000,0000,,\N{\fs14}Of course, immutable, again,
+Dialogue: 0,0:42:35.38,0:42:38.01,Default,NTP,0000,0000,0000,,\N{\fs14}we'd like to sometimes add\Nthings to our dictionaries.
+Dialogue: 0,0:42:38.23,0:42:40.64,Default,NTP,0000,0000,0000,,\N{\fs14}So we have a mutable\Nversion, NSMutable dictionary.
+Dialogue: 0,0:42:40.64,0:42:41.89,Default,NTP,0000,0000,0000,,\N{\fs14}Usually create it\Nwith alloc init.
+Dialogue: 0,0:42:41.89,0:42:44.16,Default,NTP,0000,0000,0000,,\N{\fs14}It has all the things\Nof a dictionary,
+Dialogue: 0,0:42:44.16,0:42:47.12,Default,NTP,0000,0000,0000,,\N{\fs14}plus it has set object for key\N-- that adds a key value pair --
+Dialogue: 0,0:42:48.10,0:42:51.03,Default,NTP,0000,0000,0000,,\N{\fs14}and you can remove objects, add\Nentries from another dictionary,
+Dialogue: 0,0:42:51.03,0:42:54.78,Default,NTP,0000,0000,0000,,\N{\fs14}etc., etc. Looping through a\Ndictionary looks like this.
+Dialogue: 0,0:42:54.78,0:42:57.59,Default,NTP,0000,0000,0000,,\N{\fs14}You do for ID key\Nin the dictionary.
+Dialogue: 0,0:42:57.59,0:43:00.34,Default,NTP,0000,0000,0000,,\N{\fs14}So basically when you do\Nfor in on a dictionary,
+Dialogue: 0,0:43:00.53,0:43:01.79,Default,NTP,0000,0000,0000,,\N{\fs14}you're looping through the keys.
+Dialogue: 0,0:43:02.81,0:43:04.70,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Now, of course,\Ninside it's really easy.
+Dialogue: 0,0:43:04.70,0:43:06.65,Default,NTP,0000,0000,0000,,\N{\fs14}You just say, "Value\Nequals object for key,"
+Dialogue: 0,0:43:07.16,0:43:10.61,Default,NTP,0000,0000,0000,,\N{\fs14}or even use the square brackets\Nnotation to get the value.
+Dialogue: 0,0:43:10.61,0:43:12.67,Default,NTP,0000,0000,0000,,\N{\fs14}So you're kind of looping\Nthrough the values, too,
+Dialogue: 0,0:43:13.12,0:43:15.31,Default,NTP,0000,0000,0000,,\N{\fs14}as long as your hashing\Nis efficient,
+Dialogue: 0,0:43:15.31,0:43:16.62,Default,NTP,0000,0000,0000,,\N{\fs14}which it is if they're strings.
+Dialogue: 0,0:43:17.00,0:43:17.43,Default,NTP,0000,0000,0000,,\N{\fs14}This is [inaudible].
+Dialogue: 0,0:43:17.43,0:43:20.81,Default,NTP,0000,0000,0000,,\N{\fs14}It is possible to\Nask a dictionary,
+Dialogue: 0,0:43:20.87,0:43:22.78,Default,NTP,0000,0000,0000,,\N{\fs14}"Give me all your\Nvalues as an array"?
+Dialogue: 0,0:43:23.65,0:43:25.62,Default,NTP,0000,0000,0000,,\N{\fs14}And then you could for\Nin through that array.
+Dialogue: 0,0:43:26.43,0:43:27.50,Default,NTP,0000,0000,0000,,\N{\fs14}And whether that's\Nmore efficient
+Dialogue: 0,0:43:27.50,0:43:29.98,Default,NTP,0000,0000,0000,,\N{\fs14}than doing this probably depends\Non the size of your dictionary,
+Dialogue: 0,0:43:29.98,0:43:31.40,Default,NTP,0000,0000,0000,,\N{\fs14}etc., etc. Don't worry about it.
+Dialogue: 0,0:43:31.40,0:43:32.67,Default,NTP,0000,0000,0000,,\N{\fs14}It's never going to be\Nan issue in this class.
+Dialogue: 0,0:43:32.67,0:43:33.80,Default,NTP,0000,0000,0000,,\N{\fs14}We're not going to\Nhave dictionaries
+Dialogue: 0,0:43:33.80,0:43:35.23,Default,NTP,0000,0000,0000,,\N{\fs14}of thousands of objects.
+Dialogue: 0,0:43:36.13,0:43:37.74,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? All right.
+Dialogue: 0,0:43:38.30,0:43:42.54,Default,NTP,0000,0000,0000,,\N{\fs14}Next thing I'm going to talk\Nabout is not a class, or syntax,
+Dialogue: 0,0:43:42.54,0:43:46.09,Default,NTP,0000,0000,0000,,\N{\fs14}or whatever; it's a word,\Na phrase -- property list.
+Dialogue: 0,0:43:46.49,0:43:48.11,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And I'm just going\Nto define this term.
+Dialogue: 0,0:43:48.11,0:43:50.18,Default,NTP,0000,0000,0000,,\N{\fs14}You need to know what this\Nterm means, property list.
+Dialogue: 0,0:43:50.41,0:43:53.96,Default,NTP,0000,0000,0000,,\N{\fs14}A property list means a\N"collection of collections."
+Dialogue: 0,0:43:54.57,0:43:55.87,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? What's a collection?
+Dialogue: 0,0:43:56.16,0:43:59.68,Default,NTP,0000,0000,0000,,\N{\fs14}NSArray, dictionary, even\Nstring, NSData, NSNumber --
+Dialogue: 0,0:43:59.68,0:44:02.22,Default,NTP,0000,0000,0000,,\N{\fs14}those are all simple collections\Nif you want it think of them
+Dialogue: 0,0:44:02.22,0:44:05.11,Default,NTP,0000,0000,0000,,\N{\fs14}that way or they're the\Nleaf nodes of collections.
+Dialogue: 0,0:44:05.49,0:44:08.39,Default,NTP,0000,0000,0000,,\N{\fs14}So if you have any object\Ngraph that just has arrays
+Dialogue: 0,0:44:08.39,0:44:11.03,Default,NTP,0000,0000,0000,,\N{\fs14}and dictionaries, numbers,\Nstrings, dates, and datas,
+Dialogue: 0,0:44:11.35,0:44:13.00,Default,NTP,0000,0000,0000,,\N{\fs14}then it's called\Na "property list."
+Dialogue: 0,0:44:13.42,0:44:16.28,Default,NTP,0000,0000,0000,,\N{\fs14}So just for an example, if\Nyou had an array of strings,
+Dialogue: 0,0:44:16.39,0:44:18.91,Default,NTP,0000,0000,0000,,\N{\fs14}that's a property list;\Nan array of arrays,
+Dialogue: 0,0:44:19.66,0:44:23.18,Default,NTP,0000,0000,0000,,\N{\fs14}and those array contain property\Nlists, it's the property list.
+Dialogue: 0,0:44:23.55,0:44:24.94,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So any arbitrary graph.
+Dialogue: 0,0:44:24.94,0:44:28.29,Default,NTP,0000,0000,0000,,\N{\fs14}But as soon as you have any\Nobject in there that's not one
+Dialogue: 0,0:44:28.29,0:44:30.62,Default,NTP,0000,0000,0000,,\N{\fs14}of these things or\Nthey're mutable versions --
+Dialogue: 0,0:44:30.79,0:44:32.93,Default,NTP,0000,0000,0000,,\N{\fs14}that's allowed, too; so you\Ncan have NSMutableStrings
+Dialogue: 0,0:44:32.93,0:44:36.17,Default,NTP,0000,0000,0000,,\N{\fs14}or NSMutableArrays in there\N-- then it's a property list.
+Dialogue: 0,0:44:37.55,0:44:40.70,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? A dictionary is only a\Nproperty list if all of its keys
+Dialogue: 0,0:44:40.70,0:44:42.78,Default,NTP,0000,0000,0000,,\N{\fs14}and all of its values\Nare property lists.
+Dialogue: 0,0:44:43.75,0:44:46.02,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So a dictionary\Nthat keys are strings,
+Dialogue: 0,0:44:46.29,0:44:49.99,Default,NTP,0000,0000,0000,,\N{\fs14}and values are arrays, or other\Ndictionaries of property lists,
+Dialogue: 0,0:44:50.18,0:44:52.47,Default,NTP,0000,0000,0000,,\N{\fs14}that would be a property list.
+Dialogue: 0,0:44:52.73,0:44:54.32,Default,NTP,0000,0000,0000,,\N{\fs14}Why do we define this term?
+Dialogue: 0,0:44:54.32,0:44:57.62,Default,NTP,0000,0000,0000,,\N{\fs14}Because there's a bunch of API\Nthroughout iOS that you're going
+Dialogue: 0,0:44:57.62,0:45:01.16,Default,NTP,0000,0000,0000,,\N{\fs14}to see that takes a property\Nlist as the argument.
+Dialogue: 0,0:45:01.20,0:45:03.64,Default,NTP,0000,0000,0000,,\N{\fs14}But property list is\Nonly a phrase we define,
+Dialogue: 0,0:45:03.84,0:45:05.67,Default,NTP,0000,0000,0000,,\N{\fs14}so it's probably\Ngoing to take an ID.
+Dialogue: 0,0:45:06.42,0:45:07.85,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? It's going to take an ID.
+Dialogue: 0,0:45:07.85,0:45:09.03,Default,NTP,0000,0000,0000,,\N{\fs14}It might take an NSArray
+Dialogue: 0,0:45:09.03,0:45:10.62,Default,NTP,0000,0000,0000,,\N{\fs14}or an NSDictionary,\Ndepending on the API.
+Dialogue: 0,0:45:11.22,0:45:15.70,Default,NTP,0000,0000,0000,,\N{\fs14}But it's basically saying in\Nits documentation, "The argument
+Dialogue: 0,0:45:15.70,0:45:17.06,Default,NTP,0000,0000,0000,,\N{\fs14}to this is a property list."
+Dialogue: 0,0:45:17.29,0:45:18.13,Default,NTP,0000,0000,0000,,\N{\fs14}So even if it's an array,
+Dialogue: 0,0:45:18.13,0:45:20.41,Default,NTP,0000,0000,0000,,\N{\fs14}it's got to be an array\Nof property lists.
+Dialogue: 0,0:45:20.41,0:45:21.80,Default,NTP,0000,0000,0000,,\N{\fs14}If it's a dictionary, it's\Ngot to be a dictionary
+Dialogue: 0,0:45:21.80,0:45:23.78,Default,NTP,0000,0000,0000,,\N{\fs14}that has only property\Nlists with keys and values.
+Dialogue: 0,0:45:23.78,0:45:27.03,Default,NTP,0000,0000,0000,,\N{\fs14}If it's an ID, it's got to\Nbe an array, or a dictionary,
+Dialogue: 0,0:45:27.03,0:45:27.85,Default,NTP,0000,0000,0000,,\N{\fs14}or a string, or number.
+Dialogue: 0,0:45:27.85,0:45:28.49,Default,NTP,0000,0000,0000,,\N{\fs14}You know what I mean?
+Dialogue: 0,0:45:28.49,0:45:29.50,Default,NTP,0000,0000,0000,,\N{\fs14}It's got to be a property list.
+Dialogue: 0,0:45:29.50,0:45:30.65,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Make sense?
+Dialogue: 0,0:45:30.65,0:45:35.08,Default,NTP,0000,0000,0000,,\N{\fs14}And in fact, I'm going to show\Nyou one class that only operates
+Dialogue: 0,0:45:35.08,0:45:37.53,Default,NTP,0000,0000,0000,,\N{\fs14}on property lists,\Nwhich is NSUserDefaults.
+Dialogue: 0,0:45:37.84,0:45:42.33,Default,NTP,0000,0000,0000,,\N{\fs14}So NSUserDefaults is this one\Nshared dictionary essentially
+Dialogue: 0,0:45:42.49,0:45:46.31,Default,NTP,0000,0000,0000,,\N{\fs14}that persists, even across\Napplication launching.
+Dialogue: 0,0:45:46.83,0:45:48.11,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Exiting and launching.
+Dialogue: 0,0:45:48.23,0:45:52.39,Default,NTP,0000,0000,0000,,\N{\fs14}So it's like a permanent\NNSDictionary kind of.
+Dialogue: 0,0:45:52.63,0:45:55.85,Default,NTP,0000,0000,0000,,\N{\fs14}Everything that's stored in\Nan NSUserDefault database has
+Dialogue: 0,0:45:55.85,0:45:56.93,Default,NTP,0000,0000,0000,,\N{\fs14}to be a property list.
+Dialogue: 0,0:45:57.36,0:46:01.02,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So it's not a\Nfull-on database, though.
+Dialogue: 0,0:46:01.02,0:46:01.38,Default,NTP,0000,0000,0000,,\N{\fs14}All right?
+Dialogue: 0,0:46:01.38,0:46:02.54,Default,NTP,0000,0000,0000,,\N{\fs14}It's pretty small.
+Dialogue: 0,0:46:02.80,0:46:04.59,Default,NTP,0000,0000,0000,,\N{\fs14}It's not really high\Nperformance.
+Dialogue: 0,0:46:04.84,0:46:07.59,Default,NTP,0000,0000,0000,,\N{\fs14}So you only want to store\Nsmall things in there.
+Dialogue: 0,0:46:07.99,0:46:10.74,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. You don't want to be\Nstoring huge images or anything
+Dialogue: 0,0:46:10.74,0:46:12.79,Default,NTP,0000,0000,0000,,\N{\fs14}like that, you know,\Nturning them into NSDatas
+Dialogue: 0,0:46:12.79,0:46:13.91,Default,NTP,0000,0000,0000,,\N{\fs14}or something and storing them.
+Dialogue: 0,0:46:13.91,0:46:14.91,Default,NTP,0000,0000,0000,,\N{\fs14}You really don't\Nwant to do that.
+Dialogue: 0,0:46:14.91,0:46:19.79,Default,NTP,0000,0000,0000,,\N{\fs14}Small strings, and arrays\Nof strings, and NSNumbers,
+Dialogue: 0,0:46:19.79,0:46:23.76,Default,NTP,0000,0000,0000,,\N{\fs14}dates maybe -- those\Nkind of things is okay.
+Dialogue: 0,0:46:24.13,0:46:28.17,Default,NTP,0000,0000,0000,,\N{\fs14}Its API. To access it,\Nyou call this class method
+Dialogue: 0,0:46:28.17,0:46:30.65,Default,NTP,0000,0000,0000,,\N{\fs14}on NSUserDefaults called\N"standard user defaults."
+Dialogue: 0,0:46:30.65,0:46:32.63,Default,NTP,0000,0000,0000,,\N{\fs14}And that will give you an\Ninstance that is shared
+Dialogue: 0,0:46:32.63,0:46:34.37,Default,NTP,0000,0000,0000,,\N{\fs14}across your entire application.
+Dialogue: 0,0:46:34.37,0:46:35.36,Default,NTP,0000,0000,0000,,\N{\fs14}It's like a global.
+Dialogue: 0,0:46:35.72,0:46:37.84,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? There's only\None of these things.
+Dialogue: 0,0:46:38.18,0:46:42.43,Default,NTP,0000,0000,0000,,\N{\fs14}And you send messages to it\Nlike this set array for key.
+Dialogue: 0,0:46:42.78,0:46:47.15,Default,NTP,0000,0000,0000,,\N{\fs14}There's also set double for\Nkey, set object for key.
+Dialogue: 0,0:46:47.15,0:46:49.25,Default,NTP,0000,0000,0000,,\N{\fs14}That object would have\Nto be a property list.
+Dialogue: 0,0:46:49.56,0:46:51.44,Default,NTP,0000,0000,0000,,\N{\fs14}So it's kind of like\Na dictionary
+Dialogue: 0,0:46:51.44,0:46:53.96,Default,NTP,0000,0000,0000,,\N{\fs14}but it has these extra method\Nlike set double for key
+Dialogue: 0,0:46:54.18,0:46:57.41,Default,NTP,0000,0000,0000,,\N{\fs14}so that you can store primitive\Ntypes in there without having
+Dialogue: 0,0:46:57.41,0:46:58.94,Default,NTP,0000,0000,0000,,\N{\fs14}to turn them into\NNSNumbers first.
+Dialogue: 0,0:46:59.12,0:47:01.31,Default,NTP,0000,0000,0000,,\N{\fs14}You know, it kind of\Ngets the type checking
+Dialogue: 0,0:47:01.31,0:47:03.13,Default,NTP,0000,0000,0000,,\N{\fs14}of versus just set\Nobject for key
+Dialogue: 0,0:47:03.13,0:47:06.51,Default,NTP,0000,0000,0000,,\N{\fs14}where it doesn't know whether\Nthat's a double or not,
+Dialogue: 0,0:47:06.51,0:47:09.54,Default,NTP,0000,0000,0000,,\N{\fs14}etc. And some of this --\Nbecause now have the autoboxing,
+Dialogue: 0,0:47:09.54,0:47:11.50,Default,NTP,0000,0000,0000,,\N{\fs14}you know, the at sign\Nparenthesis business --
+Dialogue: 0,0:47:11.75,0:47:14.61,Default,NTP,0000,0000,0000,,\N{\fs14}some of this API we don't\Nreally need that much anymore.
+Dialogue: 0,0:47:14.89,0:47:16.16,Default,NTP,0000,0000,0000,,\N{\fs14}But it's all still in there.
+Dialogue: 0,0:47:16.71,0:47:16.86,Default,NTP,0000,0000,0000,,\N{\fs14}Yeah?
+Dialogue: 0,0:47:17.68,0:47:21.98,Default,NTP,0000,0000,0000,,\N{\fs14}>> [Inaudible] So in\Nthis property list idea,
+Dialogue: 0,0:47:21.98,0:47:25.14,Default,NTP,0000,0000,0000,,\N{\fs14}does that have to cascade\Ndown through all of its sub?
+Dialogue: 0,0:47:25.14,0:47:26.39,Default,NTP,0000,0000,0000,,\N{\fs14}>> Yeah. So the question is:\NDoes the property list idea have
+Dialogue: 0,0:47:26.39,0:47:28.93,Default,NTP,0000,0000,0000,,\N{\fs14}to cascade down through\Nall of the sub things?
+Dialogue: 0,0:47:28.93,0:47:30.23,Default,NTP,0000,0000,0000,,\N{\fs14}And the answer is yes.
+Dialogue: 0,0:47:30.31,0:47:32.22,Default,NTP,0000,0000,0000,,\N{\fs14}A property list, for it\Nto be a property list,
+Dialogue: 0,0:47:32.22,0:47:36.00,Default,NTP,0000,0000,0000,,\N{\fs14}everything in the entire object\Ngraph has to be a property list.
+Dialogue: 0,0:47:36.00,0:47:36.68,Default,NTP,0000,0000,0000,,\N{\fs14}All the way down.
+Dialogue: 0,0:47:37.18,0:47:38.35,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? No exceptions.
+Dialogue: 0,0:47:39.10,0:47:41.54,Default,NTP,0000,0000,0000,,\N{\fs14}And if you were to, for\Nexample, call set object for key
+Dialogue: 0,0:47:41.89,0:47:43.74,Default,NTP,0000,0000,0000,,\N{\fs14}and you passed it\Nsomething that somewhere
+Dialogue: 0,0:47:43.74,0:47:46.39,Default,NTP,0000,0000,0000,,\N{\fs14}down a leaf node\Nwas a card, right,
+Dialogue: 0,0:47:46.39,0:47:48.10,Default,NTP,0000,0000,0000,,\N{\fs14}or some nonproperty list thing,
+Dialogue: 0,0:47:48.35,0:47:51.16,Default,NTP,0000,0000,0000,,\N{\fs14}this method would raise\Nan exception and say,
+Dialogue: 0,0:47:51.16,0:47:53.57,Default,NTP,0000,0000,0000,,\N{\fs14}"That's not a property\Nlist," okay, at runtime.
+Dialogue: 0,0:47:53.64,0:47:55.17,Default,NTP,0000,0000,0000,,\N{\fs14}So it would crash your program.
+Dialogue: 0,0:47:55.17,0:47:58.92,Default,NTP,0000,0000,0000,,\N{\fs14}The other thing to\Nremember, though,
+Dialogue: 0,0:47:58.92,0:48:01.56,Default,NTP,0000,0000,0000,,\N{\fs14}is once you've gotten this\Nstandard user default instance
+Dialogue: 0,0:48:01.56,0:48:02.77,Default,NTP,0000,0000,0000,,\N{\fs14}and you've stored what you want,
+Dialogue: 0,0:48:02.94,0:48:04.89,Default,NTP,0000,0000,0000,,\N{\fs14}you have to call this\Nmethod synchronize
+Dialogue: 0,0:48:05.26,0:48:06.31,Default,NTP,0000,0000,0000,,\N{\fs14}on the instance, okay?
+Dialogue: 0,0:48:06.51,0:48:08.89,Default,NTP,0000,0000,0000,,\N{\fs14}So NSUserDefault,NTP,0000,0000,0000,,\N{\fs14} standard\Nuser Default,NTP,0000,0000,0000,,\N{\fs14} synchronize.
+Dialogue: 0,0:48:09.15,0:48:10.78,Default,NTP,0000,0000,0000,,\N{\fs14}That's what makes it permanent.
+Dialogue: 0,0:48:11.46,0:48:13.00,Default,NTP,0000,0000,0000,,\N{\fs14}So you write a few things,
+Dialogue: 0,0:48:13.00,0:48:14.81,Default,NTP,0000,0000,0000,,\N{\fs14}a little batch, and\Nthen synchronize.
+Dialogue: 0,0:48:15.50,0:48:18.21,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Don't forget\Nto synchronize.
+Dialogue: 0,0:48:18.86,0:48:21.50,Default,NTP,0000,0000,0000,,\N{\fs14}If you were to set\Nsome things in there
+Dialogue: 0,0:48:21.74,0:48:23.95,Default,NTP,0000,0000,0000,,\N{\fs14}and your app crashed before\Nyou did the synchronize,
+Dialogue: 0,0:48:23.95,0:48:24.94,Default,NTP,0000,0000,0000,,\N{\fs14}it would not get synced.
+Dialogue: 0,0:48:25.67,0:48:27.95,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? When your app launched\Nagain it would be gone,
+Dialogue: 0,0:48:28.35,0:48:30.39,Default,NTP,0000,0000,0000,,\N{\fs14}the stuff you put in there.
+Dialogue: 0,0:48:30.96,0:48:34.44,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? The last thing really I'm\Ngoing to talk about that's kind
+Dialogue: 0,0:48:34.44,0:48:38.43,Default,NTP,0000,0000,0000,,\N{\fs14}of in the core part of\NFoundation is NSRange,
+Dialogue: 0,0:48:38.43,0:48:39.68,Default,NTP,0000,0000,0000,,\N{\fs14}which is just a C struct.
+Dialogue: 0,0:48:40.07,0:48:42.32,Default,NTP,0000,0000,0000,,\N{\fs14}It's exactly what you\Nthink: It describes a range.
+Dialogue: 0,0:48:42.32,0:48:43.80,Default,NTP,0000,0000,0000,,\N{\fs14}This might be a range\Nin a string
+Dialogue: 0,0:48:44.10,0:48:45.66,Default,NTP,0000,0000,0000,,\N{\fs14}or it could be a\Nrange in an array.
+Dialogue: 0,0:48:45.85,0:48:47.59,Default,NTP,0000,0000,0000,,\N{\fs14}It's basically a\Nstarting location,
+Dialogue: 0,0:48:47.59,0:48:50.22,Default,NTP,0000,0000,0000,,\N{\fs14}that's the NSUInteger\Nlocation and a length --
+Dialogue: 0,0:48:50.47,0:48:53.38,Default,NTP,0000,0000,0000,,\N{\fs14}how many characters or how\Nmany items in the array?
+Dialogue: 0,0:48:53.85,0:48:58.01,Default,NTP,0000,0000,0000,,\N{\fs14}There's an important\Nconstant called NSNotFound.
+Dialogue: 0,0:48:58.41,0:48:59.22,Default,NTP,0000,0000,0000,,\N{\fs14}All right?
+Dialogue: 0,0:48:59.22,0:49:03.26,Default,NTP,0000,0000,0000,,\N{\fs14}NSNotFound is the value\Nof location in a range
+Dialogue: 0,0:49:03.42,0:49:05.91,Default,NTP,0000,0000,0000,,\N{\fs14}that was not found or\Nthat is otherwise invalid.
+Dialogue: 0,0:49:06.43,0:49:10.16,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. So it's, like, search\Nfor a substring in a string
+Dialogue: 0,0:49:10.16,0:49:12.86,Default,NTP,0000,0000,0000,,\N{\fs14}and it couldn't find it, you're\Ngoing to get a range back
+Dialogue: 0,0:49:13.21,0:49:15.60,Default,NTP,0000,0000,0000,,\N{\fs14}that the location is\Ngoing to be NSNotFound.
+Dialogue: 0,0:49:17.23,0:49:18.81,Default,NTP,0000,0000,0000,,\N{\fs14}Everyone understand that?
+Dialogue: 0,0:49:19.38,0:49:22.57,Default,NTP,0000,0000,0000,,\N{\fs14}There's also this\Nthing, NSRangePointer.
+Dialogue: 0,0:49:22.71,0:49:24.65,Default,NTP,0000,0000,0000,,\N{\fs14}That's basically\Njust an NSRange star.
+Dialogue: 0,0:49:25.04,0:49:30.13,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. Now I told you in iOS\Nwe don't really put structs
+Dialogue: 0,0:49:30.13,0:49:31.32,Default,NTP,0000,0000,0000,,\N{\fs14}in the heap and we don't.
+Dialogue: 0,0:49:31.65,0:49:35.70,Default,NTP,0000,0000,0000,,\N{\fs14}This NSRangePointer is for\Ncall by reference ranges.
+Dialogue: 0,0:49:35.98,0:49:38.83,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So some methods will\Ntake an NSRangePointer
+Dialogue: 0,0:49:38.83,0:49:40.71,Default,NTP,0000,0000,0000,,\N{\fs14}as an argument -- one\Nof its arguments --
+Dialogue: 0,0:49:40.71,0:49:42.94,Default,NTP,0000,0000,0000,,\N{\fs14}and what it's saying there\Nis, "If you pass me a pointer
+Dialogue: 0,0:49:42.94,0:49:45.57,Default,NTP,0000,0000,0000,,\N{\fs14}to a range, I'll fill it\Nin with some information."
+Dialogue: 0,0:49:46.11,0:49:47.80,Default,NTP,0000,0000,0000,,\N{\fs14}Almost always you\Ncan pass null there
+Dialogue: 0,0:49:47.80,0:49:49.00,Default,NTP,0000,0000,0000,,\N{\fs14}and it won't fill\Nthe information
+Dialogue: 0,0:49:49.00,0:49:50.32,Default,NTP,0000,0000,0000,,\N{\fs14}in because you won't\Nbe pointing to a range.
+Dialogue: 0,0:49:50.58,0:49:51.65,Default,NTP,0000,0000,0000,,\N{\fs14}But it's for reference.
+Dialogue: 0,0:49:51.65,0:49:54.03,Default,NTP,0000,0000,0000,,\N{\fs14}Everyone know what it\Nmeans to call by reference?
+Dialogue: 0,0:49:55.43,0:49:55.78,Default,NTP,0000,0000,0000,,\N{\fs14}Question?
+Dialogue: 0,0:49:56.66,0:50:01.44,Default,NTP,0000,0000,0000,,\N{\fs14}>> Just out of curiosity,\Nwhy are you using unsigned
+Dialogue: 0,0:50:01.74,0:50:05.25,Default,NTP,0000,0000,0000,,\N{\fs14}or why did Apple choose to\Nuse unsigned on its range.
+Dialogue: 0,0:50:05.52,0:50:09.26,Default,NTP,0000,0000,0000,,\N{\fs14}It seems like you\Ncan't represent a range
+Dialogue: 0,0:50:09.44,0:50:09.98,Default,NTP,0000,0000,0000,,\N{\fs14}over negative numbers.
+Dialogue: 0,0:50:10.98,0:50:12.58,Default,NTP,0000,0000,0000,,\N{\fs14}>> Yeah. So the question\Nis: Why did Apple choose
+Dialogue: 0,0:50:12.58,0:50:14.94,Default,NTP,0000,0000,0000,,\N{\fs14}to make location be\Nan unsigned integer?
+Dialogue: 0,0:50:15.04,0:50:18.42,Default,NTP,0000,0000,0000,,\N{\fs14}In other words, why can the\Nrange only be a positive range?
+Dialogue: 0,0:50:18.89,0:50:22.48,Default,NTP,0000,0000,0000,,\N{\fs14}And I think the main reason\Nthey did that is, you know,
+Dialogue: 0,0:50:22.48,0:50:24.83,Default,NTP,0000,0000,0000,,\N{\fs14}they designed NSRange\Nfor their own purposes,
+Dialogue: 0,0:50:24.83,0:50:27.00,Default,NTP,0000,0000,0000,,\N{\fs14}like ranges in arrays,\Nranges in strings.
+Dialogue: 0,0:50:27.23,0:50:28.74,Default,NTP,0000,0000,0000,,\N{\fs14}They never want to\Nrepresent that.
+Dialogue: 0,0:50:28.97,0:50:30.52,Default,NTP,0000,0000,0000,,\N{\fs14}And I will bet you dollars
+Dialogue: 0,0:50:30.52,0:50:34.25,Default,NTP,0000,0000,0000,,\N{\fs14}to doughnuts NSNotFound is\Neither the maximum integer
+Dialogue: 0,0:50:34.25,0:50:36.68,Default,NTP,0000,0000,0000,,\N{\fs14}or it's minus, you know,\Nwhatever, negative,
+Dialogue: 0,0:50:36.68,0:50:38.08,Default,NTP,0000,0000,0000,,\N{\fs14}which sometimes are\Nthe same thing, right?
+Dialogue: 0,0:50:38.08,0:50:39.71,Default,NTP,0000,0000,0000,,\N{\fs14}If you know how computer\Nscience works,
+Dialogue: 0,0:50:39.77,0:50:42.89,Default,NTP,0000,0000,0000,,\N{\fs14}a lot of times it's all the\Nbits inverted, that's minus one
+Dialogue: 0,0:50:42.89,0:50:44.36,Default,NTP,0000,0000,0000,,\N{\fs14}that also would be at\Nthe end of the range.
+Dialogue: 0,0:50:44.36,0:50:47.14,Default,NTP,0000,0000,0000,,\N{\fs14}So I think it's just\Nbecause they didn't need it
+Dialogue: 0,0:50:47.48,0:50:48.77,Default,NTP,0000,0000,0000,,\N{\fs14}for anything else\Nand they wanted
+Dialogue: 0,0:50:48.77,0:50:51.77,Default,NTP,0000,0000,0000,,\N{\fs14}to make their API\Nclearer possibly.
+Dialogue: 0,0:50:51.77,0:50:52.55,Default,NTP,0000,0000,0000,,\N{\fs14}I don't know.
+Dialogue: 0,0:50:52.55,0:50:53.68,Default,NTP,0000,0000,0000,,\N{\fs14}I don't work at Apple\N-- never did --
+Dialogue: 0,0:50:53.68,0:50:57.12,Default,NTP,0000,0000,0000,,\N{\fs14}so I don't really know\Nwhy they did that.
+Dialogue: 0,0:50:58.09,0:51:01.36,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. So that's really kind of\Nit for the Foundational stuff.
+Dialogue: 0,0:51:01.60,0:51:03.74,Default,NTP,0000,0000,0000,,\N{\fs14}I am going to talk about some\Nmore classes in Foundation.
+Dialogue: 0,0:51:03.74,0:51:05.73,Default,NTP,0000,0000,0000,,\N{\fs14}But first we're going to\Ntake a little detour and talk
+Dialogue: 0,0:51:05.73,0:51:07.49,Default,NTP,0000,0000,0000,,\N{\fs14}about a couple classes in UIkit.
+Dialogue: 0,0:51:07.91,0:51:10.75,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And those are\Ncolors and fonts.
+Dialogue: 0,0:51:10.90,0:51:11.47,Default,NTP,0000,0000,0000,,\N{\fs14}All right.
+Dialogue: 0,0:51:11.47,0:51:15.24,Default,NTP,0000,0000,0000,,\N{\fs14}So UIColor, super simple\Nclass, represents a color.
+Dialogue: 0,0:51:15.50,0:51:18.91,Default,NTP,0000,0000,0000,,\N{\fs14}The color can be represented in\Nso many different ways, RGB --
+Dialogue: 0,0:51:18.91,0:51:21.26,Default,NTP,0000,0000,0000,,\N{\fs14}red, green, blue, right?
+Dialogue: 0,0:51:21.26,0:51:23.24,Default,NTP,0000,0000,0000,,\N{\fs14}HSB, that's hue,\Nsaturation, and brightness.
+Dialogue: 0,0:51:23.24,0:51:24.82,Default,NTP,0000,0000,0000,,\N{\fs14}It could even be a pattern.
+Dialogue: 0,0:51:24.92,0:51:26.59,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. So you can have a color
+Dialogue: 0,0:51:26.59,0:51:28.68,Default,NTP,0000,0000,0000,,\N{\fs14}that is a UI image\Npattern in there.
+Dialogue: 0,0:51:28.68,0:51:30.21,Default,NTP,0000,0000,0000,,\N{\fs14}And when you draw\Nwith that color,
+Dialogue: 0,0:51:30.21,0:51:31.32,Default,NTP,0000,0000,0000,,\N{\fs14}it will draw with the pattern.
+Dialogue: 0,0:51:31.37,0:51:34.99,Default,NTP,0000,0000,0000,,\N{\fs14}So color, super powerful\Nbut nice and simple API.
+Dialogue: 0,0:51:35.58,0:51:38.13,Default,NTP,0000,0000,0000,,\N{\fs14}Colors can also have alpha.
+Dialogue: 0,0:51:38.45,0:51:41.30,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. How many people in here\Ndo not know what alpha is?
+Dialogue: 0,0:51:41.59,0:51:42.67,Default,NTP,0000,0000,0000,,\N{\fs14}Never heard the phrase "alpha"?
+Dialogue: 0,0:51:42.82,0:51:44.09,Default,NTP,0000,0000,0000,,\N{\fs14}So everybody knows\Nwhat alpha is.
+Dialogue: 0,0:51:44.09,0:51:45.15,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. So that's a first.
+Dialogue: 0,0:51:45.31,0:51:49.04,Default,NTP,0000,0000,0000,,\N{\fs14}So alpha, which in computer\Ngraphics is how transparent it
+Dialogue: 0,0:51:49.04,0:51:52.56,Default,NTP,0000,0000,0000,,\N{\fs14}is -- one being fully opaque and\Nzero being fully transparent.
+Dialogue: 0,0:51:53.13,0:51:56.76,Default,NTP,0000,0000,0000,,\N{\fs14}You can create colors that\Nare partially transparent.
+Dialogue: 0,0:51:56.76,0:51:58.20,Default,NTP,0000,0000,0000,,\N{\fs14}And then if you draw\Nwith them, you'll be able
+Dialogue: 0,0:51:58.20,0:52:00.59,Default,NTP,0000,0000,0000,,\N{\fs14}to see behind where\Nyou filled in.
+Dialogue: 0,0:52:00.59,0:52:02.34,Default,NTP,0000,0000,0000,,\N{\fs14}So colors are really cool.
+Dialogue: 0,0:52:02.74,0:52:05.94,Default,NTP,0000,0000,0000,,\N{\fs14}There's a handful of kind\Nof standard colors --
+Dialogue: 0,0:52:06.15,0:52:09.05,Default,NTP,0000,0000,0000,,\N{\fs14}the green color, red color,\Npurple color, whatever.
+Dialogue: 0,0:52:09.05,0:52:12.16,Default,NTP,0000,0000,0000,,\N{\fs14}You can look in its\Ndocumentation to find those.
+Dialogue: 0,0:52:12.64,0:52:13.67,Default,NTP,0000,0000,0000,,\N{\fs14}They're just class method.
+Dialogue: 0,0:52:13.67,0:52:16.44,Default,NTP,0000,0000,0000,,\N{\fs14}There's also a few methods in\Nthere like the light text color,
+Dialogue: 0,0:52:16.44,0:52:18.67,Default,NTP,0000,0000,0000,,\N{\fs14}which is the shade of\Ngray for light text,
+Dialogue: 0,0:52:18.71,0:52:19.82,Default,NTP,0000,0000,0000,,\N{\fs14}disabled text, or whatever.
+Dialogue: 0,0:52:19.89,0:52:20.98,Default,NTP,0000,0000,0000,,\N{\fs14}So you can look at all that.
+Dialogue: 0,0:52:21.63,0:52:22.73,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So colors are simple.
+Dialogue: 0,0:52:22.81,0:52:24.87,Default,NTP,0000,0000,0000,,\N{\fs14}Fonts, not to simple.
+Dialogue: 0,0:52:25.33,0:52:30.93,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Now, fonts in iOS 7\Nare incredibly important
+Dialogue: 0,0:52:30.93,0:52:31.66,Default,NTP,0000,0000,0000,,\N{\fs14}to get right.
+Dialogue: 0,0:52:32.01,0:52:37.34,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? A huge percentage of good\NiOS 7 UI design is picking the
+Dialogue: 0,0:52:37.34,0:52:41.76,Default,NTP,0000,0000,0000,,\N{\fs14}right fronts, and using fonts in\Nthe right way, arranging fonts
+Dialogue: 0,0:52:41.76,0:52:44.08,Default,NTP,0000,0000,0000,,\N{\fs14}on screen in a nice way.
+Dialogue: 0,0:52:44.33,0:52:45.14,Default,NTP,0000,0000,0000,,\N{\fs14}Super important.
+Dialogue: 0,0:52:45.14,0:52:47.78,Default,NTP,0000,0000,0000,,\N{\fs14}So there's a lot of\Nsupport in iOS 7 that's new
+Dialogue: 0,0:52:48.08,0:52:51.00,Default,NTP,0000,0000,0000,,\N{\fs14}that is basically\Nabout making it easy
+Dialogue: 0,0:52:51.00,0:52:52.69,Default,NTP,0000,0000,0000,,\N{\fs14}to do the right thing\Nwith fonts.
+Dialogue: 0,0:52:52.73,0:52:55.47,Default,NTP,0000,0000,0000,,\N{\fs14}So I put up some examples\Nof some iOS 7 apps here.
+Dialogue: 0,0:52:55.71,0:52:57.32,Default,NTP,0000,0000,0000,,\N{\fs14}And you can see how front
+Dialogue: 0,0:52:57.32,0:52:59.48,Default,NTP,0000,0000,0000,,\N{\fs14}and center fonts are\Non all these things.
+Dialogue: 0,0:52:59.70,0:53:04.26,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? If you had ugly fonts\Nhere or you didn't have bold,
+Dialogue: 0,0:53:04.26,0:53:07.08,Default,NTP,0000,0000,0000,,\N{\fs14}or you had, you know, fronts\Nthat were too smashed together
+Dialogue: 0,0:53:07.08,0:53:11.71,Default,NTP,0000,0000,0000,,\N{\fs14}or hard to read or the wrong\Ncolor, these UIs would be,
+Dialogue: 0,0:53:11.71,0:53:13.62,Default,NTP,0000,0000,0000,,\N{\fs14}you know, impossible to decipher
+Dialogue: 0,0:53:13.62,0:53:16.02,Default,NTP,0000,0000,0000,,\N{\fs14}or very difficult\Nto decipher here.
+Dialogue: 0,0:53:16.02,0:53:20.90,Default,NTP,0000,0000,0000,,\N{\fs14}So color, and background\Ncolors, and, you know,
+Dialogue: 0,0:53:20.90,0:53:23.75,Default,NTP,0000,0000,0000,,\N{\fs14}the size of fonts, and all\Nthese things are all critically
+Dialogue: 0,0:53:23.75,0:53:25.98,Default,NTP,0000,0000,0000,,\N{\fs14}important in all of\Nthese applications.
+Dialogue: 0,0:53:26.58,0:53:30.55,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So we're going to talk\Na little bit about how to deal
+Dialogue: 0,0:53:30.55,0:53:34.59,Default,NTP,0000,0000,0000,,\N{\fs14}with this and what's in there\Nfor iOS 7 to make this happen.
+Dialogue: 0,0:53:34.85,0:53:37.50,Default,NTP,0000,0000,0000,,\N{\fs14}Unfortunately, I don't\Nhave enough time in lecture
+Dialogue: 0,0:53:37.50,0:53:39.74,Default,NTP,0000,0000,0000,,\N{\fs14}in general to go\Nthrough all of this.
+Dialogue: 0,0:53:39.98,0:53:44.16,Default,NTP,0000,0000,0000,,\N{\fs14}I'll kind of distribute little\Nbits of wisdom about it as we go
+Dialogue: 0,0:53:44.16,0:53:48.78,Default,NTP,0000,0000,0000,,\N{\fs14}through various UIs in lecture,\Nand demos, and things like that.
+Dialogue: 0,0:53:49.14,0:53:51.66,Default,NTP,0000,0000,0000,,\N{\fs14}What I'm going to try and give\Nyou today is just the basis
+Dialogue: 0,0:53:51.66,0:53:54.79,Default,NTP,0000,0000,0000,,\N{\fs14}for how we present\Ntext on screen, okay?
+Dialogue: 0,0:53:55.06,0:53:57.87,Default,NTP,0000,0000,0000,,\N{\fs14}What the primitives are\Nfor that and how we do it
+Dialogue: 0,0:53:57.87,0:53:59.99,Default,NTP,0000,0000,0000,,\N{\fs14}in the right way so\Nthat we get consistency.
+Dialogue: 0,0:53:59.99,0:54:01.45,Default,NTP,0000,0000,0000,,\N{\fs14}See, the one thing\Nabout all these apps --
+Dialogue: 0,0:54:01.63,0:54:06.26,Default,NTP,0000,0000,0000,,\N{\fs14}do you see how the bold font,\Nand the fonts you can click on,
+Dialogue: 0,0:54:06.26,0:54:08.00,Default,NTP,0000,0000,0000,,\N{\fs14}and the kind of little\Nsubheading fonts,
+Dialogue: 0,0:54:08.18,0:54:13.24,Default,NTP,0000,0000,0000,,\N{\fs14}they're all related fonts, same\Nfamily -- maybe, maybe not.
+Dialogue: 0,0:54:13.31,0:54:14.68,Default,NTP,0000,0000,0000,,\N{\fs14}But they're related.
+Dialogue: 0,0:54:14.68,0:54:16.10,Default,NTP,0000,0000,0000,,\N{\fs14}They're the same sizes.
+Dialogue: 0,0:54:16.31,0:54:17.20,Default,NTP,0000,0000,0000,,\N{\fs14}They look the same.
+Dialogue: 0,0:54:17.20,0:54:19.45,Default,NTP,0000,0000,0000,,\N{\fs14}So all the apps kind of\Nhave a similar look, okay?
+Dialogue: 0,0:54:19.45,0:54:21.27,Default,NTP,0000,0000,0000,,\N{\fs14}That's because they're\Nall using fonts properly.
+Dialogue: 0,0:54:21.91,0:54:24.46,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So let's talk about fonts.
+Dialogue: 0,0:54:24.97,0:54:27.45,Default,NTP,0000,0000,0000,,\N{\fs14}The most important thing to\Nunderstand about fonts is
+Dialogue: 0,0:54:27.45,0:54:29.74,Default,NTP,0000,0000,0000,,\N{\fs14}that if you're displaying\Nuser content --
+Dialogue: 0,0:54:30.14,0:54:31.59,Default,NTP,0000,0000,0000,,\N{\fs14}okay, that the user's\Ninformation.
+Dialogue: 0,0:54:31.59,0:54:34.74,Default,NTP,0000,0000,0000,,\N{\fs14}So in the calendar that's the\Nappointments, and the days
+Dialogue: 0,0:54:34.74,0:54:36.47,Default,NTP,0000,0000,0000,,\N{\fs14}of the week, and the\Nmonth, and all those things.
+Dialogue: 0,0:54:37.06,0:54:40.17,Default,NTP,0000,0000,0000,,\N{\fs14}In the weather it's the\Ntemperature, and the name
+Dialogue: 0,0:54:40.17,0:54:41.55,Default,NTP,0000,0000,0000,,\N{\fs14}of the city, and\Nthings like that.
+Dialogue: 0,0:54:41.82,0:54:46.74,Default,NTP,0000,0000,0000,,\N{\fs14}In the timer app it's the\Ncity that the clock is in.
+Dialogue: 0,0:54:46.74,0:54:48.33,Default,NTP,0000,0000,0000,,\N{\fs14}So if it's user content --
+Dialogue: 0,0:54:48.33,0:54:51.52,Default,NTP,0000,0000,0000,,\N{\fs14}in other words, it's not\Nthe text on a button, okay?
+Dialogue: 0,0:54:51.85,0:54:54.15,Default,NTP,0000,0000,0000,,\N{\fs14}It's not a text on a button\Nthat user's clicking like edit
+Dialogue: 0,0:54:54.20,0:54:55.08,Default,NTP,0000,0000,0000,,\N{\fs14}or something like that.
+Dialogue: 0,0:54:55.49,0:54:57.43,Default,NTP,0000,0000,0000,,\N{\fs14}Then you want to use\Na preferred font,
+Dialogue: 0,0:54:57.43,0:54:58.55,Default,NTP,0000,0000,0000,,\N{\fs14}what's called a "preferred\Nfont."
+Dialogue: 0,0:54:58.55,0:55:00.72,Default,NTP,0000,0000,0000,,\N{\fs14}And so you want this\Nincredibly important method.
+Dialogue: 0,0:55:01.02,0:55:03.62,Default,NTP,0000,0000,0000,,\N{\fs14}If you only learn one\Nmethod in all of UI font,
+Dialogue: 0,0:55:03.65,0:55:06.96,Default,NTP,0000,0000,0000,,\N{\fs14}it's this iOS 7 method called\N"preferred font for text style."
+Dialogue: 0,0:55:07.47,0:55:09.73,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? The text style\Nargument is a string.
+Dialogue: 0,0:55:10.03,0:55:12.27,Default,NTP,0000,0000,0000,,\N{\fs14}You use a constant that\Nyou're going to look
+Dialogue: 0,0:55:12.27,0:55:14.66,Default,NTP,0000,0000,0000,,\N{\fs14}up in UI font descriptor,\Nactually.
+Dialogue: 0,0:55:14.66,0:55:16.27,Default,NTP,0000,0000,0000,,\N{\fs14}If you go through UI font,
+Dialogue: 0,0:55:16.48,0:55:18.04,Default,NTP,0000,0000,0000,,\N{\fs14}you can link click\Nthrough and find it.
+Dialogue: 0,0:55:18.30,0:55:20.16,Default,NTP,0000,0000,0000,,\N{\fs14}And so there's the body style.
+Dialogue: 0,0:55:20.16,0:55:22.78,Default,NTP,0000,0000,0000,,\N{\fs14}So that's text that's in\Nthe body, the main part
+Dialogue: 0,0:55:22.78,0:55:24.57,Default,NTP,0000,0000,0000,,\N{\fs14}of what's being displayed.
+Dialogue: 0,0:55:24.57,0:55:26.53,Default,NTP,0000,0000,0000,,\N{\fs14}So like, in an appointment\Nthat would be --
+Dialogue: 0,0:55:26.76,0:55:30.40,Default,NTP,0000,0000,0000,,\N{\fs14}like in a calendar item that\Nwould be the actual information
+Dialogue: 0,0:55:30.40,0:55:32.09,Default,NTP,0000,0000,0000,,\N{\fs14}about what's going to\Nhappen at that appointment.
+Dialogue: 0,0:55:32.09,0:55:34.11,Default,NTP,0000,0000,0000,,\N{\fs14}And then there's\Na headline style.
+Dialogue: 0,0:55:34.11,0:55:35.86,Default,NTP,0000,0000,0000,,\N{\fs14}So that would be,\Nobviously, a header.
+Dialogue: 0,0:55:36.16,0:55:38.79,Default,NTP,0000,0000,0000,,\N{\fs14}There's footnotes,\Ncaptions, like a caption
+Dialogue: 0,0:55:38.79,0:55:40.18,Default,NTP,0000,0000,0000,,\N{\fs14}on an image, things like that.
+Dialogue: 0,0:55:40.38,0:55:43.26,Default,NTP,0000,0000,0000,,\N{\fs14}There's about, I think,\Neight or so of these.
+Dialogue: 0,0:55:43.45,0:55:45.40,Default,NTP,0000,0000,0000,,\N{\fs14}And you should familiarize\Nyourself
+Dialogue: 0,0:55:45.50,0:55:48.58,Default,NTP,0000,0000,0000,,\N{\fs14}with what circumstances\Nsemantically those things should
+Dialogue: 0,0:55:48.58,0:55:49.08,Default,NTP,0000,0000,0000,,\N{\fs14}be used in.
+Dialogue: 0,0:55:49.08,0:55:51.20,Default,NTP,0000,0000,0000,,\N{\fs14}And then when you want\Na font in your app,
+Dialogue: 0,0:55:51.50,0:55:52.99,Default,NTP,0000,0000,0000,,\N{\fs14}you should be using\None of these.
+Dialogue: 0,0:55:53.07,0:55:55.26,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? For user content.
+Dialogue: 0,0:55:55.44,0:55:56.93,Default,NTP,0000,0000,0000,,\N{\fs14}There's also system fonts.
+Dialogue: 0,0:55:57.01,0:55:58.64,Default,NTP,0000,0000,0000,,\N{\fs14}These are what goes on buttons.
+Dialogue: 0,0:55:58.69,0:56:01.55,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Don't use the system\Nfonts for user content.
+Dialogue: 0,0:56:02.61,0:56:06.41,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Sometimes it's okay to use\Na preferred font on a button.
+Dialogue: 0,0:56:06.57,0:56:08.72,Default,NTP,0000,0000,0000,,\N{\fs14}It depends on whether the title\Nof the button might change,
+Dialogue: 0,0:56:08.72,0:56:11.34,Default,NTP,0000,0000,0000,,\N{\fs14}depending on user's,\Nyou know, content.
+Dialogue: 0,0:56:11.46,0:56:13.63,Default,NTP,0000,0000,0000,,\N{\fs14}Basically it's the user's\Ncontent on a button.
+Dialogue: 0,0:56:13.97,0:56:14.97,Default,NTP,0000,0000,0000,,\N{\fs14}That would be okay.
+Dialogue: 0,0:56:15.10,0:56:16.05,Default,NTP,0000,0000,0000,,\N{\fs14}But you generally wouldn't want
+Dialogue: 0,0:56:16.05,0:56:17.78,Default,NTP,0000,0000,0000,,\N{\fs14}to use system fonts\Nfor user's content.
+Dialogue: 0,0:56:18.58,0:56:21.82,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So this is what's\Non a button, what's --
+Dialogue: 0,0:56:22.22,0:56:26.29,Default,NTP,0000,0000,0000,,\N{\fs14}you know, that kind of thing.
+Dialogue: 0,0:56:26.29,0:56:26.59,Default,NTP,0000,0000,0000,,\N{\fs14}All right.
+Dialogue: 0,0:56:26.91,0:56:27.99,Default,NTP,0000,0000,0000,,\N{\fs14}UI font descriptor.
+Dialogue: 0,0:56:28.15,0:56:32.43,Default,NTP,0000,0000,0000,,\N{\fs14}I put some extra slides in\Nwhat I posted that talks more
+Dialogue: 0,0:56:32.43,0:56:33.65,Default,NTP,0000,0000,0000,,\N{\fs14}about UI font descriptor.
+Dialogue: 0,0:56:34.04,0:56:35.67,Default,NTP,0000,0000,0000,,\N{\fs14}I'm not going to go\Nthrough them here.
+Dialogue: 0,0:56:35.99,0:56:37.66,Default,NTP,0000,0000,0000,,\N{\fs14}You can look through them,\Njust kind of get a little bit
+Dialogue: 0,0:56:37.66,0:56:39.58,Default,NTP,0000,0000,0000,,\N{\fs14}of a hint for UI\Nfont descriptor.
+Dialogue: 0,0:56:40.06,0:56:43.56,Default,NTP,0000,0000,0000,,\N{\fs14}But the bottom line is:\NFonts are designed not
+Dialogue: 0,0:56:43.56,0:56:46.28,Default,NTP,0000,0000,0000,,\N{\fs14}by computer programmers\Nbut by artists.
+Dialogue: 0,0:56:46.67,0:56:49.44,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Artists design fonts,\Nand they've been designing them
+Dialogue: 0,0:56:49.44,0:56:50.99,Default,NTP,0000,0000,0000,,\N{\fs14}for hundreds of years.
+Dialogue: 0,0:56:50.99,0:56:54.30,Default,NTP,0000,0000,0000,,\N{\fs14}Yeah, probably couple hundred\Nyears since the ledgers,
+Dialogue: 0,0:56:54.48,0:56:56.31,Default,NTP,0000,0000,0000,,\N{\fs14}since presses were made.
+Dialogue: 0,0:56:56.31,0:56:58.46,Default,NTP,0000,0000,0000,,\N{\fs14}I don't know when\NGutenberg was exactly.
+Dialogue: 0,0:56:58.88,0:57:00.21,Default,NTP,0000,0000,0000,,\N{\fs14}Testing my history here.
+Dialogue: 0,0:57:00.52,0:57:02.20,Default,NTP,0000,0000,0000,,\N{\fs14}But those were designed.
+Dialogue: 0,0:57:02.20,0:57:04.15,Default,NTP,0000,0000,0000,,\N{\fs14}You know, back then\Nyou actually etched
+Dialogue: 0,0:57:04.15,0:57:06.95,Default,NTP,0000,0000,0000,,\N{\fs14}on pieces of lead or whatever.
+Dialogue: 0,0:57:06.95,0:57:09.77,Default,NTP,0000,0000,0000,,\N{\fs14}Now they're designed\Nin, you know, PhotoShop
+Dialogue: 0,0:57:09.77,0:57:12.14,Default,NTP,0000,0000,0000,,\N{\fs14}or Illustrator probably\Ntype, you know,
+Dialogue: 0,0:57:12.14,0:57:14.26,Default,NTP,0000,0000,0000,,\N{\fs14}vector graphics designing tools.
+Dialogue: 0,0:57:14.64,0:57:17.02,Default,NTP,0000,0000,0000,,\N{\fs14}And the problem with that is
+Dialogue: 0,0:57:17.02,0:57:20.15,Default,NTP,0000,0000,0000,,\N{\fs14}that they don't fit what we\Ncomputer scientists want,
+Dialogue: 0,0:57:20.25,0:57:22.78,Default,NTP,0000,0000,0000,,\N{\fs14}which is we want the bold\Nversion of this font,
+Dialogue: 0,0:57:22.85,0:57:25.94,Default,NTP,0000,0000,0000,,\N{\fs14}we want the italic version,\Nwe want the narrow version.
+Dialogue: 0,0:57:26.25,0:57:29.77,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. Unless the font designer\Nactually designs a bold font
+Dialogue: 0,0:57:29.77,0:57:32.18,Default,NTP,0000,0000,0000,,\N{\fs14}or an italic font\N[inaudible], we don't get it.
+Dialogue: 0,0:57:32.18,0:57:34.16,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? We don't get one of those.
+Dialogue: 0,0:57:34.16,0:57:37.30,Default,NTP,0000,0000,0000,,\N{\fs14}We could try and somehow\Nscrunch it up to look more bold,
+Dialogue: 0,0:57:37.30,0:57:39.49,Default,NTP,0000,0000,0000,,\N{\fs14}but that usually\Nlooks, like, bad.
+Dialogue: 0,0:57:40.04,0:57:42.25,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? That does not look good.
+Dialogue: 0,0:57:42.44,0:57:44.80,Default,NTP,0000,0000,0000,,\N{\fs14}So UI font descriptor's\Nnew in iOS 7.
+Dialogue: 0,0:57:44.80,0:57:51.90,Default,NTP,0000,0000,0000,,\N{\fs14}It attempts to put categories on\Nfonts that defy categorization.
+Dialogue: 0,0:57:52.32,0:57:57.33,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. So the UI font descriptor\Nhas a lot of knowledge in it
+Dialogue: 0,0:57:57.33,0:58:00.84,Default,NTP,0000,0000,0000,,\N{\fs14}about faces and is there\Na bold version of this,
+Dialogue: 0,0:58:00.84,0:58:03.56,Default,NTP,0000,0000,0000,,\N{\fs14}is there a condensed version,\Nis there an italic version?
+Dialogue: 0,0:58:03.75,0:58:05.84,Default,NTP,0000,0000,0000,,\N{\fs14}And so it maps that\Ninto something we,
+Dialogue: 0,0:58:05.84,0:58:07.98,Default,NTP,0000,0000,0000,,\N{\fs14}as computer scientists,\Nwant to do because we want
+Dialogue: 0,0:58:07.98,0:58:10.35,Default,NTP,0000,0000,0000,,\N{\fs14}to put something in\Nbold on the screen.
+Dialogue: 0,0:58:10.67,0:58:12.72,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So that's what UI font\Ndescriptor is all about.
+Dialogue: 0,0:58:13.29,0:58:14.73,Default,NTP,0000,0000,0000,,\N{\fs14}Even size, by the way,
+Dialogue: 0,0:58:14.88,0:58:17.21,Default,NTP,0000,0000,0000,,\N{\fs14}is designed into a\Nfont often, okay?
+Dialogue: 0,0:58:17.36,0:58:20.67,Default,NTP,0000,0000,0000,,\N{\fs14}A designer of a font\Nwill design a larger S
+Dialogue: 0,0:58:20.81,0:58:23.38,Default,NTP,0000,0000,0000,,\N{\fs14}with a little more\Ncurve here and there
+Dialogue: 0,0:58:23.38,0:58:26.05,Default,NTP,0000,0000,0000,,\N{\fs14}than a smaller S. Okay?
+Dialogue: 0,0:58:26.05,0:58:28.52,Default,NTP,0000,0000,0000,,\N{\fs14}Size is not just a matter\Nof vector graphic zooming in
+Dialogue: 0,0:58:28.52,0:58:30.55,Default,NTP,0000,0000,0000,,\N{\fs14}and out -- sometimes,\Nit depends on the font.
+Dialogue: 0,0:58:31.17,0:58:34.74,Default,NTP,0000,0000,0000,,\N{\fs14}So anyway, look at that,\Nat slides that are in there
+Dialogue: 0,0:58:34.74,0:58:35.70,Default,NTP,0000,0000,0000,,\N{\fs14}to try and figure that out.
+Dialogue: 0,0:58:35.70,0:58:37.92,Default,NTP,0000,0000,0000,,\N{\fs14}There's nothing you will\Nhave to do in your homeworks
+Dialogue: 0,0:58:38.23,0:58:39.39,Default,NTP,0000,0000,0000,,\N{\fs14}that is font descriptor.
+Dialogue: 0,0:58:39.39,0:58:40.52,Default,NTP,0000,0000,0000,,\N{\fs14}You might have to do fonts
+Dialogue: 0,0:58:40.56,0:58:42.70,Default,NTP,0000,0000,0000,,\N{\fs14}but not font descriptors,\NI don't think.
+Dialogue: 0,0:58:43.30,0:58:48.31,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? You might want to if you\Nwant to do some advanced stuff.
+Dialogue: 0,0:58:48.31,0:58:50.25,Default,NTP,0000,0000,0000,,\N{\fs14}So understand, though,\Nthat, yeah,
+Dialogue: 0,0:58:50.25,0:58:52.24,Default,NTP,0000,0000,0000,,\N{\fs14}when you do a font\Ndescriptor and you ask it
+Dialogue: 0,0:58:52.24,0:58:53.94,Default,NTP,0000,0000,0000,,\N{\fs14}for a bold version of a font,
+Dialogue: 0,0:58:54.42,0:58:55.87,Default,NTP,0000,0000,0000,,\N{\fs14}you might not get\Na bold version.
+Dialogue: 0,0:58:56.08,0:58:57.97,Default,NTP,0000,0000,0000,,\N{\fs14}You'll get the best thing\Nit can come up with,
+Dialogue: 0,0:58:58.32,0:58:59.64,Default,NTP,0000,0000,0000,,\N{\fs14}but it might not\Nactually look bold,
+Dialogue: 0,0:58:59.64,0:59:00.88,Default,NTP,0000,0000,0000,,\N{\fs14}depending on what font it is
+Dialogue: 0,0:59:00.88,0:59:03.77,Default,NTP,0000,0000,0000,,\N{\fs14}and whether it has\Na bold, etc. Okay.
+Dialogue: 0,0:59:04.43,0:59:07.48,Default,NTP,0000,0000,0000,,\N{\fs14}So now let's talk about\Nhow text looks on screen.
+Dialogue: 0,0:59:07.48,0:59:10.61,Default,NTP,0000,0000,0000,,\N{\fs14}Well, the font is a big part\Nof how text looks on screen.
+Dialogue: 0,0:59:10.61,0:59:12.24,Default,NTP,0000,0000,0000,,\N{\fs14}Depending on which font\Nyou pick, that's going
+Dialogue: 0,0:59:12.24,0:59:13.45,Default,NTP,0000,0000,0000,,\N{\fs14}to determine a lot of\Nwhat it looks like.
+Dialogue: 0,0:59:13.72,0:59:15.08,Default,NTP,0000,0000,0000,,\N{\fs14}But there's a lot\Nof other things
+Dialogue: 0,0:59:15.12,0:59:17.09,Default,NTP,0000,0000,0000,,\N{\fs14}that determine what a\Nfont looks like on screen.
+Dialogue: 0,0:59:17.09,0:59:20.01,Default,NTP,0000,0000,0000,,\N{\fs14}For example, is the\Nthing underlined?
+Dialogue: 0,0:59:20.44,0:59:21.44,Default,NTP,0000,0000,0000,,\N{\fs14}Is it outlined?
+Dialogue: 0,0:59:21.75,0:59:27.27,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? How strongly stroked is\Nthe outer edge of the font?
+Dialogue: 0,0:59:27.37,0:59:29.97,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Those things are all kind\Nof independent of the font.
+Dialogue: 0,0:59:29.97,0:59:32.20,Default,NTP,0000,0000,0000,,\N{\fs14}You can apply these\Nthings to any font.
+Dialogue: 0,0:59:32.52,0:59:35.01,Default,NTP,0000,0000,0000,,\N{\fs14}So there's a new class that\Nyou're going to learn that's
+Dialogue: 0,0:59:35.01,0:59:37.43,Default,NTP,0000,0000,0000,,\N{\fs14}in Foundation called\NNSAttributedString.
+Dialogue: 0,0:59:37.83,0:59:40.16,Default,NTP,0000,0000,0000,,\N{\fs14}And an NSAttributedString,\Nvery, very simple.
+Dialogue: 0,0:59:40.33,0:59:42.73,Default,NTP,0000,0000,0000,,\N{\fs14}It's like -- it is\Nnot an NSString --
+Dialogue: 0,0:59:42.73,0:59:44.17,Default,NTP,0000,0000,0000,,\N{\fs14}but it's like an NSString
+Dialogue: 0,0:59:44.17,0:59:46.93,Default,NTP,0000,0000,0000,,\N{\fs14}where every character has\Na dictionary of attributes.
+Dialogue: 0,0:59:47.38,0:59:49.15,Default,NTP,0000,0000,0000,,\N{\fs14}And those attributes\Nare like underlined,
+Dialogue: 0,0:59:49.15,0:59:52.17,Default,NTP,0000,0000,0000,,\N{\fs14}or stroke width,\Nfont, etc. Okay?
+Dialogue: 0,0:59:52.75,0:59:55.05,Default,NTP,0000,0000,0000,,\N{\fs14}Now, the reason I say\Nit's like NSString --
+Dialogue: 0,0:59:55.33,0:59:57.39,Default,NTP,0000,0000,0000,,\N{\fs14}it's not a subclass of NSString.
+Dialogue: 0,0:59:57.46,0:59:59.52,Default,NTP,0000,0000,0000,,\N{\fs14}You cannot send it\Nstring messages, okay?
+Dialogue: 0,0:59:59.52,1:00:00.87,Default,NTP,0000,0000,0000,,\N{\fs14}So that seems like a\Nsignificant restriction.
+Dialogue: 0,1:00:01.45,1:00:05.64,Default,NTP,0000,0000,0000,,\N{\fs14}And it is, and we'll talk\Nabout how we're going to deal
+Dialogue: 0,1:00:05.64,1:00:07.07,Default,NTP,0000,0000,0000,,\N{\fs14}with that in a second.
+Dialogue: 0,1:00:07.40,1:00:11.31,Default,NTP,0000,0000,0000,,\N{\fs14}You set the attributes\Nsimply by calling --
+Dialogue: 0,1:00:11.31,1:00:13.68,Default,NTP,0000,0000,0000,,\N{\fs14}sorry, this is\NNSAttributedString.
+Dialogue: 0,1:00:13.68,1:00:16.52,Default,NTP,0000,0000,0000,,\N{\fs14}It's immutable --\Nimmutable -- not modifiable.
+Dialogue: 0,1:00:16.52,1:00:19.56,Default,NTP,0000,0000,0000,,\N{\fs14}So you cannot set the attributes\Nof an NSAttributedString.
+Dialogue: 0,1:00:19.84,1:00:21.23,Default,NTP,0000,0000,0000,,\N{\fs14}There is a mutable\Nattributed string;
+Dialogue: 0,1:00:21.23,1:00:22.16,Default,NTP,0000,0000,0000,,\N{\fs14}we'll talk about\Nthat in a second.
+Dialogue: 0,1:00:22.47,1:00:25.71,Default,NTP,0000,0000,0000,,\N{\fs14}So you get the attributes by\Ncalling attributes at index.
+Dialogue: 0,1:00:26.00,1:00:27.60,Default,NTP,0000,0000,0000,,\N{\fs14}And it will return\Nyou a dictionary
+Dialogue: 0,1:00:27.77,1:00:29.97,Default,NTP,0000,0000,0000,,\N{\fs14}with all the attributes for\Nthe character at that index.
+Dialogue: 0,1:00:30.30,1:00:33.00,Default,NTP,0000,0000,0000,,\N{\fs14}And that NSRangePointer,\Nif you pass it a pointer
+Dialogue: 0,1:00:33.00,1:00:35.38,Default,NTP,0000,0000,0000,,\N{\fs14}to a range struct, it\Nwill fill it in with
+Dialogue: 0,1:00:35.64,1:00:39.19,Default,NTP,0000,0000,0000,,\N{\fs14}"How many characters have\Nthe exact same attributes?"
+Dialogue: 0,1:00:40.12,1:00:42.89,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So it's basically\Nyou specify the location
+Dialogue: 0,1:00:43.10,1:00:45.06,Default,NTP,0000,0000,0000,,\N{\fs14}that you want the attributes\Nand if a whole bunch
+Dialogue: 0,1:00:45.06,1:00:47.31,Default,NTP,0000,0000,0000,,\N{\fs14}of characters have those exact\Nsame attributes, it will return
+Dialogue: 0,1:00:47.31,1:00:48.67,Default,NTP,0000,0000,0000,,\N{\fs14}that range if you ask it.
+Dialogue: 0,1:00:48.67,1:00:51.81,Default,NTP,0000,0000,0000,,\N{\fs14}Does that make sense,\Nwhat that range is?
+Dialogue: 0,1:00:52.24,1:00:54.83,Default,NTP,0000,0000,0000,,\N{\fs14}It's basically just telling you\Nhow many characters have the
+Dialogue: 0,1:00:54.83,1:00:57.55,Default,NTP,0000,0000,0000,,\N{\fs14}attributes you asked\Nfor at that character.
+Dialogue: 0,1:00:57.99,1:01:00.87,Default,NTP,0000,0000,0000,,\N{\fs14}You can pass null if you\Ndon't care and just want
+Dialogue: 0,1:01:00.87,1:01:02.32,Default,NTP,0000,0000,0000,,\N{\fs14}to know the attributes\Nof that character.
+Dialogue: 0,1:01:03.04,1:01:05.90,Default,NTP,0000,0000,0000,,\N{\fs14}So NSAttributedString\Nis not a string.
+Dialogue: 0,1:01:06.29,1:01:08.87,Default,NTP,0000,0000,0000,,\N{\fs14}But we want to do\Nstring-like things.
+Dialogue: 0,1:01:08.87,1:01:12.27,Default,NTP,0000,0000,0000,,\N{\fs14}We want to search for other\Nsubstrings and things like that,
+Dialogue: 0,1:01:12.27,1:01:13.05,Default,NTP,0000,0000,0000,,\N{\fs14}that we do on a string.
+Dialogue: 0,1:01:13.12,1:01:15.87,Default,NTP,0000,0000,0000,,\N{\fs14}So there's a method in\NNSAttributedString --
+Dialogue: 0,1:01:15.87,1:01:17.81,Default,NTP,0000,0000,0000,,\N{\fs14}really important one\N-- called "string."
+Dialogue: 0,1:01:18.22,1:01:20.67,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And this will\Nreturn an NSString
+Dialogue: 0,1:01:20.95,1:01:22.57,Default,NTP,0000,0000,0000,,\N{\fs14}that you can then search in
+Dialogue: 0,1:01:22.57,1:01:24.27,Default,NTP,0000,0000,0000,,\N{\fs14}or do all the string\Nthings you want.
+Dialogue: 0,1:01:24.39,1:01:28.18,Default,NTP,0000,0000,0000,,\N{\fs14}For example, if we wanted\Nto search, there's a method
+Dialogue: 0,1:01:28.18,1:01:29.96,Default,NTP,0000,0000,0000,,\N{\fs14}in NSString called\N"range of string,"
+Dialogue: 0,1:01:29.96,1:01:32.17,Default,NTP,0000,0000,0000,,\N{\fs14}which returns an\NNSRange that tells you
+Dialogue: 0,1:01:32.17,1:01:34.60,Default,NTP,0000,0000,0000,,\N{\fs14}where a substring\Nis in a string.
+Dialogue: 0,1:01:35.02,1:01:37.51,Default,NTP,0000,0000,0000,,\N{\fs14}And so we can just say we have\Nan attributed string lying
+Dialogue: 0,1:01:37.51,1:01:39.87,Default,NTP,0000,0000,0000,,\N{\fs14}around and we're looking\Nfor some substring;
+Dialogue: 0,1:01:39.87,1:01:43.33,Default,NTP,0000,0000,0000,,\N{\fs14}we just say attributed string\Nstring, range of string string,
+Dialogue: 0,1:01:43.33,1:01:44.43,Default,NTP,0000,0000,0000,,\N{\fs14}and we'll get the range back.
+Dialogue: 0,1:01:44.78,1:01:48.64,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Now, that string\Nmethod is guaranteed
+Dialogue: 0,1:01:48.77,1:01:50.41,Default,NTP,0000,0000,0000,,\N{\fs14}to be very high performance
+Dialogue: 0,1:01:50.56,1:01:52.13,Default,NTP,0000,0000,0000,,\N{\fs14}because you're doing\Nthis all the time.
+Dialogue: 0,1:01:52.27,1:01:53.17,Default,NTP,0000,0000,0000,,\N{\fs14}You want to look
+Dialogue: 0,1:01:53.17,1:01:55.24,Default,NTP,0000,0000,0000,,\N{\fs14}at the NSAttributedString\Nlike a string.
+Dialogue: 0,1:01:55.52,1:01:56.78,Default,NTP,0000,0000,0000,,\N{\fs14}So it's high performance.
+Dialogue: 0,1:01:56.78,1:01:58.33,Default,NTP,0000,0000,0000,,\N{\fs14}However, it's also volatile.
+Dialogue: 0,1:01:58.53,1:02:01.95,Default,NTP,0000,0000,0000,,\N{\fs14}The bottom line is this thing is\Nprobably returning you a pointer
+Dialogue: 0,1:02:01.95,1:02:04.71,Default,NTP,0000,0000,0000,,\N{\fs14}to that NSAttributedStrings'\Ninternal data structure,
+Dialogue: 0,1:02:04.71,1:02:06.09,Default,NTP,0000,0000,0000,,\N{\fs14}or some parts of\Nit, or something.
+Dialogue: 0,1:02:06.09,1:02:07.96,Default,NTP,0000,0000,0000,,\N{\fs14}You don't really\Nknow what it is.
+Dialogue: 0,1:02:08.19,1:02:10.70,Default,NTP,0000,0000,0000,,\N{\fs14}You know whatever it\Nreturns is an NSString.
+Dialogue: 0,1:02:11.35,1:02:14.33,Default,NTP,0000,0000,0000,,\N{\fs14}But so if you want to keep\Nthat thing around for more
+Dialogue: 0,1:02:14.33,1:02:17.42,Default,NTP,0000,0000,0000,,\N{\fs14}than just right there where\Nyou call it, make a copy of it.
+Dialogue: 0,1:02:17.86,1:02:19.66,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Then you have a\Ncopy of the NSString.
+Dialogue: 0,1:02:19.95,1:02:20.66,Default,NTP,0000,0000,0000,,\N{\fs14}You can hold onto it.
+Dialogue: 0,1:02:20.86,1:02:21.72,Default,NTP,0000,0000,0000,,\N{\fs14}You almost never need to do
+Dialogue: 0,1:02:21.72,1:02:23.31,Default,NTP,0000,0000,0000,,\N{\fs14}that because you're\Nalmost always operating
+Dialogue: 0,1:02:23.31,1:02:25.26,Default,NTP,0000,0000,0000,,\N{\fs14}on the string right\Nthere in place
+Dialogue: 0,1:02:25.26,1:02:26.63,Default,NTP,0000,0000,0000,,\N{\fs14}like this -- a range of string.
+Dialogue: 0,1:02:26.63,1:02:27.42,Default,NTP,0000,0000,0000,,\N{\fs14}You're just trying to get it.
+Dialogue: 0,1:02:27.87,1:02:29.63,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Okay.
+Dialogue: 0,1:02:29.63,1:02:30.43,Default,NTP,0000,0000,0000,,\N{\fs14}So that's string.
+Dialogue: 0,1:02:30.43,1:02:31.72,Default,NTP,0000,0000,0000,,\N{\fs14}Very important property\Nin NSString.
+Dialogue: 0,1:02:31.72,1:02:33.23,Default,NTP,0000,0000,0000,,\N{\fs14}So there is a mutable one.
+Dialogue: 0,1:02:33.38,1:02:37.25,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And mutable\None, it does inherit
+Dialogue: 0,1:02:37.25,1:02:40.92,Default,NTP,0000,0000,0000,,\N{\fs14}from the nonmutable\Nattributed string.
+Dialogue: 0,1:02:41.18,1:02:43.82,Default,NTP,0000,0000,0000,,\N{\fs14}But it's not an NSString\Nor an NSMutableString.
+Dialogue: 0,1:02:43.82,1:02:45.60,Default,NTP,0000,0000,0000,,\N{\fs14}It's an NSAttributedString.
+Dialogue: 0,1:02:46.15,1:02:49.66,Default,NTP,0000,0000,0000,,\N{\fs14}And it adds these methods to add\Nattributes and set attributes
+Dialogue: 0,1:02:49.66,1:02:53.77,Default,NTP,0000,0000,0000,,\N{\fs14}at various ranges inside\Nthe attributed string.
+Dialogue: 0,1:02:54.41,1:02:55.83,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Exactly what\Nyou would think.
+Dialogue: 0,1:02:55.83,1:02:56.95,Default,NTP,0000,0000,0000,,\N{\fs14}And we're going to\Ntalk about what's
+Dialogue: 0,1:02:56.95,1:02:58.67,Default,NTP,0000,0000,0000,,\N{\fs14}in these dictionaries\Nin a couple slides.
+Dialogue: 0,1:02:59.43,1:03:03.04,Default,NTP,0000,0000,0000,,\N{\fs14}Now, what if you want\Nto modify the characters
+Dialogue: 0,1:03:03.30,1:03:04.95,Default,NTP,0000,0000,0000,,\N{\fs14}in a mutable attributed string?
+Dialogue: 0,1:03:05.35,1:03:08.81,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Exact same thing\Nas the attributed string.
+Dialogue: 0,1:03:08.81,1:03:09.97,Default,NTP,0000,0000,0000,,\N{\fs14}When you want to look\Nat the characters,
+Dialogue: 0,1:03:10.21,1:03:12.46,Default,NTP,0000,0000,0000,,\N{\fs14}you call this method\Nmutable string.
+Dialogue: 0,1:03:12.70,1:03:14.75,Default,NTP,0000,0000,0000,,\N{\fs14}And it will return\Nan NSMutableString.
+Dialogue: 0,1:03:14.75,1:03:18.12,Default,NTP,0000,0000,0000,,\N{\fs14}And believe it or not, if you\Nmodify that mutable string
+Dialogue: 0,1:03:18.74,1:03:21.58,Default,NTP,0000,0000,0000,,\N{\fs14}that you get back, the\Nmutable attributed string,
+Dialogue: 0,1:03:21.68,1:03:24.05,Default,NTP,0000,0000,0000,,\N{\fs14}its attributes will\Ntrack your changes.
+Dialogue: 0,1:03:24.31,1:03:25.91,Default,NTP,0000,0000,0000,,\N{\fs14}So like, if you insert\Nsome text,
+Dialogue: 0,1:03:26.14,1:03:28.03,Default,NTP,0000,0000,0000,,\N{\fs14}the new text will\Nget the attributes
+Dialogue: 0,1:03:28.03,1:03:30.40,Default,NTP,0000,0000,0000,,\N{\fs14}of the character right\Nwhere you inserted it.
+Dialogue: 0,1:03:30.75,1:03:33.81,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? If you delete characters\Nout of that mutable string,
+Dialogue: 0,1:03:34.05,1:03:35.44,Default,NTP,0000,0000,0000,,\N{\fs14}then the mutable\Nattributed string,
+Dialogue: 0,1:03:35.44,1:03:37.48,Default,NTP,0000,0000,0000,,\N{\fs14}those character attributes\Nwill just go away.
+Dialogue: 0,1:03:38.35,1:03:38.91,Default,NTP,0000,0000,0000,,\N{\fs14}Make sense?
+Dialogue: 0,1:03:39.41,1:03:41.31,Default,NTP,0000,0000,0000,,\N{\fs14}So these classes --
+Dialogue: 0,1:03:41.31,1:03:44.07,Default,NTP,0000,0000,0000,,\N{\fs14}NSMutableString and\NNSMutableAttributedString --
+Dialogue: 0,1:03:44.07,1:03:46.93,Default,NTP,0000,0000,0000,,\N{\fs14}are in bed with each other,\Njust like NSAttributedString
+Dialogue: 0,1:03:46.93,1:03:48.48,Default,NTP,0000,0000,0000,,\N{\fs14}and NSString are in\Nbed with each other.
+Dialogue: 0,1:03:48.48,1:03:51.03,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? I don't know how\Nthey did it at Apple,
+Dialogue: 0,1:03:51.24,1:03:53.08,Default,NTP,0000,0000,0000,,\N{\fs14}but it's really nice because\Nit makes it really easy
+Dialogue: 0,1:03:53.08,1:03:56.42,Default,NTP,0000,0000,0000,,\N{\fs14}to manipulate both the\Ncharacters and the attributes
+Dialogue: 0,1:03:56.57,1:03:58.81,Default,NTP,0000,0000,0000,,\N{\fs14}in an attributed string.
+Dialogue: 0,1:03:59.72,1:04:00.42,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Okay.
+Dialogue: 0,1:04:00.42,1:04:01.69,Default,NTP,0000,0000,0000,,\N{\fs14}So what kind of attributes are
+Dialogue: 0,1:04:01.69,1:04:03.33,Default,NTP,0000,0000,0000,,\N{\fs14}in those attributes\Ndictionaries?
+Dialogue: 0,1:04:03.62,1:04:06.05,Default,NTP,0000,0000,0000,,\N{\fs14}One of the big ones is the font.
+Dialogue: 0,1:04:06.31,1:04:08.48,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So this is a dictionary.
+Dialogue: 0,1:04:08.73,1:04:11.73,Default,NTP,0000,0000,0000,,\N{\fs14}The key for the font\Nis NSFontAttributeName.
+Dialogue: 0,1:04:11.90,1:04:14.75,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And you can look up these\Nkeys by going and looking --
+Dialogue: 0,1:04:14.75,1:04:17.57,Default,NTP,0000,0000,0000,,\N{\fs14}if you look up\NNSAttributedString
+Dialogue: 0,1:04:17.57,1:04:20.05,Default,NTP,0000,0000,0000,,\N{\fs14}in the documentation,\Nthere's a link there,
+Dialogue: 0,1:04:20.05,1:04:22.97,Default,NTP,0000,0000,0000,,\N{\fs14}which is UIkit additions\Nto NSAttributedString,
+Dialogue: 0,1:04:23.27,1:04:25.50,Default,NTP,0000,0000,0000,,\N{\fs14}and all the keys that I'm\Ngoing to talk about are there.
+Dialogue: 0,1:04:25.66,1:04:28.10,Default,NTP,0000,0000,0000,,\N{\fs14}And one of the keys is\NNSFontAttributeName.
+Dialogue: 0,1:04:28.39,1:04:32.70,Default,NTP,0000,0000,0000,,\N{\fs14}And the value of\Nthat is a UIFont.
+Dialogue: 0,1:04:32.91,1:04:34.78,Default,NTP,0000,0000,0000,,\N{\fs14}So this is where you\Nwould get a preferred font
+Dialogue: 0,1:04:35.26,1:04:36.92,Default,NTP,0000,0000,0000,,\N{\fs14}of a certain style,\Nlike a headline,
+Dialogue: 0,1:04:36.92,1:04:38.06,Default,NTP,0000,0000,0000,,\N{\fs14}let's say, in this case.
+Dialogue: 0,1:04:38.41,1:04:42.70,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So if I had a dictionary\Nthat just had this in there --
+Dialogue: 0,1:04:43.16,1:04:45.74,Default,NTP,0000,0000,0000,,\N{\fs14}nothing else -- the\Ndefault text color is black.
+Dialogue: 0,1:04:45.89,1:04:49.26,Default,NTP,0000,0000,0000,,\N{\fs14}Probably my letter A\Nwould like look that.
+Dialogue: 0,1:04:49.26,1:04:53.43,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? What if I added this key\Nvalue pair to my dictionary?
+Dialogue: 0,1:04:53.59,1:04:56.83,Default,NTP,0000,0000,0000,,\N{\fs14}NS Foreground Color Attribute\NName, UIColor, blue color.
+Dialogue: 0,1:04:56.83,1:04:59.64,Default,NTP,0000,0000,0000,,\N{\fs14}So here the key is this\Nforeground color attribute name;
+Dialogue: 0,1:04:59.64,1:05:01.15,Default,NTP,0000,0000,0000,,\N{\fs14}the value is a UIColor.
+Dialogue: 0,1:05:01.39,1:05:02.49,Default,NTP,0000,0000,0000,,\N{\fs14}So that changed it to blue.
+Dialogue: 0,1:05:03.01,1:05:05.79,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. And I could change\Nit to green if I wanted to.
+Dialogue: 0,1:05:06.12,1:05:08.97,Default,NTP,0000,0000,0000,,\N{\fs14}Be a little bit careful when\Nyou create an attributed string
+Dialogue: 0,1:05:09.22,1:05:13.15,Default,NTP,0000,0000,0000,,\N{\fs14}that has colored text\Nbecause in iOS 7 the color
+Dialogue: 0,1:05:13.15,1:05:15.38,Default,NTP,0000,0000,0000,,\N{\fs14}of text sometimes\Nis an indicator
+Dialogue: 0,1:05:15.65,1:05:17.81,Default,NTP,0000,0000,0000,,\N{\fs14}to the end user what\Nthey can touch.
+Dialogue: 0,1:05:18.47,1:05:22.99,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And so if -- turns\Nout apps in iOS kind
+Dialogue: 0,1:05:22.99,1:05:25.24,Default,NTP,0000,0000,0000,,\N{\fs14}of have a color theme.
+Dialogue: 0,1:05:25.51,1:05:26.57,Default,NTP,0000,0000,0000,,\N{\fs14}The default is blue.
+Dialogue: 0,1:05:26.57,1:05:30.84,Default,NTP,0000,0000,0000,,\N{\fs14}That's why on Machismo buttons\Nthat we make will be blue.
+Dialogue: 0,1:05:31.26,1:05:34.11,Default,NTP,0000,0000,0000,,\N{\fs14}But they can be different\Ncolors like orange.
+Dialogue: 0,1:05:34.11,1:05:36.51,Default,NTP,0000,0000,0000,,\N{\fs14}It depends on what tint\Nyou want your thing to be.
+Dialogue: 0,1:05:36.51,1:05:39.84,Default,NTP,0000,0000,0000,,\N{\fs14}But whatever your\Ncolor is of your app,
+Dialogue: 0,1:05:39.84,1:05:41.69,Default,NTP,0000,0000,0000,,\N{\fs14}that color you can\Nusually tap on.
+Dialogue: 0,1:05:41.99,1:05:44.95,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. That's the color of text\Non buttons, text at the top
+Dialogue: 0,1:05:44.95,1:05:47.20,Default,NTP,0000,0000,0000,,\N{\fs14}of the screen to\Nnavigate places.
+Dialogue: 0,1:05:47.20,1:05:49.90,Default,NTP,0000,0000,0000,,\N{\fs14}So be careful not to\Nset anything else to be
+Dialogue: 0,1:05:49.90,1:05:51.80,Default,NTP,0000,0000,0000,,\N{\fs14}that color unless\Nyou can tap on it.
+Dialogue: 0,1:05:52.36,1:05:54.80,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Be real careful\Nwith color.
+Dialogue: 0,1:05:54.80,1:05:57.53,Default,NTP,0000,0000,0000,,\N{\fs14}There's also stroke with\Nattribute and stroke color.
+Dialogue: 0,1:05:58.13,1:06:01.17,Default,NTP,0000,0000,0000,,\N{\fs14}The with attribute --\Nand pay attention to this
+Dialogue: 0,1:06:01.22,1:06:02.24,Default,NTP,0000,0000,0000,,\N{\fs14}because you'll need\Nthis probably
+Dialogue: 0,1:06:02.24,1:06:06.21,Default,NTP,0000,0000,0000,,\N{\fs14}for your homework\N-- it's an NSNumber.
+Dialogue: 0,1:06:06.34,1:06:10.98,Default,NTP,0000,0000,0000,,\N{\fs14}If it's a negative NSNumber,\Nthen that means fill glyph,
+Dialogue: 0,1:06:10.98,1:06:16.09,Default,NTP,0000,0000,0000,,\N{\fs14}you know, the A fill it,\Nand stroke around the edge.
+Dialogue: 0,1:06:16.53,1:06:18.98,Default,NTP,0000,0000,0000,,\N{\fs14}If it's a positive number,\Nit means just do the stroke
+Dialogue: 0,1:06:18.98,1:06:21.40,Default,NTP,0000,0000,0000,,\N{\fs14}around the edge and the\Nmiddle is transparent.
+Dialogue: 0,1:06:22.32,1:06:25.63,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? What else can we have?
+Dialogue: 0,1:06:25.72,1:06:27.50,Default,NTP,0000,0000,0000,,\N{\fs14}Underline style attribute name.
+Dialogue: 0,1:06:27.50,1:06:29.55,Default,NTP,0000,0000,0000,,\N{\fs14}So that's an NSNumber\Nthat has an e num,
+Dialogue: 0,1:06:29.86,1:06:32.62,Default,NTP,0000,0000,0000,,\N{\fs14}one of NS style underline\Nstyle single or double.
+Dialogue: 0,1:06:32.62,1:06:35.17,Default,NTP,0000,0000,0000,,\N{\fs14}Or there's also NS\Nunderline style none.
+Dialogue: 0,1:06:35.17,1:06:36.24,Default,NTP,0000,0000,0000,,\N{\fs14}That would be no underlining.
+Dialogue: 0,1:06:36.76,1:06:38.52,Default,NTP,0000,0000,0000,,\N{\fs14}There's also background color.
+Dialogue: 0,1:06:38.81,1:06:42.41,Default,NTP,0000,0000,0000,,\N{\fs14}So here just to show you this is\Npossible, I set the background
+Dialogue: 0,1:06:42.60,1:06:45.88,Default,NTP,0000,0000,0000,,\N{\fs14}of this glyph to be\Na transparent yellow.
+Dialogue: 0,1:06:46.53,1:06:48.95,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? It's thirty\Npercent visible,
+Dialogue: 0,1:06:48.95,1:06:51.33,Default,NTP,0000,0000,0000,,\N{\fs14}thirty percent towards\Nopaque yellow.
+Dialogue: 0,1:06:51.50,1:06:55.28,Default,NTP,0000,0000,0000,,\N{\fs14}So you see how you can see the\Nchalkboard shown through there?
+Dialogue: 0,1:06:55.28,1:06:56.60,Default,NTP,0000,0000,0000,,\N{\fs14}I don't know if that\Nwill show [inaudible].
+Dialogue: 0,1:06:57.18,1:06:59.11,Default,NTP,0000,0000,0000,,\N{\fs14}But here hopefully\Nyou can see --
+Dialogue: 0,1:06:59.11,1:07:01.84,Default,NTP,0000,0000,0000,,\N{\fs14}I can see through that\Nyellow background.
+Dialogue: 0,1:07:02.55,1:07:05.28,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? In your homework,\Nyou might want to think
+Dialogue: 0,1:07:05.28,1:07:07.61,Default,NTP,0000,0000,0000,,\N{\fs14}about using transparent\Ncolors somewhere else.
+Dialogue: 0,1:07:07.67,1:07:09.26,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. Not the background\Nof a character
+Dialogue: 0,1:07:09.26,1:07:10.67,Default,NTP,0000,0000,0000,,\N{\fs14}or maybe the fill\Ncolor or something.
+Dialogue: 0,1:07:11.00,1:07:11.94,Default,NTP,0000,0000,0000,,\N{\fs14}Anyway, okay.
+Dialogue: 0,1:07:12.20,1:07:13.71,Default,NTP,0000,0000,0000,,\N{\fs14}So transparent colors good.
+Dialogue: 0,1:07:14.30,1:07:16.05,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. So hopefully you're\Nall getting a feel, then,
+Dialogue: 0,1:07:16.05,1:07:17.84,Default,NTP,0000,0000,0000,,\N{\fs14}for how we build\Nthis dictionary.
+Dialogue: 0,1:07:17.84,1:07:20.94,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. All we need to do is set\Nthe attributes of the characters
+Dialogue: 0,1:07:20.94,1:07:24.60,Default,NTP,0000,0000,0000,,\N{\fs14}that we want to have this\Nparticular set of attributes.
+Dialogue: 0,1:07:25.61,1:07:27.94,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So where do we\Nuse attributed strings?
+Dialogue: 0,1:07:27.94,1:07:29.58,Default,NTP,0000,0000,0000,,\N{\fs14}So I can create an\Nattributed string.
+Dialogue: 0,1:07:29.86,1:07:31.13,Default,NTP,0000,0000,0000,,\N{\fs14}It's got all these attributes.
+Dialogue: 0,1:07:31.26,1:07:32.68,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. Where do I use it?
+Dialogue: 0,1:07:32.68,1:07:34.29,Default,NTP,0000,0000,0000,,\N{\fs14}Well, I can use it in a button.
+Dialogue: 0,1:07:34.71,1:07:36.30,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. I can set the\Ntitle of a button
+Dialogue: 0,1:07:36.45,1:07:37.53,Default,NTP,0000,0000,0000,,\N{\fs14}to be an attributed string.
+Dialogue: 0,1:07:37.64,1:07:40.76,Default,NTP,0000,0000,0000,,\N{\fs14}That might be useful\Nfor your homework.
+Dialogue: 0,1:07:40.76,1:07:43.80,Default,NTP,0000,0000,0000,,\N{\fs14}We can create a UI label that\Nhas an attributed string.
+Dialogue: 0,1:07:44.18,1:07:47.12,Default,NTP,0000,0000,0000,,\N{\fs14}And a very important class,\Nwhich I'm probably going to talk
+Dialogue: 0,1:07:47.12,1:07:49.70,Default,NTP,0000,0000,0000,,\N{\fs14}about next time,\Nwhich is UITextView.
+Dialogue: 0,1:07:50.07,1:07:54.06,Default,NTP,0000,0000,0000,,\N{\fs14}UITextView is like a UILabel,\Nbut it's editable, selectable,
+Dialogue: 0,1:07:54.06,1:07:56.79,Default,NTP,0000,0000,0000,,\N{\fs14}scrollable, etc. Okay?
+Dialogue: 0,1:07:57.18,1:07:59.31,Default,NTP,0000,0000,0000,,\N{\fs14}So let's talk about button.
+Dialogue: 0,1:07:59.48,1:08:02.85,Default,NTP,0000,0000,0000,,\N{\fs14}Actually, I'm not going\Nto talk about button,
+Dialogue: 0,1:08:02.85,1:08:06.17,Default,NTP,0000,0000,0000,,\N{\fs14}except for to say it's\Nimportant for your homework.
+Dialogue: 0,1:08:06.17,1:08:10.46,Default,NTP,0000,0000,0000,,\N{\fs14}It just has a method --\Nset attributed title --
+Dialogue: 0,1:08:11.13,1:08:12.79,Default,NTP,0000,0000,0000,,\N{\fs14}just like it has set\Ntitle for a state,
+Dialogue: 0,1:08:12.79,1:08:14.26,Default,NTP,0000,0000,0000,,\N{\fs14}it has set attributed\Ntitle for state.
+Dialogue: 0,1:08:14.26,1:08:16.12,Default,NTP,0000,0000,0000,,\N{\fs14}And you're going to\Nwant to use that.
+Dialogue: 0,1:08:16.61,1:08:20.84,Default,NTP,0000,0000,0000,,\N{\fs14}It's also possible to draw\Nstrings directly on screen.
+Dialogue: 0,1:08:20.84,1:08:23.57,Default,NTP,0000,0000,0000,,\N{\fs14}But we haven't talked about\Ndrawing on screen directly yet.
+Dialogue: 0,1:08:23.57,1:08:26.32,Default,NTP,0000,0000,0000,,\N{\fs14}So we'll postpone until we\Ntalk about that next week.
+Dialogue: 0,1:08:26.62,1:08:29.43,Default,NTP,0000,0000,0000,,\N{\fs14}But we will be able to\Ndraw attributed strings
+Dialogue: 0,1:08:29.43,1:08:32.31,Default,NTP,0000,0000,0000,,\N{\fs14}on screens directly, just like\Nwe can draw lines and things
+Dialogue: 0,1:08:32.31,1:08:35.25,Default,NTP,0000,0000,0000,,\N{\fs14}like that directly on screen.
+Dialogue: 0,1:08:35.25,1:08:39.80,Default,NTP,0000,0000,0000,,\N{\fs14}UILabel has a property, it's\Nan NSAttributedString called
+Dialogue: 0,1:08:39.80,1:08:40.94,Default,NTP,0000,0000,0000,,\N{\fs14}"attributed text."
+Dialogue: 0,1:08:41.08,1:08:43.86,Default,NTP,0000,0000,0000,,\N{\fs14}It's just like the text\Nlabel, which is an NSString,
+Dialogue: 0,1:08:43.86,1:08:45.60,Default,NTP,0000,0000,0000,,\N{\fs14}which we've already\Nused in this class,
+Dialogue: 0,1:08:45.60,1:08:48.08,Default,NTP,0000,0000,0000,,\N{\fs14}we like the score label\Nand the flips label.
+Dialogue: 0,1:08:48.08,1:08:49.41,Default,NTP,0000,0000,0000,,\N{\fs14}We set the text property.
+Dialogue: 0,1:08:49.41,1:08:51.37,Default,NTP,0000,0000,0000,,\N{\fs14}So there's an attributed\Ntext property.
+Dialogue: 0,1:08:51.37,1:08:53.75,Default,NTP,0000,0000,0000,,\N{\fs14}And you just set the property\Nvia an NSAttributedString
+Dialogue: 0,1:08:53.75,1:08:54.97,Default,NTP,0000,0000,0000,,\N{\fs14}instead of an NSString.
+Dialogue: 0,1:08:55.00,1:08:55.84,Default,NTP,0000,0000,0000,,\N{\fs14}And that's it.
+Dialogue: 0,1:08:55.84,1:08:57.74,Default,NTP,0000,0000,0000,,\N{\fs14}Unfortunately, it's read-only.
+Dialogue: 0,1:08:58.08,1:08:59.68,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. It's immutable.
+Dialogue: 0,1:08:59.80,1:09:02.67,Default,NTP,0000,0000,0000,,\N{\fs14}That property you see is not an\NNS Immutable Attributed String;
+Dialogue: 0,1:09:02.67,1:09:04.14,Default,NTP,0000,0000,0000,,\N{\fs14}it's an NSAttributedString.
+Dialogue: 0,1:09:04.14,1:09:06.93,Default,NTP,0000,0000,0000,,\N{\fs14}So if you want to change\Nthe attributed text that's
+Dialogue: 0,1:09:06.93,1:09:10.63,Default,NTP,0000,0000,0000,,\N{\fs14}on a UILabel, you have to get\Nthe label, make a mutable copy
+Dialogue: 0,1:09:10.63,1:09:13.63,Default,NTP,0000,0000,0000,,\N{\fs14}of it, modify it however\Nyou want, and put it back.
+Dialogue: 0,1:09:14.20,1:09:16.09,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. That's if you have an\Nexisting label and you want
+Dialogue: 0,1:09:16.51,1:09:19.38,Default,NTP,0000,0000,0000,,\N{\fs14}to make it be blue instead of\Ngreen or something like that.
+Dialogue: 0,1:09:19.63,1:09:22.12,Default,NTP,0000,0000,0000,,\N{\fs14}You have to get it,\Ncreate a mutable copy,
+Dialogue: 0,1:09:22.62,1:09:26.33,Default,NTP,0000,0000,0000,,\N{\fs14}modify the attributes,\Nput it back.
+Dialogue: 0,1:09:27.32,1:09:29.46,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? You don't need to do\Nthis very often on labels.
+Dialogue: 0,1:09:29.72,1:09:32.53,Default,NTP,0000,0000,0000,,\N{\fs14}Labels don't really\Nhave attributed text
+Dialogue: 0,1:09:32.53,1:09:33.28,Default,NTP,0000,0000,0000,,\N{\fs14}on them that much.
+Dialogue: 0,1:09:33.28,1:09:34.72,Default,NTP,0000,0000,0000,,\N{\fs14}Maybe to set the color.
+Dialogue: 0,1:09:35.20,1:09:39.03,Default,NTP,0000,0000,0000,,\N{\fs14}Possibly if they're\Nspecialty labels that are kind
+Dialogue: 0,1:09:39.03,1:09:41.69,Default,NTP,0000,0000,0000,,\N{\fs14}of specifying something\Nthat's not just normal text.
+Dialogue: 0,1:09:41.98,1:09:44.33,Default,NTP,0000,0000,0000,,\N{\fs14}So it's not that\Ncommon to do UILabel.
+Dialogue: 0,1:09:45.28,1:09:52.20,Default,NTP,0000,0000,0000,,\N{\fs14}So that's all I'm going to\Ncover for today, I think.
+Dialogue: 0,1:09:52.20,1:09:53.80,Default,NTP,0000,0000,0000,,\N{\fs14}We do have a Friday section.
+Dialogue: 0,1:09:53.80,1:09:56.54,Default,NTP,0000,0000,0000,,\N{\fs14}The time is being confirmed
+Dialogue: 0,1:09:56.54,1:09:58.54,Default,NTP,0000,0000,0000,,\N{\fs14}to me probably as\NI speak right now.
+Dialogue: 0,1:09:58.82,1:10:01.51,Default,NTP,0000,0000,0000,,\N{\fs14}I will post that\Nfor you on Piazza.
+Dialogue: 0,1:10:01.75,1:10:02.61,Default,NTP,0000,0000,0000,,\N{\fs14}It's on Friday.
+Dialogue: 0,1:10:02.78,1:10:06.60,Default,NTP,0000,0000,0000,,\N{\fs14}I believe it's going to be at\N1:00 o'clock on Friday in 102.
+Dialogue: 0,1:10:06.90,1:10:07.89,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, unit 102.
+Dialogue: 0,1:10:07.89,1:10:09.69,Default,NTP,0000,0000,0000,,\N{\fs14}But don't hold me to that yet.
+Dialogue: 0,1:10:09.69,1:10:10.52,Default,NTP,0000,0000,0000,,\N{\fs14}Look at Piazza.
+Dialogue: 0,1:10:10.52,1:10:13.00,Default,NTP,0000,0000,0000,,\N{\fs14}We're going to be\Ntalking about debugging.
+Dialogue: 0,1:10:13.31,1:10:14.62,Default,NTP,0000,0000,0000,,\N{\fs14}There are some new\Ndebugging things
+Dialogue: 0,1:10:14.62,1:10:16.54,Default,NTP,0000,0000,0000,,\N{\fs14}for iOS 7 that are pretty cool.
+Dialogue: 0,1:10:16.54,1:10:17.61,Default,NTP,0000,0000,0000,,\N{\fs14}We'll get to a couple of them.
+Dialogue: 0,1:10:17.83,1:10:20.20,Default,NTP,0000,0000,0000,,\N{\fs14}And we're also going to talk\Nabout Xcode tips and tricks.
+Dialogue: 0,1:10:20.43,1:10:23.40,Default,NTP,0000,0000,0000,,\N{\fs14}So command key combinations that\Nare really valuable to have,
+Dialogue: 0,1:10:23.40,1:10:24.57,Default,NTP,0000,0000,0000,,\N{\fs14}how to set some preferences
+Dialogue: 0,1:10:24.57,1:10:27.03,Default,NTP,0000,0000,0000,,\N{\fs14}up to make your experience\Na little nicer.
+Dialogue: 0,1:10:27.32,1:10:28.58,Default,NTP,0000,0000,0000,,\N{\fs14}So it's totally optional.
+Dialogue: 0,1:10:28.58,1:10:29.40,Default,NTP,0000,0000,0000,,\N{\fs14}You don't need to go there.
+Dialogue: 0,1:10:29.40,1:10:30.60,Default,NTP,0000,0000,0000,,\N{\fs14}A lot of you know Xcode.
+Dialogue: 0,1:10:30.60,1:10:31.94,Default,NTP,0000,0000,0000,,\N{\fs14}You're probably used\Nto debugging,
+Dialogue: 0,1:10:31.94,1:10:33.26,Default,NTP,0000,0000,0000,,\N{\fs14}at least in other languages.
+Dialogue: 0,1:10:34.16,1:10:36.10,Default,NTP,0000,0000,0000,,\N{\fs14}So, you know, if you\Nmiss it, it's not going
+Dialogue: 0,1:10:36.10,1:10:37.01,Default,NTP,0000,0000,0000,,\N{\fs14}to be the end the world.
+Dialogue: 0,1:10:37.35,1:10:38.64,Default,NTP,0000,0000,0000,,\N{\fs14}But it might be valuable.
+Dialogue: 0,1:10:39.21,1:10:41.66,Default,NTP,0000,0000,0000,,\N{\fs14}Next Monday I'm going\Nto talk about UITextView
+Dialogue: 0,1:10:41.66,1:10:44.68,Default,NTP,0000,0000,0000,,\N{\fs14}since it's the most\Nimportant user
+Dialogue: 0,1:10:44.90,1:10:47.20,Default,NTP,0000,0000,0000,,\N{\fs14}of NS Mutable Attributed String.
+Dialogue: 0,1:10:47.76,1:10:50.34,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And then I'm\Nalso going to talk
+Dialogue: 0,1:10:50.34,1:10:52.53,Default,NTP,0000,0000,0000,,\N{\fs14}about the radio station\Nfrom MVC.
+Dialogue: 0,1:10:52.53,1:10:53.78,Default,NTP,0000,0000,0000,,\N{\fs14}Remember that MVC model?
+Dialogue: 0,1:10:53.78,1:10:55.87,Default,NTP,0000,0000,0000,,\N{\fs14}I told you that sometimes\Ncommunication happens
+Dialogue: 0,1:10:55.87,1:10:58.38,Default,NTP,0000,0000,0000,,\N{\fs14}by radio station,\Nwhere you broadcast
+Dialogue: 0,1:10:58.38,1:10:59.69,Default,NTP,0000,0000,0000,,\N{\fs14}and some other objects tune in.
+Dialogue: 0,1:10:59.69,1:11:01.29,Default,NTP,0000,0000,0000,,\N{\fs14}We're going to talk\Nabout doing that.
+Dialogue: 0,1:11:01.77,1:11:04.58,Default,NTP,0000,0000,0000,,\N{\fs14}And then I have a big demo\Nthat does attributed strings,
+Dialogue: 0,1:11:04.58,1:11:07.06,Default,NTP,0000,0000,0000,,\N{\fs14}and text views, and\Nall that stuff.
+Dialogue: 0,1:11:07.11,1:11:08.49,Default,NTP,0000,0000,0000,,\N{\fs14}And then we're going\Nto go start talking
+Dialogue: 0,1:11:08.49,1:11:10.58,Default,NTP,0000,0000,0000,,\N{\fs14}about the view controller\Nlifecycle, okay,
+Dialogue: 0,1:11:10.58,1:11:12.31,Default,NTP,0000,0000,0000,,\N{\fs14}which is your view controller.
+Dialogue: 0,1:11:12.49,1:11:14.06,Default,NTP,0000,0000,0000,,\N{\fs14}It comes into existence.
+Dialogue: 0,1:11:14.18,1:11:15.19,Default,NTP,0000,0000,0000,,\N{\fs14}Things happen to it.
+Dialogue: 0,1:11:15.53,1:11:17.44,Default,NTP,0000,0000,0000,,\N{\fs14}It appears on screen\Nand goes off screen,
+Dialogue: 0,1:11:17.44,1:11:18.85,Default,NTP,0000,0000,0000,,\N{\fs14}changes size, things like that.
+Dialogue: 0,1:11:19.07,1:11:19.95,Default,NTP,0000,0000,0000,,\N{\fs14}And then it goes away.
+Dialogue: 0,1:11:20.05,1:11:22.00,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. It goes off screen\Nand maybe even disappears.
+Dialogue: 0,1:11:22.31,1:11:25.64,Default,NTP,0000,0000,0000,,\N{\fs14}And as all that happens, you\Nget notified by the system.
+Dialogue: 0,1:11:26.11,1:11:27.62,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And it's important\Nto know when you're going
+Dialogue: 0,1:11:27.62,1:11:28.81,Default,NTP,0000,0000,0000,,\N{\fs14}to get notified and what to do
+Dialogue: 0,1:11:28.81,1:11:30.97,Default,NTP,0000,0000,0000,,\N{\fs14}where in terms of\Nthat notification.
+Dialogue: 0,1:11:30.97,1:11:32.88,Default,NTP,0000,0000,0000,,\N{\fs14}So we'll be talking\Nabout that on Monday,
+Dialogue: 0,1:11:33.02,1:11:33.88,Default,NTP,0000,0000,0000,,\N{\fs14}view controller lifecycle.
+Dialogue: 0,1:11:33.88,1:11:35.79,Default,NTP,0000,0000,0000,,\N{\fs14}Super important one\Nfor your next homework.
+Dialogue: 0,1:11:36.16,1:11:37.62,Default,NTP,0000,0000,0000,,\N{\fs14}You next homework\Nmight go out on Monday;
+Dialogue: 0,1:11:37.62,1:11:38.93,Default,NTP,0000,0000,0000,,\N{\fs14}might go out on next Wednesday.
+Dialogue: 0,1:11:38.93,1:11:39.96,Default,NTP,0000,0000,0000,,\N{\fs14}I'm not quite sure yet.
+Dialogue: 0,1:11:40.89,1:11:43.00,Default,NTP,0000,0000,0000,,\N{\fs14}But in case, it will\Nbe due a week later.
+Dialogue: 0,1:11:43.69,1:11:44.66,Default,NTP,0000,0000,0000,,\N{\fs14}So that's it.
+Dialogue: 0,1:11:44.66,1:11:47.06,Default,NTP,0000,0000,0000,,\N{\fs14}And if you have any\Nquestions, I'll be here.
+Dialogue: 0,1:11:47.33,1:11:49.04,Default,NTP,0000,0000,0000,,\N{\fs14}And I'll see you next time.
+Dialogue: 0,1:11:50.48,1:11:54.58,Default,NTP,0000,0000,0000,,\N{\fs14}>> For more, please\Nvisit us at Stanford.edu.
