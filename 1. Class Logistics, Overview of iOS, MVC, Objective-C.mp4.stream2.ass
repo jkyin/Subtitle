@@ -48,27 +48,23 @@ Dialogue: 0,0:01:42.68,0:01:44.03,Default,NTP,0000,0000,0000,,我们将会实现
 Dialogue: 0,0:01:44.25,0:01:46.02,Default,NTP,0000,0000,0000,,我们将会做出各种各样的图形\N{\fs14}we're going to be doing all kinds of graphics,
 Dialogue: 0,0:01:46.02,0:01:47.36,Default,NTP,0000,0000,0000,,我们将会做出交互动画\N{\fs14}we're going to be doing animation,
 Dialogue: 0,0:01:47.36,0:01:49.24,Default,NTP,0000,0000,0000,,我们将会做出面相对象数据库\N{\fs14}we're going to do object-oriented databases,
-Dialogue: 0,0:01:49.24,0:01:51.23,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to do all\Nthat stuff for real, okay?
-Dialogue: 0,0:01:51.23,0:01:52.74,Default,NTP,0000,0000,0000,,\N{\fs14}You're going to see\Nwhat it looks
-Dialogue: 0,0:01:52.74,0:01:56.00,Default,NTP,0000,0000,0000,,\N{\fs14}like to apply all those computer\Nscience concepts, especially how
-Dialogue: 0,0:01:56.00,0:01:58.40,Default,NTP,0000,0000,0000,,\N{\fs14}to combine them into\Na real-world platform,
-Dialogue: 0,0:01:58.40,0:02:00.32,Default,NTP,0000,0000,0000,,\N{\fs14}where you're making\Nreal apps, okay?
-Dialogue: 0,0:02:00.61,0:02:02.52,Default,NTP,0000,0000,0000,,\N{\fs14}And quite a few, many dozens
-Dialogue: 0,0:02:02.56,0:02:05.55,Default,NTP,0000,0000,0000,,\N{\fs14}of my former students\Nhave shipped their apps
-Dialogue: 0,0:02:05.55,0:02:07.15,Default,NTP,0000,0000,0000,,\N{\fs14}on the app store and\Nyou may well too.
-Dialogue: 0,0:02:07.53,0:02:12.60,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So this is really, this is\Na good course to kind of combine
-Dialogue: 0,0:02:12.60,0:02:15.15,Default,NTP,0000,0000,0000,,\N{\fs14}or synthesize all of the\Nthings you've learned in a lot
-Dialogue: 0,0:02:15.15,0:02:17.71,Default,NTP,0000,0000,0000,,\N{\fs14}of your other computer\Nscience classes and touch it
-Dialogue: 0,0:02:17.74,0:02:18.80,Default,NTP,0000,0000,0000,,\N{\fs14}up against the real world.
-Dialogue: 0,0:02:19.22,0:02:23.92,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? The prerequisites for this\Nclass are super duper important,
-Dialogue: 0,0:02:24.16,0:02:24.57,Default,NTP,0000,0000,0000,,\N{\fs14}okay?
-Dialogue: 0,0:02:24.57,0:02:27.60,Default,NTP,0000,0000,0000,,\N{\fs14}This, it's just key to make sure\Nyou have these prerequisites
-Dialogue: 0,0:02:27.60,0:02:29.68,Default,NTP,0000,0000,0000,,\N{\fs14}and really think long and hard,\Nif you don't, whether you want
-Dialogue: 0,0:02:29.68,0:02:31.09,Default,NTP,0000,0000,0000,,\N{\fs14}to give this class ago.
-Dialogue: 0,0:02:31.09,0:02:37.06,Default,NTP,0000,0000,0000,,\N{\fs14}CS 106 A&B or, or CS16x are\Nabsolutely required, okay?
-Dialogue: 0,0:02:37.06,0:02:39.30,Default,NTP,0000,0000,0000,,\N{\fs14}If you don't have that or\Nequivalent, definitely,
-Dialogue: 0,0:02:39.30,0:02:40.16,Default,NTP,0000,0000,0000,,\N{\fs14}don't even think about it.
-Dialogue: 0,0:02:40.49,0:02:42.75,Default,NTP,0000,0000,0000,,\N{\fs14}The second requirement\NI've added this quarter,
+Dialogue: 0,0:01:49.24,0:01:51.23,Default,NTP,0000,0000,0000,,我们将会实实在在的做出所有这些东西 好么\N{\fs14}we're going to do all that stuff for real, okay?
+Dialogue: 0,0:01:51.23,0:01:52.74,Default,NTP,0000,0000,0000,,你们将会看到\N{\fs14}You're going to see what it looks
+Dialogue: 0,0:01:52.74,0:01:56.00,Default,NTP,0000,0000,0000,,它是怎样应用那些计算机科学概念的\N{\fs14}like to apply all those computer science concepts, especially how
+Dialogue: 0,0:01:56.00,0:01:58.40,Default,NTP,0000,0000,0000,,尤其是如何将它们结合到一个真实的平台里\N{\fs14}to combine them into a real-world platform,
+Dialogue: 0,0:01:58.40,0:02:00.32,Default,NTP,0000,0000,0000,,你正在那个平台创造真正意义上的应用\N{\fs14}where you're making real apps, okay?
+Dialogue: 0,0:02:00.61,0:02:02.52,Default,NTP,0000,0000,0000,,好多个\N{\fs14}And quite a few, many dozens
+Dialogue: 0,0:02:02.56,0:02:07.15,Default,NTP,0000,0000,0000,,我以前的学生都让他们的应用在App Store上架了 你们也同样会做到\N{\fs14}of my former students have shipped their apps on the app store and you may well too.
+Dialogue: 0,0:02:07.53,0:02:12.60,Default,NTP,0000,0000,0000,,因此 这真的是一个很好的课程来结合各种\N{\fs14}Okay? So this is really, this is a good course to kind of combine
+Dialogue: 0,0:02:12.60,0:02:15.15,Default,NTP,0000,0000,0000,,或综合你在其他计算机课学到的所有东西\N{\fs14}or synthesize all of the things you've learned in a lot of your other computer science classes
+Dialogue: 0,0:02:15.15,0:02:18.80,Default,NTP,0000,0000,0000,,给这个真实的世界增添色彩\N{\fs14}and touch it up against the real world.
+Dialogue: 0,0:02:19.22,0:02:23.92,Default,NTP,0000,0000,0000,,好的 本节课的这些先决条件非常重要\N{\fs14}Okay, The prerequisites for this class are super-duper important,
+Dialogue: 0,0:02:24.16,0:02:24.57,Default,NTP,0000,0000,0000,,知道么\N{\fs14}okay?
+Dialogue: 0,0:02:24.57,0:02:27.60,Default,NTP,0000,0000,0000,,这只是用来确保你们拥有这些前提并且会认真思考的关键\N{\fs14}This, it's just key to make sure you have these prerequisites and really think long and hard,
+Dialogue: 0,0:02:27.60,0:02:31.09,Default,NTP,0000,0000,0000,, 如果你不会这些 或者你想在上课的时候再学\N{\fs14}if you don't, whether you want to give this class ago.
+Dialogue: 0,0:02:31.09,0:02:37.06,Default,NTP,0000,0000,0000,,那就必须要求上过CS106 A&B或CS16x这些课 知道吗\N{\fs14}CS106 A&B or, or CS16x are absolutely required, okay?
+Dialogue: 0,0:02:37.06,0:02:39.30,Default,NTP,0000,0000,0000,,如果你没上过或同级别的课 很明显你会跟不上的\N{\fs14}If you don't have that or equivalent, definitely, don't even think about it.
+Dialogue: 0,0:02:40.49,0:02:42.75,Default,NTP,0000,0000,0000,,\N{\fs14}The second requirement I've added this quarter,
 Dialogue: 0,0:02:43.00,0:02:47.13,Default,NTP,0000,0000,0000,,\N{\fs14}based on experience, is CS107\Nor CS108, which is great,
 Dialogue: 0,0:02:47.13,0:02:48.69,Default,NTP,0000,0000,0000,,\N{\fs14}by the way, if you're\Ntaking CS108,
 Dialogue: 0,0:02:48.82,0:02:50.52,Default,NTP,0000,0000,0000,,\N{\fs14}you'll really be\Nready for this class.
