@@ -7,50 +7,47 @@ Style: Default,方正黑体简体,20,&H00FFFFFF,&HF0000000,&H00000000,&H32000000
 
 [Events]
 Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:00.51,0:00:04.85,Default,NTP,0000,0000,0000,,\N{\fs14}[ Music ]
-Dialogue: 0,0:00:05.35,0:00:06.35,Default,NTP,0000,0000,0000,,\N{\fs14}>> Stanford University.
-Dialogue: 0,0:00:09.08,0:00:11.59,Default,NTP,0000,0000,0000,,\N{\fs14}>> Alright, so welcome\Nto Stanford CS193p,
-Dialogue: 0,0:00:11.69,0:00:14.40,Default,NTP,0000,0000,0000,,\N{\fs14}fall of 2013-14 academic year.
-Dialogue: 0,0:00:14.40,0:00:17.38,Default,NTP,0000,0000,0000,,\N{\fs14}This is our very first\Nlecture and we are going
-Dialogue: 0,0:00:17.38,0:00:18.94,Default,NTP,0000,0000,0000,,\N{\fs14}to be covering developing\Napplications
-Dialogue: 0,0:00:18.97,0:00:21.78,Default,NTP,0000,0000,0000,,\N{\fs14}for iOS, so specifically iOS7.
-Dialogue: 0,0:00:22.67,0:00:26.14,Default,NTP,0000,0000,0000,,\N{\fs14}Today's lecture kind of has a\Nfirst part and a second part.
-Dialogue: 0,0:00:26.14,0:00:27.86,Default,NTP,0000,0000,0000,,\N{\fs14}The first part is a\Nlittle bit of logistics.
-Dialogue: 0,0:00:28.02,0:00:30.14,Default,NTP,0000,0000,0000,,\N{\fs14}The second part is I'm\Ngoing to dive right
-Dialogue: 0,0:00:30.14,0:00:33.11,Default,NTP,0000,0000,0000,,\N{\fs14}into the course material because\Nthere's a lot to cover and so,
-Dialogue: 0,0:00:33.11,0:00:35.72,Default,NTP,0000,0000,0000,,\N{\fs14}we need to start covering it.
-Dialogue: 0,0:00:36.01,0:00:38.34,Default,NTP,0000,0000,0000,,\N{\fs14}[Pause] So, what will\NI learn in this course?
-Dialogue: 0,0:00:38.34,0:00:40.00,Default,NTP,0000,0000,0000,,\N{\fs14}I think you know what you're\Ngoing to learn in this course.
-Dialogue: 0,0:00:40.00,0:00:42.09,Default,NTP,0000,0000,0000,,\N{\fs14}You're going to learn how\Nto build cool apps, okay?
-Dialogue: 0,0:00:42.32,0:00:45.49,Default,NTP,0000,0000,0000,,\N{\fs14}iOS is a really cool\Nplatform for building apps,
-Dialogue: 0,0:00:45.49,0:00:46.68,Default,NTP,0000,0000,0000,,\N{\fs14}you probably already know that.
-Dialogue: 0,0:00:47.06,0:00:50.72,Default,NTP,0000,0000,0000,,\N{\fs14}The apps look cool,\Nthey've got animation.
-Dialogue: 0,0:00:51.00,0:00:53.24,Default,NTP,0000,0000,0000,,\N{\fs14}What's really cool is\Nthey're in your pockets
-Dialogue: 0,0:00:53.24,0:00:55.05,Default,NTP,0000,0000,0000,,\N{\fs14}so you can whip them out and\Nshow them to your friends.
-Dialogue: 0,0:00:55.05,0:00:57.59,Default,NTP,0000,0000,0000,,\N{\fs14}You don't have to send them to\Na website or go get a computer.
-Dialogue: 0,0:00:57.59,0:01:01.75,Default,NTP,0000,0000,0000,,\N{\fs14}It's also really easy to\Ndevelop really powerful apps
-Dialogue: 0,0:01:01.75,0:01:03.80,Default,NTP,0000,0000,0000,,\N{\fs14}in a really short amount of\Ntime, as you're going to find.
-Dialogue: 0,0:01:03.80,0:01:05.34,Default,NTP,0000,0000,0000,,\N{\fs14}This course is only\N10 weeks long,
-Dialogue: 0,0:01:05.75,0:01:08.48,Default,NTP,0000,0000,0000,,\N{\fs14}and while this is Stanford,\NI know, you're all really,
-Dialogue: 0,0:01:08.48,0:01:10.85,Default,NTP,0000,0000,0000,,\N{\fs14}really good programmers\Nand all that, it still,
-Dialogue: 0,0:01:10.85,0:01:13.92,Default,NTP,0000,0000,0000,,\N{\fs14}10 weeks is not a lot of time,\Nso when we get to the end,
-Dialogue: 0,0:01:13.92,0:01:16.77,Default,NTP,0000,0000,0000,,\N{\fs14}you're going to see that it's\Na very leveraged platform
-Dialogue: 0,0:01:16.77,0:01:17.63,Default,NTP,0000,0000,0000,,\N{\fs14}for building things.
-Dialogue: 0,0:01:17.99,0:01:20.47,Default,NTP,0000,0000,0000,,\N{\fs14}And, you know, the\Ncommunity is quite vibrant,
-Dialogue: 0,0:01:20.54,0:01:23.13,Default,NTP,0000,0000,0000,,\N{\fs14}being able to distribute\Nyour apps via the app store
-Dialogue: 0,0:01:23.24,0:01:25.53,Default,NTP,0000,0000,0000,,\N{\fs14}and not have to put them in\Na box and put them on a shelf
-Dialogue: 0,0:01:25.53,0:01:28.59,Default,NTP,0000,0000,0000,,\N{\fs14}in a store, is really a big,\Nbig difference when it comes
-Dialogue: 0,0:01:28.59,0:01:29.72,Default,NTP,0000,0000,0000,,\N{\fs14}to marketing a product.
-Dialogue: 0,0:01:30.00,0:01:31.37,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And you'll,\Nyou'll see that.
-Dialogue: 0,0:01:32.05,0:01:33.38,Default,NTP,0000,0000,0000,,\N{\fs14}The second thing\Nyou're going to learn
-Dialogue: 0,0:01:33.38,0:01:36.48,Default,NTP,0000,0000,0000,,\N{\fs14}in this course though is\Nreal-world application,
-Dialogue: 0,0:01:36.48,0:01:38.79,Default,NTP,0000,0000,0000,,\N{\fs14}a lot of the computer\Nscience things you're learning
-Dialogue: 0,0:01:38.79,0:01:39.93,Default,NTP,0000,0000,0000,,\N{\fs14}in other classes.
-Dialogue: 0,0:01:39.93,0:01:42.58,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So, we're going\Nto be doing networking,
-Dialogue: 0,0:01:42.68,0:01:44.03,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to do multithreaded,
-Dialogue: 0,0:01:44.25,0:01:46.02,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to be doing\Nall kinds of graphics,
-Dialogue: 0,0:01:46.02,0:01:47.36,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to be\Ndoing animation,
-Dialogue: 0,0:01:47.36,0:01:49.24,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to do\Nobject-oriented databases,
+Dialogue: 0,0:00:00.51,0:00:04.85,Default,NTP,0000,0000,0000,,\N{\fs14}
+Dialogue: 0,0:00:05.35,0:00:06.35,Default,NTP,0000,0000,0000,,斯坦福大学\N{\fs14}Stanford University.
+Dialogue: 0,0:00:09.08,0:00:11.59,Default,NTP,0000,0000,0000,,好的 欢迎来到斯坦福CS193p课程\N{\fs14}Alright, so welcome to Stanford CS193p,
+Dialogue: 0,0:00:11.69,0:00:14.40,Default,NTP,0000,0000,0000,,2013-14 学年秋季\N{\fs14}fall of 2013-14 academic year.
+Dialogue: 0,0:00:14.40,0:00:17.38,Default,NTP,0000,0000,0000,,这是全新的课程\N{\fs14}This is our very first lecture and we are going
+Dialogue: 0,0:00:17.38,0:00:18.94,Default,NTP,0000,0000,0000,,并且我们将会涵盖应用开发\N{\fs14}to be covering developing applications
+Dialogue: 0,0:00:18.97,0:00:21.78,Default,NTP,0000,0000,0000,,针对iOS平台的 具体说是iOS7\N{\fs14}for iOS, so specifically iOS7.
+Dialogue: 0,0:00:22.67,0:00:26.14,Default,NTP,0000,0000,0000,,今天的课程有两个部分\N{\fs14}Today's lecture kind of has a first part and a second part.
+Dialogue: 0,0:00:26.14,0:00:27.86,Default,NTP,0000,0000,0000,,第一部分讲点本课的流程\N{\fs14}The first part is a little bit of logistics.
+Dialogue: 0,0:00:28.02,0:00:30.14,Default,NTP,0000,0000,0000,,第二部分是...我要忙着准备\N{\fs14}The second part is... I'm going to dive right
+Dialogue: 0,0:00:30.14,0:00:33.11,Default,NTP,0000,0000,0000,,课程材料 因为有许多东西要讲 所以\N{\fs14}into the course material because there's a lot to cover and so,
+Dialogue: 0,0:00:33.11,0:00:35.72,Default,NTP,0000,0000,0000,,我们需要一开始就涉及到\N{\fs14}we need to start covering it.
+Dialogue: 0,0:00:36.01,0:00:38.34,Default,NTP,0000,0000,0000,,那么 我这堂课将学到什么呢\N{\fs14}So, what will I learn in this course?
+Dialogue: 0,0:00:38.34,0:00:40.00,Default,NTP,0000,0000,0000,,我觉得你们知道这堂课会学到什么\N{\fs14}I think you know what you're going to learn in this course.
+Dialogue: 0,0:00:40.00,0:00:42.09,Default,NTP,0000,0000,0000,,你们将会学到怎样创建很酷的应用 了解没\N{\fs14}You're going to learn how to build cool apps, okay?
+Dialogue: 0,0:00:42.32,0:00:45.49,Default,NTP,0000,0000,0000,,对于创建应用来说iOS真的是非常棒的平台\N{\fs14}iOS is a really cool platform for building apps,
+Dialogue: 0,0:00:45.49,0:00:46.68,Default,NTP,0000,0000,0000,,你们可能早就听说过\N{\fs14}you probably already know that.
+Dialogue: 0,0:00:47.06,0:00:50.72,Default,NTP,0000,0000,0000,,这款应用看起来很酷 他们都有交互动画\N{\fs14}The apps look cool, they've got animation.
+Dialogue: 0,0:00:51.00,0:00:53.24,Default,NTP,0000,0000,0000,,最酷的是他们能装进你的口袋\N{\fs14}What's really cool is they're in your pockets
+Dialogue: 0,0:00:53.24,0:00:55.05,Default,NTP,0000,0000,0000,,这样一来你们可以拿出来展示给朋友们看\N{\fs14}so you can whip them out and show them to your friends.
+Dialogue: 0,0:00:55.05,0:00:57.59,Default,NTP,0000,0000,0000,,你不必把它们发到网上 也不需要一台电脑\N{\fs14}You don't have to send them to a website or go get a computer.
+Dialogue: 0,0:00:57.59,0:01:01.75,Default,NTP,0000,0000,0000,,你们会发现它在很短的时间内\N{\fs14}It's also really easy to develop really powerful apps
+Dialogue: 0,0:01:01.75,0:01:03.80,Default,NTP,0000,0000,0000,,真的非常容易就可以开发出强大的应用\N{\fs14}in a really short amount of time, as you're going to find.
+Dialogue: 0,0:01:03.80,0:01:05.34,Default,NTP,0000,0000,0000,,这节课只有十周\N{\fs14}This course is only 10 weeks long,
+Dialogue: 0,0:01:05.75,0:01:08.48,Default,NTP,0000,0000,0000,,这里是斯坦福 我知道你们都是\N{\fs14}and while this is Stanford, I know, you're all really,
+Dialogue: 0,0:01:08.48,0:01:10.85,Default,NTP,0000,0000,0000,,非常优秀的程序员 即使这样\N{\fs14}really good programmers and all that, it still,
+Dialogue: 0,0:01:10.85,0:01:13.92,Default,NTP,0000,0000,0000,,十周也不是很长 因此 当我们快上完的时候\N{\fs14}10 weeks is not a lot of time, so when we get to the end,
+Dialogue: 0,0:01:13.92,0:01:17.63,Default,NTP,0000,0000,0000,,你们将会看到 对于构建软件这是个非常高效的平台\N{\fs14}you're going to see that it's a very leveraged platform for building things.
+Dialogue: 0,0:01:17.99,0:01:20.47,Default,NTP,0000,0000,0000,,并且它的社区非常活跃\N{\fs14}And, you know, the community is quite vibrant,
+Dialogue: 0,0:01:20.54,0:01:23.13,Default,NTP,0000,0000,0000,,它还能通过App Store分发你的软件\N{\fs14}being able to distribute your apps via the app store
+Dialogue: 0,0:01:23.24,0:01:25.53,Default,NTP,0000,0000,0000,,不必把它们放到盒子里和商店货架上\N{\fs14}and not have to put them in a box and put them on a shelf
+Dialogue: 0,0:01:25.53,0:01:29.72,Default,NTP,0000,0000,0000,,当你销售一款产品时 这有着非常非常巨大差异\N{\fs14}in a store, is really a big, big difference when it comes to marketing a product.
+Dialogue: 0,0:01:30.00,0:01:31.37,Default,NTP,0000,0000,0000,,理解没 你们以后会看到的\N{\fs14}Okay? And you'll, you'll see that.
+Dialogue: 0,0:01:32.05,0:01:33.38,Default,NTP,0000,0000,0000,,这节课你们要学的第二个东西\N{\fs14}The second thing you're going to learn
+Dialogue: 0,0:01:33.38,0:01:36.48,Default,NTP,0000,0000,0000,,虽然是一款应用工具\N{\fs14}in this course though is real-world application,
+Dialogue: 0,0:01:36.48,0:01:38.79,Default,NTP,0000,0000,0000,,但你们在上其他课的时候也有许多计算机科学方面的东西会用到它\N{\fs14}a lot of the computer science things you're learning in other classes.
+Dialogue: 0,0:01:39.93,0:01:42.58,Default,NTP,0000,0000,0000,,因此 我们将会实现联网\N{\fs14}Okay? So, we're going to be doing networking,
+Dialogue: 0,0:01:42.68,0:01:44.03,Default,NTP,0000,0000,0000,,我们将会实现多线程\N{\fs14}we're going to do multithreaded,
+Dialogue: 0,0:01:44.25,0:01:46.02,Default,NTP,0000,0000,0000,,我们将会做出各种各样的图形\N{\fs14}we're going to be doing all kinds of graphics,
+Dialogue: 0,0:01:46.02,0:01:47.36,Default,NTP,0000,0000,0000,,我们将会做出交互动画\N{\fs14}we're going to be doing animation,
+Dialogue: 0,0:01:47.36,0:01:49.24,Default,NTP,0000,0000,0000,,我们将会做出面相对象数据库\N{\fs14}we're going to do object-oriented databases,
 Dialogue: 0,0:01:49.24,0:01:51.23,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to do all\Nthat stuff for real, okay?
 Dialogue: 0,0:01:51.23,0:01:52.74,Default,NTP,0000,0000,0000,,\N{\fs14}You're going to see\Nwhat it looks
 Dialogue: 0,0:01:52.74,0:01:56.00,Default,NTP,0000,0000,0000,,\N{\fs14}like to apply all those computer\Nscience concepts, especially how
