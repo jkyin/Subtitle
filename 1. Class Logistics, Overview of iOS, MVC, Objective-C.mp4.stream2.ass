@@ -1,0 +1,1382 @@
+[Script Info]
+ScriptType: v4.00+
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,方正黑体简体,20,&H00FFFFFF,&HF0000000,&H00000000,&H32000000,0,0,0,0,100,100,0,0.00,1,2,1,2,5,5,2,134
+
+[Events]
+Format: Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.51,0:00:04.85,Default,NTP,0000,0000,0000,,\N{\fs14}[ Music ]
+Dialogue: 0,0:00:05.35,0:00:06.35,Default,NTP,0000,0000,0000,,\N{\fs14}>> Stanford University.
+Dialogue: 0,0:00:09.08,0:00:11.59,Default,NTP,0000,0000,0000,,\N{\fs14}>> Alright, so welcome\Nto Stanford CS193p,
+Dialogue: 0,0:00:11.69,0:00:14.40,Default,NTP,0000,0000,0000,,\N{\fs14}fall of 2013-14 academic year.
+Dialogue: 0,0:00:14.40,0:00:17.38,Default,NTP,0000,0000,0000,,\N{\fs14}This is our very first\Nlecture and we are going
+Dialogue: 0,0:00:17.38,0:00:18.94,Default,NTP,0000,0000,0000,,\N{\fs14}to be covering developing\Napplications
+Dialogue: 0,0:00:18.97,0:00:21.78,Default,NTP,0000,0000,0000,,\N{\fs14}for iOS, so specifically iOS7.
+Dialogue: 0,0:00:22.67,0:00:26.14,Default,NTP,0000,0000,0000,,\N{\fs14}Today's lecture kind of has a\Nfirst part and a second part.
+Dialogue: 0,0:00:26.14,0:00:27.86,Default,NTP,0000,0000,0000,,\N{\fs14}The first part is a\Nlittle bit of logistics.
+Dialogue: 0,0:00:28.02,0:00:30.14,Default,NTP,0000,0000,0000,,\N{\fs14}The second part is I'm\Ngoing to dive right
+Dialogue: 0,0:00:30.14,0:00:33.11,Default,NTP,0000,0000,0000,,\N{\fs14}into the course material because\Nthere's a lot to cover and so,
+Dialogue: 0,0:00:33.11,0:00:35.72,Default,NTP,0000,0000,0000,,\N{\fs14}we need to start covering it.
+Dialogue: 0,0:00:36.01,0:00:38.34,Default,NTP,0000,0000,0000,,\N{\fs14}[Pause] So, what will\NI learn in this course?
+Dialogue: 0,0:00:38.34,0:00:40.00,Default,NTP,0000,0000,0000,,\N{\fs14}I think you know what you're\Ngoing to learn in this course.
+Dialogue: 0,0:00:40.00,0:00:42.09,Default,NTP,0000,0000,0000,,\N{\fs14}You're going to learn how\Nto build cool apps, okay?
+Dialogue: 0,0:00:42.32,0:00:45.49,Default,NTP,0000,0000,0000,,\N{\fs14}iOS is a really cool\Nplatform for building apps,
+Dialogue: 0,0:00:45.49,0:00:46.68,Default,NTP,0000,0000,0000,,\N{\fs14}you probably already know that.
+Dialogue: 0,0:00:47.06,0:00:50.72,Default,NTP,0000,0000,0000,,\N{\fs14}The apps look cool,\Nthey've got animation.
+Dialogue: 0,0:00:51.00,0:00:53.24,Default,NTP,0000,0000,0000,,\N{\fs14}What's really cool is\Nthey're in your pockets
+Dialogue: 0,0:00:53.24,0:00:55.05,Default,NTP,0000,0000,0000,,\N{\fs14}so you can whip them out and\Nshow them to your friends.
+Dialogue: 0,0:00:55.05,0:00:57.59,Default,NTP,0000,0000,0000,,\N{\fs14}You don't have to send them to\Na website or go get a computer.
+Dialogue: 0,0:00:57.59,0:01:01.75,Default,NTP,0000,0000,0000,,\N{\fs14}It's also really easy to\Ndevelop really powerful apps
+Dialogue: 0,0:01:01.75,0:01:03.80,Default,NTP,0000,0000,0000,,\N{\fs14}in a really short amount of\Ntime, as you're going to find.
+Dialogue: 0,0:01:03.80,0:01:05.34,Default,NTP,0000,0000,0000,,\N{\fs14}This course is only\N10 weeks long,
+Dialogue: 0,0:01:05.75,0:01:08.48,Default,NTP,0000,0000,0000,,\N{\fs14}and while this is Stanford,\NI know, you're all really,
+Dialogue: 0,0:01:08.48,0:01:10.85,Default,NTP,0000,0000,0000,,\N{\fs14}really good programmers\Nand all that, it still,
+Dialogue: 0,0:01:10.85,0:01:13.92,Default,NTP,0000,0000,0000,,\N{\fs14}10 weeks is not a lot of time,\Nso when we get to the end,
+Dialogue: 0,0:01:13.92,0:01:16.77,Default,NTP,0000,0000,0000,,\N{\fs14}you're going to see that it's\Na very leveraged platform
+Dialogue: 0,0:01:16.77,0:01:17.63,Default,NTP,0000,0000,0000,,\N{\fs14}for building things.
+Dialogue: 0,0:01:17.99,0:01:20.47,Default,NTP,0000,0000,0000,,\N{\fs14}And, you know, the\Ncommunity is quite vibrant,
+Dialogue: 0,0:01:20.54,0:01:23.13,Default,NTP,0000,0000,0000,,\N{\fs14}being able to distribute\Nyour apps via the app store
+Dialogue: 0,0:01:23.24,0:01:25.53,Default,NTP,0000,0000,0000,,\N{\fs14}and not have to put them in\Na box and put them on a shelf
+Dialogue: 0,0:01:25.53,0:01:28.59,Default,NTP,0000,0000,0000,,\N{\fs14}in a store, is really a big,\Nbig difference when it comes
+Dialogue: 0,0:01:28.59,0:01:29.72,Default,NTP,0000,0000,0000,,\N{\fs14}to marketing a product.
+Dialogue: 0,0:01:30.00,0:01:31.37,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And you'll,\Nyou'll see that.
+Dialogue: 0,0:01:32.05,0:01:33.38,Default,NTP,0000,0000,0000,,\N{\fs14}The second thing\Nyou're going to learn
+Dialogue: 0,0:01:33.38,0:01:36.48,Default,NTP,0000,0000,0000,,\N{\fs14}in this course though is\Nreal-world application,
+Dialogue: 0,0:01:36.48,0:01:38.79,Default,NTP,0000,0000,0000,,\N{\fs14}a lot of the computer\Nscience things you're learning
+Dialogue: 0,0:01:38.79,0:01:39.93,Default,NTP,0000,0000,0000,,\N{\fs14}in other classes.
+Dialogue: 0,0:01:39.93,0:01:42.58,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So, we're going\Nto be doing networking,
+Dialogue: 0,0:01:42.68,0:01:44.03,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to do multithreaded,
+Dialogue: 0,0:01:44.25,0:01:46.02,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to be doing\Nall kinds of graphics,
+Dialogue: 0,0:01:46.02,0:01:47.36,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to be\Ndoing animation,
+Dialogue: 0,0:01:47.36,0:01:49.24,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to do\Nobject-oriented databases,
+Dialogue: 0,0:01:49.24,0:01:51.23,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to do all\Nthat stuff for real, okay?
+Dialogue: 0,0:01:51.23,0:01:52.74,Default,NTP,0000,0000,0000,,\N{\fs14}You're going to see\Nwhat it looks
+Dialogue: 0,0:01:52.74,0:01:56.00,Default,NTP,0000,0000,0000,,\N{\fs14}like to apply all those computer\Nscience concepts, especially how
+Dialogue: 0,0:01:56.00,0:01:58.40,Default,NTP,0000,0000,0000,,\N{\fs14}to combine them into\Na real-world platform,
+Dialogue: 0,0:01:58.40,0:02:00.32,Default,NTP,0000,0000,0000,,\N{\fs14}where you're making\Nreal apps, okay?
+Dialogue: 0,0:02:00.61,0:02:02.52,Default,NTP,0000,0000,0000,,\N{\fs14}And quite a few, many dozens
+Dialogue: 0,0:02:02.56,0:02:05.55,Default,NTP,0000,0000,0000,,\N{\fs14}of my former students\Nhave shipped their apps
+Dialogue: 0,0:02:05.55,0:02:07.15,Default,NTP,0000,0000,0000,,\N{\fs14}on the app store and\Nyou may well too.
+Dialogue: 0,0:02:07.53,0:02:12.60,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So this is really, this is\Na good course to kind of combine
+Dialogue: 0,0:02:12.60,0:02:15.15,Default,NTP,0000,0000,0000,,\N{\fs14}or synthesize all of the\Nthings you've learned in a lot
+Dialogue: 0,0:02:15.15,0:02:17.71,Default,NTP,0000,0000,0000,,\N{\fs14}of your other computer\Nscience classes and touch it
+Dialogue: 0,0:02:17.74,0:02:18.80,Default,NTP,0000,0000,0000,,\N{\fs14}up against the real world.
+Dialogue: 0,0:02:19.22,0:02:23.92,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? The prerequisites for this\Nclass are super duper important,
+Dialogue: 0,0:02:24.16,0:02:24.57,Default,NTP,0000,0000,0000,,\N{\fs14}okay?
+Dialogue: 0,0:02:24.57,0:02:27.60,Default,NTP,0000,0000,0000,,\N{\fs14}This, it's just key to make sure\Nyou have these prerequisites
+Dialogue: 0,0:02:27.60,0:02:29.68,Default,NTP,0000,0000,0000,,\N{\fs14}and really think long and hard,\Nif you don't, whether you want
+Dialogue: 0,0:02:29.68,0:02:31.09,Default,NTP,0000,0000,0000,,\N{\fs14}to give this class ago.
+Dialogue: 0,0:02:31.09,0:02:37.06,Default,NTP,0000,0000,0000,,\N{\fs14}CS 106 A&B or, or CS16x are\Nabsolutely required, okay?
+Dialogue: 0,0:02:37.06,0:02:39.30,Default,NTP,0000,0000,0000,,\N{\fs14}If you don't have that or\Nequivalent, definitely,
+Dialogue: 0,0:02:39.30,0:02:40.16,Default,NTP,0000,0000,0000,,\N{\fs14}don't even think about it.
+Dialogue: 0,0:02:40.49,0:02:42.75,Default,NTP,0000,0000,0000,,\N{\fs14}The second requirement\NI've added this quarter,
+Dialogue: 0,0:02:43.00,0:02:47.13,Default,NTP,0000,0000,0000,,\N{\fs14}based on experience, is CS107\Nor CS108, which is great,
+Dialogue: 0,0:02:47.13,0:02:48.69,Default,NTP,0000,0000,0000,,\N{\fs14}by the way, if you're\Ntaking CS108,
+Dialogue: 0,0:02:48.82,0:02:50.52,Default,NTP,0000,0000,0000,,\N{\fs14}you'll really be\Nready for this class.
+Dialogue: 0,0:02:50.59,0:02:53.29,Default,NTP,0000,0000,0000,,\N{\fs14}Or even CS110, and part
+Dialogue: 0,0:02:53.29,0:02:56.48,Default,NTP,0000,0000,0000,,\N{\fs14}of the reason I'm requiring\Nthese extra classes is just
+Dialogue: 0,0:02:56.48,0:02:59.84,Default,NTP,0000,0000,0000,,\N{\fs14}so you're farther along the\Nprogramming experience curve
+Dialogue: 0,0:02:59.84,0:03:03.17,Default,NTP,0000,0000,0000,,\N{\fs14}because this class is a lot of\Nprogramming, and so for those
+Dialogue: 0,0:03:03.17,0:03:05.02,Default,NTP,0000,0000,0000,,\N{\fs14}of you who are used to\Na lot of programming,
+Dialogue: 0,0:03:05.12,0:03:06.21,Default,NTP,0000,0000,0000,,\N{\fs14}you, you're used to it.
+Dialogue: 0,0:03:06.43,0:03:09.09,Default,NTP,0000,0000,0000,,\N{\fs14}But for those of you who\Naren't it's kind of like, whoa,
+Dialogue: 0,0:03:09.21,0:03:10.10,Default,NTP,0000,0000,0000,,\N{\fs14}do a lot of programming here.
+Dialogue: 0,0:03:10.10,0:03:12.79,Default,NTP,0000,0000,0000,,\N{\fs14}It's going to be a\Nlittle unbalancing.
+Dialogue: 0,0:03:12.79,0:03:14.48,Default,NTP,0000,0000,0000,,\N{\fs14}So, that's why I've\Nrequired all those.
+Dialogue: 0,0:03:14.48,0:03:16.51,Default,NTP,0000,0000,0000,,\N{\fs14}Now if you've done\Na summer internship
+Dialogue: 0,0:03:16.51,0:03:18.19,Default,NTP,0000,0000,0000,,\N{\fs14}of you've done some programming\Nor something like that,
+Dialogue: 0,0:03:18.19,0:03:23.28,Default,NTP,0000,0000,0000,,\N{\fs14}that's definitely a substitute\Nfor CS107, 108, or 110, right?
+Dialogue: 0,0:03:23.28,0:03:25.93,Default,NTP,0000,0000,0000,,\N{\fs14}Or if you've done some other CS\Nclass that's even more advanced
+Dialogue: 0,0:03:25.93,0:03:26.94,Default,NTP,0000,0000,0000,,\N{\fs14}than these, that's fine too.
+Dialogue: 0,0:03:26.94,0:03:29.99,Default,NTP,0000,0000,0000,,\N{\fs14}You've just got to understand\Nthat this class is, you know,
+Dialogue: 0,0:03:30.11,0:03:31.70,Default,NTP,0000,0000,0000,,\N{\fs14}a programming class,\Nthere's a lot of programming.
+Dialogue: 0,0:03:32.10,0:03:34.37,Default,NTP,0000,0000,0000,,\N{\fs14}And most importantly, you\Ngot to really be comfortable
+Dialogue: 0,0:03:34.37,0:03:35.69,Default,NTP,0000,0000,0000,,\N{\fs14}with object-oriented\Nprogramming.
+Dialogue: 0,0:03:35.69,0:03:38.27,Default,NTP,0000,0000,0000,,\N{\fs14}So I put a bunch of terms\Nup here, like message
+Dialogue: 0,0:03:38.27,0:03:41.57,Default,NTP,0000,0000,0000,,\N{\fs14}and instance variable and\Nsuperclass and subclass,
+Dialogue: 0,0:03:42.11,0:03:44.36,Default,NTP,0000,0000,0000,,\N{\fs14}if you don't know these terms\Nlike the back of your hand,
+Dialogue: 0,0:03:44.40,0:03:46.43,Default,NTP,0000,0000,0000,,\N{\fs14}it's going to be hard for\Nyou to get this class,
+Dialogue: 0,0:03:46.43,0:03:47.78,Default,NTP,0000,0000,0000,,\N{\fs14}because I'm going to\Nbe throwing those terms
+Dialogue: 0,0:03:47.78,0:03:48.90,Default,NTP,0000,0000,0000,,\N{\fs14}out left, right, and center.
+Dialogue: 0,0:03:48.90,0:03:51.19,Default,NTP,0000,0000,0000,,\N{\fs14}iOS7 is completely\Nobject-oriented.
+Dialogue: 0,0:03:51.52,0:03:52.67,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, the whole structure,
+Dialogue: 0,0:03:52.67,0:03:54.38,Default,NTP,0000,0000,0000,,\N{\fs14}the design of the thing,\Nis object-oriented.
+Dialogue: 0,0:03:54.62,0:03:57.32,Default,NTP,0000,0000,0000,,\N{\fs14}So, you just got to know that,\Nand if you don't know that,
+Dialogue: 0,0:03:57.55,0:03:59.05,Default,NTP,0000,0000,0000,,\N{\fs14}you definitely want\Nto go get that first.
+Dialogue: 0,0:03:59.45,0:04:02.60,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Take CS106a&b\Nequivalent first,
+Dialogue: 0,0:04:02.60,0:04:04.41,Default,NTP,0000,0000,0000,,\N{\fs14}and then get a little more\Nprogramming experience
+Dialogue: 0,0:04:04.45,0:04:05.20,Default,NTP,0000,0000,0000,,\N{\fs14}and then you're good to go.
+Dialogue: 0,0:04:05.86,0:04:10.11,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? We're going, you're going\Nto be writing apps in this class
+Dialogue: 0,0:04:10.11,0:04:12.82,Default,NTP,0000,0000,0000,,\N{\fs14}with dozens of classes\Nthat you're going to write
+Dialogue: 0,0:04:13.27,0:04:15.70,Default,NTP,0000,0000,0000,,\N{\fs14}by the fifth, sixth\Nweek so, you know,
+Dialogue: 0,0:04:15.80,0:04:18.18,Default,NTP,0000,0000,0000,,\N{\fs14}if the biggest app you've\Never written is got 3, or 4,
+Dialogue: 0,0:04:18.18,0:04:21.51,Default,NTP,0000,0000,0000,,\N{\fs14}or 5 classes in it, oh, this\Nis going to be a step up.
+Dialogue: 0,0:04:22.13,0:04:27.03,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? The assignments, we've\Ngot this weekly assignments
+Dialogue: 0,0:04:27.03,0:04:28.32,Default,NTP,0000,0000,0000,,\N{\fs14}for the first six\Nor seven weeks,
+Dialogue: 0,0:04:28.32,0:04:29.91,Default,NTP,0000,0000,0000,,\N{\fs14}and then you've got a\Nfinal project at the end.
+Dialogue: 0,0:04:30.23,0:04:32.35,Default,NTP,0000,0000,0000,,\N{\fs14}All of the homework assignments\Nhave detailed write-up
+Dialogue: 0,0:04:32.35,0:04:35.63,Default,NTP,0000,0000,0000,,\N{\fs14}of the required task and\Nwhat we're evaluating you on.
+Dialogue: 0,0:04:35.97,0:04:38.32,Default,NTP,0000,0000,0000,,\N{\fs14}And they also have hints in\Nthere, because I'm not trying
+Dialogue: 0,0:04:38.32,0:04:40.00,Default,NTP,0000,0000,0000,,\N{\fs14}to make the homework assignments\Nbe really, really hard,
+Dialogue: 0,0:04:40.24,0:04:45.53,Default,NTP,0000,0000,0000,,\N{\fs14}and all the homework assignments\Nalso directly are re [pause],
+Dialogue: 0,0:04:45.88,0:04:49.10,Default,NTP,0000,0000,0000,,\N{\fs14}they're basically reinforcing\Nwhat has been taught in lecture
+Dialogue: 0,0:04:49.10,0:04:50.18,Default,NTP,0000,0000,0000,,\N{\fs14}in that week, they're\Nnot a bunch
+Dialogue: 0,0:04:50.18,0:04:51.56,Default,NTP,0000,0000,0000,,\N{\fs14}of random new stuff to learn.
+Dialogue: 0,0:04:51.93,0:04:56.34,Default,NTP,0000,0000,0000,,\N{\fs14}I'm a big believer in a teaching\Nmethodology, which is I'm going
+Dialogue: 0,0:04:56.34,0:05:00.01,Default,NTP,0000,0000,0000,,\N{\fs14}to tell you about a concept,\Nvia slides, and then I'm going
+Dialogue: 0,0:05:00.01,0:05:02.26,Default,NTP,0000,0000,0000,,\N{\fs14}to show you it by\Ndemoing it to you,
+Dialogue: 0,0:05:02.26,0:05:04.56,Default,NTP,0000,0000,0000,,\N{\fs14}actually writing an application\Nthat does, then I'm going
+Dialogue: 0,0:05:04.56,0:05:06.55,Default,NTP,0000,0000,0000,,\N{\fs14}to ask you to do\Nit on the homework.
+Dialogue: 0,0:05:06.55,0:05:08.03,Default,NTP,0000,0000,0000,,\N{\fs14}So that's three times\Nyou're going
+Dialogue: 0,0:05:08.03,0:05:10.51,Default,NTP,0000,0000,0000,,\N{\fs14}to see every single thing\Npretty much in this class.
+Dialogue: 0,0:05:10.56,0:05:12.49,Default,NTP,0000,0000,0000,,\N{\fs14}By the end of that, you're\Ngoing to know how to do it.
+Dialogue: 0,0:05:12.49,0:05:14.46,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And you're going\Nto feel confident
+Dialogue: 0,0:05:14.46,0:05:15.28,Default,NTP,0000,0000,0000,,\N{\fs14}and experienced to do it.
+Dialogue: 0,0:05:15.28,0:05:17.44,Default,NTP,0000,0000,0000,,\N{\fs14}So the homework is\Nall about that.
+Dialogue: 0,0:05:17.44,0:05:20.30,Default,NTP,0000,0000,0000,,\N{\fs14}It's about just doing what you\Nsaw me do in class and talk
+Dialogue: 0,0:05:20.30,0:05:21.59,Default,NTP,0000,0000,0000,,\N{\fs14}about in class and apply it.
+Dialogue: 0,0:05:22.72,0:05:26.65,Default,NTP,0000,0000,0000,,\N{\fs14}Alright. Now I'm going to really\Nbriefly go over what's in iOS,
+Dialogue: 0,0:05:27.17,0:05:28.96,Default,NTP,0000,0000,0000,,\N{\fs14}I think most of you\Nknow what's in iOS,
+Dialogue: 0,0:05:28.96,0:05:32.25,Default,NTP,0000,0000,0000,,\N{\fs14}hopefully you've all seen an\NiOS device or you have one
+Dialogue: 0,0:05:32.25,0:05:35.28,Default,NTP,0000,0000,0000,,\N{\fs14}in your pocket, I bet 90\Npercent of you do in this room,
+Dialogue: 0,0:05:35.68,0:05:37.62,Default,NTP,0000,0000,0000,,\N{\fs14}but I'm going to try\Nand summarize it,
+Dialogue: 0,0:05:38.09,0:05:40.69,Default,NTP,0000,0000,0000,,\N{\fs14}this is really hard to do\Nbecause I'm going to try
+Dialogue: 0,0:05:40.69,0:05:43.45,Default,NTP,0000,0000,0000,,\N{\fs14}and do it in four minutes\Nor less, or five minutes,
+Dialogue: 0,0:05:43.45,0:05:46.06,Default,NTP,0000,0000,0000,,\N{\fs14}and it's so big that, I mean,\NI could have two lectures
+Dialogue: 0,0:05:46.06,0:05:47.61,Default,NTP,0000,0000,0000,,\N{\fs14}where I just talk about\Nall the different things
+Dialogue: 0,0:05:47.61,0:05:48.69,Default,NTP,0000,0000,0000,,\N{\fs14}and just summarize them.
+Dialogue: 0,0:05:48.72,0:05:53.05,Default,NTP,0000,0000,0000,,\N{\fs14}So, this is going to try and\Ngroup them into some sort
+Dialogue: 0,0:05:53.05,0:05:56.15,Default,NTP,0000,0000,0000,,\N{\fs14}of sensible groups so you\Nhave an idea of what's there
+Dialogue: 0,0:05:56.15,0:05:59.58,Default,NTP,0000,0000,0000,,\N{\fs14}from a development\Nstandpoint, then when we go off
+Dialogue: 0,0:05:59.58,0:06:01.97,Default,NTP,0000,0000,0000,,\N{\fs14}and start doing it all then\Nyou'll start realizing whoa,
+Dialogue: 0,0:06:01.97,0:06:04.08,Default,NTP,0000,0000,0000,,\N{\fs14}and once you learn how to look\Nin the documentation you'll see,
+Dialogue: 0,0:06:04.08,0:06:06.30,Default,NTP,0000,0000,0000,,\N{\fs14}oh, look at all that stuff in\Nthere, and you'll figure it out.
+Dialogue: 0,0:06:06.30,0:06:07.66,Default,NTP,0000,0000,0000,,\N{\fs14}So this is just a\Nhigh-level overview.
+Dialogue: 0,0:06:07.72,0:06:13.22,Default,NTP,0000,0000,0000,,\N{\fs14}So, I, I've used this division\Ninto these four, kind of groups.
+Dialogue: 0,0:06:13.36,0:06:16.21,Default,NTP,0000,0000,0000,,\N{\fs14}Core OS, which is the stuff\Nthat's close to the hardware.
+Dialogue: 0,0:06:17.06,0:06:20.57,Default,NTP,0000,0000,0000,,\N{\fs14}Core services, which is an\Nobject-oriented on top of that,
+Dialogue: 0,0:06:20.70,0:06:21.32,Default,NTP,0000,0000,0000,,\N{\fs14}that kind of makes it
+Dialogue: 0,0:06:21.32,0:06:23.59,Default,NTP,0000,0000,0000,,\N{\fs14}so you always are programming\Nan object-oriented layer.
+Dialogue: 0,0:06:24.07,0:06:28.48,Default,NTP,0000,0000,0000,,\N{\fs14}Media, because these devices\Nare basically iPods with a phone
+Dialogue: 0,0:06:28.48,0:06:29.92,Default,NTP,0000,0000,0000,,\N{\fs14}in them or with a\Nbig screen on them,
+Dialogue: 0,0:06:29.97,0:06:31.86,Default,NTP,0000,0000,0000,,\N{\fs14}but media is really\Nimportant to these devices,
+Dialogue: 0,0:06:32.16,0:06:34.60,Default,NTP,0000,0000,0000,,\N{\fs14}and then finally Cocoa\NTouch, which is the UI layer.
+Dialogue: 0,0:06:34.84,0:06:37.29,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Of buttons and all the\Nswitches, things like that.
+Dialogue: 0,0:06:37.29,0:06:40.36,Default,NTP,0000,0000,0000,,\N{\fs14}So let's talk about what's in\Neach of those layers, kind of,
+Dialogue: 0,0:06:40.36,0:06:42.79,Default,NTP,0000,0000,0000,,\N{\fs14}little skimming the surface\Nof what's in those layers.
+Dialogue: 0,0:06:43.41,0:06:48.27,Default,NTP,0000,0000,0000,,\N{\fs14}At the Core OS layer, near the\Nhardware, is a Unix kernel.
+Dialogue: 0,0:06:48.50,0:06:51.43,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? This is a Unix operating\Nsystem on this device.
+Dialogue: 0,0:06:52.35,0:06:57.64,Default,NTP,0000,0000,0000,,\N{\fs14}And BFD-based mock, and so\Nyou get everything you get
+Dialogue: 0,0:06:57.64,0:06:58.21,Default,NTP,0000,0000,0000,,\N{\fs14}with Unix.
+Dialogue: 0,0:06:58.21,0:07:01.47,Default,NTP,0000,0000,0000,,\N{\fs14}You're getting sockets and\Nyou're getting file system,
+Dialogue: 0,0:07:01.77,0:07:04.48,Default,NTP,0000,0000,0000,,\N{\fs14}permissions, all that stuff,\Nplus you're getting a bunch
+Dialogue: 0,0:07:04.48,0:07:07.83,Default,NTP,0000,0000,0000,,\N{\fs14}of other stuff that's kind of\Nspecific to a mobile device
+Dialogue: 0,0:07:07.83,0:07:10.99,Default,NTP,0000,0000,0000,,\N{\fs14}like this, like power\Nmanagement, and key chain access
+Dialogue: 0,0:07:10.99,0:07:14.16,Default,NTP,0000,0000,0000,,\N{\fs14}to kind of manage the\Nsecurity of things.
+Dialogue: 0,0:07:14.16,0:07:16.19,Default,NTP,0000,0000,0000,,\N{\fs14}Bonjour, which is\Nthis kind of network,
+Dialogue: 0,0:07:16.54,0:07:18.25,Default,NTP,0000,0000,0000,,\N{\fs14}finding other things\Non the network.
+Dialogue: 0,0:07:18.45,0:07:19.63,Default,NTP,0000,0000,0000,,\N{\fs14}So it's got all that stuff,
+Dialogue: 0,0:07:19.63,0:07:22.76,Default,NTP,0000,0000,0000,,\N{\fs14}it's a very powerful\Nunderlying operating system.
+Dialogue: 0,0:07:23.01,0:07:25.88,Default,NTP,0000,0000,0000,,\N{\fs14}But all of that API\Nor most of it is in C,
+Dialogue: 0,0:07:26.17,0:07:27.94,Default,NTP,0000,0000,0000,,\N{\fs14}and we want to be\Nprogramming kind
+Dialogue: 0,0:07:27.94,0:07:29.46,Default,NTP,0000,0000,0000,,\N{\fs14}of purely object-oriented layer.
+Dialogue: 0,0:07:29.78,0:07:32.72,Default,NTP,0000,0000,0000,,\N{\fs14}So we're going to be mostly\Noperating when we're talking,
+Dialogue: 0,0:07:32.72,0:07:35.21,Default,NTP,0000,0000,0000,,\N{\fs14}touching those things at\Nthe Core surfaces layer.
+Dialogue: 0,0:07:35.77,0:07:39.37,Default,NTP,0000,0000,0000,,\N{\fs14}So this layer has things\Nlike language, things that,
+Dialogue: 0,0:07:39.37,0:07:42.40,Default,NTP,0000,0000,0000,,\N{\fs14}that kind of make the language\Nmore powerful, like arrays
+Dialogue: 0,0:07:42.40,0:07:44.78,Default,NTP,0000,0000,0000,,\N{\fs14}and dictionaries, and\Nstrings and things like that,
+Dialogue: 0,0:07:45.20,0:07:48.71,Default,NTP,0000,0000,0000,,\N{\fs14}plus it has object-oriented\Nways to access the file system,
+Dialogue: 0,0:07:48.97,0:07:51.95,Default,NTP,0000,0000,0000,,\N{\fs14}it has object-oriented ways\Nto find out the GPS location
+Dialogue: 0,0:07:51.95,0:07:53.51,Default,NTP,0000,0000,0000,,\N{\fs14}of your device, for example.
+Dialogue: 0,0:07:53.76,0:07:56.77,Default,NTP,0000,0000,0000,,\N{\fs14}It has ways to do\Nmultithreading.
+Dialogue: 0,0:07:57.06,0:08:01.02,Default,NTP,0000,0000,0000,,\N{\fs14}All this stuff what you want\Nto be able to do, but you want
+Dialogue: 0,0:08:01.02,0:08:03.71,Default,NTP,0000,0000,0000,,\N{\fs14}to stay in an object-oriented\Nkind of mindset
+Dialogue: 0,0:08:03.71,0:08:04.70,Default,NTP,0000,0000,0000,,\N{\fs14}as you're doing them all.
+Dialogue: 0,0:08:04.94,0:08:08.04,Default,NTP,0000,0000,0000,,\N{\fs14}There's a huge layer,\Nfoundational layer there
+Dialogue: 0,0:08:08.04,0:08:10.18,Default,NTP,0000,0000,0000,,\N{\fs14}at Core services for doing that.
+Dialogue: 0,0:08:10.18,0:08:12.83,Default,NTP,0000,0000,0000,,\N{\fs14}At the media layer, don't\Nsleep on this layer,
+Dialogue: 0,0:08:12.83,0:08:14.62,Default,NTP,0000,0000,0000,,\N{\fs14}really important layer,\Nyou've got video here,
+Dialogue: 0,0:08:14.62,0:08:17.10,Default,NTP,0000,0000,0000,,\N{\fs14}you've got video editing,\Nyou got images, of course,
+Dialogue: 0,0:08:17.10,0:08:19.82,Default,NTP,0000,0000,0000,,\N{\fs14}that it can display, it's\Nincredibly powerful audio
+Dialogue: 0,0:08:19.99,0:08:21.96,Default,NTP,0000,0000,0000,,\N{\fs14}for doing 3D audio,\Nif you have games,
+Dialogue: 0,0:08:21.96,0:08:23.39,Default,NTP,0000,0000,0000,,\N{\fs14}you can make the\NThai fighters feel
+Dialogue: 0,0:08:23.39,0:08:25.64,Default,NTP,0000,0000,0000,,\N{\fs14}like they're ripping\Nby you and stuff.
+Dialogue: 0,0:08:25.64,0:08:26.88,Default,NTP,0000,0000,0000,,\N{\fs14}All that stuff is in here.
+Dialogue: 0,0:08:27.13,0:08:29.18,Default,NTP,0000,0000,0000,,\N{\fs14}This is part of, the part of iOS
+Dialogue: 0,0:08:29.18,0:08:31.73,Default,NTP,0000,0000,0000,,\N{\fs14}that really I can't\Ncover in a lot of depth.
+Dialogue: 0,0:08:31.73,0:08:33.91,Default,NTP,0000,0000,0000,,\N{\fs14}I'm just going to try and\Nlet you know that it's there
+Dialogue: 0,0:08:33.91,0:08:35.77,Default,NTP,0000,0000,0000,,\N{\fs14}and you're going to dive\Ndown depending on what kind
+Dialogue: 0,0:08:35.99,0:08:38.96,Default,NTP,0000,0000,0000,,\N{\fs14}of applications, later in\Nyour life, you want to build.
+Dialogue: 0,0:08:39.51,0:08:40.82,Default,NTP,0000,0000,0000,,\N{\fs14}But there's an enormous\Namount there.
+Dialogue: 0,0:08:40.82,0:08:44.10,Default,NTP,0000,0000,0000,,\N{\fs14}This is a fundamentally, a\Nmultimedia device, obviously,
+Dialogue: 0,0:08:44.76,0:08:46.76,Default,NTP,0000,0000,0000,,\N{\fs14}and then, Cocoa Touch\Nis where we're going
+Dialogue: 0,0:08:46.76,0:08:48.61,Default,NTP,0000,0000,0000,,\N{\fs14}to spend most of our time.
+Dialogue: 0,0:08:48.61,0:08:53.17,Default,NTP,0000,0000,0000,,\N{\fs14}This is where you are going to\Nbe building buttons and sliders
+Dialogue: 0,0:08:53.17,0:08:55.67,Default,NTP,0000,0000,0000,,\N{\fs14}and text fields, talking to each\Nother, and animation happening,
+Dialogue: 0,0:08:55.67,0:08:58.02,Default,NTP,0000,0000,0000,,\N{\fs14}things sliding in and\Nout, and, you know,
+Dialogue: 0,0:08:58.02,0:08:59.61,Default,NTP,0000,0000,0000,,\N{\fs14}fading out and fading in.
+Dialogue: 0,0:09:00.17,0:09:03.20,Default,NTP,0000,0000,0000,,\N{\fs14}If you want to get the,\Na picture from the camera
+Dialogue: 0,0:09:03.20,0:09:04.53,Default,NTP,0000,0000,0000,,\N{\fs14}from the user, you can do that.
+Dialogue: 0,0:09:04.85,0:09:07.52,Default,NTP,0000,0000,0000,,\N{\fs14}Things like localization\Nso that you're app can run
+Dialogue: 0,0:09:07.52,0:09:10.44,Default,NTP,0000,0000,0000,,\N{\fs14}in many countries in the world\Nand up your sales by doing that.
+Dialogue: 0,0:09:10.44,0:09:13.66,Default,NTP,0000,0000,0000,,\N{\fs14}A whole map kit for\Ndoing all the 3D maps
+Dialogue: 0,0:09:13.66,0:09:15.57,Default,NTP,0000,0000,0000,,\N{\fs14}that you've probably\Nseen in iOS7 and all
+Dialogue: 0,0:09:15.57,0:09:16.79,Default,NTP,0000,0000,0000,,\N{\fs14}that stuff is all in there.
+Dialogue: 0,0:09:17.23,0:09:21.13,Default,NTP,0000,0000,0000,,\N{\fs14}And, there's even a view
+Dialogue: 0,0:09:21.13,0:09:23.52,Default,NTP,0000,0000,0000,,\N{\fs14}in there that's an entire web\Nbrowser in a little rectangle
+Dialogue: 0,0:09:23.52,0:09:25.33,Default,NTP,0000,0000,0000,,\N{\fs14}that you can just plop\Nright into your app.
+Dialogue: 0,0:09:25.33,0:09:29.70,Default,NTP,0000,0000,0000,,\N{\fs14}So these are really high-level\Nobjects, and we're going
+Dialogue: 0,0:09:29.70,0:09:32.01,Default,NTP,0000,0000,0000,,\N{\fs14}to really be diving into\Nthis layer, alright?
+Dialogue: 0,0:09:32.01,0:09:33.08,Default,NTP,0000,0000,0000,,\N{\fs14}So this is really the primary.
+Dialogue: 0,0:09:33.08,0:09:37.46,Default,NTP,0000,0000,0000,,\N{\fs14}And it's called Cocoa\NTouch because the API
+Dialogue: 0,0:09:37.71,0:09:40.26,Default,NTP,0000,0000,0000,,\N{\fs14}in here was originally\Ndeveloped for Mac OS X,
+Dialogue: 0,0:09:40.26,0:09:43.51,Default,NTP,0000,0000,0000,,\N{\fs14}and it was called Cocoa, and\Nof course then when they went
+Dialogue: 0,0:09:43.51,0:09:47.19,Default,NTP,0000,0000,0000,,\N{\fs14}to iOS, they adapted, and\Na lot of API is shared
+Dialogue: 0,0:09:47.19,0:09:48.55,Default,NTP,0000,0000,0000,,\N{\fs14}between the two platforms,\Nand, in fact,
+Dialogue: 0,0:09:48.55,0:09:51.24,Default,NTP,0000,0000,0000,,\N{\fs14}if you develop an iOS app\Nand then you say someday, oh,
+Dialogue: 0,0:09:51.24,0:09:53.74,Default,NTP,0000,0000,0000,,\N{\fs14}I want to develop an app\Nfor the Mac using Cocoa,
+Dialogue: 0,0:09:53.74,0:09:54.73,Default,NTP,0000,0000,0000,,\N{\fs14}it's going to be very similar.
+Dialogue: 0,0:09:54.92,0:09:58.27,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? You're going to be really,\Nit's going to look familiar.
+Dialogue: 0,0:09:58.45,0:10:00.55,Default,NTP,0000,0000,0000,,\N{\fs14}So Cocoa Touch, obviously,
+Dialogue: 0,0:10:00.55,0:10:03.27,Default,NTP,0000,0000,0000,,\N{\fs14}is the touchscreen\Nversion of that, of Cocoa.
+Dialogue: 0,0:10:03.27,0:10:03.37,Default,NTP,0000,0000,0000,,\N{\fs14}Okay?
+Dialogue: 0,0:10:04.09,0:10:08.86,Default,NTP,0000,0000,0000,,\N{\fs14}This technology, Cocoa, has\Nbeen around a long time, okay?
+Dialogue: 0,0:10:08.98,0:10:11.42,Default,NTP,0000,0000,0000,,\N{\fs14}Probably almost 30\Nyears, believe it or not.
+Dialogue: 0,0:10:11.42,0:10:15.71,Default,NTP,0000,0000,0000,,\N{\fs14}From even before Apple\Nacquired it to make Mac OS,
+Dialogue: 0,0:10:15.90,0:10:19.60,Default,NTP,0000,0000,0000,,\N{\fs14}what is now Mac OS X, and so\Nit's a very mature API, okay?
+Dialogue: 0,0:10:19.79,0:10:23.54,Default,NTP,0000,0000,0000,,\N{\fs14}And it's very well thought\Nout, so, especially if you go
+Dialogue: 0,0:10:23.54,0:10:26.36,Default,NTP,0000,0000,0000,,\N{\fs14}with the flow of\Nit, it's very easy
+Dialogue: 0,0:10:26.36,0:10:27.88,Default,NTP,0000,0000,0000,,\N{\fs14}to build really powerful things.
+Dialogue: 0,0:10:28.66,0:10:30.44,Default,NTP,0000,0000,0000,,\N{\fs14}So, that's what's in there.
+Dialogue: 0,0:10:30.71,0:10:33.28,Default,NTP,0000,0000,0000,,\N{\fs14}So let's talk about the\Ntools we use as programmers,
+Dialogue: 0,0:10:33.28,0:10:35.87,Default,NTP,0000,0000,0000,,\N{\fs14}as developers, to\Nbuild these apps, okay?
+Dialogue: 0,0:10:36.04,0:10:38.45,Default,NTP,0000,0000,0000,,\N{\fs14}And I've divided those into\Nkind of four sections here.
+Dialogue: 0,0:10:38.71,0:10:42.12,Default,NTP,0000,0000,0000,,\N{\fs14}One is the tools, the\Nactual programming tools,
+Dialogue: 0,0:10:42.39,0:10:44.84,Default,NTP,0000,0000,0000,,\N{\fs14}and what's great,\Non this platform,
+Dialogue: 0,0:10:44.84,0:10:47.68,Default,NTP,0000,0000,0000,,\N{\fs14}is itÃs pretty much\Na one-tool fits all.
+Dialogue: 0,0:10:47.68,0:10:49.58,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? There's this\None tool, XCode 5,
+Dialogue: 0,0:10:49.83,0:10:50.82,Default,NTP,0000,0000,0000,,\N{\fs14}and everything's in there.
+Dialogue: 0,0:10:51.12,0:10:53.12,Default,NTP,0000,0000,0000,,\N{\fs14}You're debugger's in there,\Nall your source code editing,
+Dialogue: 0,0:10:53.12,0:10:55.99,Default,NTP,0000,0000,0000,,\N{\fs14}your source code\Ncontrol, the UI building,
+Dialogue: 0,0:10:55.99,0:10:57.66,Default,NTP,0000,0000,0000,,\N{\fs14}everything is in this one app.
+Dialogue: 0,0:10:57.90,0:11:00.52,Default,NTP,0000,0000,0000,,\N{\fs14}There's a little adjunct there,\Ninstruments, which is for things
+Dialogue: 0,0:11:00.52,0:11:03.39,Default,NTP,0000,0000,0000,,\N{\fs14}like profiling your app\Nand things like that.
+Dialogue: 0,0:11:03.39,0:11:05.97,Default,NTP,0000,0000,0000,,\N{\fs14}Memory usage, those kind of\Nthings, but you're really,
+Dialogue: 0,0:11:06.00,0:11:10.22,Default,NTP,0000,0000,0000,,\N{\fs14}all was inside XCode 5, which is\Nreally nice because, you know,
+Dialogue: 0,0:11:10.57,0:11:12.74,Default,NTP,0000,0000,0000,,\N{\fs14}when you're debugging, you're\Nusually editing your code
+Dialogue: 0,0:11:12.74,0:11:14.34,Default,NTP,0000,0000,0000,,\N{\fs14}at the same time, back\Nand forth, back and forth,
+Dialogue: 0,0:11:14.34,0:11:16.39,Default,NTP,0000,0000,0000,,\N{\fs14}you're going to different apps\Nand all that would be a pain
+Dialogue: 0,0:11:16.39,0:11:18.62,Default,NTP,0000,0000,0000,,\N{\fs14}in the neck, and they've\Nreally done a good job
+Dialogue: 0,0:11:18.62,0:11:21.46,Default,NTP,0000,0000,0000,,\N{\fs14}of arranging the screen\Nspace so that it's sharing
+Dialogue: 0,0:11:21.46,0:11:23.86,Default,NTP,0000,0000,0000,,\N{\fs14}between all these different\Ntasks that you need to do.
+Dialogue: 0,0:11:23.86,0:11:26.59,Default,NTP,0000,0000,0000,,\N{\fs14}So that's the primary tool,\NXCode 5, you should all,
+Dialogue: 0,0:11:26.92,0:11:29.97,Default,NTP,0000,0000,0000,,\N{\fs14}right after this class if you\Nwant, go to the Mac App store,
+Dialogue: 0,0:11:30.15,0:11:32.98,Default,NTP,0000,0000,0000,,\N{\fs14}not the store on you iOS\Ndevice, the Mac App Store
+Dialogue: 0,0:11:32.98,0:11:34.93,Default,NTP,0000,0000,0000,,\N{\fs14}on your Mac, and download this.
+Dialogue: 0,0:11:34.93,0:11:37.73,Default,NTP,0000,0000,0000,,\N{\fs14}It's free, available,\Ncame out last Friday,
+Dialogue: 0,0:11:38.05,0:11:40.77,Default,NTP,0000,0000,0000,,\N{\fs14}and you can download it,\Ninstall it, and, you know,
+Dialogue: 0,0:11:40.77,0:11:41.68,Default,NTP,0000,0000,0000,,\N{\fs14}start playing around with it.
+Dialogue: 0,0:11:41.93,0:11:44.80,Default,NTP,0000,0000,0000,,\N{\fs14}Some of you might have already\Nused XCode, like in CS106,
+Dialogue: 0,0:11:44.92,0:11:47.85,Default,NTP,0000,0000,0000,,\N{\fs14}raise your hand if you've used\NXCode before for anything.
+Dialogue: 0,0:11:47.85,0:11:50.19,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, so two-thirds or\Nmore, three-quarters of you.
+Dialogue: 0,0:11:50.24,0:11:51.46,Default,NTP,0000,0000,0000,,\N{\fs14}So, you're going to be used it.
+Dialogue: 0,0:11:51.46,0:11:53.36,Default,NTP,0000,0000,0000,,\N{\fs14}You're just going to\Nstart using XCode now
+Dialogue: 0,0:11:53.42,0:11:55.84,Default,NTP,0000,0000,0000,,\N{\fs14}to develop for iOS, alright?
+Dialogue: 0,0:11:55.84,0:11:58.51,Default,NTP,0000,0000,0000,,\N{\fs14}There's a new language for\Nyou to learn, objective C,
+Dialogue: 0,0:11:58.59,0:12:00.50,Default,NTP,0000,0000,0000,,\N{\fs14}it's kind of a funny-looking\Nlanguage, okay,
+Dialogue: 0,0:12:00.50,0:12:04.47,Default,NTP,0000,0000,0000,,\N{\fs14}its square brackets and colons,\Nno parentheses on message calls,
+Dialogue: 0,0:12:04.47,0:12:07.24,Default,NTP,0000,0000,0000,,\N{\fs14}which is kind of weird\Nfor people who are coming
+Dialogue: 0,0:12:07.24,0:12:08.89,Default,NTP,0000,0000,0000,,\N{\fs14}from Java or C++ or whatever.
+Dialogue: 0,0:12:08.89,0:12:11.32,Default,NTP,0000,0000,0000,,\N{\fs14}The arguments are not put\Nin parentheses or whatever,
+Dialogue: 0,0:12:11.55,0:12:13.25,Default,NTP,0000,0000,0000,,\N{\fs14}and I'm going to show you\Nall about objective C,
+Dialogue: 0,0:12:13.25,0:12:15.37,Default,NTP,0000,0000,0000,,\N{\fs14}I don't expect you to know\Nanything about it coming in,
+Dialogue: 0,0:12:15.37,0:12:18.04,Default,NTP,0000,0000,0000,,\N{\fs14}and if you know Java and\NC++, which you should
+Dialogue: 0,0:12:18.04,0:12:21.83,Default,NTP,0000,0000,0000,,\N{\fs14}if you've taken CS106A&B,\Nthen objective C is not going
+Dialogue: 0,0:12:21.83,0:12:23.28,Default,NTP,0000,0000,0000,,\N{\fs14}to be a big leap for you.
+Dialogue: 0,0:12:23.28,0:12:24.53,Default,NTP,0000,0000,0000,,\N{\fs14}It's a little bit\Ndifferent language,
+Dialogue: 0,0:12:24.53,0:12:27.53,Default,NTP,0000,0000,0000,,\N{\fs14}it's a little more fast and\Nloose than Java, for example,
+Dialogue: 0,0:12:27.53,0:12:30.81,Default,NTP,0000,0000,0000,,\N{\fs14}and it's a little more, kind of\Nsimple and elegant, than C++,
+Dialogue: 0,0:12:30.81,0:12:32.67,Default,NTP,0000,0000,0000,,\N{\fs14}when it comes to the\Nobject-oriented stuff.
+Dialogue: 0,0:12:32.75,0:12:34.10,Default,NTP,0000,0000,0000,,\N{\fs14}So, I think you'll like it.
+Dialogue: 0,0:12:34.10,0:12:37.13,Default,NTP,0000,0000,0000,,\N{\fs14}It won't. Some of you\Nwho are very, you know,
+Dialogue: 0,0:12:37.13,0:12:39.80,Default,NTP,0000,0000,0000,,\N{\fs14}correct programming kind\Nof thing, you love Java,
+Dialogue: 0,0:12:39.80,0:12:42.26,Default,NTP,0000,0000,0000,,\N{\fs14}might find objective C a\Nlittle wild west for you,
+Dialogue: 0,0:12:42.26,0:12:44.57,Default,NTP,0000,0000,0000,,\N{\fs14}but you'll get over it.
+Dialogue: 0,0:12:44.83,0:12:47.97,Default,NTP,0000,0000,0000,,\N{\fs14}Frameworks, obviously, any big\Nsystem like this groups all
+Dialogue: 0,0:12:47.97,0:12:50.25,Default,NTP,0000,0000,0000,,\N{\fs14}of its objects into\Nlibraries, essentially.
+Dialogue: 0,0:12:50.25,0:12:52.31,Default,NTP,0000,0000,0000,,\N{\fs14}We call them Frameworks in iOS,
+Dialogue: 0,0:12:52.31,0:12:56.24,Default,NTP,0000,0000,0000,,\N{\fs14}so there are dozens\Nof frameworks in iOS.
+Dialogue: 0,0:12:56.75,0:12:58.70,Default,NTP,0000,0000,0000,,\N{\fs14}The two main ones we're going\Nto look at, at the beginning
+Dialogue: 0,0:12:58.70,0:13:01.12,Default,NTP,0000,0000,0000,,\N{\fs14}of the course, are\Nfoundation, that's where all
+Dialogue: 0,0:13:01.12,0:13:03.16,Default,NTP,0000,0000,0000,,\N{\fs14}that core services\Nstuff is, like arrays
+Dialogue: 0,0:13:03.16,0:13:04.11,Default,NTP,0000,0000,0000,,\N{\fs14}and dictionaries and all that.
+Dialogue: 0,0:13:04.11,0:13:07.14,Default,NTP,0000,0000,0000,,\N{\fs14}And then UI kit, okay, that's\Nwhere buttons and sliders
+Dialogue: 0,0:13:07.14,0:13:08.84,Default,NTP,0000,0000,0000,,\N{\fs14}and all those things area, so\Nthose are the two main ones,
+Dialogue: 0,0:13:08.84,0:13:10.52,Default,NTP,0000,0000,0000,,\N{\fs14}but, there's a whole\Nbunch of other ones, like,
+Dialogue: 0,0:13:10.52,0:13:12.13,Default,NTP,0000,0000,0000,,\N{\fs14}you see the Core Data\Nwritten up there,
+Dialogue: 0,0:13:12.35,0:13:14.12,Default,NTP,0000,0000,0000,,\N{\fs14}that's the object-oriented\Ndatabase.
+Dialogue: 0,0:13:14.35,0:13:15.90,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So we're going\Nto be doing that.
+Dialogue: 0,0:13:16.26,0:13:19.17,Default,NTP,0000,0000,0000,,\N{\fs14}Core Motion, that's the\Ngyro and accelerometer.
+Dialogue: 0,0:13:19.55,0:13:21.22,Default,NTP,0000,0000,0000,,\N{\fs14}Map Kit, obviously the maps.
+Dialogue: 0,0:13:21.53,0:13:23.11,Default,NTP,0000,0000,0000,,\N{\fs14}And there's dozens more, okay?
+Dialogue: 0,0:13:23.11,0:13:25.01,Default,NTP,0000,0000,0000,,\N{\fs14}And we'll cover as\Nmany of them as we can,
+Dialogue: 0,0:13:25.34,0:13:26.83,Default,NTP,0000,0000,0000,,\N{\fs14}obviously we can't do\Nit all in 10 weeks,
+Dialogue: 0,0:13:26.83,0:13:27.88,Default,NTP,0000,0000,0000,,\N{\fs14}but we'll do as much as we can.
+Dialogue: 0,0:13:28.31,0:13:31.07,Default,NTP,0000,0000,0000,,\N{\fs14}And then the last part\Nof developing application
+Dialogue: 0,0:13:31.07,0:13:34.49,Default,NTP,0000,0000,0000,,\N{\fs14}in this platform is a\Ndesign strategy called MVC.
+Dialogue: 0,0:13:34.89,0:13:38.61,Default,NTP,0000,0000,0000,,\N{\fs14}Now, this is not unique to\NiOS, other platforms use MVC,
+Dialogue: 0,0:13:38.66,0:13:42.44,Default,NTP,0000,0000,0000,,\N{\fs14}Model View Controller, as their\Nfundamental design strategy.
+Dialogue: 0,0:13:42.44,0:13:45.95,Default,NTP,0000,0000,0000,,\N{\fs14}So how many people in this room\Nhave used MVC on any platform?
+Dialogue: 0,0:13:46.98,0:13:48.61,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, so about half, so\Nyou'll know what this is.
+Dialogue: 0,0:13:48.61,0:13:51.27,Default,NTP,0000,0000,0000,,\N{\fs14}So, I'm actually going to\Ngo over MVC for those of you
+Dialogue: 0,0:13:51.27,0:13:53.21,Default,NTP,0000,0000,0000,,\N{\fs14}who haven't and I'll go\Nthrough it pretty quickly,
+Dialogue: 0,0:13:53.21,0:13:57.14,Default,NTP,0000,0000,0000,,\N{\fs14}because it looks like most of\Nyou, half of you have done it,
+Dialogue: 0,0:13:57.14,0:13:59.87,Default,NTP,0000,0000,0000,,\N{\fs14}and [pause] the main\Nthing to see in MVC here,
+Dialogue: 0,0:13:59.87,0:14:01.41,Default,NTP,0000,0000,0000,,\N{\fs14}for those of you who\Nalready know what it is,
+Dialogue: 0,0:14:01.41,0:14:06.24,Default,NTP,0000,0000,0000,,\N{\fs14}is to see how I talk about it\Nso that when we get into iOS
+Dialogue: 0,0:14:06.24,0:14:10.09,Default,NTP,0000,0000,0000,,\N{\fs14}and I start saying things like\Nyour model is UI independent,
+Dialogue: 0,0:14:10.21,0:14:11.80,Default,NTP,0000,0000,0000,,\N{\fs14}you'll know what\NI'm talking about
+Dialogue: 0,0:14:11.80,0:14:13.22,Default,NTP,0000,0000,0000,,\N{\fs14}and we'll all be\Non the same page.
+Dialogue: 0,0:14:13.25,0:14:15.90,Default,NTP,0000,0000,0000,,\N{\fs14}So this is mostly\Nkind of getting us all
+Dialogue: 0,0:14:15.90,0:14:17.58,Default,NTP,0000,0000,0000,,\N{\fs14}on the same page\Nterminology-wise.
+Dialogue: 0,0:14:18.25,0:14:23.28,Default,NTP,0000,0000,0000,,\N{\fs14}So MVC, Model View Controller,\Nis essentially a strategy
+Dialogue: 0,0:14:23.28,0:14:28.42,Default,NTP,0000,0000,0000,,\N{\fs14}for how to organize all the\Nclasses in your application.
+Dialogue: 0,0:14:28.42,0:14:31.74,Default,NTP,0000,0000,0000,,\N{\fs14}And what we do fundamentally\Nis we divide all the classes
+Dialogue: 0,0:14:32.01,0:14:33.81,Default,NTP,0000,0000,0000,,\N{\fs14}into one of three camps.
+Dialogue: 0,0:14:34.13,0:14:37.94,Default,NTP,0000,0000,0000,,\N{\fs14}The model camp, the controller\Ncamp, or the view camp,
+Dialogue: 0,0:14:38.60,0:14:41.43,Default,NTP,0000,0000,0000,,\N{\fs14}and what, how you decide what\Ngoes in each of these camps,
+Dialogue: 0,0:14:41.43,0:14:45.32,Default,NTP,0000,0000,0000,,\N{\fs14}well, the model is essentially\Nthe what of your program.
+Dialogue: 0,0:14:45.32,0:14:46.70,Default,NTP,0000,0000,0000,,\N{\fs14}What is your program?
+Dialogue: 0,0:14:46.70,0:14:49.10,Default,NTP,0000,0000,0000,,\N{\fs14}So, as we're doing this\NMVC talk, I'm going to talk
+Dialogue: 0,0:14:49.10,0:14:50.77,Default,NTP,0000,0000,0000,,\N{\fs14}about our first application\Nwe're going to build
+Dialogue: 0,0:14:50.77,0:14:52.07,Default,NTP,0000,0000,0000,,\N{\fs14}which is a card matching game.
+Dialogue: 0,0:14:52.42,0:14:54.51,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So we're going to build\Nthis game, it's gotta bunch
+Dialogue: 0,0:14:54.51,0:14:56.97,Default,NTP,0000,0000,0000,,\N{\fs14}of cards on the screen, like\Nplaying cards, you know,
+Dialogue: 0,0:14:56.97,0:15:00.04,Default,NTP,0000,0000,0000,,\N{\fs14}Ace of Clubs and all that,\Nand you're going to be able
+Dialogue: 0,0:15:00.04,0:15:01.17,Default,NTP,0000,0000,0000,,\N{\fs14}to go choose the cards
+Dialogue: 0,0:15:01.30,0:15:03.47,Default,NTP,0000,0000,0000,,\N{\fs14}and you'll get certain\Npoints if the match.
+Dialogue: 0,0:15:03.74,0:15:05.96,Default,NTP,0000,0000,0000,,\N{\fs14}Like the suit matches or the\Nrank matches, or whatever,
+Dialogue: 0,0:15:05.96,0:15:08.67,Default,NTP,0000,0000,0000,,\N{\fs14}you get more points, less points\Nwhatever, but you're doing that.
+Dialogue: 0,0:15:08.67,0:15:10.81,Default,NTP,0000,0000,0000,,\N{\fs14}In that kind of application,\Na little card matching game,
+Dialogue: 0,0:15:11.15,0:15:14.97,Default,NTP,0000,0000,0000,,\N{\fs14}the cards and the deck,\Nand even the logic
+Dialogue: 0,0:15:14.97,0:15:18.07,Default,NTP,0000,0000,0000,,\N{\fs14}for how the game is played\Nare all UI independent
+Dialogue: 0,0:15:18.21,0:15:18.95,Default,NTP,0000,0000,0000,,\N{\fs14}and in the model.
+Dialogue: 0,0:15:20.15,0:15:20.53,Default,NTP,0000,0000,0000,,\N{\fs14}Okay?
+Dialogue: 0,0:15:21.48,0:15:23.04,Default,NTP,0000,0000,0000,,\N{\fs14}So how the cards get drawn
+Dialogue: 0,0:15:23.04,0:15:25.41,Default,NTP,0000,0000,0000,,\N{\fs14}on screen is the job\Nof the controller.
+Dialogue: 0,0:15:25.89,0:15:28.54,Default,NTP,0000,0000,0000,,\N{\fs14}So the controller is, it's job\Nto figure out how am I going,
+Dialogue: 0,0:15:28.90,0:15:31.61,Default,NTP,0000,0000,0000,,\N{\fs14}you know, take this set of cards\Nand display them on screen,
+Dialogue: 0,0:15:31.73,0:15:34.76,Default,NTP,0000,0000,0000,,\N{\fs14}and then animate their\Nmovement and things like that.
+Dialogue: 0,0:15:35.32,0:15:36.59,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? That's up to\Nthe controller.
+Dialogue: 0,0:15:36.59,0:15:40.43,Default,NTP,0000,0000,0000,,\N{\fs14}So the controller controls\Nhow the model is presented
+Dialogue: 0,0:15:40.43,0:15:43.75,Default,NTP,0000,0000,0000,,\N{\fs14}on screen, and the\Nview, the minions,
+Dialogue: 0,0:15:44.02,0:15:46.09,Default,NTP,0000,0000,0000,,\N{\fs14}the classes that the\Ncontroller is going to use,
+Dialogue: 0,0:15:46.09,0:15:48.41,Default,NTP,0000,0000,0000,,\N{\fs14}kind of like the building\Nblocks, the Lincoln Logs,
+Dialogue: 0,0:15:48.41,0:15:51.76,Default,NTP,0000,0000,0000,,\N{\fs14}I don't know maybe that's before\Nall your time, but, you know,
+Dialogue: 0,0:15:51.76,0:15:55.11,Default,NTP,0000,0000,0000,,\N{\fs14}the things we're going to do\Nbuild our UI we're going to use
+Dialogue: 0,0:15:55.11,0:15:56.95,Default,NTP,0000,0000,0000,,\N{\fs14}in the view, so,\Nthe stuff that's
+Dialogue: 0,0:15:56.95,0:15:58.99,Default,NTP,0000,0000,0000,,\N{\fs14}in the view is pretty generic.
+Dialogue: 0,0:15:59.37,0:16:01.51,Default,NTP,0000,0000,0000,,\N{\fs14}Generic UI elements, the stuff
+Dialogue: 0,0:16:01.51,0:16:04.86,Default,NTP,0000,0000,0000,,\N{\fs14}in the controller is very\Nspecific to how your UI works,
+Dialogue: 0,0:16:04.90,0:16:06.97,Default,NTP,0000,0000,0000,,\N{\fs14}and the stuff in the model\Nis completely independent
+Dialogue: 0,0:16:06.97,0:16:08.12,Default,NTP,0000,0000,0000,,\N{\fs14}of how you're UI works.
+Dialogue: 0,0:16:08.65,0:16:15.34,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So, doing MVC is about\Nknowing where things go,
+Dialogue: 0,0:16:15.34,0:16:17.42,Default,NTP,0000,0000,0000,,\N{\fs14}but also about how\Nto communicate
+Dialogue: 0,0:16:17.42,0:16:19.75,Default,NTP,0000,0000,0000,,\N{\fs14}between these three camps\Nand so I'm going to try
+Dialogue: 0,0:16:19.75,0:16:21.75,Default,NTP,0000,0000,0000,,\N{\fs14}and summarize how the\Ncommunication works
+Dialogue: 0,0:16:21.75,0:16:24.20,Default,NTP,0000,0000,0000,,\N{\fs14}between these camps and\NI've used road markings,
+Dialogue: 0,0:16:24.20,0:16:26.77,Default,NTP,0000,0000,0000,,\N{\fs14}you see the double yellow line\Nand then the dashed white line,
+Dialogue: 0,0:16:26.77,0:16:30.24,Default,NTP,0000,0000,0000,,\N{\fs14}so that's like you're driving\Nin your car, try to use them
+Dialogue: 0,0:16:30.24,0:16:34.15,Default,NTP,0000,0000,0000,,\N{\fs14}as that I have an image for\Nhow this communication happens,
+Dialogue: 0,0:16:34.15,0:16:35.67,Default,NTP,0000,0000,0000,,\N{\fs14}where it's allowed,\Nwhere it's not allowed.
+Dialogue: 0,0:16:35.78,0:16:39.52,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So let's talk about the\Ncontroller talking to the model.
+Dialogue: 0,0:16:39.99,0:16:42.07,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Going from\Nthat side of the road
+Dialogue: 0,0:16:42.07,0:16:44.49,Default,NTP,0000,0000,0000,,\N{\fs14}over to the model side\Nis a dashed white line,
+Dialogue: 0,0:16:44.49,0:16:46.28,Default,NTP,0000,0000,0000,,\N{\fs14}in other words, you can\Nhead right across there,
+Dialogue: 0,0:16:46.28,0:16:47.72,Default,NTP,0000,0000,0000,,\N{\fs14}you probably want to\Nlook before you go,
+Dialogue: 0,0:16:47.72,0:16:49.12,Default,NTP,0000,0000,0000,,\N{\fs14}but you can go right\Nacross, okay?
+Dialogue: 0,0:16:49.53,0:16:52.82,Default,NTP,0000,0000,0000,,\N{\fs14}The controller has to know\Neverything about the model
+Dialogue: 0,0:16:52.82,0:16:56.07,Default,NTP,0000,0000,0000,,\N{\fs14}and it has to have complete\Nability to talk to the model,
+Dialogue: 0,0:16:56.51,0:16:58.91,Default,NTP,0000,0000,0000,,\N{\fs14}use its public API\Nas much as it wants,
+Dialogue: 0,0:16:58.91,0:17:01.68,Default,NTP,0000,0000,0000,,\N{\fs14}because the controller's\Njob is to present the model
+Dialogue: 0,0:17:01.89,0:17:04.66,Default,NTP,0000,0000,0000,,\N{\fs14}to the user using its\Nview as its minions,
+Dialogue: 0,0:17:05.14,0:17:06.42,Default,NTP,0000,0000,0000,,\N{\fs14}so it has to have this access.
+Dialogue: 0,0:17:06.42,0:17:09.26,Default,NTP,0000,0000,0000,,\N{\fs14}So that's full, unrestricted\Naccess the controller has
+Dialogue: 0,0:17:09.26,0:17:10.58,Default,NTP,0000,0000,0000,,\N{\fs14}talking to the model.
+Dialogue: 0,0:17:10.68,0:17:13.35,Default,NTP,0000,0000,0000,,\N{\fs14}This is a one-way\Nera, or one-way arrow,
+Dialogue: 0,0:17:13.70,0:17:14.91,Default,NTP,0000,0000,0000,,\N{\fs14}from the controller\Nto the model.
+Dialogue: 0,0:17:15.64,0:17:18.18,Default,NTP,0000,0000,0000,,\N{\fs14}And similarly from the\Ncontroller to the view,
+Dialogue: 0,0:17:18.57,0:17:20.55,Default,NTP,0000,0000,0000,,\N{\fs14}is also unlimited communication
+Dialogue: 0,0:17:20.55,0:17:23.22,Default,NTP,0000,0000,0000,,\N{\fs14}because the controller is\Nresponsible for talking, using,
+Dialogue: 0,0:17:23.22,0:17:26.52,Default,NTP,0000,0000,0000,,\N{\fs14}it's own minions, the view is\Nthe controllers' minions to lay
+Dialogue: 0,0:17:26.52,0:17:28.88,Default,NTP,0000,0000,0000,,\N{\fs14}out the user interface\Nand all that stuff,
+Dialogue: 0,0:17:28.97,0:17:31.11,Default,NTP,0000,0000,0000,,\N{\fs14}so the controller can\Ndo anything it wants,
+Dialogue: 0,0:17:31.11,0:17:33.19,Default,NTP,0000,0000,0000,,\N{\fs14}I've put that little\Ngreen word outlet up there
+Dialogue: 0,0:17:33.49,0:17:36.85,Default,NTP,0000,0000,0000,,\N{\fs14}because when we have a property\Nof a controller that points
+Dialogue: 0,0:17:36.85,0:17:39.21,Default,NTP,0000,0000,0000,,\N{\fs14}into the view, we\Ncall it an outlet.
+Dialogue: 0,0:17:39.71,0:17:41.63,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And you're going to see\Nthat in the demo on Wednesday,
+Dialogue: 0,0:17:41.63,0:17:43.32,Default,NTP,0000,0000,0000,,\N{\fs14}I'm going to say oh,\Nlet's create an outlet
+Dialogue: 0,0:17:43.71,0:17:45.11,Default,NTP,0000,0000,0000,,\N{\fs14}from our controller to our view
+Dialogue: 0,0:17:45.11,0:17:46.63,Default,NTP,0000,0000,0000,,\N{\fs14}so our controller\Ncan talk to its view.
+Dialogue: 0,0:17:47.13,0:17:49.68,Default,NTP,0000,0000,0000,,\N{\fs14}Alright? What about\Nthis communication?
+Dialogue: 0,0:17:49.78,0:17:52.77,Default,NTP,0000,0000,0000,,\N{\fs14}Model to view, never,\Nand why is that?
+Dialogue: 0,0:17:52.83,0:17:53.95,Default,NTP,0000,0000,0000,,\N{\fs14}100 percent obvious.
+Dialogue: 0,0:17:54.10,0:17:56.63,Default,NTP,0000,0000,0000,,\N{\fs14}The model is completely\NUI independent.
+Dialogue: 0,0:17:56.73,0:17:59.75,Default,NTP,0000,0000,0000,,\N{\fs14}So there's absolutely no way it\Ncould talk to a view or object
+Dialogue: 0,0:17:59.75,0:18:00.83,Default,NTP,0000,0000,0000,,\N{\fs14}or anyone in that camp.
+Dialogue: 0,0:18:01.30,0:18:03.86,Default,NTP,0000,0000,0000,,\N{\fs14}Because the view objects are\Nfundamentally UI objects,
+Dialogue: 0,0:18:03.86,0:18:04.84,Default,NTP,0000,0000,0000,,\N{\fs14}they're kind of generic,
+Dialogue: 0,0:18:04.84,0:18:06.80,Default,NTP,0000,0000,0000,,\N{\fs14}but they're still\Nfundamentally UI objects.
+Dialogue: 0,0:18:06.86,0:18:09.50,Default,NTP,0000,0000,0000,,\N{\fs14}Similarly, since the view\Nobjects are kind of generic,
+Dialogue: 0,0:18:09.69,0:18:11.60,Default,NTP,0000,0000,0000,,\N{\fs14}they can't be talking\Nto any specific model.
+Dialogue: 0,0:18:11.70,0:18:14.69,Default,NTP,0000,0000,0000,,\N{\fs14}They need a controller to\Ninterpret a model for them.
+Dialogue: 0,0:18:15.46,0:18:17.84,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So there's never any\Ncommunication this way,
+Dialogue: 0,0:18:17.84,0:18:19.08,Default,NTP,0000,0000,0000,,\N{\fs14}that's why it's a\Ndouble yellow line,
+Dialogue: 0,0:18:19.39,0:18:22.66,Default,NTP,0000,0000,0000,,\N{\fs14}that's why these lines are red,\Nthat's why there's fire, okay?
+Dialogue: 0,0:18:23.12,0:18:25.19,Default,NTP,0000,0000,0000,,\N{\fs14}Never go across that line, ever.
+Dialogue: 0,0:18:25.97,0:18:30.00,Default,NTP,0000,0000,0000,,\N{\fs14}[Pause] What about the view\Ntalking back to the controller?
+Dialogue: 0,0:18:30.00,0:18:31.83,Default,NTP,0000,0000,0000,,\N{\fs14}You got these generic view\Nobjects, like buttons,
+Dialogue: 0,0:18:32.04,0:18:33.31,Default,NTP,0000,0000,0000,,\N{\fs14}can they talk to the controller?
+Dialogue: 0,0:18:33.64,0:18:38.88,Default,NTP,0000,0000,0000,,\N{\fs14}Well...yes, they can, but\Nthey have to be careful
+Dialogue: 0,0:18:38.88,0:18:40.73,Default,NTP,0000,0000,0000,,\N{\fs14}because the view\Nobjects are generic,
+Dialogue: 0,0:18:41.01,0:18:44.12,Default,NTP,0000,0000,0000,,\N{\fs14}so they can't really know\Nmuch about the control, so,
+Dialogue: 0,0:18:44.25,0:18:46.45,Default,NTP,0000,0000,0000,,\N{\fs14}they can only communicate\Nback to the controller
+Dialogue: 0,0:18:46.59,0:18:48.82,Default,NTP,0000,0000,0000,,\N{\fs14}in a blind way, where\Nthey don't know the class
+Dialogue: 0,0:18:48.82,0:18:52.13,Default,NTP,0000,0000,0000,,\N{\fs14}of the thing they're talking\Nto, and, in a structured way,
+Dialogue: 0,0:18:52.13,0:18:55.45,Default,NTP,0000,0000,0000,,\N{\fs14}a way where we all agree, we're\Ngoing to communicate this way,
+Dialogue: 0,0:18:56.05,0:18:57.32,Default,NTP,0000,0000,0000,,\N{\fs14}between the view\Nand the controller,
+Dialogue: 0,0:18:57.32,0:18:58.98,Default,NTP,0000,0000,0000,,\N{\fs14}so what's an example\Nof a structured way?
+Dialogue: 0,0:18:58.98,0:19:00.41,Default,NTP,0000,0000,0000,,\N{\fs14}Well one is called\Ntarget action.
+Dialogue: 0,0:19:00.90,0:19:03.79,Default,NTP,0000,0000,0000,,\N{\fs14}So the controller basically\Ndrops a target on itself
+Dialogue: 0,0:19:04.07,0:19:08.26,Default,NTP,0000,0000,0000,,\N{\fs14}and then it hands out an\Naction, which is like an arrow,
+Dialogue: 0,0:19:08.56,0:19:11.27,Default,NTP,0000,0000,0000,,\N{\fs14}to the view and says\Nto the view, okay,
+Dialogue: 0,0:19:11.27,0:19:13.39,Default,NTP,0000,0000,0000,,\N{\fs14}when you do what you\Ndo, like you're a button
+Dialogue: 0,0:19:13.39,0:19:15.04,Default,NTP,0000,0000,0000,,\N{\fs14}and someone touches\Nyou or you're a slider
+Dialogue: 0,0:19:15.04,0:19:17.52,Default,NTP,0000,0000,0000,,\N{\fs14}and someone moves you,\Nsend me that action.
+Dialogue: 0,0:19:18.30,0:19:22.11,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So in this way, the\Ngeneric button, or slider,
+Dialogue: 0,0:19:22.28,0:19:24.80,Default,NTP,0000,0000,0000,,\N{\fs14}is communicating back to the\Ncontroller, it has no idea
+Dialogue: 0,0:19:24.80,0:19:27.58,Default,NTP,0000,0000,0000,,\N{\fs14}that it's a card game controller\Nor a space game controller,
+Dialogue: 0,0:19:27.58,0:19:29.22,Default,NTP,0000,0000,0000,,\N{\fs14}it doesn't know what\Nkind of controller it is,
+Dialogue: 0,0:19:29.51,0:19:31.76,Default,NTP,0000,0000,0000,,\N{\fs14}all it knows is that when\Nsomething happens in itself,
+Dialogue: 0,0:19:32.00,0:19:33.61,Default,NTP,0000,0000,0000,,\N{\fs14}boom, it sends messages\Nto targets.
+Dialogue: 0,0:19:33.61,0:19:37.49,Default,NTP,0000,0000,0000,,\N{\fs14}So that's a blind, simple,\Nstructured way for the view
+Dialogue: 0,0:19:37.49,0:19:40.20,Default,NTP,0000,0000,0000,,\N{\fs14}to communicate with\Nthe controller, okay?
+Dialogue: 0,0:19:40.36,0:19:42.21,Default,NTP,0000,0000,0000,,\N{\fs14}But what about more\Ncomplicated ways?
+Dialogue: 0,0:19:42.59,0:19:45.29,Default,NTP,0000,0000,0000,,\N{\fs14}Sometimes the view, things\Nare happening in the view
+Dialogue: 0,0:19:45.55,0:19:48.23,Default,NTP,0000,0000,0000,,\N{\fs14}that are somewhat complicated\Nand the controller needs
+Dialogue: 0,0:19:48.23,0:19:49.96,Default,NTP,0000,0000,0000,,\N{\fs14}to be informed of\Nwhat's going on,
+Dialogue: 0,0:19:49.96,0:19:51.41,Default,NTP,0000,0000,0000,,\N{\fs14}synchronizing what's happening.
+Dialogue: 0,0:19:52.07,0:19:56.20,Default,NTP,0000,0000,0000,,\N{\fs14}And one way to think about this\Nis these words I put here, will,
+Dialogue: 0,0:19:56.20,0:19:59.40,Default,NTP,0000,0000,0000,,\N{\fs14}should, and did, when the\Nview is kind of like [pause],
+Dialogue: 0,0:19:59.40,0:20:02.59,Default,NTP,0000,0000,0000,,\N{\fs14}let's say on the scroll view\Nand I'm scrolling around,
+Dialogue: 0,0:20:02.80,0:20:05.99,Default,NTP,0000,0000,0000,,\N{\fs14}and I want to let the,\Nthe controller, somebody,
+Dialogue: 0,0:20:05.99,0:20:08.44,Default,NTP,0000,0000,0000,,\N{\fs14}know that the user\Njust did scroll.
+Dialogue: 0,0:20:08.44,0:20:08.55,Default,NTP,0000,0000,0000,,\N{\fs14}Okay?
+Dialogue: 0,0:20:09.70,0:20:12.75,Default,NTP,0000,0000,0000,,\N{\fs14}Or the user puts down the\Ntouch and is about to scroll,
+Dialogue: 0,0:20:12.75,0:20:15.68,Default,NTP,0000,0000,0000,,\N{\fs14}I want to let the controller\Nknow the user will be scrolling.
+Dialogue: 0,0:20:16.33,0:20:19.13,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Or the user puts a touch\Ndown and the scroll view wants
+Dialogue: 0,0:20:19.13,0:20:22.93,Default,NTP,0000,0000,0000,,\N{\fs14}to know, should I allow the user\Nto scroll here, is that allowed?
+Dialogue: 0,0:20:23.47,0:20:26.89,Default,NTP,0000,0000,0000,,\N{\fs14}All those things, the scroll\Nview itself might not have
+Dialogue: 0,0:20:26.89,0:20:29.34,Default,NTP,0000,0000,0000,,\N{\fs14}enough logic to know the\Nanswer to those questions,
+Dialogue: 0,0:20:29.67,0:20:33.04,Default,NTP,0000,0000,0000,,\N{\fs14}so what it does is it\Ndelegates the authority
+Dialogue: 0,0:20:33.04,0:20:36.18,Default,NTP,0000,0000,0000,,\N{\fs14}to answer those questions\Nto some other object.
+Dialogue: 0,0:20:36.18,0:20:38.75,Default,NTP,0000,0000,0000,,\N{\fs14}Now it doesn't know the class\Nof that object, all it knows is
+Dialogue: 0,0:20:38.75,0:20:41.57,Default,NTP,0000,0000,0000,,\N{\fs14}that other object can answer\Nthese questions, will, should,
+Dialogue: 0,0:20:41.57,0:20:43.20,Default,NTP,0000,0000,0000,,\N{\fs14}did, this, that or\Nthe other thing, like,
+Dialogue: 0,0:20:43.49,0:20:44.80,Default,NTP,0000,0000,0000,,\N{\fs14}should allow scrolling,
+Dialogue: 0,0:20:44.99,0:20:48.03,Default,NTP,0000,0000,0000,,\N{\fs14}did scroll to point,\Nthings like that.
+Dialogue: 0,0:20:48.03,0:20:50.40,Default,NTP,0000,0000,0000,,\N{\fs14}So those are the kind of\Nmethods you're going to see
+Dialogue: 0,0:20:50.40,0:20:51.84,Default,NTP,0000,0000,0000,,\N{\fs14}in these delegate protocols.
+Dialogue: 0,0:20:52.12,0:20:56.29,Default,NTP,0000,0000,0000,,\N{\fs14}Now I know that CS106A&B do not\Nteach protocols, the word proto,
+Dialogue: 0,0:20:56.29,0:20:57.91,Default,NTP,0000,0000,0000,,\N{\fs14}how many people know what\Nthe word protocol means
+Dialogue: 0,0:20:57.91,0:20:59.05,Default,NTP,0000,0000,0000,,\N{\fs14}in object-oriented programming?
+Dialogue: 0,0:20:59.79,0:21:02.24,Default,NTP,0000,0000,0000,,\N{\fs14}See, very few of you, so\NI will be teaching that.
+Dialogue: 0,0:21:02.24,0:21:05.32,Default,NTP,0000,0000,0000,,\N{\fs14}A protocol is just a blind\Nway to talk to another object.
+Dialogue: 0,0:21:05.32,0:21:06.88,Default,NTP,0000,0000,0000,,\N{\fs14}You're, you're going, when\NI teach you, you're going
+Dialogue: 0,0:21:06.88,0:21:08.32,Default,NTP,0000,0000,0000,,\N{\fs14}to be like, oh yeah,\NI know what that is,
+Dialogue: 0,0:21:08.32,0:21:10.01,Default,NTP,0000,0000,0000,,\N{\fs14}we didn't really call it\Nprotocol, or whatever.
+Dialogue: 0,0:21:10.43,0:21:12.63,Default,NTP,0000,0000,0000,,\N{\fs14}But, that's how we\Ndo delegation, okay,
+Dialogue: 0,0:21:12.63,0:21:14.28,Default,NTP,0000,0000,0000,,\N{\fs14}this blind communication.
+Dialogue: 0,0:21:15.37,0:21:18.41,Default,NTP,0000,0000,0000,,\N{\fs14}Also, another important thing is
+Dialogue: 0,0:21:18.41,0:21:21.77,Default,NTP,0000,0000,0000,,\N{\fs14}that views should not own the\Ndata that they're displaying.
+Dialogue: 0,0:21:21.98,0:21:22.75,Default,NTP,0000,0000,0000,,\N{\fs14}They should not own it.
+Dialogue: 0,0:21:22.75,0:21:25.63,Default,NTP,0000,0000,0000,,\N{\fs14}In other words, it shouldn't\Nbe a property inside of them
+Dialogue: 0,0:21:25.70,0:21:27.88,Default,NTP,0000,0000,0000,,\N{\fs14}where that's the\Ntruth of that data.
+Dialogue: 0,0:21:28.15,0:21:32.02,Default,NTP,0000,0000,0000,,\N{\fs14}And the easiest example for this\Nis all the songs in your iPhone,
+Dialogue: 0,0:21:32.17,0:21:33.88,Default,NTP,0000,0000,0000,,\N{\fs14}on your phone or\Nyour iPad, right?
+Dialogue: 0,0:21:34.16,0:21:36.77,Default,NTP,0000,0000,0000,,\N{\fs14}You might have 10,000\Nsongs in there.
+Dialogue: 0,0:21:36.77,0:21:40.25,Default,NTP,0000,0000,0000,,\N{\fs14}So if you have some kind of\Ngeneric list view in your view,
+Dialogue: 0,0:21:40.46,0:21:44.91,Default,NTP,0000,0000,0000,,\N{\fs14}you can't transfer all 10,000\Nsongs to its instance variables
+Dialogue: 0,0:21:44.91,0:21:48.97,Default,NTP,0000,0000,0000,,\N{\fs14}and expect it to hold 10,000\Nsongs so it can list through it.
+Dialogue: 0,0:21:48.97,0:21:51.74,Default,NTP,0000,0000,0000,,\N{\fs14}A, that would be inefficient,\Nand B, that information,
+Dialogue: 0,0:21:51.74,0:21:53.84,Default,NTP,0000,0000,0000,,\N{\fs14}those 10,000 songs\Nbelongs where?
+Dialogue: 0,0:21:53.94,0:21:55.88,Default,NTP,0000,0000,0000,,\N{\fs14}In the model, okay?
+Dialogue: 0,0:21:55.88,0:21:58.40,Default,NTP,0000,0000,0000,,\N{\fs14}Because you're song\Ndatabase is a model.
+Dialogue: 0,0:21:58.40,0:22:00.86,Default,NTP,0000,0000,0000,,\N{\fs14}It has nothing to do with UI's,\Njust a list of songs and artists
+Dialogue: 0,0:22:00.86,0:22:02.89,Default,NTP,0000,0000,0000,,\N{\fs14}and albums and all\Nthat, it's in the model.
+Dialogue: 0,0:22:03.08,0:22:05.21,Default,NTP,0000,0000,0000,,\N{\fs14}Some controller has to\Nlook at that database
+Dialogue: 0,0:22:05.33,0:22:10.09,Default,NTP,0000,0000,0000,,\N{\fs14}and tell a view how to\Ndisplay all those songs, okay?
+Dialogue: 0,0:22:10.27,0:22:12.74,Default,NTP,0000,0000,0000,,\N{\fs14}So, we need that\Ncommunication to happen here
+Dialogue: 0,0:22:12.98,0:22:15.49,Default,NTP,0000,0000,0000,,\N{\fs14}and the view is displaying\Nsome sort of list,
+Dialogue: 0,0:22:15.61,0:22:18.42,Default,NTP,0000,0000,0000,,\N{\fs14}and you're touching down and\Nyou're flicking on the list
+Dialogue: 0,0:22:18.42,0:22:19.78,Default,NTP,0000,0000,0000,,\N{\fs14}and trying to see more songs,
+Dialogue: 0,0:22:20.04,0:22:22.44,Default,NTP,0000,0000,0000,,\N{\fs14}how does that communication\Nhappen, and the answer is,
+Dialogue: 0,0:22:22.93,0:22:24.93,Default,NTP,0000,0000,0000,,\N{\fs14}we have another special\Nkind of delegate,
+Dialogue: 0,0:22:25.30,0:22:26.90,Default,NTP,0000,0000,0000,,\N{\fs14}which we call a data source.
+Dialogue: 0,0:22:27.48,0:22:30.13,Default,NTP,0000,0000,0000,,\N{\fs14}Now the data source doesn't\Ndo the will, did, should,
+Dialogue: 0,0:22:30.13,0:22:32.56,Default,NTP,0000,0000,0000,,\N{\fs14}it's going to be asking\Nquestions like count,
+Dialogue: 0,0:22:32.71,0:22:34.13,Default,NTP,0000,0000,0000,,\N{\fs14}like how many songs are there?
+Dialogue: 0,0:22:34.57,0:22:37.34,Default,NTP,0000,0000,0000,,\N{\fs14}And the controller looks\Nin the model, 10,000.
+Dialogue: 0,0:22:37.59,0:22:39.27,Default,NTP,0000,0000,0000,,\N{\fs14}Response to the view,\Nthere's 10,000.
+Dialogue: 0,0:22:39.49,0:22:42.77,Default,NTP,0000,0000,0000,,\N{\fs14}The view makes space,\Ninternally, for 10,000 things,
+Dialogue: 0,0:22:42.77,0:22:43.59,Default,NTP,0000,0000,0000,,\N{\fs14}it doesn't know what they are,
+Dialogue: 0,0:22:43.85,0:22:46.86,Default,NTP,0000,0000,0000,,\N{\fs14}moves the scroll bar indicator\Na little bit, so that you know
+Dialogue: 0,0:22:46.86,0:22:49.89,Default,NTP,0000,0000,0000,,\N{\fs14}where it is, and then you start\Nscrolling, flipping through it,
+Dialogue: 0,0:22:50.09,0:22:51.98,Default,NTP,0000,0000,0000,,\N{\fs14}and its start sending the\Nmessage to the controller,
+Dialogue: 0,0:22:51.98,0:22:57.20,Default,NTP,0000,0000,0000,,\N{\fs14}give me the data at [pause]\Nline 150, next 10 items.
+Dialogue: 0,0:22:57.42,0:22:57.93,Default,NTP,0000,0000,0000,,\N{\fs14}See what I mean?
+Dialogue: 0,0:22:57.93,0:23:00.14,Default,NTP,0000,0000,0000,,\N{\fs14}And then you flick down some\Nmore, now it's saying 250,
+Dialogue: 0,0:23:00.34,0:23:03.09,Default,NTP,0000,0000,0000,,\N{\fs14}10 more items, and so the\Ncontroller is going back
+Dialogue: 0,0:23:03.09,0:23:05.04,Default,NTP,0000,0000,0000,,\N{\fs14}to the model and saying give\Nme more, give me more data,
+Dialogue: 0,0:23:05.04,0:23:07.91,Default,NTP,0000,0000,0000,,\N{\fs14}and it's providing it to\Nthe view in this blind way.
+Dialogue: 0,0:23:07.91,0:23:10.78,Default,NTP,0000,0000,0000,,\N{\fs14}So see how the view is\Ngetting data from the model
+Dialogue: 0,0:23:10.78,0:23:13.71,Default,NTP,0000,0000,0000,,\N{\fs14}through the controller, in this\Nkind of blind structured way.
+Dialogue: 0,0:23:13.71,0:23:16.29,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? That makes\Nsense to everybody?
+Dialogue: 0,0:23:16.79,0:23:19.49,Default,NTP,0000,0000,0000,,\N{\fs14}So data source is just a kind of\Ndelegate, it's a specific kind
+Dialogue: 0,0:23:19.49,0:23:20.61,Default,NTP,0000,0000,0000,,\N{\fs14}of delegate for getting data.
+Dialogue: 0,0:23:20.61,0:23:23.06,Default,NTP,0000,0000,0000,,\N{\fs14}So you're going to see that\Nthere are classes in iOS
+Dialogue: 0,0:23:23.06,0:23:24.72,Default,NTP,0000,0000,0000,,\N{\fs14}that have a data source,
+Dialogue: 0,0:23:24.96,0:23:26.57,Default,NTP,0000,0000,0000,,\N{\fs14}and they usually\Nalso have a delegate.
+Dialogue: 0,0:23:26.95,0:23:30.01,Default,NTP,0000,0000,0000,,\N{\fs14}Most sophisticated classes in\NiOS have a delegate, the will,
+Dialogue: 0,0:23:30.01,0:23:31.26,Default,NTP,0000,0000,0000,,\N{\fs14}did, should kind of things.
+Dialogue: 0,0:23:31.61,0:23:33.81,Default,NTP,0000,0000,0000,,\N{\fs14}Some of them have a data source,
+Dialogue: 0,0:23:33.81,0:23:36.43,Default,NTP,0000,0000,0000,,\N{\fs14}it depends on whether they're\Nshowing a lot of data or not.
+Dialogue: 0,0:23:36.67,0:23:39.97,Default,NTP,0000,0000,0000,,\N{\fs14}Now simple data, like if I had\Na view, if I invented a view
+Dialogue: 0,0:23:39.97,0:23:42.11,Default,NTP,0000,0000,0000,,\N{\fs14}for my card game called\Nplaying card view,
+Dialogue: 0,0:23:42.54,0:23:45.23,Default,NTP,0000,0000,0000,,\N{\fs14}and it just has a suit and a\Nrank, okay, we're not going
+Dialogue: 0,0:23:45.23,0:23:48.24,Default,NTP,0000,0000,0000,,\N{\fs14}to do count data at for just\Nsuit and rank, we are going
+Dialogue: 0,0:23:48.24,0:23:49.36,Default,NTP,0000,0000,0000,,\N{\fs14}to set those properties.
+Dialogue: 0,0:23:49.36,0:23:52.73,Default,NTP,0000,0000,0000,,\N{\fs14}And so the view then would have\Nthose, that data set in it,
+Dialogue: 0,0:23:52.73,0:23:54.71,Default,NTP,0000,0000,0000,,\N{\fs14}but it wouldn't be\Nowning it, right?
+Dialogue: 0,0:23:54.78,0:23:57.00,Default,NTP,0000,0000,0000,,\N{\fs14}The model would still be\Nowning the suit and rank,
+Dialogue: 0,0:23:57.23,0:23:59.68,Default,NTP,0000,0000,0000,,\N{\fs14}the view is just getting\Nthat data to present it.
+Dialogue: 0,0:24:00.12,0:24:02.76,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So simple data we\Nmight transfer to the view,
+Dialogue: 0,0:24:02.76,0:24:05.94,Default,NTP,0000,0000,0000,,\N{\fs14}but it's merely for\Nit to display it.
+Dialogue: 0,0:24:06.35,0:24:10.96,Default,NTP,0000,0000,0000,,\N{\fs14}Okay. This all adds up to\Nthe controller's job being
+Dialogue: 0,0:24:10.96,0:24:15.52,Default,NTP,0000,0000,0000,,\N{\fs14}to interpret and format the\Nmodel data for the view.
+Dialogue: 0,0:24:16.03,0:24:17.24,Default,NTP,0000,0000,0000,,\N{\fs14}That's the controller's job.
+Dialogue: 0,0:24:17.40,0:24:20.96,Default,NTP,0000,0000,0000,,\N{\fs14}And when we do our demo, I'm\Ngoing to be marking like, oh,
+Dialogue: 0,0:24:20.96,0:24:22.26,Default,NTP,0000,0000,0000,,\N{\fs14}see, I'm writing this code,
+Dialogue: 0,0:24:22.26,0:24:24.83,Default,NTP,0000,0000,0000,,\N{\fs14}this makes the controller\Nperform its job,
+Dialogue: 0,0:24:25.01,0:24:28.32,Default,NTP,0000,0000,0000,,\N{\fs14}which is to take the model data\Nand put it in, and using it
+Dialogue: 0,0:24:28.32,0:24:30.35,Default,NTP,0000,0000,0000,,\N{\fs14}to view minions, put\Nit on screen, okay?
+Dialogue: 0,0:24:30.42,0:24:31.48,Default,NTP,0000,0000,0000,,\N{\fs14}That's what the controller does.
+Dialogue: 0,0:24:32.16,0:24:33.49,Default,NTP,0000,0000,0000,,\N{\fs14}What about this communication?
+Dialogue: 0,0:24:33.95,0:24:35.90,Default,NTP,0000,0000,0000,,\N{\fs14}Can the model talk\Nto the controller?
+Dialogue: 0,0:24:36.42,0:24:40.17,Default,NTP,0000,0000,0000,,\N{\fs14}Again, obviously that's verboten\Nbecause model knows nothing
+Dialogue: 0,0:24:40.21,0:24:42.16,Default,NTP,0000,0000,0000,,\N{\fs14}about UI, so it couldn't\Npossibly talk
+Dialogue: 0,0:24:42.16,0:24:43.74,Default,NTP,0000,0000,0000,,\N{\fs14}to a UI object like\Nthe controller.
+Dialogue: 0,0:24:44.21,0:24:46.33,Default,NTP,0000,0000,0000,,\N{\fs14}But sometimes things\Nchange in the model
+Dialogue: 0,0:24:46.44,0:24:47.87,Default,NTP,0000,0000,0000,,\N{\fs14}and the controller\Nneeds to know about it.
+Dialogue: 0,0:24:47.87,0:24:49.81,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, data changes,\Na database changes
+Dialogue: 0,0:24:49.81,0:24:52.36,Default,NTP,0000,0000,0000,,\N{\fs14}or the model is some\Nnetwork database
+Dialogue: 0,0:24:52.36,0:24:54.68,Default,NTP,0000,0000,0000,,\N{\fs14}and somebody changes something\Non the network and it changes,
+Dialogue: 0,0:24:54.68,0:24:56.16,Default,NTP,0000,0000,0000,,\N{\fs14}and the controller\Nneeds to find out.
+Dialogue: 0,0:24:56.16,0:24:58.07,Default,NTP,0000,0000,0000,,\N{\fs14}So, how do we do\Nthat communication?
+Dialogue: 0,0:24:59.01,0:25:02.60,Default,NTP,0000,0000,0000,,\N{\fs14}We do that using kind of\Na radio station model.
+Dialogue: 0,0:25:03.12,0:25:06.55,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So the model, a\Nradio station concept,
+Dialogue: 0,0:25:06.86,0:25:08.63,Default,NTP,0000,0000,0000,,\N{\fs14}the model will use this concept
+Dialogue: 0,0:25:09.00,0:25:12.10,Default,NTP,0000,0000,0000,,\N{\fs14}to essentially broadcast\Ninformation
+Dialogue: 0,0:25:12.36,0:25:14.41,Default,NTP,0000,0000,0000,,\N{\fs14}to anyone who's interested,\Nokay?
+Dialogue: 0,0:25:14.85,0:25:16.70,Default,NTP,0000,0000,0000,,\N{\fs14}And the mechanisms\Nfor doing this
+Dialogue: 0,0:25:16.70,0:25:20.09,Default,NTP,0000,0000,0000,,\N{\fs14}in iOS are called notification\Nand key value observing,
+Dialogue: 0,0:25:20.09,0:25:24.44,Default,NTP,0000,0000,0000,,\N{\fs14}KVO we call it, and so the\Nmodel can just say, oh,
+Dialogue: 0,0:25:24.44,0:25:26.30,Default,NTP,0000,0000,0000,,\N{\fs14}anytime something changes\Nin my model, I'm just going
+Dialogue: 0,0:25:26.30,0:25:28.06,Default,NTP,0000,0000,0000,,\N{\fs14}to broadcast on my radio station
+Dialogue: 0,0:25:28.37,0:25:32.03,Default,NTP,0000,0000,0000,,\N{\fs14}and then the controller simply\Ntunes into that radio station.
+Dialogue: 0,0:25:32.31,0:25:33.79,Default,NTP,0000,0000,0000,,\N{\fs14}And it can find out\Nthings are changing.
+Dialogue: 0,0:25:33.96,0:25:35.42,Default,NTP,0000,0000,0000,,\N{\fs14}And when it finds out\Nsomething changes,
+Dialogue: 0,0:25:35.68,0:25:39.33,Default,NTP,0000,0000,0000,,\N{\fs14}it's going to communicate via\Nits green arrow to the model,
+Dialogue: 0,0:25:39.33,0:25:41.36,Default,NTP,0000,0000,0000,,\N{\fs14}and say, okay, give me\Nthat data that changed.
+Dialogue: 0,0:25:42.42,0:25:43.67,Default,NTP,0000,0000,0000,,\N{\fs14}Alright? Does that make sense?
+Dialogue: 0,0:25:44.14,0:25:45.32,Default,NTP,0000,0000,0000,,\N{\fs14}So towards the end\Nof the quarter,
+Dialogue: 0,0:25:45.32,0:25:47.94,Default,NTP,0000,0000,0000,,\N{\fs14}we'll start seeing a little how\Nto do notification to find out,
+Dialogue: 0,0:25:47.94,0:25:50.75,Default,NTP,0000,0000,0000,,\N{\fs14}for example, if the data\Nin the database changes.
+Dialogue: 0,0:25:50.79,0:25:53.24,Default,NTP,0000,0000,0000,,\N{\fs14}We'll get a notification,\Nthe UI can then, you know,
+Dialogue: 0,0:25:53.39,0:25:58.64,Default,NTP,0000,0000,0000,,\N{\fs14}the controller can then go talk\Nto the model to get the info.
+Dialogue: 0,0:25:58.69,0:26:00.46,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? [Pause] Some people\Nhave asked, can a view tune
+Dialogue: 0,0:26:00.46,0:26:01.46,Default,NTP,0000,0000,0000,,\N{\fs14}into the radio station?
+Dialogue: 0,0:26:01.77,0:26:04.28,Default,NTP,0000,0000,0000,,\N{\fs14}They probably could, but\Nyou probably wouldn't want
+Dialogue: 0,0:26:04.28,0:26:04.70,Default,NTP,0000,0000,0000,,\N{\fs14}to do that.
+Dialogue: 0,0:26:04.70,0:26:06.85,Default,NTP,0000,0000,0000,,\N{\fs14}That would probably\Nbe a violation of MVC.
+Dialogue: 0,0:26:07.91,0:26:12.06,Default,NTP,0000,0000,0000,,\N{\fs14}Alright, so, we do this, we\Nhave all this nice communication
+Dialogue: 0,0:26:12.06,0:26:16.05,Default,NTP,0000,0000,0000,,\N{\fs14}and all these rules, and we\Ncan imagine building something
+Dialogue: 0,0:26:16.05,0:26:18.18,Default,NTP,0000,0000,0000,,\N{\fs14}simple using this,\Nbut what if we want
+Dialogue: 0,0:26:18.18,0:26:19.49,Default,NTP,0000,0000,0000,,\N{\fs14}to build a big, complicated app?
+Dialogue: 0,0:26:19.49,0:26:22.06,Default,NTP,0000,0000,0000,,\N{\fs14}An app that has multiple\Nscreens on our iPhone
+Dialogue: 0,0:26:22.20,0:26:24.00,Default,NTP,0000,0000,0000,,\N{\fs14}or on an iPad it's\Ngot, you know,
+Dialogue: 0,0:26:24.07,0:26:26.01,Default,NTP,0000,0000,0000,,\N{\fs14}three or four different\Nareas on screen
+Dialogue: 0,0:26:26.29,0:26:28.95,Default,NTP,0000,0000,0000,,\N{\fs14}where things are\Nhappening, how do we do that?
+Dialogue: 0,0:26:28.95,0:26:33.37,Default,NTP,0000,0000,0000,,\N{\fs14}Well, we're essentially going\Nto combine multiple MVC's, okay?
+Dialogue: 0,0:26:33.58,0:26:39.56,Default,NTP,0000,0000,0000,,\N{\fs14}Because you, an MVC can use, as\Npart of its view, another MVC.
+Dialogue: 0,0:26:40.70,0:26:44.13,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So, an MVC, an entire MVC,
+Dialogue: 0,0:26:44.52,0:26:48.64,Default,NTP,0000,0000,0000,,\N{\fs14}can be one of the minions\Nof some bigger MVC.
+Dialogue: 0,0:26:48.64,0:26:52.81,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And by doing that\Nand cascading it down,
+Dialogue: 0,0:26:53.09,0:26:55.29,Default,NTP,0000,0000,0000,,\N{\fs14}we can build more and more\Ncomplicated applications.
+Dialogue: 0,0:26:55.29,0:27:00.62,Default,NTP,0000,0000,0000,,\N{\fs14}So, an example of this is you\Nmight have your calendar app,
+Dialogue: 0,0:27:01.06,0:27:04.79,Default,NTP,0000,0000,0000,,\N{\fs14}and it's showing you the entire\Nyear, and you click on a month,
+Dialogue: 0,0:27:04.79,0:27:06.06,Default,NTP,0000,0000,0000,,\N{\fs14}and now it shows\Nyou a month view.
+Dialogue: 0,0:27:06.06,0:27:08.18,Default,NTP,0000,0000,0000,,\N{\fs14}Well a month view looks a lot\Ndifferent than a year view.
+Dialogue: 0,0:27:08.31,0:27:11.07,Default,NTP,0000,0000,0000,,\N{\fs14}Month view just has all the\Ndays and maybe some circle
+Dialogue: 0,0:27:11.07,0:27:12.73,Default,NTP,0000,0000,0000,,\N{\fs14}that tells you where you\Nhave an appointment on a day,
+Dialogue: 0,0:27:12.73,0:27:15.68,Default,NTP,0000,0000,0000,,\N{\fs14}and then when you click on a\Nday, and now you get a day view.
+Dialogue: 0,0:27:16.09,0:27:18.24,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And the day is\Nshowing you the hours
+Dialogue: 0,0:27:18.24,0:27:20.14,Default,NTP,0000,0000,0000,,\N{\fs14}and what all your\Nappointments are, and you click
+Dialogue: 0,0:27:20.14,0:27:22.09,Default,NTP,0000,0000,0000,,\N{\fs14}on an appointment, and now\Nyou get an appointment view
+Dialogue: 0,0:27:22.09,0:27:24.37,Default,NTP,0000,0000,0000,,\N{\fs14}and it's showing the\Ndetail of where you're going
+Dialogue: 0,0:27:24.37,0:27:25.57,Default,NTP,0000,0000,0000,,\N{\fs14}and when it is etc. Okay?
+Dialogue: 0,0:27:25.74,0:27:29.01,Default,NTP,0000,0000,0000,,\N{\fs14}Well each of those views, the\Nyear view, the month view,
+Dialogue: 0,0:27:29.01,0:27:31.98,Default,NTP,0000,0000,0000,,\N{\fs14}the day view, and the\Nappointment view are their
+Dialogue: 0,0:27:31.98,0:27:33.28,Default,NTP,0000,0000,0000,,\N{\fs14}own MVC's.
+Dialogue: 0,0:27:33.62,0:27:38.00,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? But you can see how the\Nlast three, okay, are used as,
+Dialogue: 0,0:27:38.10,0:27:41.11,Default,NTP,0000,0000,0000,,\N{\fs14}essentially, a minion\Nof the top-level view,
+Dialogue: 0,0:27:41.11,0:27:43.73,Default,NTP,0000,0000,0000,,\N{\fs14}the year view, to\Nshow more detail.
+Dialogue: 0,0:27:44.14,0:27:46.07,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So the year view,\Nyou click on a month,
+Dialogue: 0,0:27:46.28,0:27:50.98,Default,NTP,0000,0000,0000,,\N{\fs14}it's going to use the month\Nview MVC to show more detail,
+Dialogue: 0,0:27:50.98,0:27:53.44,Default,NTP,0000,0000,0000,,\N{\fs14}so it's part of its view, okay?
+Dialogue: 0,0:27:53.92,0:27:57.64,Default,NTP,0000,0000,0000,,\N{\fs14}So, you see this also in iOS\Nwith tab bar controllers, right?
+Dialogue: 0,0:27:57.64,0:28:00.47,Default,NTP,0000,0000,0000,,\N{\fs14}You have the tab bar, along\Nthe bottom, I have four
+Dialogue: 0,0:28:00.47,0:28:03.32,Default,NTP,0000,0000,0000,,\N{\fs14}or five things you can choose,\Nwell there's some MVC at the top
+Dialogue: 0,0:28:03.61,0:28:06.51,Default,NTP,0000,0000,0000,,\N{\fs14}who has four pointers\Nto four minions,
+Dialogue: 0,0:28:06.51,0:28:08.67,Default,NTP,0000,0000,0000,,\N{\fs14}which are the four MVC's\Nthat are each going
+Dialogue: 0,0:28:08.67,0:28:10.67,Default,NTP,0000,0000,0000,,\N{\fs14}to appear in a tab bar, okay?
+Dialogue: 0,0:28:11.03,0:28:12.16,Default,NTP,0000,0000,0000,,\N{\fs14}We'll be doing that,\Nfor example,
+Dialogue: 0,0:28:12.16,0:28:13.68,Default,NTP,0000,0000,0000,,\N{\fs14}in assignment number\Ntwo or three,
+Dialogue: 0,0:28:13.68,0:28:15.73,Default,NTP,0000,0000,0000,,\N{\fs14}where we'll be making a\Ntab bar and you're going
+Dialogue: 0,0:28:15.73,0:28:17.27,Default,NTP,0000,0000,0000,,\N{\fs14}to have to do multiple MVC's.
+Dialogue: 0,0:28:18.06,0:28:21.44,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So, that basically\Nresults in a picture
+Dialogue: 0,0:28:21.44,0:28:22.73,Default,NTP,0000,0000,0000,,\N{\fs14}that looks kind of like this.
+Dialogue: 0,0:28:23.42,0:28:24.71,Default,NTP,0000,0000,0000,,\N{\fs14}Alright? Where you got this MVC
+Dialogue: 0,0:28:24.71,0:28:26.42,Default,NTP,0000,0000,0000,,\N{\fs14}and you see the purple\None that's
+Dialogue: 0,0:28:26.42,0:28:29.77,Default,NTP,0000,0000,0000,,\N{\fs14}like underneath the word\Ntogether there, and it points
+Dialogue: 0,0:28:29.77,0:28:33.82,Default,NTP,0000,0000,0000,,\N{\fs14}to three other MVC's outside\Nof its view thing, okay?
+Dialogue: 0,0:28:34.94,0:28:36.24,Default,NTP,0000,0000,0000,,\N{\fs14}That's how we're\Ngoing to build this,
+Dialogue: 0,0:28:36.24,0:28:37.43,Default,NTP,0000,0000,0000,,\N{\fs14}that might be a tab\Nbar controller
+Dialogue: 0,0:28:37.43,0:28:38.89,Default,NTP,0000,0000,0000,,\N{\fs14}and those might be\Nthe three tabs.
+Dialogue: 0,0:28:39.29,0:28:40.82,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, and each one is\Nits own little MVC,
+Dialogue: 0,0:28:40.82,0:28:43.64,Default,NTP,0000,0000,0000,,\N{\fs14}completely independent,\Noperates on its own,
+Dialogue: 0,0:28:43.79,0:28:46.86,Default,NTP,0000,0000,0000,,\N{\fs14}doesn't even know it's\Na generic, reusable view
+Dialogue: 0,0:28:46.86,0:28:48.77,Default,NTP,0000,0000,0000,,\N{\fs14}like thing at this point,\Nit doesn't even know
+Dialogue: 0,0:28:48.77,0:28:49.66,Default,NTP,0000,0000,0000,,\N{\fs14}that it's in a tab bar.
+Dialogue: 0,0:28:50.22,0:28:52.56,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? It just knows that it's\Nsupposed to do whatever it does.
+Dialogue: 0,0:28:53.11,0:28:54.40,Default,NTP,0000,0000,0000,,\N{\fs14}And so it's modular in that way.
+Dialogue: 0,0:28:54.40,0:28:58.37,Default,NTP,0000,0000,0000,,\N{\fs14}You can also see that there's no\Ncommunication between any other,
+Dialogue: 0,0:28:58.56,0:29:00.91,Default,NTP,0000,0000,0000,,\N{\fs14}there's no other arrows,\Nexcept for some of the models.
+Dialogue: 0,0:29:00.91,0:29:03.28,Default,NTP,0000,0000,0000,,\N{\fs14}You see some of the models are\Ncommunicating with each other,
+Dialogue: 0,0:29:03.63,0:29:06.64,Default,NTP,0000,0000,0000,,\N{\fs14}you know, a big application\Nmight have single, shared model.
+Dialogue: 0,0:29:07.11,0:29:09.94,Default,NTP,0000,0000,0000,,\N{\fs14}Or, you know, the models\Nmight be split off into pieces
+Dialogue: 0,0:29:09.94,0:29:12.85,Default,NTP,0000,0000,0000,,\N{\fs14}to be used by sub MVC's, okay?
+Dialogue: 0,0:29:12.85,0:29:15.37,Default,NTP,0000,0000,0000,,\N{\fs14}But that's the only kind of\Ncommunication you're going
+Dialogue: 0,0:29:15.37,0:29:17.55,Default,NTP,0000,0000,0000,,\N{\fs14}to have there, all other\Ncommunication is either the
+Dialogue: 0,0:29:17.55,0:29:21.80,Default,NTP,0000,0000,0000,,\N{\fs14}structured communication we saw\Nin the MVC or it's using MVC's
+Dialogue: 0,0:29:21.80,0:29:23.71,Default,NTP,0000,0000,0000,,\N{\fs14}as part of the view\Nof another MVC.
+Dialogue: 0,0:29:24.94,0:29:26.58,Default,NTP,0000,0000,0000,,\N{\fs14}Any question about that?
+Dialogue: 0,0:29:27.22,0:29:30.07,Default,NTP,0000,0000,0000,,\N{\fs14}So we definitely don't\Nwant to be having designs
+Dialogue: 0,0:29:30.07,0:29:31.99,Default,NTP,0000,0000,0000,,\N{\fs14}that look like this, okay?
+Dialogue: 0,0:29:32.15,0:29:33.35,Default,NTP,0000,0000,0000,,\N{\fs14}Where everybody's\Ntalking to everybody,
+Dialogue: 0,0:29:33.35,0:29:35.73,Default,NTP,0000,0000,0000,,\N{\fs14}we can't tell who's talking\Nto what, it's just impossible
+Dialogue: 0,0:29:35.73,0:29:38.27,Default,NTP,0000,0000,0000,,\N{\fs14}to debug a program like\Nthis and it doesn't scale.
+Dialogue: 0,0:29:38.50,0:29:40.41,Default,NTP,0000,0000,0000,,\N{\fs14}You can't build really\Nbig programs this way,
+Dialogue: 0,0:29:40.41,0:29:41.65,Default,NTP,0000,0000,0000,,\N{\fs14}it just becomes impossible
+Dialogue: 0,0:29:41.65,0:29:44.50,Default,NTP,0000,0000,0000,,\N{\fs14}to know how touching anything\Nwould break everything, right?
+Dialogue: 0,0:29:44.83,0:29:48.48,Default,NTP,0000,0000,0000,,\N{\fs14}So we're definitely not\Ngoing to be doing that.
+Dialogue: 0,0:29:48.68,0:29:51.15,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Okay, so that's MVC.
+Dialogue: 0,0:29:51.15,0:29:53.59,Default,NTP,0000,0000,0000,,\N{\fs14}No questions about that?
+Dialogue: 0,0:29:53.97,0:29:55.43,Default,NTP,0000,0000,0000,,\N{\fs14}Alright. Onto objective-C.
+Dialogue: 0,0:29:55.63,0:29:59.14,Default,NTP,0000,0000,0000,,\N{\fs14}So, objective C is a\Nstrict superset of C,
+Dialogue: 0,0:29:59.14,0:30:02.10,Default,NTP,0000,0000,0000,,\N{\fs14}so everything you can do and\Nsee, you can do in objective-C.
+Dialogue: 0,0:30:02.55,0:30:05.05,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And we'll do a lot\Nof C things in this class.
+Dialogue: 0,0:30:05.14,0:30:06.88,Default,NTP,0000,0000,0000,,\N{\fs14}We'll do a lot of\Nobject-oriented stuff too,
+Dialogue: 0,0:30:06.88,0:30:09.51,Default,NTP,0000,0000,0000,,\N{\fs14}but we're going to do a\Nlot of C things, as well.
+Dialogue: 0,0:30:10.17,0:30:13.45,Default,NTP,0000,0000,0000,,\N{\fs14}But, there's obviously a\Nfew things that you want
+Dialogue: 0,0:30:13.57,0:30:14.40,Default,NTP,0000,0000,0000,,\N{\fs14}to think differently
+Dialogue: 0,0:30:14.40,0:30:16.61,Default,NTP,0000,0000,0000,,\N{\fs14}about because you have\Nobject-oriented stuff added
+Dialogue: 0,0:30:16.61,0:30:19.79,Default,NTP,0000,0000,0000,,\N{\fs14}onto a language, and we're going\Nto talk about one of them today,
+Dialogue: 0,0:30:19.79,0:30:24.15,Default,NTP,0000,0000,0000,,\N{\fs14}in addition to showing you\Na little bit of the syntax,
+Dialogue: 0,0:30:24.23,0:30:26.16,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to talk about\None of these different,
+Dialogue: 0,0:30:26.20,0:30:28.82,Default,NTP,0000,0000,0000,,\N{\fs14}think differently things about\Nobjective-C that's different
+Dialogue: 0,0:30:29.12,0:30:32.25,Default,NTP,0000,0000,0000,,\N{\fs14}than C++ or Java,\Nwhich is properties.
+Dialogue: 0,0:30:33.03,0:30:34.91,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And I'm not going to\Nread through all of this,
+Dialogue: 0,0:30:34.91,0:30:35.78,Default,NTP,0000,0000,0000,,\N{\fs14}I'm just going to\Nshow it to you,
+Dialogue: 0,0:30:36.10,0:30:39.85,Default,NTP,0000,0000,0000,,\N{\fs14}but properties are basically how\Nwe access our instance variable,
+Dialogue: 0,0:30:40.25,0:30:40.50,Default,NTP,0000,0000,0000,,\N{\fs14}right?
+Dialogue: 0,0:30:40.50,0:30:42.29,Default,NTP,0000,0000,0000,,\N{\fs14}Everybody knows what I\Nmean by, raise your hand
+Dialogue: 0,0:30:42.29,0:30:43.74,Default,NTP,0000,0000,0000,,\N{\fs14}if you know what I mean\Nby instance variable?
+Dialogue: 0,0:30:45.13,0:30:45.52,Default,NTP,0000,0000,0000,,\N{\fs14}Okay good.
+Dialogue: 0,0:30:45.52,0:30:46.67,Default,NTP,0000,0000,0000,,\N{\fs14}So pretty much everybody.
+Dialogue: 0,0:30:46.99,0:30:51.81,Default,NTP,0000,0000,0000,,\N{\fs14}So, we want to access the\Ninstance data of our objects.
+Dialogue: 0,0:30:52.34,0:30:56.70,Default,NTP,0000,0000,0000,,\N{\fs14}And, normally, in Java or\Nin C++, you just, you know,
+Dialogue: 0,0:30:56.70,0:30:59.94,Default,NTP,0000,0000,0000,,\N{\fs14}have some syntax to access\Nthem and you just access them.
+Dialogue: 0,0:31:00.54,0:31:01.90,Default,NTP,0000,0000,0000,,\N{\fs14}In objective-C we don't do that.
+Dialogue: 0,0:31:02.18,0:31:04.91,Default,NTP,0000,0000,0000,,\N{\fs14}In objective-C, we have\Nwhat's called a property,
+Dialogue: 0,0:31:04.91,0:31:07.91,Default,NTP,0000,0000,0000,,\N{\fs14}and a property is\Nbasically a setter get method
+Dialogue: 0,0:31:07.91,0:31:08.88,Default,NTP,0000,0000,0000,,\N{\fs14}and a getter method.
+Dialogue: 0,0:31:09.18,0:31:11.99,Default,NTP,0000,0000,0000,,\N{\fs14}And that's how all access to\Nthe instance variable goes,
+Dialogue: 0,0:31:12.15,0:31:13.99,Default,NTP,0000,0000,0000,,\N{\fs14}through a setter\Nmethod to set the value
+Dialogue: 0,0:31:13.99,0:31:15.12,Default,NTP,0000,0000,0000,,\N{\fs14}and a getter method to get it.
+Dialogue: 0,0:31:15.47,0:31:17.93,Default,NTP,0000,0000,0000,,\N{\fs14}And some people who\Nmaybe are kind
+Dialogue: 0,0:31:18.31,0:31:21.11,Default,NTP,0000,0000,0000,,\N{\fs14}of [pause] performance\Njunkies might say, oh my gosh,
+Dialogue: 0,0:31:21.11,0:31:22.07,Default,NTP,0000,0000,0000,,\N{\fs14}every instance variable I have
+Dialogue: 0,0:31:22.07,0:31:23.73,Default,NTP,0000,0000,0000,,\N{\fs14}to call a method to\Nset it or get it?
+Dialogue: 0,0:31:24.10,0:31:25.63,Default,NTP,0000,0000,0000,,\N{\fs14}But, remember, you're building
+Dialogue: 0,0:31:25.63,0:31:27.15,Default,NTP,0000,0000,0000,,\N{\fs14}for a user interface\Nsystem here,
+Dialogue: 0,0:31:27.46,0:31:31.94,Default,NTP,0000,0000,0000,,\N{\fs14}when the user touches down,\Nthat's taking million,
+Dialogue: 0,0:31:32.17,0:31:33.89,Default,NTP,0000,0000,0000,,\N{\fs14}a million code, you know,
+Dialogue: 0,0:31:34.50,0:31:36.95,Default,NTP,0000,0000,0000,,\N{\fs14}you're executing a\Nmillion instructions there
+Dialogue: 0,0:31:36.95,0:31:38.06,Default,NTP,0000,0000,0000,,\N{\fs14}in that amount of time.
+Dialogue: 0,0:31:38.06,0:31:40.21,Default,NTP,0000,0000,0000,,\N{\fs14}So, having a few extra setters
+Dialogue: 0,0:31:40.21,0:31:41.96,Default,NTP,0000,0000,0000,,\N{\fs14}and getters is completely\Nirrelevant, right?
+Dialogue: 0,0:31:41.96,0:31:43.97,Default,NTP,0000,0000,0000,,\N{\fs14}So it's the old [inaudible]\Nthing, right?
+Dialogue: 0,0:31:44.23,0:31:46.56,Default,NTP,0000,0000,0000,,\N{\fs14}You don't want to optimize\Nthings that don't need
+Dialogue: 0,0:31:46.56,0:31:47.58,Default,NTP,0000,0000,0000,,\N{\fs14}to be optimized, okay?
+Dialogue: 0,0:31:47.58,0:31:49.73,Default,NTP,0000,0000,0000,,\N{\fs14}You want to optimize the things\Nthat are taking a lot of time
+Dialogue: 0,0:31:49.73,0:31:52.94,Default,NTP,0000,0000,0000,,\N{\fs14}and accessing instance variable\Nturns out not to be taking a lot
+Dialogue: 0,0:31:52.94,0:31:55.99,Default,NTP,0000,0000,0000,,\N{\fs14}of your time, so, let's\Nlook at what it looks like,
+Dialogue: 0,0:31:56.09,0:31:59.18,Default,NTP,0000,0000,0000,,\N{\fs14}don't get freaked out here\Nby seeing this syntax.
+Dialogue: 0,0:31:59.18,0:32:01.82,Default,NTP,0000,0000,0000,,\N{\fs14}It's all new, so, it's going\Nto take some getting used to.
+Dialogue: 0,0:32:02.96,0:32:06.39,Default,NTP,0000,0000,0000,,\N{\fs14}In objective-C, every class we\Nhave and the class I'm going
+Dialogue: 0,0:32:06.39,0:32:10.84,Default,NTP,0000,0000,0000,,\N{\fs14}to show you today is a, is\Nin our, essentially our model
+Dialogue: 0,0:32:10.84,0:32:13.06,Default,NTP,0000,0000,0000,,\N{\fs14}that we're going to build for\Nour card game matching app.
+Dialogue: 0,0:32:13.06,0:32:16.67,Default,NTP,0000,0000,0000,,\N{\fs14}We're going to have a card and\Na deck, and we're also going
+Dialogue: 0,0:32:16.67,0:32:18.72,Default,NTP,0000,0000,0000,,\N{\fs14}to have a subclass of\Ncard called playing card
+Dialogue: 0,0:32:18.96,0:32:20.92,Default,NTP,0000,0000,0000,,\N{\fs14}and a subclass of deck\Ncalled playing card deck.
+Dialogue: 0,0:32:20.92,0:32:22.13,Default,NTP,0000,0000,0000,,\N{\fs14}Those are the four classes\Nthat are going to be
+Dialogue: 0,0:32:22.13,0:32:23.45,Default,NTP,0000,0000,0000,,\N{\fs14}in our model, to start.
+Dialogue: 0,0:32:23.96,0:32:25.84,Default,NTP,0000,0000,0000,,\N{\fs14}And, so, I'm going to show you,
+Dialogue: 0,0:32:25.84,0:32:27.66,Default,NTP,0000,0000,0000,,\N{\fs14}in today's lecture I'm just\Ngoing to show you card,
+Dialogue: 0,0:32:27.79,0:32:30.16,Default,NTP,0000,0000,0000,,\N{\fs14}only card, and then on\NWednesday I'll show you deck
+Dialogue: 0,0:32:30.16,0:32:32.95,Default,NTP,0000,0000,0000,,\N{\fs14}and playing card deck\Nand playing card.
+Dialogue: 0,0:32:33.21,0:32:37.52,Default,NTP,0000,0000,0000,,\N{\fs14}So, every class in objective-C,\Nyou have a header file, card.h,
+Dialogue: 0,0:32:37.69,0:32:40.95,Default,NTP,0000,0000,0000,,\N{\fs14}and you have an implementation\Nfile, card.m. Okay, this is just
+Dialogue: 0,0:32:40.95,0:32:44.78,Default,NTP,0000,0000,0000,,\N{\fs14}like in C++ you might have\Nthat h and dot c, or whatever,
+Dialogue: 0,0:32:45.02,0:32:49.09,Default,NTP,0000,0000,0000,,\N{\fs14}this is dot m, m I guess is for\Nimplementation, I don't know.
+Dialogue: 0,0:32:49.52,0:32:52.93,Default,NTP,0000,0000,0000,,\N{\fs14}But it's m [laughter], and so\Nyou have these separate things,
+Dialogue: 0,0:32:53.16,0:32:57.06,Default,NTP,0000,0000,0000,,\N{\fs14}the difference here is\Ncard.h is the public API.
+Dialogue: 0,0:32:58.29,0:32:59.90,Default,NTP,0000,0000,0000,,\N{\fs14}That's what your dot h is.
+Dialogue: 0,0:32:59.93,0:33:01.78,Default,NTP,0000,0000,0000,,\N{\fs14}It's your public API.
+Dialogue: 0,0:33:03.17,0:33:08.93,Default,NTP,0000,0000,0000,,\N{\fs14}Card.m is your private API and\Nall your implementation, okay?
+Dialogue: 0,0:33:09.29,0:33:10.74,Default,NTP,0000,0000,0000,,\N{\fs14}Don't get confused about dot h
+Dialogue: 0,0:33:10.74,0:33:14.72,Default,NTP,0000,0000,0000,,\N{\fs14}and dot m. All dot h is your\Npublic API, that's all it is.
+Dialogue: 0,0:33:14.72,0:33:17.80,Default,NTP,0000,0000,0000,,\N{\fs14}It's what methods in your\Nclass you want to make public
+Dialogue: 0,0:33:17.80,0:33:20.82,Default,NTP,0000,0000,0000,,\N{\fs14}so that other people\Ncan call them, okay?
+Dialogue: 0,0:33:21.01,0:33:23.44,Default,NTP,0000,0000,0000,,\N{\fs14}So, let's see what\Nthe syntax looks like.
+Dialogue: 0,0:33:24.04,0:33:28.13,Default,NTP,0000,0000,0000,,\N{\fs14}In your public API, you must\Nsay who your superclass is.
+Dialogue: 0,0:33:28.92,0:33:30.57,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? You are not allowed
+Dialogue: 0,0:33:30.57,0:33:33.94,Default,NTP,0000,0000,0000,,\N{\fs14}to make your superclass\Nbe a secret, okay?
+Dialogue: 0,0:33:33.94,0:33:36.26,Default,NTP,0000,0000,0000,,\N{\fs14}It has to be public so we have\Nto put it in the header file,
+Dialogue: 0,0:33:36.61,0:33:39.12,Default,NTP,0000,0000,0000,,\N{\fs14}and you can see the syntax\Nwe use is at sign interface,
+Dialogue: 0,0:33:39.34,0:33:42.46,Default,NTP,0000,0000,0000,,\N{\fs14}the name of our class, which\Nshould always match the name
+Dialogue: 0,0:33:42.46,0:33:43.34,Default,NTP,0000,0000,0000,,\N{\fs14}of the file, by the way,
+Dialogue: 0,0:33:43.34,0:33:46.34,Default,NTP,0000,0000,0000,,\N{\fs14}card.h should always have the\Ninterface for the class card.
+Dialogue: 0,0:33:47.08,0:33:49.35,Default,NTP,0000,0000,0000,,\N{\fs14}And then a colon and\Nthen your superclass.
+Dialogue: 0,0:33:49.60,0:33:52.64,Default,NTP,0000,0000,0000,,\N{\fs14}Now the superclass of the\Ncard class is NSObject.
+Dialogue: 0,0:33:52.73,0:33:56.47,Default,NTP,0000,0000,0000,,\N{\fs14}NSObject is in the\Nfoundation framework
+Dialogue: 0,0:33:57.14,0:34:00.47,Default,NTP,0000,0000,0000,,\N{\fs14}and it's pretty much the root\Nclass of every single class
+Dialogue: 0,0:34:00.47,0:34:02.81,Default,NTP,0000,0000,0000,,\N{\fs14}in all of iOS, including\Nall the classes you write.
+Dialogue: 0,0:34:03.34,0:34:05.64,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? It's this kind of basic\Nclass, we'll talk about it
+Dialogue: 0,0:34:05.64,0:34:07.75,Default,NTP,0000,0000,0000,,\N{\fs14}when we talk about\Nfoundation, but it's going
+Dialogue: 0,0:34:07.75,0:34:10.44,Default,NTP,0000,0000,0000,,\N{\fs14}to be the superclass eventually\Nof every single class.
+Dialogue: 0,0:34:10.60,0:34:13.09,Default,NTP,0000,0000,0000,,\N{\fs14}Right? Everything, eventually,\Ninherits from NSObject.
+Dialogue: 0,0:34:13.58,0:34:17.55,Default,NTP,0000,0000,0000,,\N{\fs14}Now, on the implementation\Nside, it looks very similar,
+Dialogue: 0,0:34:17.55,0:34:19.09,Default,NTP,0000,0000,0000,,\N{\fs14}but instead of saying\Nat sign interface,
+Dialogue: 0,0:34:19.09,0:34:22.24,Default,NTP,0000,0000,0000,,\N{\fs14}you say at sign implementation\Nand the name of the class.
+Dialogue: 0,0:34:22.24,0:34:25.42,Default,NTP,0000,0000,0000,,\N{\fs14}And here you don't specify\Nyour superclass, okay?
+Dialogue: 0,0:34:25.83,0:34:27.65,Default,NTP,0000,0000,0000,,\N{\fs14}Because you're only allowed\Nto specify that once,
+Dialogue: 0,0:34:27.86,0:34:30.09,Default,NTP,0000,0000,0000,,\N{\fs14}and its public, so it\Ngoes in your header file.
+Dialogue: 0,0:34:30.39,0:34:32.15,Default,NTP,0000,0000,0000,,\N{\fs14}Notice that the bottom\Nof both of these,
+Dialogue: 0,0:34:32.15,0:34:33.77,Default,NTP,0000,0000,0000,,\N{\fs14}little at sign end,\Ndo you see that?
+Dialogue: 0,0:34:34.37,0:34:37.00,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, that just means that's\Nthe end of the interface
+Dialogue: 0,0:34:37.00,0:34:38.12,Default,NTP,0000,0000,0000,,\N{\fs14}or of the implantation.
+Dialogue: 0,0:34:38.75,0:34:41.52,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So all of your\Npublic API goes inside this
+Dialogue: 0,0:34:41.52,0:34:43.90,Default,NTP,0000,0000,0000,,\N{\fs14}at sign interface\Nblock, at sign interface,
+Dialogue: 0,0:34:43.90,0:34:47.61,Default,NTP,0000,0000,0000,,\N{\fs14}and all of your implementation,\Nyour private implementation goes
+Dialogue: 0,0:34:47.61,0:34:49.52,Default,NTP,0000,0000,0000,,\N{\fs14}in the at sign implementation\Npart.
+Dialogue: 0,0:34:49.91,0:34:54.71,Default,NTP,0000,0000,0000,,\N{\fs14}Now, if you import, if you have\Nspecified your superclass here,
+Dialogue: 0,0:34:54.71,0:34:55.84,Default,NTP,0000,0000,0000,,\N{\fs14}you have to import it.
+Dialogue: 0,0:34:56.18,0:34:57.88,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Which is like\Npound sign, include.
+Dialogue: 0,0:34:57.88,0:35:00.36,Default,NTP,0000,0000,0000,,\N{\fs14}It's a little more powerful than\Npound sign, include, in fact,
+Dialogue: 0,0:35:00.36,0:35:02.22,Default,NTP,0000,0000,0000,,\N{\fs14}it's a lot more powerful,\Nas I'll talk
+Dialogue: 0,0:35:02.22,0:35:02.86,Default,NTP,0000,0000,0000,,\N{\fs14}about in a second here.
+Dialogue: 0,0:35:03.23,0:35:04.56,Default,NTP,0000,0000,0000,,\N{\fs14}>> But you must import it,
+Dialogue: 0,0:35:04.56,0:35:07.23,Default,NTP,0000,0000,0000,,\N{\fs14}otherwise the objective-C\Ncompiler won't know what
+Dialogue: 0,0:35:07.23,0:35:08.95,Default,NTP,0000,0000,0000,,\N{\fs14}that superclass is, so\Nyou have to, obviously,
+Dialogue: 0,0:35:08.95,0:35:10.12,Default,NTP,0000,0000,0000,,\N{\fs14}import your superclass.
+Dialogue: 0,0:35:10.12,0:35:11.58,Default,NTP,0000,0000,0000,,\N{\fs14}However, we don't usually,
+Dialogue: 0,0:35:11.78,0:35:14.53,Default,NTP,0000,0000,0000,,\N{\fs14}when our superclass is\Nsomething that's in iOS,
+Dialogue: 0,0:35:14.92,0:35:17.86,Default,NTP,0000,0000,0000,,\N{\fs14}we don't usually import just\Nthat classes header file,
+Dialogue: 0,0:35:17.92,0:35:19.21,Default,NTP,0000,0000,0000,,\N{\fs14}which in this case\Nis foundation,
+Dialogue: 0,0:35:19.58,0:35:22.03,Default,NTP,0000,0000,0000,,\N{\fs14}we actually import\Nthe entire framework.
+Dialogue: 0,0:35:23.13,0:35:26.20,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Now you might say,\Noh, that's inefficient.
+Dialogue: 0,0:35:26.80,0:35:28.77,Default,NTP,0000,0000,0000,,\N{\fs14}[Pause] A huge framework,
+Dialogue: 0,0:35:28.77,0:35:32.57,Default,NTP,0000,0000,0000,,\N{\fs14}but of course this is all\Nprecompiled and optimized.
+Dialogue: 0,0:35:32.78,0:35:36.66,Default,NTP,0000,0000,0000,,\N{\fs14}And, in fact, in iOS7, the\Nsyntax for this is really to say
+Dialogue: 0,0:35:36.66,0:35:38.81,Default,NTP,0000,0000,0000,,\N{\fs14}at sign import foundation.
+Dialogue: 0,0:35:39.21,0:35:42.14,Default,NTP,0000,0000,0000,,\N{\fs14}That means I'm going to\Nuse all the public classes
+Dialogue: 0,0:35:42.47,0:35:43.78,Default,NTP,0000,0000,0000,,\N{\fs14}in the foundation framework.
+Dialogue: 0,0:35:44.15,0:35:48.56,Default,NTP,0000,0000,0000,,\N{\fs14}iOS7 still supports the old\Nimportant foundation slash
+Dialogue: 0,0:35:48.56,0:35:51.29,Default,NTP,0000,0000,0000,,\N{\fs14}foundation.h so you can\Nuse that if you want.
+Dialogue: 0,0:35:51.86,0:35:53.53,Default,NTP,0000,0000,0000,,\N{\fs14}Now on our implementation file,
+Dialogue: 0,0:35:53.80,0:35:56.73,Default,NTP,0000,0000,0000,,\N{\fs14}we have to import our\Nheader file, obviously.
+Dialogue: 0,0:35:57.24,0:35:59.22,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Because our\Nimplementation file needs
+Dialogue: 0,0:35:59.22,0:36:03.47,Default,NTP,0000,0000,0000,,\N{\fs14}to know what we're committing to\Npublicly, in terms of our API,
+Dialogue: 0,0:36:03.82,0:36:04.88,Default,NTP,0000,0000,0000,,\N{\fs14}so we have to import that.
+Dialogue: 0,0:36:05.14,0:36:07.29,Default,NTP,0000,0000,0000,,\N{\fs14}Makes perfect sense.
+Dialogue: 0,0:36:07.40,0:36:11.80,Default,NTP,0000,0000,0000,,\N{\fs14}We can also have private\Ndeclarations, okay?
+Dialogue: 0,0:36:11.80,0:36:15.73,Default,NTP,0000,0000,0000,,\N{\fs14}Declarations of properties and\Nmethods that are private inside
+Dialogue: 0,0:36:16.24,0:36:18.98,Default,NTP,0000,0000,0000,,\N{\fs14}of our implementation file\Nby putting this little
+Dialogue: 0,0:36:18.98,0:36:20.86,Default,NTP,0000,0000,0000,,\N{\fs14}at sign interface,\Nname of our class,
+Dialogue: 0,0:36:21.06,0:36:22.66,Default,NTP,0000,0000,0000,,\N{\fs14}open parentheses,\Nclosed parentheses.
+Dialogue: 0,0:36:23.57,0:36:24.95,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And then at sign end.
+Dialogue: 0,0:36:24.95,0:36:26.25,Default,NTP,0000,0000,0000,,\N{\fs14}So we can have a\Nlittle space here
+Dialogue: 0,0:36:26.25,0:36:27.88,Default,NTP,0000,0000,0000,,\N{\fs14}where we can little\Nprivate declarations.
+Dialogue: 0,0:36:27.88,0:36:30.48,Default,NTP,0000,0000,0000,,\N{\fs14}Now, objective-C\Ndoes not require you
+Dialogue: 0,0:36:30.52,0:36:33.63,Default,NTP,0000,0000,0000,,\N{\fs14}to declare something\Nbefore you use it in a file,
+Dialogue: 0,0:36:34.00,0:36:34.73,Default,NTP,0000,0000,0000,,\N{\fs14}you know what I mean by that?
+Dialogue: 0,0:36:34.73,0:36:37.25,Default,NTP,0000,0000,0000,,\N{\fs14}And there's a lot,\Na lot of languages,
+Dialogue: 0,0:36:37.47,0:36:40.34,Default,NTP,0000,0000,0000,,\N{\fs14}you have to declare a method\Nbefore you can call it, right?
+Dialogue: 0,0:36:40.62,0:36:42.27,Default,NTP,0000,0000,0000,,\N{\fs14}But you can do it out\Nof order in objective-C,
+Dialogue: 0,0:36:42.27,0:36:44.68,Default,NTP,0000,0000,0000,,\N{\fs14}you can implement a\Nmethod here that calls,
+Dialogue: 0,0:36:44.99,0:36:47.43,Default,NTP,0000,0000,0000,,\N{\fs14}you can implement\Nmethod A, calls method B,
+Dialogue: 0,0:36:47.43,0:36:50.15,Default,NTP,0000,0000,0000,,\N{\fs14}and then method B is implemented\Ndown here later in the file.
+Dialogue: 0,0:36:50.46,0:36:52.36,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So you don't have\Nto declare method B first,
+Dialogue: 0,0:36:52.82,0:36:56.67,Default,NTP,0000,0000,0000,,\N{\fs14}then implement method A, and\Nthen implement method B. So,
+Dialogue: 0,0:36:56.92,0:37:00.00,Default,NTP,0000,0000,0000,,\N{\fs14}this little private at sign\Ninterface we're mostly going
+Dialogue: 0,0:37:00.00,0:37:01.08,Default,NTP,0000,0000,0000,,\N{\fs14}to use for properties.
+Dialogue: 0,0:37:01.45,0:37:04.84,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Because when we declare\Na property, as you'll see,
+Dialogue: 0,0:37:04.84,0:37:06.64,Default,NTP,0000,0000,0000,,\N{\fs14}that setter and getter\Nget written for us.
+Dialogue: 0,0:37:06.89,0:37:09.93,Default,NTP,0000,0000,0000,,\N{\fs14}So let's see what that looks\Nlike to declare a property.
+Dialogue: 0,0:37:10.04,0:37:11.90,Default,NTP,0000,0000,0000,,\N{\fs14}So here's a simple property.
+Dialogue: 0,0:37:12.13,0:37:13.28,Default,NTP,0000,0000,0000,,\N{\fs14}It's called contents.
+Dialogue: 0,0:37:13.45,0:37:15.18,Default,NTP,0000,0000,0000,,\N{\fs14}So this is the content\Nof the card.
+Dialogue: 0,0:37:15.18,0:37:16.59,Default,NTP,0000,0000,0000,,\N{\fs14}This is what's on the card.
+Dialogue: 0,0:37:17.06,0:37:18.87,Default,NTP,0000,0000,0000,,\N{\fs14}So this might be ace of clubs.
+Dialogue: 0,0:37:19.52,0:37:23.20,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And because this\Nis your first day,
+Dialogue: 0,0:37:23.33,0:37:26.09,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to make the contents\Nbe very simple, just a string.
+Dialogue: 0,0:37:26.45,0:37:29.78,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So these cards, they can\Nbe like a flashcard, maybe,
+Dialogue: 0,0:37:29.78,0:37:31.70,Default,NTP,0000,0000,0000,,\N{\fs14}for learning a foreign\Nlanguage, maybe this is the,
+Dialogue: 0,0:37:31.95,0:37:34.40,Default,NTP,0000,0000,0000,,\N{\fs14}the contents are the word\Nthat you're trying to learn
+Dialogue: 0,0:37:34.40,0:37:36.41,Default,NTP,0000,0000,0000,,\N{\fs14}and maybe it's a\Nflashcard of images
+Dialogue: 0,0:37:36.41,0:37:40.96,Default,NTP,0000,0000,0000,,\N{\fs14}where this content is the name\Nof some image and it's up to UI
+Dialogue: 0,0:37:40.96,0:37:42.96,Default,NTP,0000,0000,0000,,\N{\fs14}to display an image\Nthat matches it.
+Dialogue: 0,0:37:43.26,0:37:45.43,Default,NTP,0000,0000,0000,,\N{\fs14}Or in the case of\Nour playing cards,
+Dialogue: 0,0:37:45.43,0:37:47.90,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to have this be\Nlike, literally the character A
+Dialogue: 0,0:37:47.90,0:37:49.38,Default,NTP,0000,0000,0000,,\N{\fs14}and then the character clubs,
+Dialogue: 0,0:37:49.43,0:37:52.83,Default,NTP,0000,0000,0000,,\N{\fs14}because there's Unicode\Ncharacter clubs, so the A clubs,
+Dialogue: 0,0:37:52.83,0:37:53.65,Default,NTP,0000,0000,0000,,\N{\fs14}that would be the content.
+Dialogue: 0,0:37:53.65,0:37:56.06,Default,NTP,0000,0000,0000,,\N{\fs14}So this is the content of\Nthe card, what's on the card.
+Dialogue: 0,0:37:56.72,0:37:59.74,Default,NTP,0000,0000,0000,,\N{\fs14}And you can see that\Nit's an NSString star.
+Dialogue: 0,0:38:00.06,0:38:03.84,Default,NTP,0000,0000,0000,,\N{\fs14}You see at sign property is\Nhow we're going to declare
+Dialogue: 0,0:38:03.84,0:38:06.37,Default,NTP,0000,0000,0000,,\N{\fs14}that we need storage,\Nper instance of card,
+Dialogue: 0,0:38:06.37,0:38:10.56,Default,NTP,0000,0000,0000,,\N{\fs14}in other words every card has\Nits own contents, and it's going
+Dialogue: 0,0:38:10.56,0:38:14.93,Default,NTP,0000,0000,0000,,\N{\fs14}to be a string, and so we say\Nproperty NSString star, now,
+Dialogue: 0,0:38:15.06,0:38:18.60,Default,NTP,0000,0000,0000,,\N{\fs14}it's important to understand\Nthat in objective-C all objects,
+Dialogue: 0,0:38:19.34,0:38:22.38,Default,NTP,0000,0000,0000,,\N{\fs14}all of them, live in the heap\Nand we have pointers to them.
+Dialogue: 0,0:38:23.43,0:38:28.55,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? There's no such thing as\Nmaking an object on the stack
+Dialogue: 0,0:38:28.55,0:38:29.55,Default,NTP,0000,0000,0000,,\N{\fs14}or anything like that, okay?
+Dialogue: 0,0:38:29.55,0:38:30.27,Default,NTP,0000,0000,0000,,\N{\fs14}They're all in the heap.
+Dialogue: 0,0:38:30.27,0:38:31.41,Default,NTP,0000,0000,0000,,\N{\fs14}Everyone knows what the heap is?
+Dialogue: 0,0:38:31.53,0:38:32.37,Default,NTP,0000,0000,0000,,\N{\fs14}Any questions about that?
+Dialogue: 0,0:38:32.59,0:38:34.67,Default,NTP,0000,0000,0000,,\N{\fs14}That's just where you\Nallocate free memory.
+Dialogue: 0,0:38:34.98,0:38:36.22,Default,NTP,0000,0000,0000,,\N{\fs14}So all objects are there.
+Dialogue: 0,0:38:36.58,0:38:38.61,Default,NTP,0000,0000,0000,,\N{\fs14}What's' really cool\Nabout objective-C is,
+Dialogue: 0,0:38:38.97,0:38:42.73,Default,NTP,0000,0000,0000,,\N{\fs14}objective-C will manage\Nall that storage for you.
+Dialogue: 0,0:38:42.89,0:38:45.03,Default,NTP,0000,0000,0000,,\N{\fs14}It will allocate for\Nyou and free it for you.
+Dialogue: 0,0:38:45.74,0:38:48.51,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Now how does it\Nknow when to free it?
+Dialogue: 0,0:38:49.22,0:38:51.54,Default,NTP,0000,0000,0000,,\N{\fs14}And the answer is\Nthis strong thing,
+Dialogue: 0,0:38:51.54,0:38:52.90,Default,NTP,0000,0000,0000,,\N{\fs14}you see the word strong there?
+Dialogue: 0,0:38:54.18,0:38:56.94,Default,NTP,0000,0000,0000,,\N{\fs14}If, your properties can either\Nbe strong, like this one,
+Dialogue: 0,0:38:57.15,0:38:59.84,Default,NTP,0000,0000,0000,,\N{\fs14}or weak, two things,\Nstrong or weak.
+Dialogue: 0,0:39:00.07,0:39:02.83,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And all pointer properties\Nhave to be strong or weak
+Dialogue: 0,0:39:02.83,0:39:04.46,Default,NTP,0000,0000,0000,,\N{\fs14}because the objective-C\Nhas to know what to do
+Dialogue: 0,0:39:04.46,0:39:05.52,Default,NTP,0000,0000,0000,,\N{\fs14}with the memory and the heap.
+Dialogue: 0,0:39:05.52,0:39:09.24,Default,NTP,0000,0000,0000,,\N{\fs14}Strong means keep\Nthe memory for this,
+Dialogue: 0,0:39:09.40,0:39:14.67,Default,NTP,0000,0000,0000,,\N{\fs14}for the thing this points\Nto, in the heap, as long as I
+Dialogue: 0,0:39:14.77,0:39:17.50,Default,NTP,0000,0000,0000,,\N{\fs14}or anyone else has a\Nstrong pointer to it.
+Dialogue: 0,0:39:18.18,0:39:20.36,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So, this is called\Nreference counting,
+Dialogue: 0,0:39:20.36,0:39:22.33,Default,NTP,0000,0000,0000,,\N{\fs14}it's not garbage collection,\Nits reference counting.
+Dialogue: 0,0:39:22.62,0:39:24.00,Default,NTP,0000,0000,0000,,\N{\fs14}So we're going to, the\Nobjective-C is going
+Dialogue: 0,0:39:24.00,0:39:27.56,Default,NTP,0000,0000,0000,,\N{\fs14}to keep track of every single\Nstrong pointer to an object
+Dialogue: 0,0:39:27.56,0:39:31.52,Default,NTP,0000,0000,0000,,\N{\fs14}in the heap and as long as at\Nleast one strong pointer exists,
+Dialogue: 0,0:39:31.56,0:39:32.92,Default,NTP,0000,0000,0000,,\N{\fs14}it's going to keep\Nthat thing in heap.
+Dialogue: 0,0:39:33.12,0:39:35.27,Default,NTP,0000,0000,0000,,\N{\fs14}As soon as there are no\Nstrong pointers left,
+Dialogue: 0,0:39:35.60,0:39:37.65,Default,NTP,0000,0000,0000,,\N{\fs14}it will free the memory\Nout of the heap, instantly.
+Dialogue: 0,0:39:37.78,0:39:39.14,Default,NTP,0000,0000,0000,,\N{\fs14}Not garbage collected later.
+Dialogue: 0,0:39:39.35,0:39:42.62,Default,NTP,0000,0000,0000,,\N{\fs14}But actually instantly,\Nreclaim that memory.
+Dialogue: 0,0:39:42.87,0:39:45.91,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So this is probably new\Nto you, you're probably used
+Dialogue: 0,0:39:45.91,0:39:48.26,Default,NTP,0000,0000,0000,,\N{\fs14}to like garbage collection\Nin Java, for example,
+Dialogue: 0,0:39:48.62,0:39:51.87,Default,NTP,0000,0000,0000,,\N{\fs14}or explicit memory\Nmanagement in other languages.
+Dialogue: 0,0:39:52.20,0:39:54.13,Default,NTP,0000,0000,0000,,\N{\fs14}This is called automatic\Nreference counting
+Dialogue: 0,0:39:54.13,0:39:54.86,Default,NTP,0000,0000,0000,,\N{\fs14}and it's awesome.
+Dialogue: 0,0:39:55.03,0:39:57.69,Default,NTP,0000,0000,0000,,\N{\fs14}It's really very\Npredictable, this is much better
+Dialogue: 0,0:39:57.69,0:39:58.91,Default,NTP,0000,0000,0000,,\N{\fs14}than garbage collection,\Nbecause, you know,
+Dialogue: 0,0:39:58.91,0:40:01.99,Default,NTP,0000,0000,0000,,\N{\fs14}the garbage collector can\Ncome along later and do,
+Dialogue: 0,0:40:01.99,0:40:04.62,Default,NTP,0000,0000,0000,,\N{\fs14}wreak havoc on the performance\Nof your application as it goes
+Dialogue: 0,0:40:04.62,0:40:05.87,Default,NTP,0000,0000,0000,,\N{\fs14}and collects things\Nfrom the heap.
+Dialogue: 0,0:40:06.25,0:40:07.90,Default,NTP,0000,0000,0000,,\N{\fs14}This is very predictable,\Nyou know exactly
+Dialogue: 0,0:40:07.90,0:40:08.93,Default,NTP,0000,0000,0000,,\N{\fs14}when things are going\Nto be released,
+Dialogue: 0,0:40:08.93,0:40:11.01,Default,NTP,0000,0000,0000,,\N{\fs14}it's when there's no\Nstrong pointers left to it.
+Dialogue: 0,0:40:11.41,0:40:12.66,Default,NTP,0000,0000,0000,,\N{\fs14}What would it mean\Nif this was weak?
+Dialogue: 0,0:40:12.66,0:40:15.85,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, if you have a weak\Npointer, that tells objective-C,
+Dialogue: 0,0:40:15.98,0:40:18.66,Default,NTP,0000,0000,0000,,\N{\fs14}okay, I have a pointer to this\Nthing in the heap and keep it
+Dialogue: 0,0:40:18.66,0:40:21.54,Default,NTP,0000,0000,0000,,\N{\fs14}in memory as long as someone\Nelse has a strong pointer to it.
+Dialogue: 0,0:40:22.15,0:40:24.76,Default,NTP,0000,0000,0000,,\N{\fs14}But as soon as no one else has\Na strong pointer to that thing,
+Dialogue: 0,0:40:24.99,0:40:27.38,Default,NTP,0000,0000,0000,,\N{\fs14}it gets freed from\Nmemory and this pointer,
+Dialogue: 0,0:40:27.38,0:40:29.36,Default,NTP,0000,0000,0000,,\N{\fs14}if it was weak, gets set to nil.
+Dialogue: 0,0:40:30.01,0:40:33.27,Default,NTP,0000,0000,0000,,\N{\fs14}Nil means this pointer doesn't\Npoint to anything, okay?
+Dialogue: 0,0:40:33.50,0:40:35.22,Default,NTP,0000,0000,0000,,\N{\fs14}Nil is the same as zero.
+Dialogue: 0,0:40:36.24,0:40:40.75,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? In other languages, you're\Nprobably afraid of nil pointers.
+Dialogue: 0,0:40:40.92,0:40:43.05,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Because you do\Nreference a nil pointer,
+Dialogue: 0,0:40:43.05,0:40:44.75,Default,NTP,0000,0000,0000,,\N{\fs14}it crashes your program, right?
+Dialogue: 0,0:40:45.40,0:40:49.35,Default,NTP,0000,0000,0000,,\N{\fs14}In objective-C, you can send\Nmessages to nil pointers even
+Dialogue: 0,0:40:49.35,0:40:50.98,Default,NTP,0000,0000,0000,,\N{\fs14}and it will not crash\Nyour program.
+Dialogue: 0,0:40:50.98,0:40:53.48,Default,NTP,0000,0000,0000,,\N{\fs14}In fact, if you send a\Nmessage to a nil program,
+Dialogue: 0,0:40:53.48,0:40:58.14,Default,NTP,0000,0000,0000,,\N{\fs14}to a nil pointer, it will not\Nexecute any code, obviously,
+Dialogue: 0,0:40:58.14,0:40:59.93,Default,NTP,0000,0000,0000,,\N{\fs14}because there's no\Ninstance there.
+Dialogue: 0,0:41:00.14,0:41:02.03,Default,NTP,0000,0000,0000,,\N{\fs14}And it will return zero from,
+Dialogue: 0,0:41:02.03,0:41:04.83,Default,NTP,0000,0000,0000,,\N{\fs14}if that message had a return\Nvalue, it'll return zero.
+Dialogue: 0,0:41:05.61,0:41:07.65,Default,NTP,0000,0000,0000,,\N{\fs14}So you have to be a\Nlittle careful of messages
+Dialogue: 0,0:41:07.65,0:41:09.66,Default,NTP,0000,0000,0000,,\N{\fs14}that return structs, okay,
+Dialogue: 0,0:41:09.88,0:41:12.43,Default,NTP,0000,0000,0000,,\N{\fs14}but as long as it returns a\Nprimitive type or a pointer,
+Dialogue: 0,0:41:12.43,0:41:13.58,Default,NTP,0000,0000,0000,,\N{\fs14}it'll just return zero.
+Dialogue: 0,0:41:13.58,0:41:16.03,Default,NTP,0000,0000,0000,,\N{\fs14}So, this is going to\Ntake getting used to.
+Dialogue: 0,0:41:16.19,0:41:18.74,Default,NTP,0000,0000,0000,,\N{\fs14}The fact that we are\Ngoing to program knowing
+Dialogue: 0,0:41:18.74,0:41:20.86,Default,NTP,0000,0000,0000,,\N{\fs14}that we can send\Nmessages to nil,
+Dialogue: 0,0:41:20.86,0:41:23.16,Default,NTP,0000,0000,0000,,\N{\fs14}to pointers that are nil\Nand that that's good.
+Dialogue: 0,0:41:23.69,0:41:26.60,Default,NTP,0000,0000,0000,,\N{\fs14}We'll actually make our code\Nwork nicely and we'll use
+Dialogue: 0,0:41:26.60,0:41:27.54,Default,NTP,0000,0000,0000,,\N{\fs14}that to our advantage.
+Dialogue: 0,0:41:27.86,0:41:30.55,Default,NTP,0000,0000,0000,,\N{\fs14}And that is definitely going to\Nbe a change for you who are used
+Dialogue: 0,0:41:30.55,0:41:32.43,Default,NTP,0000,0000,0000,,\N{\fs14}to if pointers not nil,
+Dialogue: 0,0:41:32.43,0:41:34.15,Default,NTP,0000,0000,0000,,\N{\fs14}then send message\Nall the time, right?
+Dialogue: 0,0:41:34.15,0:41:37.21,Default,NTP,0000,0000,0000,,\N{\fs14}Protecting against crashes, you\Ndon't do that in objective-C,
+Dialogue: 0,0:41:37.21,0:41:38.24,Default,NTP,0000,0000,0000,,\N{\fs14}you just don't code it that way.
+Dialogue: 0,0:41:39.09,0:41:44.17,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So, this pointer could\Nhave the value nil, n-i-l,
+Dialogue: 0,0:41:44.17,0:41:45.74,Default,NTP,0000,0000,0000,,\N{\fs14}which means it doesn't\Npoint to anything.
+Dialogue: 0,0:41:46.49,0:41:48.83,Default,NTP,0000,0000,0000,,\N{\fs14}Alright? So if you have a\Nstrong pointer and it points
+Dialogue: 0,0:41:48.83,0:41:50.51,Default,NTP,0000,0000,0000,,\N{\fs14}to something and then\Nyou set it to nil,
+Dialogue: 0,0:41:50.67,0:41:52.49,Default,NTP,0000,0000,0000,,\N{\fs14}now that strong pointer\Ndoesn't point to that thing,
+Dialogue: 0,0:41:52.49,0:41:54.53,Default,NTP,0000,0000,0000,,\N{\fs14}as long as no one else\Npoints to it, you can clean
+Dialogue: 0,0:41:54.53,0:41:56.92,Default,NTP,0000,0000,0000,,\N{\fs14}up that memory, objective-C will\Nclean the memory up for you.
+Dialogue: 0,0:41:57.30,0:41:59.35,Default,NTP,0000,0000,0000,,\N{\fs14}Or if you have a pointer that\Npoints to something in the heap,
+Dialogue: 0,0:41:59.56,0:42:01.27,Default,NTP,0000,0000,0000,,\N{\fs14}then you make it point to\Nsomething else in the heap,
+Dialogue: 0,0:42:01.78,0:42:04.20,Default,NTP,0000,0000,0000,,\N{\fs14}then you no longer have a strong\Npointer to that other thing
+Dialogue: 0,0:42:04.20,0:42:06.84,Default,NTP,0000,0000,0000,,\N{\fs14}in the heap and as long as no\None does, it'll get cleaned up.
+Dialogue: 0,0:42:07.42,0:42:10.49,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And remember weak\Nnot only cleans it up,
+Dialogue: 0,0:42:10.49,0:42:11.74,Default,NTP,0000,0000,0000,,\N{\fs14}but it sets your pointer to nil,
+Dialogue: 0,0:42:12.13,0:42:14.33,Default,NTP,0000,0000,0000,,\N{\fs14}because you only wanted a weak\Npointer, you only wanted it
+Dialogue: 0,0:42:14.33,0:42:15.93,Default,NTP,0000,0000,0000,,\N{\fs14}to point to that thing as\Nlong as someone else does.
+Dialogue: 0,0:42:16.67,0:42:19.11,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So that's the\Nstrong versus weak.
+Dialogue: 0,0:42:19.55,0:42:20.54,Default,NTP,0000,0000,0000,,\N{\fs14}The other thing we're\Ngoing to put
+Dialogue: 0,0:42:20.54,0:42:23.84,Default,NTP,0000,0000,0000,,\N{\fs14}in this little parentheses\Nis nonatomic, okay?
+Dialogue: 0,0:42:24.11,0:42:28.41,Default,NTP,0000,0000,0000,,\N{\fs14}Nonatomic means calling this\Nsetter and getter that go along
+Dialogue: 0,0:42:28.41,0:42:30.52,Default,NTP,0000,0000,0000,,\N{\fs14}with this property\Nis not thread safe.
+Dialogue: 0,0:42:31.21,0:42:33.29,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, so you can't\Nhave two threads trying
+Dialogue: 0,0:42:33.29,0:42:35.68,Default,NTP,0000,0000,0000,,\N{\fs14}to set this property\Nat the same time.
+Dialogue: 0,0:42:36.07,0:42:38.52,Default,NTP,0000,0000,0000,,\N{\fs14}Why do we say nonatomic\Nhere, why do we want this
+Dialogue: 0,0:42:38.52,0:42:39.61,Default,NTP,0000,0000,0000,,\N{\fs14}to not be thread safe?
+Dialogue: 0,0:42:39.66,0:42:43.21,Default,NTP,0000,0000,0000,,\N{\fs14}Because the way we do\Nmultithreading in iOS is not
+Dialogue: 0,0:42:43.21,0:42:45.91,Default,NTP,0000,0000,0000,,\N{\fs14}by having a single object that\Nmultiple threads are setting on,
+Dialogue: 0,0:42:46.12,0:42:48.49,Default,NTP,0000,0000,0000,,\N{\fs14}we usually have a separate set\Nof objects that are running
+Dialogue: 0,0:42:48.49,0:42:52.22,Default,NTP,0000,0000,0000,,\N{\fs14}in another thread, like\Nyour model, and then other,
+Dialogue: 0,0:42:52.22,0:42:54.58,Default,NTP,0000,0000,0000,,\N{\fs14}than your UI stuff is\Nrunning in the UI thread
+Dialogue: 0,0:42:54.58,0:42:56.36,Default,NTP,0000,0000,0000,,\N{\fs14}and they're talking\Nthread to thread.
+Dialogue: 0,0:42:56.85,0:43:00.92,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So we don't need this\Nand not only that, what's going
+Dialogue: 0,0:43:00.92,0:43:02.02,Default,NTP,0000,0000,0000,,\N{\fs14}to happen here when we do this
+Dialogue: 0,0:43:02.02,0:43:05.06,Default,NTP,0000,0000,0000,,\N{\fs14}at sign property is objective-C\Nis going to create that getter
+Dialogue: 0,0:43:05.06,0:43:06.59,Default,NTP,0000,0000,0000,,\N{\fs14}and setter methods\Nthat I told you
+Dialogue: 0,0:43:06.59,0:43:09.44,Default,NTP,0000,0000,0000,,\N{\fs14}about to set these contents\Nautomatically for us,
+Dialogue: 0,0:43:09.59,0:43:12.34,Default,NTP,0000,0000,0000,,\N{\fs14}and we want them\Nto be simple, okay?
+Dialogue: 0,0:43:12.34,0:43:13.50,Default,NTP,0000,0000,0000,,\N{\fs14}This is what they're\Ngoing to look like.
+Dialogue: 0,0:43:14.53,0:43:15.90,Default,NTP,0000,0000,0000,,\N{\fs14}We want them to be simple.
+Dialogue: 0,0:43:16.06,0:43:18.28,Default,NTP,0000,0000,0000,,\N{\fs14}If we don't say nonatomic,\Nthere's going to be all kinds
+Dialogue: 0,0:43:18.28,0:43:20.31,Default,NTP,0000,0000,0000,,\N{\fs14}of locking code in there, right?
+Dialogue: 0,0:43:20.31,0:43:23.88,Default,NTP,0000,0000,0000,,\N{\fs14}If you have multiple threads and\Nyou're allowing multiple threads
+Dialogue: 0,0:43:23.88,0:43:25.53,Default,NTP,0000,0000,0000,,\N{\fs14}to access the setter\Nand getter here,
+Dialogue: 0,0:43:25.84,0:43:28.77,Default,NTP,0000,0000,0000,,\N{\fs14}then you need locking code,\Nand we don't want locking code,
+Dialogue: 0,0:43:28.77,0:43:30.68,Default,NTP,0000,0000,0000,,\N{\fs14}especially if we're going\Nto implement the setter
+Dialogue: 0,0:43:30.68,0:43:33.58,Default,NTP,0000,0000,0000,,\N{\fs14}and getter ourselves, which\Nwe're going to, sometimes.
+Dialogue: 0,0:43:34.28,0:43:35.89,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? But the default here is
+Dialogue: 0,0:43:35.89,0:43:37.94,Default,NTP,0000,0000,0000,,\N{\fs14}that we don't implement\Nthis setter and getter,
+Dialogue: 0,0:43:38.50,0:43:40.25,Default,NTP,0000,0000,0000,,\N{\fs14}it's automatically\Nin there forest.
+Dialogue: 0,0:43:40.25,0:43:42.31,Default,NTP,0000,0000,0000,,\N{\fs14}So you can see there's\Nthree parts to this.
+Dialogue: 0,0:43:42.48,0:43:44.52,Default,NTP,0000,0000,0000,,\N{\fs14}There's the at sign\Nsynthesize, you see that?
+Dialogue: 0,0:43:44.98,0:43:48.69,Default,NTP,0000,0000,0000,,\N{\fs14}That's basically just saying\Nunderbar contents is the name
+Dialogue: 0,0:43:48.69,0:43:50.07,Default,NTP,0000,0000,0000,,\N{\fs14}of the instance variable
+Dialogue: 0,0:43:50.31,0:43:53.26,Default,NTP,0000,0000,0000,,\N{\fs14}in which the property\Ncontents is going to be stored.
+Dialogue: 0,0:43:53.95,0:43:56.86,Default,NTP,0000,0000,0000,,\N{\fs14}Now we could say at sign\Nsynthesize contents equals foo
+Dialogue: 0,0:43:57.17,0:43:59.11,Default,NTP,0000,0000,0000,,\N{\fs14}[phonetic], and then contents\Nproperty would be stored
+Dialogue: 0,0:43:59.11,0:44:00.33,Default,NTP,0000,0000,0000,,\N{\fs14}in an instance variable\Ncalled foo.
+Dialogue: 0,0:44:00.33,0:44:01.92,Default,NTP,0000,0000,0000,,\N{\fs14}But that would be\Nvery confusing,
+Dialogue: 0,0:44:02.02,0:44:04.97,Default,NTP,0000,0000,0000,,\N{\fs14}so we always use underbar\Nname of the property.
+Dialogue: 0,0:44:05.17,0:44:07.68,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And so that's part one,
+Dialogue: 0,0:44:07.79,0:44:09.76,Default,NTP,0000,0000,0000,,\N{\fs14}just basically allocating\Nan instance variable
+Dialogue: 0,0:44:09.76,0:44:11.92,Default,NTP,0000,0000,0000,,\N{\fs14}to store this contents property.
+Dialogue: 0,0:44:12.30,0:44:15.74,Default,NTP,0000,0000,0000,,\N{\fs14}Then there's the getter,\Nthat's NSString contents,
+Dialogue: 0,0:44:15.74,0:44:18.85,Default,NTP,0000,0000,0000,,\N{\fs14}return contents, so\Nthe dash, parentheses,
+Dialogue: 0,0:44:18.91,0:44:23.36,Default,NTP,0000,0000,0000,,\N{\fs14}NSString contents is a method\Ndeclaration in objective-C,
+Dialogue: 0,0:44:23.77,0:44:25.29,Default,NTP,0000,0000,0000,,\N{\fs14}the dash means this is a method,
+Dialogue: 0,0:44:25.49,0:44:27.95,Default,NTP,0000,0000,0000,,\N{\fs14}parentheses NSString star\Nmeans this is a method
+Dialogue: 0,0:44:27.95,0:44:29.74,Default,NTP,0000,0000,0000,,\N{\fs14}that returns a pointer\Nto a string,
+Dialogue: 0,0:44:30.85,0:44:32.87,Default,NTP,0000,0000,0000,,\N{\fs14}and contents is the\Nname of the method.
+Dialogue: 0,0:44:33.60,0:44:35.70,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So the name of the method\Nof the getter is the same
+Dialogue: 0,0:44:35.70,0:44:36.75,Default,NTP,0000,0000,0000,,\N{\fs14}as the name of the property.
+Dialogue: 0,0:44:37.41,0:44:39.87,Default,NTP,0000,0000,0000,,\N{\fs14}Then, the implementation\Nis just return
+Dialogue: 0,0:44:39.87,0:44:42.56,Default,NTP,0000,0000,0000,,\N{\fs14}that instance variable\Nthat we synthesized.
+Dialogue: 0,0:44:43.55,0:44:47.38,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And similarly, the\Nnext method is a method
+Dialogue: 0,0:44:47.53,0:44:48.84,Default,NTP,0000,0000,0000,,\N{\fs14}in objective-C for setting it.
+Dialogue: 0,0:44:49.08,0:44:51.06,Default,NTP,0000,0000,0000,,\N{\fs14}And, again, dash\N[inaudible] method.
+Dialogue: 0,0:44:51.55,0:44:54.69,Default,NTP,0000,0000,0000,,\N{\fs14}Parentheses void means this\Nmethod does not return anything.
+Dialogue: 0,0:44:55.35,0:44:57.09,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? That's what\Nparentheses void means.
+Dialogue: 0,0:44:57.56,0:44:59.78,Default,NTP,0000,0000,0000,,\N{\fs14}Then set contents\Ncolon, that's the name
+Dialogue: 0,0:44:59.78,0:45:01.95,Default,NTP,0000,0000,0000,,\N{\fs14}of this method, set\Ncontents colon.
+Dialogue: 0,0:45:03.05,0:45:06.87,Default,NTP,0000,0000,0000,,\N{\fs14}Parentheses NSString star is\Nthe argument to this method.
+Dialogue: 0,0:45:07.26,0:45:10.42,Default,NTP,0000,0000,0000,,\N{\fs14}Contents is just the name of\Nthe argument, the local name
+Dialogue: 0,0:45:10.42,0:45:13.52,Default,NTP,0000,0000,0000,,\N{\fs14}of the variable in the\Nlocal contents, context,
+Dialogue: 0,0:45:14.01,0:45:17.04,Default,NTP,0000,0000,0000,,\N{\fs14}and the implementation is\Njust underbar contents,
+Dialogue: 0,0:45:17.04,0:45:19.30,Default,NTP,0000,0000,0000,,\N{\fs14}our instance variable\Nequals that argument.
+Dialogue: 0,0:45:20.29,0:45:22.46,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So, before I move on,
+Dialogue: 0,0:45:22.46,0:45:27.57,Default,NTP,0000,0000,0000,,\N{\fs14}does everyone understand how\Nthese two methods are allowing
+Dialogue: 0,0:45:27.57,0:45:32.65,Default,NTP,0000,0000,0000,,\N{\fs14}you to set and get an NSString\Nstorage space inside your card?
+Dialogue: 0,0:45:33.87,0:45:34.78,Default,NTP,0000,0000,0000,,\N{\fs14}Everyone understand that?
+Dialogue: 0,0:45:35.83,0:45:36.83,Default,NTP,0000,0000,0000,,\N{\fs14}Question? [Inaudible\Nbackground question] Okay,
+Dialogue: 0,0:45:38.60,0:45:43.15,Default,NTP,0000,0000,0000,,\N{\fs14}so the synthesize line, again,\Nis just specifying the name
+Dialogue: 0,0:45:43.15,0:45:45.10,Default,NTP,0000,0000,0000,,\N{\fs14}of the instance variable\Nthat we're going to use
+Dialogue: 0,0:45:45.10,0:45:47.48,Default,NTP,0000,0000,0000,,\N{\fs14}to store this stuff\Nin, underbar contents.
+Dialogue: 0,0:45:47.93,0:45:50.99,Default,NTP,0000,0000,0000,,\N{\fs14}It's kind of weird, you could\Nmaybe, it might be better saying
+Dialogue: 0,0:45:50.99,0:45:54.34,Default,NTP,0000,0000,0000,,\N{\fs14}at sign synthesize contents\Nto use instance variable
+Dialogue: 0,0:45:54.34,0:45:56.37,Default,NTP,0000,0000,0000,,\N{\fs14}with name, underbar contents.
+Dialogue: 0,0:45:56.60,0:45:58.17,Default,NTP,0000,0000,0000,,\N{\fs14}That equals, I know,\Nis a little weird.
+Dialogue: 0,0:45:58.17,0:46:00.10,Default,NTP,0000,0000,0000,,\N{\fs14}It sounds like it's assigning\Nsomething, but it's just,
+Dialogue: 0,0:46:00.27,0:46:03.50,Default,NTP,0000,0000,0000,,\N{\fs14}that's what, think about\Nequals as, you know,
+Dialogue: 0,0:46:03.63,0:46:04.85,Default,NTP,0000,0000,0000,,\N{\fs14}we'll use the instance variable
+Dialogue: 0,0:46:04.85,0:46:06.84,Default,NTP,0000,0000,0000,,\N{\fs14}with the name, underbar\Ncontents.
+Dialogue: 0,0:46:06.89,0:46:08.24,Default,NTP,0000,0000,0000,,\N{\fs14}So that's what the\Nsynthesize is doing.
+Dialogue: 0,0:46:08.24,0:46:10.17,Default,NTP,0000,0000,0000,,\N{\fs14}If you don't put the\Nsynthesize, it's not going
+Dialogue: 0,0:46:10.17,0:46:13.29,Default,NTP,0000,0000,0000,,\N{\fs14}to create the space in your\Ncard instance, and it won't,
+Dialogue: 0,0:46:13.29,0:46:15.32,Default,NTP,0000,0000,0000,,\N{\fs14}there won't be any name for\Nit so you can't refer to it
+Dialogue: 0,0:46:15.32,0:46:17.42,Default,NTP,0000,0000,0000,,\N{\fs14}in your getter and setter, okay?
+Dialogue: 0,0:46:17.42,0:46:18.36,Default,NTP,0000,0000,0000,,\N{\fs14}Everyone understand this?
+Dialogue: 0,0:46:19.25,0:46:20.10,Default,NTP,0000,0000,0000,,\N{\fs14}Any other questions?
+Dialogue: 0,0:46:21.08,0:46:23.74,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, now, the thing about\Nit is, when you type the
+Dialogue: 0,0:46:23.74,0:46:27.01,Default,NTP,0000,0000,0000,,\N{\fs14}at sign property on the\Nleft, this gets added to your
+Dialogue: 0,0:46:27.01,0:46:30.10,Default,NTP,0000,0000,0000,,\N{\fs14}at sign implementation; however,\Nyou will not see it there.
+Dialogue: 0,0:46:31.50,0:46:31.84,Default,NTP,0000,0000,0000,,\N{\fs14}[Pause] Okay?
+Dialogue: 0,0:46:32.17,0:46:33.97,Default,NTP,0000,0000,0000,,\N{\fs14}So it's there, but\Nyou don't see it.
+Dialogue: 0,0:46:34.54,0:46:38.41,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, objective-C is, made it\Nfor you, but it doesn't show it
+Dialogue: 0,0:46:38.41,0:46:41.07,Default,NTP,0000,0000,0000,,\N{\fs14}to you, but it's there,\Nokay, that setter method
+Dialogue: 0,0:46:41.07,0:46:43.63,Default,NTP,0000,0000,0000,,\N{\fs14}and that setter-getter\Nmethod are there.
+Dialogue: 0,0:46:44.10,0:46:44.97,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? They exist.
+Dialogue: 0,0:46:45.09,0:46:47.88,Default,NTP,0000,0000,0000,,\N{\fs14}And not only that, they're\Npublic, because you put
+Dialogue: 0,0:46:47.88,0:46:50.13,Default,NTP,0000,0000,0000,,\N{\fs14}that at sign property\Ndeclaration in your header file.
+Dialogue: 0,0:46:51.50,0:46:52.19,Default,NTP,0000,0000,0000,,\N{\fs14}Everyone got that?
+Dialogue: 0,0:46:53.25,0:46:55.22,Default,NTP,0000,0000,0000,,\N{\fs14}So let's look at another\Ncouple properties just
+Dialogue: 0,0:46:55.22,0:46:56.45,Default,NTP,0000,0000,0000,,\N{\fs14}to see the syntax a little more.
+Dialogue: 0,0:46:56.67,0:46:59.02,Default,NTP,0000,0000,0000,,\N{\fs14}So here's two properties\Nthat are bullions [phonetic].
+Dialogue: 0,0:46:59.33,0:47:02.38,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? There's no\Nbullion primitive in C,
+Dialogue: 0,0:47:02.57,0:47:06.29,Default,NTP,0000,0000,0000,,\N{\fs14}so objective-C has to find,\Ntypedef all caps BULL,
+Dialogue: 0,0:47:06.85,0:47:09.66,Default,NTP,0000,0000,0000,,\N{\fs14}probably a short or\Nsomething or an int or a char,
+Dialogue: 0,0:47:09.66,0:47:12.56,Default,NTP,0000,0000,0000,,\N{\fs14}I don't know what, but you can\Nthink of it as a primitive type,
+Dialogue: 0,0:47:12.56,0:47:15.08,Default,NTP,0000,0000,0000,,\N{\fs14}it's a boolean, it's\Nvalue can either be yes,
+Dialogue: 0,0:47:15.24,0:47:17.65,Default,NTP,0000,0000,0000,,\N{\fs14}which is some non-zero\Nvalue, or no which is zero.
+Dialogue: 0,0:47:18.80,0:47:21.48,Default,NTP,0000,0000,0000,,\N{\fs14}And these properties don't\Nneed the strong or weak.
+Dialogue: 0,0:47:21.48,0:47:23.38,Default,NTP,0000,0000,0000,,\N{\fs14}Do you understand why that is?
+Dialogue: 0,0:47:24.02,0:47:25.36,Default,NTP,0000,0000,0000,,\N{\fs14}Because they're primitive types,
+Dialogue: 0,0:47:25.50,0:47:27.79,Default,NTP,0000,0000,0000,,\N{\fs14}they're not stored\Nin the heap, okay?
+Dialogue: 0,0:47:27.86,0:47:30.89,Default,NTP,0000,0000,0000,,\N{\fs14}They're just a int or a float,\Nso there's no memory to manage
+Dialogue: 0,0:47:30.89,0:47:32.86,Default,NTP,0000,0000,0000,,\N{\fs14}so you don't need to know\Nabout strong and weak pointers,
+Dialogue: 0,0:47:32.86,0:47:34.02,Default,NTP,0000,0000,0000,,\N{\fs14}there's no pointers\Ninvolved here,
+Dialogue: 0,0:47:34.02,0:47:35.42,Default,NTP,0000,0000,0000,,\N{\fs14}this is just a BULL, a bullion.
+Dialogue: 0,0:47:35.92,0:47:38.69,Default,NTP,0000,0000,0000,,\N{\fs14}So there's no strong or weak,\Nbut we still have the nonatomic,
+Dialogue: 0,0:47:38.95,0:47:41.39,Default,NTP,0000,0000,0000,,\N{\fs14}because we still want the setter\Nand the getter to be simple,
+Dialogue: 0,0:47:41.39,0:47:42.99,Default,NTP,0000,0000,0000,,\N{\fs14}not having any locking code\Nor any of that business.
+Dialogue: 0,0:47:42.99,0:47:44.78,Default,NTP,0000,0000,0000,,\N{\fs14}So we're always going\Nto have nonatomic
+Dialogue: 0,0:47:44.90,0:47:46.51,Default,NTP,0000,0000,0000,,\N{\fs14}on every property in this class.
+Dialogue: 0,0:47:46.90,0:47:48.95,Default,NTP,0000,0000,0000,,\N{\fs14}We will not have a single\Nproperty in this entire class
+Dialogue: 0,0:47:48.95,0:47:49.92,Default,NTP,0000,0000,0000,,\N{\fs14}that is not nonatomic.
+Dialogue: 0,0:47:49.92,0:47:51.68,Default,NTP,0000,0000,0000,,\N{\fs14}So just put it in there, I\Nwish it were the default.
+Dialogue: 0,0:47:51.68,0:47:54.97,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So that's what\Nwe're going to do.
+Dialogue: 0,0:47:54.97,0:47:57.58,Default,NTP,0000,0000,0000,,\N{\fs14}You can see we've\Nsynthesized them both
+Dialogue: 0,0:47:57.58,0:47:59.61,Default,NTP,0000,0000,0000,,\N{\fs14}and we've got the setter and\Nthe getter for them both,
+Dialogue: 0,0:47:59.61,0:48:02.38,Default,NTP,0000,0000,0000,,\N{\fs14}and this is all being done\Nfor us by objective-C.
+Dialogue: 0,0:48:02.65,0:48:06.19,Default,NTP,0000,0000,0000,,\N{\fs14}Now, one thing that's kind of\Ncool is we may not like the name
+Dialogue: 0,0:48:06.19,0:48:08.70,Default,NTP,0000,0000,0000,,\N{\fs14}of this getter, because we\Nwant our code to read something
+Dialogue: 0,0:48:08.70,0:48:12.65,Default,NTP,0000,0000,0000,,\N{\fs14}like if card is chosen,\Nthen do something.
+Dialogue: 0,0:48:12.89,0:48:14.93,Default,NTP,0000,0000,0000,,\N{\fs14}If card is matched,\Nthen do something.
+Dialogue: 0,0:48:14.93,0:48:17.09,Default,NTP,0000,0000,0000,,\N{\fs14}So we really want the\Ngetter called is chosen,
+Dialogue: 0,0:48:17.31,0:48:18.17,Default,NTP,0000,0000,0000,,\N{\fs14}not just chosen.
+Dialogue: 0,0:48:18.48,0:48:22.03,Default,NTP,0000,0000,0000,,\N{\fs14}You know, if card chosen, not\Nas nice as if card is chosen.
+Dialogue: 0,0:48:22.06,0:48:24.79,Default,NTP,0000,0000,0000,,\N{\fs14}So it's actually possible\Nto rename the getter
+Dialogue: 0,0:48:25.22,0:48:28.00,Default,NTP,0000,0000,0000,,\N{\fs14}by saying getter equals\Nthe new name you want.
+Dialogue: 0,0:48:29.08,0:48:31.57,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And that's essentially\Nrenamed it, same thing,
+Dialogue: 0,0:48:31.57,0:48:32.68,Default,NTP,0000,0000,0000,,\N{\fs14}we'll do the same\Nthing with this one.
+Dialogue: 0,0:48:32.90,0:48:34.01,Default,NTP,0000,0000,0000,,\N{\fs14}Getter equals is matched,
+Dialogue: 0,0:48:34.55,0:48:36.34,Default,NTP,0000,0000,0000,,\N{\fs14}now that getter is\Ncalled is matched.
+Dialogue: 0,0:48:36.98,0:48:38.06,Default,NTP,0000,0000,0000,,\N{\fs14}And I bring this up\Nbecause you're going
+Dialogue: 0,0:48:38.06,0:48:40.48,Default,NTP,0000,0000,0000,,\N{\fs14}to see how iOS does this\Nwith bullion properties,
+Dialogue: 0,0:48:40.48,0:48:43.78,Default,NTP,0000,0000,0000,,\N{\fs14}it tends to rename them\Nto is this or has this,
+Dialogue: 0,0:48:43.82,0:48:45.99,Default,NTP,0000,0000,0000,,\N{\fs14}depending on what\Nthe verb there is.
+Dialogue: 0,0:48:46.60,0:48:50.35,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And again, objective-C\Nis writing all this code on,
+Dialogue: 0,0:48:50.35,0:48:52.83,Default,NTP,0000,0000,0000,,\N{\fs14}in the implementation,\Nbut you don't see it.
+Dialogue: 0,0:48:53.30,0:48:53.95,Default,NTP,0000,0000,0000,,\N{\fs14}But it's there.
+Dialogue: 0,0:48:55.02,0:48:58.26,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Now, [pause]\Nwe're going to talk
+Dialogue: 0,0:48:58.26,0:49:00.86,Default,NTP,0000,0000,0000,,\N{\fs14}about why properties are\Ngood and why it's better
+Dialogue: 0,0:49:00.86,0:49:03.82,Default,NTP,0000,0000,0000,,\N{\fs14}than just accessing\Ninstance variables directly,
+Dialogue: 0,0:49:04.20,0:49:07.38,Default,NTP,0000,0000,0000,,\N{\fs14}[pause] in later lectures, but\Nthe bottom-line is it's good
+Dialogue: 0,0:49:07.38,0:49:09.05,Default,NTP,0000,0000,0000,,\N{\fs14}for doing things like\Nbalance checking,
+Dialogue: 0,0:49:09.29,0:49:11.44,Default,NTP,0000,0000,0000,,\N{\fs14}it's good for doing things\Nlike when you set a property
+Dialogue: 0,0:49:11.44,0:49:12.93,Default,NTP,0000,0000,0000,,\N{\fs14}and you want to updated the UI.
+Dialogue: 0,0:49:13.30,0:49:16.18,Default,NTP,0000,0000,0000,,\N{\fs14}It's doing good for things\Nfor initializing pointers.
+Dialogue: 0,0:49:16.45,0:49:19.30,Default,NTP,0000,0000,0000,,\N{\fs14}Like that end string star\Ncontents property is going
+Dialogue: 0,0:49:19.30,0:49:20.39,Default,NTP,0000,0000,0000,,\N{\fs14}to start off nil.
+Dialogue: 0,0:49:21.16,0:49:25.18,Default,NTP,0000,0000,0000,,\N{\fs14}All properties, in objective-C,\Nall of them, start off zero.
+Dialogue: 0,0:49:25.54,0:49:26.97,Default,NTP,0000,0000,0000,,\N{\fs14}So for pointer, that's nil.
+Dialogue: 0,0:49:27.35,0:49:30.68,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So that contents property,\Nwhen we create a new card,
+Dialogue: 0,0:49:30.97,0:49:32.78,Default,NTP,0000,0000,0000,,\N{\fs14}it's going to not\Npoint to any contents.
+Dialogue: 0,0:49:33.00,0:49:34.69,Default,NTP,0000,0000,0000,,\N{\fs14}That cards going to be\Nblank, okay, it's not going
+Dialogue: 0,0:49:34.69,0:49:35.32,Default,NTP,0000,0000,0000,,\N{\fs14}to have anything on it.
+Dialogue: 0,0:49:35.41,0:49:38.27,Default,NTP,0000,0000,0000,,\N{\fs14}So, it's nice to use\Nthe setter and getter,
+Dialogue: 0,0:49:38.55,0:49:41.36,Default,NTP,0000,0000,0000,,\N{\fs14}we implement our own setter and\Ngetter that will check to see
+Dialogue: 0,0:49:41.36,0:49:43.82,Default,NTP,0000,0000,0000,,\N{\fs14}if it's nil, and if\Nit's not, and sometimes,
+Dialogue: 0,0:49:43.82,0:49:46.91,Default,NTP,0000,0000,0000,,\N{\fs14}not with contents, but with\Nsome properties, if it's nil,
+Dialogue: 0,0:49:46.91,0:49:48.69,Default,NTP,0000,0000,0000,,\N{\fs14}we'll create something\Nin memory.
+Dialogue: 0,0:49:49.12,0:49:50.69,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So that's another\Nreason you use it.
+Dialogue: 0,0:49:50.69,0:49:52.76,Default,NTP,0000,0000,0000,,\N{\fs14}So you'll see all these\Nreasons why we want properties
+Dialogue: 0,0:49:53.16,0:49:54.67,Default,NTP,0000,0000,0000,,\N{\fs14}in the next lecture basically.
+Dialogue: 0,0:49:55.71,0:49:59.02,Default,NTP,0000,0000,0000,,\N{\fs14}Alright, so now, let's\Nlook at a method.
+Dialogue: 0,0:49:59.65,0:50:01.07,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Just a regular,\Nold method.
+Dialogue: 0,0:50:01.07,0:50:03.18,Default,NTP,0000,0000,0000,,\N{\fs14}You've seen some methods, the\Nsetter and getter methods,
+Dialogue: 0,0:50:03.33,0:50:05.23,Default,NTP,0000,0000,0000,,\N{\fs14}but what if we wanted\Nto find our own method,
+Dialogue: 0,0:50:05.23,0:50:07.02,Default,NTP,0000,0000,0000,,\N{\fs14}our own public method,\Nso I'm going
+Dialogue: 0,0:50:07.02,0:50:08.98,Default,NTP,0000,0000,0000,,\N{\fs14}to define this method\Ncalled match.
+Dialogue: 0,0:50:09.12,0:50:11.02,Default,NTP,0000,0000,0000,,\N{\fs14}Remember that I'm\Nbuilding a model here
+Dialogue: 0,0:50:11.02,0:50:13.62,Default,NTP,0000,0000,0000,,\N{\fs14}for a card matching game, where\NI'm going to put all these cards
+Dialogue: 0,0:50:13.62,0:50:16.03,Default,NTP,0000,0000,0000,,\N{\fs14}on the screen and the user is\Ngoing to try and match them.
+Dialogue: 0,0:50:16.28,0:50:18.03,Default,NTP,0000,0000,0000,,\N{\fs14}Pick ones that match, alright?
+Dialogue: 0,0:50:18.26,0:50:19.37,Default,NTP,0000,0000,0000,,\N{\fs14}So I need a match method.
+Dialogue: 0,0:50:19.56,0:50:22.77,Default,NTP,0000,0000,0000,,\N{\fs14}A method that tells me\Nwhether two cards match.
+Dialogue: 0,0:50:23.12,0:50:26.20,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So, I'm trying\Nto make this simple,
+Dialogue: 0,0:50:26.20,0:50:27.63,Default,NTP,0000,0000,0000,,\N{\fs14}so I've made a simple\Nmatch method
+Dialogue: 0,0:50:27.63,0:50:29.15,Default,NTP,0000,0000,0000,,\N{\fs14}that has the following\Nsemantics.
+Dialogue: 0,0:50:29.48,0:50:31.27,Default,NTP,0000,0000,0000,,\N{\fs14}It takes another\Ncard as the argument,
+Dialogue: 0,0:50:31.70,0:50:33.01,Default,NTP,0000,0000,0000,,\N{\fs14}and it returns it an integer.
+Dialogue: 0,0:50:33.26,0:50:37.55,Default,NTP,0000,0000,0000,,\N{\fs14}That integer is zero if the\Ncards don't match, otherwise,
+Dialogue: 0,0:50:37.87,0:50:41.92,Default,NTP,0000,0000,0000,,\N{\fs14}it's an integer that is higher,\Nthe better a match it is.
+Dialogue: 0,0:50:42.44,0:50:45.11,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So like a really good\Nmatch might be a thousand,
+Dialogue: 0,0:50:45.50,0:50:47.98,Default,NTP,0000,0000,0000,,\N{\fs14}but a not so good match\Nmight only be a hundred, and,
+Dialogue: 0,0:50:47.98,0:50:49.17,Default,NTP,0000,0000,0000,,\N{\fs14}or, or it could be one.
+Dialogue: 0,0:50:49.43,0:50:52.55,Default,NTP,0000,0000,0000,,\N{\fs14}Now, the semantics of what\Nthat number is, totally depends
+Dialogue: 0,0:50:52.55,0:50:54.83,Default,NTP,0000,0000,0000,,\N{\fs14}on the cards, because we're\Nonly going to match cards
+Dialogue: 0,0:50:54.83,0:50:56.43,Default,NTP,0000,0000,0000,,\N{\fs14}against other cards, alright?
+Dialogue: 0,0:50:56.43,0:50:58.47,Default,NTP,0000,0000,0000,,\N{\fs14}And we're going to find out\Nhow good a match they are
+Dialogue: 0,0:50:58.86,0:51:01.86,Default,NTP,0000,0000,0000,,\N{\fs14}by how that, whatever that\Ncard class is, and we're going
+Dialogue: 0,0:51:01.86,0:51:05.35,Default,NTP,0000,0000,0000,,\N{\fs14}to make a subclass of this\Nclass, called playing card,
+Dialogue: 0,0:51:05.69,0:51:09.25,Default,NTP,0000,0000,0000,,\N{\fs14}that's going to give more points\Nfor matching the rank, okay,
+Dialogue: 0,0:51:09.68,0:51:11.09,Default,NTP,0000,0000,0000,,\N{\fs14}than it is for matching\Nthe suit.
+Dialogue: 0,0:51:11.56,0:51:14.55,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? But that's up\Nto subclasses of cards
+Dialogue: 0,0:51:14.55,0:51:16.62,Default,NTP,0000,0000,0000,,\N{\fs14}to determine what the\Npoint system is, okay?
+Dialogue: 0,0:51:16.62,0:51:20.76,Default,NTP,0000,0000,0000,,\N{\fs14}So, for our implementation\Nof match, okay,
+Dialogue: 0,0:51:20.76,0:51:22.86,Default,NTP,0000,0000,0000,,\N{\fs14}we're going to do a really\Nsimple implementation, so,
+Dialogue: 0,0:51:23.11,0:51:25.33,Default,NTP,0000,0000,0000,,\N{\fs14}first let's assume\Nthat they don't match.
+Dialogue: 0,0:51:25.41,0:51:28.42,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, so I just made this local\Nvariable int score equals zero,
+Dialogue: 0,0:51:28.42,0:51:30.57,Default,NTP,0000,0000,0000,,\N{\fs14}you can see that you\Ncan assign a variable,
+Dialogue: 0,0:51:30.57,0:51:33.11,Default,NTP,0000,0000,0000,,\N{\fs14}actually all local\Nvariables also start out zero,
+Dialogue: 0,0:51:33.11,0:51:35.04,Default,NTP,0000,0000,0000,,\N{\fs14}so I don't even really\Nneed that equals zero,
+Dialogue: 0,0:51:35.33,0:51:37.10,Default,NTP,0000,0000,0000,,\N{\fs14}but I'm a big believer\Nin putting that in
+Dialogue: 0,0:51:37.50,0:51:39.88,Default,NTP,0000,0000,0000,,\N{\fs14}if that's really, you\Nknow, what you intend,
+Dialogue: 0,0:51:39.88,0:51:42.84,Default,NTP,0000,0000,0000,,\N{\fs14}and in this case I intend the\Nscore to be actually zero.
+Dialogue: 0,0:51:42.87,0:51:44.95,Default,NTP,0000,0000,0000,,\N{\fs14}The score of this match\Nuntil I go and see
+Dialogue: 0,0:51:44.95,0:51:46.01,Default,NTP,0000,0000,0000,,\N{\fs14}if these cards match, right?
+Dialogue: 0,0:51:46.36,0:51:48.30,Default,NTP,0000,0000,0000,,\N{\fs14}So it's just a kind of\Nprogramming style thing here.
+Dialogue: 0,0:51:48.39,0:51:51.28,Default,NTP,0000,0000,0000,,\N{\fs14}So, how I'm going to tell,\Nhow am I going to tell
+Dialogue: 0,0:51:51.56,0:51:55.46,Default,NTP,0000,0000,0000,,\N{\fs14}if this card that's been passed\Nin match, matches the card
+Dialogue: 0,0:51:55.46,0:51:56.45,Default,NTP,0000,0000,0000,,\N{\fs14}that it's being sent to?
+Dialogue: 0,0:51:56.45,0:52:01.11,Default,NTP,0000,0000,0000,,\N{\fs14}And the answer is I'm going\Nto send some messages, okay?
+Dialogue: 0,0:52:02.28,0:52:04.29,Default,NTP,0000,0000,0000,,\N{\fs14}You see the open square\Nbrackets notation there,
+Dialogue: 0,0:52:04.29,0:52:07.47,Default,NTP,0000,0000,0000,,\N{\fs14}that's the first time you're\Nseeing me send a message
+Dialogue: 0,0:52:08.12,0:52:12.33,Default,NTP,0000,0000,0000,,\N{\fs14}in objective-C, and I'm also\Nsending two other messages
+Dialogue: 0,0:52:12.33,0:52:13.20,Default,NTP,0000,0000,0000,,\N{\fs14}in this one line.
+Dialogue: 0,0:52:13.73,0:52:17.73,Default,NTP,0000,0000,0000,,\N{\fs14}Card.contents and self.contents,\Nyou see both of those,
+Dialogue: 0,0:52:18.13,0:52:19.90,Default,NTP,0000,0000,0000,,\N{\fs14}those are message\Nsends, as well.
+Dialogue: 0,0:52:20.13,0:52:21.84,Default,NTP,0000,0000,0000,,\N{\fs14}So there's two different\Nsyntaxes here
+Dialogue: 0,0:52:21.84,0:52:22.79,Default,NTP,0000,0000,0000,,\N{\fs14}for sending a message.
+Dialogue: 0,0:52:23.05,0:52:26.13,Default,NTP,0000,0000,0000,,\N{\fs14}One is open square\Nbrackets, okay, and we'll talk
+Dialogue: 0,0:52:26.13,0:52:26.92,Default,NTP,0000,0000,0000,,\N{\fs14}about that one in a second.
+Dialogue: 0,0:52:27.15,0:52:31.56,Default,NTP,0000,0000,0000,,\N{\fs14}And another one is dot\Nnotation, card.contents.
+Dialogue: 0,0:52:31.83,0:52:32.66,Default,NTP,0000,0000,0000,,\N{\fs14}When do we use them?
+Dialogue: 0,0:52:32.83,0:52:37.17,Default,NTP,0000,0000,0000,,\N{\fs14}We only use the dot\Nnotation for properties.
+Dialogue: 0,0:52:37.92,0:52:39.32,Default,NTP,0000,0000,0000,,\N{\fs14}That's how we call\Nthe setter and getter
+Dialogue: 0,0:52:39.32,0:52:41.24,Default,NTP,0000,0000,0000,,\N{\fs14}of properties, using\Ndot notation.
+Dialogue: 0,0:52:41.88,0:52:44.57,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Now, here we're\Ncalling the getter,
+Dialogue: 0,0:52:44.90,0:52:47.27,Default,NTP,0000,0000,0000,,\N{\fs14}card.contents is\Ncalling the getter
+Dialogue: 0,0:52:47.81,0:52:51.24,Default,NTP,0000,0000,0000,,\N{\fs14}of the contents property\Non the card instance.
+Dialogue: 0,0:52:52.06,0:52:54.13,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? How do we call the setter?
+Dialogue: 0,0:52:54.52,0:52:55.25,Default,NTP,0000,0000,0000,,\N{\fs14}Exactly the same.
+Dialogue: 0,0:52:55.46,0:52:57.09,Default,NTP,0000,0000,0000,,\N{\fs14}Card.contents, but we put it
+Dialogue: 0,0:52:57.09,0:52:58.72,Default,NTP,0000,0000,0000,,\N{\fs14}on the left-hand\Nside of the equals.
+Dialogue: 0,0:52:59.57,0:53:03.76,Default,NTP,0000,0000,0000,,\N{\fs14}Card.contents equals, now we're\Ncalling the setter for contents.
+Dialogue: 0,0:53:04.08,0:53:05.80,Default,NTP,0000,0000,0000,,\N{\fs14}You see? So here we're\Ncalling the getter.
+Dialogue: 0,0:53:05.98,0:53:07.12,Default,NTP,0000,0000,0000,,\N{\fs14}We're also calling the getter
+Dialogue: 0,0:53:07.12,0:53:09.50,Default,NTP,0000,0000,0000,,\N{\fs14}for contents on self,\Non our self.
+Dialogue: 0,0:53:09.56,0:53:12.42,Default,NTP,0000,0000,0000,,\N{\fs14}So, in other language this\Nmight be called this, right,
+Dialogue: 0,0:53:12.42,0:53:14.79,Default,NTP,0000,0000,0000,,\N{\fs14}but you know what self is,\Nright, self is this instance
+Dialogue: 0,0:53:14.79,0:53:16.74,Default,NTP,0000,0000,0000,,\N{\fs14}that this code is operating on.
+Dialogue: 0,0:53:17.29,0:53:21.67,Default,NTP,0000,0000,0000,,\N{\fs14}So, we are going to compare\Nthese two strings, card.contents
+Dialogue: 0,0:53:21.67,0:53:25.50,Default,NTP,0000,0000,0000,,\N{\fs14}and self.contents to see if they\Nare equal and we are going to do
+Dialogue: 0,0:53:25.50,0:53:29.44,Default,NTP,0000,0000,0000,,\N{\fs14}that with the NSString method\Nis equal to string colon.
+Dialogue: 0,0:53:30.13,0:53:33.05,Default,NTP,0000,0000,0000,,\N{\fs14}So [inaudible] equal to\Nstring colon can only be sent
+Dialogue: 0,0:53:33.05,0:53:37.60,Default,NTP,0000,0000,0000,,\N{\fs14}to a string [pause], so is\Nequal to string can only be sent
+Dialogue: 0,0:53:37.60,0:53:41.19,Default,NTP,0000,0000,0000,,\N{\fs14}to a string and card.contents\Nis a getter method
+Dialogue: 0,0:53:41.19,0:53:43.78,Default,NTP,0000,0000,0000,,\N{\fs14}that returns a NSString,\Nso we're good to go, right?
+Dialogue: 0,0:53:43.78,0:53:47.73,Default,NTP,0000,0000,0000,,\N{\fs14}We're sending is equal string\Nto a string, and the NS equal
+Dialogue: 0,0:53:47.73,0:53:51.04,Default,NTP,0000,0000,0000,,\N{\fs14}to string takes as an argument,\Nan NSString and, again,
+Dialogue: 0,0:53:51.04,0:53:53.81,Default,NTP,0000,0000,0000,,\N{\fs14}self.contents is a getter\Nmethod that returns NSString;
+Dialogue: 0,0:53:54.18,0:53:57.74,Default,NTP,0000,0000,0000,,\N{\fs14}therefore, we have satisfied all\Nthe requirements of this equal
+Dialogue: 0,0:53:57.74,0:54:00.06,Default,NTP,0000,0000,0000,,\N{\fs14}to string and we put\Nsquare brackets around it,
+Dialogue: 0,0:54:00.40,0:54:02.73,Default,NTP,0000,0000,0000,,\N{\fs14}and it's going to\Nreturn a bullion is equal
+Dialogue: 0,0:54:02.73,0:54:06.07,Default,NTP,0000,0000,0000,,\N{\fs14}to string is defined to return\Na bullion whether the contents
+Dialogue: 0,0:54:06.07,0:54:07.26,Default,NTP,0000,0000,0000,,\N{\fs14}of those two strings\Nare the same.
+Dialogue: 0,0:54:07.68,0:54:10.19,Default,NTP,0000,0000,0000,,\N{\fs14}Notice we did not\Nsay equals equals.
+Dialogue: 0,0:54:10.19,0:54:12.56,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, we did not say\Ncard.contents equals
+Dialogue: 0,0:54:12.56,0:54:14.28,Default,NTP,0000,0000,0000,,\N{\fs14}equals self.contents.
+Dialogue: 0,0:54:14.35,0:54:16.38,Default,NTP,0000,0000,0000,,\N{\fs14}Because we'd just be\Nimpairing the pointers then,
+Dialogue: 0,0:54:16.80,0:54:19.90,Default,NTP,0000,0000,0000,,\N{\fs14}not what the pointers\Npoint to, okay?
+Dialogue: 0,0:54:20.23,0:54:22.35,Default,NTP,0000,0000,0000,,\N{\fs14}Everyone understand why we\Ndidn't use equals equals to see
+Dialogue: 0,0:54:22.35,0:54:23.47,Default,NTP,0000,0000,0000,,\N{\fs14}if those two strings\Nare the same?
+Dialogue: 0,0:54:23.60,0:54:25.34,Default,NTP,0000,0000,0000,,\N{\fs14}So if those strings\Nare the same,
+Dialogue: 0,0:54:25.34,0:54:27.13,Default,NTP,0000,0000,0000,,\N{\fs14}I'm going to give\None point, okay?
+Dialogue: 0,0:54:27.23,0:54:31.57,Default,NTP,0000,0000,0000,,\N{\fs14}So this is either the dirt\Nsimple implementation of match,
+Dialogue: 0,0:54:32.14,0:54:34.08,Default,NTP,0000,0000,0000,,\N{\fs14}which is if the cards\Nare exactly the same,
+Dialogue: 0,0:54:34.08,0:54:35.39,Default,NTP,0000,0000,0000,,\N{\fs14}their contents are\Nexactly the same,
+Dialogue: 0,0:54:35.39,0:54:37.00,Default,NTP,0000,0000,0000,,\N{\fs14}I'll get one point,\Notherwise I get zero.
+Dialogue: 0,0:54:37.88,0:54:40.56,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Now we're going to do much\Nbetter implementation in match
+Dialogue: 0,0:54:40.90,0:54:42.45,Default,NTP,0000,0000,0000,,\N{\fs14}when we do playing card,
+Dialogue: 0,0:54:42.45,0:54:43.98,Default,NTP,0000,0000,0000,,\N{\fs14}but this is our kind\Nof dirt simple one.
+Dialogue: 0,0:54:44.49,0:54:48.38,Default,NTP,0000,0000,0000,,\N{\fs14}Now, to give you just a\Nlittle more about objective-C,
+Dialogue: 0,0:54:48.51,0:54:50.55,Default,NTP,0000,0000,0000,,\N{\fs14}what if we changed this\Nmethod, oh, so, yeah,
+Dialogue: 0,0:54:50.55,0:54:53.88,Default,NTP,0000,0000,0000,,\N{\fs14}here's a little bit\Nabout who's the sender
+Dialogue: 0,0:54:53.88,0:54:54.91,Default,NTP,0000,0000,0000,,\N{\fs14}and who's the receiver here.
+Dialogue: 0,0:54:55.44,0:54:56.98,Default,NTP,0000,0000,0000,,\N{\fs14}You can look at this\Nin the slides later.
+Dialogue: 0,0:54:57.86,0:55:00.28,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? But I'm going to make\Nthis a little more complicated.
+Dialogue: 0,0:55:00.35,0:55:03.92,Default,NTP,0000,0000,0000,,\N{\fs14}I'm going to make the argument\Nto match be an array of cards.
+Dialogue: 0,0:55:04.51,0:55:07.73,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So now I'm matching this\Ncard that I'm sending this to,
+Dialogue: 0,0:55:08.00,0:55:09.52,Default,NTP,0000,0000,0000,,\N{\fs14}to a whole bunch of other cards.
+Dialogue: 0,0:55:09.98,0:55:13.90,Default,NTP,0000,0000,0000,,\N{\fs14}So now I'm going to need some\Nnew algorithm to match, right?
+Dialogue: 0,0:55:14.37,0:55:16.37,Default,NTP,0000,0000,0000,,\N{\fs14}So, again, a playing card match,
+Dialogue: 0,0:55:16.60,0:55:18.42,Default,NTP,0000,0000,0000,,\N{\fs14}if let's say you had\Nmatching three cards,
+Dialogue: 0,0:55:18.61,0:55:19.78,Default,NTP,0000,0000,0000,,\N{\fs14}you might give a lot of points
+Dialogue: 0,0:55:19.78,0:55:22.63,Default,NTP,0000,0000,0000,,\N{\fs14}if all three cards are the\Nsame rank, they're all jacks,
+Dialogue: 0,0:55:22.81,0:55:23.99,Default,NTP,0000,0000,0000,,\N{\fs14}you get a lot of points.
+Dialogue: 0,0:55:23.99,0:55:25.23,Default,NTP,0000,0000,0000,,\N{\fs14}If only two of them are jacks
+Dialogue: 0,0:55:25.23,0:55:26.56,Default,NTP,0000,0000,0000,,\N{\fs14}and the other one\Nis something else,
+Dialogue: 0,0:55:26.56,0:55:28.10,Default,NTP,0000,0000,0000,,\N{\fs14}well you don't get very\Nmany points at all.
+Dialogue: 0,0:55:28.45,0:55:29.77,Default,NTP,0000,0000,0000,,\N{\fs14}If they're all through\Nthe same suit,
+Dialogue: 0,0:55:29.77,0:55:31.69,Default,NTP,0000,0000,0000,,\N{\fs14}you kind of get a medium amount\Nof points, you see what I mean?
+Dialogue: 0,0:55:32.07,0:55:34.79,Default,NTP,0000,0000,0000,,\N{\fs14}So, here I'm changing\Nmatch to take an array
+Dialogue: 0,0:55:34.79,0:55:36.64,Default,NTP,0000,0000,0000,,\N{\fs14}as the argument instead\Nof just a single card.
+Dialogue: 0,0:55:37.33,0:55:39.91,Default,NTP,0000,0000,0000,,\N{\fs14}And how would I change\Nmy implementation
+Dialogue: 0,0:55:39.94,0:55:40.71,Default,NTP,0000,0000,0000,,\N{\fs14}to deal with that?
+Dialogue: 0,0:55:41.04,0:55:44.60,Default,NTP,0000,0000,0000,,\N{\fs14}Well, I'm just going to put\Na four-loop around my if
+Dialogue: 0,0:55:44.86,0:55:46.76,Default,NTP,0000,0000,0000,,\N{\fs14}and iterate through\Nall the cards
+Dialogue: 0,0:55:46.96,0:55:49.83,Default,NTP,0000,0000,0000,,\N{\fs14}and so this implementation,\Nhopefully those of you
+Dialogue: 0,0:55:49.83,0:55:51.98,Default,NTP,0000,0000,0000,,\N{\fs14}who are quick thinkers, you\Ncan know what this does,
+Dialogue: 0,0:55:52.26,0:55:53.54,Default,NTP,0000,0000,0000,,\N{\fs14}this gives you one point
+Dialogue: 0,0:55:53.87,0:55:56.89,Default,NTP,0000,0000,0000,,\N{\fs14}if the card that's\Nreceiving this matches any
+Dialogue: 0,0:55:57.17,0:55:58.28,Default,NTP,0000,0000,0000,,\N{\fs14}of the cards in the array.
+Dialogue: 0,0:55:58.84,0:56:00.32,Default,NTP,0000,0000,0000,,\N{\fs14}Any, not all, any.
+Dialogue: 0,0:56:01.04,0:56:03.34,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Now you can imagine a\Nlot better algorithms here.
+Dialogue: 0,0:56:03.53,0:56:06.29,Default,NTP,0000,0000,0000,,\N{\fs14}Maybe you get one point\Nfor every card you match
+Dialogue: 0,0:56:06.29,0:56:08.59,Default,NTP,0000,0000,0000,,\N{\fs14}in the array or you get\Ntwo points for one match
+Dialogue: 0,0:56:08.59,0:56:10.68,Default,NTP,0000,0000,0000,,\N{\fs14}and four points for two\Nand eight points for three,
+Dialogue: 0,0:56:10.68,0:56:14.18,Default,NTP,0000,0000,0000,,\N{\fs14}you know, some sort of binary\Nthing, exponential point,
+Dialogue: 0,0:56:14.18,0:56:16.71,Default,NTP,0000,0000,0000,,\N{\fs14}whatever, this is first day\Nof lecture, we're just going
+Dialogue: 0,0:56:16.71,0:56:18.55,Default,NTP,0000,0000,0000,,\N{\fs14}to give one point if\Nit matches any, okay?
+Dialogue: 0,0:56:18.97,0:56:21.78,Default,NTP,0000,0000,0000,,\N{\fs14}But mostly what I wanted to\Nshow you here is what it looks
+Dialogue: 0,0:56:21.78,0:56:23.13,Default,NTP,0000,0000,0000,,\N{\fs14}like to have an array
+Dialogue: 0,0:56:23.35,0:56:24.98,Default,NTP,0000,0000,0000,,\N{\fs14}as the argument instead\Nof a single card.
+Dialogue: 0,0:56:25.27,0:56:27.68,Default,NTP,0000,0000,0000,,\N{\fs14}So that you understand that\Nthe argument, what the argument
+Dialogue: 0,0:56:27.68,0:56:29.39,Default,NTP,0000,0000,0000,,\N{\fs14}to the method is and also
+Dialogue: 0,0:56:29.39,0:56:31.65,Default,NTP,0000,0000,0000,,\N{\fs14}so I can show you\Nthe four-loop there.
+Dialogue: 0,0:56:31.90,0:56:33.14,Default,NTP,0000,0000,0000,,\N{\fs14}You see that four n [phonetic],
+Dialogue: 0,0:56:33.14,0:56:35.01,Default,NTP,0000,0000,0000,,\N{\fs14}a lot of languages\Nhave that these days.
+Dialogue: 0,0:56:35.23,0:56:38.50,Default,NTP,0000,0000,0000,,\N{\fs14}That just basically means it's a\Nfour-loop where it's going to go
+Dialogue: 0,0:56:38.56,0:56:42.77,Default,NTP,0000,0000,0000,,\N{\fs14}through every object in that\NNS array and assign it to card,
+Dialogue: 0,0:56:42.97,0:56:46.65,Default,NTP,0000,0000,0000,,\N{\fs14}card is the iteration variable,\Nand execute that if once
+Dialogue: 0,0:56:46.78,0:56:47.99,Default,NTP,0000,0000,0000,,\N{\fs14}for each of the cards\Nin the array.
+Dialogue: 0,0:56:47.99,0:56:50.11,Default,NTP,0000,0000,0000,,\N{\fs14}Everyone understand that?
+Dialogue: 0,0:56:50.11,0:56:55.98,Default,NTP,0000,0000,0000,,\N{\fs14}If you have a question\Nabout that, ask?
+Dialogue: 0,0:56:56.85,0:56:59.15,Default,NTP,0000,0000,0000,,\N{\fs14}No? Yeah? [Inaudible\Nbackground comment] Oh, okay.
+Dialogue: 0,0:56:59.15,0:56:59.95,Default,NTP,0000,0000,0000,,\N{\fs14}That's a great question.
+Dialogue: 0,0:57:00.19,0:57:02.78,Default,NTP,0000,0000,0000,,\N{\fs14}So the question is if I\Njust have that four-line,
+Dialogue: 0,0:57:02.78,0:57:04.86,Default,NTP,0000,0000,0000,,\N{\fs14}but I said four card card,
+Dialogue: 0,0:57:04.86,0:57:09.21,Default,NTP,0000,0000,0000,,\N{\fs14}not four card star card,\Nin other cards, okay?
+Dialogue: 0,0:57:09.55,0:57:10.68,Default,NTP,0000,0000,0000,,\N{\fs14}We'd get a syntax error.
+Dialogue: 0,0:57:11.05,0:57:13.84,Default,NTP,0000,0000,0000,,\N{\fs14}Why? Because all objects\Nare always pointed
+Dialogue: 0,0:57:13.84,0:57:15.44,Default,NTP,0000,0000,0000,,\N{\fs14}to so we always have that star.
+Dialogue: 0,0:57:16.00,0:57:17.19,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Always.
+Dialogue: 0,0:57:17.50,0:57:21.99,Default,NTP,0000,0000,0000,,\N{\fs14}Alright? You can't have a card\Nnot being a pointer to it,
+Dialogue: 0,0:57:21.99,0:57:25.23,Default,NTP,0000,0000,0000,,\N{\fs14}so the, you know, objective-C\Nwould give you a syntax error
+Dialogue: 0,0:57:25.23,0:57:27.37,Default,NTP,0000,0000,0000,,\N{\fs14}there, it's impossible\Nto not have that star.
+Dialogue: 0,0:57:27.76,0:57:29.61,Default,NTP,0000,0000,0000,,\N{\fs14}Whenever you have the\Nname of the class,
+Dialogue: 0,0:57:29.91,0:57:33.65,Default,NTP,0000,0000,0000,,\N{\fs14}it's always going\Nto have that star.
+Dialogue: 0,0:57:34.67,0:57:36.05,Default,NTP,0000,0000,0000,,\N{\fs14}Question? [Inaudible\Nbackground comment] Yes.
+Dialogue: 0,0:57:36.05,0:57:37.35,Default,NTP,0000,0000,0000,,\N{\fs14}The question is,\Nanother great one,
+Dialogue: 0,0:57:37.76,0:57:40.69,Default,NTP,0000,0000,0000,,\N{\fs14}can I use the square\Nbrackets to call the setter
+Dialogue: 0,0:57:40.69,0:57:42.58,Default,NTP,0000,0000,0000,,\N{\fs14}and getter instead of\Nusing that dot notation?
+Dialogue: 0,0:57:42.62,0:57:44.73,Default,NTP,0000,0000,0000,,\N{\fs14}And that's a really\Ninsightful question
+Dialogue: 0,0:57:44.73,0:57:47.48,Default,NTP,0000,0000,0000,,\N{\fs14}and the answer is absolutely\Nyou can, it's perfectly legal,
+Dialogue: 0,0:57:47.48,0:57:50.29,Default,NTP,0000,0000,0000,,\N{\fs14}because that setter and getter\Nare completely normal methods.
+Dialogue: 0,0:57:50.36,0:57:52.25,Default,NTP,0000,0000,0000,,\N{\fs14}There's nothing special\Nabout them whatsoever.
+Dialogue: 0,0:57:52.71,0:57:56.66,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? That dot notation is a\Nnicety, syntactic sugar only.
+Dialogue: 0,0:57:57.49,0:57:59.96,Default,NTP,0000,0000,0000,,\N{\fs14}The question is should you\Nuse square brackets for setter
+Dialogue: 0,0:57:59.96,0:58:02.65,Default,NTP,0000,0000,0000,,\N{\fs14}and getter, and I think\Nit's a matter of style.
+Dialogue: 0,0:58:02.68,0:58:05.03,Default,NTP,0000,0000,0000,,\N{\fs14}You would definitely would want\Nto be 100 percent consistent,
+Dialogue: 0,0:58:05.03,0:58:06.19,Default,NTP,0000,0000,0000,,\N{\fs14}you would never want\Nto mix them.
+Dialogue: 0,0:58:06.73,0:58:08.08,Default,NTP,0000,0000,0000,,\N{\fs14}And I think most people,
+Dialogue: 0,0:58:08.08,0:58:10.27,Default,NTP,0000,0000,0000,,\N{\fs14}most people would say\Nuse the dot notation.
+Dialogue: 0,0:58:10.27,0:58:13.36,Default,NTP,0000,0000,0000,,\N{\fs14}It makes it clearer, it's\Na little simpler, nicer,
+Dialogue: 0,0:58:13.64,0:58:15.27,Default,NTP,0000,0000,0000,,\N{\fs14}but, you know, you could.
+Dialogue: 0,0:58:15.27,0:58:17.09,Default,NTP,0000,0000,0000,,\N{\fs14}In this class, please\Nuse the dot notation just
+Dialogue: 0,0:58:17.09,0:58:18.98,Default,NTP,0000,0000,0000,,\N{\fs14}so I know you know how\Nto use dot notation.
+Dialogue: 0,0:58:19.50,0:58:21.04,Default,NTP,0000,0000,0000,,\N{\fs14}Question? [Inaudible\Nbackground comment] Okay,
+Dialogue: 0,0:58:21.70,0:58:26.19,Default,NTP,0000,0000,0000,,\N{\fs14}awesome question again.
+Dialogue: 0,0:58:26.33,0:58:27.48,Default,NTP,0000,0000,0000,,\N{\fs14}Gosh, you guys are so good.
+Dialogue: 0,0:58:28.00,0:58:32.01,Default,NTP,0000,0000,0000,,\N{\fs14}Can I use dot notation for a\Nmethod that takes no arguments,
+Dialogue: 0,0:58:32.39,0:58:34.01,Default,NTP,0000,0000,0000,,\N{\fs14}but is not a getter or a setter?
+Dialogue: 0,0:58:34.58,0:58:37.72,Default,NTP,0000,0000,0000,,\N{\fs14}And the answer is objective-C\Nwill warn you about that,
+Dialogue: 0,0:58:37.92,0:58:39.52,Default,NTP,0000,0000,0000,,\N{\fs14}not give you an error,\Nbut warn you,
+Dialogue: 0,0:58:39.79,0:58:41.25,Default,NTP,0000,0000,0000,,\N{\fs14}and you should never\Ndo that in this class.
+Dialogue: 0,0:58:41.60,0:58:43.97,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? That is really\Nnot that good form,
+Dialogue: 0,0:58:44.16,0:58:46.74,Default,NTP,0000,0000,0000,,\N{\fs14}whereas his question was\Nkind of like you can argue,
+Dialogue: 0,0:58:46.81,0:58:47.79,Default,NTP,0000,0000,0000,,\N{\fs14}that one, don't do it.
+Dialogue: 0,0:58:47.97,0:58:52.56,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? So. Use dot notations\Nonly for setters and getters.
+Dialogue: 0,0:58:52.72,0:58:53.54,Default,NTP,0000,0000,0000,,\N{\fs14}Other questions?
+Dialogue: 0,0:58:53.88,0:58:53.95,Default,NTP,0000,0000,0000,,\N{\fs14}Yeah?
+Dialogue: 0,0:58:54.95,0:58:59.34,Default,NTP,0000,0000,0000,,\N{\fs14}>> How do you use a\Nsetter with dot notations?
+Dialogue: 0,0:58:59.55,0:59:01.35,Default,NTP,0000,0000,0000,,\N{\fs14}>> So, yeah, question is\Nhow do you use a setter
+Dialogue: 0,0:59:01.73,0:59:02.63,Default,NTP,0000,0000,0000,,\N{\fs14}with dot notation?
+Dialogue: 0,0:59:02.63,0:59:04.11,Default,NTP,0000,0000,0000,,\N{\fs14}And it's exactly the\Nsame as a getter,
+Dialogue: 0,0:59:04.41,0:59:05.70,Default,NTP,0000,0000,0000,,\N{\fs14}it's just that you're using it
+Dialogue: 0,0:59:05.70,0:59:07.36,Default,NTP,0000,0000,0000,,\N{\fs14}on the left-hand\Nside of an equals.
+Dialogue: 0,0:59:07.86,0:59:11.80,Default,NTP,0000,0000,0000,,\N{\fs14}So card.contents equals,\Nyou know, A of clubs,
+Dialogue: 0,0:59:12.15,0:59:15.49,Default,NTP,0000,0000,0000,,\N{\fs14}that would call the setter of\Ncontents, whereas, you know,
+Dialogue: 0,0:59:15.57,0:59:17.33,Default,NTP,0000,0000,0000,,\N{\fs14}this is calling the\Ngetter, because it's not
+Dialogue: 0,0:59:17.33,0:59:20.09,Default,NTP,0000,0000,0000,,\N{\fs14}on the left-hand\Nside of the equal.
+Dialogue: 0,0:59:20.80,0:59:22.30,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Excellent!
+Dialogue: 0,0:59:22.30,0:59:26.45,Default,NTP,0000,0000,0000,,\N{\fs14}That's all I had today, so\Non Wednesday, we will do deck
+Dialogue: 0,0:59:26.94,0:59:30.79,Default,NTP,0000,0000,0000,,\N{\fs14}and playing card and playing\Ncard and I'm going to dive right
+Dialogue: 0,0:59:30.79,0:59:32.98,Default,NTP,0000,0000,0000,,\N{\fs14}into a big old demo of XCode 5
+Dialogue: 0,0:59:33.24,0:59:35.23,Default,NTP,0000,0000,0000,,\N{\fs14}and show you how all this\Nstuff is actually done,
+Dialogue: 0,0:59:35.23,0:59:37.95,Default,NTP,0000,0000,0000,,\N{\fs14}and then next week we'll\Ndo, yet more objective-C.
+Dialogue: 0,0:59:38.89,0:59:39.57,Default,NTP,0000,0000,0000,,\N{\fs14}Thank you very much!
+Dialogue: 0,0:59:40.75,0:59:44.98,Default,NTP,0000,0000,0000,,\N{\fs14}>> For more, please\Nvisit us at stanford.edu.
