@@ -64,29 +64,29 @@ Dialogue: 0,0:02:24.57,0:02:27.60,Default,NTP,0000,0000,0000,,这只是用来确
 Dialogue: 0,0:02:27.60,0:02:31.09,Default,NTP,0000,0000,0000,, 如果你不会这些 或者你想在上课的时候再学\N{\fs14}if you don't, whether you want to give this class ago.
 Dialogue: 0,0:02:31.09,0:02:37.06,Default,NTP,0000,0000,0000,,那就必须要求上过CS106 A&B或CS16x这些课 知道吗\N{\fs14}CS106 A&B or, or CS16x are absolutely required, okay?
 Dialogue: 0,0:02:37.06,0:02:39.30,Default,NTP,0000,0000,0000,,如果你没上过或同级别的课 很明显你会跟不上的\N{\fs14}If you don't have that or equivalent, definitely, don't even think about it.
-Dialogue: 0,0:02:40.49,0:02:42.75,Default,NTP,0000,0000,0000,,\N{\fs14}The second requirement I've added this quarter,
-Dialogue: 0,0:02:43.00,0:02:47.13,Default,NTP,0000,0000,0000,,\N{\fs14}based on experience, is CS107\Nor CS108, which is great,
-Dialogue: 0,0:02:47.13,0:02:48.69,Default,NTP,0000,0000,0000,,\N{\fs14}by the way, if you're\Ntaking CS108,
-Dialogue: 0,0:02:48.82,0:02:50.52,Default,NTP,0000,0000,0000,,\N{\fs14}you'll really be\Nready for this class.
-Dialogue: 0,0:02:50.59,0:02:53.29,Default,NTP,0000,0000,0000,,\N{\fs14}Or even CS110, and part
-Dialogue: 0,0:02:53.29,0:02:56.48,Default,NTP,0000,0000,0000,,\N{\fs14}of the reason I'm requiring\Nthese extra classes is just
-Dialogue: 0,0:02:56.48,0:02:59.84,Default,NTP,0000,0000,0000,,\N{\fs14}so you're farther along the\Nprogramming experience curve
-Dialogue: 0,0:02:59.84,0:03:03.17,Default,NTP,0000,0000,0000,,\N{\fs14}because this class is a lot of\Nprogramming, and so for those
-Dialogue: 0,0:03:03.17,0:03:05.02,Default,NTP,0000,0000,0000,,\N{\fs14}of you who are used to\Na lot of programming,
-Dialogue: 0,0:03:05.12,0:03:06.21,Default,NTP,0000,0000,0000,,\N{\fs14}you, you're used to it.
-Dialogue: 0,0:03:06.43,0:03:09.09,Default,NTP,0000,0000,0000,,\N{\fs14}But for those of you who\Naren't it's kind of like, whoa,
-Dialogue: 0,0:03:09.21,0:03:10.10,Default,NTP,0000,0000,0000,,\N{\fs14}do a lot of programming here.
-Dialogue: 0,0:03:10.10,0:03:12.79,Default,NTP,0000,0000,0000,,\N{\fs14}It's going to be a\Nlittle unbalancing.
-Dialogue: 0,0:03:12.79,0:03:14.48,Default,NTP,0000,0000,0000,,\N{\fs14}So, that's why I've\Nrequired all those.
-Dialogue: 0,0:03:14.48,0:03:16.51,Default,NTP,0000,0000,0000,,\N{\fs14}Now if you've done\Na summer internship
-Dialogue: 0,0:03:16.51,0:03:18.19,Default,NTP,0000,0000,0000,,\N{\fs14}of you've done some programming\Nor something like that,
-Dialogue: 0,0:03:18.19,0:03:23.28,Default,NTP,0000,0000,0000,,\N{\fs14}that's definitely a substitute\Nfor CS107, 108, or 110, right?
-Dialogue: 0,0:03:23.28,0:03:25.93,Default,NTP,0000,0000,0000,,\N{\fs14}Or if you've done some other CS\Nclass that's even more advanced
-Dialogue: 0,0:03:25.93,0:03:26.94,Default,NTP,0000,0000,0000,,\N{\fs14}than these, that's fine too.
-Dialogue: 0,0:03:26.94,0:03:29.99,Default,NTP,0000,0000,0000,,\N{\fs14}You've just got to understand\Nthat this class is, you know,
-Dialogue: 0,0:03:30.11,0:03:31.70,Default,NTP,0000,0000,0000,,\N{\fs14}a programming class,\Nthere's a lot of programming.
-Dialogue: 0,0:03:32.10,0:03:34.37,Default,NTP,0000,0000,0000,,\N{\fs14}And most importantly, you\Ngot to really be comfortable
-Dialogue: 0,0:03:34.37,0:03:35.69,Default,NTP,0000,0000,0000,,\N{\fs14}with object-oriented\Nprogramming.
+Dialogue: 0,0:02:40.49,0:02:42.75,Default,NTP,0000,0000,0000,,黑板上第四部分的第二点要求是针对编程经验的\N{\fs14}The second requirement I've added this quarter,
+Dialogue: 0,0:02:43.00,0:02:47.13,Default,NTP,0000,0000,0000,,CS107和CS108随便上过哪个都行\N{\fs14}based on experience, is CS107 or CS108, which is great,
+Dialogue: 0,0:02:47.13,0:02:48.69,Default,NTP,0000,0000,0000,,顺便提下 如果你正在上CS108\N{\fs14}by the way, if you're taking CS108,
+Dialogue: 0,0:02:48.82,0:02:50.52,Default,NTP,0000,0000,0000,,那你就可以跟上这门课\N{\fs14}you'll really be ready for this class.
+Dialogue: 0,0:02:50.59,0:02:53.29,Default,NTP,0000,0000,0000,,甚至CS110都行\N{\fs14}Or even CS110, and part
+Dialogue: 0,0:02:53.29,0:02:56.48,Default,NTP,0000,0000,0000,,我需要你们额外上过这些课的一部分原因只是\N{\fs14}of the reason I'm requiring these extra classes is just
+Dialogue: 0,0:02:56.48,0:02:59.84,Default,NTP,0000,0000,0000,,这样一来你们会更容易掌握编程\N{\fs14}so you're farther along the programming experience curve
+Dialogue: 0,0:02:59.84,0:03:03.17,Default,NTP,0000,0000,0000,,因为本门课有许多编程内容\N{\fs14}because this class is a lot of programming, 
+Dialogue: 0,0:03:03.17,0:03:05.02,Default,NTP,0000,0000,0000,,那么对于你们那些以前经常编程的人来说\N{\fs14}and so for those of you who are used to a lot of programming,
+Dialogue: 0,0:03:05.12,0:03:06.21,Default,NTP,0000,0000,0000,,就会很容易上手\N{\fs14}you, you're used to it.
+Dialogue: 0,0:03:06.43,0:03:09.09,Default,NTP,0000,0000,0000,,但对于那些不是这样的同学\N{\fs14}But for those of you who aren't it's kind of like, whoa,
+Dialogue: 0,0:03:09.21,0:03:10.10,Default,NTP,0000,0000,0000,,那就需要大量编程\N{\fs14}do a lot of programming here.
+Dialogue: 0,0:03:10.10,0:03:12.79,Default,NTP,0000,0000,0000,,这会有点不公平\N{\fs14}It's going to be a little unbalancing.
+Dialogue: 0,0:03:12.79,0:03:14.48,Default,NTP,0000,0000,0000,,因此这就是我要求上过那些课程的原因\N{\fs14}So, that's why I've required all those.
+Dialogue: 0,0:03:14.48,0:03:16.51,Default,NTP,0000,0000,0000,,如果你在暑期实习\N{\fs14}Now if you've done a summer internship
+Dialogue: 0,0:03:16.51,0:03:18.19,Default,NTP,0000,0000,0000,,写过一些代码或类似这样的\N{\fs14}of you've done some programming or something like that,
+Dialogue: 0,0:03:18.19,0:03:23.28,Default,NTP,0000,0000,0000,,那显然代表你拥有CS107，108，或110这几门课的知识 是不\N{\fs14}that's definitely a substitute for CS107, 108, or 110, right?
+Dialogue: 0,0:03:23.28,0:03:25.93,Default,NTP,0000,0000,0000,,或者如果你上过其他比这门课更高级别的\N{\fs14}Or if you've done some other CS class that's even more advanced
+Dialogue: 0,0:03:25.93,0:03:26.94,Default,NTP,0000,0000,0000,,那也很好\N{\fs14}than these, that's fine too.
+Dialogue: 0,0:03:26.94,0:03:29.99,Default,NTP,0000,0000,0000,,你们只要明白这门课是怎么个情况 \N{\fs14}You've just got to understand that this class is, you know,
+Dialogue: 0,0:03:30.11,0:03:31.70,Default,NTP,0000,0000,0000,,因为这门课要写许多代码 这你懂的\N{\fs14}a programming class, there's a lot of programming.
+Dialogue: 0,0:03:32.10,0:03:34.37,Default,NTP,0000,0000,0000,,\N{\fs14}And most importantly, you got to really be comfortable
+Dialogue: 0,0:03:34.37,0:03:35.69,Default,NTP,0000,0000,0000,,\N{\fs14}with object-oriented programming.
 Dialogue: 0,0:03:35.69,0:03:38.27,Default,NTP,0000,0000,0000,,\N{\fs14}So I put a bunch of terms\Nup here, like message
 Dialogue: 0,0:03:38.27,0:03:41.57,Default,NTP,0000,0000,0000,,\N{\fs14}and instance variable and\Nsuperclass and subclass,
 Dialogue: 0,0:03:42.11,0:03:44.36,Default,NTP,0000,0000,0000,,\N{\fs14}if you don't know these terms\Nlike the back of your hand,
