@@ -98,30 +98,22 @@ Dialogue: 0,0:03:57.55,0:03:59.05,Default,NTP,0000,0000,0000,,显然你会想先
 Dialogue: 0,0:03:59.45,0:04:02.60,Default,NTP,0000,0000,0000,,懂不 先上过CS106a&b等价的课程\N{\fs14}Okay? Take CS106a&b equivalent first,
 Dialogue: 0,0:04:02.60,0:04:04.41,Default,NTP,0000,0000,0000,,然后再多学点变成经验\N{\fs14}and then get a little more programming experience
 Dialogue: 0,0:04:04.45,0:04:05.20,Default,NTP,0000,0000,0000,,接着你就容易上道了\N{\fs14}and then you're good to go.
-Dialogue: 0,0:04:05.86,0:04:10.11,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? We're going, you're going\Nto be writing apps in this class
-Dialogue: 0,0:04:10.11,0:04:12.82,Default,NTP,0000,0000,0000,,\N{\fs14}with dozens of classes\Nthat you're going to write
-Dialogue: 0,0:04:13.27,0:04:15.70,Default,NTP,0000,0000,0000,,\N{\fs14}by the fifth, sixth\Nweek so, you know,
-Dialogue: 0,0:04:15.80,0:04:18.18,Default,NTP,0000,0000,0000,,\N{\fs14}if the biggest app you've\Never written is got 3, or 4,
-Dialogue: 0,0:04:18.18,0:04:21.51,Default,NTP,0000,0000,0000,,\N{\fs14}or 5 classes in it, oh, this\Nis going to be a step up.
-Dialogue: 0,0:04:22.13,0:04:27.03,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? The assignments, we've\Ngot this weekly assignments
-Dialogue: 0,0:04:27.03,0:04:28.32,Default,NTP,0000,0000,0000,,\N{\fs14}for the first six\Nor seven weeks,
-Dialogue: 0,0:04:28.32,0:04:29.91,Default,NTP,0000,0000,0000,,\N{\fs14}and then you've got a\Nfinal project at the end.
-Dialogue: 0,0:04:30.23,0:04:32.35,Default,NTP,0000,0000,0000,,\N{\fs14}All of the homework assignments\Nhave detailed write-up
-Dialogue: 0,0:04:32.35,0:04:35.63,Default,NTP,0000,0000,0000,,\N{\fs14}of the required task and\Nwhat we're evaluating you on.
-Dialogue: 0,0:04:35.97,0:04:38.32,Default,NTP,0000,0000,0000,,\N{\fs14}And they also have hints in\Nthere, because I'm not trying
-Dialogue: 0,0:04:38.32,0:04:40.00,Default,NTP,0000,0000,0000,,\N{\fs14}to make the homework assignments\Nbe really, really hard,
-Dialogue: 0,0:04:40.24,0:04:45.53,Default,NTP,0000,0000,0000,,\N{\fs14}and all the homework assignments\Nalso directly are re [pause],
-Dialogue: 0,0:04:45.88,0:04:49.10,Default,NTP,0000,0000,0000,,\N{\fs14}they're basically reinforcing\Nwhat has been taught in lecture
-Dialogue: 0,0:04:49.10,0:04:50.18,Default,NTP,0000,0000,0000,,\N{\fs14}in that week, they're\Nnot a bunch
-Dialogue: 0,0:04:50.18,0:04:51.56,Default,NTP,0000,0000,0000,,\N{\fs14}of random new stuff to learn.
-Dialogue: 0,0:04:51.93,0:04:56.34,Default,NTP,0000,0000,0000,,\N{\fs14}I'm a big believer in a teaching\Nmethodology, which is I'm going
-Dialogue: 0,0:04:56.34,0:05:00.01,Default,NTP,0000,0000,0000,,\N{\fs14}to tell you about a concept,\Nvia slides, and then I'm going
-Dialogue: 0,0:05:00.01,0:05:02.26,Default,NTP,0000,0000,0000,,\N{\fs14}to show you it by\Ndemoing it to you,
-Dialogue: 0,0:05:02.26,0:05:04.56,Default,NTP,0000,0000,0000,,\N{\fs14}actually writing an application\Nthat does, then I'm going
-Dialogue: 0,0:05:04.56,0:05:06.55,Default,NTP,0000,0000,0000,,\N{\fs14}to ask you to do\Nit on the homework.
-Dialogue: 0,0:05:06.55,0:05:08.03,Default,NTP,0000,0000,0000,,\N{\fs14}So that's three times\Nyou're going
-Dialogue: 0,0:05:08.03,0:05:10.51,Default,NTP,0000,0000,0000,,\N{\fs14}to see every single thing\Npretty much in this class.
-Dialogue: 0,0:05:10.56,0:05:12.49,Default,NTP,0000,0000,0000,,\N{\fs14}By the end of that, you're\Ngoing to know how to do it.
+Dialogue: 0,0:04:05.86,0:04:10.11,Default,NTP,0000,0000,0000,,我们将要在几节课之后\N{\fs14}Okay? We're going, you're going to be writing apps in this class with dozens of classes
+Dialogue: 0,0:04:13.27,0:04:15.70,Default,NTP,0000,0000,0000,,也就是五六周开始写程序\N{\fs14}that you're going to write by the fifth, sixth week so, you know,
+Dialogue: 0,0:04:15.80,0:04:18.18,Default,NTP,0000,0000,0000,,如果你曾经写过的最大的软件花了你3，4或5节课 这会是个进步\N{\fs14}if the biggest app you've ever written is got 3, or 4, or 5 classes in it, oh, this is going to be a step up.
+Dialogue: 0,0:04:22.13,0:04:27.03,Default,NTP,0000,0000,0000,,我会从第六七周开始布置作业\N{\fs14}Okay? The assignments, we've got this weekly assignments for the first six or seven weeks,
+Dialogue: 0,0:04:28.32,0:04:29.91,Default,NTP,0000,0000,0000,,接着在结束的时候你会得到一个最终的项目\N{\fs14}and then you've got a final project at the end.
+Dialogue: 0,0:04:30.23,0:04:32.35,Default,NTP,0000,0000,0000,,所有的家庭作业上都详细写出了要求完成的任务并且我会给出评价\N{\fs14}All of the homework assignments have detailed write-up of the required task and what we're evaluating you on.
+Dialogue: 0,0:04:35.97,0:04:38.32,Default,NTP,0000,0000,0000,,还有作业上都会有提示 因为我不会让家庭作业太难做\N{\fs14}And they also have hints in there, because I'm not trying to make the homework assignments be really, really hard,
+Dialogue: 0,0:04:40.24,0:04:45.53,Default,NTP,0000,0000,0000,,所有的家庭作业都很直观\N{\fs14}and all the homework assignments also directly are re,
+Dialogue: 0,0:04:45.88,0:04:49.10,Default,NTP,0000,0000,0000,,它们都是那周课上讲用来巩固基础的内容\N{\fs14}they're basically reinforcing what has been taught in lecture in that week, they're not a bunch
+Dialogue: 0,0:04:50.18,0:04:51.56,Default,NTP,0000,0000,0000,,不会出现没学过东西\N{\fs14}of random new stuff to learn.
+Dialogue: 0,0:04:51.93,0:04:56.34,Default,NTP,0000,0000,0000,,我深信那种通过幻灯片来讲解概念\N{\fs14}I'm a big believer in a teaching methodology, which is I'm going to tell you about a concept, via slides,
+Dialogue: 0,0:04:56.34,0:05:00.01,Default,NTP,0000,0000,0000,,并通过实例展示的教学方法\N{\fs14}and then I'm going to show you it by demoing it to you,
+Dialogue: 0,0:05:02.26,0:05:04.56,Default,NTP,0000,0000,0000,,我在课上写出一个应用后会要求你们课后再实现出来\N{\fs14}actually writing an application that does, then I'm going to ask you to do it on the homework.
+Dialogue: 0,0:05:06.55,0:05:08.03,Default,NTP,0000,0000,0000,,\N{\fs14}So that's three times you're going
+Dialogue: 0,0:05:08.03,0:05:10.51,Default,NTP,0000,0000,0000,,\N{\fs14}to see every single thing pretty much in this class.
+Dialogue: 0,0:05:10.56,0:05:12.49,Default,NTP,0000,0000,0000,,\N{\fs14}By the end of that, you're going to know how to do it.
 Dialogue: 0,0:05:12.49,0:05:14.46,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And you're going\Nto feel confident
 Dialogue: 0,0:05:14.46,0:05:15.28,Default,NTP,0000,0000,0000,,\N{\fs14}and experienced to do it.
 Dialogue: 0,0:05:15.28,0:05:17.44,Default,NTP,0000,0000,0000,,\N{\fs14}So the homework is\Nall about that.
