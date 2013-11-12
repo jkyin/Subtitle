@@ -85,22 +85,19 @@ Dialogue: 0,0:03:23.28,0:03:25.93,Default,NTP,0000,0000,0000,,或者如果你上
 Dialogue: 0,0:03:25.93,0:03:26.94,Default,NTP,0000,0000,0000,,那也很好\N{\fs14}than these, that's fine too.
 Dialogue: 0,0:03:26.94,0:03:29.99,Default,NTP,0000,0000,0000,,你们只要明白这门课是怎么个情况 \N{\fs14}You've just got to understand that this class is, you know,
 Dialogue: 0,0:03:30.11,0:03:31.70,Default,NTP,0000,0000,0000,,因为这门课要写许多代码 这你懂的\N{\fs14}a programming class, there's a lot of programming.
-Dialogue: 0,0:03:32.10,0:03:34.37,Default,NTP,0000,0000,0000,,\N{\fs14}And most importantly, you got to really be comfortable
-Dialogue: 0,0:03:34.37,0:03:35.69,Default,NTP,0000,0000,0000,,\N{\fs14}with object-oriented programming.
-Dialogue: 0,0:03:35.69,0:03:38.27,Default,NTP,0000,0000,0000,,\N{\fs14}So I put a bunch of terms\Nup here, like message
-Dialogue: 0,0:03:38.27,0:03:41.57,Default,NTP,0000,0000,0000,,\N{\fs14}and instance variable and\Nsuperclass and subclass,
-Dialogue: 0,0:03:42.11,0:03:44.36,Default,NTP,0000,0000,0000,,\N{\fs14}if you don't know these terms\Nlike the back of your hand,
-Dialogue: 0,0:03:44.40,0:03:46.43,Default,NTP,0000,0000,0000,,\N{\fs14}it's going to be hard for\Nyou to get this class,
-Dialogue: 0,0:03:46.43,0:03:47.78,Default,NTP,0000,0000,0000,,\N{\fs14}because I'm going to\Nbe throwing those terms
-Dialogue: 0,0:03:47.78,0:03:48.90,Default,NTP,0000,0000,0000,,\N{\fs14}out left, right, and center.
-Dialogue: 0,0:03:48.90,0:03:51.19,Default,NTP,0000,0000,0000,,\N{\fs14}iOS7 is completely\Nobject-oriented.
-Dialogue: 0,0:03:51.52,0:03:52.67,Default,NTP,0000,0000,0000,,\N{\fs14}Okay, the whole structure,
-Dialogue: 0,0:03:52.67,0:03:54.38,Default,NTP,0000,0000,0000,,\N{\fs14}the design of the thing,\Nis object-oriented.
-Dialogue: 0,0:03:54.62,0:03:57.32,Default,NTP,0000,0000,0000,,\N{\fs14}So, you just got to know that,\Nand if you don't know that,
-Dialogue: 0,0:03:57.55,0:03:59.05,Default,NTP,0000,0000,0000,,\N{\fs14}you definitely want\Nto go get that first.
-Dialogue: 0,0:03:59.45,0:04:02.60,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? Take CS106a&b\Nequivalent first,
-Dialogue: 0,0:04:02.60,0:04:04.41,Default,NTP,0000,0000,0000,,\N{\fs14}and then get a little more\Nprogramming experience
-Dialogue: 0,0:04:04.45,0:04:05.20,Default,NTP,0000,0000,0000,,\N{\fs14}and then you're good to go.
+Dialogue: 0,0:03:32.10,0:03:34.37,Default,NTP,0000,0000,0000,,最重要的是你会适应面向对象编程\N{\fs14}And most importantly, you got to really be comfortable with object-oriented programming.
+Dialogue: 0,0:03:35.69,0:03:38.27,Default,NTP,0000,0000,0000,,我在黑板上写了些术语\N{\fs14}So I put a bunch of terms up here,
+Dialogue: 0,0:03:38.27,0:03:41.57,Default,NTP,0000,0000,0000,,像信息和实例变量还有超类和子类\N{\fs14}like message and instance variable and superclass and subclass,
+Dialogue: 0,0:03:42.11,0:03:44.36,Default,NTP,0000,0000,0000,,如果你不是跟你手背那样熟悉这些术语\N{\fs14}if you don't know these terms like the back of your hand,
+Dialogue: 0,0:03:44.40,0:03:46.43,Default,NTP,0000,0000,0000,,那你上这门课会有点吃力\N{\fs14}it's going to be hard for you to get this class,
+Dialogue: 0,0:03:46.43,0:03:47.78,Default,NTP,0000,0000,0000,,我将会把那些术语抛到一边去\N{\fs14}because I'm going to be throwing those terms out left, right, and center.
+Dialogue: 0,0:03:48.90,0:03:51.19,Default,NTP,0000,0000,0000,,iOS7完全的面向对象\N{\fs14}iOS7 is completely object-oriented.
+Dialogue: 0,0:03:51.52,0:03:52.67,Default,NTP,0000,0000,0000,,软件设计的整个结构是面向对象的\N{\fs14}Okay, the whole structure, the design of the thing, is object-oriented.
+Dialogue: 0,0:03:54.62,0:03:57.32,Default,NTP,0000,0000,0000,,因此 你们了解下就好了 如果没听懂\N{\fs14}So, you just got to know that, and if you don't know that,
+Dialogue: 0,0:03:57.55,0:03:59.05,Default,NTP,0000,0000,0000,,显然你会想先去搞懂它的\N{\fs14}you definitely want to go get that first.
+Dialogue: 0,0:03:59.45,0:04:02.60,Default,NTP,0000,0000,0000,,懂不 先上过CS106a&b等价的课程\N{\fs14}Okay? Take CS106a&b equivalent first,
+Dialogue: 0,0:04:02.60,0:04:04.41,Default,NTP,0000,0000,0000,,然后再多学点变成经验\N{\fs14}and then get a little more programming experience
+Dialogue: 0,0:04:04.45,0:04:05.20,Default,NTP,0000,0000,0000,,接着你就容易上道了\N{\fs14}and then you're good to go.
 Dialogue: 0,0:04:05.86,0:04:10.11,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? We're going, you're going\Nto be writing apps in this class
 Dialogue: 0,0:04:10.11,0:04:12.82,Default,NTP,0000,0000,0000,,\N{\fs14}with dozens of classes\Nthat you're going to write
 Dialogue: 0,0:04:13.27,0:04:15.70,Default,NTP,0000,0000,0000,,\N{\fs14}by the fifth, sixth\Nweek so, you know,
