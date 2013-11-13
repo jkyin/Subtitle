@@ -111,12 +111,10 @@ Dialogue: 0,0:04:50.18,0:04:51.56,Default,NTP,0000,0000,0000,,不会出现没学
 Dialogue: 0,0:04:51.93,0:04:56.34,Default,NTP,0000,0000,0000,,我深信那种通过幻灯片来讲解概念\N{\fs14}I'm a big believer in a teaching methodology, which is I'm going to tell you about a concept, via slides,
 Dialogue: 0,0:04:56.34,0:05:00.01,Default,NTP,0000,0000,0000,,并通过实例展示的教学方法\N{\fs14}and then I'm going to show you it by demoing it to you,
 Dialogue: 0,0:05:02.26,0:05:04.56,Default,NTP,0000,0000,0000,,我在课上写出一个应用后会要求你们课后再实现出来\N{\fs14}actually writing an application that does, then I'm going to ask you to do it on the homework.
-Dialogue: 0,0:05:06.55,0:05:08.03,Default,NTP,0000,0000,0000,,\N{\fs14}So that's three times you're going
-Dialogue: 0,0:05:08.03,0:05:10.51,Default,NTP,0000,0000,0000,,\N{\fs14}to see every single thing pretty much in this class.
-Dialogue: 0,0:05:10.56,0:05:12.49,Default,NTP,0000,0000,0000,,\N{\fs14}By the end of that, you're going to know how to do it.
-Dialogue: 0,0:05:12.49,0:05:14.46,Default,NTP,0000,0000,0000,,\N{\fs14}Okay? And you're going\Nto feel confident
-Dialogue: 0,0:05:14.46,0:05:15.28,Default,NTP,0000,0000,0000,,\N{\fs14}and experienced to do it.
-Dialogue: 0,0:05:15.28,0:05:17.44,Default,NTP,0000,0000,0000,,\N{\fs14}So the homework is\Nall about that.
+Dialogue: 0,0:05:06.55,0:05:08.03,Default,NTP,0000,0000,0000,,到时候你们会感受到这三件事的每处是多么的美妙\N{\fs14}So that's three times you're going to see every single thing pretty much in this class.
+Dialogue: 0,0:05:10.56,0:05:12.49,Default,NTP,0000,0000,0000,,最后说一句 你们会知道怎样去实现它\N{\fs14}By the end of that, you're going to know how to do it.
+Dialogue: 0,0:05:12.49,0:05:14.46,Default,NTP,0000,0000,0000,,你们将有信心并熟练的做到\N{\fs14}Okay? And you're going to feel confident and experienced to do it.
+Dialogue: 0,0:05:15.28,0:05:17.44,Default,NTP,0000,0000,0000,,那么以上就是所有关于家庭作业的事\N{\fs14}So the homework is all about that.
 Dialogue: 0,0:05:17.44,0:05:20.30,Default,NTP,0000,0000,0000,,\N{\fs14}It's about just doing what you\Nsaw me do in class and talk
 Dialogue: 0,0:05:20.30,0:05:21.59,Default,NTP,0000,0000,0000,,\N{\fs14}about in class and apply it.
 Dialogue: 0,0:05:22.72,0:05:26.65,Default,NTP,0000,0000,0000,,\N{\fs14}Alright. Now I'm going to really\Nbriefly go over what's in iOS,
