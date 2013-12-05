@@ -111,26 +111,24 @@ Dialogue: 0,0:04:50.18,0:04:51.56,Default,NTP,0000,0000,0000,,不会出现没学
 Dialogue: 0,0:04:51.93,0:04:56.34,Default,NTP,0000,0000,0000,,我深信那种通过幻灯片来讲解概念\N{\fs14}I'm a big believer in a teaching methodology, which is I'm going to tell you about a concept, via slides,
 Dialogue: 0,0:04:56.34,0:05:00.01,Default,NTP,0000,0000,0000,,并通过实例展示的教学方法\N{\fs14}and then I'm going to show you it by demoing it to you,
 Dialogue: 0,0:05:02.26,0:05:04.56,Default,NTP,0000,0000,0000,,我在课上写出一个应用后会要求你们课后再实现出来\N{\fs14}actually writing an application that does, then I'm going to ask you to do it on the homework.
-Dialogue: 0,0:05:06.55,0:05:08.03,Default,NTP,0000,0000,0000,,到时候你们会感受到这三件事的每处是多么的美妙\N{\fs14}So that's three times you're going to see every single thing pretty much in this class.
+Dialogue: 0,0:05:06.55,0:05:08.03,Default,NTP,0000,0000,0000,,到时候你们会看到每种方法都非常有用\N{\fs14}So that's three times you're going to see every single thing pretty much in this class.
 Dialogue: 0,0:05:10.56,0:05:12.49,Default,NTP,0000,0000,0000,,最后说一句 你们会知道怎样去实现它\N{\fs14}By the end of that, you're going to know how to do it.
 Dialogue: 0,0:05:12.49,0:05:14.46,Default,NTP,0000,0000,0000,,你们将有信心并熟练的做到\N{\fs14}Okay? And you're going to feel confident and experienced to do it.
-Dialogue: 0,0:05:15.28,0:05:17.44,Default,NTP,0000,0000,0000,,那么以上就是所有关于家庭作业的事\N{\fs14}So the homework is all about that.
-Dialogue: 0,0:05:17.44,0:05:20.30,Default,NTP,0000,0000,0000,,\N{\fs14}It's about just doing what you\Nsaw me do in class and talk
-Dialogue: 0,0:05:20.30,0:05:21.59,Default,NTP,0000,0000,0000,,\N{\fs14}about in class and apply it.
-Dialogue: 0,0:05:22.72,0:05:26.65,Default,NTP,0000,0000,0000,,\N{\fs14}Alright. Now I'm going to really\Nbriefly go over what's in iOS,
-Dialogue: 0,0:05:27.17,0:05:28.96,Default,NTP,0000,0000,0000,,\N{\fs14}I think most of you\Nknow what's in iOS,
-Dialogue: 0,0:05:28.96,0:05:32.25,Default,NTP,0000,0000,0000,,\N{\fs14}hopefully you've all seen an\NiOS device or you have one
-Dialogue: 0,0:05:32.25,0:05:35.28,Default,NTP,0000,0000,0000,,\N{\fs14}in your pocket, I bet 90\Npercent of you do in this room,
-Dialogue: 0,0:05:35.68,0:05:37.62,Default,NTP,0000,0000,0000,,\N{\fs14}but I'm going to try\Nand summarize it,
-Dialogue: 0,0:05:38.09,0:05:40.69,Default,NTP,0000,0000,0000,,\N{\fs14}this is really hard to do\Nbecause I'm going to try
-Dialogue: 0,0:05:40.69,0:05:43.45,Default,NTP,0000,0000,0000,,\N{\fs14}and do it in four minutes\Nor less, or five minutes,
-Dialogue: 0,0:05:43.45,0:05:46.06,Default,NTP,0000,0000,0000,,\N{\fs14}and it's so big that, I mean,\NI could have two lectures
-Dialogue: 0,0:05:46.06,0:05:47.61,Default,NTP,0000,0000,0000,,\N{\fs14}where I just talk about\Nall the different things
-Dialogue: 0,0:05:47.61,0:05:48.69,Default,NTP,0000,0000,0000,,\N{\fs14}and just summarize them.
-Dialogue: 0,0:05:48.72,0:05:53.05,Default,NTP,0000,0000,0000,,\N{\fs14}So, this is going to try and\Ngroup them into some sort
-Dialogue: 0,0:05:53.05,0:05:56.15,Default,NTP,0000,0000,0000,,\N{\fs14}of sensible groups so you\Nhave an idea of what's there
-Dialogue: 0,0:05:56.15,0:05:59.58,Default,NTP,0000,0000,0000,,\N{\fs14}from a development\Nstandpoint, then when we go off
-Dialogue: 0,0:05:59.58,0:06:01.97,Default,NTP,0000,0000,0000,,\N{\fs14}and start doing it all then\Nyou'll start realizing whoa,
+Dialogue: 0,0:05:15.28,0:05:17.44,Default,NTP,0000,0000,0000,,那么以上就是所有关于家庭作业的说明\N{\fs14}So the homework is all about that.
+Dialogue: 0,0:05:17.44,0:05:21.59,Default,NTP,0000,0000,0000,,这只会碰到我课上做的、讲的内容\N{\fs14}It's about just doing what you saw me do in class and talk about in class and apply it.
+Dialogue: 0,0:05:22.72,0:05:26.65,Default,NTP,0000,0000,0000,,好的 现在我讲简要的重温下什么是 iOS\N{\fs14}Alright. Now I'm going to really briefly go over what's in iOS,
+Dialogue: 0,0:05:27.17,0:05:28.96,Default,NTP,0000,0000,0000,,我认为你们大多数都知道什么事 iOS\N{\fs14}I think most of you know what's in iOS,
+Dialogue: 0,0:05:28.96,0:05:32.25,Default,NTP,0000,0000,0000,,希望你们都见过一款 iOS 设备或者你们\N{\fs14}hopefully you've all seen an iOS device or you have one
+Dialogue: 0,0:05:32.25,0:05:35.28,Default,NTP,0000,0000,0000,,口袋里有一个 我敢打赌在座的90%都有\N{\fs14}in your pocket, I bet 90 percent of you do in this room,
+Dialogue: 0,0:05:35.68,0:05:37.62,Default,NTP,0000,0000,0000,,但我会去试着概括它\N{\fs14}but I'm going to try and summarize it,
+Dialogue: 0,0:05:38.09,0:05:40.69,Default,NTP,0000,0000,0000,,这不是件容易的事 因为我要试着在\N{\fs14}this is really hard to do because I'm going to try
+Dialogue: 0,0:05:40.69,0:05:43.45,Default,NTP,0000,0000,0000,,4分钟或更少的时间又或者5分钟里讲完\N{\fs14}and do it in four minutes or less, or five minutes,
+Dialogue: 0,0:05:43.45,0:05:46.06,Default,NTP,0000,0000,0000,,这太难了 我的意思是我可能会花两节课去\N{\fs14}and it's so big that, I mean, I could have two lectures
+Dialogue: 0,0:05:46.06,0:05:48.69,Default,NTP,0000,0000,0000,,就只光讲所有不同的东西并总结下\N{\fs14}where I just talk about all the different things and just summarize them.
+Dialogue: 0,0:05:48.72,0:05:53.05,Default,NTP,0000,0000,0000,,\N{\fs14}So, this is going to try and group them into some sort
+Dialogue: 0,0:05:53.05,0:05:56.15,Default,NTP,0000,0000,0000,,\N{\fs14}of sensible groups so you have an idea of what's there
+Dialogue: 0,0:05:56.15,0:05:59.58,Default,NTP,0000,0000,0000,,\N{\fs14}from a development standpoint, then when we go off
+Dialogue: 0,0:05:59.58,0:06:01.97,Default,NTP,0000,0000,0000,,\N{\fs14}and start doing it all then you'll start realizing whoa,
 Dialogue: 0,0:06:01.97,0:06:04.08,Default,NTP,0000,0000,0000,,\N{\fs14}and once you learn how to look\Nin the documentation you'll see,
 Dialogue: 0,0:06:04.08,0:06:06.30,Default,NTP,0000,0000,0000,,\N{\fs14}oh, look at all that stuff in\Nthere, and you'll figure it out.
 Dialogue: 0,0:06:06.30,0:06:07.66,Default,NTP,0000,0000,0000,,\N{\fs14}So this is just a\Nhigh-level overview.
