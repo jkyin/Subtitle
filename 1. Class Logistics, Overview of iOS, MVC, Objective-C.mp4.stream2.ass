@@ -130,72 +130,70 @@ Dialogue: 0,0:05:43.45,0:05:46.06,冬青黑体简体中文,NTP,0,0,0,,东西很�
 Dialogue: 0,0:05:46.06,0:05:48.69,冬青黑体简体中文,NTP,0,0,0,,还只是把所有东西简单概括一遍\N{\fs14}where I just talk about all the different things and just summarize them.
 Dialogue: 0,0:05:48.72,0:05:53.05,冬青黑体简体中文,NTP,0,0,0,,我们把它们按顺序层级分组\N{\fs14}So, this is going to try and group them into some sort
 Dialogue: 0,0:05:53.05,0:05:56.15,冬青黑体简体中文,NTP,0,0,0,,这样从开发的角度来看你就知道每部分大概是什么了\N{\fs14}of sensible groups so you have an idea of what's there
-Dialogue: 0,0:05:56.15,0:05:59.58,冬青黑体简体中文,NTP,0,0,0,,以后我们真正接触到的时候\N{\fs14}from a development standpoint, then when we go off
+Dialogue: 0,0:05:56.15,0:05:59.58,冬青黑体简体中文,NTP,0,0,0,,等以后我们真正接触到的时候\N{\fs14}from a development standpoint, then when we go off
 Dialogue: 0,0:05:59.58,0:06:01.97,冬青黑体简体中文,NTP,0,0,0,,你们就会突然 噢 的一下明白过来\N{\fs14}and start doing it all then you'll start realizing whoa,
 Dialogue: 0,0:06:01.97,0:06:04.08,冬青黑体简体中文,NTP,0,0,0,,一旦你们学会了查看文档\N{\fs14}and once you learn how to look in the documentation you'll see,
-Dialogue: 0,0:06:04.08,0:06:06.30,冬青黑体简体中文,NTP,0,0,0,,看到文档里所有的简介啊，属性啊，方法啊，就都明白了{\fs14}oh, look at all that stuff in there, and you'll figure it out.
-Dialogue: 0,0:06:06.30,0:06:07.66,冬青黑体简体中文,NTP,0,0,0,,所以我们先从高级的层面来看{\fs14}So this is just a high-level overview.
-Dialogue: 0,0:06:07.72,0:06:13.22,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So, I, I've used this division\Ninto these four, kind of groups.
-Dialogue: 0,0:06:13.36,0:06:16.21,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Core OS, which is the stuff\Nthat's close to the hardware.
-Dialogue: 0,0:06:17.06,0:06:20.57,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Core services, which is an\Nobject-oriented on top of that,
-Dialogue: 0,0:06:20.70,0:06:21.32,冬青黑体简体中文,NTP,0,0,0,,{\fs14}that kind of makes it
-Dialogue: 0,0:06:21.32,0:06:23.59,冬青黑体简体中文,NTP,0,0,0,,{\fs14}so you always are programming\Nan object-oriented layer.
-Dialogue: 0,0:06:24.07,0:06:28.48,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Media, because these devices\Nare basically iPods with a phone
-Dialogue: 0,0:06:28.48,0:06:29.92,冬青黑体简体中文,NTP,0,0,0,,{\fs14}in them or with a\Nbig screen on them,
-Dialogue: 0,0:06:29.97,0:06:31.86,冬青黑体简体中文,NTP,0,0,0,,{\fs14}but media is really\Nimportant to these devices,
-Dialogue: 0,0:06:32.16,0:06:34.60,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and then finally Cocoa\NTouch, which is the UI layer.
-Dialogue: 0,0:06:34.84,0:06:37.29,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Okay? Of buttons and all the\Nswitches, things like that.
-Dialogue: 0,0:06:37.29,0:06:40.36,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So let's talk about what's in\Neach of those layers, kind of,
-Dialogue: 0,0:06:40.36,0:06:42.79,冬青黑体简体中文,NTP,0,0,0,,{\fs14}little skimming the surface\Nof what's in those layers.
-Dialogue: 0,0:06:43.41,0:06:48.27,冬青黑体简体中文,NTP,0,0,0,,{\fs14}At the Core OS layer, near the\Nhardware, is a Unix kernel.
-Dialogue: 0,0:06:48.50,0:06:51.43,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Okay? This is a Unix operating\Nsystem on this device.
-Dialogue: 0,0:06:52.35,0:06:57.64,冬青黑体简体中文,NTP,0,0,0,,{\fs14}And BFD-based mock, and so\Nyou get everything you get
-Dialogue: 0,0:06:57.64,0:06:58.21,冬青黑体简体中文,NTP,0,0,0,,{\fs14}with Unix.
-Dialogue: 0,0:06:58.21,0:07:01.47,冬青黑体简体中文,NTP,0,0,0,,{\fs14}You're getting sockets and\Nyou're getting file system,
-Dialogue: 0,0:07:01.77,0:07:04.48,冬青黑体简体中文,NTP,0,0,0,,{\fs14}permissions, all that stuff,\Nplus you're getting a bunch
-Dialogue: 0,0:07:04.48,0:07:07.83,冬青黑体简体中文,NTP,0,0,0,,{\fs14}of other stuff that's kind of\Nspecific to a mobile device
-Dialogue: 0,0:07:07.83,0:07:10.99,冬青黑体简体中文,NTP,0,0,0,,{\fs14}like this, like power\Nmanagement, and key chain access
-Dialogue: 0,0:07:10.99,0:07:14.16,冬青黑体简体中文,NTP,0,0,0,,{\fs14}to kind of manage the\Nsecurity of things.
-Dialogue: 0,0:07:14.16,0:07:16.19,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Bonjour, which is\Nthis kind of network,
-Dialogue: 0,0:07:16.54,0:07:18.25,冬青黑体简体中文,NTP,0,0,0,,{\fs14}finding other things\Non the network.
-Dialogue: 0,0:07:18.45,0:07:19.63,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So it's got all that stuff,
-Dialogue: 0,0:07:19.63,0:07:22.76,冬青黑体简体中文,NTP,0,0,0,,{\fs14}it's a very powerful\Nunderlying operating system.
-Dialogue: 0,0:07:23.01,0:07:25.88,冬青黑体简体中文,NTP,0,0,0,,{\fs14}But all of that API\Nor most of it is in C,
-Dialogue: 0,0:07:26.17,0:07:27.94,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and we want to be\Nprogramming kind
-Dialogue: 0,0:07:27.94,0:07:29.46,冬青黑体简体中文,NTP,0,0,0,,{\fs14}of purely object-oriented layer.
-Dialogue: 0,0:07:29.78,0:07:32.72,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So we're going to be mostly\Noperating when we're talking,
-Dialogue: 0,0:07:32.72,0:07:35.21,冬青黑体简体中文,NTP,0,0,0,,{\fs14}touching those things at\Nthe Core surfaces layer.
-Dialogue: 0,0:07:35.77,0:07:39.37,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So this layer has things\Nlike language, things that,
-Dialogue: 0,0:07:39.37,0:07:42.40,冬青黑体简体中文,NTP,0,0,0,,{\fs14}that kind of make the language\Nmore powerful, like arrays
-Dialogue: 0,0:07:42.40,0:07:44.78,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and dictionaries, and\Nstrings and things like that,
-Dialogue: 0,0:07:45.20,0:07:48.71,冬青黑体简体中文,NTP,0,0,0,,{\fs14}plus it has object-oriented\Nways to access the file system,
-Dialogue: 0,0:07:48.97,0:07:51.95,冬青黑体简体中文,NTP,0,0,0,,{\fs14}it has object-oriented ways\Nto find out the GPS location
-Dialogue: 0,0:07:51.95,0:07:53.51,冬青黑体简体中文,NTP,0,0,0,,{\fs14}of your device, for example.
-Dialogue: 0,0:07:53.76,0:07:56.77,冬青黑体简体中文,NTP,0,0,0,,{\fs14}It has ways to do\Nmultithreading.
-Dialogue: 0,0:07:57.06,0:08:01.02,冬青黑体简体中文,NTP,0,0,0,,{\fs14}All this stuff what you want\Nto be able to do, but you want
-Dialogue: 0,0:08:01.02,0:08:03.71,冬青黑体简体中文,NTP,0,0,0,,{\fs14}to stay in an object-oriented\Nkind of mindset
-Dialogue: 0,0:08:03.71,0:08:04.70,冬青黑体简体中文,NTP,0,0,0,,{\fs14}as you're doing them all.
-Dialogue: 0,0:08:04.94,0:08:08.04,冬青黑体简体中文,NTP,0,0,0,,{\fs14}There's a huge layer,\Nfoundational layer there
-Dialogue: 0,0:08:08.04,0:08:10.18,冬青黑体简体中文,NTP,0,0,0,,{\fs14}at Core services for doing that.
-Dialogue: 0,0:08:10.18,0:08:12.83,冬青黑体简体中文,NTP,0,0,0,,{\fs14}At the media layer, don't\Nsleep on this layer,
-Dialogue: 0,0:08:12.83,0:08:14.62,冬青黑体简体中文,NTP,0,0,0,,{\fs14}really important layer,\Nyou've got video here,
-Dialogue: 0,0:08:14.62,0:08:17.10,冬青黑体简体中文,NTP,0,0,0,,{\fs14}you've got video editing,\Nyou got images, of course,
-Dialogue: 0,0:08:17.10,0:08:19.82,冬青黑体简体中文,NTP,0,0,0,,{\fs14}that it can display, it's\Nincredibly powerful audio
-Dialogue: 0,0:08:19.99,0:08:21.96,冬青黑体简体中文,NTP,0,0,0,,{\fs14}for doing 3D audio,\Nif you have games,
-Dialogue: 0,0:08:21.96,0:08:23.39,冬青黑体简体中文,NTP,0,0,0,,{\fs14}you can make the\NThai fighters feel
-Dialogue: 0,0:08:23.39,0:08:25.64,冬青黑体简体中文,NTP,0,0,0,,{\fs14}like they're ripping\Nby you and stuff.
-Dialogue: 0,0:08:25.64,0:08:26.88,冬青黑体简体中文,NTP,0,0,0,,{\fs14}All that stuff is in here.
-Dialogue: 0,0:08:27.13,0:08:29.18,冬青黑体简体中文,NTP,0,0,0,,{\fs14}This is part of, the part of iOS
-Dialogue: 0,0:08:29.18,0:08:31.73,冬青黑体简体中文,NTP,0,0,0,,{\fs14}that really I can't\Ncover in a lot of depth.
-Dialogue: 0,0:08:31.73,0:08:33.91,冬青黑体简体中文,NTP,0,0,0,,{\fs14}I'm just going to try and\Nlet you know that it's there
-Dialogue: 0,0:08:33.91,0:08:35.77,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and you're going to dive\Ndown depending on what kind
-Dialogue: 0,0:08:35.99,0:08:38.96,冬青黑体简体中文,NTP,0,0,0,,{\fs14}of applications, later in\Nyour life, you want to build.
-Dialogue: 0,0:08:39.51,0:08:40.82,冬青黑体简体中文,NTP,0,0,0,,{\fs14}But there's an enormous\Namount there.
-Dialogue: 0,0:08:40.82,0:08:44.10,冬青黑体简体中文,NTP,0,0,0,,{\fs14}This is a fundamentally, a\Nmultimedia device, obviously,
-Dialogue: 0,0:08:44.76,0:08:46.76,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and then, Cocoa Touch\Nis where we're going
-Dialogue: 0,0:08:46.76,0:08:48.61,冬青黑体简体中文,NTP,0,0,0,,{\fs14}to spend most of our time.
-Dialogue: 0,0:08:48.61,0:08:53.17,冬青黑体简体中文,NTP,0,0,0,,{\fs14}This is where you are going to\Nbe building buttons and sliders
-Dialogue: 0,0:08:53.17,0:08:55.67,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and text fields, talking to each\Nother, and animation happening,
+Dialogue: 0,0:06:04.08,0:06:06.30,冬青黑体简体中文,NTP,0,0,0,,看到文档里的简介啊，属性啊，方法啊，就都明白了\N{\fs14}oh, look at all that stuff in there, and you'll figure it out.
+Dialogue: 0,0:06:06.30,0:06:07.66,冬青黑体简体中文,NTP,0,0,0,,所以我们先从高级的层面来看\N{\fs14}So this is just a high-level overview.
+Dialogue: 0,0:06:07.72,0:06:13.22,冬青黑体简体中文,NTP,0,0,0,,可以看到我把他们分成了四组\N{\fs14}So, I, I've used this division into these four, kind of groups.
+Dialogue: 0,0:06:13.36,0:06:16.21,冬青黑体简体中文,NTP,0,0,0,,Core OS，最接近硬件的一层\N{\fs14}Core OS, which is the stuff that's close to the hardware.
+Dialogue: 0,0:06:17.06,0:06:20.57,冬青黑体简体中文,NTP,0,0,0,,Core services，是用 OO 封装 Core OS 的一层\N{\fs14}Core services, which is an object-oriented on top of that,
+Dialogue: 0,0:06:20.70,0:06:21.32,冬青黑体简体中文,NTP,0,0,0,,为什么呢？\N{\fs14}that kind of makes it
+Dialogue: 0,0:06:21.32,0:06:23.59,冬青黑体简体中文,NTP,0,0,0,,这样你就可以无时无刻不在拥抱 OO 了\N{\fs14}so you always are programming an object-oriented layer.
+Dialogue: 0,0:06:24.07,0:06:28.48,冬青黑体简体中文,NTP,0,0,0,,Media，其实 iPhone 就是 iPod 加了个通话功能\N{\fs14}Media, because these devices are basically iPods with a phone
+Dialogue: 0,0:06:28.48,0:06:29.92,冬青黑体简体中文,NTP,0,0,0,,再整个大屏幕（乔帮主息怒）\N{\fs14}in them or with a big screen on them,
+Dialogue: 0,0:06:29.97,0:06:31.86,冬青黑体简体中文,NTP,0,0,0,,不过话说回来，Media 对这些设备来说还是很重要的\N{\fs14}but media is really important to these devices,
+Dialogue: 0,0:06:32.16,0:06:34.60,冬青黑体简体中文,NTP,0,0,0,,最后是 Cocoa Touch，也就是 UI 层（Cocoa 发音同 Coco，是的，船长）\N{\fs14}and then finally Cocoa Touch, which is the UI layer.
+Dialogue: 0,0:06:34.84,0:06:37.29,冬青黑体简体中文,NTP,0,0,0,,就是诸如 Button 啊，Switch 啊这些\N{\fs14}Okay? Of buttons and all the switches, things like that.
+Dialogue: 0,0:06:37.29,0:06:40.36,冬青黑体简体中文,NTP,0,0,0,,我们来看看每一层都是做什么的\N{\fs14}So let's talk about what's in each of those layers, kind of,
+Dialogue: 0,0:06:40.36,0:06:42.79,冬青黑体简体中文,NTP,0,0,0,,不会深入，差不多点到为止\N{\fs14}little skimming the surface of what's in those layers.
+Dialogue: 0,0:06:43.41,0:06:48.27,冬青黑体简体中文,NTP,0,0,0,,最接近硬件的 Core OS，是一个 Unix 内核\N{\fs14}At the Core OS layer, near the hardware, is a Unix kernel.
+Dialogue: 0,0:06:48.50,0:06:51.43,冬青黑体简体中文,NTP,0,0,0,,你的手机跑的是 Unix 系统，有点厉害吧？\N{\fs14}Okay? This is a Unix operating system on this device.
+Dialogue: 0,0:06:52.35,0:06:57.64,冬青黑体简体中文,NTP,0,0,0,,是基于 BFD 的，所以 Unix 有的你都有\N{\fs14}And BFD-based mock, and so you get everything you get with Unix.
+Dialogue: 0,0:06:58.21,0:07:01.47,冬青黑体简体中文,NTP,0,0,0,,包括 Sockets, 文件系统\N{\fs14}You're getting sockets and you're getting file system,
+Dialogue: 0,0:07:01.77,0:07:04.48,冬青黑体简体中文,NTP,0,0,0,,权限分配，所有这些，还有其他一些\N{\fs14}permissions, all that stuff, plus you're getting a bunch
+Dialogue: 0,0:07:04.48,0:07:07.83,冬青黑体简体中文,NTP,0,0,0,,移动设备特有的\N{\fs14}of other stuff that's kind of specific to a mobile device
+Dialogue: 0,0:07:07.83,0:07:10.99,冬青黑体简体中文,NTP,0,0,0,,从电源管理，钥匙串权限\N{\fs14}like this, like power management, and key chain access
+Dialogue: 0,0:07:10.99,0:07:14.16,冬青黑体简体中文,NTP,0,0,0,,到隐私安全\N{\fs14}to kind of manage the security of things.
+Dialogue: 0,0:07:14.16,0:07:16.19,冬青黑体简体中文,NTP,0,0,0,,Bonjour，这个是跟网络相关的\N{\fs14}Bonjour, which is this kind of network,
+Dialogue: 0,0:07:16.54,0:07:18.25,冬青黑体简体中文,NTP,0,0,0,,用来通过网络搜索其他东西\N{\fs14}finding other things on the network.
+Dialogue: 0,0:07:18.45,0:07:19.63,冬青黑体简体中文,NTP,0,0,0,,上面说的这些都有\N{\fs14}So it's got all that stuff,
+Dialogue: 0,0:07:19.63,0:07:22.76,冬青黑体简体中文,NTP,0,0,0,,总之这是一个十分厉害，靠谱的系统\N{\fs14}it's a very powerful underlying operating system.
+Dialogue: 0,0:07:23.01,0:07:25.88,冬青黑体简体中文,NTP,0,0,0,,不过，不说全部，大多数的 API 都是 C 的\N{\fs14}But all of that API or most of it is in C,
+Dialogue: 0,0:07:26.17,0:07:27.94,冬青黑体简体中文,NTP,0,0,0,,我们又想完全用 OO 编程\N{\fs14}and we want to be programming kind of purely object-oriented layer.
+Dialogue: 0,0:07:29.78,0:07:32.72,冬青黑体简体中文,NTP,0,0,0,,所以我们大多数时候接触的\N{\fs14}So we're going to be mostly operating when we're talking,
+Dialogue: 0,0:07:32.72,0:07:35.21,冬青黑体简体中文,NTP,0,0,0,,都是 Core Services 层\N{\fs14}touching those things at the Core services layer.
+Dialogue: 0,0:07:35.77,0:07:39.37,冬青黑体简体中文,NTP,0,0,0,,这一层包括语言\N{\fs14}So this layer has things like language, things that,
+Dialogue: 0,0:07:39.37,0:07:42.40,冬青黑体简体中文,NTP,0,0,0,,Array, Dictionary, String 这些\N{\fs14}that kind of make the language more powerful, like arrays
+Dialogue: 0,0:07:42.40,0:07:44.78,冬青黑体简体中文,NTP,0,0,0,,使得语言很强大\N{\fs14}and dictionaries, and strings and things like that,
+Dialogue: 0,0:07:45.20,0:07:48.71,冬青黑体简体中文,NTP,0,0,0,,它还提供了 OO 的方式来获得文件系统权限\N{\fs14}plus it has object-oriented ways to access the file system,
+Dialogue: 0,0:07:48.97,0:07:51.95,冬青黑体简体中文,NTP,0,0,0,,也提供了 OO 的方式\N{\fs14}it has object-oriented ways to find out the GPS location
+Dialogue: 0,0:07:51.95,0:07:53.51,冬青黑体简体中文,NTP,0,0,0,,来和你设备的 GPS 进行交互\N{\fs14}of your device, for example.
+Dialogue: 0,0:07:53.76,0:07:56.77,冬青黑体简体中文,NTP,0,0,0,,其他还有多线程\N{\fs14}It has ways to do multithreading.
+Dialogue: 0,0:07:57.06,0:08:01.02,冬青黑体简体中文,NTP,0,0,0,,我知道你们都希望能够\N{\fs14}All this stuff what you want to be able to do, but you want
+Dialogue: 0,0:08:01.02,0:08:03.71,冬青黑体简体中文,NTP,0,0,0,,通过 OO 来实现这些功能\N{\fs14}to stay in an object-oriented kind of mindset
+Dialogue: 0,0:08:03.71,0:08:04.70,冬青黑体简体中文,NTP,0,0,0,,我想告诉你们，可以的\N{\fs14}as you're doing them all.
+Dialogue: 0,0:08:04.94,0:08:08.04,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}There's a huge layer, foundational layer there
+Dialogue: 0,0:08:08.04,0:08:10.18,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}at Core services for doing that.
+Dialogue: 0,0:08:10.18,0:08:12.83,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}At the media layer, don't sleep on this layer,
+Dialogue: 0,0:08:12.83,0:08:14.62,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}really important layer, you've got video here,
+Dialogue: 0,0:08:14.62,0:08:17.10,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}you've got video editing, you got images, of course,
+Dialogue: 0,0:08:17.10,0:08:19.82,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}that it can display, it's incredibly powerful audio
+Dialogue: 0,0:08:19.99,0:08:21.96,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}for doing 3D audio, if you have games,
+Dialogue: 0,0:08:21.96,0:08:23.39,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}you can make the Thai fighters feel
+Dialogue: 0,0:08:23.39,0:08:25.64,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}like they're ripping by you and stuff.
+Dialogue: 0,0:08:25.64,0:08:26.88,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}All that stuff is in here.
+Dialogue: 0,0:08:27.13,0:08:29.18,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}This is part of, the part of iOS
+Dialogue: 0,0:08:29.18,0:08:31.73,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}that really I can't cover in a lot of depth.
+Dialogue: 0,0:08:31.73,0:08:33.91,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}I'm just going to try and let you know that it's there
+Dialogue: 0,0:08:33.91,0:08:35.77,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}and you're going to dive down depending on what kind
+Dialogue: 0,0:08:35.99,0:08:38.96,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}of applications, later in your life, you want to build.
+Dialogue: 0,0:08:39.51,0:08:40.82,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}But there's an enormous amount there.
+Dialogue: 0,0:08:40.82,0:08:44.10,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}This is a fundamentally, a multimedia device, obviously,
+Dialogue: 0,0:08:44.76,0:08:46.76,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}and then, Cocoa Touch is where we're going
+Dialogue: 0,0:08:46.76,0:08:48.61,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}to spend most of our time.
+Dialogue: 0,0:08:48.61,0:08:53.17,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}This is where you are going to be building buttons and sliders
+Dialogue: 0,0:08:53.17,0:08:55.67,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}and text fields, talking to each other, and animation happening,
 Dialogue: 0,0:08:55.67,0:08:58.02,冬青黑体简体中文,NTP,0,0,0,,{\fs14}things sliding in and\Nout, and, you know,
 Dialogue: 0,0:08:58.02,0:08:59.61,冬青黑体简体中文,NTP,0,0,0,,{\fs14}fading out and fading in.
 Dialogue: 0,0:09:00.17,0:09:03.20,冬青黑体简体中文,NTP,0,0,0,,{\fs14}If you want to get the,\Na picture from the camera
