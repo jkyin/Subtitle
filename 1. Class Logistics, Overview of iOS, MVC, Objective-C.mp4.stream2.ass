@@ -137,7 +137,7 @@ Dialogue: 0,0:06:04.08,0:06:06.30,冬青黑体简体中文,NTP,0,0,0,,看到文�
 Dialogue: 0,0:06:06.30,0:06:07.66,冬青黑体简体中文,NTP,0,0,0,,所以我们先从高级的层面来看\N{\fs14}So this is just a high-level overview.
 Dialogue: 0,0:06:07.72,0:06:13.22,冬青黑体简体中文,NTP,0,0,0,,可以看到我把他们分成了四组\N{\fs14}So, I, I've used this division into these four, kind of groups.
 Dialogue: 0,0:06:13.36,0:06:16.21,冬青黑体简体中文,NTP,0,0,0,,Core OS，最接近硬件的一层\N{\fs14}Core OS, which is the stuff that's close to the hardware.
-Dialogue: 0,0:06:17.06,0:06:20.57,冬青黑体简体中文,NTP,0,0,0,,Core services，是用 OO 封装 Core OS 的一层\N{\fs14}Core services, which is an object-oriented on top of that,
+Dialogue: 0,0:06:17.06,0:06:20.57,冬青黑体简体中文,NTP,0,0,0,,Core services，是用 OO 封装 Core OS 的一层\N{\fs14}Core services, which is an object-oriented layer on top of that,
 Dialogue: 0,0:06:20.70,0:06:21.32,冬青黑体简体中文,NTP,0,0,0,,为什么呢？\N{\fs14}that kind of makes it
 Dialogue: 0,0:06:21.32,0:06:23.59,冬青黑体简体中文,NTP,0,0,0,,这样你就可以无时无刻不在拥抱 OO 了\N{\fs14}so you always are programming an object-oriented layer.
 Dialogue: 0,0:06:24.07,0:06:28.48,冬青黑体简体中文,NTP,0,0,0,,Media，其实 iPhone 就是 iPod 加了个通话功能\N{\fs14}Media, because these devices are basically iPods with a phone
@@ -173,65 +173,65 @@ Dialogue: 0,0:07:53.76,0:07:56.77,冬青黑体简体中文,NTP,0,0,0,,其他还�
 Dialogue: 0,0:07:57.06,0:08:01.02,冬青黑体简体中文,NTP,0,0,0,,我知道你们都希望能够\N{\fs14}All this stuff what you want to be able to do, but you want
 Dialogue: 0,0:08:01.02,0:08:03.71,冬青黑体简体中文,NTP,0,0,0,,通过 OO 来实现这些功能\N{\fs14}to stay in an object-oriented kind of mindset
 Dialogue: 0,0:08:03.71,0:08:04.70,冬青黑体简体中文,NTP,0,0,0,,我想告诉你们，可以的\N{\fs14}as you're doing them all.
-Dialogue: 0,0:08:04.94,0:08:08.04,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}There's a huge layer, foundational layer there
-Dialogue: 0,0:08:08.04,0:08:10.18,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}at Core services for doing that.
-Dialogue: 0,0:08:10.18,0:08:12.83,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}At the media layer, don't sleep on this layer,
-Dialogue: 0,0:08:12.83,0:08:14.62,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}really important layer, you've got video here,
-Dialogue: 0,0:08:14.62,0:08:17.10,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}you've got video editing, you got images, of course,
-Dialogue: 0,0:08:17.10,0:08:19.82,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}that it can display, it's incredibly powerful audio
-Dialogue: 0,0:08:19.99,0:08:21.96,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}for doing 3D audio, if you have games,
-Dialogue: 0,0:08:21.96,0:08:23.39,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}you can make the Thai fighters feel
-Dialogue: 0,0:08:23.39,0:08:25.64,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}like they're ripping by you and stuff.
-Dialogue: 0,0:08:25.64,0:08:26.88,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}All that stuff is in here.
-Dialogue: 0,0:08:27.13,0:08:29.18,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}This is part of, the part of iOS
-Dialogue: 0,0:08:29.18,0:08:31.73,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}that really I can't cover in a lot of depth.
-Dialogue: 0,0:08:31.73,0:08:33.91,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}I'm just going to try and let you know that it's there
-Dialogue: 0,0:08:33.91,0:08:35.77,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}and you're going to dive down depending on what kind
-Dialogue: 0,0:08:35.99,0:08:38.96,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}of applications, later in your life, you want to build.
-Dialogue: 0,0:08:39.51,0:08:40.82,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}But there's an enormous amount there.
-Dialogue: 0,0:08:40.82,0:08:44.10,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}This is a fundamentally, a multimedia device, obviously,
-Dialogue: 0,0:08:44.76,0:08:46.76,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}and then, Cocoa Touch is where we're going
-Dialogue: 0,0:08:46.76,0:08:48.61,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}to spend most of our time.
-Dialogue: 0,0:08:48.61,0:08:53.17,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}This is where you are going to be building buttons and sliders
-Dialogue: 0,0:08:53.17,0:08:55.67,冬青黑体简体中文,NTP,0,0,0,,\N{\fs14}and text fields, talking to each other, and animation happening,
-Dialogue: 0,0:08:55.67,0:08:58.02,冬青黑体简体中文,NTP,0,0,0,,{\fs14}things sliding in and\Nout, and, you know,
-Dialogue: 0,0:08:58.02,0:08:59.61,冬青黑体简体中文,NTP,0,0,0,,{\fs14}fading out and fading in.
-Dialogue: 0,0:09:00.17,0:09:03.20,冬青黑体简体中文,NTP,0,0,0,,{\fs14}If you want to get the,\Na picture from the camera
-Dialogue: 0,0:09:03.20,0:09:04.53,冬青黑体简体中文,NTP,0,0,0,,{\fs14}from the user, you can do that.
-Dialogue: 0,0:09:04.85,0:09:07.52,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Things like localization\Nso that you're app can run
-Dialogue: 0,0:09:07.52,0:09:10.44,冬青黑体简体中文,NTP,0,0,0,,{\fs14}in many countries in the world\Nand up your sales by doing that.
-Dialogue: 0,0:09:10.44,0:09:13.66,冬青黑体简体中文,NTP,0,0,0,,{\fs14}A whole map kit for\Ndoing all the 3D maps
-Dialogue: 0,0:09:13.66,0:09:15.57,冬青黑体简体中文,NTP,0,0,0,,{\fs14}that you've probably\Nseen in iOS7 and all
-Dialogue: 0,0:09:15.57,0:09:16.79,冬青黑体简体中文,NTP,0,0,0,,{\fs14}that stuff is all in there.
-Dialogue: 0,0:09:17.23,0:09:21.13,冬青黑体简体中文,NTP,0,0,0,,{\fs14}And, there's even a view
-Dialogue: 0,0:09:21.13,0:09:23.52,冬青黑体简体中文,NTP,0,0,0,,{\fs14}in there that's an entire web\Nbrowser in a little rectangle
-Dialogue: 0,0:09:23.52,0:09:25.33,冬青黑体简体中文,NTP,0,0,0,,{\fs14}that you can just plop\Nright into your app.
-Dialogue: 0,0:09:25.33,0:09:29.70,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So these are really high-level\Nobjects, and we're going
-Dialogue: 0,0:09:29.70,0:09:32.01,冬青黑体简体中文,NTP,0,0,0,,{\fs14}to really be diving into\Nthis layer, alright?
-Dialogue: 0,0:09:32.01,0:09:33.08,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So this is really the primary.
-Dialogue: 0,0:09:33.08,0:09:37.46,冬青黑体简体中文,NTP,0,0,0,,{\fs14}And it's called Cocoa\NTouch because the API
-Dialogue: 0,0:09:37.71,0:09:40.26,冬青黑体简体中文,NTP,0,0,0,,{\fs14}in here was originally\Ndeveloped for Mac OS X,
-Dialogue: 0,0:09:40.26,0:09:43.51,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and it was called Cocoa, and\Nof course then when they went
-Dialogue: 0,0:09:43.51,0:09:47.19,冬青黑体简体中文,NTP,0,0,0,,{\fs14}to iOS, they adapted, and\Na lot of API is shared
-Dialogue: 0,0:09:47.19,0:09:48.55,冬青黑体简体中文,NTP,0,0,0,,{\fs14}between the two platforms,\Nand, in fact,
-Dialogue: 0,0:09:48.55,0:09:51.24,冬青黑体简体中文,NTP,0,0,0,,{\fs14}if you develop an iOS app\Nand then you say someday, oh,
-Dialogue: 0,0:09:51.24,0:09:53.74,冬青黑体简体中文,NTP,0,0,0,,{\fs14}I want to develop an app\Nfor the Mac using Cocoa,
-Dialogue: 0,0:09:53.74,0:09:54.73,冬青黑体简体中文,NTP,0,0,0,,{\fs14}it's going to be very similar.
-Dialogue: 0,0:09:54.92,0:09:58.27,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Okay? You're going to be really,\Nit's going to look familiar.
-Dialogue: 0,0:09:58.45,0:10:00.55,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So Cocoa Touch, obviously,
-Dialogue: 0,0:10:00.55,0:10:03.27,冬青黑体简体中文,NTP,0,0,0,,{\fs14}is the touchscreen\Nversion of that, of Cocoa.
-Dialogue: 0,0:10:03.27,0:10:03.37,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Okay?
-Dialogue: 0,0:10:04.09,0:10:08.86,冬青黑体简体中文,NTP,0,0,0,,{\fs14}This technology, Cocoa, has\Nbeen around a long time, okay?
-Dialogue: 0,0:10:08.98,0:10:11.42,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Probably almost 30\Nyears, believe it or not.
-Dialogue: 0,0:10:11.42,0:10:15.71,冬青黑体简体中文,NTP,0,0,0,,{\fs14}From even before Apple\Nacquired it to make Mac OS,
-Dialogue: 0,0:10:15.90,0:10:19.60,冬青黑体简体中文,NTP,0,0,0,,{\fs14}what is now Mac OS X, and so\Nit's a very mature API, okay?
-Dialogue: 0,0:10:19.79,0:10:23.54,冬青黑体简体中文,NTP,0,0,0,,{\fs14}And it's very well thought\Nout, so, especially if you go
-Dialogue: 0,0:10:23.54,0:10:26.36,冬青黑体简体中文,NTP,0,0,0,,{\fs14}with the flow of\Nit, it's very easy
-Dialogue: 0,0:10:26.36,0:10:27.88,冬青黑体简体中文,NTP,0,0,0,,{\fs14}to build really powerful things.
-Dialogue: 0,0:10:28.66,0:10:30.44,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So, that's what's in there.
-Dialogue: 0,0:10:30.71,0:10:33.28,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So let's talk about the\Ntools we use as programmers,
-Dialogue: 0,0:10:33.28,0:10:35.87,冬青黑体简体中文,NTP,0,0,0,,{\fs14}as developers, to\Nbuild these apps, okay?
-Dialogue: 0,0:10:36.04,0:10:38.45,冬青黑体简体中文,NTP,0,0,0,,{\fs14}And I've divided those into\Nkind of four sections here.
+Dialogue: 0,0:08:04.94,0:08:08.04,冬青黑体简体中文,NTP,0,0,0,,而这个庞大的基础的 Core services 层\N{\fs14}There's a huge layer, foundational layer there
+Dialogue: 0,0:08:08.04,0:08:10.18,冬青黑体简体中文,NTP,0,0,0,,就是用来做这些工作的\N{\fs14}at Core services for doing that.
+Dialogue: 0,0:08:10.18,0:08:12.83,冬青黑体简体中文,NTP,0,0,0,,接下来是 media 层，可别睡着了。\N{\fs14}At the media layer, don't sleep on this layer,
+Dialogue: 0,0:08:12.83,0:08:14.62,冬青黑体简体中文,NTP,0,0,0,,其实它相当重要，包括视频\N{\fs14}really important layer, you've got video here,
+Dialogue: 0,0:08:14.62,0:08:17.10,冬青黑体简体中文,NTP,0,0,0,,视频编辑，图片\N{\fs14}you've got video editing, you got images, of course,
+Dialogue: 0,0:08:17.10,0:08:19.82,冬青黑体简体中文,NTP,0,0,0,,当然是可以显示的，还有强大的可以处理 3D 音频的\N{\fs14}that it can display, it's incredibly powerful audio
+Dialogue: 0,0:08:19.99,0:08:21.96,冬青黑体简体中文,NTP,0,0,0,,音频功能，如果你做游戏\N{\fs14}for doing 3D audio, if you have games,
+Dialogue: 0,0:08:21.96,0:08:23.39,冬青黑体简体中文,NTP,0,0,0,,可以做出强大的身临其境的感觉\N{\fs14}you can make the Thai fighters feel
+Dialogue: 0,0:08:23.39,0:08:25.64,冬青黑体简体中文,NTP,0,0,0,,还有其他一些东西\N{\fs14}like they're ripping by you and stuff.
+Dialogue: 0,0:08:25.64,0:08:26.88,冬青黑体简体中文,NTP,0,0,0,,这些都可以在这一层搞定\N{\fs14}All that stuff is in here.
+Dialogue: 0,0:08:27.13,0:08:29.18,冬青黑体简体中文,NTP,0,0,0,,当然这只是 iOS 的一部分\N{\fs14}This is part of, the part of iOS
+Dialogue: 0,0:08:29.18,0:08:31.73,冬青黑体简体中文,NTP,0,0,0,,我实在没时间深入讲解\N{\fs14}that really I can't cover in a lot of depth.
+Dialogue: 0,0:08:31.73,0:08:33.91,冬青黑体简体中文,NTP,0,0,0,,现在我就是简单介绍一下哪些东西都在什么地方\N{\fs14}I'm just going to try and let you know that it's there
+Dialogue: 0,0:08:33.91,0:08:35.77,冬青黑体简体中文,NTP,0,0,0,,以后你们可以根据自己 App 的需要\N{\fs14}and you're going to dive down depending on what kind
+Dialogue: 0,0:08:35.99,0:08:38.96,冬青黑体简体中文,NTP,0,0,0,,来深入研究某个方面\N{\fs14}of applications, later in your life, you want to build.
+Dialogue: 0,0:08:39.51,0:08:40.82,冬青黑体简体中文,NTP,0,0,0,,不过东西真的非常非常多\N{\fs14}But there's an enormous amount there.
+Dialogue: 0,0:08:40.82,0:08:44.10,冬青黑体简体中文,NTP,0,0,0,,本质上这还是一个多媒体设备嘛\N{\fs14}This is a fundamentally, a multimedia device, obviously,
+Dialogue: 0,0:08:44.76,0:08:46.76,冬青黑体简体中文,NTP,0,0,0,,最后是 Cocoa Touch\N{\fs14}and then, Cocoa Touch is where we're going
+Dialogue: 0,0:08:46.76,0:08:48.61,冬青黑体简体中文,NTP,0,0,0,,大部分时候我们都是在和它打交道\N{\fs14}to spend most of our time.
+Dialogue: 0,0:08:48.61,0:08:53.17,冬青黑体简体中文,NTP,0,0,0,,我们会在这一层创建 button, sliders\N{\fs14}This is where you are going to be building buttons and sliders
+Dialogue: 0,0:08:53.17,0:08:55.67,冬青黑体简体中文,NTP,0,0,0,,text fields, 交互, 动画\N{\fs14}and text fields, talking to each other, and animation happening,
+Dialogue: 0,0:08:55.67,0:08:58.02,冬青黑体简体中文,NTP,0,0,0,,滑进滑出\N{\fs14}things sliding in and\Nout, and, you know,
+Dialogue: 0,0:08:58.02,0:08:59.61,冬青黑体简体中文,NTP,0,0,0,,渐进渐出\N{\fs14}fading out and fading in.
+Dialogue: 0,0:09:00.17,0:09:03.20,冬青黑体简体中文,NTP,0,0,0,,还可以拍照\N{\fs14}If you want to get the,\Na picture from the camera
+Dialogue: 0,0:09:03.20,0:09:04.53,冬青黑体简体中文,NTP,0,0,0,,通过用户获取图片\N{\fs14}from the user, you can do that.
+Dialogue: 0,0:09:04.85,0:09:07.52,冬青黑体简体中文,NTP,0,0,0,,还有本地化，让你的 App 适应\N{\fs14}Things like localization\Nso that you're app can run
+Dialogue: 0,0:09:07.52,0:09:10.44,冬青黑体简体中文,NTP,0,0,0,,不同的文化习惯，帮助提升销量\N{\fs14}in many countries in the world\Nand up your sales by doing that.
+Dialogue: 0,0:09:10.44,0:09:13.66,冬青黑体简体中文,NTP,0,0,0,,还有 map kit，处理 3D 地图的\N{\fs14}A whole map kit for\Ndoing all the 3D maps
+Dialogue: 0,0:09:13.66,0:09:15.57,冬青黑体简体中文,NTP,0,0,0,,可能你在 iOS7 上看到过了\N{\fs14}that you've probably\Nseen in iOS7 and all
+Dialogue: 0,0:09:15.57,0:09:16.79,冬青黑体简体中文,NTP,0,0,0,,刚才提到的都在这一层\N{\fs14}that stuff is all in there.
+Dialogue: 0,0:09:17.23,0:09:21.13,冬青黑体简体中文,NTP,0,0,0,,还有厉害的\N{\fs14}And, there's even a view
+Dialogue: 0,0:09:21.13,0:09:23.52,冬青黑体简体中文,NTP,0,0,0,,你甚至可以把一个浏览器\N{\fs14}in there that's an entire web\Nbrowser in a little rectangle
+Dialogue: 0,0:09:23.52,0:09:25.33,冬青黑体简体中文,NTP,0,0,0,,嵌入到你的 App 里面\N{\fs14}that you can just plop\Nright into your app.
+Dialogue: 0,0:09:25.33,0:09:29.70,冬青黑体简体中文,NTP,0,0,0,,这些都是相对高级的对象\N{\fs14}So these are really high-level\Nobjects, and we're going
+Dialogue: 0,0:09:29.70,0:09:32.01,冬青黑体简体中文,NTP,0,0,0,,以后我们会深入学习这一层\N{\fs14}to really be diving into\Nthis layer, alright?
+Dialogue: 0,0:09:32.01,0:09:33.08,冬青黑体简体中文,NTP,0,0,0,,这些都是基础\N{\fs14}So this is really the primary.
+Dialogue: 0,0:09:33.08,0:09:37.46,冬青黑体简体中文,NTP,0,0,0,,至于为什么叫 Cocoa Touch 是因为\N{\fs14}And it's called Cocoa\NTouch because the API
+Dialogue: 0,0:09:37.71,0:09:40.26,冬青黑体简体中文,NTP,0,0,0,,这些 API 最初是为 Mac OS X 开发的\N{\fs14}in here was originally\Ndeveloped for Mac OS X,
+Dialogue: 0,0:09:40.26,0:09:43.51,冬青黑体简体中文,NTP,0,0,0,,叫做 Cocoa，后来 Apple 做了修改\N{\fs14}and it was called Cocoa, and\Nof course then when they went
+Dialogue: 0,0:09:43.51,0:09:47.19,冬青黑体简体中文,NTP,0,0,0,,用来适应 iOS，所以很多 API\N{\fs14}to iOS, they adapted, and\Na lot of API is shared
+Dialogue: 0,0:09:47.19,0:09:48.55,冬青黑体简体中文,NTP,0,0,0,,在这两个平台上是通用的\N{\fs14}between the two platforms,\Nand, in fact,
+Dialogue: 0,0:09:48.55,0:09:51.24,冬青黑体简体中文,NTP,0,0,0,,如果你是 iOS 开发者\N{\fs14}if you develop an iOS app\Nand then you say someday, oh,
+Dialogue: 0,0:09:51.24,0:09:53.74,冬青黑体简体中文,NTP,0,0,0,,突然心血来潮想用 Cocoa 开发一个 Mac App 玩一下\N{\fs14}I want to develop an app\Nfor the Mac using Cocoa,
+Dialogue: 0,0:09:53.74,0:09:54.73,冬青黑体简体中文,NTP,0,0,0,,也不会觉得不适应\N{\fs14}it's going to be very similar.
+Dialogue: 0,0:09:54.92,0:09:58.27,冬青黑体简体中文,NTP,0,0,0,,很多东西都会觉得很眼熟\N{\fs14}Okay? You're going to be really,\Nit's going to look familiar.
+Dialogue: 0,0:09:58.45,0:10:00.55,冬青黑体简体中文,NTP,0,0,0,,所以说，Cocoa Touch\N{\fs14}So Cocoa Touch, obviously,
+Dialogue: 0,0:10:00.55,0:10:03.27,冬青黑体简体中文,NTP,0,0,0,,其实就是触摸板的 Cocoa\N{\fs14}is the touchscreen\Nversion of that, of Cocoa.
+Dialogue: 0,0:10:03.27,0:10:03.37,冬青黑体简体中文,NTP,0,0,0,,都清楚了吧？\N{\fs14}Okay?
+Dialogue: 0,0:10:04.09,0:10:08.86,冬青黑体简体中文,NTP,0,0,0,,Cocoa 已经存在相当长时间了\N{\fs14}This technology, Cocoa, has\Nbeen around a long time, okay?
+Dialogue: 0,0:10:08.98,0:10:11.42,冬青黑体简体中文,NTP,0,0,0,,可能你都不信，差不多有 30 年了\N{\fs14}Probably almost 30\Nyears, believe it or not.
+Dialogue: 0,0:10:11.42,0:10:15.71,冬青黑体简体中文,NTP,0,0,0,,Apple 开始用它来开发 Mac OS 之前就已经存在了\N{\fs14}From even before Apple\Nacquired it to make Mac OS,
+Dialogue: 0,0:10:15.90,0:10:19.60,冬青黑体简体中文,NTP,0,0,0,,也就是现在的 Mac OS X，换言之这是一个相当成熟的 API\N{\fs14}what is now Mac OS X, and so\Nit's a very mature API, okay?
+Dialogue: 0,0:10:19.79,0:10:23.54,冬青黑体简体中文,NTP,0,0,0,,里面的很多东西都是经过深思熟虑的\N{\fs14}And it's very well thought\Nout, so, especially if you go
+Dialogue: 0,0:10:23.54,0:10:26.36,冬青黑体简体中文,NTP,0,0,0,,如果你按照流程和来开发规范\N{\fs14}with the flow of\Nit, it's very easy
+Dialogue: 0,0:10:26.36,0:10:27.88,冬青黑体简体中文,NTP,0,0,0,,你会发现实现一些很强大的功能是如此简单\N{\fs14}to build really powerful things.
+Dialogue: 0,0:10:28.66,0:10:30.44,冬青黑体简体中文,NTP,0,0,0,,就是这些了\N{\fs14}So, that's what's in there.
+Dialogue: 0,0:10:30.71,0:10:33.28,冬青黑体简体中文,NTP,0,0,0,,接下来我们介绍一些别的{\fs14}So let's talk about the\Ntools we use as programmers,
+Dialogue: 0,0:10:33.28,0:10:35.87,冬青黑体简体中文,NTP,0,0,0,,首先是我们的好朋友：开发工具{\fs14}as developers, to\Nbuild these apps, okay?
+Dialogue: 0,0:10:36.04,0:10:38.45,冬青黑体简体中文,NTP,0,0,0,,我也把他们分成了4部分{\fs14}And I've divided those into\Nkind of four sections here.
 Dialogue: 0,0:10:38.71,0:10:42.12,冬青黑体简体中文,NTP,0,0,0,,{\fs14}One is the tools, the\Nactual programming tools,
 Dialogue: 0,0:10:42.39,0:10:44.84,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and what's great,\Non this platform,
 Dialogue: 0,0:10:44.84,0:10:47.68,冬青黑体简体中文,NTP,0,0,0,,{\fs14}is itÃs pretty much\Na one-tool fits all.
