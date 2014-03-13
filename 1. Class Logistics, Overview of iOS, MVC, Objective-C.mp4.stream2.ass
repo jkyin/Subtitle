@@ -283,61 +283,61 @@ Dialogue: 0,0:12:34.10,0:12:37.13,冬青黑体简体中文,NTP,0,0,0,,不过有�
 Dialogue: 0,0:12:37.13,0:12:39.80,冬青黑体简体中文,NTP,0,0,0,,某种意义上来说相对保守的同学\N{\fs14}correct programming kind of thing, you love Java,
 Dialogue: 0,0:12:39.80,0:12:42.26,冬青黑体简体中文,NTP,0,0,0,,可能觉得 objective C 略显狂野\N{\fs14}might find objective C a little wild west for you,
 Dialogue: 0,0:12:42.26,0:12:44.57,冬青黑体简体中文,NTP,0,0,0,,总之会习惯的\N{\fs14}but you'll get over it.
-Dialogue: 0,0:12:44.83,0:12:47.97,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Frameworks, obviously, any big system like this groups all
-Dialogue: 0,0:12:47.97,0:12:50.25,冬青黑体简体中文,NTP,0,0,0,,{\fs14}of its objects into\Nlibraries, essentially.
-Dialogue: 0,0:12:50.25,0:12:52.31,冬青黑体简体中文,NTP,0,0,0,,{\fs14}We call them Frameworks in iOS,
-Dialogue: 0,0:12:52.31,0:12:56.24,冬青黑体简体中文,NTP,0,0,0,,{\fs14}so there are dozens\Nof frameworks in iOS.
-Dialogue: 0,0:12:56.75,0:12:58.70,冬青黑体简体中文,NTP,0,0,0,,{\fs14}The two main ones we're going\Nto look at, at the beginning
-Dialogue: 0,0:12:58.70,0:13:01.12,冬青黑体简体中文,NTP,0,0,0,,{\fs14}of the course, are\Nfoundation, that's where all
-Dialogue: 0,0:13:01.12,0:13:03.16,冬青黑体简体中文,NTP,0,0,0,,{\fs14}that core services\Nstuff is, like arrays
-Dialogue: 0,0:13:03.16,0:13:04.11,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and dictionaries and all that.
-Dialogue: 0,0:13:04.11,0:13:07.14,冬青黑体简体中文,NTP,0,0,0,,{\fs14}And then UI kit, okay, that's\Nwhere buttons and sliders
-Dialogue: 0,0:13:07.14,0:13:08.84,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and all those things area, so\Nthose are the two main ones,
-Dialogue: 0,0:13:08.84,0:13:10.52,冬青黑体简体中文,NTP,0,0,0,,{\fs14}but, there's a whole\Nbunch of other ones, like,
-Dialogue: 0,0:13:10.52,0:13:12.13,冬青黑体简体中文,NTP,0,0,0,,{\fs14}you see the Core Data\Nwritten up there,
-Dialogue: 0,0:13:12.35,0:13:14.12,冬青黑体简体中文,NTP,0,0,0,,{\fs14}that's the object-oriented\Ndatabase.
-Dialogue: 0,0:13:14.35,0:13:15.90,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Okay? So we're going\Nto be doing that.
-Dialogue: 0,0:13:16.26,0:13:19.17,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Core Motion, that's the\Ngyro and accelerometer.
-Dialogue: 0,0:13:19.55,0:13:21.22,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Map Kit, obviously the maps.
-Dialogue: 0,0:13:21.53,0:13:23.11,冬青黑体简体中文,NTP,0,0,0,,{\fs14}And there's dozens more, okay?
-Dialogue: 0,0:13:23.11,0:13:25.01,冬青黑体简体中文,NTP,0,0,0,,{\fs14}And we'll cover as\Nmany of them as we can,
-Dialogue: 0,0:13:25.34,0:13:26.83,冬青黑体简体中文,NTP,0,0,0,,{\fs14}obviously we can't do\Nit all in 10 weeks,
-Dialogue: 0,0:13:26.83,0:13:27.88,冬青黑体简体中文,NTP,0,0,0,,{\fs14}but we'll do as much as we can.
-Dialogue: 0,0:13:28.31,0:13:31.07,冬青黑体简体中文,NTP,0,0,0,,{\fs14}And then the last part\Nof developing application
-Dialogue: 0,0:13:31.07,0:13:34.49,冬青黑体简体中文,NTP,0,0,0,,{\fs14}in this platform is a\Ndesign strategy called MVC.
-Dialogue: 0,0:13:34.89,0:13:38.61,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Now, this is not unique to\NiOS, other platforms use MVC,
-Dialogue: 0,0:13:38.66,0:13:42.44,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Model View Controller, as their\Nfundamental design strategy.
-Dialogue: 0,0:13:42.44,0:13:45.95,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So how many people in this room\Nhave used MVC on any platform?
-Dialogue: 0,0:13:46.98,0:13:48.61,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Okay, so about half, so\Nyou'll know what this is.
-Dialogue: 0,0:13:48.61,0:13:51.27,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So, I'm actually going to\Ngo over MVC for those of you
-Dialogue: 0,0:13:51.27,0:13:53.21,冬青黑体简体中文,NTP,0,0,0,,{\fs14}who haven't and I'll go\Nthrough it pretty quickly,
-Dialogue: 0,0:13:53.21,0:13:57.14,冬青黑体简体中文,NTP,0,0,0,,{\fs14}because it looks like most of\Nyou, half of you have done it,
-Dialogue: 0,0:13:57.14,0:13:59.87,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and [pause] the main\Nthing to see in MVC here,
-Dialogue: 0,0:13:59.87,0:14:01.41,冬青黑体简体中文,NTP,0,0,0,,{\fs14}for those of you who\Nalready know what it is,
-Dialogue: 0,0:14:01.41,0:14:06.24,冬青黑体简体中文,NTP,0,0,0,,{\fs14}is to see how I talk about it\Nso that when we get into iOS
-Dialogue: 0,0:14:06.24,0:14:10.09,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and I start saying things like\Nyour model is UI independent,
-Dialogue: 0,0:14:10.21,0:14:11.80,冬青黑体简体中文,NTP,0,0,0,,{\fs14}you'll know what\NI'm talking about
-Dialogue: 0,0:14:11.80,0:14:13.22,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and we'll all be\Non the same page.
-Dialogue: 0,0:14:13.25,0:14:15.90,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So this is mostly\Nkind of getting us all
-Dialogue: 0,0:14:15.90,0:14:17.58,冬青黑体简体中文,NTP,0,0,0,,{\fs14}on the same page\Nterminology-wise.
-Dialogue: 0,0:14:18.25,0:14:23.28,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So MVC, Model View Controller,\Nis essentially a strategy
-Dialogue: 0,0:14:23.28,0:14:28.42,冬青黑体简体中文,NTP,0,0,0,,{\fs14}for how to organize all the\Nclasses in your application.
-Dialogue: 0,0:14:28.42,0:14:31.74,冬青黑体简体中文,NTP,0,0,0,,{\fs14}And what we do fundamentally\Nis we divide all the classes
-Dialogue: 0,0:14:32.01,0:14:33.81,冬青黑体简体中文,NTP,0,0,0,,{\fs14}into one of three camps.
-Dialogue: 0,0:14:34.13,0:14:37.94,冬青黑体简体中文,NTP,0,0,0,,{\fs14}The model camp, the controller\Ncamp, or the view camp,
-Dialogue: 0,0:14:38.60,0:14:41.43,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and what, how you decide what\Ngoes in each of these camps,
-Dialogue: 0,0:14:41.43,0:14:45.32,冬青黑体简体中文,NTP,0,0,0,,{\fs14}well, the model is essentially\Nthe what of your program.
-Dialogue: 0,0:14:45.32,0:14:46.70,冬青黑体简体中文,NTP,0,0,0,,{\fs14}What is your program?
-Dialogue: 0,0:14:46.70,0:14:49.10,冬青黑体简体中文,NTP,0,0,0,,{\fs14}So, as we're doing this\NMVC talk, I'm going to talk
-Dialogue: 0,0:14:49.10,0:14:50.77,冬青黑体简体中文,NTP,0,0,0,,{\fs14}about our first application\Nwe're going to build
-Dialogue: 0,0:14:50.77,0:14:52.07,冬青黑体简体中文,NTP,0,0,0,,{\fs14}which is a card matching game.
-Dialogue: 0,0:14:52.42,0:14:54.51,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Okay? So we're going to build\Nthis game, it's gotta bunch
-Dialogue: 0,0:14:54.51,0:14:56.97,冬青黑体简体中文,NTP,0,0,0,,{\fs14}of cards on the screen, like\Nplaying cards, you know,
-Dialogue: 0,0:14:56.97,0:15:00.04,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Ace of Clubs and all that,\Nand you're going to be able
-Dialogue: 0,0:15:00.04,0:15:01.17,冬青黑体简体中文,NTP,0,0,0,,{\fs14}to go choose the cards
-Dialogue: 0,0:15:01.30,0:15:03.47,冬青黑体简体中文,NTP,0,0,0,,{\fs14}and you'll get certain\Npoints if the match.
-Dialogue: 0,0:15:03.74,0:15:05.96,冬青黑体简体中文,NTP,0,0,0,,{\fs14}Like the suit matches or the\Nrank matches, or whatever,
-Dialogue: 0,0:15:05.96,0:15:08.67,冬青黑体简体中文,NTP,0,0,0,,{\fs14}you get more points, less points\Nwhatever, but you're doing that.
+Dialogue: 0,0:12:44.83,0:12:47.97,冬青黑体简体中文,NTP,0,0,0,,来看框架，显而易见，像这么大的系统\N{\fs14}Frameworks, obviously, any big system like this groups all
+Dialogue: 0,0:12:47.97,0:12:50.25,冬青黑体简体中文,NTP,0,0,0,,肯定都会把对象都分类封装成库\N{\fs14}of its objects into libraries, essentially.
+Dialogue: 0,0:12:50.25,0:12:52.31,冬青黑体简体中文,NTP,0,0,0,,在 iOS 中我们称之为框架\N{\fs14}We call them Frameworks in iOS,
+Dialogue: 0,0:12:52.31,0:12:56.24,冬青黑体简体中文,NTP,0,0,0,,所以 iOS 里面有很多的框架\N{\fs14}so there are dozens of frameworks in iOS.
+Dialogue: 0,0:12:56.75,0:12:58.70,冬青黑体简体中文,NTP,0,0,0,,课程开始阶段我们主要会接触两个\N{\fs14}The two main ones we're going to look at, at the beginning
+Dialogue: 0,0:12:58.70,0:13:01.12,冬青黑体简体中文,NTP,0,0,0,,一个是 Foundation, 包含了 Core Services\N{\fs14}of the course, are foundation, that's where all
+Dialogue: 0,0:13:01.12,0:13:03.16,冬青黑体简体中文,NTP,0,0,0,,里面有 Array\N{\fs14}that core services stuff is, like arrays
+Dialogue: 0,0:13:03.16,0:13:04.11,冬青黑体简体中文,NTP,0,0,0,,Dictionary 以及其他\N{\fs14}and dictionaries and all that.
+Dialogue: 0,0:13:04.11,0:13:07.14,冬青黑体简体中文,NTP,0,0,0,,另一个是 UI Kit, 包含了像 button, sliders 这些控件\N{\fs14}And then UI kit, okay, that's where buttons and sliders
+Dialogue: 0,0:13:07.14,0:13:08.84,冬青黑体简体中文,NTP,0,0,0,,这两个就是我们主要会接触到的\N{\fs14}and all those things area, so those are the two main ones,
+Dialogue: 0,0:13:08.84,0:13:10.52,冬青黑体简体中文,NTP,0,0,0,,不过还有很多其他的\N{\fs14}but, there's a whole bunch of other ones, like,
+Dialogue: 0,0:13:10.52,0:13:12.13,冬青黑体简体中文,NTP,0,0,0,,比如这上面写的 Core Data\N{\fs14}you see the Core Data written up there,
+Dialogue: 0,0:13:12.35,0:13:14.12,冬青黑体简体中文,NTP,0,0,0,,一个 OO 的数据库\N{\fs14}that's the object-oriented database.
+Dialogue: 0,0:13:14.35,0:13:15.90,冬青黑体简体中文,NTP,0,0,0,,明白了吧？以后我们会用到\N{\fs14}Okay? So we're going to be doing that.
+Dialogue: 0,0:13:16.26,0:13:19.17,冬青黑体简体中文,NTP,0,0,0,,Core Motion, 就是陀螺仪，重力感应相关的\N{\fs14}Core Motion, that's the gyro and accelerometer.
+Dialogue: 0,0:13:19.55,0:13:21.22,冬青黑体简体中文,NTP,0,0,0,,Map Kit, 就是关于 map 的了\N{\fs14}Map Kit, obviously the maps.
+Dialogue: 0,0:13:21.53,0:13:23.11,冬青黑体简体中文,NTP,0,0,0,,其他还有很多很多\N{\fs14}And there's dozens more, okay?
+Dialogue: 0,0:13:23.11,0:13:25.01,冬青黑体简体中文,NTP,0,0,0,,我们会尽可能的多讲\N{\fs14}And we'll cover as many of them as we can,
+Dialogue: 0,0:13:25.34,0:13:26.83,冬青黑体简体中文,NTP,0,0,0,,不过10周的时间肯定没办法全部讲完\N{\fs14}obviously we can't do it all in 10 weeks,
+Dialogue: 0,0:13:26.83,0:13:27.88,冬青黑体简体中文,NTP,0,0,0,,尽量讲，讲到哪是哪\N{\fs14}but we'll do as much as we can.
+Dialogue: 0,0:13:28.31,0:13:31.07,冬青黑体简体中文,NTP,0,0,0,,关于开发 App, 还有最后一部分\N{\fs14}And then the last part of developing application
+Dialogue: 0,0:13:31.07,0:13:34.49,冬青黑体简体中文,NTP,0,0,0,,一种叫做 MVC 的设计模式\N{\fs14}in this platform is a design strategy called MVC.
+Dialogue: 0,0:13:34.89,0:13:38.61,冬青黑体简体中文,NTP,0,0,0,,MVC 并不是 iOS 独占的\N{\fs14}Now, this is not unique to iOS, other platforms use MVC,
+Dialogue: 0,0:13:38.66,0:13:42.44,冬青黑体简体中文,NTP,0,0,0,,以 Model View Controller 作为根本的设计模式\N{\fs14}Model View Controller, as their fundamental design strategy.
+Dialogue: 0,0:13:42.44,0:13:45.95,冬青黑体简体中文,NTP,0,0,0,,哪些同学以前接触过 MVC?\N{\fs14}So how many people in this room have used MVC on any platform?
+Dialogue: 0,0:13:46.98,0:13:48.61,冬青黑体简体中文,NTP,0,0,0,,大概有一半的同学知道是怎么回事\N{\fs14}Okay, so about half, so you'll know what this is.
+Dialogue: 0,0:13:48.61,0:13:51.27,冬青黑体简体中文,NTP,0,0,0,,照顾到没接触过的同学\N{\fs14}So, I'm actually going to go over MVC for those of you
+Dialogue: 0,0:13:51.27,0:13:53.21,冬青黑体简体中文,NTP,0,0,0,,我先带你们快速过一遍 MVC\N{\fs14}who haven't and I'll go through it pretty quickly,
+Dialogue: 0,0:13:53.21,0:13:57.14,冬青黑体简体中文,NTP,0,0,0,,因为很多同学已经了解了\N{\fs14}because it looks like most of you, half of you have done it,
+Dialogue: 0,0:13:57.14,0:13:59.87,冬青黑体简体中文,NTP,0,0,0,,关于 MVC 你们需要掌握的\N{\fs14}and [pause] the main thing to see in MVC here,
+Dialogue: 0,0:13:59.87,0:14:01.41,冬青黑体简体中文,NTP,0,0,0,,对已经知道的同学来说\N{\fs14}for those of you who already know what it is,
+Dialogue: 0,0:14:01.41,0:14:06.24,冬青黑体简体中文,NTP,0,0,0,,是看我怎么进行讲解的，这样以后我们真正开始 iOS 的时候\N{\fs14}is to see how I talk about it so that when we get into iOS
+Dialogue: 0,0:14:06.24,0:14:10.09,冬青黑体简体中文,NTP,0,0,0,,我会说 model 跟 UI 是相互独立的\N{\fs14}and I start saying things like your model is UI independent,
+Dialogue: 0,0:14:10.21,0:14:11.80,冬青黑体简体中文,NTP,0,0,0,,你们应该知道我说的是什么东西\N{\fs14}you'll know what I'm talking about
+Dialogue: 0,0:14:11.80,0:14:13.22,冬青黑体简体中文,NTP,0,0,0,,这样就没有同学会掉队了\N{\fs14}and we'll all be on the same page.
+Dialogue: 0,0:14:13.25,0:14:15.90,冬青黑体简体中文,NTP,0,0,0,,所以首先是让大家\N{\fs14}So this is mostly kind of getting us all
+Dialogue: 0,0:14:15.90,0:14:17.58,冬青黑体简体中文,NTP,0,0,0,,站在同一起跑线上\N{\fs14}on the same page terminology-wise.
+Dialogue: 0,0:14:18.25,0:14:23.28,冬青黑体简体中文,NTP,0,0,0,,MVC, Model View Controller\N{\fs14}So MVC, Model View Controller, is essentially a strategy
+Dialogue: 0,0:14:23.28,0:14:28.42,冬青黑体简体中文,NTP,0,0,0,,本质上是为了帮助你更好的组织你的代码\N{\fs14}for how to organize all the classes in your application.
+Dialogue: 0,0:14:28.42,0:14:31.74,冬青黑体简体中文,NTP,0,0,0,,实际上我们就是把这些 Class\N{\fs14}And what we do fundamentally is we divide all the classes
+Dialogue: 0,0:14:32.01,0:14:33.81,冬青黑体简体中文,NTP,0,0,0,,分成三个阵营\N{\fs14}into one of three camps.
+Dialogue: 0,0:14:34.13,0:14:37.94,冬青黑体简体中文,NTP,0,0,0,,依次是 model, controller 还有 view\N{\fs14}The model camp, the controller camp, or the view camp,
+Dialogue: 0,0:14:38.60,0:14:41.43,冬青黑体简体中文,NTP,0,0,0,,那怎么来分呢？\N{\fs14}and what, how you decide what goes in each of these camps,
+Dialogue: 0,0:14:41.43,0:14:45.32,冬青黑体简体中文,NTP,0,0,0,,首先 model, 代表的是你的程序是个什么东西\N{\fs14}well, the model is essentially the what of your program.
+Dialogue: 0,0:14:45.32,0:14:46.70,冬青黑体简体中文,NTP,0,0,0,,你的程序是什么？\N{\fs14}What is your program?
+Dialogue: 0,0:14:46.70,0:14:49.10,冬青黑体简体中文,NTP,0,0,0,,既然讲到 MVC, 我顺便介绍一下\N{\fs14}So, as we're doing this MVC talk, I'm going to talk
+Dialogue: 0,0:14:49.10,0:14:50.77,冬青黑体简体中文,NTP,0,0,0,,我们要做的第一个 App\N{\fs14}about our first application we're going to build
+Dialogue: 0,0:14:50.77,0:14:52.07,冬青黑体简体中文,NTP,0,0,0,,是一个匹配游戏\N{\fs14}which is a card matching game.
+Dialogue: 0,0:14:52.42,0:14:54.51,冬青黑体简体中文,NTP,0,0,0,,在游戏里面，会有很多牌\N{\fs14}Okay? So we're going to build this game, it's gotta bunch
+Dialogue: 0,0:14:54.51,0:14:56.97,冬青黑体简体中文,NTP,0,0,0,,排在屏幕上，比如扑克牌，肯定都玩过\N{\fs14}of cards on the screen, like playing cards, you know,
+Dialogue: 0,0:14:56.97,0:15:00.04,冬青黑体简体中文,NTP,0,0,0,,有 Ace 什么的，我们可以\N{\fs14}Ace of Clubs and all that, and you're going to be able
+Dialogue: 0,0:15:00.04,0:15:01.17,冬青黑体简体中文,NTP,0,0,0,,随机选牌\N{\fs14}to go choose the cards
+Dialogue: 0,0:15:01.30,0:15:03.47,冬青黑体简体中文,NTP,0,0,0,,会有相应的分数\N{\fs14}and you'll get certain points if the match.
+Dialogue: 0,0:15:03.74,0:15:05.96,冬青黑体简体中文,NTP,0,0,0,,可以根据花色，数值这些来计算分数\N{\fs14}Like the suit matches or the rank matches, or whatever,
+Dialogue: 0,0:15:05.96,0:15:08.67,冬青黑体简体中文,NTP,0,0,0,,然后你会得到不同的分数\N{\fs14}you get more points, less points whatever, but you're doing that.
 Dialogue: 0,0:15:08.67,0:15:10.81,冬青黑体简体中文,NTP,0,0,0,,{\fs14}In that kind of application,\Na little card matching game,
 Dialogue: 0,0:15:11.15,0:15:14.97,冬青黑体简体中文,NTP,0,0,0,,{\fs14}the cards and the deck,\Nand even the logic
 Dialogue: 0,0:15:14.97,0:15:18.07,冬青黑体简体中文,NTP,0,0,0,,{\fs14}for how the game is played\Nare all UI independent
