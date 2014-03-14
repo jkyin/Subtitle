@@ -1,0 +1,1712 @@
+[Script Info]
+ScriptType: v4.00+
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
+Style: Default,Arial,16,&Hffffff,&Hffffff,&H0,&H0,0,0,0,1,1,0,2,10,10,10,0,0
+
+[Events]
+Format: Layer, Start, End, Style, Text
+Dialogue: 0,0:00:00.51,0:00:04.85,Default,[ Music ]
+Dialogue: 0,0:00:05.35,0:00:06.36,Default,>> Stanford University.
+Dialogue: 0,0:00:07.52,0:00:10.19,Default,[ Silence ]
+Dialogue: 0,0:00:10.69,0:00:13.03,Default,>> Okay, well, welcome\Nto Lecture number 8
+Dialogue: 0,0:00:13.12,0:00:19.45,Default,of Stanford CS193P, Fall of 2013\Nand 14, and today, we are going
+Dialogue: 0,0:00:19.45,0:00:23.22,Default,to talk about a couple of\N"objective-C" things first.
+Dialogue: 0,0:00:23.94,0:00:27.23,Default,Language features,\Nbasically, and then we're going
+Dialogue: 0,0:00:27.23,0:00:28.14,Default,to talk about animation.
+Dialogue: 0,0:00:28.28,0:00:31.58,Default,So animation is our topic of the\Nday, I'll be starting a demo,
+Dialogue: 0,0:00:31.73,0:00:33.95,Default,at the end, which we'll\Nfinish on Wednesday.
+Dialogue: 0,0:00:34.07,0:00:37.00,Default,And I'm going to demo pretty\Nmuch everything I talk about,
+Dialogue: 0,0:00:37.00,0:00:39.43,Default,including the objective-C\Nthings, and even including some
+Dialogue: 0,0:00:39.43,0:00:40.87,Default,of the things we talked about\Nlast week, so it's going
+Dialogue: 0,0:00:40.87,0:00:42.39,Default,to be a very big,\Ncomprehensive demo,
+Dialogue: 0,0:00:42.39,0:00:45.75,Default,that's why it runs\Nover into two things.
+Dialogue: 0,0:00:45.75,0:00:47.82,Default,So the first objective-C\Nthing we're going
+Dialogue: 0,0:00:47.82,0:00:48.90,Default,to talk about is protocols.
+Dialogue: 0,0:00:48.90,0:00:50.96,Default,I hinted at this\Nearlier in the quarter.
+Dialogue: 0,0:00:51.18,0:00:54.50,Default,This is a way that we're going\Nto make ID a little more useful
+Dialogue: 0,0:00:54.50,0:00:56.60,Default,by making it a little\Nsafer, okay?
+Dialogue: 0,0:00:57.22,0:01:00.82,Default,And we already have\Nintrospection to make ID safer.
+Dialogue: 0,0:01:00.82,0:01:03.09,Default,When we have something that's\Nan ID, we know it's a point
+Dialogue: 0,0:01:03.09,0:01:05.12,Default,or do some object, we don't\Nknow what kind of object,
+Dialogue: 0,0:01:05.12,0:01:07.87,Default,we know how to use introspection\Nto ask at run time,
+Dialogue: 0,0:01:07.87,0:01:08.78,Default,"What kind of object are you?"
+Dialogue: 0,0:01:08.78,0:01:10.36,Default,"What kind of methods\Ndo you respond to?"
+Dialogue: 0,0:01:10.78,0:01:13.71,Default,That's nice, but it would\Nbe better if, in our code,
+Dialogue: 0,0:01:13.98,0:01:17.26,Default,we could document in a\Nway that both the reader
+Dialogue: 0,0:01:17.26,0:01:19.07,Default,of our code can understand\Nand also
+Dialogue: 0,0:01:19.07,0:01:22.03,Default,that the compiler can\Nunderstand what it is we intend,
+Dialogue: 0,0:01:22.15,0:01:23.81,Default,okay, with that ID.
+Dialogue: 0,0:01:23.96,0:01:26.87,Default,What methods we plan\Nto call on, on that ID.
+Dialogue: 0,0:01:26.87,0:01:28.26,Default,And so that's what protocols do.
+Dialogue: 0,0:01:28.57,0:01:31.63,Default,It's basically syntax, it's\Njust syntax in the compiler,
+Dialogue: 0,0:01:31.63,0:01:32.40,Default,nothing more than that.
+Dialogue: 0,0:01:32.40,0:01:35.33,Default,It's just kind of the same thing\Nin a string star versus ID,
+Dialogue: 0,0:01:35.33,0:01:37.22,Default,that's really just\Nsyntax in the compiler,
+Dialogue: 0,0:01:37.22,0:01:38.62,Default,it makes no difference\Nat run time.
+Dialogue: 0,0:01:39.25,0:01:42.03,Default,And the fundamental part of\Nthe syntax is right here,
+Dialogue: 0,0:01:42.35,0:01:44.35,Default,ID angle bracket protocol obj.
+Dialogue: 0,0:01:44.67,0:01:48.18,Default,So that's declaring a variables\Ntype "obj" which is an ID,
+Dialogue: 0,0:01:48.40,0:01:52.53,Default,but it's got this additional\Nlittle thing, my protocol,
+Dialogue: 0,0:01:52.53,0:01:54.48,Default,which tells the compiler\Nand readers
+Dialogue: 0,0:01:54.48,0:01:55.50,Default,of your code a little bit more.
+Dialogue: 0,0:01:55.50,0:01:58.70,Default,So let's talk about protocols\Nand how this all works.
+Dialogue: 0,0:01:58.70,0:02:00.49,Default,The first thing we're\Ngoing to talk about is how
+Dialogue: 0,0:02:00.49,0:02:01.88,Default,to declare a protocol.
+Dialogue: 0,0:02:02.16,0:02:05.59,Default,And declaring a protocol looks\Nalmost exactly the same as an
+Dialogue: 0,0:02:05.59,0:02:07.71,Default,at sign interface statement.
+Dialogue: 0,0:02:07.95,0:02:10.15,Default,At sign interface is where\Nyou put all your methods
+Dialogue: 0,0:02:10.15,0:02:12.67,Default,and properties that are\Npublic, or you can have an
+Dialogue: 0,0:02:12.67,0:02:14.86,Default,at sign interface at the\Ntop of your implementation
+Dialogue: 0,0:02:14.86,0:02:18.78,Default,and have private methods and\Nprotocols - or, and properties.
+Dialogue: 0,0:02:18.78,0:02:20.72,Default,And the same thing for\Nprotocol, with just you say
+Dialogue: 0,0:02:20.72,0:02:23.34,Default,at sign protocol instead\Nof at sign interface.
+Dialogue: 0,0:02:23.57,0:02:26.90,Default,Now, a protocol is just a\Ndeclaration of the methods.
+Dialogue: 0,0:02:26.93,0:02:28.49,Default,There's no implementation,\Nso there's no
+Dialogue: 0,0:02:28.49,0:02:30.50,Default,at sign implementation\Nfor an at sign protocol.
+Dialogue: 0,0:02:30.50,0:02:32.07,Default,We're just talking\Nabout the methods.
+Dialogue: 0,0:02:32.62,0:02:36.94,Default,And the methods in a protocol by\Ndefault are all required, okay,
+Dialogue: 0,0:02:36.94,0:02:38.93,Default,so that means if\Nsomeone wants to say
+Dialogue: 0,0:02:38.93,0:02:40.52,Default,that they implement\Nthis protocol,
+Dialogue: 0,0:02:40.75,0:02:42.29,Default,they have to implement\Nall these methods,
+Dialogue: 0,0:02:42.29,0:02:44.45,Default,and so those are all the methods
+Dialogue: 0,0:02:44.45,0:02:46.05,Default,in my little sample\Nprotocol here.
+Dialogue: 0,0:02:46.27,0:02:48.66,Default,You can make some of\Nthem optional by putting
+Dialogue: 0,0:02:48.72,0:02:50.48,Default,at sign optional in there.
+Dialogue: 0,0:02:51.02,0:02:52.74,Default,And now, all the rest\Nof those are optional,
+Dialogue: 0,0:02:52.74,0:02:55.17,Default,so now in this example,\Nsome method is required,
+Dialogue: 0,0:02:55.17,0:02:56.22,Default,but all the rest are optional.
+Dialogue: 0,0:02:56.90,0:02:58.62,Default,And you can put at\Nsign required,
+Dialogue: 0,0:02:58.62,0:03:00.17,Default,again, down a little lower.
+Dialogue: 0,0:03:00.45,0:03:02.78,Default,Now, all of these are\Nrequired except for method
+Dialogue: 0,0:03:02.78,0:03:03.90,Default,with argument is optional.
+Dialogue: 0,0:03:04.73,0:03:07.55,Default,Okay? So, we're basically\Ndefining a little pile
+Dialogue: 0,0:03:07.55,0:03:09.43,Default,of methods, some of\Nwhich are required,
+Dialogue: 0,0:03:09.43,0:03:10.75,Default,and some of which\Nare optional, okay,
+Dialogue: 0,0:03:10.75,0:03:13.01,Default,that's what a protocol\Ndeclaration is all about.
+Dialogue: 0,0:03:13.32,0:03:16.33,Default,Now you see how I've added\NX-Y-Z-Z-Y and angle brackets
+Dialogue: 0,0:03:16.33,0:03:18.62,Default,after protocol FOO there?
+Dialogue: 0,0:03:19.08,0:03:21.64,Default,So what that says is, if\Nyou want to implement,
+Dialogue: 0,0:03:21.64,0:03:24.81,Default,if you want to say you implement\Nprotocol FOO, you also have
+Dialogue: 0,0:03:24.86,0:03:28.38,Default,to implement all the required\Nmethods of protocol X-Y-Z-Z-Y.
+Dialogue: 0,0:03:28.76,0:03:29.51,Default,Whatever that is.
+Dialogue: 0,0:03:29.81,0:03:33.21,Default,Okay? So it's basically a way\Nof kind of like super protocol,
+Dialogue: 0,0:03:33.43,0:03:36.01,Default,it's not really inherent or\Nanything, but just kind of adds
+Dialogue: 0,0:03:36.01,0:03:38.84,Default,to the methods that is required\Nby a protocol, and in fact,
+Dialogue: 0,0:03:38.84,0:03:40.48,Default,you can have multiple ones,
+Dialogue: 0,0:03:40.48,0:03:43.11,Default,so here's protocols now\Nrequiring you implement the
+Dialogue: 0,0:03:43.11,0:03:46.51,Default,X-Y-Z-Z-Y protocol and a\Nprotocol called NSObject.
+Dialogue: 0,0:03:47.17,0:03:49.70,Default,Okay, now, let's talk about\Nthis NSObject protocol
+Dialogue: 0,0:03:49.70,0:03:51.19,Default,because it's a very\Ncommon protocol.
+Dialogue: 0,0:03:51.48,0:03:54.18,Default,You're used to the\NNSObject class, right?
+Dialogue: 0,0:03:54.76,0:03:58.01,Default,And NSObject protocol\Nis basically a protocol
+Dialogue: 0,0:03:58.01,0:04:01.33,Default,that includes almost all the\Nmethods in the NSObject class.
+Dialogue: 0,0:04:01.99,0:04:04.05,Default,Okay. And why do we do this?
+Dialogue: 0,0:04:04.05,0:04:05.69,Default,Why do we have a\Nprotocol named NSObject
+Dialogue: 0,0:04:05.93,0:04:07.13,Default,and a class named NSObject,
+Dialogue: 0,0:04:07.13,0:04:09.52,Default,and they have pretty much the\Nsame methods in it, is equal,
+Dialogue: 0,0:04:09.79,0:04:12.49,Default,is kind of class,\Ndescription, perform sector,
+Dialogue: 0,0:04:12.49,0:04:14.17,Default,all those NSObject things.
+Dialogue: 0,0:04:14.47,0:04:16.63,Default,The answer is because\Nwe sometimes want
+Dialogue: 0,0:04:16.63,0:04:20.06,Default,to declare a protocol where\Nsome methods are required,
+Dialogue: 0,0:04:20.19,0:04:22.24,Default,but we also want to\Nrequire the thing
+Dialogue: 0,0:04:22.24,0:04:25.31,Default,that implements the protocol\Nto essentially be an NSObject.
+Dialogue: 0,0:04:25.79,0:04:27.80,Default,Okay. We want it to be an\NNSObject, we want to be able
+Dialogue: 0,0:04:27.80,0:04:30.18,Default,to maybe use introspection,\Nthings like that.
+Dialogue: 0,0:04:30.54,0:04:33.39,Default,Well, the only way to do that\Nis to have the protocol have
+Dialogue: 0,0:04:33.39,0:04:36.13,Default,like a super protocol, you\Nknow, an additional protocol,
+Dialogue: 0,0:04:36.43,0:04:38.99,Default,and so we just took all\Nthe methods in NSObject,
+Dialogue: 0,0:04:38.99,0:04:40.25,Default,we put them all in\Na big protocol
+Dialogue: 0,0:04:40.32,0:04:42.46,Default,and have NSObject\Nimplement that protocol.
+Dialogue: 0,0:04:42.89,0:04:45.41,Default,Okay. So NSObject\Nprotocol and class,
+Dialogue: 0,0:04:45.56,0:04:47.59,Default,all the same methods\Npretty much.
+Dialogue: 0,0:04:48.15,0:04:50.73,Default,Okay. It's just that NSObject\Nthe class is an actual
+Dialogue: 0,0:04:50.73,0:04:52.16,Default,implementation of those methods.
+Dialogue: 0,0:04:53.32,0:04:55.44,Default,So where do these\Nprotocol declaration -
+Dialogue: 0,0:04:55.44,0:04:56.14,Default,oh yeah, sorry, question?
+Dialogue: 0,0:04:56.40,0:04:59.56,Default,>> In Java, all class\Nis automatically inherit
+Dialogue: 0,0:04:59.62,0:05:02.04,Default,from object, is that not\Nthe case with NSObject here?
+Dialogue: 0,0:05:02.04,0:05:03.43,Default,>> Yeah, so the question\Nis, in Java,
+Dialogue: 0,0:05:03.43,0:05:07.85,Default,all class is pretty much inherit\Nfrom object, and that's not true
+Dialogue: 0,0:05:07.85,0:05:10.73,Default,in objective C, you could have\Na class where it just says
+Dialogue: 0,0:05:10.73,0:05:14.54,Default,at sign interface, name of\Nclass, no colon super class.
+Dialogue: 0,0:05:14.54,0:05:17.04,Default,In which case, it inherits\Nno methods from anywhere.
+Dialogue: 0,0:05:17.37,0:05:18.56,Default,Okay, will only have\Nits own method.
+Dialogue: 0,0:05:18.84,0:05:20.18,Default,We never do that, however.
+Dialogue: 0,0:05:20.26,0:05:22.39,Default,In iOS we always\Ninherit from NSObject.
+Dialogue: 0,0:05:22.64,0:05:24.09,Default,Because we want the\Nintrospection
+Dialogue: 0,0:05:24.09,0:05:26.84,Default,in all these things, but\Nit's by convention rather
+Dialogue: 0,0:05:26.84,0:05:29.89,Default,than by some sort of\Nenforcement for the compiler.
+Dialogue: 0,0:05:31.19,0:05:33.62,Default,Alright, so these at sign\Nprotocol declarations
+Dialogue: 0,0:05:33.62,0:05:34.92,Default,of these methods,\Nwhere do they go?
+Dialogue: 0,0:05:35.11,0:05:37.99,Default,They go in header files, they\Ncan go in their own header file,
+Dialogue: 0,0:05:38.34,0:05:42.09,Default,okay so like have a FOO.H for\Nmy protocol FOO, or they can go
+Dialogue: 0,0:05:42.09,0:05:44.71,Default,in the header file of some\Nrelated class, like some class
+Dialogue: 0,0:05:44.71,0:05:46.98,Default,that wants somebody to\Nimplement that protocol,
+Dialogue: 0,0:05:46.98,0:05:47.74,Default,you could put it in there.
+Dialogue: 0,0:05:47.74,0:05:51.28,Default,So, for example, iOS has\Nscroll view class, right?
+Dialogue: 0,0:05:51.28,0:05:51.85,Default,For scrolling.
+Dialogue: 0,0:05:51.85,0:05:53.02,Default,We're going to talk\Nabout that next week.
+Dialogue: 0,0:05:53.41,0:05:56.73,Default,It has a protocol called\Nthe UIScrollView delegate,
+Dialogue: 0,0:05:57.18,0:06:01.19,Default,which is a bunch of will scroll,\Ndid scroll things, methods,
+Dialogue: 0,0:06:01.45,0:06:05.11,Default,and it's only good for\NUIScrollView, so that delegate,
+Dialogue: 0,0:06:05.16,0:06:08.24,Default,that protocol is defined\Nin UIScrollView dot H,
+Dialogue: 0,0:06:08.47,0:06:10.09,Default,not in its own header file.
+Dialogue: 0,0:06:10.24,0:06:12.54,Default,Okay? So you can kind of\Ndo which ever one you want,
+Dialogue: 0,0:06:12.54,0:06:14.38,Default,and you'll see them both ways.
+Dialogue: 0,0:06:15.93,0:06:17.59,Default,Alright, so now we have\Nthe protocol declared,
+Dialogue: 0,0:06:17.59,0:06:20.50,Default,we defined this little bundle of\Nmethods, including the setters
+Dialogue: 0,0:06:20.50,0:06:24.72,Default,and getters of properties,\Nperhaps, now some class has
+Dialogue: 0,0:06:24.72,0:06:27.59,Default,to promise to implement\Nthat protocol.
+Dialogue: 0,0:06:27.95,0:06:28.95,Default,And how do you promise
+Dialogue: 0,0:06:28.95,0:06:30.75,Default,to implement a protocol\Nif you're a class?
+Dialogue: 0,0:06:31.04,0:06:34.17,Default,You just put angle brackets,\Nthe name of the protocol,
+Dialogue: 0,0:06:34.17,0:06:35.63,Default,on your at sign interface line.
+Dialogue: 0,0:06:36.42,0:06:40.68,Default,Okay? So here, it's my public at\Nsign interface line, my class,
+Dialogue: 0,0:06:40.68,0:06:42.92,Default,inherits from NSObject,\Nangle brackets FOO.
+Dialogue: 0,0:06:42.92,0:06:46.78,Default,That means my class is promising\Nto the compiler and to readers
+Dialogue: 0,0:06:46.78,0:06:47.77,Default,of this code, I'm going
+Dialogue: 0,0:06:47.77,0:06:49.64,Default,to implement all the\Nrequired methods in FOO.
+Dialogue: 0,0:06:49.64,0:06:52.73,Default,Okay? So I'm just\Nmaking that promise.
+Dialogue: 0,0:06:52.79,0:06:55.00,Default,And you can make the\Npromise publicly like that,
+Dialogue: 0,0:06:55.00,0:06:57.66,Default,or you can make the promise\Nprivately by putting it in your
+Dialogue: 0,0:06:57.66,0:07:01.19,Default,at font sign interface my class\Nparentheses parentheses thing
+Dialogue: 0,0:07:01.19,0:07:02.93,Default,that goes in your\Nimplementation, okay,
+Dialogue: 0,0:07:03.27,0:07:04.50,Default,you can just put it\Nthere if you want.
+Dialogue: 0,0:07:04.81,0:07:08.16,Default,That's if you only need to\Nbe able to implement that -
+Dialogue: 0,0:07:08.39,0:07:10.13,Default,you're only required to\Nimplement that protocol
+Dialogue: 0,0:07:10.13,0:07:12.40,Default,for something that's in your\Nimplementation only, okay,
+Dialogue: 0,0:07:12.77,0:07:14.22,Default,not on your public thing.
+Dialogue: 0,0:07:15.44,0:07:19.08,Default,Okay, so now I've got a\Nprotocol, I've got an object,
+Dialogue: 0,0:07:19.25,0:07:22.16,Default,at least one that signs up\Nto implement it, now what?
+Dialogue: 0,0:07:22.16,0:07:26.88,Default,Well, now I can declare\Nvariables that are IDs
+Dialogue: 0,0:07:27.18,0:07:28.48,Default,with the additional requirement
+Dialogue: 0,0:07:28.66,0:07:30.66,Default,to implement the required\Nmethods of a protocol.
+Dialogue: 0,0:07:31.25,0:07:34.93,Default,So ID angle bracket FOO obj,\Nhopefully, you understand what
+Dialogue: 0,0:07:34.93,0:07:37.67,Default,that means now, that means\Nobj is a variable, it's an ID,
+Dialogue: 0,0:07:37.67,0:07:40.73,Default,I have no idea what class\Nit is, okay, it's ID,
+Dialogue: 0,0:07:40.73,0:07:42.97,Default,it's completely blind, however,
+Dialogue: 0,0:07:42.97,0:07:44.78,Default,I know it implements\Nall the private
+Dialogue: 0,0:07:44.90,0:07:46.81,Default,or the required messages in FOO.
+Dialogue: 0,0:07:47.50,0:07:49.96,Default,Okay? And it might implement\Nsome of the optional ones too,
+Dialogue: 0,0:07:49.96,0:07:51.85,Default,but I know at least\Nthe required ones.
+Dialogue: 0,0:07:52.28,0:07:56.86,Default,So if I say ID angle bracket\NFOO obj my class alloc - in it,
+Dialogue: 0,0:07:56.86,0:07:59.00,Default,that looks good because on\Nthe previous slide I just said
+Dialogue: 0,0:07:59.00,0:08:00.51,Default,that my class promised\Nto implement FOO.
+Dialogue: 0,0:08:00.51,0:08:02.87,Default,So the compiler is\Ngoing to love that.
+Dialogue: 0,0:08:02.87,0:08:06.52,Default,But if I said ID FOO\Nobj NS equals NS array,
+Dialogue: 0,0:08:06.76,0:08:08.04,Default,that compiler is\Nnot going to like
+Dialogue: 0,0:08:08.04,0:08:10.65,Default,that because arrays clearly\Ndon't implement a protocol FOO.
+Dialogue: 0,0:08:10.65,0:08:12.05,Default,They don't implement\Nthose methods.
+Dialogue: 0,0:08:12.41,0:08:15.91,Default,Okay? So the compiler will\Nwarn you in that case.
+Dialogue: 0,0:08:16.65,0:08:19.55,Default,Okay, so the compiler here\Nwill warn you if you do this,
+Dialogue: 0,0:08:19.55,0:08:22.31,Default,it will also warn you if you\Nsign up to do a protocol,
+Dialogue: 0,0:08:22.31,0:08:24.49,Default,you promise to do something, and\Nyou don't implement the methods
+Dialogue: 0,0:08:24.49,0:08:26.38,Default,that are required, it will\Nwarn you about that too, okay,
+Dialogue: 0,0:08:26.42,0:08:29.05,Default,so it will warn you\Nboth coming and going.
+Dialogue: 0,0:08:29.62,0:08:33.24,Default,In addition to declaring\Nvariables, like local variables
+Dialogue: 0,0:08:33.35,0:08:37.52,Default,under the examples there, you\Ncan also pass these around,
+Dialogue: 0,0:08:37.82,0:08:40.66,Default,these IDs that are\Nmodified by the protocol,
+Dialogue: 0,0:08:40.93,0:08:42.18,Default,as arguments to methods.
+Dialogue: 0,0:08:42.24,0:08:43.35,Default,And as properties.
+Dialogue: 0,0:08:43.87,0:08:46.81,Default,Okay? So, it's really\Njust another type,
+Dialogue: 0,0:08:47.24,0:08:50.93,Default,it's not quite an NSString star\Nwhere you know exactly the class
+Dialogue: 0,0:08:50.93,0:08:52.73,Default,and all the methods\Nexactly that it does,
+Dialogue: 0,0:08:52.97,0:08:55.05,Default,but it's not quite an ID,\Nwhere you know nothing
+Dialogue: 0,0:08:55.05,0:08:56.20,Default,about it - it's in between.
+Dialogue: 0,0:08:56.74,0:08:59.16,Default,Right? It's an ID, but\Nyou kind of know some
+Dialogue: 0,0:08:59.97,0:09:03.42,Default,of the methods in FOO.
+Dialogue: 0,0:09:03.66,0:09:07.66,Default,Okay? Just like static typing,\Nthis is all just syntactic sugar
+Dialogue: 0,0:09:07.66,0:09:09.55,Default,in the compiler, makes\Nabsolutely no difference
+Dialogue: 0,0:09:09.55,0:09:12.62,Default,at run time, no code is\Ngenerated any differently
+Dialogue: 0,0:09:12.62,0:09:14.21,Default,by the compiler because\Nof these things.
+Dialogue: 0,0:09:14.21,0:09:15.98,Default,The compiler is just\Nable to warn you now.
+Dialogue: 0,0:09:16.11,0:09:17.11,Default,That is the only difference.
+Dialogue: 0,0:09:17.40,0:09:20.51,Default,Okay? Some people had a little\Ndifficulty accepting this,
+Dialogue: 0,0:09:20.51,0:09:21.27,Default,but it's true.
+Dialogue: 0,0:09:21.45,0:09:23.97,Default,No code generation is any\Ndifferent by the compiler
+Dialogue: 0,0:09:23.97,0:09:25.05,Default,because of these protocols.
+Dialogue: 0,0:09:25.05,0:09:26.92,Default,Same thing with NSString\Nstar versus ID.
+Dialogue: 0,0:09:26.92,0:09:29.67,Default,It's all exactly the same stuff,\Ngets generated by the compiler.
+Dialogue: 0,0:09:29.91,0:09:31.21,Default,It's just the compiler\Ncan warn you
+Dialogue: 0,0:09:31.64,0:09:32.84,Default,because they know\Nwhat you intend.
+Dialogue: 0,0:09:33.75,0:09:36.48,Default,Okay? The number-one\Nuse of protocols
+Dialogue: 0,0:09:36.48,0:09:39.90,Default,in iOS is delegation\Nand data sources.
+Dialogue: 0,0:09:39.96,0:09:42.39,Default,This is back to - remember\NElectra 1, I had the MVC
+Dialogue: 0,0:09:42.44,0:09:44.91,Default,and I told you that the views\Ncould talk to their controller
+Dialogue: 0,0:09:44.91,0:09:47.53,Default,with blind structured\Ncommunication, and we talked
+Dialogue: 0,0:09:47.53,0:09:50.73,Default,about will do this, did do\Nthat, or the data source,
+Dialogue: 0,0:09:50.73,0:09:53.55,Default,which is data at count,\Nthat kind of stuff.
+Dialogue: 0,0:09:53.55,0:09:55.36,Default,All of those, remember\Nthat communication?
+Dialogue: 0,0:09:55.55,0:09:56.55,Default,This is how we do that.
+Dialogue: 0,0:09:57.03,0:09:59.19,Default,So it's blind, because\Nthey're IDs,
+Dialogue: 0,0:09:59.28,0:10:01.54,Default,the views are talking\Nthrough IDs.
+Dialogue: 0,0:10:01.73,0:10:04.07,Default,But it's structured\Nbecause there's a protocol
+Dialogue: 0,0:10:04.45,0:10:08.10,Default,that the view uses to talk\Nto that object blindly,
+Dialogue: 0,0:10:08.32,0:10:08.98,Default,so it knows what's in there.
+Dialogue: 0,0:10:09.07,0:10:11.63,Default,So let's talk about,\Nfor example,
+Dialogue: 0,0:10:11.63,0:10:14.19,Default,the data source protocols\Nof views.
+Dialogue: 0,0:10:14.62,0:10:16.46,Default,If it was a table\Nview, let's say,
+Dialogue: 0,0:10:16.46,0:10:18.60,Default,a table view is a generic\Nview for showing a table
+Dialogue: 0,0:10:18.60,0:10:21.00,Default,of information, it's protocol
+Dialogue: 0,0:10:21.26,0:10:25.04,Default,for accessing its data source\Nis how many rows are there,
+Dialogue: 0,0:10:25.64,0:10:29.26,Default,and now give me the data at row\N7, give me the data at row 500.
+Dialogue: 0,0:10:29.66,0:10:31.13,Default,Okay? That's its protocol.
+Dialogue: 0,0:10:31.35,0:10:32.05,Default,Those methods.
+Dialogue: 0,0:10:32.64,0:10:35.38,Default,Count, and data at,\Nit has other ones,
+Dialogue: 0,0:10:35.38,0:10:37.52,Default,but those are the\Nbasic ones, okay?
+Dialogue: 0,0:10:37.82,0:10:39.90,Default,And we really need those\Ndata source protocols
+Dialogue: 0,0:10:40.21,0:10:41.96,Default,because views can't\Nown their data.
+Dialogue: 0,0:10:41.96,0:10:44.47,Default,That table view can't grab\Nall its data and display it,
+Dialogue: 0,0:10:44.47,0:10:47.25,Default,it has to keep asking someone\Nelse, but it doesn't want
+Dialogue: 0,0:10:47.25,0:10:48.80,Default,to be tied to any\Nsource of the data,
+Dialogue: 0,0:10:48.94,0:10:51.02,Default,so it wants to be an ID,\Nit wants to be blind.
+Dialogue: 0,0:10:51.88,0:10:53.66,Default,Okay? And we'll see\Nall this next week
+Dialogue: 0,0:10:53.66,0:10:54.77,Default,when we talk about table views.
+Dialogue: 0,0:10:55.86,0:10:57.70,Default,There are other uses\Nof protocols besides
+Dialogue: 0,0:10:57.70,0:11:00.29,Default,that blind structured\Ncommunication, and we're going
+Dialogue: 0,0:11:00.29,0:11:03.44,Default,to see one today which is\Nanimation, and I'll let
+Dialogue: 0,0:11:03.44,0:11:06.39,Default,that speak for itself,\Nbut basically we're going
+Dialogue: 0,0:11:06.39,0:11:09.45,Default,to have IDs out there that are\Nanimatable, and we're going
+Dialogue: 0,0:11:09.45,0:11:10.80,Default,to know they're animatable\Nbecause they're going
+Dialogue: 0,0:11:10.80,0:11:13.42,Default,to implement a certain protocol,\Nand that's how we're going
+Dialogue: 0,0:11:13.42,0:11:15.55,Default,to know that they're animatable\Nthings, and UIView is going
+Dialogue: 0,0:11:15.55,0:11:16.57,Default,to implement that protocol
+Dialogue: 0,0:11:16.57,0:11:18.08,Default,and that's how we're going\Nto animate our views.
+Dialogue: 0,0:11:19.56,0:11:21.68,Default,Alright, the second\Nobjective-C thing I want to talk
+Dialogue: 0,0:11:21.68,0:11:23.02,Default,about today is blocks.
+Dialogue: 0,0:11:23.19,0:11:24.88,Default,Okay, it's a totally\Ndifferent thing that protocols.
+Dialogue: 0,0:11:25.30,0:11:29.09,Default,Blocks very important, used\Nthroughout iOS, in fact,
+Dialogue: 0,0:11:29.09,0:11:30.65,Default,sometimes I have difficulty\Ngetting all the way
+Dialogue: 0,0:11:30.65,0:11:34.21,Default,to week 5 here or 4 without\Nputting blocks because it's
+Dialogue: 0,0:11:34.21,0:11:36.25,Default,so much in the API of iOS.
+Dialogue: 0,0:11:36.64,0:11:37.94,Default,What is a block?
+Dialogue: 0,0:11:38.09,0:11:40.04,Default,A block is a block of code.
+Dialogue: 0,0:11:40.62,0:11:44.15,Default,Okay? Why do we define this\Nterm block, just to mean block
+Dialogue: 0,0:11:44.15,0:11:46.39,Default,of code, we already know that,\Nit's because it's a block
+Dialogue: 0,0:11:46.39,0:11:49.67,Default,of code that can be\Nembedded inside other code,
+Dialogue: 0,0:11:49.80,0:11:53.35,Default,passed as an argument,\Nstored in an array, okay?
+Dialogue: 0,0:11:53.83,0:11:56.82,Default,So it's a block of\Ncode that we manipulate
+Dialogue: 0,0:11:56.82,0:11:59.30,Default,and move around our API.
+Dialogue: 0,0:12:00.13,0:12:01.14,Default,So what does it look like?
+Dialogue: 0,0:12:01.43,0:12:02.69,Default,Here's an example of a method
+Dialogue: 0,0:12:02.69,0:12:04.61,Default,that takes a block\Nas an argument.
+Dialogue: 0,0:12:04.67,0:12:06.77,Default,Okay? This is the\Ncalling of this method.
+Dialogue: 0,0:12:06.77,0:12:09.02,Default,There's an NSDictionary\Nmethod, it's a real method,
+Dialogue: 0,0:12:09.30,0:12:12.26,Default,it's called enumerate keys\Nand objects using block.
+Dialogue: 0,0:12:12.75,0:12:16.73,Default,Okay? The argument is a block\Nthat has no return value
+Dialogue: 0,0:12:16.99,0:12:20.32,Default,and takes three arguments,\Ntwo of the arguments are IDs,
+Dialogue: 0,0:12:20.54,0:12:22.36,Default,which are they keys and\Nvalues in the dictionary,
+Dialogue: 0,0:12:22.75,0:12:27.24,Default,and a third one is actually a\NBOOL star, a pointer to a BOOL,
+Dialogue: 0,0:12:27.24,0:12:28.49,Default,it's an outgoing BOOL.
+Dialogue: 0,0:12:28.90,0:12:33.65,Default,Okay? And basically when\Nyou call this method,
+Dialogue: 0,0:12:33.65,0:12:37.13,Default,Dictionary will execute that\Nblock of code, repeatedly,
+Dialogue: 0,0:12:37.13,0:12:41.88,Default,for every key-in value, until\Nyou set the stop, star stop,
+Dialogue: 0,0:12:42.18,0:12:44.68,Default,to yes, or until it runs\Nout of keys and values.
+Dialogue: 0,0:12:45.36,0:12:46.89,Default,Okay? And it's actually\Ngoing to implement
+Dialogue: 0,0:12:46.89,0:12:48.69,Default,that code that's\Nright there, embedded,
+Dialogue: 0,0:12:48.69,0:12:49.74,Default,inside that message call.
+Dialogue: 0,0:12:49.74,0:12:52.11,Default,You can see the open square\Nbracket for enumerate keys
+Dialogue: 0,0:12:52.11,0:12:54.00,Default,and objects, before\Na dictionary,
+Dialogue: 0,0:12:54.18,0:12:56.61,Default,the close square bracket is\Ndown after the curly brace.
+Dialogue: 0,0:12:57.22,0:13:00.81,Default,Okay? So the code, the actual\Ncurly brace, we put right
+Dialogue: 0,0:13:00.81,0:13:02.69,Default,in there, in the middle\Nof our message call.
+Dialogue: 0,0:13:02.90,0:13:05.07,Default,Other languages, in\Ncomputer science in general,
+Dialogue: 0,0:13:05.07,0:13:06.32,Default,we call this a closure.
+Dialogue: 0,0:13:06.32,0:13:08.46,Default,Okay, how many people\Nknow the name closure,
+Dialogue: 0,0:13:08.46,0:13:09.28,Default,ever heard that before?
+Dialogue: 0,0:13:09.55,0:13:11.80,Default,Okay, so you guys generally know\Nwhat this is, it's a closure.
+Dialogue: 0,0:13:13.02,0:13:16.08,Default,Blocks in objective-C always\Nstart with the carrot.
+Dialogue: 0,0:13:16.35,0:13:17.98,Default,That's the magic\Nblock character.
+Dialogue: 0,0:13:18.24,0:13:21.96,Default,And then there might be a\Nreturn type, possibly specified,
+Dialogue: 0,0:13:21.96,0:13:23.73,Default,and maybe some arguments,\Npossibly,
+Dialogue: 0,0:13:23.73,0:13:27.00,Default,and then a curly brace, and some\Ncode, and an end curly brace.
+Dialogue: 0,0:13:27.08,0:13:29.52,Default,Now, of course, to make\Nthis really interesting,
+Dialogue: 0,0:13:29.91,0:13:34.33,Default,the compiler knows how to do\Nthings like have local variables
+Dialogue: 0,0:13:34.33,0:13:36.44,Default,that are declared\Nbefore the block is used,
+Dialogue: 0,0:13:36.63,0:13:37.96,Default,work inside the block.
+Dialogue: 0,0:13:39.01,0:13:42.02,Default,Okay? So if I had that block\Nand I wanted to stop not just
+Dialogue: 0,0:13:42.02,0:13:45.95,Default,when I see the key enough but\Nalso when I see the value,
+Dialogue: 0,0:13:46.15,0:13:49.70,Default,stop value, which is a\Nlocal variable defined
+Dialogue: 0,0:13:49.70,0:13:52.51,Default,in the scope that's calling\Nthe method enumerate keys
+Dialogue: 0,0:13:52.51,0:13:54.31,Default,and obj using block,\NI can use it.
+Dialogue: 0,0:13:54.31,0:13:56.22,Default,The compiler makes\Nsure that the value
+Dialogue: 0,0:13:56.22,0:13:57.78,Default,of that gets properly passed in.
+Dialogue: 0,0:13:58.29,0:13:59.49,Default,However - you have a question?
+Dialogue: 0,0:13:59.71,0:14:02.94,Default,>> Now is this statically\Nscoped for using things outside?
+Dialogue: 0,0:14:03.79,0:14:06.21,Default,>> Uh...yeah, it is the loc -
+Dialogue: 0,0:14:06.21,0:14:09.66,Default,whatever scope the A dictionary\Nenumerate keys and objects,
+Dialogue: 0,0:14:09.66,0:14:12.33,Default,that call, whatever scope\Nthere, that's the scope
+Dialogue: 0,0:14:12.33,0:14:14.22,Default,in which the variables\Ncan be used,
+Dialogue: 0,0:14:14.22,0:14:16.46,Default,which is pretty much\Nthe local stack, right?
+Dialogue: 0,0:14:16.46,0:14:18.56,Default,The stack from your thing, now,
+Dialogue: 0,0:14:18.83,0:14:21.91,Default,those variables though\Nare read only.
+Dialogue: 0,0:14:22.73,0:14:26.16,Default,Okay? So if I had another one,\Na BOOL stopped early and I tried
+Dialogue: 0,0:14:26.16,0:14:30.22,Default,to set that inside my block,\Nthat would be an error,
+Dialogue: 0,0:14:30.22,0:14:32.89,Default,compiler would not\Nallow that okay?
+Dialogue: 0,0:14:33.12,0:14:35.84,Default,Because stopped early\Nis read only.
+Dialogue: 0,0:14:35.84,0:14:37.98,Default,However, there's\Nactually a way to make it
+Dialogue: 0,0:14:37.98,0:14:40.66,Default,so it's not read only,\Nwhich is to put underbar,
+Dialogue: 0,0:14:40.66,0:14:41.92,Default,underbar, block in front of it.
+Dialogue: 0,0:14:41.92,0:14:44.04,Default,If you put underbar,\Nunderbar, block in front
+Dialogue: 0,0:14:44.04,0:14:47.87,Default,of a local variable, then the\Ncompiler will generate code
+Dialogue: 0,0:14:47.87,0:14:51.77,Default,that transfers stopped early\Noff the stack into the heap
+Dialogue: 0,0:14:52.34,0:14:53.80,Default,so that it can be\Nused by the block,
+Dialogue: 0,0:14:54.10,0:14:55.79,Default,and then when the\Nblock is finished,
+Dialogue: 0,0:14:55.79,0:14:58.32,Default,it will copy the\Ninformation back into the heap
+Dialogue: 0,0:14:58.38,0:14:59.39,Default,and then back onto the stack.
+Dialogue: 0,0:15:00.13,0:15:01.98,Default,Okay? All happens magically.
+Dialogue: 0,0:15:02.70,0:15:03.92,Default,So if you have underbar,\Nunderbar,
+Dialogue: 0,0:15:03.92,0:15:05.20,Default,block, it knows to do that.
+Dialogue: 0,0:15:05.20,0:15:06.41,Default,So that's the magic\Nyou put in there,
+Dialogue: 0,0:15:06.41,0:15:08.04,Default,and now your variables\Ncan go both ways,
+Dialogue: 0,0:15:08.04,0:15:09.96,Default,and now stopped early\Nis yes is legal.
+Dialogue: 0,0:15:10.87,0:15:13.72,Default,Okay? This also works
+Dialogue: 0,0:15:13.72,0:15:15.96,Default,if the variable is\Nan instance variable.
+Dialogue: 0,0:15:15.96,0:15:18.24,Default,We don't really access instance\Nvariables except for setters
+Dialogue: 0,0:15:18.24,0:15:20.55,Default,and getters, but that's\Nbecause instance variables,
+Dialogue: 0,0:15:20.55,0:15:21.95,Default,of course, are in the heap.
+Dialogue: 0,0:15:22.28,0:15:25.59,Default,Because all objects\Nare stored in the heap.
+Dialogue: 0,0:15:25.69,0:15:28.27,Default,What about objects that are\Nmessaged inside of a block?
+Dialogue: 0,0:15:28.27,0:15:30.76,Default,Because there's a little special\Nthing to think about there.
+Dialogue: 0,0:15:30.96,0:15:34.59,Default,So if I had a string stop key,\Nwhich was enough, and I wanted
+Dialogue: 0,0:15:34.59,0:15:37.52,Default,to use stop key inside\Nthat block, like this,
+Dialogue: 0,0:15:38.08,0:15:40.79,Default,I have to make sure - well\Nnot I have to make sure,
+Dialogue: 0,0:15:40.79,0:15:43.26,Default,the compiler has to make\Nsure - that it generates code
+Dialogue: 0,0:15:43.48,0:15:46.30,Default,and the runtime has to make\Nsure it works, so that stop key,
+Dialogue: 0,0:15:46.58,0:15:48.26,Default,that there's a strong\Npointer to it,
+Dialogue: 0,0:15:48.51,0:15:49.74,Default,otherwise it could\Nleave the heap
+Dialogue: 0,0:15:50.11,0:15:51.51,Default,by the time this block executes.
+Dialogue: 0,0:15:51.51,0:15:53.46,Default,Because this block could\Nexecute at any time.
+Dialogue: 0,0:15:53.77,0:15:56.12,Default,Okay? This block happens\Nto execute immediately,
+Dialogue: 0,0:15:56.39,0:15:59.80,Default,when you call this, but it's\Nlegal for the dictionary
+Dialogue: 0,0:15:59.80,0:16:01.91,Default,to grab this block\Nand store it somewhere
+Dialogue: 0,0:16:01.91,0:16:04.20,Default,and execute it sometime\Nlater than it wants to.
+Dialogue: 0,0:16:04.39,0:16:08.01,Default,Okay? So every time you -\Nlisten to this carefully,
+Dialogue: 0,0:16:08.10,0:16:10.74,Default,every time you send a message\Nto an object inside a block,
+Dialogue: 0,0:16:11.20,0:16:15.00,Default,a strong pointer is created\Nto that object, and it stays
+Dialogue: 0,0:16:15.00,0:16:17.50,Default,around until the block\Ngoes out of scope,
+Dialogue: 0,0:16:17.74,0:16:20.10,Default,until the block no\Nlonger exists.
+Dialogue: 0,0:16:20.10,0:16:22.64,Default,Okay? As long as that block\Nexists, a strong pointer
+Dialogue: 0,0:16:22.64,0:16:25.16,Default,to every single object in there\Nthat's message will exist.
+Dialogue: 0,0:16:25.49,0:16:28.01,Default,Before I talk about that, I want\Nto talk about some shorthand.
+Dialogue: 0,0:16:28.35,0:16:31.68,Default,If the block has no\Narguments, like this block, see?
+Dialogue: 0,0:16:32.08,0:16:32.96,Default,No arguments there.
+Dialogue: 0,0:16:33.42,0:16:35.78,Default,You do not need to put\Nthe parentheses, okay?
+Dialogue: 0,0:16:36.03,0:16:37.29,Default,You can just leave those off.
+Dialogue: 0,0:16:37.29,0:16:40.39,Default,And similarly, if the\Nreturn value of the block,
+Dialogue: 0,0:16:40.39,0:16:42.52,Default,so this block which is the\Nfirst time you've seen a block
+Dialogue: 0,0:16:42.52,0:16:45.51,Default,with a return value, it\Nreturns a BOOL, see that BOOL?
+Dialogue: 0,0:16:45.70,0:16:47.78,Default,If the return value\Ncan be inferred
+Dialogue: 0,0:16:48.14,0:16:50.64,Default,from the contents\Nof the block, right?
+Dialogue: 0,0:16:50.93,0:16:54.39,Default,So in this case, return obj\Nis kind of class UI class,
+Dialogue: 0,0:16:54.39,0:16:56.96,Default,definitely going to return\Na BOOL, you do not need
+Dialogue: 0,0:16:56.96,0:16:58.07,Default,to put the BOOL there.
+Dialogue: 0,0:16:58.30,0:17:00.46,Default,In other words, if\Nit can be inferred,
+Dialogue: 0,0:17:00.75,0:17:03.82,Default,it will figure it\Nout for you, okay?
+Dialogue: 0,0:17:03.96,0:17:06.65,Default,So just to clean up the syntax,\Nyou don't have to put the BOOL
+Dialogue: 0,0:17:06.65,0:17:09.29,Default,in there all the\Ntime or whatever.
+Dialogue: 0,0:17:09.59,0:17:10.64,Default,Okay. Now.
+Dialogue: 0,0:17:10.64,0:17:14.29,Default,Let's talk about how blocks\Nsort of act like objects.
+Dialogue: 0,0:17:14.29,0:17:17.80,Default,Blocks are not objects, okay\Nthey're not, but they sort
+Dialogue: 0,0:17:17.80,0:17:22.20,Default,of act like objects in the only\Nin this fine really small way,
+Dialogue: 0,0:17:22.20,0:17:24.20,Default,which is, they can be stored.
+Dialogue: 0,0:17:24.97,0:17:26.72,Default,Okay? And they are\Nreference counted
+Dialogue: 0,0:17:26.89,0:17:28.83,Default,by the automatic\Nreference counter.
+Dialogue: 0,0:17:28.83,0:17:32.33,Default,So storing them means they\Ncan be stored in variables,
+Dialogue: 0,0:17:32.48,0:17:36.34,Default,in properties, and in\Ndictionaries and arrays.
+Dialogue: 0,0:17:36.34,0:17:39.14,Default,Okay? So they can be stored\Njust like they're objects,
+Dialogue: 0,0:17:39.39,0:17:41.47,Default,but they don't understand\Nany messages like an object.
+Dialogue: 0,0:17:41.47,0:17:43.25,Default,Actually, they understand\None message which is copy,
+Dialogue: 0,0:17:43.25,0:17:45.93,Default,which is kind of an important\Nmessage because that copies them
+Dialogue: 0,0:17:46.21,0:17:47.96,Default,in the heap, and if you\Nwant to keep a pointer
+Dialogue: 0,0:17:47.96,0:17:50.38,Default,to a block around, you\Nprobably want to copy it, okay,
+Dialogue: 0,0:17:50.45,0:17:52.86,Default,so it doesn't just go\Noff the stack somewhere.
+Dialogue: 0,0:17:53.73,0:17:57.72,Default,So for example, here I am\Nputting a block into an array,
+Dialogue: 0,0:17:57.90,0:18:02.15,Default,so I have a property in my\Nclass my blocks, a mutable array
+Dialogue: 0,0:18:02.15,0:18:05.66,Default,of blocks, and I just\Nsay self dot my blocks
+Dialogue: 0,0:18:05.74,0:18:07.92,Default,at object colon a block.
+Dialogue: 0,0:18:08.88,0:18:11.71,Default,Okay? I know this looks\Nweird, and it is weird,
+Dialogue: 0,0:18:11.83,0:18:14.29,Default,because blocks are not objects,\Nbut they act like objects
+Dialogue: 0,0:18:14.29,0:18:17.09,Default,for this purpose of\Nstoring them in things.
+Dialogue: 0,0:18:17.64,0:18:19.86,Default,Okay? So pretty neat.
+Dialogue: 0,0:18:19.86,0:18:21.78,Default,And by the way -\NI have not talked
+Dialogue: 0,0:18:21.78,0:18:24.03,Default,about basically how you\Nwould call this block.
+Dialogue: 0,0:18:24.38,0:18:26.86,Default,Like if I grab this block\Nout of this array and wanted
+Dialogue: 0,0:18:26.86,0:18:28.60,Default,to invoke it, how would I do it?
+Dialogue: 0,0:18:28.60,0:18:31.60,Default,I'm not going to talk about that\Ntoday, but I'm going to show you
+Dialogue: 0,0:18:31.85,0:18:33.23,Default,so that you can see it.
+Dialogue: 0,0:18:33.97,0:18:37.26,Default,Really, you're not going to\Nhave to do that in this class,
+Dialogue: 0,0:18:37.58,0:18:39.61,Default,because you're going to\Nbe passing blocks to iOS
+Dialogue: 0,0:18:39.61,0:18:42.04,Default,and it's going to be executing\Nthem, but if you wanted to know,
+Dialogue: 0,0:18:42.04,0:18:44.78,Default,that's the syntax, it's kind\Nof like C-function syntax,
+Dialogue: 0,0:18:45.11,0:18:46.76,Default,you can look offline,\NI just don't have time
+Dialogue: 0,0:18:46.76,0:18:47.96,Default,to cover it unfortunately.
+Dialogue: 0,0:18:48.55,0:18:51.74,Default,But there's a real\Ndanger lurking here.
+Dialogue: 0,0:18:52.58,0:18:54.45,Default,Okay? In this code, above.
+Dialogue: 0,0:18:54.87,0:18:56.36,Default,Okay, this self, do\Nsomething, thing.
+Dialogue: 0,0:18:56.36,0:18:57.04,Default,And what is it?
+Dialogue: 0,0:18:57.04,0:18:59.01,Default,Well, it's called\Na memory cycle.
+Dialogue: 0,0:18:59.01,0:19:00.71,Default,How many people know\Nwhat a memory cycle is?
+Dialogue: 0,0:19:01.45,0:19:03.48,Default,Okay, not very many, that's\Ngood so I'll cover this.
+Dialogue: 0,0:19:03.48,0:19:10.36,Default,A memory cycle, it's caused\Nbecause all the objects inside
+Dialogue: 0,0:19:10.36,0:19:13.67,Default,that block have a\Nstrong pointer to them,
+Dialogue: 0,0:19:13.76,0:19:15.34,Default,as long as the block exists.
+Dialogue: 0,0:19:15.49,0:19:18.62,Default,Okay? So, for example,\Nin this code, self -
+Dialogue: 0,0:19:18.62,0:19:23.00,Default,a strong pointer will be\Nheld by that block to self.
+Dialogue: 0,0:19:23.48,0:19:24.00,Default,You see why?
+Dialogue: 0,0:19:24.24,0:19:26.90,Default,Because the block, as long as\Nit stays around in that array,
+Dialogue: 0,0:19:27.06,0:19:28.88,Default,it needs to be able to\Ncall self do something,
+Dialogue: 0,0:19:28.88,0:19:30.98,Default,so it needs to always keep\Na strong pointer to self,
+Dialogue: 0,0:19:30.98,0:19:33.16,Default,as long as the block exists.
+Dialogue: 0,0:19:33.16,0:19:35.67,Default,However, the problem is
+Dialogue: 0,0:19:36.02,0:19:38.68,Default,that self has a strong\Npointer to the block.
+Dialogue: 0,0:19:39.41,0:19:40.70,Default,Through it's my block array.
+Dialogue: 0,0:19:40.90,0:19:43.46,Default,Right? Self has a strong pointer\Nto my block, which is an array,
+Dialogue: 0,0:19:43.46,0:19:45.44,Default,the array always hold\Ntheir things strongly,
+Dialogue: 0,0:19:45.75,0:19:48.02,Default,so now both of them are\Npointing strongly to each other.
+Dialogue: 0,0:19:48.13,0:19:50.83,Default,The block is pointing to self,\Nself is pointing to the block.
+Dialogue: 0,0:19:51.23,0:19:54.90,Default,Neither of them can ever leave\Nthe heap in that situation
+Dialogue: 0,0:19:54.90,0:19:56.63,Default,because there's always\Ngoing to be a strong pointer
+Dialogue: 0,0:19:56.63,0:19:58.41,Default,to them - each other's - right?
+Dialogue: 0,0:19:58.41,0:20:00.45,Default,One of them can't\Nleave first and make it
+Dialogue: 0,0:20:00.45,0:20:01.66,Default,so there's no pointer\Nto the other,
+Dialogue: 0,0:20:01.88,0:20:03.82,Default,because they are\Nkeeping each other in.
+Dialogue: 0,0:20:03.82,0:20:04.94,Default,That's called a memory cycle.
+Dialogue: 0,0:20:05.43,0:20:07.45,Default,Okay? And we have to\Nbreak these cycles.
+Dialogue: 0,0:20:08.01,0:20:10.11,Default,Okay? This is a serious problem,\Nyou definitely want to be able
+Dialogue: 0,0:20:10.11,0:20:12.16,Default,to break these cycles,\Nand here's how we do it.
+Dialogue: 0,0:20:12.44,0:20:14.37,Default,We're going to do it\Nwith a local variable.
+Dialogue: 0,0:20:14.87,0:20:18.07,Default,Okay? Now, local\Nvariables are all what?
+Dialogue: 0,0:20:18.23,0:20:19.09,Default,They're all strong.
+Dialogue: 0,0:20:19.65,0:20:21.84,Default,Right? Local variables are\Nstrong, they're strong pointers
+Dialogue: 0,0:20:21.84,0:20:23.84,Default,into the heap, pointer\Nvariables,
+Dialogue: 0,0:20:24.00,0:20:27.71,Default,until the method ends, and now\Nthe strong pointer goes away
+Dialogue: 0,0:20:27.71,0:20:30.50,Default,and so now that local variable\Nobviously is not holding
+Dialogue: 0,0:20:30.50,0:20:32.21,Default,something in the\Nheap by being strong.
+Dialogue: 0,0:20:32.66,0:20:35.94,Default,But there is a way to actually\Ncreate weak local variables,
+Dialogue: 0,0:20:36.36,0:20:37.92,Default,with underbar, underbar, weak.
+Dialogue: 0,0:20:38.47,0:20:40.24,Default,Okay? Underbar, underbar,
+Dialogue: 0,0:20:40.24,0:20:42.92,Default,weak before a local variable\Ndeclaration will make
+Dialogue: 0,0:20:42.92,0:20:45.05,Default,that variable weak, okay?
+Dialogue: 0,0:20:45.05,0:20:48.30,Default,And remember that weak means\Nit's not keeping the object
+Dialogue: 0,0:20:48.30,0:20:50.10,Default,in the heap, if no one\Nelse is pointing to it,
+Dialogue: 0,0:20:50.10,0:20:52.76,Default,it just goes away, and the\Nweak variable gets set to nil.
+Dialogue: 0,0:20:53.68,0:20:57.80,Default,Okay? So I'm going to make\Na local variable, weak self,
+Dialogue: 0,0:20:58.28,0:21:01.33,Default,which points to self, but\Nis weak pointer to self,
+Dialogue: 0,0:21:01.33,0:21:05.15,Default,and now I can use that inside\Nthis block that I added.
+Dialogue: 0,0:21:05.64,0:21:07.53,Default,I'll send do something\Nto weak self,
+Dialogue: 0,0:21:08.06,0:21:09.71,Default,and now I don't have\Nthis cycle anymore,
+Dialogue: 0,0:21:09.94,0:21:12.16,Default,because the block no longer\Nhas a strong pointer to self,
+Dialogue: 0,0:21:12.16,0:21:13.32,Default,it has a weak pointer.
+Dialogue: 0,0:21:14.42,0:21:16.72,Default,Okay? So yes, we will do this.
+Dialogue: 0,0:21:16.93,0:21:18.30,Default,You might have to do\Nit in your homework,
+Dialogue: 0,0:21:18.30,0:21:19.92,Default,depending on how you\Ndecide to implement it,
+Dialogue: 0,0:21:20.30,0:21:21.94,Default,and I will definitely\Ndo it in the demo today
+Dialogue: 0,0:21:22.04,0:21:23.56,Default,so you can see how this works.
+Dialogue: 0,0:21:23.83,0:21:26.06,Default,Okay? This is really the\Nonly place we have these kind
+Dialogue: 0,0:21:26.06,0:21:30.07,Default,of cycles, with ARC, with the\Nautomatic reference counter, um,
+Dialogue: 0,0:21:30.07,0:21:31.34,Default,it's not too bad, you just have
+Dialogue: 0,0:21:31.34,0:21:35.37,Default,to know it's there,\Nand deal with it.
+Dialogue: 0,0:21:36.42,0:21:36.99,Default,Okay? Okay.
+Dialogue: 0,0:21:37.52,0:21:39.40,Default,So when do we use blocks in iOS?
+Dialogue: 0,0:21:39.40,0:21:42.01,Default,We use them for enumeration,\Nyou saw that dictionary,
+Dialogue: 0,0:21:42.01,0:21:43.26,Default,enumerate, keys and values.
+Dialogue: 0,0:21:43.26,0:21:44.89,Default,We use it a lot for enumeration.
+Dialogue: 0,0:21:45.20,0:21:48.24,Default,We use it for view animation,\NI'm going to do the whole rest
+Dialogue: 0,0:21:48.24,0:21:49.24,Default,of this lecture and the start
+Dialogue: 0,0:21:49.24,0:21:51.14,Default,of next lecture is\Ngoing to be about that.
+Dialogue: 0,0:21:51.14,0:21:52.25,Default,And we use it for sorting.
+Dialogue: 0,0:21:52.51,0:21:56.74,Default,There's messages you can send\Nto arrays like sort this array,
+Dialogue: 0,0:21:56.84,0:21:59.87,Default,and use this block to compare\Ntwo objects in the array.
+Dialogue: 0,0:22:00.81,0:22:02.89,Default,Okay? Notifications.
+Dialogue: 0,0:22:03.03,0:22:04.89,Default,Right? When a radio\Nstation broadcasts instead
+Dialogue: 0,0:22:04.89,0:22:05.99,Default,of sending a notification\Nmessage,
+Dialogue: 0,0:22:05.99,0:22:07.79,Default,you can say "just\Nexecute this block"
+Dialogue: 0,0:22:08.49,0:22:10.97,Default,when broadcast happens\Non the radio station.
+Dialogue: 0,0:22:11.42,0:22:12.86,Default,Error handler is very common.
+Dialogue: 0,0:22:13.16,0:22:15.43,Default,Do this thing, and\Nwhen an error happens,
+Dialogue: 0,0:22:15.52,0:22:17.21,Default,execute this block\Nand I'll handle it.
+Dialogue: 0,0:22:18.20,0:22:21.43,Default,Okay? Completion\Nhandlers also very common.
+Dialogue: 0,0:22:21.78,0:22:24.22,Default,Do this thing that's going to\Ntake a long time, and it's going
+Dialogue: 0,0:22:24.22,0:22:27.83,Default,to be done in a background\Nthread, and when it's done,
+Dialogue: 0,0:22:28.45,0:22:29.83,Default,execute this block\Nto let me know.
+Dialogue: 0,0:22:30.77,0:22:33.37,Default,Okay? Animation does\Nthat, in fact,
+Dialogue: 0,0:22:33.37,0:22:34.66,Default,we'll see that in animation too.
+Dialogue: 0,0:22:35.30,0:22:35.62,Default,Question?
+Dialogue: 0,0:22:36.01,0:22:38.62,Default,>> So you have like a\Nmethod defined in your class
+Dialogue: 0,0:22:38.62,0:22:40.99,Default,and you want to use that\Nfunction as a block.
+Dialogue: 0,0:22:41.43,0:22:43.15,Default,Is there any easy way to\Nrefer to it, or do you have
+Dialogue: 0,0:22:43.45,0:22:44.20,Default,to like write it as a block?
+Dialogue: 0,0:22:44.56,0:22:46.29,Default,>> Yeah, so the question\Nis, if I had a method,
+Dialogue: 0,0:22:46.29,0:22:49.25,Default,defined in my class or\Nwhatever, and I want to use it
+Dialogue: 0,0:22:49.25,0:22:51.43,Default,as the contents of the\Nblock, just call self
+Dialogue: 0,0:22:51.43,0:22:54.56,Default,and that method inside the\Nblock, and that will call it.
+Dialogue: 0,0:22:54.66,0:22:56.17,Default,That's a common thing\Nto want to do, actually.
+Dialogue: 0,0:22:57.31,0:23:00.01,Default,Um, a very, very important use\Nof blocks, which we're going
+Dialogue: 0,0:23:00.01,0:23:02.81,Default,to talk about later in the\Nquarter, is multi-threading.
+Dialogue: 0,0:23:03.32,0:23:06.06,Default,Okay? Which is getting your\Napplication doing multiple
+Dialogue: 0,0:23:06.06,0:23:08.62,Default,things at the same time,\Nnot really at the same time,
+Dialogue: 0,0:23:08.62,0:23:10.18,Default,but seemingly at the same time.
+Dialogue: 0,0:23:11.09,0:23:12.98,Default,And I really encourage you,
+Dialogue: 0,0:23:12.98,0:23:15.08,Default,this is one of the few times\NI'm going to tell you go look
+Dialogue: 0,0:23:15.08,0:23:17.44,Default,in the documentation to\Nfind out about blocks,
+Dialogue: 0,0:23:17.44,0:23:21.51,Default,just search for blocks in X-code\Ndocumentation, and you can find
+Dialogue: 0,0:23:21.51,0:23:24.83,Default,out things like how to declare a\Nlocal variable that is a block,
+Dialogue: 0,0:23:24.83,0:23:26.10,Default,and things like that, because\NI haven't really talked
+Dialogue: 0,0:23:26.10,0:23:26.81,Default,about those things.
+Dialogue: 0,0:23:26.85,0:23:28.98,Default,Mostly I've just talked to you\Nenough about blocks to be able
+Dialogue: 0,0:23:28.98,0:23:31.41,Default,to call methods that\Ntake blocks as arguments.
+Dialogue: 0,0:23:31.98,0:23:34.51,Default,Okay? That's all I've pretty\Nmuch shown you so far.
+Dialogue: 0,0:23:35.92,0:23:37.78,Default,Okay. So that's it\Nfor the objective-C
+Dialogue: 0,0:23:38.41,0:23:39.35,Default,that I wanted to cover.
+Dialogue: 0,0:23:39.66,0:23:42.67,Default,And now we can get into the\Nfun stuff, which is animation.
+Dialogue: 0,0:23:42.97,0:23:45.34,Default,Alright? So that's going\Nto be the rest of today
+Dialogue: 0,0:23:45.49,0:23:47.44,Default,and probably the\Nstart of Wednesday
+Dialogue: 0,0:23:47.44,0:23:49.51,Default,because this demo is really big.
+Dialogue: 0,0:23:49.95,0:23:55.08,Default,And there's lots of different\Nanimation that goes on in iOS.
+Dialogue: 0,0:23:55.08,0:23:59.11,Default,I'm going to talk today, and\Nonly really in this course,
+Dialogue: 0,0:23:59.84,0:24:02.15,Default,for the most part,\Nabout animating views.
+Dialogue: 0,0:24:02.70,0:24:04.56,Default,Okay? You know how to\Ncreate custom views, right?
+Dialogue: 0,0:24:04.97,0:24:07.69,Default,And you can even animate\Nnon-custom views, buttons,
+Dialogue: 0,0:24:07.69,0:24:10.60,Default,or whatever you want, but\Nbasically making views move
+Dialogue: 0,0:24:10.60,0:24:13.58,Default,around the screen, get bigger\Nand smaller, fade in and out,
+Dialogue: 0,0:24:13.67,0:24:16.58,Default,spin around and rotate, that's\Nwhat we're going to talk about.
+Dialogue: 0,0:24:16.58,0:24:18.00,Default,Okay? Animating views.
+Dialogue: 0,0:24:18.08,0:24:21.19,Default,But. There's other animation\Nthat goes on, like when you go
+Dialogue: 0,0:24:21.19,0:24:22.99,Default,into a navigation\Ncontroller, and you click,
+Dialogue: 0,0:24:22.99,0:24:25.38,Default,and a new view slides in, okay?
+Dialogue: 0,0:24:25.38,0:24:26.28,Default,That's animation.
+Dialogue: 0,0:24:26.87,0:24:28.42,Default,Alright? And it's\Npossible, also,
+Dialogue: 0,0:24:28.56,0:24:31.66,Default,okay you're in the maps app\Nand you click in the corner
+Dialogue: 0,0:24:31.66,0:24:33.84,Default,and it curls up to\Nshow you other options?
+Dialogue: 0,0:24:33.84,0:24:35.15,Default,That's animation, okay?
+Dialogue: 0,0:24:35.39,0:24:38.28,Default,All that kind of view controller\Nanimation, I'm not going
+Dialogue: 0,0:24:38.28,0:24:39.67,Default,to talk about, for\Nthe most part.
+Dialogue: 0,0:24:39.95,0:24:43.37,Default,Okay? But that's all - there's\Nall support for that as well.
+Dialogue: 0,0:24:43.58,0:24:44.76,Default,There's also a whole other thing
+Dialogue: 0,0:24:44.76,0:24:47.58,Default,in iOS called the collection\Nview, which is a collection
+Dialogue: 0,0:24:47.58,0:24:51.78,Default,of views that kind of live in\Na grid, sort of, or in a flow,
+Dialogue: 0,0:24:52.10,0:24:55.14,Default,kind of layout, and those\Nall can be animated.
+Dialogue: 0,0:24:55.14,0:24:56.68,Default,What's going on in\Nthere as well, okay,
+Dialogue: 0,0:24:57.07,0:24:58.59,Default,but I'm only going\Nto talk about views.
+Dialogue: 0,0:24:59.04,0:25:02.95,Default,Underneath all of that is this\Nframework called core animation,
+Dialogue: 0,0:25:03.19,0:25:06.34,Default,super powerful framework,\NI mean,
+Dialogue: 0,0:25:06.42,0:25:10.13,Default,industrial grade animation\Nframework there, but we're going
+Dialogue: 0,0:25:10.13,0:25:12.03,Default,to be doing it all at\Na much higher level,
+Dialogue: 0,0:25:12.13,0:25:16.33,Default,much easier to program, and\Nyou know, kind of easier to -
+Dialogue: 0,0:25:16.71,0:25:18.86,Default,you don't have to know quite\Nso much about the detail
+Dialogue: 0,0:25:18.86,0:25:20.46,Default,of how animation really works.
+Dialogue: 0,0:25:20.80,0:25:23.44,Default,Whereas core animation is\Nreally for animation people
+Dialogue: 0,0:25:23.51,0:25:25.53,Default,who really want to do\Nserious animations,
+Dialogue: 0,0:25:25.53,0:25:28.85,Default,and a lot of iOS applications\Nare games, or other things
+Dialogue: 0,0:25:28.85,0:25:31.08,Default,that have a very serious\Nanimation going on in there.
+Dialogue: 0,0:25:31.38,0:25:33.56,Default,By the way, in iOS 7 there's a\Nlot of other things we're doing
+Dialogue: 0,0:25:33.56,0:25:36.38,Default,in animation, for example,\Nsprite kit is a way
+Dialogue: 0,0:25:36.38,0:25:41.78,Default,to animate sprites, which are\Nessentially 2-D graphic elements
+Dialogue: 0,0:25:41.83,0:25:43.81,Default,that are being composited\Nin a way to try
+Dialogue: 0,0:25:43.81,0:25:45.68,Default,to get a 3-D looking\Nenvironment,
+Dialogue: 0,0:25:45.68,0:25:48.89,Default,like a lot of video games\Nare, and we're not even going
+Dialogue: 0,0:25:49.01,0:25:50.54,Default,to touch sprite kit,\NI don't think,
+Dialogue: 0,0:25:50.54,0:25:51.84,Default,unless we get to\Nit the last week.
+Dialogue: 0,0:25:52.15,0:25:54.68,Default,So there's a lot of stuff\Nthat I can't possibly cover,
+Dialogue: 0,0:25:54.68,0:25:57.35,Default,so let's just talk the\Nbasics here of animation.
+Dialogue: 0,0:25:57.97,0:26:02.22,Default,So there's three ways to\Nanimate views, basically.
+Dialogue: 0,0:26:02.35,0:26:04.77,Default,Okay? The first way is
+Dialogue: 0,0:26:04.77,0:26:08.21,Default,that there are some very\Nspecial properties in view,
+Dialogue: 0,0:26:08.21,0:26:09.84,Default,namely the view's frame,
+Dialogue: 0,0:26:10.01,0:26:13.62,Default,remember that's the rectangle\Nenclosing it, it's transform,
+Dialogue: 0,0:26:13.81,0:26:15.10,Default,which we talked about briefly,
+Dialogue: 0,0:26:15.10,0:26:16.62,Default,when we did the playing\Ncard thing,
+Dialogue: 0,0:26:16.85,0:26:21.42,Default,transform is the view scale, can\Nbe used to scale it up and down,
+Dialogue: 0,0:26:21.66,0:26:25.06,Default,and it's rotation, views can be\Nrotated, and also translation,
+Dialogue: 0,0:26:25.06,0:26:27.03,Default,although usually for\Ntranslation we use the frame,
+Dialogue: 0,0:26:27.03,0:26:27.95,Default,we move the frame around.
+Dialogue: 0,0:26:28.41,0:26:30.67,Default,And also alpha, it's opacity,
+Dialogue: 0,0:26:30.98,0:26:35.30,Default,these three things can be\Nanimated at any time into view.
+Dialogue: 0,0:26:35.55,0:26:38.49,Default,Meaning, you set them to a\Nnew value and it will set
+Dialogue: 0,0:26:38.49,0:26:41.83,Default,to that new value immediately,\Nbut the effect will appear
+Dialogue: 0,0:26:41.83,0:26:44.34,Default,on screen animated over\Nsome amount of time.
+Dialogue: 0,0:26:44.63,0:26:47.98,Default,So, let's take a look\Nat how this works.
+Dialogue: 0,0:26:47.98,0:26:50.93,Default,It's done with a class\Nmethod in UIView.
+Dialogue: 0,0:26:51.31,0:26:53.92,Default,Okay? A class method, it's not\Nan instance method in UIView,
+Dialogue: 0,0:26:53.92,0:26:58.62,Default,it's a class method, and the\Nclass method basically takes the
+Dialogue: 0,0:26:58.62,0:27:01.19,Default,animation parameters, how long\Nto take and stuff like that,
+Dialogue: 0,0:27:01.19,0:27:04.10,Default,and it takes a block,\Nand inside that block,
+Dialogue: 0,0:27:04.30,0:27:07.02,Default,you can modify these\Nthree properties.
+Dialogue: 0,0:27:07.48,0:27:09.20,Default,There's actually a\Nfew others you can do,
+Dialogue: 0,0:27:09.20,0:27:11.05,Default,but these are the three\Nmain ones I'm going
+Dialogue: 0,0:27:11.05,0:27:12.02,Default,to talk about here.
+Dialogue: 0,0:27:12.48,0:27:13.51,Default,So it looks like this.
+Dialogue: 0,0:27:13.51,0:27:15.14,Default,It's called animation\Nwith duration,
+Dialogue: 0,0:27:15.70,0:27:18.25,Default,and the first argument is\Nhow long you want it to take
+Dialogue: 0,0:27:18.53,0:27:20.21,Default,for this thing to\Nappear on screen,
+Dialogue: 0,0:27:20.54,0:27:23.88,Default,remember that the change you\Nmake happens immediately.
+Dialogue: 0,0:27:24.39,0:27:26.35,Default,So if you change the\Nalpha or the frame,
+Dialogue: 0,0:27:26.52,0:27:29.08,Default,or the transform, it\Ninstantly happens.
+Dialogue: 0,0:27:29.08,0:27:31.35,Default,As soon as this method\Nis executed.
+Dialogue: 0,0:27:31.53,0:27:34.80,Default,And this method returns\Nimmediately at all times, okay?
+Dialogue: 0,0:27:34.97,0:27:36.99,Default,It does what's in the\Nblock immediately.
+Dialogue: 0,0:27:37.24,0:27:41.05,Default,But the appearance of it is\Ngoing to happen over time.
+Dialogue: 0,0:27:41.21,0:27:44.38,Default,Right? It's going to fade in, if\Nit's alpha, it's going to move
+Dialogue: 0,0:27:44.38,0:27:47.04,Default,over if it's the frame,\Nit's going to rotate
+Dialogue: 0,0:27:47.04,0:27:48.19,Default,if it's the transformer.
+Dialogue: 0,0:27:48.19,0:27:49.47,Default,Okay, that's going\Nto happen over time.
+Dialogue: 0,0:27:49.75,0:27:52.32,Default,Duration says how long\Nto take to do that.
+Dialogue: 0,0:27:52.82,0:27:57.15,Default,Okay? Delay is how long\Nto wait to start doing it.
+Dialogue: 0,0:27:57.81,0:27:59.18,Default,And why would you want a delay?
+Dialogue: 0,0:27:59.42,0:28:01.51,Default,Well becomes sometimes you\Nwant to chain animations,
+Dialogue: 0,0:28:01.51,0:28:03.99,Default,you want to do one animation\Nfirst, that takes two seconds,
+Dialogue: 0,0:28:04.25,0:28:06.19,Default,then you want to do another\Nanimation after that.
+Dialogue: 0,0:28:06.19,0:28:07.87,Default,Well, there's two ways to chain.
+Dialogue: 0,0:28:07.99,0:28:11.24,Default,One is to delay the second\None using this delay,
+Dialogue: 0,0:28:11.24,0:28:14.01,Default,second argument, or\Nthere's a completion block -
+Dialogue: 0,0:28:14.01,0:28:16.13,Default,you see the completion\Nblock at the bottom there -
+Dialogue: 0,0:28:16.71,0:28:18.74,Default,you can actually do\Nanother animation in that.
+Dialogue: 0,0:28:19.18,0:28:20.63,Default,Because that completion\Nblock is called
+Dialogue: 0,0:28:20.70,0:28:22.01,Default,when the animation completes.
+Dialogue: 0,0:28:22.91,0:28:24.15,Default,Alright? Options.
+Dialogue: 0,0:28:24.15,0:28:25.45,Default,We're going to talk\Nabout all the options,
+Dialogue: 0,0:28:25.45,0:28:27.57,Default,and quite a few options\Nfor animating.
+Dialogue: 0,0:28:27.83,0:28:30.80,Default,And then there's the all\Nimportant animations argument.
+Dialogue: 0,0:28:30.80,0:28:33.32,Default,That is a block, you can\Nsee, it takes no arguments
+Dialogue: 0,0:28:33.45,0:28:34.89,Default,and has no return value.
+Dialogue: 0,0:28:35.13,0:28:37.50,Default,In that block is\Nwhere you change frame
+Dialogue: 0,0:28:37.76,0:28:42.27,Default,and you can also change center,\Ncenter and frame are related,
+Dialogue: 0,0:28:42.60,0:28:44.02,Default,and transform and alpha.
+Dialogue: 0,0:28:44.30,0:28:46.87,Default,Okay? So here's an\Nexample of calling it.
+Dialogue: 0,0:28:47.11,0:28:49.76,Default,So I'm saying UIView class\Nmethod, animate with duration,
+Dialogue: 0,0:28:49.76,0:28:52.44,Default,this animation is going to take\N3 seconds, and what I'm going
+Dialogue: 0,0:28:52.44,0:28:54.56,Default,to do is, whatever\Nstate my view is in,
+Dialogue: 0,0:28:54.68,0:28:57.48,Default,I'm going to make it\Nfade out and disappear.
+Dialogue: 0,0:28:58.50,0:29:00.65,Default,Okay? So, you see in\Nthe animation block?
+Dialogue: 0,0:29:00.79,0:29:02.99,Default,My view dot alpha equals zero.
+Dialogue: 0,0:29:03.22,0:29:04.55,Default,That means fully transparent.
+Dialogue: 0,0:29:05.23,0:29:09.55,Default,Okay? So that is, whatever it's\Nat now, okay, could be anything,
+Dialogue: 0,0:29:09.82,0:29:13.39,Default,it's going to go from\Nwhatever it's at now to zero
+Dialogue: 0,0:29:13.57,0:29:16.12,Default,in three seconds,\Non screen, okay?
+Dialogue: 0,0:29:16.33,0:29:18.08,Default,But in the code, this\Nhappens immediately.
+Dialogue: 0,0:29:18.41,0:29:20.47,Default,Immediately the view has\Ngone to alpha of zero,
+Dialogue: 0,0:29:20.53,0:29:23.62,Default,it's just onscreen it's not\Nshowing what's currently the
+Dialogue: 0,0:29:23.62,0:29:25.15,Default,state, it's showing\Nthis animation.
+Dialogue: 0,0:29:25.53,0:29:27.96,Default,Okay? And notice the\Ncompletion handler there.
+Dialogue: 0,0:29:29.13,0:29:30.42,Default,Okay? The argument
+Dialogue: 0,0:29:30.42,0:29:33.23,Default,to the completion\Nhandler's block is a BOOL
+Dialogue: 0,0:29:33.23,0:29:35.15,Default,that says whether the\Nanimation finished.
+Dialogue: 0,0:29:35.15,0:29:36.97,Default,Why wouldn't this\Nanimation finish?
+Dialogue: 0,0:29:37.16,0:29:39.78,Default,Well, some other animation\Nmight start animating alpha.
+Dialogue: 0,0:29:40.38,0:29:41.91,Default,Or someone might just set alpha.
+Dialogue: 0,0:29:42.47,0:29:44.81,Default,So if anyone interferes,\Nwith alpha,
+Dialogue: 0,0:29:45.32,0:29:47.29,Default,then the completion\Nhandler will get called,
+Dialogue: 0,0:29:47.29,0:29:49.04,Default,this animation will\Nget interrupted,
+Dialogue: 0,0:29:49.36,0:29:50.86,Default,the completion handler\Nwill get called,
+Dialogue: 0,0:29:50.86,0:29:52.42,Default,but the BOOL there will be no.
+Dialogue: 0,0:29:53.30,0:29:55.76,Default,But if nothing interrupts it,\Nand the alpha goes all the way
+Dialogue: 0,0:29:55.76,0:29:58.23,Default,to zero, then this completion\Nhandler will be called,
+Dialogue: 0,0:29:58.37,0:30:01.27,Default,and the argument will be\Nyes, yes it completed,
+Dialogue: 0,0:30:01.66,0:30:04.65,Default,and if that happens, I'm\Nthen going to remove my view
+Dialogue: 0,0:30:04.75,0:30:05.96,Default,from the view hierarchy.
+Dialogue: 0,0:30:06.44,0:30:10.24,Default,So what this single line of code\Ndoes is it fades out my view,
+Dialogue: 0,0:30:10.24,0:30:11.86,Default,and if it successfully\Nfades it out,
+Dialogue: 0,0:30:11.86,0:30:13.15,Default,removes it from the\Nview hierarchy.
+Dialogue: 0,0:30:14.08,0:30:14.43,Default,Question?
+Dialogue: 0,0:30:14.43,0:30:16.45,Default,>> Did you, in the next line,
+Dialogue: 0,0:30:17.18,0:30:19.38,Default,did kind of the same thing\Nexcept changed the alpha
+Dialogue: 0,0:30:19.38,0:30:21.12,Default,to something else?
+Dialogue: 0,0:30:21.42,0:30:23.24,Default,And you had delay\Nequals three seconds.
+Dialogue: 0,0:30:23.71,0:30:26.33,Default,It seems like it's right on the\Nedge there, maybe it happens
+Dialogue: 0,0:30:26.33,0:30:29.10,Default,after this one finishes,\Nor maybe it happens before.
+Dialogue: 0,0:30:29.20,0:30:30.34,Default,Is there - ?
+Dialogue: 0,0:30:31.39,0:30:34.31,Default,>> Yeah, so the question is,\Nwhat if I have another animation
+Dialogue: 0,0:30:34.31,0:30:36.03,Default,that I execute on\Nthe very next line.
+Dialogue: 0,0:30:36.36,0:30:38.76,Default,Well first of all, let's\Nsay I delay this one, right?
+Dialogue: 0,0:30:38.76,0:30:41.52,Default,So you're saying delay this\Nfirst call, put delay in there,
+Dialogue: 0,0:30:41.52,0:30:42.89,Default,delay equals three or something?
+Dialogue: 0,0:30:43.07,0:30:46.03,Default,>> Actually delay the second\None, so that it has to -
+Dialogue: 0,0:30:46.03,0:30:48.31,Default,>> Okay, delay the second\None, exactly three seconds?
+Dialogue: 0,0:30:48.71,0:30:50.37,Default,Okay, so that will be fine
+Dialogue: 0,0:30:50.37,0:30:52.71,Default,because the first one will\Nfinish instantly right before
+Dialogue: 0,0:30:52.71,0:30:53.99,Default,the second one starts, okay?
+Dialogue: 0,0:30:53.99,0:30:56.28,Default,Because it's a common practice\Nto do just exactly that.
+Dialogue: 0,0:30:56.42,0:30:57.68,Default,Have something take\Nthree seconds,
+Dialogue: 0,0:30:57.68,0:30:59.01,Default,and then start the\Nother one with a delay
+Dialogue: 0,0:30:59.01,0:31:02.14,Default,of three seconds,\Nso yeah, it'll work.
+Dialogue: 0,0:31:02.99,0:31:04.46,Default,Here's another - oops!
+Dialogue: 0,0:31:04.46,0:31:06.69,Default,Well I guess I can do\Nthat example, but anyway -
+Dialogue: 0,0:31:06.92,0:31:10.27,Default,so that is - does everyone\Nunderstand what's going
+Dialogue: 0,0:31:10.27,0:31:10.62,Default,on there?
+Dialogue: 0,0:31:11.81,0:31:14.37,Default,It's really that simple, the\Nmain thing to understand is
+Dialogue: 0,0:31:14.37,0:31:16.76,Default,that alpha would be set\Nimmediately to zero,
+Dialogue: 0,0:31:17.16,0:31:18.93,Default,it's just on screen\Nthat it will show.
+Dialogue: 0,0:31:19.93,0:31:21.27,Default,Alright, let's talk about\Nsome of the options.
+Dialogue: 0,0:31:21.60,0:31:22.94,Default,The first one's an\Ninteresting option,
+Dialogue: 0,0:31:22.94,0:31:24.19,Default,begin from current state.
+Dialogue: 0,0:31:24.19,0:31:28.68,Default,So if you set this option\Non, okay, and when -
+Dialogue: 0,0:31:28.68,0:31:30.75,Default,in the options list\N- what this means is
+Dialogue: 0,0:31:30.75,0:31:32.59,Default,if there is another\Nanimation that is going
+Dialogue: 0,0:31:32.59,0:31:35.40,Default,on that is animating the\Nthings I want to animate,
+Dialogue: 0,0:31:35.73,0:31:39.40,Default,then pick up from wherever they\Nare when you do my animation.
+Dialogue: 0,0:31:39.89,0:31:43.54,Default,Okay? So if I'm doing that\Nalpha thing and it's fading down
+Dialogue: 0,0:31:43.54,0:31:45.74,Default,and it's down to\N0.2, or something,
+Dialogue: 0,0:31:45.96,0:31:48.36,Default,and then I issue another\Nanimation to start,
+Dialogue: 0,0:31:48.61,0:31:50.39,Default,that goes up to 0.7 alpha,
+Dialogue: 0,0:31:50.99,0:31:54.54,Default,if I begin from current state\Noption on, then it will start
+Dialogue: 0,0:31:54.54,0:31:56.43,Default,at 0.2 and go up to 0.7.
+Dialogue: 0,0:31:56.95,0:31:59.08,Default,If I don't have this on,\Nit will start at zero,
+Dialogue: 0,0:31:59.26,0:32:02.93,Default,because zero is what the real\Nalpha is, and go up to 0.7.
+Dialogue: 0,0:32:03.40,0:32:05.25,Default,So begin from current\Nstate is a way
+Dialogue: 0,0:32:05.25,0:32:07.67,Default,of intercepting other\Nanimations,
+Dialogue: 0,0:32:07.67,0:32:08.72,Default,intercepting them, right?
+Dialogue: 0,0:32:08.72,0:32:09.52,Default,In mid-flight.
+Dialogue: 0,0:32:10.36,0:32:12.98,Default,Okay? You need this\Nbecause remember
+Dialogue: 0,0:32:12.98,0:32:14.97,Default,that when you set these\Nanimation parameters,
+Dialogue: 0,0:32:15.01,0:32:16.05,Default,it happens immediately.
+Dialogue: 0,0:32:16.31,0:32:17.74,Default,So if you want to\Nintercept animation
+Dialogue: 0,0:32:17.74,0:32:20.08,Default,in flight you need some option\Nfor the system to go check
+Dialogue: 0,0:32:20.08,0:32:23.24,Default,and see where the view is,\Nif it's flying across screen,
+Dialogue: 0,0:32:23.59,0:32:26.76,Default,before it sends it to a new\Nplace or if it's fading out,
+Dialogue: 0,0:32:26.76,0:32:28.02,Default,it fades at its new level.
+Dialogue: 0,0:32:28.67,0:32:31.06,Default,It's very common to have\Nthat option on, actually.
+Dialogue: 0,0:32:31.68,0:32:34.10,Default,And then you see things\Nlike allow user interaction,
+Dialogue: 0,0:32:34.10,0:32:35.66,Default,do you want to allow\Ngestures to happen
+Dialogue: 0,0:32:35.66,0:32:37.14,Default,in this view while\Nit's in flight?
+Dialogue: 0,0:32:37.38,0:32:39.12,Default,Sometimes that makes\Nsense, sometimes not.
+Dialogue: 0,0:32:39.58,0:32:41.79,Default,Down at the bottom,\Nyou see those curves?
+Dialogue: 0,0:32:41.79,0:32:43.73,Default,Curve ease in, curve ease out?
+Dialogue: 0,0:32:44.06,0:32:47.25,Default,Sometimes when you move a view\Nacross screen you don't want it
+Dialogue: 0,0:32:47.25,0:32:51.26,Default,to just up and move, you want it\Nto kind of slowly pick up speed,
+Dialogue: 0,0:32:51.46,0:32:53.66,Default,get up to full speed, and\Nthen slow down at the end.
+Dialogue: 0,0:32:53.66,0:32:56.15,Default,It's a little smoother\Nkind of animation
+Dialogue: 0,0:32:56.15,0:32:59.47,Default,than just here's my view,\Nmmmmm, that's a little, mmmmmm,
+Dialogue: 0,0:32:59.47,0:33:01.89,Default,you know, but mmmmmmmmmmmmm,\Nokay?
+Dialogue: 0,0:33:02.53,0:33:03.65,Default,Better. Smoother.
+Dialogue: 0,0:33:03.87,0:33:07.10,Default,So curve in, ease and out,\Nthat's for controlling that.
+Dialogue: 0,0:33:07.35,0:33:10.61,Default,Okay? Same thing for fading, you\Ncould do it for fading as well.
+Dialogue: 0,0:33:10.61,0:33:12.26,Default,Though fading tends\Nto be okay linear.
+Dialogue: 0,0:33:12.74,0:33:16.03,Default,But moving definitely curving in\Nand out is a pretty good idea.
+Dialogue: 0,0:33:16.20,0:33:17.68,Default,So you can look in\Nthe documentation
+Dialogue: 0,0:33:17.68,0:33:20.78,Default,and see what all these options\Ndo, you can repeat animations,
+Dialogue: 0,0:33:20.78,0:33:22.49,Default,have them go over and\Nover and things like that.
+Dialogue: 0,0:33:22.49,0:33:26.43,Default,So that's how you animate\Nthose special properties, okay?
+Dialogue: 0,0:33:26.78,0:33:30.58,Default,And it animates them, it\Nfigures out all the in between.
+Dialogue: 0,0:33:30.58,0:33:32.73,Default,Even if you animate multiple\Nof them at the same time.
+Dialogue: 0,0:33:32.73,0:33:36.72,Default,It's moving, it's fading,\Nit's rotating, it will find,
+Dialogue: 0,0:33:36.72,0:33:39.23,Default,you know, it will interpolate\Nall those points all the way
+Dialogue: 0,0:33:39.23,0:33:40.46,Default,along automatically.
+Dialogue: 0,0:33:40.70,0:33:44.59,Default,Okay? And pretty high\Nperformance, as well.
+Dialogue: 0,0:33:44.98,0:33:47.58,Default,Okay. Sometimes though,\Nyou're changing your contents
+Dialogue: 0,0:33:47.58,0:33:51.44,Default,of your view in a way that's\Nother than those three things.
+Dialogue: 0,0:33:51.55,0:33:53.66,Default,The classic example\Nhere, the playing card.
+Dialogue: 0,0:33:54.10,0:33:55.84,Default,When I'm flipping my\Nplaying card over,
+Dialogue: 0,0:33:56.39,0:33:57.54,Default,the only property I'm setting
+Dialogue: 0,0:33:57.54,0:34:00.84,Default,in my view is face\Nup equals yes, right?
+Dialogue: 0,0:34:00.84,0:34:02.56,Default,And now my card flips\Nover to face up.
+Dialogue: 0,0:34:02.56,0:34:04.55,Default,Face up equals no, now\Nit flips over to down.
+Dialogue: 0,0:34:04.81,0:34:07.74,Default,So that's not an animatable\Nproperty per se, however,
+Dialogue: 0,0:34:07.94,0:34:12.50,Default,what I'd like to do is have the\Nview change from face up to face
+Dialogue: 0,0:34:12.50,0:34:16.59,Default,down through some animation,\Nlike flipping the card over,
+Dialogue: 0,0:34:16.72,0:34:18.68,Default,or dissolving between the two.
+Dialogue: 0,0:34:18.79,0:34:20.97,Default,In other words, I want\Nto change the entire view
+Dialogue: 0,0:34:21.21,0:34:25.40,Default,through some animation\Nto a new state.
+Dialogue: 0,0:34:25.63,0:34:26.79,Default,And that's what this one is for.
+Dialogue: 0,0:34:26.79,0:34:27.82,Default,Transition with view.
+Dialogue: 0,0:34:28.38,0:34:31.80,Default,So transition with view takes\Na view that you want to do,
+Dialogue: 0,0:34:31.80,0:34:35.15,Default,like a playing card view,\Nand it takes a duration.
+Dialogue: 0,0:34:35.31,0:34:37.24,Default,How long it's going\Nto take to go
+Dialogue: 0,0:34:37.24,0:34:39.21,Default,from the old state\Nto the new state.
+Dialogue: 0,0:34:39.55,0:34:42.01,Default,Options, again, similar\Nto the other options,
+Dialogue: 0,0:34:42.01,0:34:44.50,Default,but this is especially where you\Nwould specify the options listed
+Dialogue: 0,0:34:44.50,0:34:47.71,Default,at the top there, like UIView\Nanimation options transition
+Dialogue: 0,0:34:47.71,0:34:51.80,Default,flip form left would mean\NI want this to flip over
+Dialogue: 0,0:34:51.93,0:34:56.38,Default,or cross dissolve, or curl up.
+Dialogue: 0,0:34:56.62,0:34:58.83,Default,And animations, again,\Nis a block,
+Dialogue: 0,0:34:59.13,0:35:00.82,Default,that's where you're\Ngoing to set face up.
+Dialogue: 0,0:35:01.68,0:35:04.40,Default,In that block, you can set\Nanything you want about the view
+Dialogue: 0,0:35:04.40,0:35:05.96,Default,to make it be in its new state,
+Dialogue: 0,0:35:06.60,0:35:10.30,Default,and the system will apply all\Nthose changes, re-draw the view
+Dialogue: 0,0:35:10.30,0:35:12.20,Default,in the new state, off screen,
+Dialogue: 0,0:35:12.51,0:35:14.29,Default,and then transition\Nbetween the two.
+Dialogue: 0,0:35:14.50,0:35:16.05,Default,The old state is on screen now,
+Dialogue: 0,0:35:16.16,0:35:18.05,Default,and whatever your\Nchanges result in.
+Dialogue: 0,0:35:18.65,0:35:19.12,Default,Make sense?
+Dialogue: 0,0:35:19.94,0:35:20.59,Default,Questions about that?
+Dialogue: 0,0:35:21.60,0:35:24.79,Default,And then completion, same thing,\Nif you get interrupted somehow,
+Dialogue: 0,0:35:25.11,0:35:27.45,Default,you know, it's harder to\Nget interrupted on this one,
+Dialogue: 0,0:35:27.45,0:35:30.40,Default,but it can happen, then the\Ncompletion handler gets called.
+Dialogue: 0,0:35:30.58,0:35:30.96,Default,Either way.
+Dialogue: 0,0:35:32.01,0:35:33.70,Default,Okay? So this one will be great.
+Dialogue: 0,0:35:33.70,0:35:35.81,Default,Part of your homework is\Nto flip that card over,
+Dialogue: 0,0:35:36.19,0:35:39.75,Default,and this is the method\Nyou're going to want to use,
+Dialogue: 0,0:35:39.75,0:35:41.05,Default,so very, very straightforward.
+Dialogue: 0,0:35:42.57,0:35:44.86,Default,If you're changing\Nthe view hierarchy,
+Dialogue: 0,0:35:44.93,0:35:47.24,Default,like you're swapping\Na view out, okay?
+Dialogue: 0,0:35:47.24,0:35:48.36,Default,You got a view in\Nthe view hierarchy
+Dialogue: 0,0:35:48.36,0:35:51.14,Default,and you're swapping a new\None in, or if you want
+Dialogue: 0,0:35:51.14,0:35:53.64,Default,to hide a view in\Nfavor of another view,
+Dialogue: 0,0:35:53.64,0:35:57.18,Default,you can use this\Ntransition from view to view.
+Dialogue: 0,0:35:57.77,0:36:00.78,Default,So this one is kind\Nof like the other one
+Dialogue: 0,0:36:00.78,0:36:02.80,Default,in that you're changing, but\Ninstead of having a single view
+Dialogue: 0,0:36:02.80,0:36:05.08,Default,that you're changing its state\Nand then flipping it over,
+Dialogue: 0,0:36:05.26,0:36:08.09,Default,here you're replacing a\Nview with another view.
+Dialogue: 0,0:36:08.66,0:36:10.01,Default,Okay? But otherwise\Nis very similar.
+Dialogue: 0,0:36:10.01,0:36:12.16,Default,It's even called almost the\Nsame thing, transition, right?
+Dialogue: 0,0:36:12.49,0:36:13.85,Default,Transition from view to view.
+Dialogue: 0,0:36:14.77,0:36:16.40,Default,Okay? Alright.
+Dialogue: 0,0:36:17.53,0:36:21.15,Default,So that's it for direct\Nchanging of views, properties,
+Dialogue: 0,0:36:21.15,0:36:22.34,Default,and making things happen.
+Dialogue: 0,0:36:22.59,0:36:25.82,Default,Okay? The next kind of animation\Nwe're going to talk about,
+Dialogue: 0,0:36:25.82,0:36:28.62,Default,which is a totally different\Nsystem, new for iOS 7,
+Dialogue: 0,0:36:29.18,0:36:32.47,Default,is called dynamic animation.
+Dialogue: 0,0:36:32.92,0:36:35.21,Default,And this one's a\Ncompletely different concept.
+Dialogue: 0,0:36:35.46,0:36:38.92,Default,Here, what you're going to do,\Nis define a bunch of physics
+Dialogue: 0,0:36:39.23,0:36:42.19,Default,that apply to all the views\Nthat you want to animate,
+Dialogue: 0,0:36:42.19,0:36:44.72,Default,and then you're just going\Nto say "Okay, do it!"
+Dialogue: 0,0:36:45.32,0:36:48.44,Default,And they're going to go have\Nthose physics apply to them.
+Dialogue: 0,0:36:48.92,0:36:51.37,Default,So what kind of physics\Nare we talking about here?
+Dialogue: 0,0:36:51.57,0:36:55.26,Default,We're talking about gravity,\Ncollisions, forces applied
+Dialogue: 0,0:36:55.26,0:36:56.38,Default,to them, things like that.
+Dialogue: 0,0:36:56.77,0:36:59.51,Default,Okay? And they're just\Ngoing to keep on animating
+Dialogue: 0,0:36:59.51,0:37:01.40,Default,until the forces\Nall balance out.
+Dialogue: 0,0:37:02.02,0:37:03.82,Default,Okay? And we'll see\Nwhat that looks like.
+Dialogue: 0,0:37:04.42,0:37:07.31,Default,The way we do this, this\Nis a really nice API,
+Dialogue: 0,0:37:07.67,0:37:08.86,Default,very easy to use.
+Dialogue: 0,0:37:08.86,0:37:10.87,Default,You create a UI dynamic\Nanimator,
+Dialogue: 0,0:37:10.87,0:37:11.87,Default,you just need to create one.
+Dialogue: 0,0:37:12.19,0:37:15.23,Default,You can do multiple,\Nbut just one -
+Dialogue: 0,0:37:15.41,0:37:17.25,Default,it's really for grouping\Nthese behaviors,
+Dialogue: 0,0:37:17.25,0:37:19.23,Default,but usually create\None dynamic animator
+Dialogue: 0,0:37:19.23,0:37:20.64,Default,with alloc in it, basically.
+Dialogue: 0,0:37:21.04,0:37:22.02,Default,I'll show you that.
+Dialogue: 0,0:37:22.33,0:37:24.12,Default,And then you're going\Nto add behaviors to it.
+Dialogue: 0,0:37:24.19,0:37:28.01,Default,Behaviors are like\Ngravity, collisions, pushes,
+Dialogue: 0,0:37:28.01,0:37:29.57,Default,those kinds of things,\Nthose are behaviors.
+Dialogue: 0,0:37:29.57,0:37:32.07,Default,Things that are going to\Nbe applied to the things.
+Dialogue: 0,0:37:32.49,0:37:35.72,Default,And then you put the things in\Nthere, and the things you put
+Dialogue: 0,0:37:35.72,0:37:39.34,Default,in there are UI dynamic\Nitems, meaning they respond
+Dialogue: 0,0:37:39.34,0:37:41.20,Default,or they implement that protocol.
+Dialogue: 0,0:37:41.20,0:37:41.68,Default,I'll show you that.
+Dialogue: 0,0:37:42.20,0:37:45.91,Default,And the instant you put them in\Nthere, they'll start animating.
+Dialogue: 0,0:37:45.97,0:37:48.23,Default,You don't have to say run, you\Ndon't have to say anything,
+Dialogue: 0,0:37:48.23,0:37:51.55,Default,immediately, any time there's an\Nitem that's in a behavior that's
+Dialogue: 0,0:37:51.55,0:37:55.90,Default,in a dynamic animator, it will\Nstart animating until the forces
+Dialogue: 0,0:37:55.90,0:37:59.27,Default,on it, meaning that it doesn't\Nneed to move, then it will stop.
+Dialogue: 0,0:38:00.13,0:38:02.56,Default,Okay? So let's look\Nat all these things.
+Dialogue: 0,0:38:02.87,0:38:05.94,Default,UI dynamic animator, you\Ncan just do alloc init,
+Dialogue: 0,0:38:06.25,0:38:09.09,Default,but when you're doing views,\Nif it's views that you want
+Dialogue: 0,0:38:09.09,0:38:11.79,Default,to animate, if you want to do\Nalloc init with reference view.
+Dialogue: 0,0:38:12.25,0:38:13.55,Default,Okay? And init with\Nreference view,
+Dialogue: 0,0:38:13.55,0:38:16.71,Default,you're specifying the top\Nview of a view hierarchy,
+Dialogue: 0,0:38:16.78,0:38:19.40,Default,all the views you animate have\Nto be in that view hierarchy,
+Dialogue: 0,0:38:19.40,0:38:20.89,Default,in other words, they\Nhave to be somewhere,
+Dialogue: 0,0:38:20.89,0:38:23.38,Default,a subview of this reference\Nview or a subview of that
+Dialogue: 0,0:38:23.38,0:38:25.80,Default,or a subview of that, as deep\Nas you want to go, but you have
+Dialogue: 0,0:38:25.80,0:38:27.52,Default,to specify the top level view.
+Dialogue: 0,0:38:28.23,0:38:31.33,Default,Okay? Then you create\Nthese behaviors.
+Dialogue: 0,0:38:31.33,0:38:35.84,Default,Behaviors are just alloc init,\Nlike UIGravityBehaviorAllocInit.
+Dialogue: 0,0:38:36.99,0:38:41.09,Default,UICollisionBehaviorAllocInit,\Nand then you add these behaviors
+Dialogue: 0,0:38:41.09,0:38:43.20,Default,to the animator,\Nusing add behavior,
+Dialogue: 0,0:38:43.20,0:38:45.04,Default,which is a dynamic\Nanimator method.
+Dialogue: 0,0:38:45.63,0:38:47.26,Default,Okay? Couldn't be simpler.
+Dialogue: 0,0:38:47.61,0:38:50.47,Default,And then, you add the\Nitems to the behaviors.
+Dialogue: 0,0:38:50.72,0:38:51.51,Default,And you do that with?
+Dialogue: 0,0:38:51.78,0:38:54.05,Default,Add item, in dynamic behavior.
+Dialogue: 0,0:38:54.91,0:38:58.04,Default,So an item is just an ID
+Dialogue: 0,0:38:58.22,0:39:00.58,Default,that implements the\Nprotocol UIDynamicItem
+Dialogue: 0,0:39:00.68,0:39:01.97,Default,which you can see there below.
+Dialogue: 0,0:39:02.35,0:39:05.82,Default,And again, UIView\Nimplements that protocol,
+Dialogue: 0,0:39:06.04,0:39:08.50,Default,so usually the items we\Nput in there are UIViews,
+Dialogue: 0,0:39:08.50,0:39:09.61,Default,about 90 percent of the time.
+Dialogue: 0,0:39:09.61,0:39:12.29,Default,100 percent of the time in this\Nclass, 100 percent of the time
+Dialogue: 0,0:39:12.29,0:39:14.58,Default,in your homework, I'm only\Nasking you to animate views,
+Dialogue: 0,0:39:14.83,0:39:18.82,Default,but you could animate\Ncompletely non-visual items.
+Dialogue: 0,0:39:18.88,0:39:21.63,Default,They could be - as long as\Nthey implement this protocol,
+Dialogue: 0,0:39:21.63,0:39:22.51,Default,they can do anything they want.
+Dialogue: 0,0:39:22.77,0:39:23.96,Default,So what's in the protocol?
+Dialogue: 0,0:39:24.15,0:39:25.22,Default,There's the bounds.
+Dialogue: 0,0:39:25.36,0:39:29.12,Default,That's again the bounds\Nin the items world.
+Dialogue: 0,0:39:29.41,0:39:31.05,Default,It's like the views\Nbounds, right?
+Dialogue: 0,0:39:31.05,0:39:32.77,Default,It's its own drawing\Ncoordinate system.
+Dialogue: 0,0:39:32.97,0:39:34.11,Default,Notice that's read only.
+Dialogue: 0,0:39:34.57,0:39:37.88,Default,Okay? It could be modified\Nby the transform, centering,
+Dialogue: 0,0:39:37.88,0:39:41.85,Default,moving the thing around,\Npossibly, mostly the transform.
+Dialogue: 0,0:39:41.94,0:39:45.49,Default,So the bounds, though, is just\Nthe drawing area for the item.
+Dialogue: 0,0:39:45.95,0:39:49.38,Default,But the center, in other words,\Nthe position of the item,
+Dialogue: 0,0:39:49.93,0:39:53.93,Default,and its transform, it's rotation\Nand scale, those are read-write.
+Dialogue: 0,0:39:54.38,0:39:55.49,Default,Those can actually be set.
+Dialogue: 0,0:39:56.19,0:39:58.22,Default,They're obviously\Nset by the animator,
+Dialogue: 0,0:39:58.50,0:40:01.02,Default,that's what the dynamic\Nanimator does is go figure
+Dialogue: 0,0:40:01.02,0:40:04.10,Default,out what the center and\Nrotation and scale should be.
+Dialogue: 0,0:40:04.42,0:40:05.49,Default,And you could set them too,
+Dialogue: 0,0:40:05.49,0:40:08.55,Default,but if you do set them while the\Nanimator is also setting them,
+Dialogue: 0,0:40:08.79,0:40:11.41,Default,you have to call this method\Nupdate item using current state,
+Dialogue: 0,0:40:11.41,0:40:12.74,Default,current state in the animator,
+Dialogue: 0,0:40:12.97,0:40:14.43,Default,otherwise the animator\Nwill not -
+Dialogue: 0,0:40:14.75,0:40:16.83,Default,will ignore anything\Nthat's going on.
+Dialogue: 0,0:40:16.83,0:40:19.45,Default,Okay? So if you want to\Nbe setting the center,
+Dialogue: 0,0:40:19.58,0:40:21.98,Default,if you want to be moving the\Nthing while the animator is also
+Dialogue: 0,0:40:21.98,0:40:22.90,Default,trying to move it,\Nin other words,
+Dialogue: 0,0:40:22.90,0:40:25.51,Default,you want to fight it a little\Nbit, or if it is moving it
+Dialogue: 0,0:40:25.51,0:40:26.78,Default,and you want to rotate it,
+Dialogue: 0,0:40:27.10,0:40:29.08,Default,you need to do this update\Nitem using current state,
+Dialogue: 0,0:40:29.08,0:40:31.31,Default,otherwise it will assume,\Nfor performance reasons,
+Dialogue: 0,0:40:31.55,0:40:32.98,Default,that it knows the current state.
+Dialogue: 0,0:40:33.43,0:40:35.75,Default,Until it's done animating,\Nuntil everything settles.
+Dialogue: 0,0:40:36.77,0:40:38.21,Default,Okay? So that's it.
+Dialogue: 0,0:40:38.29,0:40:40.97,Default,Animator, behaviors and items.
+Dialogue: 0,0:40:41.44,0:40:42.69,Default,That's all there\Nis in this system.
+Dialogue: 0,0:40:43.22,0:40:45.04,Default,So now let's talk about\Nsome of these behaviors.
+Dialogue: 0,0:40:45.04,0:40:46.54,Default,The concrete behaviors\Nthat are available.
+Dialogue: 0,0:40:46.84,0:40:47.64,Default,There's gravity.
+Dialogue: 0,0:40:48.24,0:40:52.44,Default,Okay? Gravity - gravity behavior\Nby default, gravity is down.
+Dialogue: 0,0:40:52.70,0:40:55.36,Default,So if I'm holding my phone, it's\Ndown, which kind of makes sense
+Dialogue: 0,0:40:55.36,0:40:57.94,Default,if I hold my phone up I kind\Nof want things to go down,
+Dialogue: 0,0:40:58.24,0:41:00.09,Default,but really it can\Nbe set to any angle.
+Dialogue: 0,0:41:00.20,0:41:02.07,Default,You can have the gravity\Nup or to the left,
+Dialogue: 0,0:41:02.07,0:41:04.47,Default,you can have multiple\Ngravity pulling on things
+Dialogue: 0,0:41:04.62,0:41:05.61,Default,from different directions.
+Dialogue: 0,0:41:05.88,0:41:08.06,Default,In fact, if you had two things\Npulling, one from the top,
+Dialogue: 0,0:41:08.06,0:41:10.22,Default,one from the bottom, the thing\Nwould just float in the middle
+Dialogue: 0,0:41:10.22,0:41:12.01,Default,if they have the same\Nmagnitude of gravity.
+Dialogue: 0,0:41:12.37,0:41:13.55,Default,And you can set the gravity.
+Dialogue: 0,0:41:13.67,0:41:18.60,Default,Magnitude of 1 means a thousand\Npoints per second squared.
+Dialogue: 0,0:41:18.82,0:41:20.53,Default,That's the acceleration\Ndue to gravity.
+Dialogue: 0,0:41:21.19,0:41:25.08,Default,That feels a lot like 9.8\Nmeters per second squared
+Dialogue: 0,0:41:25.08,0:41:27.61,Default,which is acceleration\Ndue to real gravity.
+Dialogue: 0,0:41:27.61,0:41:28.84,Default,So in other words, if\Nyou hold your phone up
+Dialogue: 0,0:41:29.05,0:41:31.56,Default,and let the gravity work, it\Nkind of feels like it's falling
+Dialogue: 0,0:41:31.56,0:41:33.97,Default,about the same speed, something\Nin real life would happen,
+Dialogue: 0,0:41:34.19,0:41:35.82,Default,and it's also a very\Nnice round number,
+Dialogue: 0,0:41:35.88,0:41:37.42,Default,a thousand points\Nper second squared.
+Dialogue: 0,0:41:38.25,0:41:40.79,Default,Okay? But understand,\Nit's just like gravity,
+Dialogue: 0,0:41:40.79,0:41:43.15,Default,it's an acceleration\Nin a certain direction.
+Dialogue: 0,0:41:44.51,0:41:46.88,Default,Collision is really cool.
+Dialogue: 0,0:41:47.12,0:41:50.46,Default,Collision just means\Nthe items inside
+Dialogue: 0,0:41:50.46,0:41:53.43,Default,of the collision behavior,\Nif they bump into each other,
+Dialogue: 0,0:41:53.43,0:41:56.51,Default,they'll bounce off each other,\Nlike a real world collision,
+Dialogue: 0,0:41:56.77,0:41:58.67,Default,and you can specify\Nthe elasticity
+Dialogue: 0,0:41:58.67,0:42:02.77,Default,and how bouncy they are, and\Neven you can define the density
+Dialogue: 0,0:42:02.77,0:42:03.58,Default,of one versus another,
+Dialogue: 0,0:42:03.58,0:42:05.68,Default,so a really dense one\Nwill smash another one
+Dialogue: 0,0:42:05.68,0:42:08.29,Default,out of the way, all definable.
+Dialogue: 0,0:42:08.78,0:42:10.73,Default,You can also set boundaries.
+Dialogue: 0,0:42:11.07,0:42:14.43,Default,So any UI [inaudible] path\Nthat you want to come up with,
+Dialogue: 0,0:42:14.63,0:42:16.34,Default,you can put it in your\Ncollision behavior
+Dialogue: 0,0:42:16.51,0:42:17.78,Default,and things will bounce off it.
+Dialogue: 0,0:42:17.92,0:42:20.40,Default,So it can be round, it\Ncan be square, whatever,
+Dialogue: 0,0:42:20.58,0:42:22.81,Default,and things will bounce\Noff it when they hit it.
+Dialogue: 0,0:42:23.17,0:42:26.31,Default,Also you can set the\Nboundaries of the reference view
+Dialogue: 0,0:42:26.70,0:42:30.20,Default,to be bouncy boundaries as\Nwell by saying translate
+Dialogue: 0,0:42:30.20,0:42:32.73,Default,to reference bounds into\Nboundary equals yes,
+Dialogue: 0,0:42:33.01,0:42:35.63,Default,and then things will bounce off\Nthe edges of the reference view,
+Dialogue: 0,0:42:35.63,0:42:38.57,Default,the top level view in\Nthe dynamic animator.
+Dialogue: 0,0:42:39.18,0:42:43.86,Default,Okay? So, the collision mode\Ndetermines whether the items
+Dialogue: 0,0:42:44.17,0:42:46.46,Default,bounce off each other or\Njust off the boundaries.
+Dialogue: 0,0:42:47.31,0:42:50.14,Default,Okay? Alright?
+Dialogue: 0,0:42:50.80,0:42:51.91,Default,Attachment behaviors.
+Dialogue: 0,0:42:51.91,0:42:54.67,Default,Okay, this is the\Nway to attach an item
+Dialogue: 0,0:42:55.11,0:42:58.21,Default,to a fixed point\Nor to another item.
+Dialogue: 0,0:42:58.84,0:43:02.24,Default,Now one thing to remember\Nabout this, if I hook an item
+Dialogue: 0,0:43:02.24,0:43:04.02,Default,up to a point, that\Ndoes not mean
+Dialogue: 0,0:43:04.02,0:43:05.55,Default,that item is not going to move.
+Dialogue: 0,0:43:05.83,0:43:08.85,Default,Okay? If I hook it up to this\Npoint and I have an item here,
+Dialogue: 0,0:43:09.33,0:43:11.41,Default,right, and gravity happens?
+Dialogue: 0,0:43:12.07,0:43:14.98,Default,My item is going to go like\Nthis...it's going to swing.
+Dialogue: 0,0:43:15.43,0:43:19.05,Default,Because the attachment is\Njust attaching the two things,
+Dialogue: 0,0:43:19.05,0:43:20.41,Default,the point and the item.
+Dialogue: 0,0:43:20.41,0:43:23.00,Default,It's not attaching to\Nthe background, okay?
+Dialogue: 0,0:43:23.21,0:43:26.68,Default,And also if I move the point,\Nthe thing will stay with it
+Dialogue: 0,0:43:26.72,0:43:28.80,Default,and it will kind of\Nswing around behind it.
+Dialogue: 0,0:43:28.80,0:43:30.70,Default,And we'll see this\Nin the demo, okay?
+Dialogue: 0,0:43:30.91,0:43:32.98,Default,So attachment is attaching\Nthe thing to a point.
+Dialogue: 0,0:43:33.09,0:43:35.05,Default,You can also attach two items.
+Dialogue: 0,0:43:35.31,0:43:38.42,Default,If I attach two items like\Nthis and I gravity down,
+Dialogue: 0,0:43:38.75,0:43:40.70,Default,they're going to go bam!
+Dialogue: 0,0:43:40.70,0:43:42.31,Default,They'll stay the same distance\Napart, but they're just going
+Dialogue: 0,0:43:42.31,0:43:44.92,Default,to go straight down because\Ngravity will still be applying
+Dialogue: 0,0:43:44.92,0:43:45.63,Default,to them as well.
+Dialogue: 0,0:43:46.10,0:43:48.16,Default,Right? And the connection\Njust keeps them together.
+Dialogue: 0,0:43:48.84,0:43:52.14,Default,The attachment behavior\Nis a little different
+Dialogue: 0,0:43:52.14,0:43:53.29,Default,in that you don't alloc init,
+Dialogue: 0,0:43:53.29,0:43:55.94,Default,you actually specify the\Nattachment at init time.
+Dialogue: 0,0:43:56.06,0:43:59.06,Default,So alloc init with item,\Nalloc init with other item,
+Dialogue: 0,0:43:59.31,0:44:01.73,Default,there's also some versions\Nwhere you can attach items,
+Dialogue: 0,0:44:01.99,0:44:03.27,Default,with the attachment\Npoint instead
+Dialogue: 0,0:44:03.27,0:44:05.06,Default,of being the center is offset.
+Dialogue: 0,0:44:05.06,0:44:09.07,Default,And that will make things kind\Nof hang if the items rotate,
+Dialogue: 0,0:44:09.07,0:44:11.97,Default,they'll kind of tilt, okay\Nbecause you're not grabbing them
+Dialogue: 0,0:44:11.97,0:44:13.09,Default,in the middle, you're\Ngrabbing them on the side,
+Dialogue: 0,0:44:13.09,0:44:15.27,Default,so you can make some\Npretty cool effects.
+Dialogue: 0,0:44:15.49,0:44:18.51,Default,The other thing to notice about\Nattachments that's cool is
+Dialogue: 0,0:44:18.51,0:44:22.17,Default,that the length between\Nthe two items is writeable.
+Dialogue: 0,0:44:23.12,0:44:24.93,Default,So for example, let's\Nsay you were pinching.
+Dialogue: 0,0:44:26.21,0:44:27.86,Default,You could change the length
+Dialogue: 0,0:44:28.21,0:44:30.49,Default,and those two attached items\Nwould move closer together.
+Dialogue: 0,0:44:31.48,0:44:34.77,Default,Okay? So even though you set\Nit up as this item attach
+Dialogue: 0,0:44:34.77,0:44:37.51,Default,from this point or these\Nitems attach to each other,
+Dialogue: 0,0:44:37.82,0:44:39.88,Default,if you change the\Nlength to be smaller,
+Dialogue: 0,0:44:39.88,0:44:42.90,Default,they'll move toward each other,\Nokay, that which is cool,
+Dialogue: 0,0:44:42.90,0:44:44.22,Default,and the same thing\Nwith the anchor point.
+Dialogue: 0,0:44:44.22,0:44:45.59,Default,If you move the anchor\Npoint around,
+Dialogue: 0,0:44:45.91,0:44:47.32,Default,the attachment is still there
+Dialogue: 0,0:44:47.32,0:44:49.23,Default,and the thing will\Nfollow around, right?
+Dialogue: 0,0:44:49.57,0:44:51.35,Default,With other behaviors\Napplying to it.
+Dialogue: 0,0:44:51.35,0:44:51.72,Default,Question?
+Dialogue: 0,0:44:51.97,0:44:54.42,Default,>> Is that attachment length,\Nis that an exact value,
+Dialogue: 0,0:44:54.42,0:44:57.82,Default,like it would be with like\Nwhen they're attached or?
+Dialogue: 0,0:44:57.95,0:44:59.41,Default,>> Iron, like an\Niron bar you mean?
+Dialogue: 0,0:44:59.41,0:45:00.88,Default,>> Yeah, like iron\Nbar or straight?
+Dialogue: 0,0:45:01.12,0:45:03.21,Default,>> Okay, so the question\Nis, is it like an iron bar
+Dialogue: 0,0:45:03.21,0:45:04.22,Default,or is it more like a string?
+Dialogue: 0,0:45:04.43,0:45:07.63,Default,And actually what it is,\Nit's like a spring, okay?
+Dialogue: 0,0:45:07.87,0:45:09.80,Default,So it actually as\Nyou move it around,
+Dialogue: 0,0:45:09.80,0:45:11.28,Default,like if I move it\Nup, it will "whoom!"
+Dialogue: 0,0:45:11.28,0:45:11.96,Default,spring up.
+Dialogue: 0,0:45:12.36,0:45:15.07,Default,And you can control the\Ndamping and oscillation of that.
+Dialogue: 0,0:45:15.62,0:45:17.30,Default,By default, it's an iron bar.
+Dialogue: 0,0:45:17.82,0:45:19.77,Default,Okay? So the damping\Nand oscillation are set
+Dialogue: 0,0:45:19.77,0:45:21.88,Default,so that it does not\Noscillate, but you can set it
+Dialogue: 0,0:45:22.17,0:45:25.73,Default,so as you follow it around it\Nkind of - it's very, very cool.
+Dialogue: 0,0:45:25.73,0:45:26.78,Default,So you can play with\Nall of those
+Dialogue: 0,0:45:27.14,0:45:28.15,Default,when you are doing\Nyour homework.
+Dialogue: 0,0:45:28.39,0:45:33.18,Default,Snap behavior snaps an item to\Na location, but it does more
+Dialogue: 0,0:45:33.18,0:45:34.44,Default,than just have it fly there.
+Dialogue: 0,0:45:34.44,0:45:36.56,Default,It does fly there, rather\Nrapidly I might add.
+Dialogue: 0,0:45:36.82,0:45:38.85,Default,When it gets there,\Nthough, you can imagine
+Dialogue: 0,0:45:38.85,0:45:41.33,Default,that there's four springs\Nattached to the item
+Dialogue: 0,0:45:41.51,0:45:44.31,Default,in the corners, a little ways\Nout, so the thing gets there
+Dialogue: 0,0:45:44.31,0:45:46.73,Default,and it goes "doinggg" -\Nkind of springs - like this.
+Dialogue: 0,0:45:46.95,0:45:48.55,Default,And you can specify\Nhow much it does that.
+Dialogue: 0,0:45:48.75,0:45:49.80,Default,Why does it do that?
+Dialogue: 0,0:45:50.08,0:45:52.28,Default,That's because you want to\Ngive feedback to the user,
+Dialogue: 0,0:45:52.28,0:45:53.40,Default,oh, I just moved this.
+Dialogue: 0,0:45:53.40,0:45:55.08,Default,So you don't want it\Nto just go "blip!"
+Dialogue: 0,0:45:55.63,0:45:56.94,Default,You want it to go\N"hmmmm," you know,
+Dialogue: 0,0:45:56.94,0:45:59.60,Default,and it kind of gives them\Njust a moment's springiness,
+Dialogue: 0,0:45:59.60,0:46:01.82,Default,so it's like "oh, okay"\Nand that's good animation,
+Dialogue: 0,0:46:01.82,0:46:03.09,Default,the snap behavior very common.
+Dialogue: 0,0:46:03.45,0:46:06.40,Default,Also you have push behavior,\Nwhich is you can push,
+Dialogue: 0,0:46:06.70,0:46:08.35,Default,push an object and\Nit will start moving.
+Dialogue: 0,0:46:08.35,0:46:09.74,Default,So especially if you\Ndon't have gravity,
+Dialogue: 0,0:46:09.93,0:46:12.08,Default,this might be what causes\Nthings to move, you push it
+Dialogue: 0,0:46:12.08,0:46:15.17,Default,and it moves across and then\Nthese items have friction,
+Dialogue: 0,0:46:15.46,0:46:17.45,Default,they have density when they\Ncollide with each other,
+Dialogue: 0,0:46:17.73,0:46:20.24,Default,so push - you can\Nread about push -
+Dialogue: 0,0:46:20.24,0:46:24.62,Default,and how you specify the angle\Nand the magnitude and all that.
+Dialogue: 0,0:46:25.29,0:46:30.66,Default,Okay? So. Another thing about\Nbehaviors is you want to be able
+Dialogue: 0,0:46:30.66,0:46:33.61,Default,to set this friction,\Nelasticity, the density,
+Dialogue: 0,0:46:33.61,0:46:35.04,Default,all these things that\Nwe're talking about,
+Dialogue: 0,0:46:35.47,0:46:38.23,Default,you want to set them on\Nthe items independent
+Dialogue: 0,0:46:38.23,0:46:40.32,Default,of the other behaviors, okay?
+Dialogue: 0,0:46:40.65,0:46:43.62,Default,So if I have friction,\NI want it to apply,
+Dialogue: 0,0:46:43.71,0:46:46.44,Default,whether it's gravity that's\Ncausing the thing to move,
+Dialogue: 0,0:46:46.44,0:46:48.27,Default,or whether a collision\Ncaused it to move.
+Dialogue: 0,0:46:48.73,0:46:52.28,Default,So we don't put the friction and\Nthe density and stuff like that
+Dialogue: 0,0:46:52.28,0:46:54.99,Default,in collision behaviors\Nor gravity behaviors,
+Dialogue: 0,0:46:55.17,0:46:58.10,Default,we put it in its own behavior\Ncalled the items behavior.
+Dialogue: 0,0:46:58.66,0:47:03.31,Default,So there's a class of behavior\Ncalled UI Dynamic Item Behavior.
+Dialogue: 0,0:47:03.63,0:47:07.19,Default,Okay? And so if you want\Nany of these things,
+Dialogue: 0,0:47:07.19,0:47:09.14,Default,like you don't want\Nto allow it to rotate,
+Dialogue: 0,0:47:09.14,0:47:10.82,Default,you don't want the view\Nto be able to rotate,
+Dialogue: 0,0:47:10.82,0:47:14.03,Default,which I don't know if you're\Ndoing homework sometimes you
+Dialogue: 0,0:47:14.03,0:47:15.07,Default,might want that, sometimes not,
+Dialogue: 0,0:47:15.42,0:47:17.77,Default,or you want to specify the\Nfriction or the bounciness
+Dialogue: 0,0:47:18.03,0:47:22.22,Default,of this object, you create\Na UI Dynamic Item Behavior
+Dialogue: 0,0:47:22.42,0:47:24.24,Default,and add the items\Nto that as well.
+Dialogue: 0,0:47:24.61,0:47:27.37,Default,So the item would be a member\Nof the gravity behavior,
+Dialogue: 0,0:47:27.37,0:47:29.95,Default,it might be of the collision\Nbehavior, and it's also a member
+Dialogue: 0,0:47:29.95,0:47:32.31,Default,of a UI Dynamic Item Behavior.
+Dialogue: 0,0:47:32.84,0:47:34.87,Default,Okay? And this controls\Nall its options.
+Dialogue: 0,0:47:34.87,0:47:36.93,Default,So you can think of this as kind\Nof like the animation options,
+Dialogue: 0,0:47:36.93,0:47:38.96,Default,but really it's more like\Nthe behavior of the -
+Dialogue: 0,0:47:38.96,0:47:40.88,Default,the intrinsic behavior\N- of that item.
+Dialogue: 0,0:47:41.21,0:47:42.81,Default,Okay? What is its density?
+Dialogue: 0,0:47:43.26,0:47:45.77,Default,You want that to be the same no\Nmatter what behavior is acting
+Dialogue: 0,0:47:45.96,0:47:47.19,Default,on it.
+Dialogue: 0,0:47:47.19,0:47:49.40,Default,You can also find out\Ninformation about what's going
+Dialogue: 0,0:47:49.40,0:47:52.59,Default,on with the item using\NUI Dynamic Item Behavior.
+Dialogue: 0,0:47:52.59,0:47:56.23,Default,It has methods like\Nlinear velocity for item.
+Dialogue: 0,0:47:56.23,0:47:58.18,Default,It will tell you the\Nvelocity of this item
+Dialogue: 0,0:47:58.36,0:47:59.36,Default,in different directions.
+Dialogue: 0,0:47:59.63,0:48:02.53,Default,Which is really cool for if you\Nwant to take over animation,
+Dialogue: 0,0:48:02.77,0:48:06.83,Default,the dynamic animation system\Nstarted this thing moving,
+Dialogue: 0,0:48:06.98,0:48:09.12,Default,and now you want to take\Nover and keep it moving,
+Dialogue: 0,0:48:09.42,0:48:11.20,Default,maybe in some other direction\Nor something like that.
+Dialogue: 0,0:48:11.20,0:48:13.15,Default,You can find out how fast\Nis it moving right now,
+Dialogue: 0,0:48:13.15,0:48:14.92,Default,and then continue having\Nit move at that speed.
+Dialogue: 0,0:48:15.43,0:48:16.87,Default,Same thing with angular\Nvelocity.
+Dialogue: 0,0:48:16.87,0:48:19.03,Default,How fast it's rotating\Nin radians per second.
+Dialogue: 0,0:48:19.76,0:48:23.83,Default,Okay? Dynamic behaviors also -
+Dialogue: 0,0:48:24.01,0:48:27.18,Default,the UI Dynamic Behavior is the\Nbase class for gravity behavior,
+Dialogue: 0,0:48:27.18,0:48:28.05,Default,collision behavior, all these,
+Dialogue: 0,0:48:28.30,0:48:30.03,Default,you can also create\Nyour own subclass,
+Dialogue: 0,0:48:30.24,0:48:32.49,Default,and usually when you\Ndo your implementation,
+Dialogue: 0,0:48:32.53,0:48:35.63,Default,just adds other behaviors\Nas child behaviors.
+Dialogue: 0,0:48:35.69,0:48:36.56,Default,So there's a method
+Dialogue: 0,0:48:36.56,0:48:39.50,Default,in UI Dynamic Behavior\Ncalled Add Child Behavior,
+Dialogue: 0,0:48:39.68,0:48:41.56,Default,and you can add a\Ngravity, collision,
+Dialogue: 0,0:48:41.56,0:48:44.92,Default,UI Dynamic Item behavior,\Nas sub-behaviors.
+Dialogue: 0,0:48:45.15,0:48:48.24,Default,And this is very common to\Ndo, just to clean up your API,
+Dialogue: 0,0:48:48.35,0:48:52.71,Default,to group behaviors that go\Ntogether, into their own class.
+Dialogue: 0,0:48:52.90,0:48:55.42,Default,Okay? Their own UI\NDynamic Behavior subclass,
+Dialogue: 0,0:48:55.71,0:48:58.46,Default,and all that thing usually\Nhas is child behaviors
+Dialogue: 0,0:48:58.46,0:49:02.21,Default,and then maybe a little\Nbit of API to add the items
+Dialogue: 0,0:49:02.21,0:49:05.38,Default,in a certain way or have them\Ninterrelate in some other way.
+Dialogue: 0,0:49:06.30,0:49:10.53,Default,Okay? What is more,\Nall behaviors,
+Dialogue: 0,0:49:10.53,0:49:12.83,Default,all UI Dynamic Behaviors,\Ngravity, collision,
+Dialogue: 0,0:49:12.83,0:49:14.06,Default,your own custom ones, whatever,
+Dialogue: 0,0:49:14.30,0:49:16.65,Default,they know what dynamic\Nanimator they are in.
+Dialogue: 0,0:49:17.34,0:49:19.44,Default,They have a property\Ncalled Dynamic Animator
+Dialogue: 0,0:49:19.44,0:49:21.92,Default,which will say what\Ndynamic animator they're in,
+Dialogue: 0,0:49:21.92,0:49:24.82,Default,and there's kind of a view\Ncontroller life cycle thing
+Dialogue: 0,0:49:24.82,0:49:28.44,Default,of UI Dynamic Behaviors, which\Nonly has one method in it,
+Dialogue: 0,0:49:28.96,0:49:30.18,Default,will move to animator.
+Dialogue: 0,0:49:30.71,0:49:33.98,Default,So that gets called every time\Nit gets moved to an animator
+Dialogue: 0,0:49:33.98,0:49:35.23,Default,or out of an animator.
+Dialogue: 0,0:49:35.23,0:49:36.32,Default,So this would be\Ncalled with nil.
+Dialogue: 0,0:49:37.28,0:49:38.87,Default,Okay? So that way you can find
+Dialogue: 0,0:49:38.87,0:49:41.97,Default,out whether your behavior is\Ncurrently being animated or not,
+Dialogue: 0,0:49:42.51,0:49:43.56,Default,and by which animator.
+Dialogue: 0,0:49:44.50,0:49:47.18,Default,Okay? And the last thing\NI'm going to tell you
+Dialogue: 0,0:49:47.18,0:49:51.96,Default,about behaviors, really cool\Nproperty is a block called
+Dialogue: 0,0:49:51.96,0:49:54.89,Default,action, this block\Nreturns nothing
+Dialogue: 0,0:49:54.89,0:49:56.83,Default,and takes no arguments,\Nso it's basic block.
+Dialogue: 0,0:49:57.42,0:50:02.03,Default,This block you provide, you\Njust say my whatever behavior,
+Dialogue: 0,0:50:02.27,0:50:03.96,Default,gravity behavior,\Ncollision behavior, whatever,
+Dialogue: 0,0:50:04.21,0:50:08.30,Default,dot action equals a\Nblock - it will execute
+Dialogue: 0,0:50:08.30,0:50:11.11,Default,that block every time\Nthis behavior causes
+Dialogue: 0,0:50:11.11,0:50:12.02,Default,animation change.
+Dialogue: 0,0:50:13.04,0:50:17.33,Default,Okay? So this is called a lot,\Nas gravity pulls the thing down,
+Dialogue: 0,0:50:17.39,0:50:20.50,Default,every time it moves, even a\Npixel, this thing gets called.
+Dialogue: 0,0:50:21.01,0:50:23.93,Default,Okay? If a collision happens,\Nand it moves that causes it
+Dialogue: 0,0:50:23.93,0:50:25.32,Default,to move, this will get called.
+Dialogue: 0,0:50:25.96,0:50:29.08,Default,Okay? So this is a way to get\Nin there and get involved.
+Dialogue: 0,0:50:29.12,0:50:31.61,Default,Now, you have a responsibility\Nwhen you get in there,
+Dialogue: 0,0:50:31.91,0:50:34.16,Default,don't do anything really\Nexpensive in action
+Dialogue: 0,0:50:34.38,0:50:36.20,Default,or your animation\Nwill get all jerky.
+Dialogue: 0,0:50:36.71,0:50:38.52,Default,Okay? You do not want to\Ndo something expensive
+Dialogue: 0,0:50:38.52,0:50:40.82,Default,like draw too much, but\Nyou can draw a little bit.
+Dialogue: 0,0:50:40.82,0:50:44.48,Default,And we'll show in the demo on\NWednesday, we'll get to the part
+Dialogue: 0,0:50:44.69,0:50:46.76,Default,where I'll set an action\Nthat draws a little bit,
+Dialogue: 0,0:50:47.06,0:50:48.82,Default,so that we can see\Nthings a little better,
+Dialogue: 0,0:50:49.52,0:50:51.96,Default,and you can see this, really\Nnice to be able to set this.
+Dialogue: 0,0:50:52.30,0:50:55.10,Default,Okay? So this is a simple\Nlittle hook to get involved
+Dialogue: 0,0:50:55.44,0:50:58.14,Default,with the animation that these\Nbehaviors are causing to happen.
+Dialogue: 0,0:50:58.14,0:50:58.23,Default,Okay?
+Dialogue: 0,0:51:01.09,0:51:02.62,Default,Alright. So let's do this demo.
+Dialogue: 0,0:51:03.11,0:51:06.80,Default,All that what to look for,\Nyou can look on later,
+Dialogue: 0,0:51:06.94,0:51:09.70,Default,just to make sure you\Nactually saw this.
+Dialogue: 0,0:51:09.77,0:51:11.05,Default,This demo is called "Drop It."
+Dialogue: 0,0:51:11.63,0:51:16.94,Default,And basically going to\Ndrop views, squares, down,
+Dialogue: 0,0:51:17.26,0:51:18.61,Default,and they're going to\Ncollect at the bottom,
+Dialogue: 0,0:51:18.79,0:51:21.56,Default,and when a whole row collects,\NI'm going to blow them up.
+Dialogue: 0,0:51:21.69,0:51:22.54,Default,Kind of like Tetris.
+Dialogue: 0,0:51:22.54,0:51:23.12,Default,You know Tetris?
+Dialogue: 0,0:51:23.12,0:51:25.22,Default,You put the blocks in and when\Nthey fit and you get a row,
+Dialogue: 0,0:51:25.50,0:51:26.97,Default,boom, the row disappears.
+Dialogue: 0,0:51:27.30,0:51:28.62,Default,We're going to do that.
+Dialogue: 0,0:51:28.71,0:51:30.43,Default,Okay? We're not going to\Nuse Tetris squares and stuff
+Dialogue: 0,0:51:30.43,0:51:34.05,Default,like that, this is a demo, I\Nonly have like 45 minutes to do,
+Dialogue: 0,0:51:34.05,0:51:35.84,Default,but we'll do blocks instead.
+Dialogue: 0,0:51:36.48,0:51:38.75,Default,But the main thing I just want\Nto show you everything I can
+Dialogue: 0,0:51:39.11,0:51:42.22,Default,in that amount of\Ntime, about animation.
+Dialogue: 0,0:51:42.22,0:51:46.69,Default,So we're going to make a new\Napp here, let's get rid of that.
+Dialogue: 0,0:51:46.69,0:51:47.25,Default,Don't need that.
+Dialogue: 0,0:51:47.25,0:51:49.89,Default,We're going to create\Na new project.
+Dialogue: 0,0:51:49.89,0:51:52.57,Default,I'm going to call this project\N- I'm going to go quite fast now
+Dialogue: 0,0:51:52.57,0:51:54.58,Default,through most of this stuff that\Nyou already know how to do.
+Dialogue: 0,0:51:54.81,0:51:55.91,Default,So I'm going to do Drop It,
+Dialogue: 0,0:51:55.91,0:51:58.50,Default,I'm going to call the view\Ncontroller also Drop It.
+Dialogue: 0,0:51:59.21,0:52:01.54,Default,Okay? We'll put it in\Nhome directory developer.
+Dialogue: 0,0:52:02.20,0:52:03.24,Default,Here's our Drop It.
+Dialogue: 0,0:52:03.72,0:52:05.63,Default,You know me, I always like\Nto move these out of the way.
+Dialogue: 0,0:52:06.48,0:52:08.36,Default,Alright. So here's\Nmy storyboard.
+Dialogue: 0,0:52:08.67,0:52:15.55,Default,I'm going to use a generic\NUIView to contain my game.
+Dialogue: 0,0:52:15.92,0:52:17.26,Default,Okay? My little dropping game.
+Dialogue: 0,0:52:17.48,0:52:20.27,Default,I could do all this dropping\Nin self dot view here,
+Dialogue: 0,0:52:20.52,0:52:22.41,Default,but it's usually a bad idea,\Nbecause what if I ever want
+Dialogue: 0,0:52:22.41,0:52:25.14,Default,to add a score or another\Nbutton or something like that,
+Dialogue: 0,0:52:25.14,0:52:27.57,Default,I want my game then to be\Nin a little smaller space,
+Dialogue: 0,0:52:27.57,0:52:30.34,Default,and you're going to want to do\Nthat for your homework as well.
+Dialogue: 0,0:52:30.55,0:52:33.52,Default,So I'm just going to drag\Nout a generic UIView.
+Dialogue: 0,0:52:33.52,0:52:34.95,Default,I always have trouble\Nfinding it.
+Dialogue: 0,0:52:34.95,0:52:35.48,Default,Yep, there it is.
+Dialogue: 0,0:52:35.48,0:52:38.70,Default,So I'm just going to drag\Nthis generic UIView in here,
+Dialogue: 0,0:52:38.95,0:52:40.39,Default,and I'm going to\Ncreate an outlet to it,
+Dialogue: 0,0:52:40.39,0:52:41.78,Default,I'm going to call\Nit my game view.
+Dialogue: 0,0:52:41.99,0:52:46.12,Default,So just control, drag, out\Nhere and call it game view.
+Dialogue: 0,0:52:46.12,0:52:47.52,Default,And it's a generic UIView.
+Dialogue: 0,0:52:48.20,0:52:49.54,Default,It's no custom thing.
+Dialogue: 0,0:52:49.54,0:52:51.37,Default,But I just want it\Nto be the bounds,
+Dialogue: 0,0:52:51.64,0:52:54.36,Default,and I can move these bounds\Nin from the edge if I wanted
+Dialogue: 0,0:52:54.36,0:52:56.30,Default,to put some other UI\Nin there or whatever.
+Dialogue: 0,0:52:56.40,0:52:59.06,Default,So now I have my game view.
+Dialogue: 0,0:52:59.31,0:53:01.48,Default,And I'm also going to\Nhave a tap gesture,
+Dialogue: 0,0:53:01.48,0:53:03.04,Default,so let's drag out a tap gesture.
+Dialogue: 0,0:53:03.24,0:53:04.77,Default,So that every time\NI tap on this,
+Dialogue: 0,0:53:04.77,0:53:06.67,Default,I'm going to add\Nanother square to drop.
+Dialogue: 0,0:53:07.04,0:53:09.32,Default,Okay? So I'm going to\Nput this on my game view.
+Dialogue: 0,0:53:09.57,0:53:11.00,Default,Here's my tap gesture\Nright here.
+Dialogue: 0,0:53:11.40,0:53:17.10,Default,Control drag this\Nout, I'll call it tap.
+Dialogue: 0,0:53:17.53,0:53:22.51,Default,Okay. Get some more\Nspace here for us.
+Dialogue: 0,0:53:22.56,0:53:25.48,Default,So every time that you\Ntap on my game view,
+Dialogue: 0,0:53:25.70,0:53:32.67,Default,I'm going to drop another, drop\Nanother full square that falls
+Dialogue: 0,0:53:32.67,0:53:35.88,Default,down like a Tetris\Nkind of thing.
+Dialogue: 0,0:53:36.03,0:53:37.44,Default,Oops. Oops.
+Dialogue: 0,0:53:37.86,0:53:39.71,Default,Drop. Okay?
+Dialogue: 0,0:53:39.71,0:53:41.16,Default,So that's what this\Nmethod is going to do,
+Dialogue: 0,0:53:41.16,0:53:42.40,Default,it's just going to add a view.
+Dialogue: 0,0:53:42.40,0:53:44.94,Default,So this is also a chance\Nfor me to show you how
+Dialogue: 0,0:53:44.94,0:53:48.20,Default,to create a UIView in code,\Nwhich hopefully you've all done
+Dialogue: 0,0:53:48.20,0:53:49.11,Default,that because you've\Ndone the part
+Dialogue: 0,0:53:49.11,0:53:50.60,Default,of the homework that's\Nthe custom view,
+Dialogue: 0,0:53:50.60,0:53:52.06,Default,but if you haven't, here you go.
+Dialogue: 0,0:53:52.46,0:53:55.33,Default,I'm going to actually\Ncreate the frame first.
+Dialogue: 0,0:53:55.33,0:53:59.92,Default,I'm going to have the\Nframe origin start
+Dialogue: 0,0:53:59.92,0:54:02.73,Default,out at CG point zero,\Nbut then I'm going
+Dialogue: 0,0:54:02.73,0:54:03.92,Default,to change the X origin.
+Dialogue: 0,0:54:04.21,0:54:06.34,Default,So I'm going to have that\Ndrop start out at the top
+Dialogue: 0,0:54:06.34,0:54:08.61,Default,and then I'm just going\Nto put in a random spot
+Dialogue: 0,0:54:08.86,0:54:13.64,Default,across the X. The size, I'm\Ngoing to define a nice little,
+Dialogue: 0,0:54:14.41,0:54:16.47,Default,well let's do a static.
+Dialogue: 0,0:54:17.77,0:54:24.79,Default,Static, const, CG size, we'll\Ncall this drop size equals
+Dialogue: 0,0:54:25.68,0:54:28.91,Default,and I'll make it like\N40 by 40, but I'm going
+Dialogue: 0,0:54:28.91,0:54:31.21,Default,to make this be static\Nconst as opposed
+Dialogue: 0,0:54:31.21,0:54:33.64,Default,to it making it be a property or\Nsomething because I don't want
+Dialogue: 0,0:54:33.64,0:54:35.44,Default,to write the code right\Nnow to deal with the fact
+Dialogue: 0,0:54:35.44,0:54:37.27,Default,that someone changes this,\Nbecause I probably have
+Dialogue: 0,0:54:37.27,0:54:40.47,Default,to re-draw my whole thing to\Nhave smaller squares, right?
+Dialogue: 0,0:54:40.47,0:54:41.01,Default,Or something like that.
+Dialogue: 0,0:54:41.43,0:54:42.97,Default,Which is cool, be great to do,
+Dialogue: 0,0:54:42.97,0:54:45.00,Default,but just with time constraints\NI'm not going to do that.
+Dialogue: 0,0:54:45.45,0:54:48.48,Default,So I'm going to have the\Nframe size be this drop size.
+Dialogue: 0,0:54:48.53,0:54:51.03,Default,So I'm creating a\Nlittle drop view, okay,
+Dialogue: 0,0:54:51.03,0:54:52.27,Default,and that's the size\NI want it to be.
+Dialogue: 0,0:54:52.61,0:54:55.52,Default,So here I'll do my random\N- actually let's go ahead
+Dialogue: 0,0:54:55.52,0:55:00.83,Default,and do this...let's go to here.
+Dialogue: 0,0:55:02.05,0:55:06.65,Default,Let's go just pick a random\Nplace along the X axis,
+Dialogue: 0,0:55:06.65,0:55:11.82,Default,so I'm going to do arc 4\Nrandom, and we're going to mod
+Dialogue: 0,0:55:11.82,0:55:17.98,Default,that by the self dot game view\Ndot found dot size dot width,
+Dialogue: 0,0:55:18.14,0:55:22.25,Default,so somewhere along some\Nrandom spot along there.
+Dialogue: 0,0:55:23.10,0:55:26.92,Default,And I'm also going\Nto make it be lined
+Dialogue: 0,0:55:26.92,0:55:29.64,Default,up so the drops are,\Nyou know, in a grid.
+Dialogue: 0,0:55:29.64,0:55:32.91,Default,So I'm just going to divide\Nby the drop size dot width,
+Dialogue: 0,0:55:32.91,0:55:36.32,Default,and then I'm going to\Nmultiply by saying - oops,
+Dialogue: 0,0:55:37.05,0:55:43.25,Default,frame dot origin dot X equals X\Ntimes the drop size dot width,
+Dialogue: 0,0:55:43.25,0:55:46.60,Default,so you see here, I've divided\Nit here, this is an int,
+Dialogue: 0,0:55:46.83,0:55:49.24,Default,so it's basically going\Nto do a floor, right?
+Dialogue: 0,0:55:49.88,0:55:53.04,Default,I've picked an int and just\Nmultiply it back, that puts it
+Dialogue: 0,0:55:53.04,0:55:57.77,Default,at a random spot across, and\Nthen I create a view just
+Dialogue: 0,0:55:57.77,0:56:05.74,Default,by saying drop view equals\NUIView alloc init with frame,
+Dialogue: 0,0:56:06.11,0:56:08.73,Default,which is the designated\Ninitializer for view,
+Dialogue: 0,0:56:08.73,0:56:12.34,Default,and I'll specify this frame,\Nand then I'm just going -
+Dialogue: 0,0:56:12.34,0:56:16.17,Default,I'm going to set the drop\Nviews background color
+Dialogue: 0,0:56:16.17,0:56:17.91,Default,to be a random color.
+Dialogue: 0,0:56:19.86,0:56:23.69,Default,Okay, I happen to have a little\Nsnippet for that, random color.
+Dialogue: 0,0:56:24.54,0:56:26.02,Default,Okay, so random color\Njust picks one
+Dialogue: 0,0:56:26.02,0:56:28.84,Default,of five random colors,\Nokay, right here.
+Dialogue: 0,0:56:30.29,0:56:34.22,Default,And then let's just go ahead\Nand self that game view,
+Dialogue: 0,0:56:34.43,0:56:36.29,Default,add sub-view, drop view.
+Dialogue: 0,0:56:36.87,0:56:42.27,Default,Okay? So it's as simple as\Nthat to drop something on here,
+Dialogue: 0,0:56:42.27,0:56:43.99,Default,so unless I've forgotten\Nsomething
+Dialogue: 0,0:56:43.99,0:56:46.11,Default,or doing something wrong,\Nlet's go ahead and run.
+Dialogue: 0,0:56:47.12,0:56:50.39,Default,Every time I tap, we get\Nanother one, so that's great.
+Dialogue: 0,0:56:50.60,0:56:51.74,Default,They're collecting at the top.
+Dialogue: 0,0:56:51.99,0:56:55.39,Default,Now we're going to add some\Ngravity so that they fall down.
+Dialogue: 0,0:56:56.54,0:56:58.87,Default,Okay? Animated, so\Nthey fall down.
+Dialogue: 0,0:56:59.04,0:57:00.87,Default,So how do we do that?
+Dialogue: 0,0:57:00.87,0:57:03.25,Default,Very simple, we're just\Ngoing to create an animator,
+Dialogue: 0,0:57:03.68,0:57:08.63,Default,have a property which\Nis strong non-atomic,
+Dialogue: 0,0:57:08.94,0:57:13.12,Default,which is a UI dynamic\Nanimator, and I'm also going
+Dialogue: 0,0:57:13.12,0:57:16.46,Default,to have a property which\Nis strong, non-atomic,
+Dialogue: 0,0:57:16.46,0:57:19.92,Default,which is a gravity behavior,\NI'll call it gravity.
+Dialogue: 0,0:57:20.51,0:57:22.43,Default,Keeping these names short\Nkind of for a reason,
+Dialogue: 0,0:57:22.43,0:57:24.27,Default,but you might want to\Ncall it gravity behavior.
+Dialogue: 0,0:57:24.99,0:57:29.63,Default,I'm going to go ahead and do\Nsome lazy instantiation here,
+Dialogue: 0,0:57:29.63,0:57:36.27,Default,so let's get our dynamic\Nanimator, if not animator,
+Dialogue: 0,0:57:36.42,0:57:37.68,Default,then I want to create one,
+Dialogue: 0,0:57:38.02,0:57:41.87,Default,otherwise I'm going\Nto return it.
+Dialogue: 0,0:57:42.01,0:57:44.71,Default,Okay? So as I said when\Nwe create the animator,
+Dialogue: 0,0:57:44.71,0:57:51.22,Default,it's just UI dynamic animator\Nalloc init with reference view
+Dialogue: 0,0:57:51.22,0:57:53.75,Default,and the reference view is\Njust our game view, right?
+Dialogue: 0,0:57:53.75,0:57:55.83,Default,That game view that I dragged\Nout, that generic view,
+Dialogue: 0,0:57:55.83,0:57:57.97,Default,it's perfectly fine\Nfor that reference view
+Dialogue: 0,0:57:57.97,0:57:58.92,Default,to be a generic view.
+Dialogue: 0,0:57:58.92,0:58:02.92,Default,And then the gravity one\Nsimilar kind of deal,
+Dialogue: 0,0:58:03.34,0:58:06.76,Default,if the gravity is not\Nset, then we'll create it
+Dialogue: 0,0:58:07.75,0:58:08.82,Default,and we'll return it,
+Dialogue: 0,0:58:09.75,0:58:12.31,Default,and creating a gravity\Nthing is very simple,
+Dialogue: 0,0:58:12.31,0:58:16.51,Default,we just say gravity equals UI\Ngravity behavior alloc init.
+Dialogue: 0,0:58:17.31,0:58:19.12,Default,Okay? I'm going to do one\Nother thing here, or two,
+Dialogue: 0,0:58:19.26,0:58:22.64,Default,I'm going to say self dot\Nanimator add behavior.
+Dialogue: 0,0:58:24.50,0:58:27.41,Default,Okay? So any time someone\Nasks me for the gravity thing,
+Dialogue: 0,0:58:27.41,0:58:29.01,Default,I'm going to add\Nit to my animator.
+Dialogue: 0,0:58:29.01,0:58:31.01,Default,This is going to only\Nhappen once, right?
+Dialogue: 0,0:58:31.01,0:58:32.99,Default,Because this is my lazy\Ninstantiator, so that's good,
+Dialogue: 0,0:58:32.99,0:58:34.01,Default,that's exactly what I want.
+Dialogue: 0,0:58:34.52,0:58:36.33,Default,I could also in here set things
+Dialogue: 0,0:58:36.33,0:58:39.37,Default,like the gravity's\Nmagnitude, right?
+Dialogue: 0,0:58:39.37,0:58:43.12,Default,So I could say light\Ngravity instead of 1.0,
+Dialogue: 0,0:58:43.12,0:58:44.20,Default,a little lighter or whatever.
+Dialogue: 0,0:58:45.19,0:58:50.39,Default,Okay? So now I have an animator,\NI have a gravity behavior,
+Dialogue: 0,0:58:50.69,0:58:55.15,Default,all I need to do now is add this\Ndrop view, okay, that I created
+Dialogue: 0,0:58:55.51,0:58:56.80,Default,to that, so I'm just going
+Dialogue: 0,0:58:56.80,0:59:01.18,Default,to say self dot gravity\Nadd item, my drop view.
+Dialogue: 0,0:59:01.95,0:59:05.63,Default,Okay? So now that\Nthe instant I do
+Dialogue: 0,0:59:05.63,0:59:06.96,Default,that it's going to\Nstart animating.
+Dialogue: 0,0:59:07.19,0:59:09.40,Default,So let's take a look at that.
+Dialogue: 0,0:59:09.58,0:59:13.27,Default,So you can see as I click they\Nimmediately start animating.
+Dialogue: 0,0:59:14.74,0:59:18.64,Default,Okay? And um...sorry,
+Dialogue: 0,0:59:19.32,0:59:23.41,Default,but they're falling\Noff the bottom, okay?
+Dialogue: 0,0:59:23.73,0:59:25.93,Default,So that's not so good, I want\Nthem to stop at the bottom.
+Dialogue: 0,0:59:25.93,0:59:30.16,Default,So to do that, I just need a\Ncollision behavior, very easy,
+Dialogue: 0,0:59:30.16,0:59:35.05,Default,just go up here, properties,\Nstrong, non-atomic,
+Dialogue: 0,0:59:35.05,0:59:39.24,Default,UI collision behavior,\Ncollider, I'm going to call it.
+Dialogue: 0,0:59:39.63,0:59:50.88,Default,And my collider, if my collider\Nis not set, then I'll set it,
+Dialogue: 0,0:59:52.19,0:59:54.67,Default,turn the collider, I\Nreally should have a snippet
+Dialogue: 0,0:59:54.72,0:59:56.03,Default,for that kind of thing.
+Dialogue: 0,0:59:56.25,0:59:58.34,Default,I think Johan showed that\Nin the Friday section.
+Dialogue: 0,0:59:58.87,1:00:03.81,Default,So that equals UI collision\Nbehavior alloc init,
+Dialogue: 0,1:00:04.51,1:00:12.08,Default,and here I'm also going to\Nset the bounds, oops, to yes.
+Dialogue: 0,1:00:12.08,1:00:15.17,Default,So I'm going to have this\Ncollider use the bounds
+Dialogue: 0,1:00:15.17,1:00:17.68,Default,of the reference view\Nas its bounds, okay,
+Dialogue: 0,1:00:17.78,1:00:20.33,Default,so it's a one line thing to get\Nthat in there, but I could make,
+Dialogue: 0,1:00:20.63,1:00:23.48,Default,you know, a nice UI\N[inaudible] path, you know,
+Dialogue: 0,1:00:23.72,1:00:25.89,Default,like down along the\Nbottom, whatever I want,
+Dialogue: 0,1:00:25.89,1:00:27.75,Default,but it suits my purposes\Nhere just
+Dialogue: 0,1:00:27.75,1:00:31.00,Default,to use the whole\Ntranslation, and I'm going
+Dialogue: 0,1:00:31.00,1:00:32.11,Default,to do the same thing here,
+Dialogue: 0,1:00:32.38,1:00:36.02,Default,self dot animator add\Nbehavior, this collider.
+Dialogue: 0,1:00:36.71,1:00:38.64,Default,Okay, so it gets\Nadded to the animator.
+Dialogue: 0,1:00:39.33,1:00:44.73,Default,So again, I need to add any\Nitems that I want to be affected
+Dialogue: 0,1:00:44.73,1:00:50.58,Default,by the collider to the collider,\Nand now it's going to -
+Dialogue: 0,1:00:50.58,1:00:52.79,Default,as soon as I do that,\Nif something hit it,
+Dialogue: 0,1:00:52.79,1:00:53.67,Default,it would start colliding.
+Dialogue: 0,1:00:54.37,1:00:57.07,Default,Alright? So let's\Ntake a look at that.
+Dialogue: 0,1:00:57.15,1:00:59.89,Default,Okay, so hopefully the drop,\Nnotice they have a little bounce
+Dialogue: 0,1:01:00.27,1:01:03.28,Default,to them, a little\Nbounce in their step.
+Dialogue: 0,1:01:04.40,1:01:07.24,Default,Okay. Now notice that\Nthey tilt a little.
+Dialogue: 0,1:01:07.24,1:01:08.01,Default,Why does that happen?
+Dialogue: 0,1:01:08.01,1:01:11.68,Default,Well, on the way down, the two\Nthey landed, one was bouncing
+Dialogue: 0,1:01:11.68,1:01:13.39,Default,and the next one hit it,\Nand there was a little bit
+Dialogue: 0,1:01:13.39,1:01:15.47,Default,of real world bounce to it.
+Dialogue: 0,1:01:15.70,1:01:18.38,Default,Now, probably if we're\Nbuilding a Tetris game,
+Dialogue: 0,1:01:18.43,1:01:21.45,Default,we don't want them to rotate\Nand get off center like that,
+Dialogue: 0,1:01:21.80,1:01:26.73,Default,so we would have to A, not\Nallow rotation probably and B,
+Dialogue: 0,1:01:26.73,1:01:28.03,Default,we might want to grid them up.
+Dialogue: 0,1:01:28.03,1:01:30.29,Default,I don't think we're going\Nto get that in the demo,
+Dialogue: 0,1:01:30.60,1:01:32.27,Default,but maybe on Wednesday\NI'll get to that,
+Dialogue: 0,1:01:32.27,1:01:34.36,Default,I'll post how you\Nwould actually do that.
+Dialogue: 0,1:01:34.57,1:01:36.96,Default,Okay? And all we're going\Nto do is when they collide,
+Dialogue: 0,1:01:37.13,1:01:39.07,Default,we're going to have\Nthem line themselves up.
+Dialogue: 0,1:01:39.75,1:01:41.81,Default,Okay? So we'll do that\Nlater on Wednesday.
+Dialogue: 0,1:01:42.98,1:01:48.00,Default,Okay, notice that I have these\Ntwo very related behaviors,
+Dialogue: 0,1:01:48.23,1:01:49.30,Default,gravity and collider.
+Dialogue: 0,1:01:49.30,1:01:50.45,Default,They really go together.
+Dialogue: 0,1:01:50.73,1:01:52.94,Default,Okay? So this is\Nwhere I might want
+Dialogue: 0,1:01:52.94,1:01:55.53,Default,to create a custom UI behavior.
+Dialogue: 0,1:01:55.53,1:01:56.47,Default,So let's do that real quick.
+Dialogue: 0,1:01:56.47,1:02:00.41,Default,I'm just going to go file,\Nnew file, okay, new class,
+Dialogue: 0,1:02:00.68,1:02:04.28,Default,and this class is going to\Nbe a UI dynamic behavior.
+Dialogue: 0,1:02:06.38,1:02:09.66,Default,Behavior. And I'm going to\Ncall it the drop it behavior.
+Dialogue: 0,1:02:10.43,1:02:13.85,Default,Okay? And that is going to be a\Nnew behavior I'm creating that's
+Dialogue: 0,1:02:13.85,1:02:15.48,Default,going to have the\Ngravity and the collider
+Dialogue: 0,1:02:15.48,1:02:18.68,Default,and eventually some more\Nthings as child behaviors.
+Dialogue: 0,1:02:18.96,1:02:21.77,Default,Okay? So let's hit next,\Nwhere we want to put it,
+Dialogue: 0,1:02:21.77,1:02:24.49,Default,this is all good, here it is.
+Dialogue: 0,1:02:24.62,1:02:28.40,Default,Okay? Here's my drop it\Nbehavior, and all I'm going
+Dialogue: 0,1:02:28.40,1:02:31.31,Default,to do in this drop it behavior\Nis I'm going to define a couple
+Dialogue: 0,1:02:31.31,1:02:33.90,Default,of methods here, add\Nitem, which allows you
+Dialogue: 0,1:02:33.90,1:02:40.72,Default,to add UI dynamic item, notice\NI'm using this protocol syntax,
+Dialogue: 0,1:02:41.12,1:02:44.85,Default,and then I'm also going\Nto let you remove an item.
+Dialogue: 0,1:02:45.00,1:02:46.89,Default,Okay? And that's all\NI'm going to implement
+Dialogue: 0,1:02:46.89,1:02:49.80,Default,in my drop it behavior except\NI'm going to override its init.
+Dialogue: 0,1:02:50.37,1:02:52.99,Default,Okay, so what am I\Ngoing to do in its init?
+Dialogue: 0,1:02:52.99,1:02:55.81,Default,So instance type, init,
+Dialogue: 0,1:02:56.31,1:02:58.28,Default,I'm going to do self\Nequals super init,
+Dialogue: 0,1:02:58.67,1:03:01.77,Default,so that's UI dynamic\Nbehavior init.
+Dialogue: 0,1:03:02.16,1:03:08.12,Default,Alright? And then return self,
+Dialogue: 0,1:03:08.60,1:03:11.38,Default,and then in between\Nhere all I'm going
+Dialogue: 0,1:03:11.38,1:03:18.00,Default,to do is add child behaviors for\Nthe gravity and the collider,
+Dialogue: 0,1:03:18.00,1:03:19.42,Default,which I'm actually\Ngoing to copy and paste.
+Dialogue: 0,1:03:19.42,1:03:21.11,Default,Save ourselves a little time,
+Dialogue: 0,1:03:21.11,1:03:26.65,Default,here's nice little lazy\Ninstantiation of these,
+Dialogue: 0,1:03:27.19,1:03:30.22,Default,and let's go grab the - oops,
+Dialogue: 0,1:03:30.99,1:03:36.50,Default,let's grab the outlets\Nfor these, add those.
+Dialogue: 0,1:03:37.18,1:03:39.63,Default,Oops, sorry, I keep\Nclicking on the wrong button.
+Dialogue: 0,1:03:39.63,1:03:43.58,Default,Okay, so this is at sign\Ninterface, drop it behavior,
+Dialogue: 0,1:03:44.58,1:03:46.65,Default,oops, paste, hello, paste.
+Dialogue: 0,1:03:47.39,1:03:49.10,Default,And okay so we've got\Nthose, that's good.
+Dialogue: 0,1:03:49.33,1:03:51.60,Default,These lines, we're not going\Nto add it to the animator
+Dialogue: 0,1:03:51.71,1:03:54.13,Default,because we're going to add this\Nwhole behavior to the animator,
+Dialogue: 0,1:03:54.13,1:03:55.92,Default,so we can get rid of those.
+Dialogue: 0,1:03:56.31,1:03:59.48,Default,And in add item, which\Nwe'll put right here.
+Dialogue: 0,1:03:59.80,1:04:01.62,Default,Actually let's go ahead and copy
+Dialogue: 0,1:04:01.62,1:04:03.24,Default,and paste these two\Nthings that we want.
+Dialogue: 0,1:04:04.10,1:04:05.62,Default,Add item and remove item.
+Dialogue: 0,1:04:07.24,1:04:11.07,Default,Okay, all I need to do\Nhere is add them to each
+Dialogue: 0,1:04:11.07,1:04:15.27,Default,of my sub behaviors, so I'll\Ndo add item to my gravity
+Dialogue: 0,1:04:15.45,1:04:18.49,Default,and add item to my collider.
+Dialogue: 0,1:04:19.81,1:04:21.50,Default,And I'll do the same\Nthing for remove.
+Dialogue: 0,1:04:22.10,1:04:27.21,Default,Okay, except we want\Nthis to be remove.
+Dialogue: 0,1:04:27.46,1:04:31.95,Default,Okay. So this s a common\Npattern here, you know,
+Dialogue: 0,1:04:31.95,1:04:36.49,Default,you create basically\Na dynamic behavior
+Dialogue: 0,1:04:36.73,1:04:39.03,Default,that has child behaviors\Nand in the add,
+Dialogue: 0,1:04:39.16,1:04:42.59,Default,I mean you also have add items,\Nyou might have init with items,
+Dialogue: 0,1:04:42.59,1:04:46.14,Default,whatever, and then here, we're\Ngoing to add child behaviors,
+Dialogue: 0,1:04:46.95,1:04:52.86,Default,the gravity and the collider.
+Dialogue: 0,1:04:53.46,1:04:57.45,Default,Okay? So we've created a new\Nclass here, it's a sub-class
+Dialogue: 0,1:04:57.45,1:04:58.76,Default,of UI dynamic behavior.
+Dialogue: 0,1:04:58.96,1:05:01.65,Default,We can add items to it,\Njust like we added items
+Dialogue: 0,1:05:01.65,1:05:05.22,Default,to our gravity and our collider,\Nand its implementation is merely
+Dialogue: 0,1:05:05.22,1:05:10.62,Default,to have a sub, these\Nlittle sub behaviors.
+Dialogue: 0,1:05:10.90,1:05:12.48,Default,Okay? Very, very simple.
+Dialogue: 0,1:05:12.70,1:05:15.89,Default,And we go back to our\Ncontroller here, we need to,
+Dialogue: 0,1:05:15.89,1:05:18.27,Default,instead of having the individual\Nones, now we're just going
+Dialogue: 0,1:05:18.50,1:05:25.14,Default,to have a drop it - sorry, pound\Nsign import, drop it behavior.
+Dialogue: 0,1:05:25.66,1:05:28.17,Default,It's going to have a\Ndrop it behavior, okay,
+Dialogue: 0,1:05:32.24,1:05:34.95,Default,we'll put a little\Nlazy instantiation
+Dialogue: 0,1:05:34.95,1:05:35.83,Default,for this one too\N[typing sounds].
+Dialogue: 0,1:05:48.57,1:05:50.51,Default,Oops, so there's alloc\Ninit, that's going to call
+Dialogue: 0,1:05:50.51,1:05:51.95,Default,that other init that\Nwe just did.
+Dialogue: 0,1:05:52.35,1:05:58.57,Default,We'll do self dot animator add\Nbehavior or drop it behavior,
+Dialogue: 0,1:05:58.57,1:06:01.55,Default,alright, and then we'll just\Nreturn our drop it behavior
+Dialogue: 0,1:06:01.55,1:06:01.88,Default,like that.
+Dialogue: 0,1:06:01.88,1:06:06.25,Default,And now, down here, we don't\Nhave to add these separately,
+Dialogue: 0,1:06:06.25,1:06:10.42,Default,we're just going to say drop\Nit behavior add item like that.
+Dialogue: 0,1:06:10.53,1:06:12.84,Default,Okay? So everyone understand\Nhow we kind of grouped all
+Dialogue: 0,1:06:12.84,1:06:13.67,Default,that stuff over there?
+Dialogue: 0,1:06:13.97,1:06:16.93,Default,And we're going to add more\Nthings as this demo goes
+Dialogue: 0,1:06:16.93,1:06:20.68,Default,on to this kind of general drop\Nit behavior, and we're going
+Dialogue: 0,1:06:20.68,1:06:22.38,Default,to add them over in\Nthat other class now.
+Dialogue: 0,1:06:22.62,1:06:24.79,Default,We're still going to add other\Nbehaviors that we add here,
+Dialogue: 0,1:06:24.79,1:06:26.39,Default,that really aren't part\Nof that other thing,
+Dialogue: 0,1:06:26.69,1:06:29.71,Default,but now we collected that\Ninto a nice space over there.
+Dialogue: 0,1:06:30.37,1:06:35.37,Default,So hopefully that didn't break\Nanything, let's see, it didn't.
+Dialogue: 0,1:06:35.43,1:06:37.77,Default,Okay, it's all still\Nworking, which is awesome.
+Dialogue: 0,1:06:38.09,1:06:41.86,Default,Okay so now what I want to\Ndo is, when I get a full row
+Dialogue: 0,1:06:41.86,1:06:44.82,Default,like that, I want\Nit to blow up, okay?
+Dialogue: 0,1:06:44.82,1:06:48.60,Default,And I'm going to do the blow up\Nnot using a dynamic animator.
+Dialogue: 0,1:06:49.00,1:06:51.83,Default,Okay? I'm going to do that with\Nthat UI view animation business.
+Dialogue: 0,1:06:51.83,1:06:54.96,Default,Because I want to show you how\Nyou can mix the two together
+Dialogue: 0,1:06:55.10,1:06:56.59,Default,and they'll work fine, okay?
+Dialogue: 0,1:06:56.59,1:06:57.34,Default,So let's do that.
+Dialogue: 0,1:06:57.95,1:07:00.19,Default,So how are we going to do that?
+Dialogue: 0,1:07:00.19,1:07:03.95,Default,Well, one question is\Nwhen can I start thinking
+Dialogue: 0,1:07:03.95,1:07:05.07,Default,about doing other animation
+Dialogue: 0,1:07:05.07,1:07:07.14,Default,when I've got this\Ndynamic animator going off
+Dialogue: 0,1:07:07.14,1:07:08.61,Default,and doing all these\Nthings bouncing
+Dialogue: 0,1:07:08.61,1:07:09.86,Default,and colliding and\Nall this stuff.
+Dialogue: 0,1:07:10.13,1:07:11.87,Default,The answer is you can find
+Dialogue: 0,1:07:11.87,1:07:16.22,Default,out when an animator\Nreaches quiescent state,
+Dialogue: 0,1:07:16.30,1:07:19.12,Default,when nothing is bouncing,\Neverything is resolved.
+Dialogue: 0,1:07:19.12,1:07:20.02,Default,Okay? When everything is quiet.
+Dialogue: 0,1:07:20.42,1:07:24.79,Default,Okay? And you do that using\Na delegate for the animator.
+Dialogue: 0,1:07:25.08,1:07:28.24,Default,So if I go to animator\Nhere, there is a property
+Dialogue: 0,1:07:28.24,1:07:29.79,Default,on animator called delegate.
+Dialogue: 0,1:07:30.37,1:07:32.51,Default,And the delegate is an\Nobject that's going to find
+Dialogue: 0,1:07:32.51,1:07:36.25,Default,out when the animator stops\Nand when it starts up again.
+Dialogue: 0,1:07:36.25,1:07:38.33,Default,And I'm going to\Nset that to be self.
+Dialogue: 0,1:07:39.14,1:07:41.09,Default,Now when I do that, I'm\Ngoing to get a warning
+Dialogue: 0,1:07:41.09,1:07:42.05,Default,from the compiler here.
+Dialogue: 0,1:07:42.22,1:07:42.81,Default,Why is that?
+Dialogue: 0,1:07:43.37,1:07:46.18,Default,It says "You are\Nassigning self,"
+Dialogue: 0,1:07:46.40,1:07:47.94,Default,which is a drop it\Nview controller,
+Dialogue: 0,1:07:48.14,1:07:48.97,Default,"to something that's supposed
+Dialogue: 0,1:07:48.97,1:07:52.68,Default,to be an ID UI dynamic animator\Ndelegate" - in other words,
+Dialogue: 0,1:07:52.94,1:07:53.51,Default,you're supposed
+Dialogue: 0,1:07:53.51,1:07:56.09,Default,to be implementing this\NUI animator delegate.
+Dialogue: 0,1:07:56.09,1:07:58.92,Default,So we have to go up here and say
+Dialogue: 0,1:07:59.09,1:08:02.90,Default,that we implement this UI\Ndynamic animator delegate.
+Dialogue: 0,1:08:02.90,1:08:05.12,Default,This is what we're talking\Nabout, protocols saying
+Dialogue: 0,1:08:05.12,1:08:06.51,Default,that we promised\Nto do something.
+Dialogue: 0,1:08:06.96,1:08:08.98,Default,Okay? Now, I'm not\Ngetting any more warnings,
+Dialogue: 0,1:08:08.98,1:08:11.64,Default,so there must not be any\Nrequired methods in this,
+Dialogue: 0,1:08:11.75,1:08:12.88,Default,they must all be optional.
+Dialogue: 0,1:08:13.16,1:08:15.81,Default,And in fact they are all\Noptional, and there's only two
+Dialogue: 0,1:08:15.81,1:08:19.74,Default,of them, and the one I want\Nis called dynamic animator did
+Dialogue: 0,1:08:19.74,1:08:25.12,Default,pause, you can see there's the\Ntwo dynamic animator delegate
+Dialogue: 0,1:08:25.12,1:08:27.17,Default,methods, dynamic\Nanimator did pause,
+Dialogue: 0,1:08:27.17,1:08:29.63,Default,and dynamic animator\Nwill resume.
+Dialogue: 0,1:08:30.20,1:08:32.84,Default,Okay, so that's telling you\Nwhen it reaches a settle state
+Dialogue: 0,1:08:32.84,1:08:36.24,Default,and when something changed, a\Nbehavior or an item got added,
+Dialogue: 0,1:08:36.24,1:08:38.22,Default,and now it's going\Nback active again.
+Dialogue: 0,1:08:38.77,1:08:41.43,Default,Okay? So in this case, we\Nwant to know the pause.
+Dialogue: 0,1:08:41.76,1:08:44.34,Default,Okay? When the pause\Nhappens, I'm going to look
+Dialogue: 0,1:08:44.34,1:08:46.81,Default,at that bottom row and\Nsee if it's complete.
+Dialogue: 0,1:08:46.86,1:08:48.60,Default,Actually I'm going to look\Nat all the rows and see
+Dialogue: 0,1:08:48.60,1:08:49.76,Default,if any of them are complete.
+Dialogue: 0,1:08:50.16,1:08:52.43,Default,Okay? And if they are, I'm going\Nto blast them out of there.
+Dialogue: 0,1:08:53.09,1:08:57.24,Default,So I'm going to do that by\Ncalling a method called remove
+Dialogue: 0,1:08:57.24,1:09:00.91,Default,completed rows, and I\Nhave a little snippet
+Dialogue: 0,1:09:00.95,1:09:02.50,Default,for that to speed us up here.
+Dialogue: 0,1:09:03.17,1:09:07.30,Default,Okay. Here it is right here.
+Dialogue: 0,1:09:07.65,1:09:08.90,Default,Okay? I didn't put\Nit all in here.
+Dialogue: 0,1:09:09.20,1:09:11.36,Default,Actually remove completed\Nrow, I call it,
+Dialogue: 0,1:09:11.36,1:09:14.13,Default,but really should be rows.
+Dialogue: 0,1:09:14.13,1:09:15.52,Default,And so how does this work?
+Dialogue: 0,1:09:15.52,1:09:18.93,Default,Well, you can take my word for\Nit that this little snippet
+Dialogue: 0,1:09:18.93,1:09:20.53,Default,of code, and you can\Ngo look at it later,
+Dialogue: 0,1:09:20.76,1:09:23.97,Default,it basically just fills this\Nmutable array, drops to remove
+Dialogue: 0,1:09:24.24,1:09:27.54,Default,with all the drops that\Nare in a completed row,
+Dialogue: 0,1:09:28.29,1:09:29.93,Default,even if there's multiple\Nrows, okay?
+Dialogue: 0,1:09:30.27,1:09:32.33,Default,It does this using\Nthis method hit test.
+Dialogue: 0,1:09:32.58,1:09:36.11,Default,I'm actually looking at\Nall these things and seeing
+Dialogue: 0,1:09:36.11,1:09:37.87,Default,if there's a view there,\Nand if it is, I'm okay.
+Dialogue: 0,1:09:37.87,1:09:40.12,Default,And if I get all the way\Nacross a row I'm like, okay,
+Dialogue: 0,1:09:40.26,1:09:42.02,Default,I've got a whole row\Nand I'll keep them all.
+Dialogue: 0,1:09:42.29,1:09:43.68,Default,So that's what drops to remove.
+Dialogue: 0,1:09:43.96,1:09:46.70,Default,This code right here is\Ngoing to fill in drops
+Dialogue: 0,1:09:46.70,1:09:48.09,Default,to remove with all the things.
+Dialogue: 0,1:09:48.09,1:09:51.67,Default,Okay, so now we have\Nan array of the drops
+Dialogue: 0,1:09:51.67,1:09:52.55,Default,that we want to remove.
+Dialogue: 0,1:09:52.75,1:09:54.33,Default,Now, let's talk about what\Nwe're trying to learn here,
+Dialogue: 0,1:09:54.33,1:09:55.98,Default,which is animation,\Nhow do I remove them?
+Dialogue: 0,1:09:56.81,1:09:59.29,Default,And what I'm going\Nto do, to do that,
+Dialogue: 0,1:09:59.29,1:10:03.34,Default,it's kind of a two-part deal\Nhere, the first thing I'm going
+Dialogue: 0,1:10:03.34,1:10:09.81,Default,to say if I have any drops to\Nremove, okay, then I am going
+Dialogue: 0,1:10:09.81,1:10:14.58,Default,to remove all of the drops\Nthat I'm going to be taking
+Dialogue: 0,1:10:14.58,1:10:18.42,Default,out of this view\Nfrom the animator,
+Dialogue: 0,1:10:18.68,1:10:20.41,Default,from the dynamic animator,
+Dialogue: 0,1:10:20.41,1:10:23.22,Default,because I don't want the\Ndynamic animator fighting me.
+Dialogue: 0,1:10:23.88,1:10:27.42,Default,Okay? I'm going to remove these\Nthings using UIView animation,
+Dialogue: 0,1:10:27.57,1:10:30.65,Default,I don't want it trying to pull\Nthem back or the gravity pulling
+Dialogue: 0,1:10:30.65,1:10:32.82,Default,on it, so I'm going to take\Nthem out, and I'm going to do
+Dialogue: 0,1:10:32.82,1:10:36.20,Default,that very simply by just saying\Nself dot drop it behavior,
+Dialogue: 0,1:10:36.35,1:10:38.86,Default,remove item, drop.
+Dialogue: 0,1:10:39.04,1:10:40.92,Default,Okay? So I'm going through\Nall the drops to remove,
+Dialogue: 0,1:10:40.92,1:10:43.38,Default,and I'm removing them\Nfrom my drop it behavior.
+Dialogue: 0,1:10:43.62,1:10:46.12,Default,Now they're not in any\Nbehavior, so they're not going
+Dialogue: 0,1:10:46.12,1:10:47.29,Default,to be affected by the animator.
+Dialogue: 0,1:10:48.41,1:10:51.59,Default,Okay? Now, I'm going\Nto - so that's that.
+Dialogue: 0,1:10:51.96,1:10:54.40,Default,Now I'm going to animate\Nthe blowing them up.
+Dialogue: 0,1:10:54.40,1:10:57.07,Default,Okay? And let me do that\Nwith animate, removing,
+Dialogue: 0,1:10:57.86,1:10:59.90,Default,drops, drops to remove.
+Dialogue: 0,1:10:59.90,1:11:02.30,Default,Okay? So this is a new\Nmethod that we're going
+Dialogue: 0,1:11:02.30,1:11:07.74,Default,to write together here,\Nanimate, removing drops,
+Dialogue: 0,1:11:08.10,1:11:11.55,Default,it takes an array\Nof drops to remove,
+Dialogue: 0,1:11:12.50,1:11:14.33,Default,okay and how are we\Ngoing to do this?
+Dialogue: 0,1:11:14.97,1:11:20.52,Default,Well, I'm just going to do\NUIView, animate with duration.
+Dialogue: 0,1:11:21.12,1:11:23.28,Default,Okay? So I want - there's\Na few versions of this,
+Dialogue: 0,1:11:23.28,1:11:25.56,Default,some of them have delay,\Nsome don't have delay,
+Dialogue: 0,1:11:26.22,1:11:28.03,Default,so I want the one -\Nwhich one do I want?
+Dialogue: 0,1:11:28.10,1:11:32.34,Default,I think I want the one with just\Ncompletion, so that's this one.
+Dialogue: 0,1:11:32.81,1:11:34.61,Default,Okay? So I want this\None right here.
+Dialogue: 0,1:11:34.81,1:11:36.33,Default,How long is this going to take?
+Dialogue: 0,1:11:36.33,1:11:39.23,Default,I'm going to take about a\Nsecond to blow those things up.
+Dialogue: 0,1:11:39.48,1:11:41.68,Default,This probably wants to be\Na constant, and you want
+Dialogue: 0,1:11:41.68,1:11:43.41,Default,to tweak it to look good, right?
+Dialogue: 0,1:11:43.58,1:11:45.93,Default,If it blows up too slowly\Nit looks ridiculous,
+Dialogue: 0,1:11:45.93,1:11:47.70,Default,if it blows up too\Nfast, people can't tell
+Dialogue: 0,1:11:48.07,1:11:49.61,Default,that it did it, so\Nwe'll do that.
+Dialogue: 0,1:11:49.87,1:11:52.09,Default,And then here's the animations,\Nwhich is just a block,
+Dialogue: 0,1:11:52.54,1:11:55.28,Default,and here's the completion, which\NI'm not going to do anything
+Dialogue: 0,1:11:55.28,1:11:56.88,Default,on complete - actually I\Nam going to do something
+Dialogue: 0,1:11:56.88,1:11:57.86,Default,on completion, let's\Ndo something
+Dialogue: 0,1:11:57.86,1:11:59.80,Default,on completion just to show here.
+Dialogue: 0,1:11:59.95,1:12:01.79,Default,So finished, okay?
+Dialogue: 0,1:12:01.79,1:12:02.93,Default,And that's it.
+Dialogue: 0,1:12:03.18,1:12:04.96,Default,So that's this entire\Nanimate with duration,
+Dialogue: 0,1:12:04.96,1:12:07.63,Default,all we need to do is fill\Nin these two blocks, right?
+Dialogue: 0,1:12:07.63,1:12:08.98,Default,So let's do this block first.
+Dialogue: 0,1:12:08.98,1:12:10.06,Default,This is the animations.
+Dialogue: 0,1:12:10.39,1:12:11.84,Default,This is the actual moving.
+Dialogue: 0,1:12:11.84,1:12:14.94,Default,So all I need to do here is move\Nthese things out of the way.
+Dialogue: 0,1:12:15.21,1:12:17.17,Default,So I'm going to have\Nthem kind of explode up
+Dialogue: 0,1:12:17.45,1:12:18.87,Default,and off the top of my view.
+Dialogue: 0,1:12:19.06,1:12:20.30,Default,So I'm going to move each one
+Dialogue: 0,1:12:20.30,1:12:24.70,Default,to a random location somewhere\Noff screen above my view, okay,
+Dialogue: 0,1:12:24.77,1:12:26.11,Default,kind of just out\Nthere somewhere.
+Dialogue: 0,1:12:26.11,1:12:31.87,Default,And so how am I going to do\Nthat, by saying 4, UIView,
+Dialogue: 0,1:12:32.20,1:12:34.65,Default,drop in, drops to remove,
+Dialogue: 0,1:12:35.32,1:12:41.65,Default,I'm going to have the X be\Nsome random location that is
+Dialogue: 0,1:12:41.65,1:12:45.30,Default,between two times\Nmy width to the left
+Dialogue: 0,1:12:45.83,1:12:47.58,Default,to two times above my width.
+Dialogue: 0,1:12:47.58,1:12:50.13,Default,So it's going to be kind of\Ngoing out like this in a funnel.
+Dialogue: 0,1:12:50.33,1:12:53.75,Default,Okay? So the X has to be from\Ntwo times my width to the left
+Dialogue: 0,1:12:53.75,1:12:56.15,Default,to two times my width on the\Nright, so I'm going to make
+Dialogue: 0,1:12:56.15,1:13:00.49,Default,that be self dot game view dot\Nbounds dot size dot width times
+Dialogue: 0,1:13:00.56,1:13:04.58,Default,five, okay, so that's\Ngoing to get me there,
+Dialogue: 0,1:13:05.07,1:13:10.53,Default,minus self dot game view dot\Nbounds dot size dot width
+Dialogue: 0,1:13:11.37,1:13:12.11,Default,times two.
+Dialogue: 0,1:13:14.43,1:13:18.06,Default,Okay. And actually I'm going\Nto move this all back here
+Dialogue: 0,1:13:18.06,1:13:23.54,Default,so we can see it better,\Nmove this back too.
+Dialogue: 0,1:13:24.00,1:13:29.17,Default,Okay. So let's do that, okay, so\Nyou see I'm just going five wide
+Dialogue: 0,1:13:29.37,1:13:30.63,Default,and I'm shifting it over too.
+Dialogue: 0,1:13:30.90,1:13:32.46,Default,So I'm just creating\Nthis thing above.
+Dialogue: 0,1:13:32.46,1:13:36.05,Default,And then the Y, I'm going to\Nmake Y easy, I'm just going
+Dialogue: 0,1:13:36.05,1:13:40.53,Default,to have it be self dot game view\Ndot bounds dot size dot height,
+Dialogue: 0,1:13:40.96,1:13:43.77,Default,and then when I move it there,\NI'm going to make it negative,
+Dialogue: 0,1:13:43.77,1:13:49.97,Default,so I'm going to say drop dot\Ncenter equals CG point X com
+Dialogue: 0,1:13:49.97,1:13:51.72,Default,minus Y. Alright?
+Dialogue: 0,1:13:51.72,1:13:56.00,Default,So inside this duration\Nblock, if I change the center,
+Dialogue: 0,1:13:56.00,1:13:57.55,Default,it's one of the magic things.
+Dialogue: 0,1:13:57.76,1:13:58.77,Default,This will get animated.
+Dialogue: 0,1:13:59.81,1:14:03.41,Default,Okay? Center, and frame,\Nand alpha, and transform,
+Dialogue: 0,1:14:03.41,1:14:07.98,Default,those are all the magic things\Nthat automatically will animate,
+Dialogue: 0,1:14:08.50,1:14:11.31,Default,and what did I type wrong here?
+Dialogue: 0,1:14:11.31,1:14:11.37,Default,>> [ Inaudible Comment ]
+Dialogue: 0,1:14:11.37,1:14:13.48,Default,>> Oh [inaudible]\Npoint make, yeah.
+Dialogue: 0,1:14:13.48,1:14:16.84,Default,Make. Good job.
+Dialogue: 0,1:14:16.90,1:14:18.09,Default,Okay, so that's it.
+Dialogue: 0,1:14:18.09,1:14:19.77,Default,So now they're all\Ngoing to blow up.
+Dialogue: 0,1:14:19.77,1:14:21.43,Default,What am I going to\Ndo on completion?
+Dialogue: 0,1:14:21.63,1:14:26.28,Default,Well, after they blow up, if\Nthey successfully blow up,
+Dialogue: 0,1:14:26.47,1:14:29.79,Default,I'm going to remove them all\Nfrom the super view, right?
+Dialogue: 0,1:14:29.79,1:14:30.80,Default,Because I don't want\Nthem anymore,
+Dialogue: 0,1:14:30.80,1:14:32.12,Default,I just blew them\Nup, they're gone.
+Dialogue: 0,1:14:32.47,1:14:33.90,Default,So what's a cool way to do that?
+Dialogue: 0,1:14:33.90,1:14:34.62,Default,Watch this.
+Dialogue: 0,1:14:34.93,1:14:39.32,Default,Let's go drops to remove,\Nmake objects perform selector,
+Dialogue: 0,1:14:39.66,1:14:42.75,Default,at sign selector,\Nremove from super view.
+Dialogue: 0,1:14:44.03,1:14:46.74,Default,Okay, I told you that\Nmethods like this would come
+Dialogue: 0,1:14:46.74,1:14:49.19,Default,in familiar, come in\Nhandy, and they are,
+Dialogue: 0,1:14:49.19,1:14:52.16,Default,it's better than having to do\N4, in, you know, all that stuff.
+Dialogue: 0,1:14:52.25,1:14:53.94,Default,Boom, just do this, it's\Ngoing to send remove
+Dialogue: 0,1:14:53.94,1:14:56.31,Default,from super view to all of them.
+Dialogue: 0,1:14:56.88,1:14:58.08,Default,Okay? Make sense?
+Dialogue: 0,1:14:58.87,1:15:02.73,Default,Alright, let's see\Nif this works.
+Dialogue: 0,1:15:02.73,1:15:04.53,Default,Alright, so let's add\Nsome of these guys
+Dialogue: 0,1:15:04.53,1:15:08.74,Default,until we get a whole row,\Nalmost there, almost there.
+Dialogue: 0,1:15:09.66,1:15:11.91,Default,Oh, come on, oh, there it is!
+Dialogue: 0,1:15:12.90,1:15:14.91,Default,Okay, now, two things there.
+Dialogue: 0,1:15:15.41,1:15:17.92,Default,Notice that we got the animation\Nof the thing happening,
+Dialogue: 0,1:15:18.02,1:15:19.56,Default,but what happened to\Nall the other blocks?
+Dialogue: 0,1:15:19.98,1:15:22.37,Default,They moved down,\Nbecause they're all still
+Dialogue: 0,1:15:22.37,1:15:23.66,Default,under the influence\Nof the animator.
+Dialogue: 0,1:15:23.83,1:15:25.42,Default,Gravity is still\Npulling on them,
+Dialogue: 0,1:15:25.42,1:15:26.82,Default,the collider is still working.
+Dialogue: 0,1:15:27.30,1:15:29.63,Default,So if I put a whole bunch\Nof things in here, okay,
+Dialogue: 0,1:15:29.63,1:15:33.88,Default,and also okay they're kind\Nof tilting, watch this again.
+Dialogue: 0,1:15:34.30,1:15:34.51,Default,Oop...
+Dialogue: 0,1:15:34.51,1:15:35.51,Default,>> [ Inaudible Comment ]
+Dialogue: 0,1:15:35.51,1:15:36.43,Default,>> Yeah, I did.
+Dialogue: 0,1:15:36.43,1:15:37.92,Default,I did get unlucky with\Nthe hit test there,
+Dialogue: 0,1:15:37.92,1:15:39.14,Default,here let me show\Nyou a different way.
+Dialogue: 0,1:15:39.78,1:15:41.48,Default,The hit test is kind\Nof a questionable way
+Dialogue: 0,1:15:41.48,1:15:42.44,Default,to do that, by the way.
+Dialogue: 0,1:15:43.51,1:15:45.29,Default,But, here, let's show you.
+Dialogue: 0,1:15:45.29,1:15:48.12,Default,I'll just show you this again.
+Dialogue: 0,1:15:48.23,1:15:50.78,Default,Also, I should make it so that\Nthey're not tilting like that.
+Dialogue: 0,1:15:50.78,1:15:52.06,Default,We'll do that next time.
+Dialogue: 0,1:15:52.06,1:15:54.06,Default,But...wow, I'm getting\N- oh there we go.
+Dialogue: 0,1:15:54.56,1:15:56.86,Default,Okay. Hello.
+Dialogue: 0,1:15:58.32,1:15:58.98,Default,Knock, knock, knock.
+Dialogue: 0,1:15:59.46,1:16:02.47,Default,Well, I don't know why it's not\Nworking now, but anyway you got
+Dialogue: 0,1:16:02.47,1:16:05.84,Default,to see it work and time's\Nup, but we'll look at that,
+Dialogue: 0,1:16:05.84,1:16:07.08,Default,we'll look at that\Nlater and try and find
+Dialogue: 0,1:16:07.08,1:16:07.96,Default,out what our problem was.
+Dialogue: 0,1:16:08.29,1:16:11.90,Default,But anyway, the main thing there\Nto notice, we did the fly away,
+Dialogue: 0,1:16:11.90,1:16:14.57,Default,but we also had the\Nanimator still working
+Dialogue: 0,1:16:14.57,1:16:16.38,Default,on the other things, and\Nthat's important to know,
+Dialogue: 0,1:16:16.38,1:16:18.11,Default,that the two things\Ncan interact like that.
+Dialogue: 0,1:16:18.11,1:16:20.86,Default,If you move things out of the\Nway, the animator is going
+Dialogue: 0,1:16:20.86,1:16:24.26,Default,to go back to life and start\Npulling down on things, okay?
+Dialogue: 0,1:16:24.51,1:16:26.75,Default,So next time, we'll continue to\Ndo the animation, we'll make it
+Dialogue: 0,1:16:26.75,1:16:29.92,Default,so it's not so rickety, okay,\Nso we don't have this problem
+Dialogue: 0,1:16:29.92,1:16:32.29,Default,where the bottom\Nload doesn't line up,
+Dialogue: 0,1:16:32.29,1:16:34.82,Default,and we'll also do an\Nattachment, where we attach
+Dialogue: 0,1:16:34.82,1:16:38.98,Default,to something and, you know, have\Nit swing from an attachment,
+Dialogue: 0,1:16:39.33,1:16:42.41,Default,with a little attachment\Nbehavior.
+Dialogue: 0,1:16:42.99,1:16:44.02,Default,Alright, we'll see\Nyou next time.
+Dialogue: 0,1:16:44.02,1:16:47.98,Default,>> Announcer: For more, please\Nvisit us at stanford.edu.

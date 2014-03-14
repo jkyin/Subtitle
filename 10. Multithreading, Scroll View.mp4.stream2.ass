@@ -1,0 +1,1703 @@
+[Script Info]
+ScriptType: v4.00+
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
+Style: Default,Arial,16,&Hffffff,&Hffffff,&H0,&H0,0,0,0,1,1,0,2,10,10,10,0,0
+
+[Events]
+Format: Layer, Start, End, Style, Text
+Dialogue: 0,0:00:00.51,0:00:04.92,Default,[ Music ]
+Dialogue: 0,0:00:05.42,0:00:06.42,Default,>> Stanford University.
+Dialogue: 0,0:00:08.63,0:00:14.99,Default,>> Okay, well, welcome then to\Nlecture 10, yes 10, of CS193P,
+Dialogue: 0,0:00:15.09,0:00:19.38,Default,Fall of 2013/14 academic\Nyear, and today, we are going
+Dialogue: 0,0:00:19.38,0:00:20.63,Default,to talk about multithreading.
+Dialogue: 0,0:00:20.63,0:00:23.72,Default,Okay? I'm only going to\Ntalk about it briefly, but,
+Dialogue: 0,0:00:24.02,0:00:27.07,Default,because you'll learn a lot\Nfrom multithreading kind
+Dialogue: 0,0:00:27.07,0:00:28.22,Default,of through experience.
+Dialogue: 0,0:00:28.61,0:00:30.49,Default,Then we're going to talk\Nabout UI scroll view,
+Dialogue: 0,0:00:30.49,0:00:32.33,Default,a very important\Nview that allows you
+Dialogue: 0,0:00:32.33,0:00:36.20,Default,to expand what you can see\Non that little phone screen,
+Dialogue: 0,0:00:36.38,0:00:38.02,Default,to let you look at\Nlarger things.
+Dialogue: 0,0:00:38.40,0:00:40.89,Default,I'll do a demo that's going\Nto cover both of those things,
+Dialogue: 0,0:00:40.89,0:00:42.01,Default,multithreading and scrolling.
+Dialogue: 0,0:00:42.44,0:00:44.76,Default,And then however much time we'll\Nhave left we'll get started
+Dialogue: 0,0:00:44.76,0:00:46.87,Default,on our next topic\Nwhich is UI table view,
+Dialogue: 0,0:00:46.87,0:00:49.59,Default,we'll continue that\Non Wednesday.
+Dialogue: 0,0:00:50.33,0:00:53.29,Default,So multithreading, okay.
+Dialogue: 0,0:00:54.14,0:00:58.01,Default,The idea with multithreading\Nis that you want to divide
+Dialogue: 0,0:00:58.01,0:01:01.78,Default,up the execution paths of\Nyour program into different
+Dialogue: 0,0:01:01.78,0:01:05.82,Default,and distinct paths that\Nare possibly running
+Dialogue: 0,0:01:05.82,0:01:06.65,Default,at the same time.
+Dialogue: 0,0:01:06.65,0:01:09.64,Default,Now I say possibly, from your\Nstandpoint as a programmer,
+Dialogue: 0,0:01:09.64,0:01:11.39,Default,they look like they're all\Nrunning at the same time.
+Dialogue: 0,0:01:11.75,0:01:14.10,Default,But, of course, if you\Nhave a computer or a phone
+Dialogue: 0,0:01:14.10,0:01:16.72,Default,that only has one processor,\Nthere's no way for them
+Dialogue: 0,0:01:16.72,0:01:17.87,Default,to run at the same time.
+Dialogue: 0,0:01:18.20,0:01:20.43,Default,But the OS makes it\Nappear that they are
+Dialogue: 0,0:01:20.43,0:01:23.14,Default,by basically time\Nslicing, giving each one
+Dialogue: 0,0:01:23.14,0:01:26.27,Default,of them a little bit\Nof time to make it seem
+Dialogue: 0,0:01:26.27,0:01:28.09,Default,like they're all running\Nat the same time, okay?
+Dialogue: 0,0:01:28.62,0:01:33.01,Default,And, [pause] so, if you\Ndid have a multiprocessor,
+Dialogue: 0,0:01:33.01,0:01:34.96,Default,maybe they would actually\Nrunning at the same time,
+Dialogue: 0,0:01:34.96,0:01:36.78,Default,or maybe not, but you don't\Ncare and you don't know.
+Dialogue: 0,0:01:37.11,0:01:39.75,Default,Okay? It's totally\Nnot for you to know.
+Dialogue: 0,0:01:40.02,0:01:41.96,Default,Why do we want this\Nkind of behavior
+Dialogue: 0,0:01:41.96,0:01:43.70,Default,where we have these multiple\Nthreads of execution?
+Dialogue: 0,0:01:43.70,0:01:45.41,Default,Well, a couple of reasons.
+Dialogue: 0,0:01:45.41,0:01:47.76,Default,One, we've got one thread\Nof execution which is
+Dialogue: 0,0:01:47.76,0:01:51.03,Default,that main thread of execution\Nwhere the user is interacting,
+Dialogue: 0,0:01:51.03,0:01:53.75,Default,doing touch events, we want\Nthing to be very responsive.
+Dialogue: 0,0:01:53.91,0:01:56.39,Default,We want that to always be\Nlistening, we never want
+Dialogue: 0,0:01:56.39,0:01:57.50,Default,that to not be listening.
+Dialogue: 0,0:01:58.07,0:01:59.95,Default,The other thing is we have\Nother threads of execution
+Dialogue: 0,0:01:59.95,0:02:02.28,Default,that actually might block, okay?
+Dialogue: 0,0:02:02.28,0:02:03.35,Default,Why would they block?
+Dialogue: 0,0:02:03.35,0:02:04.26,Default,Why would they stop?
+Dialogue: 0,0:02:04.33,0:02:06.84,Default,Well, let's say they do a\Nnetwork call and they're waiting
+Dialogue: 0,0:02:06.84,0:02:08.29,Default,for something to come\Nback over the network.
+Dialogue: 0,0:02:08.29,0:02:10.72,Default,Well they have to wait for\Nthat thing to come back.
+Dialogue: 0,0:02:10.72,0:02:12.37,Default,So they are blocked,\Nthey're stopped.
+Dialogue: 0,0:02:12.81,0:02:15.38,Default,Okay? We would never want that\Nmain execution that's listening
+Dialogue: 0,0:02:15.38,0:02:19.14,Default,for touch events to be stopped,\Nokay, or blocked, right?
+Dialogue: 0,0:02:19.19,0:02:21.08,Default,But these other ones, it's\Nokay if they're blocked.
+Dialogue: 0,0:02:21.08,0:02:22.14,Default,If they're waiting\Nfor something,
+Dialogue: 0,0:02:22.21,0:02:23.12,Default,they're waiting for something.
+Dialogue: 0,0:02:23.66,0:02:27.75,Default,Okay? So to understand how\Nwe do multithreading, in iOS,
+Dialogue: 0,0:02:28.17,0:02:30.89,Default,there's one thing you have to\Nunderstand and that's queue.
+Dialogue: 0,0:02:31.64,0:02:34.87,Default,A queue, just like a\Nqueue in the real world,
+Dialogue: 0,0:02:34.87,0:02:37.02,Default,queue means like a line, like\Nyou go to the movie theater
+Dialogue: 0,0:02:37.02,0:02:38.84,Default,and there's a line of\Npeople, that's called a queue.
+Dialogue: 0,0:02:38.84,0:02:40.47,Default,For those of you who\Ndon't know that word.
+Dialogue: 0,0:02:40.86,0:02:44.24,Default,And so you got that queue and\Nthe same thing is happening here
+Dialogue: 0,0:02:44.24,0:02:46.03,Default,with iOS multithreading.
+Dialogue: 0,0:02:46.03,0:02:48.11,Default,You have these queues,\Nbut in these queues,
+Dialogue: 0,0:02:48.11,0:02:51.71,Default,instead of people waiting for\Nthe theater, there are blocks.
+Dialogue: 0,0:02:51.89,0:02:54.00,Default,Blocks in the way we\Ntalked about last week.
+Dialogue: 0,0:02:54.00,0:02:56.25,Default,You know, the curly,\Ncurly brace thing, okay?
+Dialogue: 0,0:02:56.58,0:02:59.11,Default,So you got this queue, in\Nline, you have these blocks,
+Dialogue: 0,0:02:59.18,0:03:01.73,Default,and they're all waiting\Nin line to be executed.
+Dialogue: 0,0:03:02.12,0:03:04.27,Default,And depending on which\Nqueue they're in,
+Dialogue: 0,0:03:04.41,0:03:06.57,Default,when it's their turn, when they\Nget to the front of the line,
+Dialogue: 0,0:03:06.83,0:03:09.70,Default,they get taken off the\Nqueue and they get to run.
+Dialogue: 0,0:03:10.57,0:03:13.00,Default,Okay? Possibly in\Na separate thread.
+Dialogue: 0,0:03:13.64,0:03:17.70,Default,Okay? Usually there might\Nbe multiple threads assigned
+Dialogue: 0,0:03:17.70,0:03:19.56,Default,to one queue, or\Nsingle thread, again,
+Dialogue: 0,0:03:19.56,0:03:20.66,Default,you don't know what's going on,
+Dialogue: 0,0:03:20.66,0:03:23.09,Default,all you know is you're\Nputting these blocks in a queue
+Dialogue: 0,0:03:23.32,0:03:25.80,Default,and they are being taken\Noff and allowed to run.
+Dialogue: 0,0:03:26.03,0:03:29.27,Default,And they, people can be allowed\Nto come off the queue one
+Dialogue: 0,0:03:29.27,0:03:31.80,Default,at a time, so at the movie\Ntheater, one person gets to go
+Dialogue: 0,0:03:31.80,0:03:33.65,Default,and watch the whole movie,\Nand when they're done,
+Dialogue: 0,0:03:33.76,0:03:34.88,Default,the next person goes in.
+Dialogue: 0,0:03:34.97,0:03:36.94,Default,Okay? That's called\Na serial queue,
+Dialogue: 0,0:03:36.94,0:03:38.98,Default,that's what the queues we're\Ngoing to talk about are,
+Dialogue: 0,0:03:38.98,0:03:39.77,Default,it's a very simple queue.
+Dialogue: 0,0:03:39.99,0:03:42.16,Default,There's also concurrent queues,\Nhowever, where a whole bunch
+Dialogue: 0,0:03:42.16,0:03:44.08,Default,of people get to go into a\Ntheater and they're all get
+Dialogue: 0,0:03:44.08,0:03:46.75,Default,to be doing stuff\Nsimultaneously.
+Dialogue: 0,0:03:46.87,0:03:48.20,Default,Okay? It's a little\Nmore complicated,
+Dialogue: 0,0:03:48.20,0:03:49.93,Default,because you got this queue,\Nyou're pulling off these blocks
+Dialogue: 0,0:03:49.93,0:03:52.07,Default,and they're all running\Ntogether, if they ever want
+Dialogue: 0,0:03:52.07,0:03:55.03,Default,to share resources or something\Nthey need a little more advanced
+Dialogue: 0,0:03:55.03,0:03:57.14,Default,multithreaded program and we're\Ngoing to do the simple kind
+Dialogue: 0,0:03:57.44,0:04:00.45,Default,where one person coming out\Nof the queue, one block coming
+Dialogue: 0,0:04:00.45,0:04:01.52,Default,out of the queue\Nat the same time.
+Dialogue: 0,0:04:02.06,0:04:03.73,Default,Okay? So that's really\Nwhat you understand,
+Dialogue: 0,0:04:03.73,0:04:05.32,Default,is that's how this\Nmultithreading works.
+Dialogue: 0,0:04:05.37,0:04:07.16,Default,Queues of blocks, okay?
+Dialogue: 0,0:04:07.48,0:04:10.63,Default,Now there's a very important\Nqueue, which is the main queue,
+Dialogue: 0,0:04:10.63,0:04:13.23,Default,that's the queue on which\Nmulti-touch is happening
+Dialogue: 0,0:04:13.23,0:04:15.14,Default,and all the UI stuff\Nis happening,
+Dialogue: 0,0:04:15.45,0:04:17.17,Default,and this is special\Nfor two reasons.
+Dialogue: 0,0:04:17.17,0:04:20.59,Default,Alright? One is that we\Nnever want to block it, okay?
+Dialogue: 0,0:04:20.59,0:04:22.09,Default,So we never want to do\Nanything that's going
+Dialogue: 0,0:04:22.09,0:04:24.76,Default,to take very long\Non that main queue.
+Dialogue: 0,0:04:24.85,0:04:27.56,Default,And the second thing is we\Nuse it for synchronization
+Dialogue: 0,0:04:27.73,0:04:30.97,Default,for everything that\Nis UI related, okay?
+Dialogue: 0,0:04:31.13,0:04:34.69,Default,So all the methods, not all, but\Nmost of the methods in UI kit,
+Dialogue: 0,0:04:34.94,0:04:37.07,Default,you want to call them only on\Nthe main queue, and in fact,
+Dialogue: 0,0:04:37.07,0:04:40.29,Default,if you call them on some\Nother, some block that came off
+Dialogue: 0,0:04:40.29,0:04:41.92,Default,from some other queue\Nprobably wouldn't work.
+Dialogue: 0,0:04:42.34,0:04:46.18,Default,Now there's a few, like UI\Nimage, UI font, UI color,
+Dialogue: 0,0:04:46.18,0:04:49.38,Default,a couple of those things,\Nthey'll work off the main queue,
+Dialogue: 0,0:04:49.59,0:04:52.31,Default,but anything that is going\Nto cause the screen to have
+Dialogue: 0,0:04:52.35,0:04:54.95,Default,to change or synchronize\Nor anything like that,
+Dialogue: 0,0:04:55.18,0:04:57.34,Default,or that might cause that,\Nthat all needs to happen
+Dialogue: 0,0:04:57.34,0:04:58.97,Default,on the main queue, so\Nwe use that main queue,
+Dialogue: 0,0:04:59.17,0:05:01.61,Default,both to have something\Nthat's constantly responsive
+Dialogue: 0,0:05:01.61,0:05:03.27,Default,to the user and for\Nsynchronization,
+Dialogue: 0,0:05:03.27,0:05:05.92,Default,to keep everything in sync of\Nwhat's going on in the UI side.
+Dialogue: 0,0:05:06.43,0:05:09.21,Default,Everything else we could do\Nin other queues, and actually,
+Dialogue: 0,0:05:09.44,0:05:11.08,Default,amazingly, iOS is doing things
+Dialogue: 0,0:05:11.08,0:05:13.71,Default,like actually drawing\Nin another queue.
+Dialogue: 0,0:05:14.14,0:05:16.26,Default,Okay, you don't know that, you\Ndon't know what queue it is,
+Dialogue: 0,0:05:16.26,0:05:18.39,Default,you don't see it, but it's\Nactually doing the other queue,
+Dialogue: 0,0:05:18.39,0:05:18.84,Default,why?
+Dialogue: 0,0:05:19.09,0:05:21.17,Default,Because if its drawing\Nsomething very graphic-intensive
+Dialogue: 0,0:05:21.17,0:05:23.22,Default,and the user multi-touches\Nin the main queue,
+Dialogue: 0,0:05:23.42,0:05:26.40,Default,you want to switch back to that\Nmain queue and give it the,
+Dialogue: 0,0:05:26.40,0:05:29.22,Default,the priority and the drawing\Ncan wait a little bit while
+Dialogue: 0,0:05:29.22,0:05:32.72,Default,that multi-touch gets done.
+Dialogue: 0,0:05:32.72,0:05:35.44,Default,Okay? So this main queue\Ndoesn't want to be blocked,
+Dialogue: 0,0:05:35.44,0:05:37.80,Default,it's where we do the\Nsynchronization, and I'm going
+Dialogue: 0,0:05:37.80,0:05:41.16,Default,to show you how you can\Nwrite code that is running
+Dialogue: 0,0:05:41.16,0:05:42.87,Default,on other queues,\Nbut needs to do UI,
+Dialogue: 0,0:05:42.87,0:05:44.61,Default,because that's a problem, right?
+Dialogue: 0,0:05:44.61,0:05:47.21,Default,If your got a block\Nthat's on another queue,
+Dialogue: 0,0:05:47.21,0:05:51.88,Default,non-main thread queue, non-main\Nqueue, then, and you want
+Dialogue: 0,0:05:51.88,0:05:54.08,Default,to do some UI, you got to\Nsomehow talk to that main queue,
+Dialogue: 0,0:05:54.08,0:05:56.39,Default,you got a block, basically,\Non that main queue.
+Dialogue: 0,0:05:57.07,0:05:59.28,Default,There are other queues,\Nmostly they're created
+Dialogue: 0,0:05:59.28,0:06:00.69,Default,by iOS behind the scenes,
+Dialogue: 0,0:06:00.69,0:06:03.62,Default,I'm going to show you an example\Nhere in the slides of a queue
+Dialogue: 0,0:06:03.62,0:06:08.73,Default,that is visible to you in the\NAPI and how we deal with that.
+Dialogue: 0,0:06:08.98,0:06:11.85,Default,Alright, so how do you execute\Non a block on another queue?
+Dialogue: 0,0:06:12.14,0:06:16.20,Default,Okay? This is a C-level API,\Nit's a very low-level API,
+Dialogue: 0,0:06:16.20,0:06:19.26,Default,below object, so you're not\Ngoing to see any object stuff
+Dialogue: 0,0:06:19.37,0:06:20.95,Default,in this lowest level API.
+Dialogue: 0,0:06:21.11,0:06:22.86,Default,There is an object-oriented\Nlayer on top
+Dialogue: 0,0:06:22.86,0:06:26.85,Default,of it called NS operation, NS\Noperation queue, but it's kind
+Dialogue: 0,0:06:26.85,0:06:28.08,Default,of a thin object-oriented layer.
+Dialogue: 0,0:06:28.08,0:06:29.50,Default,This is the core layer.
+Dialogue: 0,0:06:29.85,0:06:33.24,Default,And this is the fundamental\Nmethod, dis, or, sorry,
+Dialogue: 0,0:06:33.24,0:06:36.35,Default,this is fundamental C function,\Ndispatch, underbar, async,
+Dialogue: 0,0:06:36.76,0:06:39.96,Default,and that means asynchronously\Nput this block
+Dialogue: 0,0:06:40.24,0:06:41.98,Default,on this queue, okay?
+Dialogue: 0,0:06:42.33,0:06:44.80,Default,So you see I've declared a queue\Nthere, local variable queue,
+Dialogue: 0,0:06:44.80,0:06:48.79,Default,it's a of type dispatch QT,\Nwhich is a typedef, and I'll,
+Dialogue: 0,0:06:48.86,0:06:50.51,Default,I'll talk about how to\Nget a queue in a second.
+Dialogue: 0,0:06:50.51,0:06:53.29,Default,And then you just say dispatch\Nasync, the queue you want
+Dialogue: 0,0:06:53.29,0:06:55.06,Default,to put the block on\Nand then the block.
+Dialogue: 0,0:06:55.06,0:06:57.47,Default,And the block takes no arguments\Nand it returns no values,
+Dialogue: 0,0:06:57.47,0:07:00.63,Default,it's just a block, and you can\Nput any code you want in there,
+Dialogue: 0,0:07:00.83,0:07:03.88,Default,and that block will take its\Nplace in line on that queue,
+Dialogue: 0,0:07:03.88,0:07:06.75,Default,and when that queue gets\Naround it, it will take it off.
+Dialogue: 0,0:07:06.83,0:07:08.29,Default,One thing, by the way,\Nabout the main queue,
+Dialogue: 0,0:07:08.48,0:07:10.88,Default,it never takes anything\Nout of its queue to run
+Dialogue: 0,0:07:10.96,0:07:14.46,Default,until its quiet, meaning\Nwhatever current touch events
+Dialogue: 0,0:07:14.52,0:07:15.79,Default,have been processed, okay?
+Dialogue: 0,0:07:15.79,0:07:16.96,Default,It's not going to\Nright in the middle
+Dialogue: 0,0:07:16.96,0:07:18.96,Default,of a touch event take\Nsomething off its queue
+Dialogue: 0,0:07:18.96,0:07:20.00,Default,and go do something, right?
+Dialogue: 0,0:07:20.30,0:07:23.42,Default,So the main queue waits\Ntill its a little quieter
+Dialogue: 0,0:07:23.42,0:07:25.13,Default,and then it'll take things\Noff the queue and run it,
+Dialogue: 0,0:07:25.18,0:07:27.91,Default,so you can always post things\Non the main queue and be sure
+Dialogue: 0,0:07:27.91,0:07:30.26,Default,that it's not going to\Ninterrupt the user in anyway.
+Dialogue: 0,0:07:31.36,0:07:33.84,Default,Alright, so how do we\Nget a queue to send this,
+Dialogue: 0,0:07:33.84,0:07:35.35,Default,to do this dispatch async with?
+Dialogue: 0,0:07:35.66,0:07:37.19,Default,Well, let's talk about\Nthe main queue first
+Dialogue: 0,0:07:37.19,0:07:39.10,Default,because that's the most\Nimportant queue that we need
+Dialogue: 0,0:07:39.10,0:07:41.09,Default,to dispatch things,\Nand the way you do
+Dialogue: 0,0:07:41.09,0:07:43.98,Default,that is dispatch underbar get,\Nunderbar mean, underbar queue,
+Dialogue: 0,0:07:43.98,0:07:45.70,Default,that will return the\Nmain queue to you
+Dialogue: 0,0:07:45.96,0:07:49.79,Default,and then you can call dispatch\Nasync with a block on that.
+Dialogue: 0,0:07:49.79,0:07:52.46,Default,At the higher level, that\NNS operation queue level,
+Dialogue: 0,0:07:52.46,0:07:55.29,Default,you can do NS operation main\Nqueue, it's a class method,
+Dialogue: 0,0:07:55.35,0:07:57.59,Default,it'll return NS operation\Nqueue object,
+Dialogue: 0,0:07:57.59,0:07:58.90,Default,which represents the main queue.
+Dialogue: 0,0:07:59.18,0:08:01.09,Default,Again, it's just a thin\Nobject-oriented layer,
+Dialogue: 0,0:08:01.38,0:08:04.08,Default,pretty much, on this\NC layer, and we'll,
+Dialogue: 0,0:08:04.08,0:08:06.47,Default,we'll see where that\Ncomes into the API.
+Dialogue: 0,0:08:06.79,0:08:09.07,Default,What if you wanted to\Ncreate another queue.
+Dialogue: 0,0:08:09.07,0:08:11.54,Default,Let's say you're going to\Ndo some big math calculation
+Dialogue: 0,0:08:11.54,0:08:14.44,Default,or some big image processing\Ncalculation and you don't want
+Dialogue: 0,0:08:14.44,0:08:16.94,Default,to block the main\Nqueue, the main thread,
+Dialogue: 0,0:08:17.16,0:08:18.68,Default,so you can create another queue.
+Dialogue: 0,0:08:18.74,0:08:21.79,Default,Very simple, you just dispatch\Nunderbar queue, underbar create,
+Dialogue: 0,0:08:22.15,0:08:25.33,Default,and the first argument to\Nthat function is the name
+Dialogue: 0,0:08:25.33,0:08:27.43,Default,of the queue and that's like\Ngoing to show up in the debugger
+Dialogue: 0,0:08:27.43,0:08:29.27,Default,and stuff, so this is\Nkind of an internal name,
+Dialogue: 0,0:08:29.52,0:08:33.26,Default,notice that's not an NS string,\Nbecause this is a low-level API,
+Dialogue: 0,0:08:33.26,0:08:36.42,Default,this is about the non-NS\Nstring you're ever going to see
+Dialogue: 0,0:08:36.42,0:08:38.67,Default,in this class, because this\Nis the lowest levels we'll go.
+Dialogue: 0,0:08:38.67,0:08:40.77,Default,It's a constant care star,
+Dialogue: 0,0:08:40.99,0:08:43.26,Default,and here I'm just using\Nthe main name, okay?
+Dialogue: 0,0:08:43.26,0:08:45.50,Default,You just want to give it a name\Nso you can recognize this queue
+Dialogue: 0,0:08:45.50,0:08:47.18,Default,when you see it in the\Ndebugger or something like that.
+Dialogue: 0,0:08:47.18,0:08:50.26,Default,And then the second argument\Nis whether it's a serial queue
+Dialogue: 0,0:08:50.26,0:08:51.97,Default,or a concurrent queue, right?
+Dialogue: 0,0:08:52.20,0:08:56.34,Default,So, null means it's a serial\Nqueue, and so, that's the kind
+Dialogue: 0,0:08:56.34,0:08:57.79,Default,of queue we're going\Nto talk about, again,
+Dialogue: 0,0:08:57.79,0:09:00.12,Default,so one person comes out\Nof the line at a time.
+Dialogue: 0,0:09:01.17,0:09:04.31,Default,And there's kind of an easy\Nmode for dispatching back
+Dialogue: 0,0:09:04.31,0:09:07.77,Default,to the main queue, which is\Nperform selector on main thread,
+Dialogue: 0,0:09:07.81,0:09:09.52,Default,it's an NS object method.
+Dialogue: 0,0:09:09.52,0:09:11.16,Default,You can send it to\Nany NS object.
+Dialogue: 0,0:09:11.39,0:09:14.32,Default,And you just pass a\Nselector and its argument,
+Dialogue: 0,0:09:14.32,0:09:16.48,Default,the width object\Nargument, it could be nil
+Dialogue: 0,0:09:16.48,0:09:18.02,Default,and then it has no\Narguments, that's fine.
+Dialogue: 0,0:09:18.43,0:09:21.27,Default,And the wait until done is\Nwhether you're going to wait
+Dialogue: 0,0:09:21.31,0:09:23.75,Default,until this thing gets pulled\Noff the main queue and run
+Dialogue: 0,0:09:23.75,0:09:26.85,Default,on the main queue and then\Nfinishes before this thread,
+Dialogue: 0,0:09:26.85,0:09:30.35,Default,that's calling this,\Ngoes or not, usually wait
+Dialogue: 0,0:09:30.40,0:09:32.49,Default,until done you would say\Nno, we don't need to wait,
+Dialogue: 0,0:09:32.49,0:09:35.32,Default,we're going to put this, call\Nthis method on the main queue,
+Dialogue: 0,0:09:36.01,0:09:38.54,Default,and whenever it executes\Nis when it executes.
+Dialogue: 0,0:09:38.54,0:09:41.14,Default,So, this perform selector\Nmain thread is just
+Dialogue: 0,0:09:41.14,0:09:44.35,Default,like saying dispatch\Nasync onto the main queue,
+Dialogue: 0,0:09:44.62,0:09:46.35,Default,a block that just\Ncalls that method.
+Dialogue: 0,0:09:47.43,0:09:49.71,Default,Okay? That's all it is\Nreally, but it's just kind
+Dialogue: 0,0:09:49.71,0:09:51.60,Default,of an easy mode, it looks\Nnice, and so, you know,
+Dialogue: 0,0:09:51.76,0:09:53.73,Default,you have to do the\Ndispatch async business,
+Dialogue: 0,0:09:54.01,0:09:56.16,Default,but you got to be able to\Nhave one method to call,
+Dialogue: 0,0:09:56.46,0:09:59.98,Default,put all the stuff you\Nwant to do on one method.
+Dialogue: 0,0:10:00.05,0:10:01.74,Default,So let's look at an example\Nthat uses this, okay?
+Dialogue: 0,0:10:01.78,0:10:04.66,Default,This is more understandable,\Nprobably much more by example.
+Dialogue: 0,0:10:04.73,0:10:10.20,Default,So, this example is I want to\Ndownload the contents of an URL
+Dialogue: 0,0:10:10.38,0:10:11.41,Default,from somewhere on the internet.
+Dialogue: 0,0:10:11.80,0:10:14.80,Default,So I have a URL, http//\Nsomething or other,
+Dialogue: 0,0:10:14.99,0:10:16.80,Default,and I want to download\Nthat from the internet.
+Dialogue: 0,0:10:16.80,0:10:19.45,Default,Well, I might be on\Ncellular, I might even be
+Dialogue: 0,0:10:19.45,0:10:21.59,Default,out of network range right now,
+Dialogue: 0,0:10:21.59,0:10:22.99,Default,that could take a\Nvery long time.
+Dialogue: 0,0:10:22.99,0:10:24.39,Default,It could take minutes, okay,
+Dialogue: 0,0:10:24.39,0:10:27.03,Default,well clearly I don't want my\Nuser interface, for example,
+Dialogue: 0,0:10:27.03,0:10:28.91,Default,to be blocked waiting\Nfor the network
+Dialogue: 0,0:10:28.97,0:10:30.33,Default,to give me that URL back.
+Dialogue: 0,0:10:30.33,0:10:35.19,Default,Okay? So I have to, basically,\Ncall this, do this download,
+Dialogue: 0,0:10:35.19,0:10:37.15,Default,network download, in\Na different queue,
+Dialogue: 0,0:10:37.15,0:10:38.80,Default,in a different thread,\Nnot the main queue.
+Dialogue: 0,0:10:39.17,0:10:43.45,Default,Okay? So there's an API in\NiOS for doing exactly this,
+Dialogue: 0,0:10:43.45,0:10:46.26,Default,you give it a URL and it will\Ngo do it in a different thread.
+Dialogue: 0,0:10:46.54,0:10:49.59,Default,Now, when it's done though,\Nit needs to call you back,
+Dialogue: 0,0:10:49.81,0:10:52.38,Default,and tell you hey, I got that\NURL, and the way it does
+Dialogue: 0,0:10:52.38,0:10:54.20,Default,that is kind of cool,\Nit downloads the URL
+Dialogue: 0,0:10:54.20,0:10:57.08,Default,to a local file, and\Nthen it calls you back
+Dialogue: 0,0:10:57.54,0:10:59.45,Default,and gives you a URL\Nto the local file.
+Dialogue: 0,0:10:59.61,0:11:02.09,Default,So now it's all local, and so\Nnow you can open up the file
+Dialogue: 0,0:11:02.09,0:11:04.08,Default,and do all you want and it's\Nnot going to be blocking
+Dialogue: 0,0:11:04.21,0:11:06.53,Default,because you, the network is\Nnot a part of it anymore,
+Dialogue: 0,0:11:06.53,0:11:08.16,Default,it's download the\Ncontents of the URL.
+Dialogue: 0,0:11:08.69,0:11:09.94,Default,Okay, so here's how that works.
+Dialogue: 0,0:11:10.22,0:11:13.59,Default,First we create a URL request,\Na URL request is just a wrapper
+Dialogue: 0,0:11:13.59,0:11:17.29,Default,on URL, you can see I created\Nthere, request with URL, NS URL,
+Dialogue: 0,0:11:17.51,0:11:19.75,Default,object, URL with\Nstring, some URL.
+Dialogue: 0,0:11:19.75,0:11:21.61,Default,Okay? So that's how we\Ncreate a URL request.
+Dialogue: 0,0:11:21.83,0:11:23.81,Default,A URL request is a\Nlittle more than URL
+Dialogue: 0,0:11:23.81,0:11:26.71,Default,because you can specify some\Nother things about that request,
+Dialogue: 0,0:11:26.71,0:11:28.81,Default,things you want to do, and most\Nof the time we just create it,
+Dialogue: 0,0:11:28.81,0:11:30.69,Default,just like this, and we don't do\Nanything else to the request.
+Dialogue: 0,0:11:30.69,0:11:35.92,Default,So now we have a request,\Na URL, a URL request, and,
+Dialogue: 0,0:11:35.92,0:11:38.98,Default,I apologize in advance for URL,\NI have trouble saying that,
+Dialogue: 0,0:11:38.98,0:11:41.62,Default,I'm going to be saying that 100\Ntimes in the next few slides.
+Dialogue: 0,0:11:42.20,0:11:43.82,Default,Then we have this\Nconfiguration thing,
+Dialogue: 0,0:11:43.82,0:11:45.11,Default,don't worry about that for now.
+Dialogue: 0,0:11:45.66,0:11:48.65,Default,And then we have, we create\Nwhat's called a URL session.
+Dialogue: 0,0:11:49.07,0:11:54.21,Default,So URL session is an object\Nthat manages a session of time
+Dialogue: 0,0:11:54.44,0:11:56.65,Default,that goes out and talks to the\Ninternet and gets the answer
+Dialogue: 0,0:11:56.65,0:11:58.63,Default,and all this stuff, so the\Nsession is the main thing
+Dialogue: 0,0:11:58.63,0:11:59.77,Default,that it's doing here\Nand we're going to talk
+Dialogue: 0,0:11:59.77,0:12:00.94,Default,about how we create that,
+Dialogue: 0,0:12:00.94,0:12:05.05,Default,because how we create the NS\NURL session determines where,
+Dialogue: 0,0:12:05.18,0:12:09.53,Default,what thread, which queue, our\Ncode is going to be executed on,
+Dialogue: 0,0:12:10.02,0:12:12.95,Default,and so now we have a session\Nand we can ask the question,
+Dialogue: 0,0:12:12.95,0:12:16.48,Default,please create us a task\Nwhich downloads that URL,
+Dialogue: 0,0:12:16.84,0:12:19.59,Default,very simple download\Ntask with request,
+Dialogue: 0,0:12:19.75,0:12:20.83,Default,you give it the URL request,
+Dialogue: 0,0:12:21.17,0:12:22.96,Default,and then you give it\Na completion handler.
+Dialogue: 0,0:12:23.16,0:12:25.27,Default,Now that completion handler\Nvery important to understand,
+Dialogue: 0,0:12:25.27,0:12:26.70,Default,you can see that it's a block.
+Dialogue: 0,0:12:27.20,0:12:29.30,Default,Right? The arguments\Nto that block,
+Dialogue: 0,0:12:29.40,0:12:31.21,Default,the first argument is the\Nmost important argument,
+Dialogue: 0,0:12:31.40,0:12:33.88,Default,that's the URL of the local file
+Dialogue: 0,0:12:33.88,0:12:35.57,Default,that it put the URL\Ninto for you.
+Dialogue: 0,0:12:36.15,0:12:38.74,Default,So it downloaded this URL off\Nyour internet and it put it
+Dialogue: 0,0:12:38.74,0:12:41.45,Default,in a local file and now\Nit's giving you a file URL,
+Dialogue: 0,0:12:41.45,0:12:44.85,Default,not an http// URL, but a\Nfile, colon, URL, right?
+Dialogue: 0,0:12:44.85,0:12:46.65,Default,URL that points to a local file.
+Dialogue: 0,0:12:47.01,0:12:49.59,Default,And then the other arguments\Nare about errors and responses,
+Dialogue: 0,0:12:49.59,0:12:52.17,Default,don't worry about those, but\Nthe main thing is you got this
+Dialogue: 0,0:12:52.17,0:12:52.73,Default,local file.
+Dialogue: 0,0:12:53.02,0:12:55.30,Default,And then inside this\Nblock, okay,
+Dialogue: 0,0:12:55.86,0:12:57.91,Default,what if you wanted\Nto do UI things here?
+Dialogue: 0,0:12:58.93,0:13:02.55,Default,Okay? Well, if this\Nblock is being executed
+Dialogue: 0,0:13:02.55,0:13:04.52,Default,on the main queue,\Nyou're good to go.
+Dialogue: 0,0:13:05.15,0:13:06.93,Default,But if it's being executed\Non some other queue,
+Dialogue: 0,0:13:06.93,0:13:09.27,Default,any other queue, you're not\Ngood to go, you're going to have
+Dialogue: 0,0:13:09.30,0:13:11.12,Default,to talk back to the main queue.
+Dialogue: 0,0:13:11.29,0:13:12.79,Default,So let's look at\Nthose two examples.
+Dialogue: 0,0:13:12.79,0:13:13.96,Default,First of all, let's look
+Dialogue: 0,0:13:13.96,0:13:17.59,Default,at creating the session\Nusing this method,
+Dialogue: 0,0:13:17.70,0:13:19.17,Default,session with configuration,\Nagain,
+Dialogue: 0,0:13:19.17,0:13:21.84,Default,don't worry about configuration,\Ndelegate, colon, nil,
+Dialogue: 0,0:13:22.03,0:13:24.78,Default,delegate queue, colon,\Nsome queue.
+Dialogue: 0,0:13:25.51,0:13:29.61,Default,Okay? So this NS URL session\Nthing, it has a delegate.
+Dialogue: 0,0:13:29.61,0:13:32.54,Default,Remember delegates, we're just\Ngetting used to delegates now,
+Dialogue: 0,0:13:32.54,0:13:35.24,Default,hopefully you are, remember\Nthe dynamic animator delegate
+Dialogue: 0,0:13:35.24,0:13:38.96,Default,that we set and it told us\Nwhen all the animation stopped
+Dialogue: 0,0:13:38.96,0:13:40.41,Default,and then we blew up the blocks?
+Dialogue: 0,0:13:40.51,0:13:43.34,Default,Okay? So we just set a\Ndelegate of the animator
+Dialogue: 0,0:13:43.34,0:13:46.08,Default,to be the controller in the\Ncontroller-implemented method.
+Dialogue: 0,0:13:46.08,0:13:46.79,Default,Same thing here.
+Dialogue: 0,0:13:46.99,0:13:50.03,Default,You can set yourself as a\Ndelegate to this URL session,
+Dialogue: 0,0:13:50.23,0:13:51.85,Default,and as its doing\Nall its downloading,
+Dialogue: 0,0:13:51.99,0:13:54.83,Default,it'll give you updates, oh,\NI loaded it at 5,000 bytes,
+Dialogue: 0,0:13:54.83,0:13:57.88,Default,I just loaded some more bytes,\Noh, I've got the file now.
+Dialogue: 0,0:13:57.88,0:14:00.31,Default,Okay, I'm putting it into\Na file, a local disc,
+Dialogue: 0,0:14:00.31,0:14:01.50,Default,it'll tell you all these things.
+Dialogue: 0,0:14:01.74,0:14:03.73,Default,Usually you don't care about\Nany of that, you just want it
+Dialogue: 0,0:14:03.73,0:14:05.24,Default,to tell you when you're\Ndone, which is what
+Dialogue: 0,0:14:05.24,0:14:06.53,Default,that completion handler is for.
+Dialogue: 0,0:14:06.53,0:14:08.44,Default,So here I'm going to\Nset my delegate to nil.
+Dialogue: 0,0:14:08.44,0:14:10.68,Default,I don't even want to\Nhear any of that mess,
+Dialogue: 0,0:14:10.68,0:14:12.96,Default,I just want my completion\Nhandler
+Dialogue: 0,0:14:13.28,0:14:14.97,Default,that you see here, called.
+Dialogue: 0,0:14:15.57,0:14:18.28,Default,But, the delegate queue, okay,
+Dialogue: 0,0:14:18.28,0:14:22.04,Default,tells you which queue are all\Nyour delegate methods going
+Dialogue: 0,0:14:22.04,0:14:24.12,Default,to be called on, okay?
+Dialogue: 0,0:14:24.32,0:14:26.61,Default,And you can specify the\Nmain queue, as we have here,
+Dialogue: 0,0:14:26.61,0:14:28.12,Default,or you can specify\Nsome other queue.
+Dialogue: 0,0:14:28.12,0:14:32.35,Default,Okay? You can even pass nil here\Nand it'll just make up a queue
+Dialogue: 0,0:14:32.35,0:14:33.48,Default,for you, a random queue.
+Dialogue: 0,0:14:33.71,0:14:36.35,Default,So even though we're not\Ndoing delegate methods here,
+Dialogue: 0,0:14:36.35,0:14:38.06,Default,we are having that\Ncompletion handler,
+Dialogue: 0,0:14:38.06,0:14:39.71,Default,and it calls your\Ncompletion handler
+Dialogue: 0,0:14:39.71,0:14:41.42,Default,on the same queue\Nas the delegates.
+Dialogue: 0,0:14:41.50,0:14:43.57,Default,So that's why that\Ndelegate queue line there is
+Dialogue: 0,0:14:43.63,0:14:44.35,Default,really important.
+Dialogue: 0,0:14:44.62,0:14:47.14,Default,What that says is call\Nmy completion handler,
+Dialogue: 0,0:14:47.19,0:14:48.79,Default,and all my delegate\Nmethods if I had them,
+Dialogue: 0,0:14:49.18,0:14:51.62,Default,call my completion\Nhandler on this queue,
+Dialogue: 0,0:14:51.62,0:14:53.46,Default,and I've specified\Nthe main queue.
+Dialogue: 0,0:14:53.57,0:14:56.80,Default,So that means the code that's\Ninside my completion handler
+Dialogue: 0,0:14:56.80,0:14:59.18,Default,block down there, the part\Nin yellow that says yes,
+Dialogue: 0,0:14:59.40,0:15:00.89,Default,can do UI things directly,
+Dialogue: 0,0:15:01.24,0:15:02.97,Default,that's being executed\Non the main queue.
+Dialogue: 0,0:15:02.97,0:15:05.07,Default,It gets put in line to\Nrun on the main queue,
+Dialogue: 0,0:15:05.07,0:15:06.21,Default,and when the main\Nqueue is quiet,
+Dialogue: 0,0:15:06.59,0:15:07.98,Default,it'll grab it and execute it.
+Dialogue: 0,0:15:08.22,0:15:10.31,Default,So I can do whatever I\Nwant UI-wise in here.
+Dialogue: 0,0:15:10.34,0:15:11.21,Default,I'm on the main queue.
+Dialogue: 0,0:15:11.55,0:15:14.29,Default,Now, conversely, I wouldn't want\Nto do anything expensive here,
+Dialogue: 0,0:15:14.29,0:15:16.71,Default,like, look in the\NURL and parse it
+Dialogue: 0,0:15:16.71,0:15:19.10,Default,and build some huge data\Nstructure and all this stuff,
+Dialogue: 0,0:15:19.10,0:15:21.10,Default,something that might block\Nthe main queue, right?
+Dialogue: 0,0:15:21.23,0:15:22.73,Default,By being, taking a long time.
+Dialogue: 0,0:15:23.02,0:15:25.98,Default,I mean, it would have to really\Ntake a long time, but, you know,
+Dialogue: 0,0:15:26.20,0:15:27.37,Default,or you certainly wouldn't want
+Dialogue: 0,0:15:27.37,0:15:30.54,Default,to make another network\Ncall in that block, okay?
+Dialogue: 0,0:15:31.08,0:15:32.39,Default,[Pause] But, mostly,
+Dialogue: 0,0:15:32.39,0:15:35.06,Default,most importantly I can make\NUI calls here, I could update,
+Dialogue: 0,0:15:35.06,0:15:38.28,Default,it this was an image URL I could\Nupdate my UI to show the image
+Dialogue: 0,0:15:38.28,0:15:39.30,Default,or whatever I want it to do.
+Dialogue: 0,0:15:39.58,0:15:41.90,Default,Because I've specified that it's\Ngoing to run in the main queue.
+Dialogue: 0,0:15:43.09,0:15:43.74,Default,Okay? Question?
+Dialogue: 0,0:15:44.52,0:15:49.22,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,0:15:49.72,0:15:52.61,Default,The question is does a queue\Nfinish a block that it takes
+Dialogue: 0,0:15:52.61,0:15:54.98,Default,out of the queue first\Nbefore it grabs another one?
+Dialogue: 0,0:15:55.31,0:15:57.39,Default,Yes. If it's a serial\Nqueue, which is the kind
+Dialogue: 0,0:15:57.39,0:15:58.39,Default,of queues we're talking about.
+Dialogue: 0,0:15:58.72,0:16:00.93,Default,Yes. It, it does them\Nin order, serially.
+Dialogue: 0,0:16:01.33,0:16:05.24,Default,Okay. So now let's look\Nat a different case.
+Dialogue: 0,0:16:05.49,0:16:07.39,Default,What if we created\NNS URL session
+Dialogue: 0,0:16:07.66,0:16:09.59,Default,that does not specify\Nthe delegate queue?
+Dialogue: 0,0:16:09.70,0:16:12.55,Default,So I just use NS URL session,\Nsession with configuration,
+Dialogue: 0,0:16:12.92,0:16:15.23,Default,no delegate, or delegate\Nqueue argument there.
+Dialogue: 0,0:16:15.64,0:16:17.83,Default,This case does not\Nuse the main queue,
+Dialogue: 0,0:16:17.83,0:16:18.96,Default,it uses a different queue.
+Dialogue: 0,0:16:19.38,0:16:22.31,Default,Okay? There's no delegate,\Nso, there's no need
+Dialogue: 0,0:16:22.61,0:16:25.48,Default,to have the delegate\Nmethod specified.
+Dialogue: 0,0:16:25.79,0:16:29.76,Default,But, the callback, okay, this\Ncompletion handler gets executed
+Dialogue: 0,0:16:29.76,0:16:32.04,Default,on a different queue,\Nnot on the main queue.
+Dialogue: 0,0:16:32.04,0:16:34.04,Default,Okay? Because I haven't\Nspecified the main queue
+Dialogue: 0,0:16:34.04,0:16:35.55,Default,as the queue I want\Nit to execute on.
+Dialogue: 0,0:16:35.55,0:16:40.36,Default,So in this case, if I want to\Ndo UI stuff, I have to make a,
+Dialogue: 0,0:16:40.36,0:16:45.04,Default,another block of stuff and\Nput it onto the main queue.
+Dialogue: 0,0:16:45.44,0:16:47.88,Default,And I can do that either\Nwith dispatch async,
+Dialogue: 0,0:16:47.95,0:16:51.23,Default,dispatch get main queue,\Na block, with this stuff,
+Dialogue: 0,0:16:51.27,0:16:54.62,Default,UI stuff I want to do, or I\Ncould do self perform selector
+Dialogue: 0,0:16:54.62,0:16:57.55,Default,on main thread with some\Nmethod on the main queue,
+Dialogue: 0,0:16:57.98,0:17:00.19,Default,or method that I\Nwant to execute,
+Dialogue: 0,0:17:00.19,0:17:01.73,Default,and it'll be called\Non the main queue.
+Dialogue: 0,0:17:02.57,0:17:05.43,Default,Okay? So do you see why I\Nhad to do that in this case?
+Dialogue: 0,0:17:05.74,0:17:08.12,Default,Because this completion\Nhandler is not being called
+Dialogue: 0,0:17:08.12,0:17:09.92,Default,on the main queue, it's being\Ncalled on a different queue.
+Dialogue: 0,0:17:10.41,0:17:12.79,Default,So this is what, what you\Nneed to understand in iOS is,
+Dialogue: 0,0:17:13.04,0:17:16.63,Default,when I have a block that's\Npassed to some method,
+Dialogue: 0,0:17:16.89,0:17:18.71,Default,what queue is it\Ngoing to be called on.
+Dialogue: 0,0:17:18.91,0:17:21.40,Default,Now most time when you pass\Na block to an iOS method,
+Dialogue: 0,0:17:21.40,0:17:23.51,Default,it's going to call\Nit on the same queue
+Dialogue: 0,0:17:23.66,0:17:24.97,Default,that you called that method on.
+Dialogue: 0,0:17:25.16,0:17:27.20,Default,Whatever method you called\Nand you handed it a block,
+Dialogue: 0,0:17:27.45,0:17:29.35,Default,it'll call you back on the\Nsame queue, most of the time.
+Dialogue: 0,0:17:29.83,0:17:33.72,Default,But if the method, like this\None, goes off and does something
+Dialogue: 0,0:17:33.72,0:17:36.18,Default,in another queue, then it's\Nprobably going to call you back
+Dialogue: 0,0:17:36.18,0:17:39.55,Default,in some other queue, unless you\Nspecify the main queue, okay?
+Dialogue: 0,0:17:40.08,0:17:45.51,Default,Question? [Inaudible background\Nquestion] Is the call dispatch
+Dialogue: 0,0:17:45.51,0:17:46.92,Default,async thread safe?
+Dialogue: 0,0:17:46.92,0:17:48.31,Default,And the answer is yes it is.
+Dialogue: 0,0:17:48.39,0:17:50.86,Default,And so you can use it for thread\Nsynchronization, actually,
+Dialogue: 0,0:17:50.96,0:17:52.15,Default,because it is thread safe.
+Dialogue: 0,0:17:52.15,0:17:54.87,Default,It's an anatomic call, okay,\Nit happens automatically.
+Dialogue: 0,0:17:54.91,0:17:55.94,Default,It can't be interrupted
+Dialogue: 0,0:17:56.28,0:17:58.01,Default,by something else\Ncoming in and doing it.
+Dialogue: 0,0:17:58.17,0:18:00.44,Default,So, that's a good question.
+Dialogue: 0,0:18:00.44,0:18:03.63,Default,Notice all, the small thing,\Nyou notice I have task resume,
+Dialogue: 0,0:18:03.63,0:18:04.69,Default,you see that task resume?
+Dialogue: 0,0:18:04.91,0:18:07.31,Default,When you create a\Ndownload task using this,
+Dialogue: 0,0:18:07.48,0:18:10.79,Default,it starts out suspended, in\Nother words, not downloaded.
+Dialogue: 0,0:18:11.24,0:18:14.21,Default,So you have to immediately\Nresume it to start it, okay?
+Dialogue: 0,0:18:14.21,0:18:16.33,Default,Now that resume is going to\Nstart something happening
+Dialogue: 0,0:18:16.33,0:18:19.11,Default,in a different thread, not\Non a main thread, but still,
+Dialogue: 0,0:18:19.36,0:18:21.71,Default,task resume, don't forget\Nthe task resume, okay?
+Dialogue: 0,0:18:22.23,0:18:24.67,Default,Okay, that's it for\Nmultithreading.
+Dialogue: 0,0:18:24.70,0:18:25.94,Default,I'm going to do it in the demo,
+Dialogue: 0,0:18:26.10,0:18:27.36,Default,so you'll get another\Nlook at it.
+Dialogue: 0,0:18:27.82,0:18:29.07,Default,You'll be doing it\Nin your homework
+Dialogue: 0,0:18:29.07,0:18:30.16,Default,so you'll get a feel for it.
+Dialogue: 0,0:18:30.43,0:18:32.68,Default,The idea here is to get\Nthis idea, this main queue
+Dialogue: 0,0:18:32.68,0:18:35.00,Default,and these other queues, and\Nthat I have to post back
+Dialogue: 0,0:18:35.00,0:18:36.82,Default,to the main queue anytime\NI'm doing something
+Dialogue: 0,0:18:36.82,0:18:37.53,Default,on another queue.
+Dialogue: 0,0:18:38.80,0:18:40.38,Default,Okay. UI scroll view.
+Dialogue: 0,0:18:40.38,0:18:42.48,Default,So UI scroll view is a\Nreally important view.
+Dialogue: 0,0:18:42.48,0:18:46.35,Default,You know, the iPhone screen,\Nanything that's going to fit
+Dialogue: 0,0:18:46.35,0:18:48.03,Default,in your pocket is going\Nto have a small screen,
+Dialogue: 0,0:18:48.24,0:18:49.70,Default,but you might want\Nto have it looking
+Dialogue: 0,0:18:49.70,0:18:51.64,Default,at a lot of information, okay?
+Dialogue: 0,0:18:51.64,0:18:53.33,Default,And you want to easily\Nnavigate through that.
+Dialogue: 0,0:18:53.33,0:18:56.29,Default,Now I have this little video\Nhere, this is like from iOS 4,
+Dialogue: 0,0:18:56.29,0:18:57.72,Default,or something, that's\Nwhy I left it with the,
+Dialogue: 0,0:18:58.17,0:19:00.90,Default,or it has the old background,\Nthe old kind of phone,
+Dialogue: 0,0:19:01.16,0:19:03.46,Default,but it's really good at\Nshowing what scroll view can do,
+Dialogue: 0,0:19:03.46,0:19:06.96,Default,because you can put any kind\Nof view in a scroll view,
+Dialogue: 0,0:19:06.96,0:19:08.48,Default,including another scroll view.
+Dialogue: 0,0:19:08.84,0:19:11.19,Default,So you can see that I've got\Na scroll view that's scrolling
+Dialogue: 0,0:19:11.19,0:19:14.06,Default,horizontally, and the things\Nin it are scrolling vertically.
+Dialogue: 0,0:19:14.49,0:19:15.76,Default,Okay? Or here's a stock app
+Dialogue: 0,0:19:15.76,0:19:17.64,Default,where I'm going scrolling\Nhorizontally
+Dialogue: 0,0:19:17.89,0:19:19.70,Default,through other scroll views
+Dialogue: 0,0:19:19.77,0:19:21.70,Default,that can scroll vertically\Ninside of them.
+Dialogue: 0,0:19:22.13,0:19:22.63,Default,You see that?
+Dialogue: 0,0:19:23.01,0:19:24.92,Default,So I can present a lot\Nof information here,
+Dialogue: 0,0:19:24.92,0:19:28.70,Default,not just the stock ticker value,\Nbut news about a stock, charts,
+Dialogue: 0,0:19:28.70,0:19:31.43,Default,etc., and I can just easily get\Nat them by scrolling through.
+Dialogue: 0,0:19:31.43,0:19:34.41,Default,So scroll view is a really\Npowerfully designed view
+Dialogue: 0,0:19:34.41,0:19:36.27,Default,that lets you put\Nalmost anything in the,
+Dialogue: 0,0:19:36.33,0:19:39.15,Default,in the area it scrolls,\Nincluding other scroll views.
+Dialogue: 0,0:19:39.66,0:19:43.08,Default,Okay? So, let's look at\Nhow scroll view works.
+Dialogue: 0,0:19:43.38,0:19:47.71,Default,Scroll view is really just a, a\Nview that you add sub views too,
+Dialogue: 0,0:19:47.71,0:19:49.32,Default,but it treats those\Nsub views specially,
+Dialogue: 0,0:19:49.32,0:19:51.37,Default,because it lets you scroll\Naround them and zoom in on them.
+Dialogue: 0,0:19:51.49,0:19:54.97,Default,So you know how to add a sub\Nview to a normal UI View, right?
+Dialogue: 0,0:19:54.97,0:19:57.59,Default,You just set the frame to sub\Nview, you call add sub view,
+Dialogue: 0,0:19:57.59,0:20:00.33,Default,bloop, it appears\Nin the view, easy.
+Dialogue: 0,0:20:00.55,0:20:04.84,Default,Even if you have a huge view\Nand you say add sub view,
+Dialogue: 0,0:20:05.25,0:20:08.02,Default,somewhere down there, oop, it\Ngets added, but, of course,
+Dialogue: 0,0:20:08.02,0:20:08.88,Default,you can't see the whole view.
+Dialogue: 0,0:20:08.88,0:20:12.25,Default,Now you could shrink the view\Nway down small, but then,
+Dialogue: 0,0:20:12.25,0:20:13.60,Default,like this Stanford picture,
+Dialogue: 0,0:20:13.60,0:20:15.58,Default,you'd hardly even be\Nable to see anything.
+Dialogue: 0,0:20:15.83,0:20:15.98,Default,Okay?
+Dialogue: 0,0:20:16.05,0:20:17.55,Default,So really what we want to\Ndo is be able to scroll
+Dialogue: 0,0:20:17.55,0:20:18.60,Default,around on these things.
+Dialogue: 0,0:20:18.60,0:20:22.08,Default,So, how does this work adding\Nsub views to UI scroll view?
+Dialogue: 0,0:20:22.40,0:20:24.29,Default,Well, there's one\Nreally important thing,
+Dialogue: 0,0:20:24.29,0:20:26.76,Default,this is the take-home\Npoint on UI scroll view.
+Dialogue: 0,0:20:28.09,0:20:29.69,Default,You got to set its content size.
+Dialogue: 0,0:20:30.07,0:20:32.50,Default,So it has a property,\Ncalled content size,
+Dialogue: 0,0:20:32.62,0:20:35.26,Default,which is just a big size,\Nand it makes the area
+Dialogue: 0,0:20:35.39,0:20:37.33,Default,that the scroll view is\Ngoing to scroll around on.
+Dialogue: 0,0:20:37.86,0:20:42.24,Default,Okay? This, I made a big content\Nsize here, 3,000 by 2,000.
+Dialogue: 0,0:20:42.54,0:20:47.50,Default,Then, now when you add sub\Nview to the scroll view,
+Dialogue: 0,0:20:47.90,0:20:50.25,Default,it puts it in its\Ncontent area, essentially.
+Dialogue: 0,0:20:50.44,0:20:53.59,Default,So here I put this sub view\N1, which is the Stanford logo,
+Dialogue: 0,0:20:53.69,0:20:56.45,Default,2,700 across, 100 hundred\Ndown, you see that?
+Dialogue: 0,0:20:57.04,0:20:59.70,Default,And then let's put that big\None in there, somewhere.
+Dialogue: 0,0:21:00.13,0:21:03.58,Default,Okay, I put it 50\Nby 100 in there.
+Dialogue: 0,0:21:04.20,0:21:06.18,Default,And now what the scroll view\Nis going to do is really kind
+Dialogue: 0,0:21:06.18,0:21:09.07,Default,of provide a window\Non that content area.
+Dialogue: 0,0:21:09.49,0:21:12.56,Default,So as the user scrolls\Naround, with their finger,
+Dialogue: 0,0:21:12.91,0:21:16.34,Default,it's essentially going to\Nmove around showing you what's
+Dialogue: 0,0:21:16.34,0:21:18.27,Default,in that content area, alright?
+Dialogue: 0,0:21:18.27,0:21:19.70,Default,Does that make sense?
+Dialogue: 0,0:21:19.70,0:21:22.35,Default,So that's all scrolling\Nis, really, when it comes
+Dialogue: 0,0:21:22.35,0:21:24.82,Default,to the panning part of it.
+Dialogue: 0,0:21:24.82,0:21:26.98,Default,And you can position these\Nviews anywhere you want,
+Dialogue: 0,0:21:26.98,0:21:30.00,Default,so if I move this Stanford\Nlogo here and then I move
+Dialogue: 0,0:21:30.00,0:21:32.09,Default,that huge thing to\Nthe upper corner,
+Dialogue: 0,0:21:32.24,0:21:34.79,Default,maybe I change my content\Nsize to be smaller,
+Dialogue: 0,0:21:35.18,0:21:39.03,Default,to include the views, now,\Nagain, I can scroll around,
+Dialogue: 0,0:21:40.27,0:21:42.87,Default,and you can see various parts,\Nthere's that Stanford logo,
+Dialogue: 0,0:21:42.87,0:21:44.81,Default,it's kind of overlapping\Nthe, the view here,
+Dialogue: 0,0:21:44.81,0:21:47.54,Default,because those two views\Noverlapping the content area,
+Dialogue: 0,0:21:47.87,0:21:49.27,Default,etc. So it's as simple as that.
+Dialogue: 0,0:21:49.27,0:21:51.08,Default,It's all about that\Ncontent size thing.
+Dialogue: 0,0:21:51.61,0:21:54.07,Default,Now, as a programmer,\Nyou might want to know
+Dialogue: 0,0:21:54.07,0:21:56.76,Default,where is the current, the\Nuser currently looking,
+Dialogue: 0,0:21:56.99,0:21:58.48,Default,okay, in my content area.
+Dialogue: 0,0:21:58.97,0:22:01.99,Default,And the, the way to get that\Nis the scroll view property
+Dialogue: 0,0:22:01.99,0:22:03.12,Default,content offset.
+Dialogue: 0,0:22:03.66,0:22:06.49,Default,It tells you the X and Y\Nof the upper left corner
+Dialogue: 0,0:22:06.80,0:22:08.62,Default,of the area that's being viewed.
+Dialogue: 0,0:22:09.47,0:22:11.21,Default,Okay? So that's an\Nimportant part of it.
+Dialogue: 0,0:22:11.44,0:22:14.20,Default,The other thing you want to\Nknow is what's the bounds
+Dialogue: 0,0:22:14.20,0:22:17.24,Default,of the area the user is\Nlooking at, and somewhat,
+Dialogue: 0,0:22:17.24,0:22:20.23,Default,some people had a little\Ntrouble understanding this,
+Dialogue: 0,0:22:20.23,0:22:20.96,Default,but it's very simple,
+Dialogue: 0,0:22:21.12,0:22:23.77,Default,that bounds is actually just\Nthe scroll views bounds.
+Dialogue: 0,0:22:23.89,0:22:27.49,Default,Okay? The scroll view is a view,\Nit has bounds, self dot bounds,
+Dialogue: 0,0:22:27.79,0:22:30.98,Default,and that bounds is the area\Nthat's being looked at.
+Dialogue: 0,0:22:31.16,0:22:35.02,Default,Now that bounds is in the\Ncontent areas coordinate system,
+Dialogue: 0,0:22:35.55,0:22:37.86,Default,okay, and you may not want\Nthat, you might want to know
+Dialogue: 0,0:22:38.09,0:22:41.48,Default,in that image what\Nis being looked at.
+Dialogue: 0,0:22:41.81,0:22:44.94,Default,And to do that, you simply\Nconvert those coordinates using
+Dialogue: 0,0:22:44.94,0:22:47.65,Default,this view method,\Nconvert rect to view.
+Dialogue: 0,0:22:47.82,0:22:51.18,Default,So you take those scroll view\Nbounds, you convert rec to view,
+Dialogue: 0,0:22:51.33,0:22:52.40,Default,whatever sub view in there,
+Dialogue: 0,0:22:52.40,0:22:54.47,Default,like the UI image view\Nthat's displaying,
+Dialogue: 0,0:22:54.51,0:22:58.00,Default,displaying that Stanford\Npicture, and you can find
+Dialogue: 0,0:22:58.59,0:23:01.03,Default,out where, what it is in that\Nview's coordinate system.
+Dialogue: 0,0:23:01.03,0:23:02.47,Default,Now why would those\Nbe different?
+Dialogue: 0,0:23:02.88,0:23:04.77,Default,Well, okay, that Stanford\Nthing happens to be
+Dialogue: 0,0:23:04.77,0:23:06.65,Default,up in the upper left\Ncorner at 0, 0,
+Dialogue: 0,0:23:06.65,0:23:09.14,Default,so it looks like it would be the\Nsame, but if that were not at 0,
+Dialogue: 0,0:23:09.14,0:23:10.83,Default,0, then that would matter.
+Dialogue: 0,0:23:10.95,0:23:12.12,Default,Also it could be zoomed.
+Dialogue: 0,0:23:12.55,0:23:13.81,Default,We'll talk about\Nzooming in a second,
+Dialogue: 0,0:23:13.81,0:23:16.47,Default,because scroll views can also\Nzoom in, and so if you imagined
+Dialogue: 0,0:23:16.47,0:23:19.70,Default,if you were zoomed way in,\Nlooking in a window there,
+Dialogue: 0,0:23:19.99,0:23:24.27,Default,that the rectangle inside the\NStanford views view would be a
+Dialogue: 0,0:23:24.27,0:23:26.49,Default,very small rectangle, right,
+Dialogue: 0,0:23:26.49,0:23:28.97,Default,as in scroll view it's\Ncontaining huge amounts.
+Dialogue: 0,0:23:28.97,0:23:31.87,Default,So that's why it makes a\Ndifference what those two
+Dialogue: 0,0:23:31.87,0:23:32.41,Default,things are.
+Dialogue: 0,0:23:33.35,0:23:35.55,Default,Okay? So let's [pause] talk
+Dialogue: 0,0:23:35.55,0:23:38.11,Default,about how you create\Na scroll view.
+Dialogue: 0,0:23:38.40,0:23:39.31,Default,Very easy.
+Dialogue: 0,0:23:39.41,0:23:41.15,Default,You just drag it out\Nfrom your storyboard.
+Dialogue: 0,0:23:41.58,0:23:43.60,Default,Okay? That's the number one\Nway to create scroll view,
+Dialogue: 0,0:23:43.60,0:23:45.92,Default,you can also do alloc init\Nwith frame, it's just a view
+Dialogue: 0,0:23:45.92,0:23:47.97,Default,like any other view, but\Nusually you drag it out.
+Dialogue: 0,0:23:48.37,0:23:51.84,Default,It is possible to have a view\Nsitting in your storyboard
+Dialogue: 0,0:23:52.03,0:23:56.61,Default,and do edit menu,\Nembed in scroll view,
+Dialogue: 0,0:23:56.61,0:23:58.67,Default,just like you do embed\Nin navigation controller.
+Dialogue: 0,0:23:58.67,0:24:01.50,Default,You know, maybe I don't\Nunderstand exactly how that's
+Dialogue: 0,0:24:01.50,0:24:02.93,Default,supposed to work,\Nbut it seems to me
+Dialogue: 0,0:24:02.93,0:24:05.03,Default,like it doesn't do the right\Nthing a lot of the time.
+Dialogue: 0,0:24:05.34,0:24:07.72,Default,For example, it seems to put\Nlike a little extra space
+Dialogue: 0,0:24:07.72,0:24:10.96,Default,around it, I'm not sure, I don't\Nrecommend embed in scroll view.
+Dialogue: 0,0:24:11.10,0:24:12.76,Default,I recommend just put\Nyour scroll view there
+Dialogue: 0,0:24:13.13,0:24:16.69,Default,and then add your sub\Nviews in code, okay?
+Dialogue: 0,0:24:17.15,0:24:20.83,Default,Or, drag them in to a scroll\Nview that's in your storyboard
+Dialogue: 0,0:24:21.00,0:24:22.02,Default,to put them in there, okay?
+Dialogue: 0,0:24:22.25,0:24:24.38,Default,But dragging them into your\Nscroll view it kind of weird,
+Dialogue: 0,0:24:24.62,0:24:25.67,Default,because your scroll view
+Dialogue: 0,0:24:25.67,0:24:28.38,Default,in the storyboard can only\Nshow you its visible area,
+Dialogue: 0,0:24:28.38,0:24:30.43,Default,it can't show you that\Nhuge content size.
+Dialogue: 0,0:24:30.81,0:24:33.11,Default,So I'm kind of a fan of\Nput your scroll view,
+Dialogue: 0,0:24:33.11,0:24:34.36,Default,sub views in in code.
+Dialogue: 0,0:24:34.99,0:24:38.00,Default,Okay? You put the scroll view\Nitself in, drag and drop,
+Dialogue: 0,0:24:38.00,0:24:39.84,Default,into your storyboard, but\Nthen, put your things in code,
+Dialogue: 0,0:24:39.84,0:24:40.84,Default,I kind of recommend that.
+Dialogue: 0,0:24:40.84,0:24:42.77,Default,And the way you do that\Nis just with add sub view.
+Dialogue: 0,0:24:42.94,0:24:44.54,Default,Just set the frame you\Nwant for your view,
+Dialogue: 0,0:24:44.54,0:24:47.28,Default,which is in that content\Narea, coordinate system,
+Dialogue: 0,0:24:47.47,0:24:48.33,Default,and there's add sub view.
+Dialogue: 0,0:24:48.71,0:24:50.13,Default,Simple as that.
+Dialogue: 0,0:24:50.58,0:24:52.49,Default,Don't forget to set\Nthat content size.
+Dialogue: 0,0:24:52.62,0:24:53.97,Default,That's the very first\Nthing I talked about
+Dialogue: 0,0:24:53.97,0:24:54.91,Default,and I'm talking about it again.
+Dialogue: 0,0:24:55.06,0:24:57.83,Default,If you don't set that content\Nsize, that big white area,
+Dialogue: 0,0:24:58.33,0:24:59.83,Default,the scroll view is going to\Nbe scrolling over nothing.
+Dialogue: 0,0:24:59.83,0:25:02.00,Default,It doesn't matter what views\Nyou've added a sub view,
+Dialogue: 0,0:25:02.26,0:25:04.55,Default,that content size is\Nwhat it scrolls over.
+Dialogue: 0,0:25:04.55,0:25:06.67,Default,It doesn't scroll over the\Nviews, the views just happen
+Dialogue: 0,0:25:06.67,0:25:09.88,Default,to be there if they're in the\Ncontent size coordinate system,
+Dialogue: 0,0:25:09.88,0:25:11.36,Default,but it's that content\Nsize that's key,
+Dialogue: 0,0:25:11.36,0:25:12.39,Default,don't forget to set that.
+Dialogue: 0,0:25:12.39,0:25:14.27,Default,And to reset it, if you're\Ngoing to scroll over something
+Dialogue: 0,0:25:14.27,0:25:16.59,Default,that changes size, it gets\Nlarger or smaller or whatever,
+Dialogue: 0,0:25:17.01,0:25:19.97,Default,reset that content size.
+Dialogue: 0,0:25:20.39,0:25:22.55,Default,Most of the scrolling\Naround is the user
+Dialogue: 0,0:25:22.55,0:25:24.25,Default,with a touch gesture panning,
+Dialogue: 0,0:25:24.48,0:25:27.25,Default,but you can also scroll\Naround using code.
+Dialogue: 0,0:25:27.49,0:25:29.45,Default,For example, scroll\Nrect to visible.
+Dialogue: 0,0:25:29.65,0:25:33.00,Default,You specify a rectangle in the\Ncontent area, and it will scroll
+Dialogue: 0,0:25:33.00,0:25:35.58,Default,that to make that\Nrectangle visible,
+Dialogue: 0,0:25:35.58,0:25:39.55,Default,and you probably want it to\Nbe animated so it slides over,
+Dialogue: 0,0:25:39.55,0:25:41.76,Default,instead of just jumps, right?
+Dialogue: 0,0:25:41.76,0:25:44.15,Default,And there's a ton of other\Nthings you can control
+Dialogue: 0,0:25:44.15,0:25:46.31,Default,in a scroll view, which we're\Nnot going to talk about,
+Dialogue: 0,0:25:46.31,0:25:47.83,Default,just time constraints,\Nbut you can go look
+Dialogue: 0,0:25:47.83,0:25:49.66,Default,at UI scroll views\Ndocumentation,
+Dialogue: 0,0:25:49.94,0:25:52.35,Default,things like whether scrolling\Nis enabled at a given time,
+Dialogue: 0,0:25:52.57,0:25:54.62,Default,whether you can scroll\Nhorizontally or vertically
+Dialogue: 0,0:25:54.62,0:25:59.55,Default,or both, [pause] there's\Nno scroll bars in iOS,
+Dialogue: 0,0:26:00.02,0:26:02.41,Default,but there are scroll indicators,\Nyou don't use scroll bars,
+Dialogue: 0,0:26:02.41,0:26:03.88,Default,because you just\Nscroll with your finger,
+Dialogue: 0,0:26:03.88,0:26:05.17,Default,or you pan around\Nwith a touch gesture,
+Dialogue: 0,0:26:05.46,0:26:07.50,Default,but there are little things that\Nflash on that kind of show you
+Dialogue: 0,0:26:07.50,0:26:09.41,Default,where you are n the content\Narea, you can look at all
+Dialogue: 0,0:26:09.52,0:26:11.14,Default,that stuff in the documentation.
+Dialogue: 0,0:26:11.41,0:26:13.80,Default,Alright, so now let's\Ntalk about zooming.
+Dialogue: 0,0:26:13.92,0:26:15.93,Default,Okay, so we've talked about\Npanning around the scroll view,
+Dialogue: 0,0:26:15.93,0:26:19.28,Default,what if we want to zoom in\Non the content and zoom out?
+Dialogue: 0,0:26:19.69,0:26:23.88,Default,Remember that all UI views\Nhave this transform property.
+Dialogue: 0,0:26:23.88,0:26:27.11,Default,Okay? We used it to grade\Neffect in the animating world,
+Dialogue: 0,0:26:27.40,0:26:31.07,Default,and the transform let's\Nyou rotate and scale
+Dialogue: 0,0:26:31.07,0:26:34.87,Default,and translate a view,\Narbitrarily, okay,
+Dialogue: 0,0:26:34.87,0:26:37.33,Default,it's doing bits,\Nthough, bit-wise zooming,
+Dialogue: 0,0:26:37.73,0:26:39.61,Default,and UI scroll view\Ntakes advantage of that
+Dialogue: 0,0:26:39.88,0:26:42.39,Default,to do its view, do it's zooming
+Dialogue: 0,0:26:42.39,0:26:45.05,Default,by changing the scale\Nof the transform.
+Dialogue: 0,0:26:45.45,0:26:46.78,Default,Okay? So it scales\Nthe transform.
+Dialogue: 0,0:26:46.78,0:26:48.95,Default,So that means that your\Nview, if it's zoomed
+Dialogue: 0,0:26:48.95,0:26:51.36,Default,in a lot could be\Nkind of greeny,
+Dialogue: 0,0:26:51.62,0:26:53.36,Default,unless your view\Ndoesn't know how
+Dialogue: 0,0:26:53.48,0:26:55.89,Default,to adjust itself once it's\Nzoomed in, and we'll talk
+Dialogue: 0,0:26:55.89,0:26:57.88,Default,about that in a second.
+Dialogue: 0,0:26:57.88,0:27:00.54,Default,Zooming requires two very\Nimportant things to be set,
+Dialogue: 0,0:27:00.54,0:27:03.24,Default,the first thing is the\Nminimum and maximum zoom scale,
+Dialogue: 0,0:27:03.24,0:27:04.96,Default,by default these are one,
+Dialogue: 0,0:27:05.52,0:27:07.21,Default,meaning you can't\Nzoom in or out.
+Dialogue: 0,0:27:07.40,0:27:09.78,Default,Okay? It's just going to\Nshow you a zoom scale of one,
+Dialogue: 0,0:27:10.25,0:27:13.28,Default,in other words, the thing the\Nuser sees is one times the size
+Dialogue: 0,0:27:13.28,0:27:16.19,Default,of the thing as it really,\Nit's actual size, right?
+Dialogue: 0,0:27:16.51,0:27:18.65,Default,So, if you want them to be\Nable to zoom in or zoom out,
+Dialogue: 0,0:27:18.65,0:27:21.20,Default,you have to set the minimum\Nor maximum zoom scale.
+Dialogue: 0,0:27:21.54,0:27:22.77,Default,Okay? Otherwise you\Nwill not zoom.
+Dialogue: 0,0:27:23.00,0:27:25.31,Default,The second thing is\Na delegate method.
+Dialogue: 0,0:27:25.81,0:27:29.00,Default,So, scroll views that zoom\Nhave to have a delegate.
+Dialogue: 0,0:27:29.32,0:27:32.81,Default,Okay? And delegate is just\Na property, on scroll view,
+Dialogue: 0,0:27:32.81,0:27:34.86,Default,just like it was on the\Nanimator, you're going to set
+Dialogue: 0,0:27:34.89,0:27:37.98,Default,that delegate to be some\Nobject, usually your controller,
+Dialogue: 0,0:27:37.98,0:27:40.45,Default,and your controller's going\Nto implement whatever methods
+Dialogue: 0,0:27:40.45,0:27:43.14,Default,in the UI scroll view delegate\Nprotocol, remember we talked
+Dialogue: 0,0:27:43.14,0:27:44.80,Default,about protocols that it wants.
+Dialogue: 0,0:27:45.18,0:27:47.84,Default,All the methods in the UI scroll\Nview protocol are optional,
+Dialogue: 0,0:27:48.14,0:27:50.52,Default,but this one is not\Noptional if you want zooming,
+Dialogue: 0,0:27:51.06,0:27:52.94,Default,and all of this method,\Nview for zooming
+Dialogue: 0,0:27:52.94,0:27:57.67,Default,and scroll view is returning is\Nwhich view, in the content area,
+Dialogue: 0,0:27:57.67,0:27:59.05,Default,which sub view of\Nthe scroll view,
+Dialogue: 0,0:27:59.20,0:28:02.61,Default,is going to have it scale\Nchanged when it zooms?
+Dialogue: 0,0:28:03.44,0:28:06.05,Default,Okay? So you might have a view
+Dialogue: 0,0:28:06.05,0:28:08.47,Default,at the top level inside your\Ncontent area scroll view
+Dialogue: 0,0:28:08.47,0:28:10.20,Default,that contains all your other\Nviews and they're zooming in,
+Dialogue: 0,0:28:10.20,0:28:12.22,Default,that's fine, or there\Nmight be just one view
+Dialogue: 0,0:28:12.22,0:28:14.98,Default,that makes sense to, to\Nzoom, but you have to return
+Dialogue: 0,0:28:14.98,0:28:18.49,Default,which sub view is going to\Nget scaled, which it's going
+Dialogue: 0,0:28:18.49,0:28:21.21,Default,to have its transform\Napplied to it.
+Dialogue: 0,0:28:21.73,0:28:23.73,Default,Okay? You can also zoom\Nprogrammatically, again,
+Dialogue: 0,0:28:23.73,0:28:25.63,Default,the user is usually\Npinching to zoom,
+Dialogue: 0,0:28:25.63,0:28:26.78,Default,but you can do it\Nprogrammatically
+Dialogue: 0,0:28:26.78,0:28:28.63,Default,by just setting this\Nproperty zoom scale.
+Dialogue: 0,0:28:28.93,0:28:30.60,Default,When you do set it you\Nprobably want to set it
+Dialogue: 0,0:28:30.60,0:28:32.37,Default,with set zoom scale animated,
+Dialogue: 0,0:28:32.37,0:28:34.73,Default,instead of just setting the\Nzoom scale property directly
+Dialogue: 0,0:28:34.73,0:28:35.72,Default,so that it gets animated.
+Dialogue: 0,0:28:35.72,0:28:37.72,Default,And you can also\Nzoom to a rectangle,
+Dialogue: 0,0:28:37.72,0:28:40.67,Default,which looks like this,\Nso here's zoom scale 1.2,
+Dialogue: 0,0:28:40.67,0:28:41.89,Default,so I'm zoomed in a little bit.
+Dialogue: 0,0:28:42.13,0:28:46.18,Default,If I got to zoom scale 1,\Nokay, this actual size,
+Dialogue: 0,0:28:46.44,0:28:48.74,Default,I can go back to zoom scale 1.2.
+Dialogue: 0,0:28:49.09,0:28:50.86,Default,I can also zoom to a rectangle,
+Dialogue: 0,0:28:50.86,0:28:52.57,Default,let's say I have this\Nlittle rectangle right here,
+Dialogue: 0,0:28:52.57,0:28:56.76,Default,this nose of this beast, and\Nif I zoom, it will make it
+Dialogue: 0,0:28:56.76,0:28:58.60,Default,as big as possible, okay?
+Dialogue: 0,0:28:59.34,0:29:00.73,Default,It still fits, so it zooms in.
+Dialogue: 0,0:29:01.04,0:29:03.28,Default,Or, if I had a square\Nthat was bigger
+Dialogue: 0,0:29:03.28,0:29:04.97,Default,than what was currently\Nshowing and I said zoom
+Dialogue: 0,0:29:04.97,0:29:06.61,Default,to rect, it'll zoom it down.
+Dialogue: 0,0:29:06.68,0:29:09.24,Default,Okay? So you can basically\Njust take a rectangle
+Dialogue: 0,0:29:09.24,0:29:12.20,Default,to make it fit as best it can.
+Dialogue: 0,0:29:12.65,0:29:14.78,Default,Alright. So scroll\Nview has lots and lots
+Dialogue: 0,0:29:14.78,0:29:16.85,Default,of delegate methods besides\Nthat view for zooming
+Dialogue: 0,0:29:16.85,0:29:17.60,Default,and scroll view thing.
+Dialogue: 0,0:29:17.81,0:29:21.60,Default,For example, if you zoomed\Nin, you pinched to zoom
+Dialogue: 0,0:29:21.60,0:29:23.20,Default,and you zoomed way in on a view,
+Dialogue: 0,0:29:23.20,0:29:25.40,Default,it's going to be really\Npixelated because it's going
+Dialogue: 0,0:29:25.40,0:29:27.87,Default,to be doing a transformed-based\Nscale, right?
+Dialogue: 0,0:29:27.87,0:29:30.50,Default,Scaling the bits up,\Nbits might look huge,
+Dialogue: 0,0:29:30.78,0:29:33.91,Default,but you get a delegate method,\Nscroll view did end zooming
+Dialogue: 0,0:29:33.91,0:29:36.40,Default,with view at scale,\Nthat will tell you,
+Dialogue: 0,0:29:36.65,0:29:39.02,Default,the scroll view will tell you, I\Njust finished zooming this thing
+Dialogue: 0,0:29:39.02,0:29:40.18,Default,and now it's at this scale.
+Dialogue: 0,0:29:40.30,0:29:43.78,Default,And now you could redraw your\Nview to not be pixelated.
+Dialogue: 0,0:29:44.46,0:29:47.81,Default,Okay? So this would be a good\Nway to kind of let them zoom in
+Dialogue: 0,0:29:47.81,0:29:50.52,Default,and out, really high\Nperformance, a little pixelated,
+Dialogue: 0,0:29:50.52,0:29:52.27,Default,but their fingers are\Nin the way anyway,
+Dialogue: 0,0:29:52.27,0:29:53.84,Default,so they can't probably\Ncan't tell that much.
+Dialogue: 0,0:29:54.16,0:29:56.41,Default,And then when they\Nlet go, you can do it.
+Dialogue: 0,0:29:56.41,0:29:58.45,Default,And, in fact, you even get\Nnotification while it's doing
+Dialogue: 0,0:29:58.45,0:29:59.81,Default,it, so you could even do\Nit while it's doing it,
+Dialogue: 0,0:29:59.81,0:30:01.38,Default,it better be a high-performance\Ndrawing
+Dialogue: 0,0:30:01.38,0:30:02.49,Default,because they're pinching it out.
+Dialogue: 0,0:30:02.49,0:30:03.40,Default,But, you could do it.
+Dialogue: 0,0:30:03.40,0:30:05.16,Default,But I just wanted to show you\Nan example of a delegate method.
+Dialogue: 0,0:30:05.16,0:30:08.57,Default,There's probably a dozen more\Nscroll view delegate methods,
+Dialogue: 0,0:30:08.57,0:30:10.22,Default,you could go look at the\NUI scroll view delegate
+Dialogue: 0,0:30:10.22,0:30:12.00,Default,documentation to find\Nout what they are all.
+Dialogue: 0,0:30:12.00,0:30:12.11,Default,Okay?
+Dialogue: 0,0:30:13.75,0:30:15.28,Default,So, we'll do a demo.
+Dialogue: 0,0:30:15.28,0:30:16.76,Default,It's a pretty comprehensive\Ndemo.
+Dialogue: 0,0:30:16.76,0:30:19.15,Default,I'm going to be doing,\Nshowing you scroll view,
+Dialogue: 0,0:30:19.40,0:30:23.36,Default,and that URL downloading thing,\Nand I'm also going to show you,
+Dialogue: 0,0:30:23.36,0:30:26.64,Default,we'll do another\Nnavigation controller,
+Dialogue: 0,0:30:26.64,0:30:28.49,Default,just to show it again in class.
+Dialogue: 0,0:30:28.78,0:30:30.37,Default,And, at the end, I'm going
+Dialogue: 0,0:30:30.37,0:30:33.05,Default,to show you a little\Nanimation thing,
+Dialogue: 0,0:30:33.05,0:30:35.72,Default,a spinner that can spin\Nwhile things are happening
+Dialogue: 0,0:30:35.72,0:30:37.90,Default,in other threads, so the main\Nthread can show his little
+Dialogue: 0,0:30:37.90,0:30:39.41,Default,spinner so people can\Nsee what's going on.
+Dialogue: 0,0:30:39.41,0:30:43.32,Default,So, we'll try to get all of\Nthat to fit into our time.
+Dialogue: 0,0:30:43.32,0:30:46.18,Default,So we're going to make\Na new project here.
+Dialogue: 0,0:30:46.18,0:30:47.67,Default,So I'm just going to\Ncreate new project.
+Dialogue: 0,0:30:48.19,0:30:51.75,Default,And I'm going to call\Nthis project Imaginarium.
+Dialogue: 0,0:30:53.29,0:30:58.17,Default,Okay? Imaginarium, we'll put it\Nin my home directory developer,
+Dialogue: 0,0:30:58.17,0:30:59.53,Default,which I highly recommend.
+Dialogue: 0,0:31:00.04,0:31:01.81,Default,Here it is.
+Dialogue: 0,0:31:01.81,0:31:04.10,Default,Okay, I'm dragging app\Ndelegate to supporting files.
+Dialogue: 0,0:31:04.37,0:31:06.68,Default,Probably the week after\Nnext we'll start talking
+Dialogue: 0,0:31:06.68,0:31:07.96,Default,about this app delegate.
+Dialogue: 0,0:31:08.24,0:31:10.50,Default,Really the app delegate\Nmostly comes in when we talk
+Dialogue: 0,0:31:10.50,0:31:11.86,Default,about multitasking in iOS.
+Dialogue: 0,0:31:11.94,0:31:15.31,Default,Okay, and we will start talking\Nabout multitasking the week
+Dialogue: 0,0:31:15.31,0:31:17.71,Default,after next, but not today.
+Dialogue: 0,0:31:17.71,0:31:20.49,Default,So here we go with this basic\Nview controller, right here,
+Dialogue: 0,0:31:20.49,0:31:21.64,Default,this blank view controller.
+Dialogue: 0,0:31:21.85,0:31:24.44,Default,And I'm going to start off right\Noff the bat by making a new MVC,
+Dialogue: 0,0:31:24.44,0:31:27.98,Default,a new view controller, and what\Nthis view controller does is it
+Dialogue: 0,0:31:27.98,0:31:32.58,Default,takes a URL, and displays, it,\Nit is a URL that's for an image
+Dialogue: 0,0:31:32.58,0:31:34.87,Default,on the internet, some jpeg\Nfile, and it displays it.
+Dialogue: 0,0:31:35.54,0:31:36.88,Default,Okay? So that's what this,
+Dialogue: 0,0:31:36.94,0:31:37.94,Default,this first thing I'm\Ngoing to create is.
+Dialogue: 0,0:31:37.94,0:31:40.23,Default,So let's just go straight\Nto that, new file,
+Dialogue: 0,0:31:40.23,0:31:41.74,Default,I'm going to create a new class,
+Dialogue: 0,0:31:42.01,0:31:44.12,Default,it's going to be a UI\Nview controller, okay,
+Dialogue: 0,0:31:44.12,0:31:46.23,Default,I'm going to call it\Nimage view controller.
+Dialogue: 0,0:31:46.69,0:31:48.03,Default,Okay? Because that's\Nwhat it does,
+Dialogue: 0,0:31:48.03,0:31:49.30,Default,the view controller\Ndisplays an image.
+Dialogue: 0,0:31:49.98,0:31:50.77,Default,Put it right there.
+Dialogue: 0,0:31:51.75,0:31:53.74,Default,So here's my image\Nview controller,
+Dialogue: 0,0:31:53.74,0:31:56.93,Default,I'm going to start right with\Nthis public API, as I want to do
+Dialogue: 0,0:31:56.93,0:32:00.12,Default,with new classes, so, I'm\Ngoing to have a property,
+Dialogue: 0,0:32:00.42,0:32:04.68,Default,which is non-atomic strong,\Nwhich is going to be an NS URL,
+Dialogue: 0,0:32:05.76,0:32:07.43,Default,which is image URL, okay?
+Dialogue: 0,0:32:07.68,0:32:08.80,Default,So this is the public API.
+Dialogue: 0,0:32:09.26,0:32:10.82,Default,If you set this image URL,
+Dialogue: 0,0:32:10.99,0:32:13.28,Default,this view controller\Nwill display that image.
+Dialogue: 0,0:32:13.96,0:32:15.31,Default,Okay? How's it going to do that?
+Dialogue: 0,0:32:15.31,0:32:16.79,Default,It's going to use a\Nclass, which we talked
+Dialogue: 0,0:32:16.79,0:32:18.72,Default,about a few weeks ago,\Ncalled UI image view.
+Dialogue: 0,0:32:18.72,0:32:21.97,Default,UI image view is kind of\Nlike UI label is to text,
+Dialogue: 0,0:32:22.11,0:32:23.72,Default,UI image view is to image.
+Dialogue: 0,0:32:23.72,0:32:26.21,Default,It just takes a UI image, it has\Na property which is a UI image,
+Dialogue: 0,0:32:26.40,0:32:28.37,Default,and it displays it, so\Nit's exactly what we want.
+Dialogue: 0,0:32:28.37,0:32:30.62,Default,So this controller is\Nobviously going to use that,
+Dialogue: 0,0:32:31.00,0:32:34.73,Default,so let's get rid of\Nall this stuff, and,
+Dialogue: 0,0:32:34.73,0:32:37.89,Default,so what do I need\Nhere, to do this?
+Dialogue: 0,0:32:37.89,0:32:41.47,Default,Well, I'm going to need\None of those image views.
+Dialogue: 0,0:32:41.89,0:32:48.90,Default,So let's create a UI image\Nview [typing sounds], okay?
+Dialogue: 0,0:32:49.65,0:32:55.64,Default,Alright, why is that not\Ndoing the right thing already?
+Dialogue: 0,0:32:55.72,0:32:56.21,Default,[Mumbling] Okay.
+Dialogue: 0,0:32:56.40,0:32:57.21,Default,Let's see there.
+Dialogue: 0,0:32:57.69,0:32:58.98,Default,Oh, maybe because this.
+Dialogue: 0,0:32:59.52,0:33:07.62,Default,[ Background Sounds ]
+Dialogue: 0,0:33:08.12,0:33:09.20,Default,But anyway.
+Dialogue: 0,0:33:09.57,0:33:11.90,Default,Okay, sorry, we have this\Nimage view, that's going
+Dialogue: 0,0:33:11.90,0:33:13.72,Default,to be the main thing,\Nso I'm going
+Dialogue: 0,0:33:13.72,0:33:15.07,Default,to lazily instantiate that.
+Dialogue: 0,0:33:15.77,0:33:18.37,Default,Image view, image view,
+Dialogue: 0,0:33:18.60,0:33:25.47,Default,if not image view then image\Nview equals UI image view alloc,
+Dialogue: 0,0:33:25.47,0:33:27.56,Default,and at this time, I\Ndon't know its frame,
+Dialogue: 0,0:33:27.56,0:33:29.57,Default,so I'll just make it\Nbe 00, but I'll have
+Dialogue: 0,0:33:29.57,0:33:32.89,Default,to make sure its frame gets\Nset properly, at some point,
+Dialogue: 0,0:33:32.89,0:33:34.20,Default,when I set its image I better
+Dialogue: 0,0:33:34.20,0:33:36.02,Default,to make sure its\Nframe is set properly.
+Dialogue: 0,0:33:36.02,0:33:39.65,Default,And, so we have that,\Nnow I'm going
+Dialogue: 0,0:33:40.17,0:33:42.28,Default,to do another interesting\Nthing while we're here,
+Dialogue: 0,0:33:42.28,0:33:43.53,Default,just to show you\Nhow this is done.
+Dialogue: 0,0:33:43.53,0:33:45.31,Default,I'm going to have\Nanother property,
+Dialogue: 0,0:33:45.80,0:33:49.57,Default,which is going to be a UI image.
+Dialogue: 0,0:33:49.79,0:33:52.06,Default,And this is going to be\Nthe image we're displaying,
+Dialogue: 0,0:33:52.21,0:33:54.98,Default,but what's interesting about\Nthis property, is I'm not going
+Dialogue: 0,0:33:54.98,0:33:56.79,Default,to use an instance\Nvariable to store it.
+Dialogue: 0,0:33:57.74,0:34:00.11,Default,Okay? I'm going to implement\Nthe setter and the getter,
+Dialogue: 0,0:34:00.44,0:34:02.24,Default,and I'm not going to use\Nan instance variable.
+Dialogue: 0,0:34:03.00,0:34:04.58,Default,Okay? So how does that work?
+Dialogue: 0,0:34:04.73,0:34:06.65,Default,Well, let's do the getter.
+Dialogue: 0,0:34:08.54,0:34:09.92,Default,Oops. Image.
+Dialogue: 0,0:34:10.72,0:34:12.27,Default,And when I do this,\NI'm just going
+Dialogue: 0,0:34:12.27,0:34:16.43,Default,to return my image views\Nview, image, rather,
+Dialogue: 0,0:34:16.43,0:34:17.66,Default,my image view's image.
+Dialogue: 0,0:34:19.00,0:34:21.58,Default,Okay? So when someone\Nwants this property,
+Dialogue: 0,0:34:21.58,0:34:23.89,Default,it's a private property, but\Nwhenever I want this property
+Dialogue: 0,0:34:23.89,0:34:27.09,Default,in my code, I'm just going to\Nreturn the image view's one,
+Dialogue: 0,0:34:27.19,0:34:31.40,Default,and, similarly, when I\Nset this image, okay,
+Dialogue: 0,0:34:31.85,0:34:37.75,Default,let's see if we can make this\Ndo the right thing in terms
+Dialogue: 0,0:34:37.84,0:34:43.81,Default,of code coloring, I'm not\Nsure what's going on here.
+Dialogue: 0,0:34:43.81,0:34:46.99,Default,Let's try this again.
+Dialogue: 0,0:34:46.99,0:34:48.94,Default,Okay, I'm not exactly sure.
+Dialogue: 0,0:34:48.94,0:34:49.57,Default,Oh, there we go.
+Dialogue: 0,0:34:50.45,0:34:53.58,Default,Okay, I want to get\Nthis colors going here.
+Dialogue: 0,0:34:53.77,0:34:56.61,Default,Alright, so, let's\Nset our UI image.
+Dialogue: 0,0:34:57.22,0:35:04.00,Default,And same thing here, I'm going\Nto just self dot image view,
+Dialogue: 0,0:35:04.74,0:35:06.34,Default,dot image, equals the image.
+Dialogue: 0,0:35:06.61,0:35:09.98,Default,But here's why I'm\Ndefining this little image,
+Dialogue: 0,0:35:09.98,0:35:12.93,Default,because whenever I set the\Nimage in the image view,
+Dialogue: 0,0:35:13.19,0:35:14.51,Default,I need to do one other thing,
+Dialogue: 0,0:35:14.51,0:35:17.20,Default,which is self dot\Nimage view size to fit.
+Dialogue: 0,0:35:18.42,0:35:19.55,Default,Okay? I want the image view
+Dialogue: 0,0:35:19.55,0:35:21.95,Default,to adjust its frame\Nto fit that image.
+Dialogue: 0,0:35:22.30,0:35:24.06,Default,So, since I always want to do
+Dialogue: 0,0:35:24.06,0:35:25.82,Default,that whenever I set\Nthe image view's image,
+Dialogue: 0,0:35:25.88,0:35:27.68,Default,I'm just preparing my\Nown little property,
+Dialogue: 0,0:35:27.68,0:35:29.44,Default,which has sensible semantics,
+Dialogue: 0,0:35:29.75,0:35:31.40,Default,that does this little\Nsize to fit.
+Dialogue: 0,0:35:31.40,0:35:33.17,Default,There are some other things\Nwe're going to want to do
+Dialogue: 0,0:35:33.17,0:35:35.42,Default,when we set an image, and\Nwe can put them all in here,
+Dialogue: 0,0:35:35.68,0:35:36.86,Default,but we'll start with just these.
+Dialogue: 0,0:35:37.64,0:35:42.65,Default,Okay? [Pause] The next thing I\Nneed to do is, if view did load.
+Dialogue: 0,0:35:43.23,0:35:47.16,Default,[Pause] This, and let's go ahead
+Dialogue: 0,0:35:47.16,0:35:50.08,Default,and add this image\Nview to self dot view.
+Dialogue: 0,0:35:50.25,0:35:54.29,Default,So let's do super, view did\Nload, and then I'm going
+Dialogue: 0,0:35:54.29,0:35:58.28,Default,to say self dot view, add sub\Nview, self dot image view.
+Dialogue: 0,0:35:58.87,0:36:01.95,Default,Okay? So that way I make\Nsure I get it on screen.
+Dialogue: 0,0:36:02.03,0:36:05.57,Default,Question? [Inaudible\Nbackground question] Yeah.
+Dialogue: 0,0:36:05.64,0:36:06.49,Default,Great, great question.
+Dialogue: 0,0:36:06.81,0:36:10.24,Default,So, there's no at sign\Nsynthesize for UI,
+Dialogue: 0,0:36:10.38,0:36:11.61,Default,this UI image thing, right?
+Dialogue: 0,0:36:12.10,0:36:14.08,Default,And compilers not\Ncomplaining either.
+Dialogue: 0,0:36:14.46,0:36:15.53,Default,What is going on?
+Dialogue: 0,0:36:15.83,0:36:17.72,Default,Why don't I need an\Nat sign synthesizer?
+Dialogue: 0,0:36:17.72,0:36:20.62,Default,Anyone want to hazard a guess?
+Dialogue: 0,0:36:22.01,0:36:22.56,Default,[Inaudible background\Ncomment] Correct.
+Dialogue: 0,0:36:23.62,0:36:26.75,Default,The answer is because I never\Nuse the instance variable.
+Dialogue: 0,0:36:27.31,0:36:30.24,Default,Okay? Since image is\Ntotally defined in terms
+Dialogue: 0,0:36:30.24,0:36:33.43,Default,of another object, I'm\Nnever using underbar image,
+Dialogue: 0,0:36:33.70,0:36:35.07,Default,and therefore I don't\Nneed to synthesize
+Dialogue: 0,0:36:35.11,0:36:37.59,Default,that instance variable, that's\Nwhat at sign synthesize does.
+Dialogue: 0,0:36:37.89,0:36:40.48,Default,It creates that instance\Nvariable, and I don't need it.
+Dialogue: 0,0:36:40.57,0:36:42.15,Default,So, the compiler's\Nnot complaining
+Dialogue: 0,0:36:42.15,0:36:43.83,Default,because I'm not using it,\Nso I don't even need it.
+Dialogue: 0,0:36:44.49,0:36:46.91,Default,Everyone, that's kind of\Nwhy I did this property,
+Dialogue: 0,0:36:46.91,0:36:47.78,Default,so that you would see that.
+Dialogue: 0,0:36:48.46,0:36:50.01,Default,Okay? Everybody got that?
+Dialogue: 0,0:36:50.62,0:36:52.71,Default,Okay, so now I have\Nthis wonderful view.
+Dialogue: 0,0:36:52.90,0:36:55.05,Default,The last thing I\Nwant to do here is
+Dialogue: 0,0:36:55.29,0:36:59.92,Default,when someone sets my public\NAPI, set image URL, obviously,
+Dialogue: 0,0:37:00.81,0:37:04.66,Default,I want to set that image\Nview's image to be that,
+Dialogue: 0,0:37:05.15,0:37:10.91,Default,so let's store our image URL\Nhere, and then I'm just going
+Dialogue: 0,0:37:10.91,0:37:17.01,Default,to say self dot image equals\NNS [pause], sorry, UI image,
+Dialogue: 0,0:37:17.27,0:37:22.33,Default,image with data, NS\Ndata, data with contents
+Dialogue: 0,0:37:22.33,0:37:26.73,Default,of URL, self dot image URL.
+Dialogue: 0,0:37:26.73,0:37:31.15,Default,Okay? Let's make\Nsome more space.
+Dialogue: 0,0:37:31.35,0:37:36.05,Default,Okay? So, all I'm doing here is\NI'm calling this self dot image,
+Dialogue: 0,0:37:36.05,0:37:38.87,Default,which is going to call this\Ndown here, this set image.
+Dialogue: 0,0:37:39.41,0:37:44.31,Default,And, I'm creating a new UI\Nimage using the data that I get
+Dialogue: 0,0:37:44.60,0:37:47.07,Default,by getting the contents\Nof that URL.
+Dialogue: 0,0:37:47.32,0:37:51.47,Default,This is going to\Nblock, because that URL,
+Dialogue: 0,0:37:51.78,0:37:52.94,Default,it's going to be\Nout on the internet.
+Dialogue: 0,0:37:53.13,0:37:56.16,Default,If that, if this URL is on\Nthe internet, this will block.
+Dialogue: 0,0:37:56.30,0:37:58.48,Default,If it's a file URL it won't,\Nit'll just get the data.
+Dialogue: 0,0:37:59.06,0:38:01.33,Default,Okay? But this is very\Nimportant to understand.
+Dialogue: 0,0:38:01.33,0:38:04.07,Default,This is where we might be\Nblocking the main queue.
+Dialogue: 0,0:38:04.67,0:38:05.94,Default,Okay? And that's\Ngoing to be bad.
+Dialogue: 0,0:38:06.15,0:38:07.85,Default,We're going to block\Nthe main queue
+Dialogue: 0,0:38:07.85,0:38:09.30,Default,and then we're going\Nunblock it, okay?
+Dialogue: 0,0:38:09.39,0:38:11.11,Default,But we're going to start out\Nblocking out, which is bad,
+Dialogue: 0,0:38:11.11,0:38:13.68,Default,but this is the line of code,\Nthe offender, because data
+Dialogue: 0,0:38:13.68,0:38:16.20,Default,with contents or URL will\Ngo out on the network
+Dialogue: 0,0:38:16.55,0:38:18.66,Default,if that URL is an\Nhttp something.
+Dialogue: 0,0:38:19.31,0:38:24.51,Default,Okay? Okay, so, now what\Nimage are we going to display?
+Dialogue: 0,0:38:24.51,0:38:28.05,Default,Right? We have this nice,\Ngeneric image displayer,
+Dialogue: 0,0:38:28.35,0:38:33.18,Default,what are we going to display?
+Dialogue: 0,0:38:33.98,0:38:36.47,Default,And, now let's go\Nin the internet.
+Dialogue: 0,0:38:36.68,0:38:40.32,Default,So, I've got these images right\Nhere, that actually Apple has,
+Dialogue: 0,0:38:40.32,0:38:43.62,Default,they put up a few images that\Nwere kind of example images
+Dialogue: 0,0:38:43.62,0:38:47.52,Default,that were taken by an\NiPhone, iPhone5s, I guess,
+Dialogue: 0,0:38:47.88,0:38:50.04,Default,and you can see there's\Nthis one, photo one,
+Dialogue: 0,0:38:50.04,0:38:53.28,Default,which is this flower and\Nthen there's photo two,
+Dialogue: 0,0:38:53.32,0:38:57.38,Default,which is these peppers, I\Nguess those are, and three,
+Dialogue: 0,0:38:57.49,0:38:59.33,Default,which is this jellyfish, okay?
+Dialogue: 0,0:38:59.57,0:39:03.25,Default,So I want to have my app be\Nable to display these images.
+Dialogue: 0,0:39:03.71,0:39:06.41,Default,Okay? So I'm going to make\Nit so it can display any
+Dialogue: 0,0:39:06.48,0:39:07.94,Default,of these three images.
+Dialogue: 0,0:39:08.17,0:39:09.15,Default,So how am I going to do that?
+Dialogue: 0,0:39:09.30,0:39:13.10,Default,Alright, I'm going to go to my\Nstoryboard, and first I'm going
+Dialogue: 0,0:39:13.10,0:39:16.63,Default,to drag out a view controller\Nto be my image view controller,
+Dialogue: 0,0:39:16.63,0:39:19.02,Default,so let's drag that out,\Nand we know that we need
+Dialogue: 0,0:39:19.02,0:39:21.40,Default,to set its class to be\Nimage view controller,
+Dialogue: 0,0:39:21.40,0:39:24.19,Default,so now I have this nice\Nimage view controller
+Dialogue: 0,0:39:24.30,0:39:25.74,Default,that can display an image.
+Dialogue: 0,0:39:26.32,0:39:29.87,Default,And, now I'm going to put some\Nbuttons in this view controller,
+Dialogue: 0,0:39:29.87,0:39:32.37,Default,this is this default view\Ncontroller that got created
+Dialogue: 0,0:39:32.68,0:39:34.41,Default,when I created the app, so\NI'm going to create one here.
+Dialogue: 0,0:39:34.79,0:39:38.57,Default,We'll create one for\Nthe peppers, and,
+Dialogue: 0,0:39:38.71,0:39:42.37,Default,or whatever those things are,\Nand then let's create one
+Dialogue: 0,0:39:42.37,0:39:46.55,Default,for the, what was the first\None, a flower, and then,
+Dialogue: 0,0:39:46.55,0:39:50.03,Default,what was the other thing,\Nit was a [pause] jellyfish.
+Dialogue: 0,0:39:50.81,0:39:52.76,Default,Okay, so I got these buttons\Nand I want to, when I click
+Dialogue: 0,0:39:52.76,0:39:55.68,Default,on these buttons, I want\Nit to show up here, okay?
+Dialogue: 0,0:39:56.34,0:39:59.29,Default,So, I'm going to use that by\Ndoing a navigation controller
+Dialogue: 0,0:39:59.29,0:40:00.12,Default,and have it segue, okay?
+Dialogue: 0,0:40:00.51,0:40:02.62,Default,Just so we can review\Nthe segues.
+Dialogue: 0,0:40:02.86,0:40:04.96,Default,One thing I want to\Ndo all of these is,
+Dialogue: 0,0:40:04.96,0:40:07.93,Default,let's give them some\Nnice [pause] things here.
+Dialogue: 0,0:40:07.93,0:40:11.14,Default,Let's have them,\Nhorizontally center that way,
+Dialogue: 0,0:40:11.46,0:40:14.42,Default,let's have this guy\Nhorizontally centered,
+Dialogue: 0,0:40:14.58,0:40:16.43,Default,or vertically centered this way.
+Dialogue: 0,0:40:16.80,0:40:20.26,Default,Let's control, drag\Nfrom this guy up this
+Dialogue: 0,0:40:20.26,0:40:22.81,Default,and keep the vertical\Nspacing, control,
+Dialogue: 0,0:40:22.81,0:40:24.87,Default,drag this into that vertical\Nspace, so I do all that,
+Dialogue: 0,0:40:24.87,0:40:26.47,Default,you can see I have\Nsome yellow here,
+Dialogue: 0,0:40:26.64,0:40:27.98,Default,some yellow constraints,\Nlet's go fix those.
+Dialogue: 0,0:40:28.14,0:40:30.90,Default,We'll go over here, do this,
+Dialogue: 0,0:40:30.99,0:40:33.10,Default,we'll fix the misplacement\Nthere.
+Dialogue: 0,0:40:33.10,0:40:35.75,Default,And fix that one, and\Nwe'll fix that one.
+Dialogue: 0,0:40:35.97,0:40:36.87,Default,So now they're doing it.
+Dialogue: 0,0:40:37.04,0:40:39.79,Default,This might be a nice chance\Nto go here and select on this
+Dialogue: 0,0:40:40.16,0:40:42.07,Default,and go switch over to landscape.
+Dialogue: 0,0:40:42.07,0:40:44.91,Default,It looks like it's doing\Nsomething there, so that's good.
+Dialogue: 0,0:40:45.60,0:40:47.00,Default,Okay? Everybody got that?
+Dialogue: 0,0:40:47.00,0:40:49.62,Default,Just a little review\Nof auto layout there.
+Dialogue: 0,0:40:49.85,0:40:51.90,Default,Alright, so, let's\Nput this inside
+Dialogue: 0,0:40:52.06,0:40:54.31,Default,of a navigation controller,\Nwhich I'm going to embed
+Dialogue: 0,0:40:54.31,0:40:57.19,Default,in navigation controller,\Nso that puts that here.
+Dialogue: 0,0:40:57.27,0:40:57.88,Default,That's good.
+Dialogue: 0,0:40:57.88,0:40:59.57,Default,Let's go ahead and\Nput a title in here,
+Dialogue: 0,0:40:59.57,0:41:01.71,Default,we'll call this Imaginarium.
+Dialogue: 0,0:41:02.16,0:41:06.34,Default,Now I want to segue, when any\Nof these buttons is pressed
+Dialogue: 0,0:41:06.34,0:41:07.90,Default,to do this, so I'm just\Ngoing to control, drag,
+Dialogue: 0,0:41:07.90,0:41:09.31,Default,so let's control, drag this one.
+Dialogue: 0,0:41:09.58,0:41:11.79,Default,Push. Control, drag this one.
+Dialogue: 0,0:41:12.08,0:41:14.27,Default,Push. And control,\Ndray this one.
+Dialogue: 0,0:41:14.71,0:41:18.73,Default,Push. Now, you see I've got\Nthese three segues in here,
+Dialogue: 0,0:41:18.93,0:41:23.06,Default,if I click on one, it'll tell me\Nwhat sent, what, what is causing
+Dialogue: 0,0:41:23.06,0:41:25.21,Default,that segue to happen, which\Nis kind of a nice feature.
+Dialogue: 0,0:41:25.95,0:41:28.09,Default,Now what am I going to use\Nfor my identifier for here?
+Dialogue: 0,0:41:28.09,0:41:30.16,Default,Well actually, I'm going to\Nbe a little bit tricky here,
+Dialogue: 0,0:41:30.33,0:41:35.22,Default,I'm going to use the name of\Nthe photo as the identifier,
+Dialogue: 0,0:41:35.22,0:41:39.23,Default,and then in my prepare for\Nsegue, I will use that to pick
+Dialogue: 0,0:41:39.64,0:41:42.35,Default,which of the three\Nphotos I'm going to show.
+Dialogue: 0,0:41:42.45,0:41:44.44,Default,So, you know, it's a demo,\Nso I'm trying to make this
+Dialogue: 0,0:41:44.49,0:41:47.93,Default,as little code as possible,\Nso here's my three things,
+Dialogue: 0,0:41:47.93,0:41:49.39,Default,they're going to have\Nthese three identifiers,
+Dialogue: 0,0:41:49.74,0:41:52.83,Default,and I need to do prepare\Nfor segue in this guy,
+Dialogue: 0,0:41:53.19,0:41:55.35,Default,right, so let's go do that.
+Dialogue: 0,0:41:55.65,0:41:57.33,Default,Let's do it this way,\Nlet's go over here
+Dialogue: 0,0:41:57.33,0:41:58.49,Default,to our view controller.
+Dialogue: 0,0:41:58.91,0:41:59.74,Default,We don't need any of this,
+Dialogue: 0,0:41:59.74,0:42:02.07,Default,this is our generic view\Ncontroller, on the side there.
+Dialogue: 0,0:42:02.30,0:42:05.88,Default,So I only need to implement\Nprepare for segue, and I'm going
+Dialogue: 0,0:42:05.88,0:42:09.75,Default,to use the image view\Ncontroller that I just created,
+Dialogue: 0,0:42:10.30,0:42:13.02,Default,because this is the thing I'm\Ngoing to segue to, alright?
+Dialogue: 0,0:42:13.68,0:42:15.10,Default,So all I'm going to\Ndo is I'm going to say
+Dialogue: 0,0:42:15.10,0:42:19.24,Default,if the segues destination view\Ncontroller is kind of class
+Dialogue: 0,0:42:19.31,0:42:22.17,Default,in image view controller, okay,
+Dialogue: 0,0:42:22.38,0:42:25.31,Default,then I know how to\Nsegue to that.
+Dialogue: 0,0:42:26.52,0:42:28.72,Default,So, I, oops, one more\N[inaudible] there.
+Dialogue: 0,0:42:28.87,0:42:31.79,Default,So I'm just going to create\Na local variable here,
+Dialogue: 0,0:42:31.79,0:42:36.62,Default,image view controller IVC equals\Nimage view controller segue dot
+Dialogue: 0,0:42:36.62,0:42:38.19,Default,destination goal,\Nwhich I know is okay
+Dialogue: 0,0:42:38.19,0:42:40.50,Default,because I did this introspection\Nright here, so I know this is,
+Dialogue: 0,0:42:40.88,0:42:44.07,Default,line is not going to cause a\Nproblem, and then I'm just going
+Dialogue: 0,0:42:44.07,0:42:48.52,Default,to say IVC dot image URL, okay,\Nremember this is the public API
+Dialogue: 0,0:42:48.52,0:42:52.38,Default,of our image view controller,\Nokay, and that's what we do
+Dialogue: 0,0:42:52.38,0:42:54.40,Default,when prepare for segues,\Nwe call public API
+Dialogue: 0,0:42:54.40,0:42:56.59,Default,on the destination\Nview controller.
+Dialogue: 0,0:42:56.96,0:43:02.47,Default,So I'm going to set that to\Nbe NS URL, URL with string,
+Dialogue: 0,0:43:02.78,0:43:06.30,Default,and I'm going to make\Na string with a format,
+Dialogue: 0,0:43:07.18,0:43:08.92,Default,and what I'm going to\Ndo is I'm going to copy
+Dialogue: 0,0:43:08.92,0:43:13.68,Default,and paste this thing right\Nhere, that I went to,
+Dialogue: 0,0:43:13.68,0:43:15.38,Default,this Apple thing,\Nso let's copy that.
+Dialogue: 0,0:43:16.37,0:43:17.40,Default,And paste it in here.
+Dialogue: 0,0:43:17.97,0:43:22.53,Default,Paste. But instead of\Njust doing photo one here,
+Dialogue: 0,0:43:22.53,0:43:25.95,Default,I'm going to use the\Nsegue identifier.
+Dialogue: 0,0:43:26.54,0:43:26.64,Default,[Pause] Okay?
+Dialogue: 0,0:43:28.42,0:43:31.19,Default,And just so we can see what's\Ngoing on, I'm also going
+Dialogue: 0,0:43:31.19,0:43:34.05,Default,to set the title of\Nthat view controller
+Dialogue: 0,0:43:34.05,0:43:35.71,Default,to be the segues\Nidentifier, as well,
+Dialogue: 0,0:43:35.71,0:43:38.28,Default,that little photo underbar one,\Nor photo two, just so we can see
+Dialogue: 0,0:43:38.28,0:43:39.73,Default,at the top what it is.
+Dialogue: 0,0:43:40.00,0:43:41.28,Default,Does everyone understand\Nwhat I'm doing
+Dialogue: 0,0:43:41.28,0:43:42.60,Default,in prepare for segue here?
+Dialogue: 0,0:43:43.76,0:43:45.65,Default,How I'm preparing my\Nimage view controller
+Dialogue: 0,0:43:45.65,0:43:47.97,Default,to do what it wants to do?
+Dialogue: 0,0:43:48.64,0:43:51.81,Default,Okay? So, let's see if we\Ngot everything working here.
+Dialogue: 0,0:43:51.81,0:43:55.17,Default,Hopefully I didn't\Nforget anything.
+Dialogue: 0,0:43:55.17,0:43:58.26,Default,[Pause] Try to get it\Nworking on our device here,
+Dialogue: 0,0:43:58.26,0:43:59.56,Default,oop, here comes something.
+Dialogue: 0,0:44:01.40,0:44:03.51,Default,[Pause] Alright, so,\Nlook, it's starting off
+Dialogue: 0,0:44:03.55,0:44:07.52,Default,in the landscape mode, I\Ncan rotate to either one.
+Dialogue: 0,0:44:08.11,0:44:09.57,Default,So let's try to take\Na look at the flower.
+Dialogue: 0,0:44:09.89,0:44:12.22,Default,Now, it, it did show\Nme the flower,
+Dialogue: 0,0:44:12.22,0:44:14.52,Default,at least the [laughing]\Nupper corner of it,
+Dialogue: 0,0:44:14.52,0:44:18.11,Default,but I can't scale around, I\Ncan't zoom, I can't do anything,
+Dialogue: 0,0:44:18.50,0:44:19.49,Default,I could go look at the peppers.
+Dialogue: 0,0:44:19.69,0:44:21.82,Default,Notice that my UI\Nis kind of stuck.
+Dialogue: 0,0:44:22.04,0:44:24.45,Default,When I press jellyfish,\Nah, now I can't,
+Dialogue: 0,0:44:24.45,0:44:25.94,Default,like I can't change my mind.
+Dialogue: 0,0:44:25.94,0:44:29.18,Default,Once I change from peppers,\NI can't change my mind.
+Dialogue: 0,0:44:29.70,0:44:30.95,Default,And that's because I'm blocking
+Dialogue: 0,0:44:30.95,0:44:33.43,Default,that main queue by\Ndoing this fetch.
+Dialogue: 0,0:44:33.65,0:44:36.44,Default,Okay? So we're going to see how\Nto fix that a little bit later.
+Dialogue: 0,0:44:36.44,0:44:39.58,Default,So, this is good, so far,\Nbut it'd be a lot nicer
+Dialogue: 0,0:44:39.58,0:44:42.61,Default,if I could take a look at this\Nflower, right, scroll around
+Dialogue: 0,0:44:42.61,0:44:46.13,Default,and look at it, so\Nlet's do that next.
+Dialogue: 0,0:44:46.13,0:44:48.82,Default,And, we're going to do that\Nby adding a scroll view.
+Dialogue: 0,0:44:49.08,0:44:52.33,Default,So, I'm just going to go here\Nto my storyboard and here,
+Dialogue: 0,0:44:52.33,0:44:53.95,Default,inside my image view controller,
+Dialogue: 0,0:44:53.95,0:44:55.20,Default,this is my image\Nview controller,
+Dialogue: 0,0:44:55.43,0:44:59.95,Default,I'm going to add a scroll view,\Nand we do that just by going
+Dialogue: 0,0:44:59.95,0:45:02.35,Default,down here, where we\Nadd everything from,
+Dialogue: 0,0:45:02.68,0:45:04.59,Default,and finding a scroll\Nview and it's
+Dialogue: 0,0:45:04.59,0:45:06.74,Default,down towards the\Nbottom, oh, there it is.
+Dialogue: 0,0:45:07.42,0:45:08.18,Default,Okay, scroll view.
+Dialogue: 0,0:45:08.18,0:45:09.09,Default,I'm just going to pull it out.
+Dialogue: 0,0:45:09.40,0:45:12.04,Default,I'm going to make it\Nmatch the whole thing,
+Dialogue: 0,0:45:12.04,0:45:15.34,Default,I'm going to actually do reset\Nto suggested constraints,
+Dialogue: 0,0:45:15.34,0:45:16.13,Default,I always like to see
+Dialogue: 0,0:45:16.13,0:45:19.62,Default,if it actually picked good\Nconstraints, which it did, okay?
+Dialogue: 0,0:45:19.62,0:45:21.82,Default,It's going to have that scroll\Nview stick to the edges,
+Dialogue: 0,0:45:21.82,0:45:25.61,Default,so as we rotate or if It were\Nin a different size viewer,
+Dialogue: 0,0:45:25.61,0:45:27.96,Default,or whatever, it would stick to\Nthose edges, I really like that,
+Dialogue: 0,0:45:29.15,0:45:33.86,Default,let's also wire up a outlet\Nfor that, an outlet for that.
+Dialogue: 0,0:45:34.21,0:45:35.18,Default,We'll call it scroll view.
+Dialogue: 0,0:45:35.18,0:45:35.37,Default,Alright?
+Dialogue: 0,0:45:36.79,0:45:38.97,Default,So we have that, so now we\Ncan talk to the scroll view,
+Dialogue: 0,0:45:39.48,0:45:42.71,Default,and all I really need to do\Nto make this work is instead
+Dialogue: 0,0:45:42.71,0:45:46.05,Default,of adding the image view\Nas a sub view of the view,
+Dialogue: 0,0:45:46.05,0:45:49.63,Default,I'm going to add it as a\Nsub view of the scroll view.
+Dialogue: 0,0:45:50.21,0:45:51.81,Default,But, of course, this\Nwill not work.
+Dialogue: 0,0:45:51.81,0:45:53.96,Default,I'll go ahead and prove\Nto you this will not work.
+Dialogue: 0,0:45:54.58,0:45:57.68,Default,[Pause] And I'm doing\Nthis intentionally,
+Dialogue: 0,0:45:57.68,0:45:58.83,Default,and I'm taking time to do this
+Dialogue: 0,0:45:58.83,0:46:00.27,Default,because you'll make\Nthis mistake, as well,
+Dialogue: 0,0:46:00.27,0:46:02.18,Default,a very common mistake.
+Dialogue: 0,0:46:02.54,0:46:04.70,Default,Just looked at the\Nflower, here's the flower.
+Dialogue: 0,0:46:04.70,0:46:06.20,Default,Oh! It's not working.
+Dialogue: 0,0:46:06.43,0:46:08.55,Default,Okay, it's in that scroll\Nview and I know I put it
+Dialogue: 0,0:46:08.55,0:46:10.29,Default,in a scroll view, how\Ncome it's not working?
+Dialogue: 0,0:46:10.68,0:46:11.70,Default,Anyone want to tell me why?
+Dialogue: 0,0:46:13.30,0:46:15.02,Default,Content size, exactly.
+Dialogue: 0,0:46:15.02,0:46:16.38,Default,We have to set the content size.
+Dialogue: 0,0:46:16.38,0:46:17.69,Default,So right now the\Nscroll view doesn't know
+Dialogue: 0,0:46:18.04,0:46:19.39,Default,where to scroll over, and,
+Dialogue: 0,0:46:19.78,0:46:22.37,Default,you might ask why is it\Neven showing anything here,
+Dialogue: 0,0:46:22.72,0:46:25.50,Default,and the answer is I think\Nscroll view, when you add it
+Dialogue: 0,0:46:25.75,0:46:27.69,Default,in a storyboard, it might\Nset its content size
+Dialogue: 0,0:46:27.69,0:46:30.02,Default,to be its bounds, or\Nsomething like that,
+Dialogue: 0,0:46:30.02,0:46:31.77,Default,so it's just some\Ndefaulting that's even make it
+Dialogue: 0,0:46:31.77,0:46:32.80,Default,so we see anything there.
+Dialogue: 0,0:46:33.74,0:46:35.54,Default,Okay, so let's go back\Nhere and fix that.
+Dialogue: 0,0:46:35.54,0:46:38.13,Default,So where do we want to\Nset the content size then?
+Dialogue: 0,0:46:38.81,0:46:41.28,Default,And, let's make it so we\Ncan see all this code.
+Dialogue: 0,0:46:41.84,0:46:45.78,Default,The content size, for\Nsure we want to set,
+Dialogue: 0,0:46:45.78,0:46:49.23,Default,anytime we change the image, we\Nwant to set the content size,
+Dialogue: 0,0:46:49.23,0:46:51.27,Default,there's no doubt about\Nthat, so let's do this,
+Dialogue: 0,0:46:51.27,0:46:56.26,Default,self dot scroll view dot\Ncontent size, oops, size,
+Dialogue: 0,0:46:57.04,0:47:00.88,Default,equals self dot image dot size.
+Dialogue: 0,0:47:01.26,0:47:04.84,Default,Okay? Now, this line of\Ncode could cause trouble
+Dialogue: 0,0:47:05.15,0:47:09.85,Default,if self dot image is\Nnil, because I told you
+Dialogue: 0,0:47:09.85,0:47:13.53,Default,that if you have a method, this\Nis just a getter of the image,
+Dialogue: 0,0:47:13.98,0:47:17.19,Default,that returns a struct,\Nand you send it to nil,
+Dialogue: 0,0:47:17.19,0:47:18.61,Default,you'll get undefined results.
+Dialogue: 0,0:47:18.80,0:47:19.66,Default,So this is bad.
+Dialogue: 0,0:47:19.95,0:47:24.48,Default,So let's protect against that,\Nself dot image, question mark,
+Dialogue: 0,0:47:24.56,0:47:26.56,Default,then we'll use the\Nsize, otherwise,
+Dialogue: 0,0:47:26.56,0:47:29.78,Default,we'll use CG size\N0, which is 0 by 0.
+Dialogue: 0,0:47:30.41,0:47:34.61,Default,Okay? Now, this will work, but\Nthere's actually one other place
+Dialogue: 0,0:47:34.66,0:47:35.79,Default,that we need to put this.
+Dialogue: 0,0:47:35.99,0:47:41.14,Default,And that, maybe surprisingly,\Nis in set scroll view.
+Dialogue: 0,0:47:41.37,0:47:45.43,Default,In other words, in the\Nsetter for this outlet,
+Dialogue: 0,0:47:45.73,0:47:48.42,Default,this scroll view outlet right\Nhere, it's just an outlet.
+Dialogue: 0,0:47:49.20,0:47:52.99,Default,We want equals, scroll\Nview, we want to make sure
+Dialogue: 0,0:47:53.22,0:47:55.95,Default,that we do this exact same\Nline of code, and why is that?
+Dialogue: 0,0:47:56.19,0:48:01.24,Default,Well, the reason for that is\Nthis scroll view property might
+Dialogue: 0,0:48:01.27,0:48:04.80,Default,get set after this happens.
+Dialogue: 0,0:48:05.59,0:48:07.79,Default,Specifically, prepare\Nfor segue, right,
+Dialogue: 0,0:48:08.13,0:48:11.03,Default,prepare for segue happens\Nbefore your outlets get set,
+Dialogue: 0,0:48:12.12,0:48:12.92,Default,make sense?
+Dialogue: 0,0:48:13.61,0:48:16.46,Default,So this set image is\Ngoing to be happening
+Dialogue: 0,0:48:16.46,0:48:20.16,Default,because of this set image URL\Nwhich happens in the prepare
+Dialogue: 0,0:48:20.22,0:48:23.81,Default,for segue and so the scroll view\Nis not even set up at that time,
+Dialogue: 0,0:48:23.81,0:48:27.67,Default,so this is going to be nil,\Nat the time that is executed.
+Dialogue: 0,0:48:28.77,0:48:29.88,Default,Okay? Everyone understand that?
+Dialogue: 0,0:48:31.07,0:48:33.38,Default,No? Nod your head\Nif you understand.
+Dialogue: 0,0:48:34.68,0:48:35.77,Default,Not too many of you.
+Dialogue: 0,0:48:35.77,0:48:37.50,Default,Okay, well you might\Nhave to think
+Dialogue: 0,0:48:37.50,0:48:39.29,Default,about that one a\Nlittle bit, okay?
+Dialogue: 0,0:48:39.64,0:48:42.54,Default,Just understand that your\Noutlets are not send,
+Dialogue: 0,0:48:42.54,0:48:47.12,Default,are not set when prepare for\Nsegue is preparing you, okay?
+Dialogue: 0,0:48:47.43,0:48:50.25,Default,So prepare for segue is\Nsetting this image URL,
+Dialogue: 0,0:48:50.69,0:48:54.12,Default,which is happening this, which\Nis causing this, which is going
+Dialogue: 0,0:48:54.12,0:48:58.07,Default,down to here, which is trying\Nto do this, but this is nil,
+Dialogue: 0,0:48:59.10,0:49:00.22,Default,so this line will do nothing.
+Dialogue: 0,0:49:00.99,0:49:02.66,Default,Because we're sending\Na message to nil here,
+Dialogue: 0,0:49:02.71,0:49:03.62,Default,so it just does nothing.
+Dialogue: 0,0:49:04.28,0:49:06.75,Default,So later when this outlet\Ncomes along and get set,
+Dialogue: 0,0:49:07.22,0:49:09.59,Default,then if we have an image,\Nwe want to make sure
+Dialogue: 0,0:49:09.59,0:49:11.20,Default,that we set our content\Nsize, okay?
+Dialogue: 0,0:49:12.53,0:49:15.00,Default,Alright, so, you can\Ncogitate on that.
+Dialogue: 0,0:49:15.56,0:49:19.00,Default,Meanwhile, [pause]\Nlet's run this,
+Dialogue: 0,0:49:19.67,0:49:20.92,Default,and hopefully now it'll work.
+Dialogue: 0,0:49:21.82,0:49:23.18,Default,So we'll look at the flower.
+Dialogue: 0,0:49:24.34,0:49:25.56,Default,And oh it's working!
+Dialogue: 0,0:49:25.56,0:49:28.31,Default,Okay. So there's our flower,\Nit's a little hard to see
+Dialogue: 0,0:49:28.31,0:49:29.38,Default,because we can't zoom in.
+Dialogue: 0,0:49:29.65,0:49:32.42,Default,Alright? It'd be nice to\Nbe able to zoom in on this,
+Dialogue: 0,0:49:32.52,0:49:34.71,Default,same with the peppers, the\Npeppers, a little nicer
+Dialogue: 0,0:49:34.71,0:49:37.34,Default,to look at, this, that's\Nnot so nice to look at, but,
+Dialogue: 0,0:49:37.99,0:49:39.56,Default,there you can look at\Nthe peppers over here.
+Dialogue: 0,0:49:39.80,0:49:42.09,Default,Okay, so these are too big,\Nobviously we want to zoom in,
+Dialogue: 0,0:49:42.47,0:49:44.31,Default,so how are we going to zoom in?
+Dialogue: 0,0:49:44.31,0:49:45.20,Default,Let's do that.
+Dialogue: 0,0:49:45.66,0:49:48.71,Default,Zooming in, really simple,\Nremember I said you only need
+Dialogue: 0,0:49:48.71,0:49:50.29,Default,to do two things, okay?
+Dialogue: 0,0:49:50.56,0:49:53.79,Default,One is you got to set\Nthe scroll views minimum
+Dialogue: 0,0:49:53.95,0:49:56.57,Default,and maximum zoom scale,\Nso we'll let it zoom into,
+Dialogue: 0,0:49:56.57,0:50:01.35,Default,let's say 20 percent, of the\Nsize of this image, or zoom out.
+Dialogue: 0,0:50:01.49,0:50:05.52,Default,And then, we'll have the\Nmaximum zoom scale be two times.
+Dialogue: 0,0:50:05.72,0:50:09.89,Default,Okay? So, we won't allow\Nthe image to get any bigger
+Dialogue: 0,0:50:09.89,0:50:13.06,Default,than twice as big and we'll\Nzoom down to 20 percent.
+Dialogue: 0,0:50:13.06,0:50:15.61,Default,And the other thing we need\Nto do besides setting those is
+Dialogue: 0,0:50:15.61,0:50:17.83,Default,to set the scroll\Nview's delegate
+Dialogue: 0,0:50:17.83,0:50:19.14,Default,and implement that other method.
+Dialogue: 0,0:50:19.14,0:50:22.00,Default,So I'm going to set the scroll\Nview's delegate to self.
+Dialogue: 0,0:50:22.44,0:50:22.75,Default,Okay?
+Dialogue: 0,0:50:23.38,0:50:24.66,Default,This causes a warning.
+Dialogue: 0,0:50:25.24,0:50:26.88,Default,You see that yellow triangle?
+Dialogue: 0,0:50:27.58,0:50:29.36,Default,Why do you think there's a\Nwarning here before I clicked
+Dialogue: 0,0:50:29.36,0:50:29.90,Default,on it, anyone?
+Dialogue: 0,0:50:30.62,0:50:30.74,Default,Yeah?
+Dialogue: 0,0:50:31.52,0:50:35.60,Default,[ Inaudible Background Comment ]
+Dialogue: 0,0:50:36.10,0:50:38.98,Default,Yes. So the, that's, yes,\Nbut there's an indirect step,
+Dialogue: 0,0:50:38.98,0:50:41.93,Default,and this warning is actually\Ntelling me something slightly
+Dialogue: 0,0:50:41.93,0:50:44.65,Default,different, but it, it's\Ntelling me something on the way
+Dialogue: 0,0:50:44.65,0:50:46.33,Default,to exactly what you're saying,\Nwhich is we got to implement
+Dialogue: 0,0:50:46.33,0:50:47.44,Default,that view to zoom thing.
+Dialogue: 0,0:50:47.61,0:50:49.54,Default,But that's not what this\Nwarning is warning us about.
+Dialogue: 0,0:50:49.80,0:50:53.45,Default,This warning is saying that\Nyou are assigning this delegate
+Dialogue: 0,0:50:53.51,0:50:56.09,Default,to an object that does not\Nimplement the scroll view
+Dialogue: 0,0:50:56.09,0:50:58.01,Default,delegate protocol, okay?
+Dialogue: 0,0:50:58.31,0:51:00.74,Default,Now that's not implementing\Nthe methods,
+Dialogue: 0,0:51:01.06,0:51:04.13,Default,that's declaring\Nthat it does it.
+Dialogue: 0,0:51:04.55,0:51:05.68,Default,That's this up here.
+Dialogue: 0,0:51:06.20,0:51:09.36,Default,Okay? This is what\Nit's complaining about,
+Dialogue: 0,0:51:09.47,0:51:13.31,Default,is that you don't declare self,\Nwhich is this image controller,
+Dialogue: 0,0:51:13.72,0:51:16.37,Default,to implement the\Ndelegate protocol, okay?
+Dialogue: 0,0:51:16.67,0:51:18.40,Default,So remember the delegate\Nprotocol, there's two things.
+Dialogue: 0,0:51:18.40,0:51:20.00,Default,One, they're saying\Nthat you do it
+Dialogue: 0,0:51:20.27,0:51:21.91,Default,and then number two, doing it.
+Dialogue: 0,0:51:22.12,0:51:24.35,Default,Okay? So it's the\Nsaying that you do it
+Dialogue: 0,0:51:24.35,0:51:26.45,Default,that it's complaining about,\Nand now it's not complaining.
+Dialogue: 0,0:51:26.63,0:51:29.20,Default,Even though I don't actually\Nimplement any of those methods.
+Dialogue: 0,0:51:29.44,0:51:31.30,Default,Okay? Why is that\Nnot complaining?
+Dialogue: 0,0:51:31.50,0:51:32.66,Default,Because they're all optional.
+Dialogue: 0,0:51:32.96,0:51:34.67,Default,If any of those methods\Nwould required,
+Dialogue: 0,0:51:35.25,0:51:36.85,Default,then it would be\Ncomplaining here,
+Dialogue: 0,0:51:36.85,0:51:39.02,Default,it would be saying you don't\Nimplement this required method.
+Dialogue: 0,0:51:39.41,0:51:42.00,Default,Okay? But since they're all\Noptional, it doesn't do it.
+Dialogue: 0,0:51:42.00,0:51:45.10,Default,But, it's not really optional\Nfor us because we want zooming,
+Dialogue: 0,0:51:45.10,0:51:46.94,Default,it's only optional because\Nzooming is optional,
+Dialogue: 0,0:51:47.29,0:51:51.78,Default,but we have to specify here the\Nview for zooming in scroll view.
+Dialogue: 0,0:51:52.33,0:51:56.62,Default,Okay? We have to return which\Nof the sub views we want to,
+Dialogue: 0,0:51:56.62,0:51:59.54,Default,to zoom, and we only have one,\Nwhich is in our image view.
+Dialogue: 0,0:51:59.75,0:52:01.37,Default,So we're going to return\Nthat and it's going
+Dialogue: 0,0:52:01.37,0:52:02.74,Default,to cause the image\Nview to be zoomed
+Dialogue: 0,0:52:02.74,0:52:04.30,Default,when zooming happens\Nin the scroll view.
+Dialogue: 0,0:52:04.58,0:52:08.09,Default,If we returned nil here, then\Nthat pan, the zooming rather,
+Dialogue: 0,0:52:08.09,0:52:09.64,Default,pinching, would do\Nnothing in the scroll view.
+Dialogue: 0,0:52:10.23,0:52:14.25,Default,Okay? It's only going to zoom,\Ni.e. change the transform,
+Dialogue: 0,0:52:14.47,0:52:18.04,Default,of whatever sub view you\Nspecify by returning here, okay?
+Dialogue: 0,0:52:18.40,0:52:19.25,Default,So let's try this.
+Dialogue: 0,0:52:20.29,0:52:22.70,Default,See if we can zoom in.
+Dialogue: 0,0:52:23.21,0:52:23.37,Default,[Pause] Alright.
+Dialogue: 0,0:52:27.80,0:52:29.11,Default,So we get the flower.
+Dialogue: 0,0:52:30.43,0:52:32.61,Default,There's our flower, let's try\Nzooming in, indeed we can.
+Dialogue: 0,0:52:33.11,0:52:35.17,Default,Okay, and zoom out.
+Dialogue: 0,0:52:36.09,0:52:40.33,Default,Now, I haven't set it so that it\Nzooms small enough to be smaller
+Dialogue: 0,0:52:40.33,0:52:41.40,Default,than the scroll view, but,
+Dialogue: 0,0:52:41.57,0:52:43.55,Default,because I'm holding it\Nright here, if I let it go,
+Dialogue: 0,0:52:43.55,0:52:45.38,Default,it zooms out, but\NI allowed that,
+Dialogue: 0,0:52:45.76,0:52:48.00,Default,then what would happen is\Nyou'd have this white border
+Dialogue: 0,0:52:48.00,0:52:48.55,Default,at the bottom.
+Dialogue: 0,0:52:48.91,0:52:49.40,Default,You see that?
+Dialogue: 0,0:52:49.81,0:52:50.72,Default,That white border?
+Dialogue: 0,0:52:50.72,0:52:53.69,Default,That's the background color of\Nthe scroll view showing through.
+Dialogue: 0,0:52:54.29,0:52:57.80,Default,Okay? And I can zoom in,\NI can zoom even in so far
+Dialogue: 0,0:52:57.80,0:53:00.24,Default,that it starts to get a little\Npixelated, because I'm zooming
+Dialogue: 0,0:53:00.24,0:53:03.36,Default,in more than the picture\Neven has pixels to show me.
+Dialogue: 0,0:53:03.36,0:53:04.38,Default,So right in the middle there,
+Dialogue: 0,0:53:04.38,0:53:05.53,Default,you can see the little\Nstair step.
+Dialogue: 0,0:53:06.29,0:53:08.35,Default,Okay? Make sense?
+Dialogue: 0,0:53:08.35,0:53:09.87,Default,We can look at another\None, the peppers.
+Dialogue: 0,0:53:10.40,0:53:13.24,Default,Okay, there's the\Npeppers, let's zoom down.
+Dialogue: 0,0:53:14.48,0:53:16.64,Default,Okay? Make sense?
+Dialogue: 0,0:53:16.64,0:53:18.34,Default,So, we're making really\Ngood progress here.
+Dialogue: 0,0:53:18.60,0:53:23.01,Default,One problem though is if I say\Nflowers, and then oh, again,
+Dialogue: 0,0:53:23.01,0:53:24.81,Default,my UI is blocked,\Nwhat's going on?
+Dialogue: 0,0:53:24.81,0:53:26.15,Default,I really got to fix that.
+Dialogue: 0,0:53:26.15,0:53:29.39,Default,Okay? We don't want our UI to\Nbe blocked when we pick one.
+Dialogue: 0,0:53:29.39,0:53:31.30,Default,For example, if I pick\Njellyfish, I might,
+Dialogue: 0,0:53:31.57,0:53:34.00,Default,if it's taking a long time, I\Nmight want to change my mind
+Dialogue: 0,0:53:34.00,0:53:34.99,Default,and then go pick flower.
+Dialogue: 0,0:53:35.36,0:53:37.66,Default,Okay? So I want to be\Nable to do stuff in my UI
+Dialogue: 0,0:53:37.66,0:53:41.08,Default,without it being blocked\Nby this network call.
+Dialogue: 0,0:53:41.70,0:53:43.90,Default,Okay? So, let's fix that.
+Dialogue: 0,0:53:44.48,0:53:47.68,Default,And the way we're going to do\Nthat is by doing that URL fetch,
+Dialogue: 0,0:53:47.68,0:53:50.94,Default,this one right here,\Nin another thread,
+Dialogue: 0,0:53:51.02,0:53:52.47,Default,okay, on a different queue.
+Dialogue: 0,0:53:53.15,0:53:55.64,Default,And, so how are we\Ngoing to do that?
+Dialogue: 0,0:53:56.19,0:53:57.09,Default,Really, really simply.
+Dialogue: 0,0:53:57.09,0:53:58.76,Default,I'm just going to get\Nrid of this line of code,
+Dialogue: 0,0:53:59.23,0:54:01.34,Default,comment it out actually,\Nand I'm going
+Dialogue: 0,0:54:01.34,0:54:05.08,Default,to say self start\Ndownloading image.
+Dialogue: 0,0:54:05.63,0:54:08.05,Default,Okay? And then we're going to\Nimplement this method [pause],
+Dialogue: 0,0:54:08.97,0:54:11.40,Default,start downloading image.
+Dialogue: 0,0:54:11.94,0:54:13.34,Default,Okay? And all this thing needs
+Dialogue: 0,0:54:13.34,0:54:16.66,Default,to do is start the download\Nhappening, it's going to happen
+Dialogue: 0,0:54:16.66,0:54:18.55,Default,in another thread, it's\Ngoing to call us back
+Dialogue: 0,0:54:18.70,0:54:20.47,Default,with that completion\Nhandler and when it does,
+Dialogue: 0,0:54:20.47,0:54:24.33,Default,I'm going to execute this\Nline of code, basically, okay,
+Dialogue: 0,0:54:24.39,0:54:29.89,Default,but this part I'm going to do\Nusing the URL download task
+Dialogue: 0,0:54:29.89,0:54:30.89,Default,that we saw in the slides.
+Dialogue: 0,0:54:31.14,0:54:34.79,Default,Okay? So let's, let's talk about\Nthis start downloading image
+Dialogue: 0,0:54:34.87,0:54:36.50,Default,and what this method\Nneeds to look like.
+Dialogue: 0,0:54:37.02,0:54:40.80,Default,The first thing is I'm going\Nto set image to nil, okay?
+Dialogue: 0,0:54:41.28,0:54:44.02,Default,I've been asked to start\Ndownloading a new image,
+Dialogue: 0,0:54:44.14,0:54:46.20,Default,while it's downloading, I'm\Ngoing to clear whatever's
+Dialogue: 0,0:54:46.20,0:54:48.78,Default,in my image view currently.
+Dialogue: 0,0:54:49.31,0:54:51.10,Default,Okay? So I'm just going\Nto blank that out.
+Dialogue: 0,0:54:51.10,0:54:53.78,Default,So I'm going to set my image\Nto start off to be nil.
+Dialogue: 0,0:54:54.32,0:54:58.59,Default,And then, as long as I have\Nan image URL to go try,
+Dialogue: 0,0:54:59.28,0:55:02.75,Default,then we'll try doing a download,\Nand as we saw in the slides,
+Dialogue: 0,0:55:03.26,0:55:05.47,Default,let's make a lot of\Nspace here, oops.
+Dialogue: 0,0:55:05.94,0:55:09.93,Default,We need to make UR\Nrequest, okay?
+Dialogue: 0,0:55:10.58,0:55:14.99,Default,We'll call it request, and\Nthat's just NS URL request,
+Dialogue: 0,0:55:15.21,0:55:18.12,Default,request with URL, and\Nwhat's the URL we want?
+Dialogue: 0,0:55:18.24,0:55:19.40,Default,Self dot image URL.
+Dialogue: 0,0:55:19.40,0:55:19.77,Default,Okay?
+Dialogue: 0,0:55:20.66,0:55:24.65,Default,So this creates a request\Nto go get that image URL,
+Dialogue: 0,0:55:24.65,0:55:26.98,Default,now we have to create a\Ntask, a background task
+Dialogue: 0,0:55:27.05,0:55:28.48,Default,to go do that request.
+Dialogue: 0,0:55:28.98,0:55:31.82,Default,So let's do this URL\Nsession configuration thing,
+Dialogue: 0,0:55:31.82,0:55:34.28,Default,which I kind of hand\Nwaved in the slides,
+Dialogue: 0,0:55:34.69,0:55:38.32,Default,but the configuration, really,\Nthere's three different kinds
+Dialogue: 0,0:55:38.32,0:55:42.94,Default,of configurations you can\Nhave, it's pretty simple,
+Dialogue: 0,0:55:42.94,0:55:43.98,Default,one is an [inaudible]\Nsession configuration,
+Dialogue: 0,0:55:43.98,0:55:45.44,Default,that's just if you're\Ngoing to download something
+Dialogue: 0,0:55:45.44,0:55:46.06,Default,and you're going to be done.
+Dialogue: 0,0:55:46.06,0:55:48.03,Default,And that's exactly\Nwhat we're doing.
+Dialogue: 0,0:55:48.31,0:55:51.17,Default,There's another one which his\Ndefault session configuration.
+Dialogue: 0,0:55:51.17,0:55:54.27,Default,That means you might be multi,\Ndownloading multiple files
+Dialogue: 0,0:55:54.27,0:55:57.41,Default,or otherwise you keeping\Nthis session active
+Dialogue: 0,0:55:57.41,0:55:59.77,Default,and doing multiple things,\Nbut it's just the default,
+Dialogue: 0,0:55:59.77,0:56:01.97,Default,and the last one,\Nreally powerful,
+Dialogue: 0,0:56:01.97,0:56:04.18,Default,but we need to understand\NiOS multitasking
+Dialogue: 0,0:56:04.18,0:56:06.59,Default,to do it is background\Nsession configuration.
+Dialogue: 0,0:56:06.90,0:56:09.54,Default,A background session\Nconfiguration means start
+Dialogue: 0,0:56:09.54,0:56:13.45,Default,downloading this file and\Neven if the user switches
+Dialogue: 0,0:56:13.45,0:56:16.78,Default,to another app or my app\Ndies, keep downloading it,
+Dialogue: 0,0:56:16.78,0:56:19.47,Default,and when it's done, call\Nme back and launch my app,
+Dialogue: 0,0:56:19.67,0:56:21.10,Default,if necessary, to handle that.
+Dialogue: 0,0:56:21.74,0:56:23.96,Default,Okay? So it was a\Nvery powerful session.
+Dialogue: 0,0:56:23.96,0:56:25.26,Default,But today, we're just going
+Dialogue: 0,0:56:25.26,0:56:27.27,Default,to do the simpler\N[inaudible], okay?
+Dialogue: 0,0:56:27.69,0:56:31.57,Default,And so now we'll just create\Nthe session, URL session.
+Dialogue: 0,0:56:31.81,0:56:40.46,Default,And I'm going to create this NS\NURL session using the default
+Dialogue: 0,0:56:41.25,0:56:42.58,Default,way to do it, which is just
+Dialogue: 0,0:56:42.58,0:56:44.36,Default,by specifying the\Nconfiguration only.
+Dialogue: 0,0:56:44.36,0:56:46.53,Default,I'm not doing the\Ndelegate or delegate queue.
+Dialogue: 0,0:56:46.85,0:56:49.80,Default,So my callback is going to\Nbe on a different queue,
+Dialogue: 0,0:56:50.00,0:56:51.91,Default,not on the main queue, alright?
+Dialogue: 0,0:56:52.34,0:56:58.09,Default,And so now let's create that\NURL session download task, okay?
+Dialogue: 0,0:56:58.09,0:57:01.48,Default,So this task is going to be\Nthe, the task that's going
+Dialogue: 0,0:57:01.48,0:57:03.70,Default,to do the downloading for us,\Nand we just asked the session,
+Dialogue: 0,0:57:04.02,0:57:06.87,Default,please create us a download\Ntask with that request,
+Dialogue: 0,0:57:07.52,0:57:08.83,Default,with this completion handler?
+Dialogue: 0,0:57:09.59,0:57:12.10,Default,And let's go ahead and put this
+Dialogue: 0,0:57:12.10,0:57:13.38,Default,on the other line\Nso you can see it.
+Dialogue: 0,0:57:13.63,0:57:16.34,Default,One little trick, if you have\Nan argument that's a block
+Dialogue: 0,0:57:16.34,0:57:17.54,Default,like this, okay?
+Dialogue: 0,0:57:17.54,0:57:21.65,Default,If you double click it, it\Nwill put it in there for you.
+Dialogue: 0,0:57:22.54,0:57:25.01,Default,Okay? In other words, it'll\Ntype all this stuff in.
+Dialogue: 0,0:57:25.46,0:57:27.70,Default,I don't like this\Nname, location,
+Dialogue: 0,0:57:27.82,0:57:29.99,Default,just to make this clear,\Nthis is local file,
+Dialogue: 0,0:57:29.99,0:57:32.06,Default,this is URL of the local code
+Dialogue: 0,0:57:32.06,0:57:34.87,Default,that is downloading this\Ncontent to this URL too.
+Dialogue: 0,0:57:34.87,0:57:37.72,Default,That's why I like to\Ncall that local file.
+Dialogue: 0,0:57:37.75,0:57:40.18,Default,And then here's the code\Nthat we want to do in here.
+Dialogue: 0,0:57:40.75,0:57:45.35,Default,And, what happens\Nwhen it's done?
+Dialogue: 0,0:57:45.79,0:57:47.68,Default,Okay? When we get this\Ncompletion or handler called.
+Dialogue: 0,0:57:47.68,0:57:50.68,Default,Well, we want to set\Nself dot image, okay,
+Dialogue: 0,0:57:51.02,0:57:53.54,Default,but the only thing here we have\Nto be careful of is we're not
+Dialogue: 0,0:57:53.54,0:57:54.94,Default,on the main queue,\Nso we have to do
+Dialogue: 0,0:57:54.94,0:57:57.00,Default,that in the other\Nqueue, so let's do this.
+Dialogue: 0,0:57:57.08,0:57:59.22,Default,If there's no error,\Nfirst of all,
+Dialogue: 0,0:57:59.41,0:58:02.13,Default,you can see that there's error\Nargument, so I'm going to say
+Dialogue: 0,0:58:02.13,0:58:03.93,Default,if there's no error, if there\Nwas an error, you might want
+Dialogue: 0,0:58:03.93,0:58:08.57,Default,to put not found or something\Nin your view somewhere, but,
+Dialogue: 0,0:58:08.75,0:58:10.84,Default,if there's no error,\Nthen I'm going
+Dialogue: 0,0:58:10.84,0:58:13.10,Default,to do an interesting thing here\Nthat you might be like, what,
+Dialogue: 0,0:58:13.46,0:58:14.85,Default,which is I'm going\Nto check to see
+Dialogue: 0,0:58:14.85,0:58:20.52,Default,if the request URL's URL is\Nequal to self dot image URL.
+Dialogue: 0,0:58:22.13,0:58:24.48,Default,Okay. Why would I do that?
+Dialogue: 0,0:58:24.48,0:58:26.24,Default,Oops, request dot URL.
+Dialogue: 0,0:58:26.24,0:58:27.18,Default,Why would I do this?
+Dialogue: 0,0:58:27.18,0:58:31.66,Default,Why would I check to see if this\Nis, which we set to be this,
+Dialogue: 0,0:58:31.85,0:58:33.64,Default,why would I check to\Nsee if this is equal
+Dialogue: 0,0:58:33.64,0:58:39.83,Default,to self dot image URL,\Nanyone have an idea?
+Dialogue: 0,0:58:42.59,0:58:43.26,Default,[Inaudible background\Ncomment] Absolutely.
+Dialogue: 0,0:58:43.37,0:58:46.14,Default,Okay, in case we, somebody else
+Dialogue: 0,0:58:46.14,0:58:48.88,Default,in the app changed\Nthe image URL,
+Dialogue: 0,0:58:48.97,0:58:50.55,Default,asked us to display\Nsomething different,
+Dialogue: 0,0:58:50.82,0:58:52.73,Default,while this was outstanding.
+Dialogue: 0,0:58:53.31,0:58:56.74,Default,Okay? This URL is out fetching,\Nlet's take, it takes 10 minutes,
+Dialogue: 0,0:58:56.74,0:58:58.91,Default,okay, it really is a\Nslow website out there,
+Dialogue: 0,0:58:58.91,0:59:01.52,Default,it takes 10 minutes, and in\Nthat 10 minutes, the user clicks
+Dialogue: 0,0:59:01.52,0:59:04.20,Default,on something else and wants this\Nview to display something else.
+Dialogue: 0,0:59:04.48,0:59:06.46,Default,Well, this download\Ntask is still going
+Dialogue: 0,0:59:06.46,0:59:09.79,Default,to complete 10 minutes later,\Nbut we want to ignore it,
+Dialogue: 0,0:59:10.33,0:59:11.61,Default,basically, because\Nit's a request
+Dialogue: 0,0:59:11.61,0:59:13.11,Default,for something we're not\Ngoing to use anymore.
+Dialogue: 0,0:59:13.48,0:59:15.39,Default,So this is something that would\Nbe important to understand
+Dialogue: 0,0:59:15.39,0:59:18.11,Default,about multitasking, is\Nthat things take time,
+Dialogue: 0,0:59:18.28,0:59:20.71,Default,and when things are finished,\Nyou have to make sure the state
+Dialogue: 0,0:59:20.71,0:59:23.81,Default,of the world still matches\Nwhat you thought it was
+Dialogue: 0,0:59:23.81,0:59:25.24,Default,when you asked it to start.
+Dialogue: 0,0:59:25.83,0:59:28.22,Default,Okay? Multitasking programming,
+Dialogue: 0,0:59:28.50,0:59:31.16,Default,multithreaded programming\Nrather, is really,
+Dialogue: 0,0:59:31.23,0:59:33.88,Default,can be kind of mind-bending in\Nthat way, but you really have
+Dialogue: 0,0:59:33.88,0:59:35.22,Default,to have the discipline\Nto think, okay,
+Dialogue: 0,0:59:35.22,0:59:37.71,Default,what if this takes 10\Nminutes, then what,
+Dialogue: 0,0:59:37.71,0:59:39.46,Default,what do I want this to do?
+Dialogue: 0,0:59:39.73,0:59:41.32,Default,Alright? So that's the kind\Nof thing you have to do.
+Dialogue: 0,0:59:41.86,0:59:43.88,Default,So, in this case\Nthough, it is the same.
+Dialogue: 0,0:59:44.18,0:59:48.85,Default,So let's go ahead and create\Na UI image out of the URL data
+Dialogue: 0,0:59:48.85,0:59:51.89,Default,that came back, so I'm going\Nto create a local UI image here
+Dialogue: 0,0:59:51.89,0:59:56.24,Default,and I'm going to do that doing\NUI image, image with data,
+Dialogue: 0,0:59:56.24,1:00:00.79,Default,and this time I can just say\Nthe local file, oops, sorry.
+Dialogue: 0,1:00:01.35,1:00:03.85,Default,Go do NS view data.
+Dialogue: 0,1:00:04.74,1:00:06.64,Default,Data with contents of file.
+Dialogue: 0,1:00:06.98,1:00:10.29,Default,But now the URL is\Nthis local file.
+Dialogue: 0,1:00:12.14,1:00:12.40,Default,Okay?
+Dialogue: 0,1:00:13.14,1:00:18.58,Default,So this [pause], this right\Nhere, is doing locally,
+Dialogue: 0,1:00:18.58,1:00:20.61,Default,so it's not going to\Nblock, like this one did.
+Dialogue: 0,1:00:20.90,1:00:24.65,Default,This one blocked because this\Ncould be a network http URL,
+Dialogue: 0,1:00:24.99,1:00:27.83,Default,this one, is a local\Nfile so it can't block.
+Dialogue: 0,1:00:28.66,1:00:31.42,Default,Okay? Now, notice\Nthat I'm doing this.
+Dialogue: 0,1:00:31.54,1:00:33.32,Default,It looks like a UI kit call.
+Dialogue: 0,1:00:33.44,1:00:35.11,Default,Am I doing this on\Nthe main queue?
+Dialogue: 0,1:00:37.76,1:00:38.23,Default,[Pause] No.
+Dialogue: 0,1:00:38.23,1:00:40.40,Default,I see nodding heads\Nor shaking heads.
+Dialogue: 0,1:00:40.40,1:00:41.25,Default,You're right, no.
+Dialogue: 0,1:00:41.25,1:00:42.92,Default,This is not happening\Non the main queue.
+Dialogue: 0,1:00:43.45,1:00:46.01,Default,And it turns out\Nthat that's okay.
+Dialogue: 0,1:00:46.25,1:00:50.45,Default,UI image is one of the few UI\Nkit classes that you're allowed
+Dialogue: 0,1:00:50.71,1:00:53.39,Default,to do things to off\Nthe main queue.
+Dialogue: 0,1:00:53.89,1:00:55.93,Default,And that's because this is not\Nactually going to do anything
+Dialogue: 0,1:00:55.93,1:00:58.74,Default,on screen, I'm just creating\Na local variable here
+Dialogue: 0,1:00:59.06,1:01:02.98,Default,that is parsing this\NURL, looking at its data,
+Dialogue: 0,1:01:02.98,1:01:04.30,Default,and creating an image for me.
+Dialogue: 0,1:01:04.80,1:01:08.82,Default,Okay? Here let's make this\Na little more readable
+Dialogue: 0,1:01:08.82,1:01:09.54,Default,by moving this back.
+Dialogue: 0,1:01:10.52,1:01:13.55,Default,Okay? So, this is not going\Nto actually touch the UI,
+Dialogue: 0,1:01:13.55,1:01:15.31,Default,I'm just creating\Nthe UI image object
+Dialogue: 0,1:01:15.31,1:01:16.76,Default,at this point, that's okay.
+Dialogue: 0,1:01:17.32,1:01:18.83,Default,But the next line of code I want
+Dialogue: 0,1:01:18.83,1:01:21.87,Default,to do is self dot image\Nequals image, okay?
+Dialogue: 0,1:01:21.87,1:01:23.58,Default,Now I want to set\Nmy image to that.
+Dialogue: 0,1:01:23.91,1:01:27.34,Default,This line of code has to happen\Non the main thread, because look
+Dialogue: 0,1:01:27.34,1:01:30.27,Default,at all the UI stuff we're going\Nto do when we do set image,
+Dialogue: 0,1:01:30.27,1:01:32.08,Default,we're going to be talking\Nto the scroll view,
+Dialogue: 0,1:01:32.08,1:01:33.31,Default,we're going to be\Ndoing size fit,
+Dialogue: 0,1:01:33.31,1:01:34.99,Default,we're going to change\Nthe content size,
+Dialogue: 0,1:01:34.99,1:01:37.49,Default,this can be doing all kinds\Nof stuff, so this has to be
+Dialogue: 0,1:01:37.73,1:01:40.03,Default,on the main thread,\Nand so I'm going to do
+Dialogue: 0,1:01:40.03,1:01:43.08,Default,that with dispatch async.
+Dialogue: 0,1:01:43.98,1:01:51.33,Default,Dispatch underbar queue, get\Nmain queue, and block here,
+Dialogue: 0,1:01:51.67,1:02:00.91,Default,and inside this block, I'm going\Nto put this call right here.
+Dialogue: 0,1:02:02.00,1:02:02.38,Default,[Pause] Okay?
+Dialogue: 0,1:02:02.92,1:02:07.34,Default,Now another way I could have\Ndone this was self perform
+Dialogue: 0,1:02:07.34,1:02:12.92,Default,select our main thread, at sign\Nselector, set image with object,
+Dialogue: 0,1:02:13.01,1:02:14.48,Default,the image, wait until done, no.
+Dialogue: 0,1:02:15.35,1:02:17.94,Default,Okay, these two lines of code\Nare pretty much exactly the
+Dialogue: 0,1:02:17.94,1:02:18.38,Default,same thing.
+Dialogue: 0,1:02:18.74,1:02:23.51,Default,Okay? Everybody understand that?
+Dialogue: 0,1:02:24.80,1:02:26.41,Default,Okay, everyone understand\Nthis line of code?
+Dialogue: 0,1:02:26.95,1:02:27.28,Default,Question?
+Dialogue: 0,1:02:28.52,1:02:37.88,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,1:02:38.38,1:02:41.41,Default,Yeah, so the question is before\NI start downloading this image,
+Dialogue: 0,1:02:41.41,1:02:42.43,Default,wouldn't I want to check to see
+Dialogue: 0,1:02:42.43,1:02:44.45,Default,if I already have a download\Ngoing on, [inaudible],
+Dialogue: 0,1:02:44.45,1:02:46.61,Default,and the answer is yes you would.
+Dialogue: 0,1:02:47.39,1:02:49.77,Default,You know, this is demo, we're\Nnot doing it, but you would want
+Dialogue: 0,1:02:49.77,1:02:51.45,Default,to do that, you probably\Nwant to have a local variable
+Dialogue: 0,1:02:51.45,1:02:55.12,Default,which is the URL that you're\Ncurrently downloading,
+Dialogue: 0,1:02:55.27,1:02:56.74,Default,maybe even an array of them.
+Dialogue: 0,1:02:56.96,1:02:59.28,Default,Because the person might\Nclick back and forth and back
+Dialogue: 0,1:02:59.28,1:03:01.52,Default,and forth, and so these are all\Nthe ones I have outstanding,
+Dialogue: 0,1:03:01.52,1:03:03.22,Default,and then you'd want to go and\Nlook and see if it contains
+Dialogue: 0,1:03:03.22,1:03:05.58,Default,that object, and if it does,\Njust don't, don't do this.
+Dialogue: 0,1:03:06.00,1:03:07.17,Default,Okay? Wait for it to come back.
+Dialogue: 0,1:03:07.54,1:03:09.17,Default,So that's really\Ngood, good point.
+Dialogue: 0,1:03:09.81,1:03:12.71,Default,And then oh, I have this warning\Nright here, oh sorry, question?
+Dialogue: 0,1:03:13.52,1:03:24.92,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,1:03:25.42,1:03:28.82,Default,Yeah, so, the question, so you\Nmean which, where is this queue
+Dialogue: 0,1:03:28.82,1:03:31.68,Default,that all this stuff,\N[inaudible background question].
+Dialogue: 0,1:03:31.82,1:03:34.70,Default,Yeah, so that, that\Nqueue, that is going
+Dialogue: 0,1:03:34.70,1:03:36.94,Default,to do this completion\Nhandler, right,
+Dialogue: 0,1:03:36.94,1:03:39.31,Default,this completion handler right\Nhere, the queue to create
+Dialogue: 0,1:03:39.31,1:03:41.34,Default,that is created by\Nthe session task,
+Dialogue: 0,1:03:41.34,1:03:42.93,Default,and it creates it\Nwhen it needs it.
+Dialogue: 0,1:03:43.16,1:03:45.67,Default,Probably it creates it right\Nbefore it calls this completion
+Dialogue: 0,1:03:45.67,1:03:47.54,Default,handler, but if you had a\Ndelegate it might create it
+Dialogue: 0,1:03:47.54,1:03:50.06,Default,right at the beginning and use\Nit to your delegate, right?
+Dialogue: 0,1:03:50.50,1:03:52.74,Default,So in this case, you probably\Ncreated it right before you need
+Dialogue: 0,1:03:52.74,1:03:53.88,Default,it and fired this off.
+Dialogue: 0,1:03:53.92,1:03:55.93,Default,Because the actual URL\Ndownload is happening in
+Dialogue: 0,1:03:55.93,1:03:57.36,Default,yet another queue, right?
+Dialogue: 0,1:03:57.36,1:03:58.83,Default,The URL downloading\Nqueue, and, in fact,
+Dialogue: 0,1:03:58.83,1:04:00.49,Default,it could be another\Nprocess if your,
+Dialogue: 0,1:04:00.61,1:04:02.22,Default,use that background\Nsession thing.
+Dialogue: 0,1:04:03.14,1:04:05.56,Default,So that's all I think, but this\Nqueue is probably created right
+Dialogue: 0,1:04:05.56,1:04:08.13,Default,before it calls this handler,\Nit's created by the session,
+Dialogue: 0,1:04:08.39,1:04:10.42,Default,URL session, right before\Nit calls this handler.
+Dialogue: 0,1:04:10.84,1:04:10.90,Default,[Inaudible background\Nquestion] No.
+Dialogue: 0,1:04:12.14,1:04:14.07,Default,Because this is totally\Nseparate,
+Dialogue: 0,1:04:14.07,1:04:15.42,Default,totally unrelated to it.
+Dialogue: 0,1:04:15.65,1:04:17.88,Default,Okay? This is the only time\Nwe're touching the main queue,
+Dialogue: 0,1:04:18.32,1:04:21.41,Default,right here, is when we, and\Neven here, this block gets put
+Dialogue: 0,1:04:21.41,1:04:23.93,Default,in line on the main queue,\Nthe main queue might be busy,
+Dialogue: 0,1:04:23.93,1:04:25.20,Default,busy doing other things.
+Dialogue: 0,1:04:25.20,1:04:27.59,Default,Okay? Pulling other blocks off\Nits cube, because this goes
+Dialogue: 0,1:04:27.59,1:04:28.39,Default,at the end of the line.
+Dialogue: 0,1:04:28.97,1:04:30.59,Default,So if there's other\Nblocks, those are going
+Dialogue: 0,1:04:30.59,1:04:32.91,Default,to get executed first and then\Neventually this block will
+Dialogue: 0,1:04:32.91,1:04:33.52,Default,get executed.
+Dialogue: 0,1:04:34.35,1:04:37.32,Default,Okay? So anyway, we have\Nthis one warning right here,
+Dialogue: 0,1:04:37.32,1:04:38.57,Default,why do we have this warning?
+Dialogue: 0,1:04:38.75,1:04:41.36,Default,That's because this\Ntask, we created it,
+Dialogue: 0,1:04:41.36,1:04:43.48,Default,but we never sent it\Na message, you see,
+Dialogue: 0,1:04:43.48,1:04:46.78,Default,this says unused variable task,\Nand that's a good reminder
+Dialogue: 0,1:04:46.78,1:04:48.70,Default,for us to say task, resume,
+Dialogue: 0,1:04:49.06,1:04:52.25,Default,because if you don't say\Ntask resume, this task starts
+Dialogue: 0,1:04:52.25,1:04:54.60,Default,out suspended and it will\Nnever actually do anything,
+Dialogue: 0,1:04:54.91,1:04:57.58,Default,just sit it there waiting\Nfor someone to resume it.
+Dialogue: 0,1:04:57.89,1:04:57.98,Default,Yeah?
+Dialogue: 0,1:04:58.52,1:05:03.14,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,1:05:03.64,1:05:06.28,Default,Yeah, so the question is, is\Nthere ways to abort tasks,
+Dialogue: 0,1:05:06.28,1:05:11.80,Default,I'm going to talk more\Ngenerically about blocks
+Dialogue: 0,1:05:11.80,1:05:13.53,Default,on threads, or on queues.
+Dialogue: 0,1:05:13.69,1:05:15.19,Default,If a block is taken off a cue,
+Dialogue: 0,1:05:15.67,1:05:17.53,Default,it starts to run, it\Ncannot be stopped.
+Dialogue: 0,1:05:17.82,1:05:19.00,Default,It has to stop itself.
+Dialogue: 0,1:05:19.21,1:05:21.52,Default,It would have to realize, oh,\Nthis no longer makes sense
+Dialogue: 0,1:05:21.52,1:05:24.16,Default,for me to be doing\Nwhat I'm doing, okay?
+Dialogue: 0,1:05:24.48,1:05:27.90,Default,There is some API in the URL\Nsession to do things like that,
+Dialogue: 0,1:05:27.90,1:05:30.52,Default,but I want you to understand\Nthat for blocks on queues,
+Dialogue: 0,1:05:30.52,1:05:32.19,Default,once they start, they\Ncannot be stopped,
+Dialogue: 0,1:05:32.19,1:05:33.37,Default,they can only stop themselves.
+Dialogue: 0,1:05:33.37,1:05:34.71,Default,They can just exit themselves
+Dialogue: 0,1:05:34.71,1:05:36.42,Default,when they realize they're\Nno longer necessary.
+Dialogue: 0,1:05:36.99,1:05:39.64,Default,Okay? I, I don't have to time to\Nget into the URL session stuff,
+Dialogue: 0,1:05:39.70,1:05:42.20,Default,but that's the answer\Nto your question.
+Dialogue: 0,1:05:43.05,1:05:45.25,Default,Okay, so, let's see\Nif, how this works.
+Dialogue: 0,1:05:46.31,1:05:47.73,Default,Hopefully I haven't\Nforgotten anything here.
+Dialogue: 0,1:05:48.52,1:05:54.23,Default,[ Background Sounds ]
+Dialogue: 0,1:05:54.73,1:05:56.09,Default,Okay, so now if I picked flower,
+Dialogue: 0,1:05:56.09,1:05:57.86,Default,you can already see\Nits different, okay?
+Dialogue: 0,1:05:58.02,1:06:00.03,Default,When I click peppers, it\Nimmediately goes here,
+Dialogue: 0,1:06:00.03,1:06:01.53,Default,even though it's blank, okay?
+Dialogue: 0,1:06:01.53,1:06:03.72,Default,And the photo comes\Nin later, okay?
+Dialogue: 0,1:06:03.86,1:06:06.44,Default,But it's immediate and, in fact,\NI can go back, flower, nah,
+Dialogue: 0,1:06:06.44,1:06:09.48,Default,I don't want peppers,\Nnah, I want jellyfish.
+Dialogue: 0,1:06:09.75,1:06:12.36,Default,Okay? And, so the UI is\Nto complete your response,
+Dialogue: 0,1:06:12.36,1:06:15.19,Default,even though I'm downloading\Nthese things multiple times,
+Dialogue: 0,1:06:15.19,1:06:18.00,Default,actually, in the background,\Nunnecessarily, but,
+Dialogue: 0,1:06:18.35,1:06:21.95,Default,so this is a way you want your\NUI to be, very responsive, okay,
+Dialogue: 0,1:06:22.20,1:06:25.69,Default,and just things happening,\Nyou know, in,
+Dialogue: 0,1:06:25.82,1:06:28.71,Default,the instant the user\Nwants them, okay?
+Dialogue: 0,1:06:29.08,1:06:30.65,Default,Now, there's one thing\Nthat's kind of bad
+Dialogue: 0,1:06:30.65,1:06:32.43,Default,about this UI though\Nis when I click here,
+Dialogue: 0,1:06:32.43,1:06:34.84,Default,there's no feedback that's doing\Nanything here, this just looks
+Dialogue: 0,1:06:34.84,1:06:37.28,Default,like oh, well, I\Nclicked on flower, oh,
+Dialogue: 0,1:06:37.28,1:06:38.76,Default,there must not be\Na flower, right?
+Dialogue: 0,1:06:39.07,1:06:43.17,Default,[Inaudible], but he's\Nlike oh there's no flower,
+Dialogue: 0,1:06:43.17,1:06:45.05,Default,oh I'll skip it,\Nthere's no peppers,
+Dialogue: 0,1:06:45.16,1:06:47.84,Default,because there's no feedback\Nthat it's doing anything.
+Dialogue: 0,1:06:48.11,1:06:52.45,Default,So let's put some feedback in\Nhere that shows something moving
+Dialogue: 0,1:06:52.45,1:06:54.49,Default,or something, you know,\Na little spinning wheel
+Dialogue: 0,1:06:54.67,1:06:56.60,Default,that shows the user hey I'm\Ndoing something for you,
+Dialogue: 0,1:06:56.69,1:06:58.13,Default,in the background, not to worry.
+Dialogue: 0,1:06:58.70,1:07:02.66,Default,And there is a UI view\Nthat's built into iOS,
+Dialogue: 0,1:07:02.95,1:07:04.94,Default,that's really easy to use\Nfor doing exactly that.
+Dialogue: 0,1:07:05.66,1:07:07.70,Default,So let's go back to\Nour storyboard here.
+Dialogue: 0,1:07:08.16,1:07:11.17,Default,So we have our storyboard,\Nand what I'm going to do is
+Dialogue: 0,1:07:11.17,1:07:12.26,Default,into this view right here,
+Dialogue: 0,1:07:12.26,1:07:18.20,Default,I'm going to drag a\NUI activity indicator,
+Dialogue: 0,1:07:18.55,1:07:20.79,Default,just towards the top\Nhere, it even looks
+Dialogue: 0,1:07:20.79,1:07:22.91,Default,like a spinning wheel, so this\Nis the little spinning wheel
+Dialogue: 0,1:07:23.18,1:07:24.97,Default,that you're seeing, so I'm\Ngoing to drag it in here.
+Dialogue: 0,1:07:24.97,1:07:26.56,Default,Now, this is going to be\Na good opportunity to talk
+Dialogue: 0,1:07:26.56,1:07:27.65,Default,about document outline.
+Dialogue: 0,1:07:27.78,1:07:29.95,Default,So when I drag this\Nin, okay, that's great,
+Dialogue: 0,1:07:29.95,1:07:31.52,Default,it seems like I've\Ndone a good thing.
+Dialogue: 0,1:07:31.52,1:07:32.44,Default,I've dragged this in here.
+Dialogue: 0,1:07:32.73,1:07:34.82,Default,But actually, I didn't do\Na very good thing here,
+Dialogue: 0,1:07:35.29,1:07:38.05,Default,because dragging\Nthat in actually made
+Dialogue: 0,1:07:38.05,1:07:39.46,Default,that a sub view of\Nthe scroll view.
+Dialogue: 0,1:07:40.24,1:07:43.98,Default,Okay? When you drag a view in,\Nit, on top of another view,
+Dialogue: 0,1:07:43.98,1:07:45.19,Default,it makes a sub view of that.
+Dialogue: 0,1:07:45.37,1:07:47.52,Default,And we can see that over\Nhere in the document outline.
+Dialogue: 0,1:07:47.52,1:07:48.49,Default,Here's the scroll view.
+Dialogue: 0,1:07:48.80,1:07:50.49,Default,And see how this is\Nindented a little?
+Dialogue: 0,1:07:50.73,1:07:51.74,Default,That means it's a sub view.
+Dialogue: 0,1:07:51.74,1:07:55.22,Default,Now, I don't want it to be a sub\Nview, I want this wheel to sit
+Dialogue: 0,1:07:55.22,1:07:56.95,Default,in front of the scroll\Nview, right,
+Dialogue: 0,1:07:56.95,1:08:00.13,Default,and be spinning whenever the\Nscroll view is doing something
+Dialogue: 0,1:08:00.13,1:08:02.59,Default,and go, and to hide\Nitself when it stops,
+Dialogue: 0,1:08:02.92,1:08:05.42,Default,and so I can make this not\Nbe sub view by picking it up
+Dialogue: 0,1:08:06.17,1:08:08.45,Default,and moving it to be a sibling.
+Dialogue: 0,1:08:08.80,1:08:11.50,Default,Okay? Now, the problem here\Nis I put it in the back,
+Dialogue: 0,1:08:12.08,1:08:14.07,Default,things at the top of the view,\Nsub view are in the back,
+Dialogue: 0,1:08:14.34,1:08:17.68,Default,so I can just put this up\Nhere, and now I've got this
+Dialogue: 0,1:08:17.68,1:08:18.91,Default,in front and this in back.
+Dialogue: 0,1:08:19.56,1:08:20.49,Default,Okay? And they're siblings.
+Dialogue: 0,1:08:21.19,1:08:22.39,Default,So this is in front, okay?
+Dialogue: 0,1:08:22.39,1:08:26.05,Default,Another thing I want to do\Nhere is set my constraints
+Dialogue: 0,1:08:26.05,1:08:28.87,Default,on this guy, so I'm going to\Ngo here and I'm going to set it
+Dialogue: 0,1:08:28.87,1:08:31.18,Default,to be horizontal/vertical\Ncentered,
+Dialogue: 0,1:08:31.18,1:08:32.24,Default,and we can just make sure
+Dialogue: 0,1:08:32.24,1:08:33.84,Default,that it did the right\Nthing, which it did.
+Dialogue: 0,1:08:34.04,1:08:37.59,Default,Okay? We got a little yellow\Nthere, so let's fix that.
+Dialogue: 0,1:08:38.65,1:08:41.55,Default,Fix misplacement, put it\Nright in the middle, okay?
+Dialogue: 0,1:08:41.89,1:08:42.64,Default,So we got that.
+Dialogue: 0,1:08:42.94,1:08:44.36,Default,The other thing I want to do is,
+Dialogue: 0,1:08:44.47,1:08:48.80,Default,I want this little spinning\Nthing, I want it to be large
+Dialogue: 0,1:08:49.01,1:08:52.76,Default,so the style I'm going to use is\Nlarge white, but I don't want it
+Dialogue: 0,1:08:52.76,1:08:54.68,Default,to be white, because it's\Non a white background.
+Dialogue: 0,1:08:54.68,1:08:56.14,Default,So I'm barely going to\Nbe able to see the thing,
+Dialogue: 0,1:08:56.38,1:08:57.29,Default,so let's change the color.
+Dialogue: 0,1:08:57.29,1:09:00.73,Default,So let's make the color be, hmm,\Nlet's make it be like the blue
+Dialogue: 0,1:09:01.04,1:09:03.67,Default,of the buttons, okay, that's a\Npretty good color for it to be.
+Dialogue: 0,1:09:04.34,1:09:06.01,Default,Also, notice these behaviors.
+Dialogue: 0,1:09:06.22,1:09:09.63,Default,Okay? Animating means this\Nthing starts out animating,
+Dialogue: 0,1:09:09.71,1:09:12.11,Default,which I want, because when\Nthis view first appears,
+Dialogue: 0,1:09:12.29,1:09:13.34,Default,I want it to be animating,
+Dialogue: 0,1:09:13.34,1:09:14.84,Default,because I'm loading\Nfrom the start.
+Dialogue: 0,1:09:15.18,1:09:16.94,Default,And then here's hides\Nwhen stops,
+Dialogue: 0,1:09:16.98,1:09:19.00,Default,that says when you\Nstop it in your code,
+Dialogue: 0,1:09:19.40,1:09:20.03,Default,it's going to hide it.
+Dialogue: 0,1:09:20.03,1:09:21.91,Default,So it's not going\Nto stop turning
+Dialogue: 0,1:09:21.91,1:09:24.18,Default,and then sit there\Nblocking your control view,
+Dialogue: 0,1:09:24.18,1:09:25.29,Default,it's going to hid itself.
+Dialogue: 0,1:09:25.76,1:09:26.92,Default,Okay? So that's a\Nreally cool feature,
+Dialogue: 0,1:09:26.92,1:09:29.51,Default,you almost always want\Nhides when stopped on there.
+Dialogue: 0,1:09:29.78,1:09:31.75,Default,Okay? You may or may not want\Nit to start out animating,
+Dialogue: 0,1:09:31.75,1:09:34.02,Default,but you always want\Nto hide when stopped.
+Dialogue: 0,1:09:34.68,1:09:38.36,Default,Okay? So, now, let's go\Nback to our code, over here,
+Dialogue: 0,1:09:38.66,1:09:42.39,Default,and when do we want to start\Nand stop this thing, okay?
+Dialogue: 0,1:09:43.05,1:09:44.34,Default,When's a good time\Nto start and stop?
+Dialogue: 0,1:09:44.34,1:09:46.80,Default,Well, a good time to start it is
+Dialogue: 0,1:09:46.90,1:09:48.93,Default,when we're starting\Nto download an image.
+Dialogue: 0,1:09:49.14,1:09:51.42,Default,So I'm going to say,\Noh, well first of all,
+Dialogue: 0,1:09:51.46,1:09:53.47,Default,why don't we make\Nan outlet to it?
+Dialogue: 0,1:09:53.92,1:09:55.35,Default,So let's go back\Nto our storyboard,
+Dialogue: 0,1:09:55.35,1:09:59.96,Default,let's get our system editor\Nup here, let's close this,
+Dialogue: 0,1:10:01.00,1:10:04.54,Default,and let's, actually let's leave\Nthat open because I'll show you,
+Dialogue: 0,1:10:04.54,1:10:07.57,Default,I promised you that control,\Ndrag from the document,
+Dialogue: 0,1:10:07.57,1:10:10.27,Default,document outline would be\Ngood and here's an example
+Dialogue: 0,1:10:10.53,1:10:13.22,Default,of when it's really good,\Nbecause trying to control,
+Dialogue: 0,1:10:13.22,1:10:15.03,Default,drag from this might\Nbe a little dicey,
+Dialogue: 0,1:10:15.40,1:10:17.00,Default,but over here, it's really easy.
+Dialogue: 0,1:10:17.00,1:10:19.00,Default,So I'm just going to\Ncontrol, drag from here
+Dialogue: 0,1:10:19.52,1:10:23.67,Default,into [pause] my image view\Ncontroller, oops, missed it.
+Dialogue: 0,1:10:25.04,1:10:26.48,Default,Right there.
+Dialogue: 0,1:10:27.27,1:10:28.79,Default,Okay? And we'll call it spinner.
+Dialogue: 0,1:10:29.43,1:10:32.59,Default,So there's a spinner, see\Nit's a UI activity indicator.
+Dialogue: 0,1:10:33.38,1:10:36.94,Default,Alright so now let's go back to\Nhere, and our view controller,
+Dialogue: 0,1:10:36.94,1:10:38.83,Default,make it as wide as possible.
+Dialogue: 0,1:10:39.67,1:10:42.60,Default,Okay, so now I have this\Nself dot spinner up here.
+Dialogue: 0,1:10:43.49,1:10:44.64,Default,And now I'm going to tell it,
+Dialogue: 0,1:10:45.10,1:10:46.71,Default,when I start downloading\Nan image,
+Dialogue: 0,1:10:47.15,1:10:50.37,Default,self dot spinner\Nstart animating.
+Dialogue: 0,1:10:50.91,1:10:54.46,Default,Okay? So that's the method that\Nyou send to a spinner to tell it
+Dialogue: 0,1:10:54.46,1:10:56.94,Default,to start animating, and if it's\Nhidden and you have that hides
+Dialogue: 0,1:10:56.94,1:10:59.27,Default,when animated, it'll unhide\Nitself and start spinning.
+Dialogue: 0,1:10:59.61,1:11:01.21,Default,If it's not hidden, it'll\Njust start spinning.
+Dialogue: 0,1:11:01.65,1:11:03.96,Default,Now when's a good time to\Nstop it from animating?
+Dialogue: 0,1:11:03.96,1:11:05.82,Default,Well, the best part, time,
+Dialogue: 0,1:11:05.82,1:11:08.59,Default,is probably when\Nsomeone sets an image.
+Dialogue: 0,1:11:09.10,1:11:11.27,Default,Okay? Because if an\Nimage gets set in here,
+Dialogue: 0,1:11:11.64,1:11:15.29,Default,then we can pretty much be\Nassured that we're setting,
+Dialogue: 0,1:11:15.29,1:11:17.50,Default,that we're done, so we'll\Nstop animating then.
+Dialogue: 0,1:11:18.42,1:11:20.39,Default,Okay? So whether this\Nset image happens
+Dialogue: 0,1:11:20.39,1:11:23.34,Default,because that start downloading\Nthing finally finishes,
+Dialogue: 0,1:11:23.34,1:11:25.08,Default,or because someone gets\Ntired of it and sets it
+Dialogue: 0,1:11:25.08,1:11:27.59,Default,to some image that's a local\Nimage, either way, boom,
+Dialogue: 0,1:11:27.59,1:11:28.96,Default,we're going to stop\Ndoing that spinner.
+Dialogue: 0,1:11:29.91,1:11:31.98,Default,Okay? So let's take\Na look at that.
+Dialogue: 0,1:11:32.52,1:11:39.99,Default,[ Background Sounds ]
+Dialogue: 0,1:11:40.49,1:11:42.54,Default,Alright, so we got the flower,\Nand see we got the spinner,
+Dialogue: 0,1:11:42.54,1:11:44.33,Default,that is spinning, which\Nis nice, it's telling us
+Dialogue: 0,1:11:44.64,1:11:47.52,Default,that something's happening,\Nand we can still interrupt it,
+Dialogue: 0,1:11:47.58,1:11:50.53,Default,go back, it's not blocked, this\Nis not blocking the main thread
+Dialogue: 0,1:11:50.53,1:11:52.59,Default,in any way to do\Nthat spinner, okay?
+Dialogue: 0,1:11:52.59,1:11:54.40,Default,But it gives the user\Nsome nice feedback
+Dialogue: 0,1:11:54.70,1:11:56.17,Default,that hey I'm working\Non something.
+Dialogue: 0,1:11:57.57,1:11:59.56,Default,Okay? Question?
+Dialogue: 0,1:11:59.73,1:12:01.57,Default,[Inaudible background\Nquestion] Great question.
+Dialogue: 0,1:12:01.67,1:12:07.79,Default,So the question is what is\Nthe lifetime of this URL.
+Dialogue: 0,1:12:08.27,1:12:10.27,Default,In my completion\Nhandler, right here,
+Dialogue: 0,1:12:10.53,1:12:11.97,Default,what is the lifetime\Nof this loaded file?
+Dialogue: 0,1:12:11.97,1:12:14.71,Default,And the answer is only for\Nthe lifetime of this block.
+Dialogue: 0,1:12:15.72,1:12:18.33,Default,Okay? So, as soon as this\Nblock stops executing,
+Dialogue: 0,1:12:18.42,1:12:19.46,Default,that file will be deleted.
+Dialogue: 0,1:12:19.94,1:12:21.98,Default,So if you want to keep\Nit, you got to copy it.
+Dialogue: 0,1:12:22.52,1:12:24.69,Default,Okay? And you copy\Nfiles, by the way,
+Dialogue: 0,1:12:24.74,1:12:26.97,Default,copy URLs using NS file manager.
+Dialogue: 0,1:12:27.48,1:12:28.54,Default,Okay? We'll probably talk
+Dialogue: 0,1:12:28.54,1:12:30.66,Default,about NS file manager\Nbriefly next week when we talk
+Dialogue: 0,1:12:30.66,1:12:34.22,Default,about persistence, but that's\Nhow you copy files, they are API
+Dialogue: 0,1:12:34.22,1:12:37.60,Default,and they're copy from URL to\NURL and you can copy it away,
+Dialogue: 0,1:12:37.92,1:12:38.97,Default,but that's a very good point.
+Dialogue: 0,1:12:38.97,1:12:42.46,Default,This is a temporary file, only\Nhere, you know, for this block.
+Dialogue: 0,1:12:42.64,1:12:44.11,Default,And once this block\Nis gone, you're done.
+Dialogue: 0,1:12:44.50,1:12:48.86,Default,Okay? The other thing I'm\Ngoing to say, really briefly,
+Dialogue: 0,1:12:48.86,1:12:50.27,Default,I don't know if we'll\Nget to this in slides,
+Dialogue: 0,1:12:50.60,1:12:53.38,Default,when we do multitasking, I'm\Nprobably going to ask you
+Dialogue: 0,1:12:53.58,1:12:57.08,Default,to use a background session\Nconfiguration here instead
+Dialogue: 0,1:12:57.08,1:13:00.65,Default,of femoral [phonetic],\Nwhich is this one where even
+Dialogue: 0,1:13:00.65,1:13:03.14,Default,if your app's not working,\Nit will keep downloading
+Dialogue: 0,1:13:03.14,1:13:06.71,Default,that thing, and then\Neventually call your app back,
+Dialogue: 0,1:13:06.91,1:13:09.48,Default,but to know that you have to\Nknow how the multitasking works.
+Dialogue: 0,1:13:10.23,1:13:14.11,Default,When you do that, you\Nwill have to have,
+Dialogue: 0,1:13:14.11,1:13:17.21,Default,when you do the session\Nconfiguration, sorry,
+Dialogue: 0,1:13:17.21,1:13:21.23,Default,let's do something here.
+Dialogue: 0,1:13:21.23,1:13:22.86,Default,[Pause] You will have to\Nuse the version of this
+Dialogue: 0,1:13:22.86,1:13:24.49,Default,that has a delegate, okay?
+Dialogue: 0,1:13:24.49,1:13:25.87,Default,Because the background\Nsession one,
+Dialogue: 0,1:13:25.87,1:13:26.79,Default,you got to use the delegate,
+Dialogue: 0,1:13:26.79,1:13:28.31,Default,you can't use the\Ncompletion handler.
+Dialogue: 0,1:13:29.09,1:13:31.17,Default,Okay? Just putting\Nthat out there.
+Dialogue: 0,1:13:31.34,1:13:33.19,Default,I'll remind you when we\Nget back to that, but,
+Dialogue: 0,1:13:33.75,1:13:35.80,Default,got to use the delegate\Nfor that.
+Dialogue: 0,1:13:36.33,1:13:39.59,Default,But for femoral, we can\Nuse this nice handler.
+Dialogue: 0,1:13:40.50,1:13:44.77,Default,Okay. So, we are not going\Nto start on table view
+Dialogue: 0,1:13:45.26,1:13:50.90,Default,until next time, but let\Nme, this last slide here.
+Dialogue: 0,1:13:52.14,1:13:53.75,Default,Talk about what's coming up.
+Dialogue: 0,1:13:54.24,1:13:56.70,Default,So on Wednesday it says\Nmore table view, but we'll,
+Dialogue: 0,1:13:56.74,1:13:57.95,Default,we'll do all the table view.
+Dialogue: 0,1:13:58.16,1:13:59.26,Default,I'm also going to do iPad.
+Dialogue: 0,1:13:59.65,1:14:03.10,Default,Okay? Talk about the special\NUI idioms that are on the iPad.
+Dialogue: 0,1:14:03.10,1:14:04.33,Default,Your homework, as I said,
+Dialogue: 0,1:14:04.33,1:14:06.60,Default,there's no homework assigned\Ntoday, so you get two days off
+Dialogue: 0,1:14:06.74,1:14:09.61,Default,on homework, good job, and then\NWednesday you'll have a whole
+Dialogue: 0,1:14:09.61,1:14:12.71,Default,new assignment that will be\Ndue a week later, and Friday,
+Dialogue: 0,1:14:12.71,1:14:14.79,Default,we do have section,\Nit's actually going
+Dialogue: 0,1:14:14.79,1:14:17.65,Default,to be a little bit early,\Nand last a little later,
+Dialogue: 0,1:14:17.65,1:14:20.68,Default,it's like a 90 minute instead\Nof a 50-minute section,
+Dialogue: 0,1:14:20.92,1:14:23.36,Default,so watch Piazza for\Nthat Stanford people.
+Dialogue: 0,1:14:23.36,1:14:25.40,Default,It won't be on iTunes View.
+Dialogue: 0,1:14:25.69,1:14:27.61,Default,And then next week we're\Ngoing to talk about core data
+Dialogue: 0,1:14:28.13,1:14:31.91,Default,and persistence in general,\Nhow do we make things stay
+Dialogue: 0,1:14:31.91,1:14:34.12,Default,on the phone, and how do we\Nturn them into a database
+Dialogue: 0,1:14:34.12,1:14:35.99,Default,that we can search for\Nthings and stuff like that?
+Dialogue: 0,1:14:36.38,1:14:37.97,Default,Okay? So that's what's\Ncoming up.
+Dialogue: 0,1:14:38.52,1:14:40.75,Default,Thank you all and I'll be\Nhere if you have questions.
+Dialogue: 0,1:14:43.29,1:14:46.61,Default,>> For more, please\Nvisit us at stanford.edu.

@@ -1,0 +1,1556 @@
+[Script Info]
+ScriptType: v4.00+
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
+Style: Default,Arial,16,&Hffffff,&Hffffff,&H0,&H0,0,0,0,1,1,0,2,10,10,10,0,0
+
+[Events]
+Format: Layer, Start, End, Style, Text
+Dialogue: 0,0:00:00.51,0:00:04.85,Default,[ Music ]
+Dialogue: 0,0:00:05.35,0:00:06.35,Default,>> Stanford University.
+Dialogue: 0,0:00:08.60,0:00:08.83,Default,>> Alright.
+Dialogue: 0,0:00:08.83,0:00:13.75,Default,Well welcome to Lecture number\N9 of CS 193p, Fall of 2013/14.
+Dialogue: 0,0:00:14.33,0:00:17.40,Default,Today I'm going to finish the\Nanimation demo that we started
+Dialogue: 0,0:00:17.40,0:00:19.91,Default,on Monday, and then the\Nlecture's going to be
+Dialogue: 0,0:00:19.91,0:00:23.79,Default,about auto layout, which is a\Nreally cool system for making it
+Dialogue: 0,0:00:23.79,0:00:26.96,Default,so that your user interface cam\Nadapt to changing conditions.
+Dialogue: 0,0:00:27.41,0:00:30.99,Default,And then I'll do a brief\Nauto layout demo at the end,
+Dialogue: 0,0:00:30.99,0:00:32.80,Default,just so you can kind\Nof see it in action.
+Dialogue: 0,0:00:32.93,0:00:35.62,Default,Seeing is believing,\Nespecially with auto layout.
+Dialogue: 0,0:00:35.62,0:00:42.01,Default,So this demo, where we left\Noff is the blocks would come
+Dialogue: 0,0:00:42.01,0:00:44.53,Default,down due to gravity and they\Nwould collide at the bottom
+Dialogue: 0,0:00:44.53,0:00:46.07,Default,and they'd kind of\Nrun into each other,
+Dialogue: 0,0:00:46.42,0:00:49.75,Default,and then when a bottom row\Nwas full they would all kind
+Dialogue: 0,0:00:49.75,0:00:51.89,Default,of fly off into outer space.
+Dialogue: 0,0:00:51.89,0:00:56.27,Default,And I think where we left off\Ntoo was they would stack up
+Dialogue: 0,0:00:56.32,0:00:58.45,Default,and they weren't\Nflying off, okay?
+Dialogue: 0,0:00:58.45,0:01:00.27,Default,And so why weren't they\Nflying off at the end?
+Dialogue: 0,0:01:00.27,0:01:02.48,Default,Well, part of the reason\Nthey weren't flying off was
+Dialogue: 0,0:01:02.48,0:01:06.16,Default,because they were, those\Ntowers of blocks were so tippy,
+Dialogue: 0,0:01:06.42,0:01:10.20,Default,they were kind of wiggling, they\Nwere never coming to rest, okay?
+Dialogue: 0,0:01:10.50,0:01:13.22,Default,So they were never, the\Nanimation was never stopping.
+Dialogue: 0,0:01:13.33,0:01:15.47,Default,It was always continuing\Nto move them a little bit,
+Dialogue: 0,0:01:15.80,0:01:17.53,Default,and so we're going\Nto start off our demo
+Dialogue: 0,0:01:17.74,0:01:23.39,Default,by making those stacks a little\Nmore solid, a little less tippy,
+Dialogue: 0,0:01:23.70,0:01:26.31,Default,by making it so that\Nthe blocks can't rotate.
+Dialogue: 0,0:01:26.57,0:01:28.32,Default,So since they can't\Nrotate, they'll sit on top
+Dialogue: 0,0:01:28.32,0:01:31.12,Default,of each other much nicer and\NI'm going to turn gravity back
+Dialogue: 0,0:01:31.12,0:01:34.21,Default,up to 1.0, I think I had\Ntyped in .9 at some point,
+Dialogue: 0,0:01:34.58,0:01:36.91,Default,just as far as the demo, but\Nlet's crank it back up so
+Dialogue: 0,0:01:36.91,0:01:40.13,Default,that they will sit a little\Nbit so they don't float at all,
+Dialogue: 0,0:01:40.13,0:01:42.69,Default,you know, so they sit down\Nstrongly on top of each other.
+Dialogue: 0,0:01:43.17,0:01:47.00,Default,Then what I'm going to do is\Nuse an attachment behavior
+Dialogue: 0,0:01:47.20,0:01:50.90,Default,so as the block falls, we\Ncan grab onto it, okay?
+Dialogue: 0,0:01:51.33,0:01:54.89,Default,And then we can kind of\Nswing it around and pick
+Dialogue: 0,0:01:54.89,0:01:57.82,Default,which stack we want to drop\Nit in and then let it go.
+Dialogue: 0,0:01:57.82,0:02:02.23,Default,And then the last thing I'm\Ngoing to do is we're going
+Dialogue: 0,0:02:02.23,0:02:07.23,Default,to use the action block of that\Nattachment behavior to animate
+Dialogue: 0,0:02:07.23,0:02:09.54,Default,that and show the\Nattachment, I'm just going
+Dialogue: 0,0:02:09.54,0:02:12.20,Default,to actually draw a\Nlittle line to show it.
+Dialogue: 0,0:02:12.20,0:02:13.36,Default,So it's quite a bit\Nto show there.
+Dialogue: 0,0:02:13.62,0:02:14.74,Default,I don't think we're\Ngoing to have time
+Dialogue: 0,0:02:14.74,0:02:18.24,Default,to do this collision delegate\Nthing, but I'll post the code
+Dialogue: 0,0:02:18.24,0:02:20.24,Default,for that so you can see\Nwhat that's all about.
+Dialogue: 0,0:02:20.79,0:02:25.76,Default,Alright, so, let's get\Nback over to Xcode here
+Dialogue: 0,0:02:25.76,0:02:26.89,Default,and go back into drop it.
+Dialogue: 0,0:02:27.89,0:02:36.28,Default,And, okay, so, remember that\Nwe moved all of the behavior
+Dialogue: 0,0:02:36.59,0:02:40.72,Default,of this thing out into its own\Nsubclass of UI dynamic behavior,
+Dialogue: 0,0:02:40.72,0:02:42.02,Default,called drop it behavior.
+Dialogue: 0,0:02:42.19,0:02:45.15,Default,Right over here, this\Nguy, and so that's
+Dialogue: 0,0:02:45.15,0:02:47.04,Default,where the gravity\Nand the collision is.
+Dialogue: 0,0:02:47.04,0:02:48.35,Default,And so what I'm going\Nto do there is I'm going
+Dialogue: 0,0:02:48.44,0:02:51.37,Default,to add another behavior\Nto that customer behavior,
+Dialogue: 0,0:02:51.79,0:02:55.15,Default,which lets us control things\Nlike whether the blocks rotate.
+Dialogue: 0,0:02:55.33,0:02:58.64,Default,Okay? We can also control\Nfriction, resistance, density,
+Dialogue: 0,0:02:58.64,0:02:59.74,Default,those kind of things in there.
+Dialogue: 0,0:02:59.74,0:03:02.74,Default,The kind of behavior that is
+Dialogue: 0,0:03:02.74,0:03:07.93,Default,that controls those things\Nis called a UI dynamic item
+Dialogue: 0,0:03:07.93,0:03:10.27,Default,behavior, because it's\Nspecifying the behavior
+Dialogue: 0,0:03:10.27,0:03:11.12,Default,of that item.
+Dialogue: 0,0:03:11.44,0:03:15.73,Default,Okay? So we'll call\Nthat, maybe something
+Dialogue: 0,0:03:15.73,0:03:19.79,Default,like animation options,\Nor something like that,
+Dialogue: 0,0:03:19.79,0:03:22.69,Default,you can call them\Nitem behaviors, some,
+Dialogue: 0,0:03:22.95,0:03:26.10,Default,you might call them physical\Ncharacteristics almost,
+Dialogue: 0,0:03:26.21,0:03:27.52,Default,but that's, we'll do that.
+Dialogue: 0,0:03:27.52,0:03:31.44,Default,And let's go down here\Nand lazy instantiate that,
+Dialogue: 0,0:03:31.44,0:03:35.33,Default,so dynamic behavior in\Nthe mission options.
+Dialogue: 0,0:03:36.08,0:03:38.45,Default,If not animation options,
+Dialogue: 0,0:03:38.83,0:03:43.87,Default,then mission option equals\NUI dynamic item behavior
+Dialogue: 0,0:03:43.87,0:03:44.47,Default,alloc init.
+Dialogue: 0,0:03:44.77,0:03:48.84,Default,So I'm just allocating\Nthis thing and I'm going
+Dialogue: 0,0:03:48.84,0:03:52.52,Default,to allow rotation, no.
+Dialogue: 0,0:03:52.84,0:03:56.28,Default,So I'm not going to allow\Nthese items to rotate.
+Dialogue: 0,0:03:56.62,0:03:59.65,Default,Okay? So the blocks will\Nhave to stay as they bounce
+Dialogue: 0,0:03:59.65,0:04:03.13,Default,on each other and collide,\Nthey'll have to stay nonrotated.
+Dialogue: 0,0:04:03.98,0:04:07.50,Default,Alright? And return\Nanimation options.
+Dialogue: 0,0:04:07.50,0:04:09.06,Default,And, again, we can do\Nother things in here
+Dialogue: 0,0:04:09.06,0:04:12.28,Default,like dot friction equals\Ndot density equals whatever,
+Dialogue: 0,0:04:12.28,0:04:13.14,Default,but we'll keep it simple.
+Dialogue: 0,0:04:13.52,0:04:18.23,Default,I obviously want all\Nitems to be added also
+Dialogue: 0,0:04:18.23,0:04:22.47,Default,to this animation options\Nthing and we clearly want
+Dialogue: 0,0:04:22.47,0:04:28.14,Default,to remove all items,\N[pause] as well.
+Dialogue: 0,0:04:28.96,0:04:31.96,Default,And let's finally add\Nour child behavior.
+Dialogue: 0,0:04:33.33,0:04:36.10,Default,Animation option, so the\Nanimation options act
+Dialogue: 0,0:04:36.10,0:04:38.18,Default,like any other behavior, okay?
+Dialogue: 0,0:04:38.57,0:04:42.35,Default,They just specify attributes\Ninstead of, you know,
+Dialogue: 0,0:04:42.35,0:04:45.22,Default,applying the forces or whatever,\Nbut you can actually think
+Dialogue: 0,0:04:45.22,0:04:49.14,Default,of them somewhat as applying\Nforces too, it's just, you know,
+Dialogue: 0,0:04:49.14,0:04:51.77,Default,like forces to keep them\Nfrom rotating or forces
+Dialogue: 0,0:04:51.77,0:04:55.97,Default,to make them have higher\Nfriction, those kind of things.
+Dialogue: 0,0:04:56.26,0:04:57.34,Default,Okay. Question?
+Dialogue: 0,0:04:58.79,0:05:00.71,Default,[Inaudible background\Nquestion] What a great question.
+Dialogue: 0,0:05:00.89,0:05:03.83,Default,You mean if, if you had\Nmultiple item behaviors
+Dialogue: 0,0:05:03.94,0:05:05.98,Default,that had different conflicting\Ndensities or whatever?
+Dialogue: 0,0:05:06.60,0:05:08.06,Default,So that's a great question.
+Dialogue: 0,0:05:08.26,0:05:11.03,Default,There are rules for that\Nif you have, you know,
+Dialogue: 0,0:05:11.03,0:05:14.81,Default,a tree of behaviors and you had\Nsome item behaviors in there.
+Dialogue: 0,0:05:15.00,0:05:16.51,Default,There are rules for\Nwhich one wins,
+Dialogue: 0,0:05:16.51,0:05:17.97,Default,it's kind of the last one wins
+Dialogue: 0,0:05:17.97,0:05:21.92,Default,and how that's happens is all\Ndefined in the documentation
+Dialogue: 0,0:05:21.92,0:05:24.76,Default,for it, so if you're going to\Nbuild a tree so complicated
+Dialogue: 0,0:05:24.76,0:05:26.67,Default,that you have the\Nitems in there twice
+Dialogue: 0,0:05:26.67,0:05:28.96,Default,with two different behaviors\Nand different things, I mean,
+Dialogue: 0,0:05:28.96,0:05:31.93,Default,that's pretty, I mean, if you're\Ndoing that, you really got
+Dialogue: 0,0:05:31.93,0:05:33.85,Default,to know what you're doing\Nand so you really want
+Dialogue: 0,0:05:33.85,0:05:34.67,Default,to read the documentation,
+Dialogue: 0,0:05:34.67,0:05:37.55,Default,that would be considered\Nadvanced behavior
+Dialogue: 0,0:05:37.55,0:05:38.99,Default,to do that, but it can be done.
+Dialogue: 0,0:05:39.19,0:05:39.81,Default,It is legal.
+Dialogue: 0,0:05:40.73,0:05:43.48,Default,Okay. So, now we'll have that.
+Dialogue: 0,0:05:43.48,0:05:48.52,Default,So now when we run this,\N[pause] we'll get a little less
+Dialogue: 0,0:05:48.62,0:05:50.91,Default,of the tippy stack thing,
+Dialogue: 0,0:05:51.63,0:05:54.98,Default,although I didn't\Nchange the gravity,
+Dialogue: 0,0:05:54.98,0:05:56.15,Default,but we'll see what happens here,
+Dialogue: 0,0:05:56.15,0:05:57.83,Default,but you can see they're\Ndefinitely not twisting,
+Dialogue: 0,0:05:57.83,0:05:58.48,Default,they're staying.
+Dialogue: 0,0:05:58.58,0:06:01.33,Default,They still might bounce\Nslightly to the side if they,
+Dialogue: 0,0:06:01.82,0:06:04.73,Default,for example, if I clicked\Ntoo fast they might crash
+Dialogue: 0,0:06:04.73,0:06:06.03,Default,into each other on the way down,
+Dialogue: 0,0:06:06.75,0:06:08.51,Default,ones that are in\Nthe same column.
+Dialogue: 0,0:06:08.51,0:06:09.11,Default,So here we go.
+Dialogue: 0,0:06:09.11,0:06:10.52,Default,So now, they're going
+Dialogue: 0,0:06:10.52,0:06:13.06,Default,to be flying away a\Nlittle more reliably.
+Dialogue: 0,0:06:13.71,0:06:15.46,Default,Let's try going really fast,
+Dialogue: 0,0:06:15.46,0:06:18.39,Default,see if we can get\Nthem to tip a little.
+Dialogue: 0,0:06:18.48,0:06:22.07,Default,Now I, if I have multiple rows,\Nthey should all go together.
+Dialogue: 0,0:06:22.51,0:06:24.31,Default,Notice also I'm starting\Nto get a lot of blocks
+Dialogue: 0,0:06:24.31,0:06:26.88,Default,and it's the performance that's\Nstarting to get a little jerky.
+Dialogue: 0,0:06:27.24,0:06:29.89,Default,Okay? And that's something\Nyou have to understand
+Dialogue: 0,0:06:30.17,0:06:31.37,Default,with animation, if\Nyou have a lot
+Dialogue: 0,0:06:31.37,0:06:33.03,Default,of things animated,\Nit's not free.
+Dialogue: 0,0:06:33.19,0:06:34.74,Default,Okay? Animation is not free.
+Dialogue: 0,0:06:34.74,0:06:37.06,Default,And if you had an\Napplication like this
+Dialogue: 0,0:06:37.06,0:06:39.40,Default,where you were dropping these\Nblocks and you allowed the user
+Dialogue: 0,0:06:39.40,0:06:40.66,Default,to drop a lot of\Nthem, you might have
+Dialogue: 0,0:06:40.66,0:06:43.09,Default,to start doing some other\Nthings, like, for example,
+Dialogue: 0,0:06:43.09,0:06:46.26,Default,instead of having the\Ncollision boundary,
+Dialogue: 0,0:06:46.26,0:06:48.55,Default,instead of having all the\Nitems collide with each other,
+Dialogue: 0,0:06:48.74,0:06:51.95,Default,what if you just drew a\Nboundary around the top
+Dialogue: 0,0:06:52.63,0:06:55.14,Default,that they top ones\Ncould collide to.
+Dialogue: 0,0:06:55.40,0:06:57.64,Default,You see? Then you would keep all\Nthose bottom ones from having
+Dialogue: 0,0:06:57.64,0:07:00.29,Default,to calculate where they're going\Nto go, because you'll notice
+Dialogue: 0,0:07:00.29,0:07:02.55,Default,that after they get tamped down\Na little bit, they don't bounce
+Dialogue: 0,0:07:02.55,0:07:04.49,Default,so much at the bottom\Nanyways, so you could take away
+Dialogue: 0,0:07:04.49,0:07:06.25,Default,that bounce and put a boundary,
+Dialogue: 0,0:07:06.32,0:07:07.94,Default,because your boundary\Nis a UI DesiPath,
+Dialogue: 0,0:07:07.94,0:07:09.28,Default,it can be anything you want.
+Dialogue: 0,0:07:09.66,0:07:12.39,Default,Okay? So you have to think\Nabout that only, you know,
+Dialogue: 0,0:07:12.39,0:07:14.74,Default,when you start getting\Nto extreme cases there.
+Dialogue: 0,0:07:15.71,0:07:16.40,Default,Okay everyone.
+Dialogue: 0,0:07:16.68,0:07:17.24,Default,Cool with that?
+Dialogue: 0,0:07:17.91,0:07:18.39,Default,Make sense?
+Dialogue: 0,0:07:18.76,0:07:20.24,Default,Alright, so, the last\Nthing we're going
+Dialogue: 0,0:07:20.24,0:07:22.03,Default,to do is this attachment\Nbehavior.
+Dialogue: 0,0:07:22.03,0:07:26.48,Default,So this is just attaching that\Nbar, which can be a springy bar
+Dialogue: 0,0:07:26.48,0:07:29.11,Default,or an iron bar, I'm going to\Nleave mine be an iron bar,
+Dialogue: 0,0:07:29.11,0:07:34.26,Default,you know, a bar that\Ndoesn't collapse and expand.
+Dialogue: 0,0:07:34.26,0:07:39.00,Default,And, we will use that bar to\Ngrab onto one that's coming
+Dialogue: 0,0:07:39.00,0:07:40.75,Default,down so I can swing it\Ninto the right column,
+Dialogue: 0,0:07:40.75,0:07:42.47,Default,because right now it's just\Nwhatever column it comes
+Dialogue: 0,0:07:42.47,0:07:44.70,Default,down in, that's the\Ncolumn it goes in
+Dialogue: 0,0:07:44.70,0:07:48.29,Default,and that's a little bit\Nrestrictive, it makes it hard
+Dialogue: 0,0:07:48.29,0:07:51.72,Default,for my game to play\Nvery, very competitively.
+Dialogue: 0,0:07:52.28,0:07:55.29,Default,And so, what we're going to do\Nto do this, we need a couple
+Dialogue: 0,0:07:55.29,0:07:57.36,Default,of things here, in\Nour view controller.
+Dialogue: 0,0:07:57.36,0:08:00.76,Default,One is we're going to clearly\Nneed an attachment behavior,
+Dialogue: 0,0:08:00.76,0:08:03.96,Default,so I'm going to create a\Nnew UI Attachment behavior.
+Dialogue: 0,0:08:03.96,0:08:07.17,Default,I'm just going to call\Nit attachment, okay?
+Dialogue: 0,0:08:07.68,0:08:14.95,Default,And, I'm also going to need to\Nknow which view is dropping.
+Dialogue: 0,0:08:16.22,0:08:18.66,Default,Okay? The view that's\Ncurrently falling
+Dialogue: 0,0:08:18.66,0:08:19.84,Default,down because that's the\None I'm going to grab on.
+Dialogue: 0,0:08:19.84,0:08:23.11,Default,Because there's a whole bunch\Nof views in my game, right?
+Dialogue: 0,0:08:23.11,0:08:25.55,Default,Tons of them, all of them are\Nstacked up there, which one,
+Dialogue: 0,0:08:25.64,0:08:28.05,Default,when I start grabbing,\Nam I going to grab onto?
+Dialogue: 0,0:08:28.05,0:08:29.62,Default,It's going to be the dropping\Nview, so I'm going to have
+Dialogue: 0,0:08:29.65,0:08:32.27,Default,to keep track of the\Ndropping view and, in fact,
+Dialogue: 0,0:08:32.27,0:08:34.12,Default,that's easy to keep\Ntrack of, I'll just write
+Dialogue: 0,0:08:34.12,0:08:35.76,Default,down here every time\NI drop a new one,
+Dialogue: 0,0:08:36.02,0:08:39.84,Default,I'm going to say the dropping\Nview equals the drop view.
+Dialogue: 0,0:08:40.15,0:08:41.92,Default,Okay? So every time\Na new one comes down,
+Dialogue: 0,0:08:42.01,0:08:43.52,Default,it's going to become the\None that gets grabbed.
+Dialogue: 0,0:08:43.71,0:08:45.91,Default,So if I have multiple of\Nthem coming down at once,
+Dialogue: 0,0:08:45.99,0:08:47.91,Default,it's the last one that\Nstarted coming down is going
+Dialogue: 0,0:08:47.91,0:08:49.02,Default,to be the one that gets grabbed,
+Dialogue: 0,0:08:49.11,0:08:50.74,Default,if I grab onto it\Nwith this attachment.
+Dialogue: 0,0:08:51.26,0:08:53.25,Default,Okay? So now I have\Nthe dropping view.
+Dialogue: 0,0:08:53.96,0:08:58.29,Default,So, I'm going to do the\Nattachment with a pan gesture.
+Dialogue: 0,0:08:58.46,0:09:00.83,Default,Okay? So we're going to see\Nanother gesture recognizer here,
+Dialogue: 0,0:09:01.16,0:09:04.90,Default,because I'm going to grab it\Nand then as I move my finger
+Dialogue: 0,0:09:04.90,0:09:06.60,Default,around on the screen, I'm going
+Dialogue: 0,0:09:06.60,0:09:09.39,Default,to keep the attachment\Nattached to my finger.
+Dialogue: 0,0:09:09.80,0:09:12.06,Default,So the block that's\Nbeing grabbed
+Dialogue: 0,0:09:12.06,0:09:13.44,Default,onto with the [inaudible],\Nit will kind
+Dialogue: 0,0:09:13.44,0:09:15.52,Default,of follow my finger\Naround, right?
+Dialogue: 0,0:09:15.58,0:09:17.78,Default,With the bar behind it.
+Dialogue: 0,0:09:18.16,0:09:19.39,Default,So, that'll be kind of fun.
+Dialogue: 0,0:09:19.96,0:09:20.79,Default,So let's do that.
+Dialogue: 0,0:09:21.02,0:09:23.23,Default,So you'll remember the\Ngestures we set up, right,
+Dialogue: 0,0:09:23.23,0:09:25.43,Default,from our storyboard, right,\Nhere's the storyboard.
+Dialogue: 0,0:09:25.74,0:09:29.70,Default,I'm going to go over and grab\Na gesture, it's a pan gesture,
+Dialogue: 0,0:09:30.07,0:09:32.73,Default,which means follow the finger\Naround, so here's a pan gesture.
+Dialogue: 0,0:09:32.73,0:09:34.52,Default,Drag this out, I'm just\Ngoing to drag it on top
+Dialogue: 0,0:09:34.52,0:09:36.75,Default,of my game view,\Nright on top here.
+Dialogue: 0,0:09:37.02,0:09:39.99,Default,Here's my tap gesture, here's\Nmy pan gesture, so I'm going
+Dialogue: 0,0:09:39.99,0:09:42.42,Default,to drag it out, I'm\Ngoing to put it down near
+Dialogue: 0,0:09:42.96,0:09:44.54,Default,where my tap gesture is.
+Dialogue: 0,0:09:44.54,0:09:46.08,Default,Here's my tap gesture\Nright here, so I'm going
+Dialogue: 0,0:09:46.08,0:09:48.36,Default,to put my pan gesture\Nright next to it.
+Dialogue: 0,0:09:48.36,0:09:49.75,Default,I'm going to call it pan,
+Dialogue: 0,0:09:49.75,0:09:53.14,Default,I'm probably teaching a bad\Nstyle here to call these pan
+Dialogue: 0,0:09:53.18,0:09:54.50,Default,and tap, I call them that so
+Dialogue: 0,0:09:54.50,0:09:56.14,Default,that when you see them\Nyou realize, oh yeah,
+Dialogue: 0,0:09:56.14,0:09:58.12,Default,that's the pan gesture\Nhandler, but again,
+Dialogue: 0,0:09:58.12,0:10:00.28,Default,this could be something\Nlike grab drop,
+Dialogue: 0,0:10:00.57,0:10:03.43,Default,that might be a better\Nname for this than pan.
+Dialogue: 0,0:10:03.59,0:10:03.96,Default,Okay?
+Dialogue: 0,0:10:05.16,0:10:08.61,Default,So, there's our gesture,\Nand [pause],
+Dialogue: 0,0:10:08.61,0:10:12.50,Default,let's make some more space and\Nactually we don't even need
+Dialogue: 0,0:10:12.54,0:10:14.86,Default,to see, actually\Nlet's go back here.
+Dialogue: 0,0:10:15.08,0:10:20.10,Default,We don't need to see our\N[pause] storyboard for this.
+Dialogue: 0,0:10:20.57,0:10:22.38,Default,Okay? So I've got\Nmy pan right here.
+Dialogue: 0,0:10:22.55,0:10:24.27,Default,So what's going to\Nhappen in this pan?
+Dialogue: 0,0:10:24.77,0:10:27.64,Default,Okay, pan gestures,\Nlike pinch gestures,
+Dialogue: 0,0:10:27.64,0:10:29.01,Default,and continuous gestures\Nlike that,
+Dialogue: 0,0:10:29.30,0:10:34.12,Default,they kind of have a similar\Nsequence of events that goes on,
+Dialogue: 0,0:10:34.12,0:10:36.88,Default,so I have a little snippet\Nthat I do the same thing
+Dialogue: 0,0:10:36.88,0:10:39.36,Default,for all these kind of gestures,\Nwhich is they start out,
+Dialogue: 0,0:10:39.62,0:10:42.03,Default,they begin, then they\Nchange as they move
+Dialogue: 0,0:10:42.03,0:10:43.29,Default,around and then they end.
+Dialogue: 0,0:10:43.50,0:10:45.36,Default,So what are the three\Nthings we're going to do
+Dialogue: 0,0:10:45.59,0:10:48.02,Default,for our pan gesture when\Nwe do our attachment?
+Dialogue: 0,0:10:48.02,0:10:50.54,Default,Well, the first thing\NI'm going to do,
+Dialogue: 0,0:10:50.54,0:10:52.25,Default,actually the first thing I'm\Ngoing to do is I'm going to find
+Dialogue: 0,0:10:52.25,0:10:53.98,Default,out where is that pan gesture?
+Dialogue: 0,0:10:54.33,0:10:56.25,Default,Where did that happen\Nin my game view?
+Dialogue: 0,0:10:56.53,0:10:59.04,Default,And I'm going to do\Nthat with CGPoint,
+Dialogue: 0,0:10:59.04,0:11:05.36,Default,gesture point equals sender\Nlocation in view, my game view.
+Dialogue: 0,0:11:06.14,0:11:08.91,Default,Okay, so now I know where in\Nmy game view that happens.
+Dialogue: 0,0:11:08.91,0:11:10.94,Default,So this is a gesture\Nrecognizer, right?
+Dialogue: 0,0:11:10.94,0:11:14.79,Default,This sender is and this method\Nin fan gesture recognizer,
+Dialogue: 0,0:11:14.82,0:11:18.09,Default,which tells you the location\Nthe pan happened or is happening
+Dialogue: 0,0:11:18.09,0:11:19.99,Default,if it's moving around, it\Ntells you the new position.
+Dialogue: 0,0:11:20.10,0:11:22.87,Default,So, the first thing I'm\Ngoing to do is I'm going
+Dialogue: 0,0:11:22.87,0:11:25.36,Default,to attach the dropping view,
+Dialogue: 0,0:11:25.36,0:11:27.74,Default,that thing we just\Nsaid, to that point.
+Dialogue: 0,0:11:28.28,0:11:29.13,Default,The gesture point.
+Dialogue: 0,0:11:29.59,0:11:32.16,Default,Okay? So this is a method\Nwe're going to have to write,
+Dialogue: 0,0:11:32.30,0:11:35.53,Default,so we'll put it down here so\Nthat we remember to do it.
+Dialogue: 0,0:11:36.78,0:11:38.61,Default,Though we might, we\Nmight remember better
+Dialogue: 0,0:11:38.61,0:11:40.35,Default,if we don't put this\Ndown here, but,
+Dialogue: 0,0:11:41.10,0:11:42.26,Default,because it'll keep complaining.
+Dialogue: 0,0:11:42.46,0:11:43.04,Default,We'll do that.
+Dialogue: 0,0:11:43.04,0:11:44.88,Default,So I'm going to have this\Nattached to dropping view,
+Dialogue: 0,0:11:44.88,0:11:47.99,Default,that's going to the guts of\Ndoing an attachment thing.
+Dialogue: 0,0:11:48.30,0:11:51.85,Default,Here, when the pan changes,\Nwhen it moves to a new spot,
+Dialogue: 0,0:11:52.15,0:11:56.14,Default,I'm just going to have my\Nattachment behavior anchor
+Dialogue: 0,0:11:56.14,0:11:58.69,Default,point, okay, anchor\Npoint, remember,
+Dialogue: 0,0:11:58.79,0:12:01.06,Default,the attachment can be either\Nattachment between two items
+Dialogue: 0,0:12:01.06,0:12:02.65,Default,or between an anchor\Npoint in an item.
+Dialogue: 0,0:12:02.65,0:12:04.21,Default,This is going to be\Nbetween an anchor point,
+Dialogue: 0,0:12:04.31,0:12:06.78,Default,that anchor point is going to\Nbe following my finger around.
+Dialogue: 0,0:12:07.27,0:12:10.30,Default,I'm going to set that to\Nbe the gesture point, okay?
+Dialogue: 0,0:12:10.30,0:12:12.63,Default,So that's all I'm going\Nto do when it changes.
+Dialogue: 0,0:12:13.16,0:12:14.76,Default,And then, when it's done,
+Dialogue: 0,0:12:14.92,0:12:21.52,Default,I'm going to do remove this\Nattachment, remove behavior,
+Dialogue: 0,0:12:21.52,0:12:23.95,Default,this attachment from\Nmy animator.
+Dialogue: 0,0:12:23.95,0:12:27.52,Default,So my animator is going to stop\Ndoing that animation anymore.
+Dialogue: 0,0:12:28.15,0:12:29.40,Default,Okay? So that's it.
+Dialogue: 0,0:12:29.40,0:12:32.67,Default,You can see this is all pretty\Neasy to do, all this stuff.
+Dialogue: 0,0:12:32.67,0:12:35.04,Default,Even this attach is going to\Nbe really straightforward.
+Dialogue: 0,0:12:35.04,0:12:36.27,Default,So let's look at that attach.
+Dialogue: 0,0:12:36.63,0:12:39.08,Default,How do we create an\Nattachment behavior
+Dialogue: 0,0:12:39.08,0:12:41.65,Default,between an anchor\Npoint and some item?
+Dialogue: 0,0:12:42.13,0:12:43.10,Default,And it's pretty simple.
+Dialogue: 0,0:12:43.36,0:12:46.25,Default,If we have an item that's\Ncurrently dropping, okay,
+Dialogue: 0,0:12:46.25,0:12:48.33,Default,hopefully we do,\Nthen we're just going
+Dialogue: 0,0:12:48.33,0:12:51.85,Default,to create a new attachment\Nbehavior
+Dialogue: 0,0:12:52.34,0:12:56.59,Default,with UI attachment behavior\Nalloc, and it's init, it has a,
+Dialogue: 0,0:12:56.78,0:12:58.99,Default,remember, four different\Nkinds of inits here,
+Dialogue: 0,0:12:58.99,0:13:00.90,Default,depending on whether\Nyou're attaching the points
+Dialogue: 0,0:13:00.90,0:13:02.68,Default,or between two items.
+Dialogue: 0,0:13:02.86,0:13:05.41,Default,It also has some ways\Nto attach with an offset
+Dialogue: 0,0:13:05.41,0:13:08.04,Default,so that the iron bar is\Nnot connected to the center
+Dialogue: 0,0:13:08.04,0:13:10.14,Default,of the thing, maybe it's\Ncentered a little offset,
+Dialogue: 0,0:13:10.14,0:13:11.58,Default,it'll tilt a little bit.
+Dialogue: 0,0:13:12.02,0:13:16.02,Default,So I'm going to do the one\Nwhich is init with item attached
+Dialogue: 0,0:13:16.02,0:13:22.74,Default,to anchor, which is this one\NI guess, and the item is going
+Dialogue: 0,0:13:22.74,0:13:23.86,Default,to be that dropping view.
+Dialogue: 0,0:13:23.86,0:13:28.46,Default,Oops, sorry, attach to item,\Nno I wanted a different one,
+Dialogue: 0,0:13:28.56,0:13:30.13,Default,I want attach to anchor.
+Dialogue: 0,0:13:30.47,0:13:33.46,Default,And the anchor is going\Nto be that point, right,
+Dialogue: 0,0:13:33.66,0:13:35.64,Default,where my tap pan\Ngesture went down.
+Dialogue: 0,0:13:36.23,0:13:37.45,Default,So that's it, it's\Nas simple as that,
+Dialogue: 0,0:13:37.45,0:13:39.63,Default,and now I have an\Nattachment between that point
+Dialogue: 0,0:13:40.05,0:13:42.35,Default,and this dropping view, I'm\Ngoing to be moving that point
+Dialogue: 0,0:13:42.35,0:13:44.75,Default,as the gesture moves, and the\Ndropping view is just going
+Dialogue: 0,0:13:44.75,0:13:46.58,Default,to follow around.
+Dialogue: 0,0:13:47.08,0:13:49.89,Default,After that attachment happens,\Nby the way, I'm not going
+Dialogue: 0,0:13:49.89,0:13:52.34,Default,to allow you to do it\Nagain, so I'm going
+Dialogue: 0,0:13:52.34,0:13:53.57,Default,to set the dropping view to nil.
+Dialogue: 0,0:13:54.71,0:13:56.68,Default,Okay? So in other words, I'm\Nnot going to let you grab
+Dialogue: 0,0:13:56.68,0:13:58.56,Default,onto that thing, move\Nit a little, oops,
+Dialogue: 0,0:13:58.75,0:14:01.97,Default,grab onto it again, move it\Nagain, nope, you get one try,
+Dialogue: 0,0:14:02.19,0:14:03.92,Default,that's just part of the\Ngame play, I only want you
+Dialogue: 0,0:14:03.92,0:14:05.64,Default,to get one try dropping\Nthat thing.
+Dialogue: 0,0:14:06.25,0:14:09.54,Default,And then I just say,\Nanimator, add behavior,
+Dialogue: 0,0:14:09.54,0:14:14.07,Default,and the instance I do this it's\Ngoing to start animating that.
+Dialogue: 0,0:14:14.64,0:14:17.20,Default,Okay? Animating an\Nanchor, a connection
+Dialogue: 0,0:14:17.20,0:14:21.39,Default,between that point\Nand that, that view.
+Dialogue: 0,0:14:21.71,0:14:25.73,Default,Okay? So, I think that's\Nall that I have to do.
+Dialogue: 0,0:14:26.18,0:14:27.59,Default,So let's run and\Nsee if this works.
+Dialogue: 0,0:14:28.03,0:14:31.81,Default,Alright, so we have\Nthem dropping down,
+Dialogue: 0,0:14:31.81,0:14:34.89,Default,I grabbed onto it, you\Nsee how, you see my mouse,
+Dialogue: 0,0:14:34.89,0:14:37.91,Default,you can see how I kind of have a\Nhold of it and it's like a bar,
+Dialogue: 0,0:14:37.91,0:14:39.89,Default,I can even, whoa,\Nbalance it on top?
+Dialogue: 0,0:14:39.98,0:14:42.22,Default,You see? It's a little\Nhard to see, right?
+Dialogue: 0,0:14:42.22,0:14:43.74,Default,So maybe we'll draw a line
+Dialogue: 0,0:14:43.74,0:14:46.91,Default,between the attachment\Npoint and the little thing.
+Dialogue: 0,0:14:46.91,0:14:47.51,Default,Okay? Whew.
+Dialogue: 0,0:14:48.10,0:14:56.42,Default,Okay? So that's the next thing\NI'm going to do is I'm going
+Dialogue: 0,0:14:56.42,0:15:01.00,Default,to draw a line between\Nwhere I'm panning and the,
+Dialogue: 0,0:15:01.00,0:15:03.44,Default,and the item that I'm dropping.
+Dialogue: 0,0:15:03.44,0:15:03.97,Default,So let's do that.
+Dialogue: 0,0:15:04.24,0:15:05.83,Default,And I'm doing that not as much,
+Dialogue: 0,0:15:06.00,0:15:08.51,Default,partially to show you how\Nthe attachment is working,
+Dialogue: 0,0:15:08.88,0:15:11.42,Default,but also because I want to show\Nyou how to use this action,
+Dialogue: 0,0:15:11.42,0:15:15.49,Default,this little action\Nblock that you can use.
+Dialogue: 0,0:15:15.49,0:15:17.72,Default,So, how am I going to draw that?
+Dialogue: 0,0:15:17.92,0:15:21.29,Default,Okay? How am I going to\Ndraw this [pause] this line?
+Dialogue: 0,0:15:21.69,0:15:27.65,Default,Well, what I'm going to do is\NI'm going to make the game view
+Dialogue: 0,0:15:27.84,0:15:33.77,Default,of my storyboard here be a\NUI Bezier Path Drawing view.
+Dialogue: 0,0:15:33.77,0:15:36.76,Default,Okay? So I'm going\Nto create a new kind
+Dialogue: 0,0:15:36.76,0:15:40.54,Default,of view, oops, new file.
+Dialogue: 0,0:15:41.16,0:15:44.57,Default,And it's going to be a UI\Nview, subclass a UI view,
+Dialogue: 0,0:15:44.57,0:15:48.58,Default,I'm going to call it\NBezierPath View, okay?
+Dialogue: 0,0:15:48.58,0:15:51.59,Default,And this is going to\Nbe a totally generic,
+Dialogue: 0,0:15:51.90,0:15:56.66,Default,Bezier path drawing view,\Nso it's public API is,
+Dialogue: 0,0:15:56.66,0:15:59.57,Default,it is going to have one\Nproperty, public property,
+Dialogue: 0,0:15:59.86,0:16:03.21,Default,which is a UI BezierPath,\Ncalled path.
+Dialogue: 0,0:16:03.98,0:16:06.87,Default,Alright? That's it s entire\Npublic API, and all its going
+Dialogue: 0,0:16:06.87,0:16:09.05,Default,to do is in its draw erect,
+Dialogue: 0,0:16:09.71,0:16:14.78,Default,it is going to [pause]\Nsay path stroke.
+Dialogue: 0,0:16:14.78,0:16:18.71,Default,Okay? And the only\Nother thing I'm going
+Dialogue: 0,0:16:18.71,0:16:22.57,Default,to do is self dot path, and\Nthe only other thing I'm going
+Dialogue: 0,0:16:22.57,0:16:26.97,Default,to do here is in set path,\Nthe setter for that thing,
+Dialogue: 0,0:16:27.25,0:16:29.70,Default,I'm going to do under our path\Nequals path, and I'm going
+Dialogue: 0,0:16:29.70,0:16:31.46,Default,to say self set needs display.
+Dialogue: 0,0:16:31.62,0:16:34.89,Default,So anytime someone changes the\Npath, it's going to redraw it.
+Dialogue: 0,0:16:35.80,0:16:37.76,Default,Okay? Everyone understand\Nwhat this class does?
+Dialogue: 0,0:16:37.76,0:16:38.82,Default,I hope, right?
+Dialogue: 0,0:16:38.82,0:16:40.51,Default,It combines everything you know
+Dialogue: 0,0:16:40.58,0:16:42.23,Default,about drawing, right,\Nand one thing.
+Dialogue: 0,0:16:42.57,0:16:45.98,Default,Draw erect, BezierPath\Nstroking, set needs display,
+Dialogue: 0,0:16:45.98,0:16:47.23,Default,the whole thing, so that's it.
+Dialogue: 0,0:16:47.23,0:16:49.58,Default,Now, I'm going to go back to\Nmy storyboard and I'm going
+Dialogue: 0,0:16:49.58,0:16:53.25,Default,to have this game view,\Ninstead of being a UI view,
+Dialogue: 0,0:16:53.25,0:16:58.26,Default,I'm going to change its\Nclass to BezierPath view.
+Dialogue: 0,0:16:58.75,0:17:01.00,Default,Okay? So everyone remember\Nwhat I told you about,
+Dialogue: 0,0:17:01.00,0:17:04.39,Default,if you have a customer view like\Nthis, if it starts out generic,
+Dialogue: 0,0:17:04.39,0:17:06.81,Default,and you drag it out, right,\Nit starts out generic,
+Dialogue: 0,0:17:07.00,0:17:09.02,Default,and you can change its class,\Njust like with the controller.
+Dialogue: 0,0:17:09.78,0:17:13.29,Default,Okay? Now, to match this\Nup in my controller,
+Dialogue: 0,0:17:13.46,0:17:20.66,Default,I better go up here and say that\Nthis is a, where is that thing,
+Dialogue: 0,0:17:20.66,0:17:24.76,Default,in my game view, is a BezierPath\Nview, so let's do that.
+Dialogue: 0,0:17:25.16,0:17:26.46,Default,BezierPath view.
+Dialogue: 0,0:17:26.58,0:17:31.49,Default,Alright. So it's\NBezierPath view,
+Dialogue: 0,0:17:31.60,0:17:34.83,Default,so that I can send it\NBezierPath messages, okay?
+Dialogue: 0,0:17:35.31,0:17:38.22,Default,Alright, so now my game view can\Ndisplay an arbitrary BezierPath,
+Dialogue: 0,0:17:38.22,0:17:40.96,Default,so now all I have to do is\Ncalculate the BezierPath
+Dialogue: 0,0:17:41.03,0:17:43.80,Default,between, that the\Nattachment shows, basically,
+Dialogue: 0,0:17:43.80,0:17:45.54,Default,between the anchor point\Nand the dropping view,
+Dialogue: 0,0:17:45.85,0:17:49.15,Default,and then every time that\Nattachment view changes,
+Dialogue: 0,0:17:49.22,0:17:52.02,Default,I have to redraw, I\Nhave to reset that path,
+Dialogue: 0,0:17:52.02,0:17:53.21,Default,recalculate it every time.
+Dialogue: 0,0:17:53.29,0:17:55.64,Default,Okay, so that's where\Nthis action block is going
+Dialogue: 0,0:17:55.64,0:17:56.51,Default,to come into play.
+Dialogue: 0,0:17:57.16,0:17:59.79,Default,Alright? So, how are\Nwe going to do that?
+Dialogue: 0,0:17:59.79,0:18:03.19,Default,Let's do it right in here, okay?
+Dialogue: 0,0:18:03.65,0:18:07.08,Default,When we attach, when we create\Nthis attachment right here,
+Dialogue: 0,0:18:07.93,0:18:13.35,Default,we are going to use the little\Naction block of this guy,
+Dialogue: 0,0:18:14.85,0:18:19.64,Default,action, to update that\Nthing, so, let's go carrot,
+Dialogue: 0,0:18:19.87,0:18:25.38,Default,curly brace, curly brace, okay,\Nthis is how we specify a block.
+Dialogue: 0,0:18:25.72,0:18:29.13,Default,So we're going to pass\Nthis block of code off
+Dialogue: 0,0:18:29.22,0:18:31.92,Default,to this attachment, and\Nevery time it animates,
+Dialogue: 0,0:18:31.92,0:18:33.54,Default,it's going to call this block\Nof code, and what are we going
+Dialogue: 0,0:18:33.54,0:18:34.48,Default,to do in this block of code?
+Dialogue: 0,0:18:34.48,0:18:36.14,Default,Well, we're going to\Ncreate a BezierPath.
+Dialogue: 0,0:18:37.28,0:18:40.91,Default,[Pause] Just using UI\NBezierPath alloc init.
+Dialogue: 0,0:18:41.37,0:18:44.85,Default,And this BezierPath\Nneeds to have a move to,
+Dialogue: 0,0:18:44.85,0:18:51.44,Default,so let's have it move to the\Nanchor point of the attachment,
+Dialogue: 0,0:18:51.44,0:18:56.43,Default,so that's self dot\Nattachment dot anchor point.
+Dialogue: 0,0:18:57.18,0:19:01.59,Default,And then we're going to path\Nadd line to, we need to go
+Dialogue: 0,0:19:01.59,0:19:03.91,Default,to where the dropping view is.
+Dialogue: 0,0:19:04.09,0:19:09.69,Default,That's self dot dropping\Nview dot center.
+Dialogue: 0,0:19:10.93,0:19:13.62,Default,Alright? And now\Nwe have that path
+Dialogue: 0,0:19:13.62,0:19:18.01,Default,so I can just say self dot\Ngame view dot path equals path.
+Dialogue: 0,0:19:19.23,0:19:22.76,Default,Okay? Any questions about this?
+Dialogue: 0,0:19:22.76,0:19:22.97,Default,Yeah?
+Dialogue: 0,0:19:23.52,0:19:27.55,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,0:19:28.05,0:19:30.59,Default,Yeah, so the question is\Ncouldn't I just say right here
+Dialogue: 0,0:19:30.72,0:19:31.47,Default,anchor point?
+Dialogue: 0,0:19:31.47,0:19:32.87,Default,Because I'm passing\Nanchor point right here.
+Dialogue: 0,0:19:32.87,0:19:35.48,Default,And the answer is\Nno, I can't do that,
+Dialogue: 0,0:19:36.05,0:19:39.49,Default,because I'm changing\Nthe anchor point, right?
+Dialogue: 0,0:19:39.81,0:19:42.91,Default,Every time you move that pan,\NI'm changing that anchor point.
+Dialogue: 0,0:19:43.24,0:19:46.80,Default,So, this block of code gets\Nexecuted every time it happens,
+Dialogue: 0,0:19:47.00,0:19:49.54,Default,so I can't use this anchor\Npoint, which was only passed
+Dialogue: 0,0:19:49.54,0:19:51.24,Default,in here when I first\Nattached it.
+Dialogue: 0,0:19:51.55,0:19:55.97,Default,I have to use self dot\Nattachment dot anchor point.
+Dialogue: 0,0:19:55.97,0:19:57.22,Default,In other words, the anchor,
+Dialogue: 0,0:19:57.22,0:19:59.99,Default,the anchor points\Ncurrent attachment point.
+Dialogue: 0,0:20:00.12,0:20:01.77,Default,Right? So that's why I\Nhave to keep calling that.
+Dialogue: 0,0:20:01.77,0:20:01.91,Default,Yeah?
+Dialogue: 0,0:20:02.52,0:20:11.87,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,0:20:12.37,0:20:13.21,Default,Yeah. Excellent question.
+Dialogue: 0,0:20:13.51,0:20:16.03,Default,So, I'm setting this self\Ndot dropping view to nil
+Dialogue: 0,0:20:16.03,0:20:18.11,Default,and I'm using self dot\Ndropping view in here.
+Dialogue: 0,0:20:18.37,0:20:19.60,Default,Isn't that going to break it?
+Dialogue: 0,0:20:19.60,0:20:21.23,Default,And the answer is\Nabsolutely it is.
+Dialogue: 0,0:20:21.51,0:20:24.15,Default,Okay, I did this intentionally,\Nbecause I wanted to show you
+Dialogue: 0,0:20:24.34,0:20:27.91,Default,that the things that are in\Nhere get reevaluated every time,
+Dialogue: 0,0:20:27.91,0:20:30.99,Default,this block gets executed\Neach time animation happens.
+Dialogue: 0,0:20:30.99,0:20:32.52,Default,So how can I deal with that?
+Dialogue: 0,0:20:32.84,0:20:34.11,Default,Well, I can just, how
+Dialogue: 0,0:20:34.11,0:20:37.51,Default,about create a little local\Nvariable here called dropping
+Dialogue: 0,0:20:37.51,0:20:40.13,Default,view equals self\Ndot dropping view,
+Dialogue: 0,0:20:41.36,0:20:43.68,Default,and then I will use\Nthat right here.
+Dialogue: 0,0:20:44.58,0:20:48.73,Default,Okay? So now I've captured\Nthe dropping view, here,
+Dialogue: 0,0:20:48.87,0:20:51.37,Default,in a local variable,\Nand I'm using it here.
+Dialogue: 0,0:20:51.53,0:20:53.51,Default,So this is referring\Nto this local variable,
+Dialogue: 0,0:20:53.65,0:20:56.19,Default,not to self dot dropping\Nview anymore, and the fact
+Dialogue: 0,0:20:56.19,0:20:57.87,Default,that I set this to\Nnil doesn't matter.
+Dialogue: 0,0:20:57.87,0:20:59.65,Default,This one's still going to\Nbe pointing to that thing.
+Dialogue: 0,0:21:00.24,0:21:02.27,Default,Okay? So that, I\Njust wanted to kind
+Dialogue: 0,0:21:02.27,0:21:05.16,Default,of show you how blocks\Ncapture the local variables
+Dialogue: 0,0:21:05.58,0:21:07.36,Default,that are just outside\Ntheir scope.
+Dialogue: 0,0:21:08.42,0:21:10.51,Default,Now, we have another\Nproblem in here, in fact,
+Dialogue: 0,0:21:10.51,0:21:12.49,Default,the compiler's warning\Nus about it, you see?
+Dialogue: 0,0:21:12.63,0:21:15.10,Default,Capturing self strong\Nin this block is likely
+Dialogue: 0,0:21:15.10,0:21:16.71,Default,to read to a retained cycle.
+Dialogue: 0,0:21:16.93,0:21:18.75,Default,That's a memory cycle like\Nwe were talking about.
+Dialogue: 0,0:21:18.95,0:21:20.10,Default,And, in fact, it's going to.
+Dialogue: 0,0:21:20.51,0:21:25.40,Default,Because this action, this block,\Nis inside this attachment,
+Dialogue: 0,0:21:25.40,0:21:28.45,Default,strongly held by it, which\Nis strongly held by us,
+Dialogue: 0,0:21:28.45,0:21:31.37,Default,so we have a strong pointer to\Nthe block, and if I put self
+Dialogue: 0,0:21:31.37,0:21:33.25,Default,in here, the block is going\Nto have a strong pointer
+Dialogue: 0,0:21:33.25,0:21:35.07,Default,to us, and that's no good.
+Dialogue: 0,0:21:35.47,0:21:37.18,Default,So we're going to do\Nthis trick, underbar,
+Dialogue: 0,0:21:37.18,0:21:41.39,Default,underbar weak [pause]\NUI, what do we call,
+Dialogue: 0,0:21:41.39,0:21:42.53,Default,what is the name of this thing?
+Dialogue: 0,0:21:42.53,0:21:45.98,Default,Drop it view controller,\Nthat's ourself.
+Dialogue: 0,0:21:46.74,0:21:49.36,Default,Weak self equals self.
+Dialogue: 0,0:21:49.46,0:21:52.69,Default,So now I've created a\Nweak pointer to myself,
+Dialogue: 0,0:21:53.05,0:21:54.30,Default,and now I can use that here.
+Dialogue: 0,0:21:54.48,0:21:55.23,Default,Weak self.
+Dialogue: 0,0:21:56.13,0:21:57.63,Default,Okay? Also down here.
+Dialogue: 0,0:21:58.02,0:22:00.40,Default,Weak self.
+Dialogue: 0,0:22:00.57,0:22:04.43,Default,Alright? So if I ever got\Ndropped out of the heap,
+Dialogue: 0,0:22:04.76,0:22:06.66,Default,and no one had a\Nstrong pointer to me,
+Dialogue: 0,0:22:06.84,0:22:09.01,Default,these weak self pointers\Nwould all go to nil,
+Dialogue: 0,0:22:09.01,0:22:11.06,Default,but that would be fine,\Nbecause if I'm not around,
+Dialogue: 0,0:22:11.06,0:22:13.45,Default,then this action doesn't\Nmean anything anyway, right?
+Dialogue: 0,0:22:13.45,0:22:14.29,Default,I'm the controller.
+Dialogue: 0,0:22:14.99,0:22:17.73,Default,So, so it's all perfectly\Nfine to do that.
+Dialogue: 0,0:22:18.94,0:22:21.05,Default,Okay? Any questions\Nabout what we did there?
+Dialogue: 0,0:22:21.05,0:22:23.34,Default,Because that's an important\Nthing to understand, as well.
+Dialogue: 0,0:22:24.91,0:22:29.91,Default,Alright. One last thing we have\Nto do is when the gesture ends,
+Dialogue: 0,0:22:30.29,0:22:33.23,Default,the pan gesture ends, and\Nwe remove the animator,
+Dialogue: 0,0:22:33.50,0:22:36.14,Default,we're going to want to say\Nself dot game view dot path
+Dialogue: 0,0:22:36.14,0:22:36.82,Default,equals nil.
+Dialogue: 0,0:22:37.60,0:22:43.07,Default,Okay? Because this action, once\Nthis thing is removed from here,
+Dialogue: 0,0:22:43.38,0:22:45.16,Default,this action is not going\Nto execute anymore,
+Dialogue: 0,0:22:45.16,0:22:47.37,Default,so we're not going to\Nget that last action
+Dialogue: 0,0:22:47.37,0:22:48.94,Default,that draws nothing, right?
+Dialogue: 0,0:22:48.94,0:22:50.70,Default,We don't want that\Nline to be left there.
+Dialogue: 0,0:22:51.76,0:22:54.51,Default,Okay? In fact, here, just to\Nmake sure you understand this,
+Dialogue: 0,0:22:54.51,0:22:58.63,Default,I'll leave this out and\Nwe'll see what happens.
+Dialogue: 0,0:22:58.75,0:23:00.50,Default,[Pause] Okay, so I'm\Ndropping here and now, see,
+Dialogue: 0,0:23:00.50,0:23:01.48,Default,look, I've got my bar.
+Dialogue: 0,0:23:02.00,0:23:05.62,Default,Dance this thing around,\Ndrop it where I want.
+Dialogue: 0,0:23:05.62,0:23:07.08,Default,Oh, see the bar didn't go away.
+Dialogue: 0,0:23:07.59,0:23:09.20,Default,Okay? Because that\Naction never called,
+Dialogue: 0,0:23:09.20,0:23:10.52,Default,that's because of\Nthis line of codes,
+Dialogue: 0,0:23:10.52,0:23:13.28,Default,so let's put this\Nback, now we'll run.
+Dialogue: 0,0:23:14.72,0:23:18.08,Default,Okay, now we drop one, we\Ngot it, drop another one,
+Dialogue: 0,0:23:18.08,0:23:21.12,Default,another one, grab onto\Nthe side, another one,
+Dialogue: 0,0:23:21.93,0:23:23.48,Default,try and swing it around.
+Dialogue: 0,0:23:24.21,0:23:26.50,Default,Okay, if we swing it around\Nand smash it in there,
+Dialogue: 0,0:23:26.50,0:23:27.45,Default,they'll still collide.
+Dialogue: 0,0:23:27.86,0:23:31.43,Default,Okay? These are still\Ncollision, still happening,
+Dialogue: 0,0:23:32.19,0:23:34.56,Default,and you can see also that\Nour game has a little bit
+Dialogue: 0,0:23:34.56,0:23:37.41,Default,of a problem right now, by\Nthe way, this not being able
+Dialogue: 0,0:23:37.41,0:23:39.71,Default,to rotate is why it\Ndidn't tip off there.
+Dialogue: 0,0:23:40.12,0:23:42.38,Default,Okay? Because it kind\Nof got, with being,
+Dialogue: 0,0:23:42.38,0:23:48.36,Default,some item behavior is keeping\Nit from tipping off, okay?
+Dialogue: 0,0:23:48.36,0:23:51.09,Default,So, this is, by a bad far, game,\Nbecause how are we ever going
+Dialogue: 0,0:23:51.09,0:23:52.72,Default,to line these blocks\Nup here, right?
+Dialogue: 0,0:23:53.14,0:23:54.97,Default,So the next thing\Nwe would want to do,
+Dialogue: 0,0:23:54.97,0:23:58.85,Default,and this is what I'm not going\Nto do because time here is
+Dialogue: 0,0:23:58.90,0:24:01.47,Default,in the collisions, okay,\Nwhen collisions happen,
+Dialogue: 0,0:24:01.67,0:24:03.39,Default,collisions have a\Ndelegate, as well.
+Dialogue: 0,0:24:03.99,0:24:06.59,Default,And in that delegate, what\Ncould you do is every time,
+Dialogue: 0,0:24:06.87,0:24:09.52,Default,and the collision delegate tells\Nyou when a collision starts
+Dialogue: 0,0:24:09.56,0:24:12.01,Default,and when the collision\Nis ended being processed.
+Dialogue: 0,0:24:12.50,0:24:16.39,Default,Okay? And in that ending\Nhandler, the ending message
+Dialogue: 0,0:24:16.39,0:24:19.82,Default,that gets sent by the collision\Nto this collision delegate,
+Dialogue: 0,0:24:19.82,0:24:22.45,Default,in that ending thing, you\Nwould then grid the thing up.
+Dialogue: 0,0:24:23.13,0:24:25.48,Default,Probably look at its linear\Nvelocity, if it's moving
+Dialogue: 0,0:24:25.48,0:24:26.48,Default,to the right, move it
+Dialogue: 0,0:24:26.48,0:24:28.32,Default,to the right a little\Nmore until it lines up.
+Dialogue: 0,0:24:28.45,0:24:29.60,Default,If it's moving to the left,
+Dialogue: 0,0:24:29.60,0:24:31.34,Default,move it to the left a little\Nmore until it lines up.
+Dialogue: 0,0:24:31.62,0:24:34.46,Default,See? So, not too\Nmany lines of code,
+Dialogue: 0,0:24:34.46,0:24:37.51,Default,but I want to make sure\Nwe cover auto layout today
+Dialogue: 0,0:24:37.51,0:24:40.80,Default,so we won't do it, but, any\Nquestions about what we did
+Dialogue: 0,0:24:41.24,0:24:48.40,Default,so far or what we did here?
+Dialogue: 0,0:24:49.52,0:24:50.45,Default,Okay. [Pause] Okay.
+Dialogue: 0,0:24:50.90,0:24:55.44,Default,Alright, so let's get on to\Nthe lecture about auto layout.
+Dialogue: 0,0:24:55.74,0:25:00.03,Default,Where is my [inaudible],\Nthere it is.
+Dialogue: 0,0:25:01.34,0:25:03.47,Default,So what is auto layout?
+Dialogue: 0,0:25:04.22,0:25:07.17,Default,So auto layout is a way\Nof setting the frame
+Dialogue: 0,0:25:07.51,0:25:09.43,Default,of all your views, okay?
+Dialogue: 0,0:25:09.43,0:25:14.06,Default,And these can be frames of views\Nthat you make in code or frames
+Dialogue: 0,0:25:14.06,0:25:16.72,Default,that you drag out into\Nyour storyboard, okay?
+Dialogue: 0,0:25:16.72,0:25:18.34,Default,Although I'll warn\Nyou for your homework,
+Dialogue: 0,0:25:18.53,0:25:22.51,Default,the frames of the cards\Nthat you make in code,
+Dialogue: 0,0:25:22.51,0:25:24.91,Default,you're probably not going\Nto want to use auto layout
+Dialogue: 0,0:25:25.03,0:25:27.01,Default,to lay those out, you're\Ngoing to want to use, like,
+Dialogue: 0,0:25:27.06,0:25:29.49,Default,that grid class I gave you\Nor some class you write.
+Dialogue: 0,0:25:29.57,0:25:32.14,Default,Okay? Because the rules for\Nlaying them out are kind
+Dialogue: 0,0:25:32.14,0:25:34.38,Default,of beyond even what\Nauto layout can do.
+Dialogue: 0,0:25:34.38,0:25:37.21,Default,Okay? So that's just\Na little hint there.
+Dialogue: 0,0:25:37.52,0:25:40.66,Default,But all the other views, every\Nother, every single other view,
+Dialogue: 0,0:25:40.66,0:25:42.94,Default,including the view that\Ncontains your cards,
+Dialogue: 0,0:25:43.19,0:25:45.85,Default,you'll want to use\Nauto layout to decide
+Dialogue: 0,0:25:46.17,0:25:47.35,Default,where it gets put on screen.
+Dialogue: 0,0:25:47.55,0:25:48.47,Default,So we're going to decide
+Dialogue: 0,0:25:48.47,0:25:52.58,Default,where to put these frames using\Nrules instead of using numbers,
+Dialogue: 0,0:25:52.64,0:25:57.02,Default,instead of saying, putting it\N20, 20, 180 wide by 200 high,
+Dialogue: 0,0:25:57.25,0:26:01.10,Default,we're going to use rules to\Ndecide where it goes, okay?
+Dialogue: 0,0:26:01.10,0:26:03.56,Default,And these rules are really\Nflexible and powerful,
+Dialogue: 0,0:26:03.69,0:26:05.77,Default,and the rules are mostly\Nabout the relationship
+Dialogue: 0,0:26:05.77,0:26:07.52,Default,between one view to another view
+Dialogue: 0,0:26:07.52,0:26:09.56,Default,or between a view\Nto its super view.
+Dialogue: 0,0:26:10.30,0:26:12.38,Default,Okay, now why do we want\Nto specify these frames
+Dialogue: 0,0:26:12.38,0:26:13.96,Default,as rules instead of as numbers?
+Dialogue: 0,0:26:14.27,0:26:16.67,Default,Because sometimes the\Nbounding rectangle
+Dialogue: 0,0:26:16.67,0:26:19.08,Default,that contains all our\Nviews is changing.
+Dialogue: 0,0:26:19.25,0:26:22.67,Default,Either because device\Nrotated, we're on a tall iPhone
+Dialogue: 0,0:26:22.67,0:26:25.20,Default,versus a short iPhone,\Nwe're embedded inside
+Dialogue: 0,0:26:25.20,0:26:28.17,Default,of a navigation controller or\Nnot, we're in a tab view bar
+Dialogue: 0,0:26:28.17,0:26:32.37,Default,or not, we're on an iPad in\Nsome popover controller view
+Dialogue: 0,0:26:32.37,0:26:33.91,Default,or something like that,\Nthere's a lot of reasons
+Dialogue: 0,0:26:33.91,0:26:35.74,Default,that are bounds would\Nchange size,
+Dialogue: 0,0:26:35.74,0:26:39.89,Default,so we want to build our\Nviews so that what's inside
+Dialogue: 0,0:26:39.89,0:26:41.54,Default,of them adjust automatically.
+Dialogue: 0,0:26:41.54,0:26:44.05,Default,Okay? And that's part of, a\Nbig part of your assignment,
+Dialogue: 0,0:26:44.16,0:26:47.71,Default,although, your views want to,\Nin terms of your card view,
+Dialogue: 0,0:26:47.71,0:26:49.95,Default,want to adjust automatically\Nanyway, because you're adding
+Dialogue: 0,0:26:49.95,0:26:52.40,Default,and removing cards from them and\Nso they have to adjust anyway,
+Dialogue: 0,0:26:52.40,0:26:55.61,Default,so you kind of get, probably get\Nthat for free, but all the rest
+Dialogue: 0,0:26:55.61,0:26:58.52,Default,of your views, the one that says\Nredeal and score and all that,
+Dialogue: 0,0:26:58.52,0:27:00.93,Default,you're going to want to use\Nauto layout to make those fit
+Dialogue: 0,0:27:00.93,0:27:02.50,Default,in the right place when\Nyou rotate the phone.
+Dialogue: 0,0:27:03.19,0:27:06.68,Default,Now, there, these rules, by the\Nway, we call them constraints,
+Dialogue: 0,0:27:06.68,0:27:09.43,Default,layout constraints, so that,\Nwhen I use the constraints,
+Dialogue: 0,0:27:09.43,0:27:10.19,Default,that's what I'm talking about.
+Dialogue: 0,0:27:10.19,0:27:12.50,Default,The rules for how to set the\Nframes of all these views.
+Dialogue: 0,0:27:12.89,0:27:16.78,Default,There's a really powerful API\Nin iOS for this, in other word,
+Dialogue: 0,0:27:16.78,0:27:19.43,Default,a program interface with object\Nand its layout constrained
+Dialogue: 0,0:27:19.43,0:27:23.53,Default,and all these mechanisms, but\Nreally, almost all of what we do
+Dialogue: 0,0:27:23.53,0:27:26.05,Default,with auto layout, we\Ndo in Xcode, visually,
+Dialogue: 0,0:27:26.36,0:27:28.67,Default,we don't usually go to the code.
+Dialogue: 0,0:27:28.89,0:27:29.88,Default,If you're going to the code,
+Dialogue: 0,0:27:29.88,0:27:32.24,Default,you're doing some pretty\Nadvanced layout, okay?
+Dialogue: 0,0:27:32.51,0:27:34.30,Default,I'm sure it's possible,\Nactually with the code,
+Dialogue: 0,0:27:34.30,0:27:36.69,Default,you could lay your cards\Nout using auto layout,
+Dialogue: 0,0:27:37.00,0:27:39.07,Default,but Xcode, probably not.
+Dialogue: 0,0:27:39.07,0:27:42.60,Default,Okay? So since it's all Xcode\Nand it's all graphically,
+Dialogue: 0,0:27:42.68,0:27:46.24,Default,I'm going to do this entire\Nlecture about auto layout
+Dialogue: 0,0:27:46.24,0:27:47.94,Default,with screen shots, okay?
+Dialogue: 0,0:27:47.94,0:27:50.78,Default,And we'll just kind of walk\Nthrough it, I'm actually going
+Dialogue: 0,0:27:50.78,0:27:52.12,Default,to skip these first few here
+Dialogue: 0,0:27:52.12,0:27:53.41,Default,because I'll show\Nyou that in the demo.
+Dialogue: 0,0:27:54.01,0:27:58.72,Default,So what I'm going to do it I'm\Ngoing to start with a view,
+Dialogue: 0,0:27:58.72,0:28:01.47,Default,controller's view, right here,\Nwith a couple of things in it.
+Dialogue: 0,0:28:01.54,0:28:04.17,Default,Thing one and thing two,\Nwith apologies to Dr. Seuss,
+Dialogue: 0,0:28:04.50,0:28:07.19,Default,things one and thing two,\Nthey can be any kind of view,
+Dialogue: 0,0:28:07.19,0:28:09.69,Default,they're UI labels in this case,\Nbut they could be buttons,
+Dialogue: 0,0:28:09.69,0:28:11.90,Default,they could be custom views,\Nwhatever, they're just thing one
+Dialogue: 0,0:28:11.90,0:28:16.49,Default,and thing two, and we want\Nthing one and thing two to be
+Dialogue: 0,0:28:16.49,0:28:20.33,Default,in the right place when\Nthis bounds changes.
+Dialogue: 0,0:28:20.33,0:28:24.40,Default,Okay? So what happens right now,\Nif we go and try and show this
+Dialogue: 0,0:28:24.40,0:28:28.81,Default,in landscape, well, I could run\Nthis and then flip the simulator
+Dialogue: 0,0:28:28.98,0:28:31.59,Default,to landscape to see, but\Nit's actually possible
+Dialogue: 0,0:28:31.59,0:28:33.41,Default,to take your view\Ncontroller seen,
+Dialogue: 0,0:28:33.72,0:28:37.31,Default,and flip it to landscape\Nin Xcode, okay?
+Dialogue: 0,0:28:37.31,0:28:38.77,Default,Now there are two ways to do,
+Dialogue: 0,0:28:38.77,0:28:41.06,Default,one is Xcode actually\Nhas a previewer,
+Dialogue: 0,0:28:41.28,0:28:43.51,Default,a previewer that will preview\Nwhat your UI's going to look
+Dialogue: 0,0:28:43.51,0:28:46.80,Default,like on different\Nrotations, different iPhones,
+Dialogue: 0,0:28:46.84,0:28:48.82,Default,even between iOS 7 and iOS 6,
+Dialogue: 0,0:28:48.82,0:28:51.53,Default,if you're writing an app\Nthat's compatible for both.
+Dialogue: 0,0:28:51.77,0:28:55.21,Default,But another way to do it is\Njust to inspect your controller,
+Dialogue: 0,0:28:55.21,0:28:57.64,Default,so here I've selected\Nmy controller, right,
+Dialogue: 0,0:28:57.64,0:29:00.13,Default,it's got a blue boundary\Naround it and I've selected it,
+Dialogue: 0,0:29:00.33,0:29:02.60,Default,and I went to the\Nattributes inspector, you see?
+Dialogue: 0,0:29:02.67,0:29:03.47,Default,Upper right there.
+Dialogue: 0,0:29:03.59,0:29:04.46,Default,And I'm inspecting it.
+Dialogue: 0,0:29:04.46,0:29:06.64,Default,And if you look at the\Ninspector for controller,
+Dialogue: 0,0:29:06.64,0:29:10.53,Default,the top five things there\Nare called simulated metrics.
+Dialogue: 0,0:29:11.03,0:29:13.78,Default,And this is a way to\Nsimulate your user interface
+Dialogue: 0,0:29:13.78,0:29:19.37,Default,in different orientations or\Nsizes or with tab bars or not,
+Dialogue: 0,0:29:19.55,0:29:21.70,Default,so that you kind of make\Nsure your UI is working
+Dialogue: 0,0:29:21.70,0:29:23.81,Default,with auto layout,\Nso we're going to go
+Dialogue: 0,0:29:23.81,0:29:26.52,Default,and switch the orientation,\Nalright, so I'm picking
+Dialogue: 0,0:29:26.52,0:29:29.56,Default,on this thing orientation, and\NI'm switching it to landscape.
+Dialogue: 0,0:29:29.87,0:29:31.86,Default,And when I do that,\Nmy scene changes
+Dialogue: 0,0:29:31.86,0:29:34.15,Default,to landscape and\NI lost thing two.
+Dialogue: 0,0:29:34.56,0:29:36.00,Default,Okay? What happened\Nto thing two?
+Dialogue: 0,0:29:36.00,0:29:38.71,Default,Well, thing two is actually\Nthere, I left it there,
+Dialogue: 0,0:29:38.71,0:29:40.24,Default,it's kind of grayed\Nout, you see it?
+Dialogue: 0,0:29:40.43,0:29:42.61,Default,But it's not on screen\Nbecause unfortunately
+Dialogue: 0,0:29:42.61,0:29:46.72,Default,in landscape it doesn't go down\Nfar enough to reach thing two.
+Dialogue: 0,0:29:47.41,0:29:49.34,Default,Okay? So I'm going\Nto switch back.
+Dialogue: 0,0:29:49.34,0:29:51.84,Default,By the way, you notice\Nthat the orientation there,
+Dialogue: 0,0:29:51.84,0:29:54.21,Default,there's portrait landscape\Nand there's also inferred.
+Dialogue: 0,0:29:54.56,0:29:57.69,Default,Okay, for all of these things\Nwhere you change the bounds
+Dialogue: 0,0:29:57.69,0:30:02.27,Default,of your scene, inferred means\Ninferred from what's going
+Dialogue: 0,0:30:02.27,0:30:02.98,Default,on in your storyboard.
+Dialogue: 0,0:30:03.72,0:30:06.39,Default,So if it's this is the\Nthing that makes a bar come
+Dialogue: 0,0:30:06.39,0:30:09.46,Default,across the top if this scene\Nis in a navigation controller,
+Dialogue: 0,0:30:09.64,0:30:10.68,Default,or a bar across the bottom
+Dialogue: 0,0:30:10.68,0:30:12.79,Default,if this scene is a tab\Nbar controller, okay?
+Dialogue: 0,0:30:13.17,0:30:16.78,Default,Portrait is the default\Ninferred orientation,
+Dialogue: 0,0:30:16.97,0:30:19.58,Default,so if you pick inferred,\Njust like you pick inferred
+Dialogue: 0,0:30:19.58,0:30:21.79,Default,for the other things, it will\Ninfer that you mean portrait.
+Dialogue: 0,0:30:22.08,0:30:24.40,Default,So whether you say\Nportrait landscape, portrait
+Dialogue: 0,0:30:24.40,0:30:26.74,Default,or inferred are the\Nsame for orientation.
+Dialogue: 0,0:30:27.43,0:30:28.65,Default,Landscape means landscape.
+Dialogue: 0,0:30:29.05,0:30:31.25,Default,So let's go back to\Ninferred, or to portrait.
+Dialogue: 0,0:30:31.57,0:30:32.76,Default,We get thing two back.
+Dialogue: 0,0:30:32.76,0:30:35.36,Default,Whew, okay, thing two didn't go\Nanywhere, it was there before,
+Dialogue: 0,0:30:35.36,0:30:36.64,Default,it just wasn't on screen.
+Dialogue: 0,0:30:36.75,0:30:41.30,Default,So, I want to put thing one\Nand thing two in better places.
+Dialogue: 0,0:30:41.30,0:30:43.46,Default,They're kind of in random\Nplaces, I want to put them
+Dialogue: 0,0:30:43.46,0:30:47.04,Default,in places where I can have a\Nrule that says where they are,
+Dialogue: 0,0:30:47.23,0:30:49.24,Default,and then what I'm going to do\Nis I'm going to put thing one
+Dialogue: 0,0:30:49.24,0:30:51.51,Default,in the upper left corner and\NI'm going to put thing two
+Dialogue: 0,0:30:51.51,0:30:54.04,Default,in the lower right corner,\Nand I always want thing one
+Dialogue: 0,0:30:54.04,0:30:55.59,Default,and thing two to stay\Nin those corners,
+Dialogue: 0,0:30:55.76,0:30:57.45,Default,no matter where those\Ncorners move.
+Dialogue: 0,0:30:57.82,0:31:00.98,Default,Okay? If those corners move\Nup in the landscape or down
+Dialogue: 0,0:31:00.98,0:31:05.75,Default,because it's an iPhone, the tall\NiPhone, like an iPhone 5, or up,
+Dialogue: 0,0:31:05.75,0:31:07.90,Default,or whatever, I want those things\Nto stick to their corners,
+Dialogue: 0,0:31:07.90,0:31:10.03,Default,so the rules I want is\Nstick in the corners, okay,
+Dialogue: 0,0:31:10.03,0:31:14.46,Default,I'm going to show you three ways\Nto set rules, over the course
+Dialogue: 0,0:31:14.46,0:31:15.55,Default,of this lecture,\Nthree different ways.
+Dialogue: 0,0:31:15.85,0:31:18.27,Default,The first way, you have\Nalready been doing.
+Dialogue: 0,0:31:18.83,0:31:21.16,Default,Unwittingly, well,\Nnot really unwittingly
+Dialogue: 0,0:31:21.16,0:31:22.30,Default,because I've been\Ntelling you to do it,
+Dialogue: 0,0:31:22.54,0:31:25.10,Default,which is to use those\Nblue guidelines, okay?
+Dialogue: 0,0:31:25.41,0:31:29.86,Default,When you drag things around and\Nyou let the blue guidelines snap
+Dialogue: 0,0:31:30.13,0:31:31.18,Default,to certain locations,
+Dialogue: 0,0:31:31.37,0:31:34.49,Default,you're basically telling\NXcode what you want.
+Dialogue: 0,0:31:35.16,0:31:37.70,Default,So when I drag thing one up\Ninto this upper left-hand corner
+Dialogue: 0,0:31:37.70,0:31:40.67,Default,and these two blue lines appear,\Nit's really telling Xcode, yeah,
+Dialogue: 0,0:31:40.67,0:31:42.96,Default,I want it to be stuck to this\Nline and stuck to this line,
+Dialogue: 0,0:31:42.96,0:31:44.31,Default,in other words, upper\Nleft there.
+Dialogue: 0,0:31:44.66,0:31:46.48,Default,And same thing when I\Ndo that for thing two.
+Dialogue: 0,0:31:46.48,0:31:48.39,Default,Okay? I'm kind of telling Xcode.
+Dialogue: 0,0:31:48.94,0:31:52.42,Default,But if I drag these two things\Nthen, right, and then I switch
+Dialogue: 0,0:31:52.42,0:31:55.19,Default,over to landscape again, I\Nstill don't get thing two.
+Dialogue: 0,0:31:55.72,0:31:59.52,Default,Why not? Okay, I did the blue\Nlines, how come it doesn't work?
+Dialogue: 0,0:31:59.99,0:32:03.89,Default,And the answer is, all the blue\Nlines are is telling Xcode what
+Dialogue: 0,0:32:03.89,0:32:04.63,Default,you intend.
+Dialogue: 0,0:32:04.91,0:32:08.41,Default,You still have to ask Xcode,\Nmake those rules for me,
+Dialogue: 0,0:32:08.75,0:32:10.07,Default,make those constraints.
+Dialogue: 0,0:32:10.43,0:32:13.89,Default,Okay? So let's go back to,\Nto the portrait orientation,
+Dialogue: 0,0:32:13.89,0:32:17.26,Default,and the way you do that, is the\Nlittle buttons at the bottom,
+Dialogue: 0,0:32:17.26,0:32:19.94,Default,you see these buttons\Nat the bottom, those,
+Dialogue: 0,0:32:19.94,0:32:21.57,Default,here I'll click on one.
+Dialogue: 0,0:32:22.06,0:32:24.79,Default,Those all have to do\Nwith auto layout, okay?
+Dialogue: 0,0:32:24.79,0:32:26.21,Default,And how you're going\Nto layout the view.
+Dialogue: 0,0:32:26.21,0:32:28.52,Default,And this one, that looked\Nkind of like a Thai fighter,
+Dialogue: 0,0:32:28.71,0:32:32.24,Default,a Star Wars Thai fighter\Nthere, that one is kind
+Dialogue: 0,0:32:32.24,0:32:36.49,Default,of for resetting, clearing\Nconstraints for the entire view,
+Dialogue: 0,0:32:36.76,0:32:39.74,Default,okay, or for a specific\Nview or number of views
+Dialogue: 0,0:32:40.10,0:32:41.18,Default,that you have selected.
+Dialogue: 0,0:32:41.76,0:32:44.06,Default,So the bottom part of this\Nmenu is the entire view,
+Dialogue: 0,0:32:44.32,0:32:45.63,Default,the top part is the same things,
+Dialogue: 0,0:32:45.63,0:32:47.76,Default,but for specific\Nclicked on views, okay?
+Dialogue: 0,0:32:47.80,0:32:50.06,Default,So, we'll go through\Na few of these things,
+Dialogue: 0,0:32:50.06,0:32:55.35,Default,but a really cool one is reset\Nto suggested constraints, okay?
+Dialogue: 0,0:32:55.51,0:32:59.37,Default,Suggested constraints means\NXcode is going to suggest
+Dialogue: 0,0:32:59.37,0:33:03.41,Default,to you the best constraints, the\Nbest rules, and it's only going
+Dialogue: 0,0:33:03.41,0:33:06.55,Default,to be very good at that if\Nyou use the blue guidelines.
+Dialogue: 0,0:33:06.55,0:33:07.88,Default,Because if you don't\Nuse the blue guidelines,
+Dialogue: 0,0:33:07.88,0:33:09.13,Default,it doesn't really\Nknow what to suggest.
+Dialogue: 0,0:33:09.13,0:33:10.49,Default,It'll suggest something,\Nbut it's not going
+Dialogue: 0,0:33:10.49,0:33:11.39,Default,to be good as we'll see.
+Dialogue: 0,0:33:11.94,0:33:13.60,Default,But in this case,\Nsince both thing one
+Dialogue: 0,0:33:13.60,0:33:15.81,Default,and thing two clearly have\Nblue guidelines to say
+Dialogue: 0,0:33:15.81,0:33:17.70,Default,where they want to\Nbe, when we do reset
+Dialogue: 0,0:33:17.70,0:33:20.07,Default,to suggested constraints,\Nit's going to work.
+Dialogue: 0,0:33:20.50,0:33:23.00,Default,Now, nothing appears\Nto happen, right?
+Dialogue: 0,0:33:23.08,0:33:25.18,Default,I did reset suggest content\Nand nothing happened.
+Dialogue: 0,0:33:25.60,0:33:28.68,Default,But something did happen, and\Nwe can see that by clicking
+Dialogue: 0,0:33:28.68,0:33:32.76,Default,on thing one and going\Nover to the size inspector.
+Dialogue: 0,0:33:32.94,0:33:35.42,Default,Okay, so in the inspector there,\NI've switched over to size,
+Dialogue: 0,0:33:35.42,0:33:39.12,Default,that thing looks kind of like a\Nruler, and size inspector has,
+Dialogue: 0,0:33:39.12,0:33:41.36,Default,you know, where the current\Nframe is and all that,
+Dialogue: 0,0:33:41.36,0:33:43.71,Default,but at the bottom, do you see\Nwhere it says constraints?
+Dialogue: 0,0:33:43.71,0:33:44.87,Default,And I have two constraints.
+Dialogue: 0,0:33:45.13,0:33:47.28,Default,My leading space, okay,
+Dialogue: 0,0:33:47.28,0:33:50.41,Default,the reason that says leading\Nspace instead of left space is
+Dialogue: 0,0:33:50.41,0:33:54.69,Default,because some languages,\Nleading is on the right.
+Dialogue: 0,0:33:55.35,0:33:58.38,Default,Okay? So Hebrew, a language\Nlike that, it's on the right
+Dialogue: 0,0:33:58.54,0:34:01.59,Default,so you might want your entire\Nuser interface oriented towards
+Dialogue: 0,0:34:01.79,0:34:04.46,Default,coming from the right, okay,\Ninstead of coming from the left,
+Dialogue: 0,0:34:04.46,0:34:06.08,Default,because all your text is\Ngoing to be going that way,
+Dialogue: 0,0:34:06.08,0:34:08.11,Default,so you might want all your user\Ninterface to flow from that way.
+Dialogue: 0,0:34:08.11,0:34:12.14,Default,So anyway, so leading means\Nwhichever leading you're talking
+Dialogue: 0,0:34:12.14,0:34:14.95,Default,about, and I want the\Nleading space to be tied
+Dialogue: 0,0:34:14.95,0:34:17.32,Default,to my super-view, the\Nedge of my super view,
+Dialogue: 0,0:34:17.60,0:34:21.99,Default,by some fixed amount, and\Nthat fixed amount is default.
+Dialogue: 0,0:34:22.59,0:34:23.39,Default,Default. Okay?
+Dialogue: 0,0:34:23.39,0:34:25.57,Default,It's not a magic number, its\Ndefault, it's by the system,
+Dialogue: 0,0:34:25.57,0:34:27.68,Default,the system decides what\Nthat default amount is.
+Dialogue: 0,0:34:28.12,0:34:30.19,Default,And then you can see my\Ntop space is also tied
+Dialogue: 0,0:34:30.19,0:34:33.48,Default,to my super-view's top edge\Nwith the default space.
+Dialogue: 0,0:34:34.03,0:34:37.23,Default,So those two constraints\Ndetermine exactly
+Dialogue: 0,0:34:37.23,0:34:38.90,Default,where thing one's going to be.
+Dialogue: 0,0:34:39.12,0:34:41.17,Default,Now what about thing one's size.
+Dialogue: 0,0:34:41.98,0:34:43.57,Default,Okay? Is thing one always going
+Dialogue: 0,0:34:43.57,0:34:45.29,Default,to be exactly the\Nwidth it is right now?
+Dialogue: 0,0:34:45.58,0:34:49.51,Default,No. Thing one, like\Nall labels and buttons,
+Dialogue: 0,0:34:49.98,0:34:52.40,Default,it has what's called\Nan intrinsic size.
+Dialogue: 0,0:34:52.73,0:34:56.66,Default,Okay? That's the size that\Nits text demands that it be.
+Dialogue: 0,0:34:56.66,0:34:57.85,Default,And that could change.
+Dialogue: 0,0:34:57.85,0:35:01.86,Default,If you change the text in\Nthing one, it needs to be wider
+Dialogue: 0,0:35:01.86,0:35:04.35,Default,or it could be shorter if you\Nchange it to something shorter.
+Dialogue: 0,0:35:04.71,0:35:08.05,Default,And so, it will change its\Nsize as you change its text.
+Dialogue: 0,0:35:08.21,0:35:11.34,Default,Okay? Because you haven't\Nput a constraint on its size.
+Dialogue: 0,0:35:12.05,0:35:14.70,Default,If you put a constraint on its\Nsize, it would then be stuck
+Dialogue: 0,0:35:14.73,0:35:16.18,Default,to that size and that is bad.
+Dialogue: 0,0:35:16.39,0:35:18.96,Default,We do not put size\Nconstraints, generally,
+Dialogue: 0,0:35:19.28,0:35:23.15,Default,on intrinsically sizable\Nitems like labels and buttons,
+Dialogue: 0,0:35:23.15,0:35:24.87,Default,and I'm going to show you,\Nhopefully, if we have time
+Dialogue: 0,0:35:24.87,0:35:28.42,Default,in the demo, why\Nthat's bad, okay?
+Dialogue: 0,0:35:28.67,0:35:30.49,Default,So anyway, thing one only\Nhas those two constraints,
+Dialogue: 0,0:35:30.49,0:35:32.91,Default,but those two constraints\Ncompletely determine thing one's
+Dialogue: 0,0:35:32.91,0:35:35.58,Default,location no matter what\Nthe super-view does.
+Dialogue: 0,0:35:35.96,0:35:38.23,Default,Same thing with thing\Ntwo, bobbing space
+Dialogue: 0,0:35:38.38,0:35:39.64,Default,and the trailing space.
+Dialogue: 0,0:35:40.22,0:35:42.20,Default,Okay? So now let's\Ngo look in landscape.
+Dialogue: 0,0:35:42.20,0:35:44.03,Default,I'm going to switch over to\Nlandscape and see what happens.
+Dialogue: 0,0:35:44.44,0:35:47.91,Default,And you can see, thing\Ntwo sticks to that corner,
+Dialogue: 0,0:35:47.91,0:35:49.19,Default,kind of exactly what we want.
+Dialogue: 0,0:35:50.15,0:35:53.02,Default,Alright? And that's because\Nthing two's position is totally
+Dialogue: 0,0:35:53.02,0:35:55.61,Default,determined by those\Nrules now, okay?
+Dialogue: 0,0:35:55.61,0:35:58.52,Default,Okay, so let's go\Nback to portrait.
+Dialogue: 0,0:35:58.95,0:36:02.01,Default,So, I'm going to put a\Nbad thing in there, okay?
+Dialogue: 0,0:36:02.01,0:36:05.50,Default,So this bad thing is going to\Nshow bad things that can happen,
+Dialogue: 0,0:36:05.63,0:36:07.78,Default,and I tried to put bad\Nthing in the middle,
+Dialogue: 0,0:36:07.95,0:36:09.79,Default,but I didn't use\Nthe blue guidelines.
+Dialogue: 0,0:36:10.05,0:36:12.50,Default,That's actually difficult\Nto do, but I did.
+Dialogue: 0,0:36:12.88,0:36:13.70,Default,Okay, I put a bad thing in.
+Dialogue: 0,0:36:13.70,0:36:16.88,Default,Also, you know, this bad thing\Nsize, it's too big for itself,
+Dialogue: 0,0:36:16.88,0:36:18.59,Default,it really doesn't\Nwant to be that big,
+Dialogue: 0,0:36:18.59,0:36:21.47,Default,it could be a lot smaller if\Nit was just an intrinsic size.
+Dialogue: 0,0:36:21.80,0:36:25.80,Default,So, I just dragged it out\Nand moved the sizing handles.
+Dialogue: 0,0:36:25.80,0:36:29.53,Default,It has no constraints, because\NI just dragged it out, okay?
+Dialogue: 0,0:36:29.53,0:36:32.64,Default,See how its size inspector there\Nsays no constraints, right?
+Dialogue: 0,0:36:32.64,0:36:33.54,Default,You have no constraints.
+Dialogue: 0,0:36:33.98,0:36:37.39,Default,So, what happens if\NI try to ask Xcode,
+Dialogue: 0,0:36:37.67,0:36:41.01,Default,please give me some suggested\Nconstraints for bad thing.
+Dialogue: 0,0:36:41.10,0:36:42.78,Default,Remember, I didn't use\Nthe blue guidelines
+Dialogue: 0,0:36:42.78,0:36:43.89,Default,when I dragged bad thing out.
+Dialogue: 0,0:36:44.32,0:36:46.89,Default,And notice, also, I'm using\Nthe top half of that menu
+Dialogue: 0,0:36:46.89,0:36:48.47,Default,which is just, just\Nfor bad thing.
+Dialogue: 0,0:36:48.68,0:36:50.39,Default,Okay? I'm not resetting\Nthing one and thing two,
+Dialogue: 0,0:36:50.39,0:36:53.22,Default,although I could reset thing\None and thing two all day long,
+Dialogue: 0,0:36:53.22,0:36:55.93,Default,because there's always going to\Nreset to the proper constraints
+Dialogue: 0,0:36:55.93,0:36:58.03,Default,because I'm using the\Nsuggested constraints for them.
+Dialogue: 0,0:36:58.12,0:36:59.51,Default,But anyway, so I'm just going
+Dialogue: 0,0:36:59.51,0:37:02.37,Default,to reset bad things\Nconstraints and, boom!
+Dialogue: 0,0:37:02.37,0:37:06.36,Default,Xcode gives it the old college\Ntry, but it's hard, okay?
+Dialogue: 0,0:37:06.60,0:37:07.52,Default,And, in fact, look
+Dialogue: 0,0:37:07.52,0:37:09.10,Default,at the constraints it\Ncame up with there.
+Dialogue: 0,0:37:09.30,0:37:13.71,Default,Height equals 62, leading space\Nequals 89, trailing space 68,
+Dialogue: 0,0:37:13.71,0:37:15.25,Default,in other words, these\Nare all magic numbers.
+Dialogue: 0,0:37:15.56,0:37:18.33,Default,Okay? This is horrible, these\Nare terrible constraints.
+Dialogue: 0,0:37:18.43,0:37:21.38,Default,Constraints with magic\Nnumbers are almost always bad.
+Dialogue: 0,0:37:21.75,0:37:23.29,Default,There's a few cases\Nwhere they're okay,
+Dialogue: 0,0:37:23.57,0:37:26.05,Default,but it's almost always bad,\Nand, in fact, if I go and try
+Dialogue: 0,0:37:26.05,0:37:27.11,Default,to switch to landscape,
+Dialogue: 0,0:37:27.50,0:37:29.89,Default,all of those number stay\Nexactly the same, okay?
+Dialogue: 0,0:37:29.89,0:37:32.88,Default,It stays 198 pixels from\Nthe top, and whatever it was
+Dialogue: 0,0:37:32.88,0:37:35.00,Default,from the left, it's\Ntotally not what I want.
+Dialogue: 0,0:37:35.12,0:37:36.95,Default,Okay? I tried to put\Nbad thing in the middle.
+Dialogue: 0,0:37:36.95,0:37:39.20,Default,I want it to stay in the\Nmiddle, that's not even close
+Dialogue: 0,0:37:39.20,0:37:39.94,Default,to being in the middle.
+Dialogue: 0,0:37:39.94,0:37:43.52,Default,So suggested constraints\Naren't going to work
+Dialogue: 0,0:37:43.52,0:37:44.91,Default,if you don't use the\Nbig, blue guidelines
+Dialogue: 0,0:37:44.91,0:37:46.39,Default,because it's not really\Nsure what you want.
+Dialogue: 0,0:37:46.65,0:37:49.68,Default,Okay? So, so let's get\Nrid of these constraints.
+Dialogue: 0,0:37:49.68,0:37:51.33,Default,I'm going to go back\Nto that same menu
+Dialogue: 0,0:37:51.77,0:37:54.00,Default,and pick a different item,\Nwhich is clear constraints,
+Dialogue: 0,0:37:54.00,0:37:55.24,Default,and that clears all\Nthe constraints,
+Dialogue: 0,0:37:55.24,0:37:57.44,Default,and goes back to this thing.
+Dialogue: 0,0:37:57.44,0:38:00.25,Default,Notice, by the way, all\Nthe constraints draw,
+Dialogue: 0,0:38:00.25,0:38:01.49,Default,you see the blue bars?
+Dialogue: 0,0:38:02.08,0:38:04.88,Default,See them? Every single\Nconstraint is drawn.
+Dialogue: 0,0:38:04.88,0:38:07.34,Default,And not only does it draw those\Nconstraints, you can click
+Dialogue: 0,0:38:07.34,0:38:08.65,Default,on them, and edit them.
+Dialogue: 0,0:38:08.65,0:38:11.22,Default,A lot of the constraints have\Nattributes, which I'm not going
+Dialogue: 0,0:38:11.22,0:38:13.05,Default,to have time to talk about\Ntoday, unfortunately,
+Dialogue: 0,0:38:13.33,0:38:16.44,Default,but those constraints are\Nfirst-class objects inside
+Dialogue: 0,0:38:16.49,0:38:18.60,Default,of your, your storyboard.
+Dialogue: 0,0:38:19.23,0:38:21.96,Default,Alright. So we're going to\Nclear those out of there.
+Dialogue: 0,0:38:21.96,0:38:24.50,Default,And let's put in some\Nconstraints in a different way.
+Dialogue: 0,0:38:24.50,0:38:26.67,Default,So this is way number\Ntwo to add constraints.
+Dialogue: 0,0:38:26.67,0:38:30.08,Default,And way number one was use blue\Nguidelines and say suggested.
+Dialogue: 0,0:38:30.39,0:38:32.50,Default,That's way number one\Nto put constraints on.
+Dialogue: 0,0:38:32.50,0:38:33.64,Default,Number two is you can use some
+Dialogue: 0,0:38:33.64,0:38:34.97,Default,of these other buttons\Nat the bottom.
+Dialogue: 0,0:38:35.23,0:38:37.87,Default,Like this particular button\Nhere for aligning things.
+Dialogue: 0,0:38:38.26,0:38:40.49,Default,So if you look in this,\Nthere's a lot of choices of how
+Dialogue: 0,0:38:40.49,0:38:43.08,Default,to align things, if I\Nselected multiple views,
+Dialogue: 0,0:38:43.40,0:38:45.47,Default,then all of those things at\Nthe top, like leading edges,
+Dialogue: 0,0:38:45.47,0:38:48.00,Default,trailing edges, top edges,\NI'd be able to pick those
+Dialogue: 0,0:38:48.00,0:38:50.46,Default,and I could line up the\Nleading edges or trailing edges
+Dialogue: 0,0:38:50.46,0:38:53.19,Default,or whatever, of views,\Nmake them line up.
+Dialogue: 0,0:38:53.32,0:38:54.82,Default,Okay? It's just alignment\Nthings, just like if you're
+Dialogue: 0,0:38:54.82,0:38:56.48,Default,in some drawing program\Nor something.
+Dialogue: 0,0:38:57.27,0:39:00.86,Default,I'm going to pick the bottom\Ntwo, which lines this thing
+Dialogue: 0,0:39:00.86,0:39:03.76,Default,up with the horizontal\Ncenter in the super-view.
+Dialogue: 0,0:39:04.37,0:39:07.64,Default,So it's going to be centered in\Nmy super-view, both horizontally
+Dialogue: 0,0:39:07.64,0:39:09.55,Default,and vertically, so I'm going\Nto add two constraints here,
+Dialogue: 0,0:39:09.55,0:39:11.49,Default,one for horizontal,\None for vertical.
+Dialogue: 0,0:39:11.73,0:39:13.67,Default,And I can also specify an\Noffset from the center,
+Dialogue: 0,0:39:13.67,0:39:16.00,Default,that's what that zero is\Nright there that's selected,
+Dialogue: 0,0:39:16.06,0:39:17.96,Default,but I'm going to have\Nthe exact in the center,
+Dialogue: 0,0:39:17.96,0:39:18.79,Default,so I'm going to say zero.
+Dialogue: 0,0:39:19.30,0:39:22.33,Default,And there's also update frames,\Nyou see the update frames
+Dialogue: 0,0:39:22.33,0:39:23.16,Default,at the bottom there right
+Dialogue: 0,0:39:23.16,0:39:24.89,Default,above where it says\Nadd two constraints.
+Dialogue: 0,0:39:24.98,0:39:27.66,Default,That popup, you can\Ngo in there and say,
+Dialogue: 0,0:39:27.94,0:39:31.28,Default,and when you add these\Nconstraints, move my view
+Dialogue: 0,0:39:31.50,0:39:33.78,Default,to fit those constraints,\Nbut I'm not going to set
+Dialogue: 0,0:39:33.78,0:39:35.01,Default,that because I want to\Nshow you what happens
+Dialogue: 0,0:39:35.01,0:39:36.90,Default,if you don't do that, okay?
+Dialogue: 0,0:39:37.20,0:39:38.98,Default,So let's add these two\Nconstraints, horizontal
+Dialogue: 0,0:39:38.98,0:39:39.78,Default,and vertical centering.
+Dialogue: 0,0:39:40.27,0:39:41.25,Default,Okay. There they are.
+Dialogue: 0,0:39:41.52,0:39:44.18,Default,You see them, align center X\Nto super-view, align center Y
+Dialogue: 0,0:39:44.18,0:39:45.49,Default,to super-view, awesome.
+Dialogue: 0,0:39:45.49,0:39:47.04,Default,You can see them, they're there.
+Dialogue: 0,0:39:47.21,0:39:48.63,Default,Notice that they're yellow.
+Dialogue: 0,0:39:49.19,0:39:51.78,Default,Okay, yellow is like\Na warning, okay?
+Dialogue: 0,0:39:52.34,0:39:53.31,Default,Yellow is not good.
+Dialogue: 0,0:39:53.38,0:39:56.38,Default,Blue is good, yellow not\Nso good, red is really bad.
+Dialogue: 0,0:39:56.73,0:39:58.57,Default,Okay? Sometimes your\Nconstraints will be red,
+Dialogue: 0,0:39:58.57,0:39:59.48,Default,that's if they conflict.
+Dialogue: 0,0:39:59.48,0:40:02.26,Default,Like you have two constraints\Nsitting, doing opposite things.
+Dialogue: 0,0:40:02.85,0:40:04.70,Default,And we'll talk about\Nhow we resolve all this.
+Dialogue: 0,0:40:05.24,0:40:06.40,Default,>> So it's yellow.
+Dialogue: 0,0:40:06.40,0:40:08.13,Default,Also, if you look\Nreally closely,
+Dialogue: 0,0:40:08.13,0:40:12.34,Default,you see there's a dashed box,\Nkind of right, it goes right
+Dialogue: 0,0:40:12.34,0:40:16.66,Default,through the word bad over to the\Nthing, you see it right there,
+Dialogue: 0,0:40:16.66,0:40:19.00,Default,dashed box inside\Nof the bigger box?
+Dialogue: 0,0:40:19.32,0:40:22.71,Default,That dashed box, I don't know\Nhow well you can see that there,
+Dialogue: 0,0:40:22.71,0:40:25.00,Default,yeah you can see it,\Nthat dashed box is
+Dialogue: 0,0:40:25.00,0:40:27.59,Default,where you constraints\Nsay this thing should be.
+Dialogue: 0,0:40:28.67,0:40:31.31,Default,Okay? In other words, if you\Njust looked at your constraints,
+Dialogue: 0,0:40:31.45,0:40:32.55,Default,where should bad thing be?
+Dialogue: 0,0:40:32.55,0:40:34.92,Default,Well it should be in\Nthat little dashed box,
+Dialogue: 0,0:40:35.49,0:40:38.14,Default,but since we didn't click\Nthat thing at the bottom there
+Dialogue: 0,0:40:38.14,0:40:39.67,Default,that said update my frame
+Dialogue: 0,0:40:39.67,0:40:43.34,Default,to where my constraints\Nare it didn't do it.
+Dialogue: 0,0:40:43.34,0:40:44.79,Default,So bad thing is still\Nwhere it was,
+Dialogue: 0,0:40:44.79,0:40:46.21,Default,and that's why these are yellow.
+Dialogue: 0,0:40:46.91,0:40:50.01,Default,Okay? How can I know why\Nmy constraints are yellow?
+Dialogue: 0,0:40:50.15,0:40:52.98,Default,Well one place is that little\Ntriangle in the upper corner,
+Dialogue: 0,0:40:52.98,0:40:56.02,Default,the normal triangle where you\Nwould look at any other warning
+Dialogue: 0,0:40:56.02,0:40:58.26,Default,in your app, and you can\Nsee this as the frame
+Dialogue: 0,0:40:58.31,0:41:00.92,Default,for bad thing will be\Ndifferent at run time.
+Dialogue: 0,0:41:00.97,0:41:02.74,Default,That's because at run time\Nthe constraints are going
+Dialogue: 0,0:41:02.74,0:41:03.96,Default,to be applied and\Nit's going to be moved
+Dialogue: 0,0:41:03.96,0:41:05.24,Default,into that little dashed box.
+Dialogue: 0,0:41:05.97,0:41:08.59,Default,Okay? Another place you\Ncan see these warnings,
+Dialogue: 0,0:41:08.59,0:41:11.42,Default,if you're constraints are yellow\Nis in the document outline.
+Dialogue: 0,0:41:11.65,0:41:14.20,Default,Now we have not had a chance to\Ntalk about the document outline
+Dialogue: 0,0:41:14.34,0:41:17.57,Default,in this class, but there's not\Nreally a lot to say about except
+Dialogue: 0,0:41:17.57,0:41:20.01,Default,for that it's really\Ngreat and what is it?
+Dialogue: 0,0:41:20.01,0:41:22.50,Default,It's every single\Nobject in your storyboard
+Dialogue: 0,0:41:22.50,0:41:24.83,Default,that matters in an outline form.
+Dialogue: 0,0:41:25.57,0:41:28.88,Default,Okay? So that's all your\Nviews, all your gestures,
+Dialogue: 0,0:41:29.10,0:41:32.29,Default,all your constraints,\Nthings like layout guides,
+Dialogue: 0,0:41:32.29,0:41:34.24,Default,which we're really not\Ngetting a chance to talk about,
+Dialogue: 0,0:41:34.52,0:41:36.51,Default,but has to do with auto\Nlayout system, as well.
+Dialogue: 0,0:41:36.73,0:41:41.30,Default,Those are all listed in this\Noutline, and what's really cool,
+Dialogue: 0,0:41:41.30,0:41:43.00,Default,is you can click\Non them to select.
+Dialogue: 0,0:41:43.14,0:41:45.09,Default,Because sometimes your view's\Nvery crowded and it's hard
+Dialogue: 0,0:41:45.09,0:41:48.03,Default,to click on the thing you want\Neven using the control shift
+Dialogue: 0,0:41:48.38,0:41:49.58,Default,trick that I showed you,
+Dialogue: 0,0:41:49.87,0:41:51.99,Default,and also you can\Ncontrol drag from them.
+Dialogue: 0,0:41:52.59,0:41:54.65,Default,Okay? You can control\Ndrag from a gesture,
+Dialogue: 0,0:41:54.65,0:41:55.81,Default,you control drag from a view.
+Dialogue: 0,0:41:56.00,0:41:58.88,Default,It's a really great place to\Ncontrol drag things from, okay?
+Dialogue: 0,0:41:59.28,0:42:00.56,Default,That's pro-tip number one.
+Dialogue: 0,0:42:00.99,0:42:03.08,Default,Drag, control drag\Nfrom document outline.
+Dialogue: 0,0:42:03.66,0:42:06.76,Default,The document online, also,\Nwill show you all the problems
+Dialogue: 0,0:42:06.76,0:42:10.06,Default,with your auto layout and\Nyou see the tiny, little,
+Dialogue: 0,0:42:10.06,0:42:13.11,Default,yellow circle up there where\Nit says view controller scene
+Dialogue: 0,0:42:13.11,0:42:14.48,Default,at the top of the document\Noutline and then there's
+Dialogue: 0,0:42:14.48,0:42:17.00,Default,that little yellow circle, I'm\Ngoing to click on that circle,
+Dialogue: 0,0:42:17.31,0:42:20.18,Default,and it's going to show me\Nall the auto layout problems
+Dialogue: 0,0:42:20.44,0:42:22.78,Default,in this controller,\Nin this scene.
+Dialogue: 0,0:42:23.45,0:42:27.19,Default,And you can see the bad thing,\Nit expects a certain frame
+Dialogue: 0,0:42:27.27,0:42:28.92,Default,and the actual frame\Nis different.
+Dialogue: 0,0:42:29.33,0:42:31.00,Default,And you see the little\Ntriangle there,
+Dialogue: 0,0:42:31.00,0:42:34.89,Default,if I click on that\Ntriangle, it will offer me to,
+Dialogue: 0,0:42:35.02,0:42:37.20,Default,offer to solve the\Nproblem for me.
+Dialogue: 0,0:42:37.74,0:42:39.67,Default,Okay? Now, how can\NI solve the problem?
+Dialogue: 0,0:42:39.67,0:42:41.21,Default,Well there's a number of ways\Nit could solve the problem.
+Dialogue: 0,0:42:41.43,0:42:43.85,Default,It could change the\Nframe of bad thing
+Dialogue: 0,0:42:44.05,0:42:47.01,Default,to be what the constraints say,\Nthat's what update frame is.
+Dialogue: 0,0:42:47.01,0:42:51.42,Default,It could update the constraints\Ninstead of being the vertical
+Dialogue: 0,0:42:51.42,0:42:53.60,Default,and horizontal center\Nthat I just sent it to,
+Dialogue: 0,0:42:53.60,0:42:56.06,Default,it could set them back to being\Nsomething that would make,
+Dialogue: 0,0:42:56.06,0:43:01.71,Default,you know, the bad things frame\Nwork, or it could try to set it
+Dialogue: 0,0:43:01.71,0:43:03.03,Default,to the suggested constraints,
+Dialogue: 0,0:43:03.03,0:43:04.33,Default,which we already\Nknow don't work.
+Dialogue: 0,0:43:04.69,0:43:07.26,Default,So we definitely want\Nupdate frame in this case.
+Dialogue: 0,0:43:07.26,0:43:09.20,Default,We know we like our constraints,
+Dialogue: 0,0:43:09.20,0:43:10.89,Default,that's the horizontal,\Nvertical centering.
+Dialogue: 0,0:43:11.42,0:43:12.40,Default,So we're going to pick that.
+Dialogue: 0,0:43:12.40,0:43:14.55,Default,So I'm going to leave update\Nframe suggested and click
+Dialogue: 0,0:43:14.55,0:43:17.10,Default,where it says fix misplacement,\Nand watch what's going
+Dialogue: 0,0:43:17.10,0:43:17.93,Default,to happen to bad thing.
+Dialogue: 0,0:43:18.70,0:43:22.57,Default,It moved. Okay, now,\Neverything is no longer yellow,
+Dialogue: 0,0:43:22.78,0:43:24.53,Default,bad things frame has been set
+Dialogue: 0,0:43:24.53,0:43:26.88,Default,to what the constraints\Ndemand of it.
+Dialogue: 0,0:43:27.50,0:43:30.64,Default,Okay? And I just hit back to go\Nback to, in the document online.
+Dialogue: 0,0:43:30.86,0:43:32.40,Default,So now let's go look\Nin landscape
+Dialogue: 0,0:43:32.40,0:43:33.61,Default,and see what happens\Nto bad thing.
+Dialogue: 0,0:43:33.85,0:43:34.73,Default,It stays centered.
+Dialogue: 0,0:43:35.20,0:43:37.36,Default,Okay? Bad thing properly\Nstays centered,
+Dialogue: 0,0:43:37.36,0:43:42.77,Default,because the only rules it has,\Nis for it to be in the center.
+Dialogue: 0,0:43:43.07,0:43:44.45,Default,Okay? Alright, so back here.
+Dialogue: 0,0:43:45.49,0:43:48.20,Default,Okay. You can also\Nclick on, I told you,
+Dialogue: 0,0:43:48.20,0:43:49.95,Default,you could click on\Nthese constraints.
+Dialogue: 0,0:43:49.95,0:43:51.95,Default,So here I clicked on the\Nvertical constraint there,
+Dialogue: 0,0:43:51.95,0:43:53.88,Default,you can see, I just\Nclicked on it,
+Dialogue: 0,0:43:53.88,0:43:56.28,Default,and you see how it's\Nkind of highlighted.
+Dialogue: 0,0:43:56.49,0:43:59.58,Default,Also notice that the attribute\Ninspector started being an
+Dialogue: 0,0:43:59.58,0:44:02.85,Default,inspector that's inspecting the\Ncenter X alignment constraint.
+Dialogue: 0,0:44:03.28,0:44:05.23,Default,Okay? And there's a lot
+Dialogue: 0,0:44:05.23,0:44:06.57,Default,of things you can set\Nabout constraints.
+Dialogue: 0,0:44:06.57,0:44:07.88,Default,Notice there's a priority there,
+Dialogue: 0,0:44:07.88,0:44:09.70,Default,because you might\Nhave two constraints
+Dialogue: 0,0:44:09.70,0:44:12.47,Default,in a complicated layout,\Nonly complicated ones,
+Dialogue: 0,0:44:12.74,0:44:14.87,Default,you might have conflicting\Nconstraints.
+Dialogue: 0,0:44:15.09,0:44:17.20,Default,You want something to be\Nunderneath something else,
+Dialogue: 0,0:44:17.20,0:44:19.65,Default,but you want it to try and be\Nin the middle of the screen,
+Dialogue: 0,0:44:19.65,0:44:21.76,Default,but if the screen gets really\Nsmall, then you want it
+Dialogue: 0,0:44:21.76,0:44:23.99,Default,to just move down out of\Nthe way of the thing on top,
+Dialogue: 0,0:44:24.25,0:44:26.34,Default,those kind of conflicting\Nconstraints you can set
+Dialogue: 0,0:44:26.34,0:44:27.97,Default,priorities, and say\Nwhich is more important?
+Dialogue: 0,0:44:27.97,0:44:29.05,Default,Is it more important\Nto be in the middle
+Dialogue: 0,0:44:29.05,0:44:31.16,Default,or is it more important to be\Nunderneath this other view?
+Dialogue: 0,0:44:31.46,0:44:32.13,Default,You see what I'm saying?
+Dialogue: 0,0:44:32.13,0:44:34.79,Default,So you can set your priorities\Nbetween zero and a thousand,
+Dialogue: 0,0:44:34.79,0:44:37.96,Default,so you, up to thousand items\Ncould have varying priorities
+Dialogue: 0,0:44:37.96,0:44:39.22,Default,and generally you're\Ngoing to only use two
+Dialogue: 0,0:44:39.22,0:44:42.58,Default,or three different priorities in\Nyour application, but, anyway,
+Dialogue: 0,0:44:42.71,0:44:43.45,Default,the other thing you can do
+Dialogue: 0,0:44:43.45,0:44:45.76,Default,when you have this\Nselected is hit delete.
+Dialogue: 0,0:44:45.84,0:44:48.01,Default,And that deletes\Nthat constraint.
+Dialogue: 0,0:44:48.01,0:44:51.35,Default,And now you can see the bad\Nthing only has this center
+Dialogue: 0,0:44:51.35,0:44:53.09,Default,Y constraint.
+Dialogue: 0,0:44:53.09,0:44:57.58,Default,So it no longer specifies\Nwhere it is horizontally,
+Dialogue: 0,0:44:57.96,0:45:00.76,Default,and that is really bad\Nand now if you look
+Dialogue: 0,0:45:00.76,0:45:04.32,Default,at the document outline, I\Nnot only have a little dot
+Dialogue: 0,0:45:04.32,0:45:05.49,Default,up there, but its red.
+Dialogue: 0,0:45:06.01,0:45:09.07,Default,Okay? And if I had a\Nconstraint that was bad here,
+Dialogue: 0,0:45:09.34,0:45:11.23,Default,the problem is I have\Na lack of constraint,
+Dialogue: 0,0:45:11.23,0:45:12.97,Default,I don't have enough\Nconstraints to specify
+Dialogue: 0,0:45:12.97,0:45:15.36,Default,where bad thing is\Nhorizontally, but if I had two
+Dialogue: 0,0:45:15.36,0:45:16.76,Default,that conflicted,\Nthey would be red.
+Dialogue: 0,0:45:17.45,0:45:17.75,Default,Okay?
+Dialogue: 0,0:45:18.07,0:45:20.04,Default,The constraint, the lines\Non screen would be red
+Dialogue: 0,0:45:20.04,0:45:21.43,Default,and I would have this\Nlittle red circle.
+Dialogue: 0,0:45:21.43,0:45:24.29,Default,So let's click on that red\Ncircle in the document outline
+Dialogue: 0,0:45:24.85,0:45:27.77,Default,and here it's saying\Nmissing constraints, okay,
+Dialogue: 0,0:45:27.77,0:45:30.54,Default,bad thing needs constraints\Nfor X position,
+Dialogue: 0,0:45:30.54,0:45:31.63,Default,it's saying, which it does.
+Dialogue: 0,0:45:31.84,0:45:34.64,Default,Because how else is it going to\Nknow where to put X, bad thing,
+Dialogue: 0,0:45:34.74,0:45:36.48,Default,there's nothing that says\Nwhere to put it because I took
+Dialogue: 0,0:45:36.53,0:45:39.18,Default,that constraint that was telling\Nit to be in the middle away.
+Dialogue: 0,0:45:39.26,0:45:41.80,Default,So let's click on that\Nred thing, and when we do,
+Dialogue: 0,0:45:41.80,0:45:43.15,Default,it's going to offer to fix that.
+Dialogue: 0,0:45:43.84,0:45:46.77,Default,And it says let me try and\Nadd a missing constraint,
+Dialogue: 0,0:45:46.77,0:45:50.08,Default,and it's going to do the best\Nit can to add a constraint
+Dialogue: 0,0:45:50.08,0:45:52.65,Default,or a number of constraints\Nto make it so that
+Dialogue: 0,0:45:52.65,0:45:54.33,Default,at least there's not\Na missing constraint.
+Dialogue: 0,0:45:54.33,0:45:57.41,Default,This might not be the constraint\Nyou want, but, you know,
+Dialogue: 0,0:45:57.41,0:45:59.88,Default,it's probably going to be\Nmostly suggested constraints,
+Dialogue: 0,0:46:00.10,0:46:02.65,Default,but it's going to be some kind\Nof constraint so that there,
+Dialogue: 0,0:46:02.73,0:46:05.18,Default,so the position of this\Nthing, and its size,
+Dialogue: 0,0:46:05.58,0:46:07.07,Default,are completely specified.
+Dialogue: 0,0:46:07.52,0:46:10.64,Default,So, in this case, since we\Nalready blue guidelined this
+Dialogue: 0,0:46:10.64,0:46:13.24,Default,thing to the midline, and we\Nknow it's exactly in the middle,
+Dialogue: 0,0:46:13.49,0:46:15.45,Default,it, when we hit add\Nmissing constraints,
+Dialogue: 0,0:46:15.56,0:46:16.76,Default,it's going to put\Nthat thing back.
+Dialogue: 0,0:46:17.41,0:46:19.02,Default,Okay? Now it's not\Nputting it back
+Dialogue: 0,0:46:19.02,0:46:21.40,Default,because it knows I deleted\Nit, it's just thinking ah,
+Dialogue: 0,0:46:21.40,0:46:23.53,Default,that's the best constraint\Nthat goes here.
+Dialogue: 0,0:46:23.94,0:46:26.29,Default,Because it knows this thing is\Ndead center, so it's like, hmm,
+Dialogue: 0,0:46:26.59,0:46:28.24,Default,dead center thing, I'm\Nprobably going to do that.
+Dialogue: 0,0:46:28.24,0:46:31.29,Default,So it's really smart about what\Nmissing constraints it will put
+Dialogue: 0,0:46:31.29,0:46:31.62,Default,in there.
+Dialogue: 0,0:46:31.83,0:46:33.55,Default,Mostly it's going to use\Nsuggested constraints,
+Dialogue: 0,0:46:33.55,0:46:37.30,Default,but it's even smarter than\Njust the suggested system.
+Dialogue: 0,0:46:37.30,0:46:39.61,Default,Okay? So now we have\Nno auto layout issues,
+Dialogue: 0,0:46:39.61,0:46:42.14,Default,we're back to having bad\Nthing in a good spot.
+Dialogue: 0,0:46:42.40,0:46:45.11,Default,Now what if I decided I don't\Nwant bad thing in the middle,
+Dialogue: 0,0:46:45.11,0:46:46.63,Default,I want bad thing to\Nbe stacked on top
+Dialogue: 0,0:46:46.63,0:46:47.64,Default,of thing two all the time?
+Dialogue: 0,0:46:47.98,0:46:51.59,Default,So I just pick up bad\Nthing and drag it down,
+Dialogue: 0,0:46:51.99,0:46:54.74,Default,I'll use the blue guidelines,\Nor not, but I'm using the,
+Dialogue: 0,0:46:54.74,0:46:57.35,Default,I'm just going to drag it\Ndown there and I drop it.
+Dialogue: 0,0:46:57.59,0:46:58.44,Default,And what happens?
+Dialogue: 0,0:46:58.61,0:47:00.38,Default,Well, I get the yellow\Nguidelines again,
+Dialogue: 0,0:47:00.38,0:47:03.64,Default,because bad thing, once\Nagain, is misplaced.
+Dialogue: 0,0:47:04.01,0:47:06.94,Default,That's because when you drag\Nthings to new positions,
+Dialogue: 0,0:47:07.09,0:47:08.87,Default,it does not change\Nthe constraints.
+Dialogue: 0,0:47:09.46,0:47:10.67,Default,That's important to understand.
+Dialogue: 0,0:47:10.67,0:47:12.23,Default,When you drag things\Nsomewhere new,
+Dialogue: 0,0:47:12.47,0:47:13.65,Default,the constraints stay the same.
+Dialogue: 0,0:47:13.65,0:47:16.56,Default,So bad things constraints\Nare still align center X
+Dialogue: 0,0:47:16.56,0:47:17.66,Default,and align Y, you see?
+Dialogue: 0,0:47:17.70,0:47:19.68,Default,See them right there?
+Dialogue: 0,0:47:19.68,0:47:20.77,Default,And that's no good.
+Dialogue: 0,0:47:20.77,0:47:22.91,Default,So, what can we do about that?
+Dialogue: 0,0:47:22.91,0:47:25.44,Default,Well, we probably want to\Ndelete these constraints,
+Dialogue: 0,0:47:25.44,0:47:27.51,Default,because they no longer\Napply, and I showed you how
+Dialogue: 0,0:47:27.51,0:47:30.85,Default,to delete them by doing clear\Nconstraints, and I told you how
+Dialogue: 0,0:47:30.85,0:47:32.78,Default,to delete them by clicking\Non them and hit delete.
+Dialogue: 0,0:47:33.01,0:47:35.38,Default,Here's another way to delete\Nthem, you see the little cog,
+Dialogue: 0,0:47:35.69,0:47:38.17,Default,right there, where it says align\Ncenter Y and align center X,
+Dialogue: 0,0:47:38.17,0:47:39.79,Default,there's a little\Ncog, if you click
+Dialogue: 0,0:47:39.79,0:47:42.56,Default,on that there's a little\Nmenu, you can edit it,
+Dialogue: 0,0:47:42.56,0:47:45.25,Default,which is exactly the same\Nas attributes inspector
+Dialogue: 0,0:47:45.25,0:47:46.99,Default,on it, or you can delete it.
+Dialogue: 0,0:47:47.44,0:47:49.24,Default,So I'll delete that one\Nand I'll delete that one.
+Dialogue: 0,0:47:49.24,0:47:51.49,Default,So now I got rid of those\Nconstraints, bad things back
+Dialogue: 0,0:47:51.49,0:47:52.49,Default,to having no constraints.
+Dialogue: 0,0:47:52.49,0:47:53.72,Default,I just did that because\NI wanted to show
+Dialogue: 0,0:47:53.72,0:47:56.43,Default,that there's multiple\Nways to get at this thing.
+Dialogue: 0,0:47:56.43,0:47:58.41,Default,You can also delete\Nthem by selecting them
+Dialogue: 0,0:47:58.41,0:48:00.13,Default,in the document outline\Nand hitting delete.
+Dialogue: 0,0:48:00.51,0:48:04.47,Default,Okay? So now I have bad\Nthing, but where it is there,
+Dialogue: 0,0:48:04.47,0:48:06.00,Default,it's not tied to thing two.
+Dialogue: 0,0:48:06.00,0:48:08.88,Default,If I were to go landscape\Nright now, it would not stick
+Dialogue: 0,0:48:08.88,0:48:10.69,Default,with thing two because\Nthere's no constraint
+Dialogue: 0,0:48:10.87,0:48:12.19,Default,that ties it to thing two.
+Dialogue: 0,0:48:12.36,0:48:14.50,Default,Okay? So, let's put\Na constraint.
+Dialogue: 0,0:48:14.66,0:48:17.46,Default,Here's way number three, okay,
+Dialogue: 0,0:48:17.46,0:48:19.08,Default,do you remember what\Nways number one are?
+Dialogue: 0,0:48:19.33,0:48:22.23,Default,Number one is blue guideline\Nsuggested constraint,
+Dialogue: 0,0:48:22.23,0:48:23.59,Default,that's way number one, alright?
+Dialogue: 0,0:48:24.48,0:48:25.72,Default,Everybody got that?
+Dialogue: 0,0:48:25.72,0:48:28.17,Default,Number two is to use the little\Nmenu things at the bottom.
+Dialogue: 0,0:48:28.43,0:48:30.30,Default,Click, bring up the\Nlittle thing, type in,
+Dialogue: 0,0:48:30.30,0:48:32.92,Default,click horizontal, whatever,\Nclick the things that you want.
+Dialogue: 0,0:48:33.26,0:48:37.50,Default,Way number three is to\Ncontrol drag, control drag,
+Dialogue: 0,0:48:37.50,0:48:40.49,Default,just like you're making an\Noutlet, between two items
+Dialogue: 0,0:48:40.49,0:48:43.80,Default,that you want to have some sort\Nof constrained relationship.
+Dialogue: 0,0:48:44.13,0:48:47.64,Default,So I'm going to control drag\Nfrom bad thing to thing two.
+Dialogue: 0,0:48:48.20,0:48:51.23,Default,Okay? And when I do, I get\Na little black box just
+Dialogue: 0,0:48:51.23,0:48:52.42,Default,like if I was making an outlet,
+Dialogue: 0,0:48:52.65,0:48:55.75,Default,but this time it's saying\Nwhat do you want to tie
+Dialogue: 0,0:48:56.08,0:48:57.63,Default,between these two items?
+Dialogue: 0,0:48:57.63,0:49:00.41,Default,What do you want to be\Nfixed between these two?
+Dialogue: 0,0:49:00.74,0:49:04.66,Default,So, you can actually select\Nmultiple of these using shift,
+Dialogue: 0,0:49:04.66,0:49:05.81,Default,that's what it says\Nat the bottom there,
+Dialogue: 0,0:49:05.81,0:49:06.98,Default,hold shift to select multiple.
+Dialogue: 0,0:49:07.21,0:49:08.84,Default,So I'm going to pick\Nthe vertical spacing,
+Dialogue: 0,0:49:08.84,0:49:12.10,Default,I want bad thing to always\Nbe a fixed vertical space
+Dialogue: 0,0:49:12.13,0:49:16.62,Default,above thing two, and I'm also\Ngoing to pick right edge, okay?
+Dialogue: 0,0:49:16.62,0:49:19.58,Default,And this is saying left and\Nright, but it's really trailing
+Dialogue: 0,0:49:19.58,0:49:22.30,Default,and leading, it just, right\Nnow it knows which is your left
+Dialogue: 0,0:49:22.30,0:49:24.26,Default,and right so it's saying\Nright to be nice to you.
+Dialogue: 0,0:49:24.65,0:49:26.20,Default,So I'm going to pick\Nboth vertical spacing
+Dialogue: 0,0:49:26.20,0:49:27.55,Default,and the right edges, okay?
+Dialogue: 0,0:49:27.79,0:49:31.04,Default,When I do that, you can\Nsee I get two constraints.
+Dialogue: 0,0:49:31.22,0:49:34.19,Default,You can see them on screen, two\Nlittle blue lines in the IB,
+Dialogue: 0,0:49:34.19,0:49:37.28,Default,between bad thing and\Nthing two, that is lining
+Dialogue: 0,0:49:37.28,0:49:40.14,Default,up the right edges\Nand fixing the space
+Dialogue: 0,0:49:40.14,0:49:42.37,Default,between them to the\Ndefault space.
+Dialogue: 0,0:49:42.78,0:49:44.39,Default,Okay, that's because I\Nused the blue guidelines.
+Dialogue: 0,0:49:44.39,0:49:46.12,Default,If I hadn't used\Nthe blue guidelines
+Dialogue: 0,0:49:46.12,0:49:48.92,Default,and had put bad thing,\Nyou know, 40 pixels above,
+Dialogue: 0,0:49:49.17,0:49:50.72,Default,then it would have\Nfixed it to 40 pixels,
+Dialogue: 0,0:49:50.72,0:49:53.25,Default,but we would have seen\Nin the constraints 40,
+Dialogue: 0,0:49:53.25,0:49:56.13,Default,and we said a magic number is in\Nconstraints, we better fix that.
+Dialogue: 0,0:49:56.42,0:49:59.18,Default,Okay? Which you could do by\Nediting the constraint and just,
+Dialogue: 0,0:49:59.27,0:50:00.15,Default,there's a button actually
+Dialogue: 0,0:50:00.15,0:50:01.81,Default,that says put it,\Nmake it the default.
+Dialogue: 0,0:50:02.46,0:50:02.82,Default,Alright?
+Dialogue: 0,0:50:03.51,0:50:06.43,Default,So now I have these two things\Ntied in that way, again,
+Dialogue: 0,0:50:06.43,0:50:08.71,Default,this is totally enough\Nto specify all
+Dialogue: 0,0:50:08.71,0:50:11.14,Default,of their positions exactly,\Nbecause thing two is tied
+Dialogue: 0,0:50:11.14,0:50:13.77,Default,to the corner and bad thing\Nis tied to the right edge
+Dialogue: 0,0:50:13.77,0:50:14.95,Default,and just above thing two.
+Dialogue: 0,0:50:15.26,0:50:18.78,Default,So, if we go to landscape again,\Nbad thing will always stay
+Dialogue: 0,0:50:19.14,0:50:22.04,Default,that distance and always to\Nthe right edge of thing two.
+Dialogue: 0,0:50:23.07,0:50:27.25,Default,Okay? So that's way number\Nthree to attach things is
+Dialogue: 0,0:50:27.25,0:50:31.99,Default,to control drag between them and\Nyou control drag between items,
+Dialogue: 0,0:50:31.99,0:50:35.46,Default,between views, you can also\Ncontrol drag from a view
+Dialogue: 0,0:50:35.46,0:50:37.80,Default,to its super-view, that's\Nwhat I'm doing here.
+Dialogue: 0,0:50:38.00,0:50:40.93,Default,Bad thing to its super-view\Nand you'll get a different set
+Dialogue: 0,0:50:40.93,0:50:43.76,Default,of options, like horizontal\Nand vertical container.
+Dialogue: 0,0:50:44.24,0:50:47.28,Default,Or you could also\Ncontrol drag to yourself.
+Dialogue: 0,0:50:48.57,0:50:51.41,Default,Okay? Why would you ever\Ncontrol drag to yourself?
+Dialogue: 0,0:50:51.41,0:50:53.79,Default,I have a bad thing, why would\NI control drag bad thing
+Dialogue: 0,0:50:53.79,0:50:54.39,Default,to itself?
+Dialogue: 0,0:50:55.08,0:50:56.69,Default,Well then I'll get the\Noption to do things
+Dialogue: 0,0:50:56.69,0:50:59.71,Default,like fix bad things width, okay?
+Dialogue: 0,0:50:59.75,0:51:02.34,Default,Which I told you was bad anytime\Nyou have a button or a label
+Dialogue: 0,0:51:02.34,0:51:05.38,Default,of anything that has, you know,\Nan intrinsic size like that.
+Dialogue: 0,0:51:05.69,0:51:08.24,Default,It'll also, if there's some\Nnearby thing it could do,
+Dialogue: 0,0:51:08.24,0:51:10.72,Default,like fix the trailing\Nspace to its container,
+Dialogue: 0,0:51:10.72,0:51:12.86,Default,it could do that for you\Ntoo, but you can control drag
+Dialogue: 0,0:51:12.86,0:51:14.92,Default,to yourself too,\Nwhich sounds crazy,
+Dialogue: 0,0:51:14.92,0:51:16.29,Default,but you'll get used\Nto, to doing that.
+Dialogue: 0,0:51:16.51,0:51:19.77,Default,So control drag is way number\Nthree to set up constraints.
+Dialogue: 0,0:51:20.57,0:51:24.58,Default,Okay? So, there is a\Nlot to this system.
+Dialogue: 0,0:51:24.71,0:51:26.15,Default,I've just tried to\Nkind of show you
+Dialogue: 0,0:51:26.15,0:51:27.41,Default,where to look for everything.
+Dialogue: 0,0:51:27.63,0:51:30.06,Default,How to click on things,\Nwhere to inspect them,
+Dialogue: 0,0:51:30.33,0:51:31.54,Default,where to see the constraints,
+Dialogue: 0,0:51:31.70,0:51:34.33,Default,how to go on the document\Noutline to resolve problems,
+Dialogue: 0,0:51:34.33,0:51:38.20,Default,whether they'd be red or yellow,\Nit would take me many lectures
+Dialogue: 0,0:51:38.20,0:51:41.09,Default,to cover all the different\Nkinds of constraints
+Dialogue: 0,0:51:41.09,0:51:43.52,Default,that you can set up, and,\Nyou know, for example,
+Dialogue: 0,0:51:43.52,0:51:45.21,Default,do you see on the, in\Nthe inspector there
+Dialogue: 0,0:51:45.21,0:51:47.29,Default,where it says content\Nhugging priority,
+Dialogue: 0,0:51:47.67,0:51:49.85,Default,and content compression\Nresistance priority?
+Dialogue: 0,0:51:50.53,0:51:51.44,Default,That hugging priority,
+Dialogue: 0,0:51:51.44,0:51:53.52,Default,that's not because these\Nviews love each other,
+Dialogue: 0,0:51:53.52,0:51:56.96,Default,but sometimes they do, but\Nmostly the hugging priority is
+Dialogue: 0,0:51:56.96,0:51:58.74,Default,because you have sometimes views
+Dialogue: 0,0:51:58.74,0:52:01.94,Default,that are sharing some\Nhorizontal or vertical space.
+Dialogue: 0,0:52:02.33,0:52:06.41,Default,And when they share, and that\Nspace gets removed from them,
+Dialogue: 0,0:52:06.63,0:52:10.68,Default,or gets taken away, or they\Nget more space added to them,
+Dialogue: 0,0:52:10.96,0:52:13.37,Default,they need to know which\Nof those views wants
+Dialogue: 0,0:52:13.37,0:52:16.43,Default,to keep its size the most\Nand which of them wants
+Dialogue: 0,0:52:16.43,0:52:19.42,Default,to get extra, and which is\Nwilling to be compressed
+Dialogue: 0,0:52:19.42,0:52:21.27,Default,and which is not willing\Nto get compressed,
+Dialogue: 0,0:52:21.27,0:52:23.12,Default,thus you have compression\Nresistance priority
+Dialogue: 0,0:52:23.33,0:52:24.88,Default,and content hugging priority.
+Dialogue: 0,0:52:25.14,0:52:28.03,Default,Okay? So, that's as much as\NI'm going to say about this,
+Dialogue: 0,0:52:28.03,0:52:29.71,Default,you've got to read up on those\Nif you're going to do that.
+Dialogue: 0,0:52:29.94,0:52:31.68,Default,You don't need, you're not\Ngoing to be building UI's,
+Dialogue: 0,0:52:31.68,0:52:34.74,Default,I don't think, like that in\Nyour homework, if you are,
+Dialogue: 0,0:52:34.74,0:52:37.14,Default,more power to you to go\Nlook up content hugging
+Dialogue: 0,0:52:37.14,0:52:38.82,Default,and content compression\Nresistances.
+Dialogue: 0,0:52:39.55,0:52:42.62,Default,Okay? The last thing there\Nyou see is intrinsic size.
+Dialogue: 0,0:52:42.94,0:52:45.98,Default,Again, a bunch of iOS things\Nhave an intrinsic size,
+Dialogue: 0,0:52:45.98,0:52:48.34,Default,like labels and buttons, but\Nyou could actually have your own
+Dialogue: 0,0:52:48.34,0:52:50.48,Default,custom views, again,\Nnot for your homework,
+Dialogue: 0,0:52:50.98,0:52:52.12,Default,you could have your\Nown custom views
+Dialogue: 0,0:52:52.12,0:52:54.49,Default,that have their own\Nintrinsic size, they just have
+Dialogue: 0,0:52:54.49,0:52:57.30,Default,to implement a little API that\Nreports their intrinsic size,
+Dialogue: 0,0:52:57.65,0:53:01.07,Default,and that little popup there\Nlets you tell Xcode how
+Dialogue: 0,0:53:01.07,0:53:04.31,Default,to handle that, because\Nit doesn't really know how
+Dialogue: 0,0:53:04.31,0:53:05.82,Default,to handle that [inaudible]\Nsystem objects,
+Dialogue: 0,0:53:05.82,0:53:06.65,Default,like labels and buttons.
+Dialogue: 0,0:53:07.89,0:53:10.77,Default,Okay? So the demo I'm\Ngoing to do is I'm going
+Dialogue: 0,0:53:10.77,0:53:13.74,Default,to take attributor,\Nwhich I, hopefully,
+Dialogue: 0,0:53:13.74,0:53:14.99,Default,you still remember attributor
+Dialogue: 0,0:53:14.99,0:53:17.10,Default,from three lectures\Nago, or whatever it was.
+Dialogue: 0,0:53:17.10,0:53:19.89,Default,And we're going to\Nmake attributor
+Dialogue: 0,0:53:19.89,0:53:21.52,Default,so it auto-rotates\Nand looks good.
+Dialogue: 0,0:53:21.59,0:53:23.80,Default,Attributor is the thing that had\Nthe text and we could outline it
+Dialogue: 0,0:53:23.80,0:53:25.00,Default,and pick the colors,\Nremember that?
+Dialogue: 0,0:53:25.22,0:53:27.37,Default,So we're going to\Nmake that do that.
+Dialogue: 0,0:53:27.37,0:53:30.34,Default,We used the guidelines when we\Nbuilt attributor, so it's going
+Dialogue: 0,0:53:30.34,0:53:32.00,Default,to be really easy\Nto make this work.
+Dialogue: 0,0:53:32.00,0:53:33.77,Default,Okay? But I just want to show\Nyou what it all looks like,
+Dialogue: 0,0:53:33.93,0:53:34.65,Default,to make it go.
+Dialogue: 0,0:53:35.08,0:53:37.68,Default,And I'll do this slide because\Nwe'll finish with the demo.
+Dialogue: 0,0:53:37.91,0:53:39.18,Default,On Friday, I'm still hoping
+Dialogue: 0,0:53:39.18,0:53:41.54,Default,to get this university\Ndeveloper thing going, again,
+Dialogue: 0,0:53:41.54,0:53:44.30,Default,I'm not going to require any\Nof you to get the thing working
+Dialogue: 0,0:53:44.30,0:53:46.32,Default,on your device until\NI can get you
+Dialogue: 0,0:53:46.32,0:53:48.90,Default,into this program,\Nso, no worries there.
+Dialogue: 0,0:53:49.35,0:53:52.21,Default,And those of you who are\Ndoing the 99 dollar program,
+Dialogue: 0,0:53:52.21,0:53:54.89,Default,you're all good to go, hopefully\Nit's all just working for you.
+Dialogue: 0,0:53:55.35,0:53:57.41,Default,Your homework, as you\Nknow, is due on Monday,
+Dialogue: 0,0:53:57.41,0:54:00.04,Default,and next week we're going to do\Na scroll view and table view,
+Dialogue: 0,0:54:00.22,0:54:01.98,Default,actually we probably\Nwon't do collection view,
+Dialogue: 0,0:54:01.98,0:54:03.66,Default,the more I think about, and\Nthe other thing we're going
+Dialogue: 0,0:54:03.66,0:54:05.12,Default,to do next week is iPad.
+Dialogue: 0,0:54:05.46,0:54:07.25,Default,Because everything we've\Ndone so far is iPhone,
+Dialogue: 0,0:54:07.47,0:54:10.14,Default,it's time to start\Ndoing some iPad.
+Dialogue: 0,0:54:10.63,0:54:13.32,Default,Okay? So let's go\Nback to attributor.
+Dialogue: 0,0:54:13.73,0:54:19.42,Default,So I'm going to get Xcode up\Nhere and let's close drop it.
+Dialogue: 0,0:54:19.66,0:54:24.56,Default,Stop that task, [inaudible], and\Nso alright, let's go back here,
+Dialogue: 0,0:54:24.56,0:54:29.02,Default,and I'm just going to\Nbring up attributor, as,
+Dialogue: 0,0:54:29.09,0:54:30.81,Default,as we last left it here.
+Dialogue: 0,0:54:31.15,0:54:33.66,Default,Remember this is what\Nattributor's user interface
+Dialogue: 0,0:54:33.79,0:54:36.75,Default,looks like here, we don't need\Nto see the code at all today,
+Dialogue: 0,0:54:36.75,0:54:40.59,Default,because we're going to do all of\Nthis auto layout stuff in Xcode.
+Dialogue: 0,0:54:41.18,0:54:43.38,Default,And let's see what\Nattributor does right now.
+Dialogue: 0,0:54:43.38,0:54:46.42,Default,So let's run attributor,\Njust as we left it off.
+Dialogue: 0,0:54:46.42,0:54:47.61,Default,And here it is, here's\Nattributor,
+Dialogue: 0,0:54:47.93,0:54:52.35,Default,remember we can do this kind\Nof stuff, pick these things,
+Dialogue: 0,0:54:52.65,0:54:55.47,Default,and if we rotate, and\Neveryone saw on [inaudible],
+Dialogue: 0,0:54:55.47,0:54:58.04,Default,the way we rotate is we\Nhold down the command key,
+Dialogue: 0,0:54:58.04,0:54:59.33,Default,it's basically this right here.
+Dialogue: 0,0:54:59.61,0:55:00.80,Default,Command, arrow.
+Dialogue: 0,0:55:01.21,0:55:02.80,Default,Okay? So I'm going\Nto do command arrow.
+Dialogue: 0,0:55:03.35,0:55:04.25,Default,That looks pretty bad.
+Dialogue: 0,0:55:04.71,0:55:04.98,Default,Okay?
+Dialogue: 0,0:55:05.33,0:55:06.36,Default,In fact, that's horrible.
+Dialogue: 0,0:55:06.45,0:55:09.36,Default,Because we've lost all of\Nour control with no outline,
+Dialogue: 0,0:55:09.36,0:55:12.38,Default,no colors, we can't\Nreally do anything here.
+Dialogue: 0,0:55:12.58,0:55:16.13,Default,Stats still looks okay,\Nbut it's kind of cutoff,
+Dialogue: 0,0:55:16.24,0:55:17.92,Default,that's not so good,\Ndot, dot, dot, so,
+Dialogue: 0,0:55:18.35,0:55:24.37,Default,really this whole UI did not\Nreact well, and so, let's try
+Dialogue: 0,0:55:24.37,0:55:28.61,Default,and fix it so that it stops\Ndoing that, and this is going
+Dialogue: 0,0:55:28.61,0:55:30.61,Default,to be in some ways\Nalmost too easy,
+Dialogue: 0,0:55:30.61,0:55:33.58,Default,because we dragged all these\Nthings out using the guidelines,
+Dialogue: 0,0:55:33.81,0:55:36.85,Default,so I'm just going to go down\Nhere, to the Thai fighter,
+Dialogue: 0,0:55:37.04,0:55:40.03,Default,and I'm going to say reset\Nto suggested constraints.
+Dialogue: 0,0:55:41.22,0:55:42.78,Default,And pretty much that's\Ngoing to do it.
+Dialogue: 0,0:55:42.95,0:55:44.04,Default,So let's just rerun.
+Dialogue: 0,0:55:44.27,0:55:46.00,Default,Okay, we could make\Na quick look at some
+Dialogue: 0,0:55:46.00,0:55:48.86,Default,of these constraints just to see\Nwhat's it doing, but like this,
+Dialogue: 0,0:55:49.33,0:55:51.11,Default,let's get this out\Nof the way in here.
+Dialogue: 0,0:55:51.24,0:55:55.39,Default,So, you can see that this\Nthing is tied to the super-view
+Dialogue: 0,0:55:55.39,0:55:57.49,Default,on the left, it's lined\Nup with the buttons.
+Dialogue: 0,0:55:57.49,0:55:59.63,Default,It makes a little space\Nin between the buttons,
+Dialogue: 0,0:55:59.63,0:56:01.16,Default,a little space at the top,
+Dialogue: 0,0:56:01.41,0:56:03.88,Default,so it's pretty much\Ndoing what we want.
+Dialogue: 0,0:56:04.29,0:56:06.28,Default,Let's see what happens\Nwhen we rotate now.
+Dialogue: 0,0:56:06.36,0:56:09.50,Default,So we got this, it's still all\Nworking, nothing has broken
+Dialogue: 0,0:56:09.50,0:56:11.62,Default,because of our, putting\Nthose constraints in,
+Dialogue: 0,0:56:11.94,0:56:14.88,Default,and so we'll rotate, ooh,\Nthat looks pretty good!
+Dialogue: 0,0:56:14.94,0:56:18.89,Default,I can still, for example, set\Nmy outline, I can set colors,
+Dialogue: 0,0:56:18.89,0:56:21.82,Default,that's great, stats,\Nooh, much better.
+Dialogue: 0,0:56:22.12,0:56:24.30,Default,However, this is not so good.
+Dialogue: 0,0:56:25.09,0:56:27.71,Default,Okay? I like purple, but\Nnot that much [laughter].
+Dialogue: 0,0:56:27.77,0:56:31.08,Default,Okay? So we've got to make\Nthese things all the same size,
+Dialogue: 0,0:56:31.22,0:56:34.36,Default,we want these four buttons\Nto be the same size, okay?
+Dialogue: 0,0:56:34.72,0:56:37.53,Default,Nothing that we did when we\Ndragged it in, evidently,
+Dialogue: 0,0:56:37.53,0:56:39.30,Default,was enough to let\NXcode know that.
+Dialogue: 0,0:56:39.59,0:56:42.46,Default,However, so simple to make\Nthat happen, I'm just going
+Dialogue: 0,0:56:42.46,0:56:45.88,Default,to select these four buttons,\NI'm going to go down here
+Dialogue: 0,0:56:46.24,0:56:51.36,Default,to this little [pause]\Nconstraint adder right here,
+Dialogue: 0,0:56:51.47,0:56:52.79,Default,and I'm going to just\Nclick this button
+Dialogue: 0,0:56:52.79,0:56:55.60,Default,that says I want these four\Nbuttons to have equal widths.
+Dialogue: 0,0:56:55.64,0:56:57.59,Default,In other words, I'm\Nadding the constraint
+Dialogue: 0,0:56:57.71,0:56:58.96,Default,that their widths be the same.
+Dialogue: 0,0:56:59.60,0:57:03.27,Default,Okay? So, I just, when I\Nhit add three constraints,
+Dialogue: 0,0:57:03.27,0:57:05.59,Default,it's going to add one constraint\Nto each of them, probably,
+Dialogue: 0,0:57:05.59,0:57:07.69,Default,each of these first\Nthree, saying,
+Dialogue: 0,0:57:07.88,0:57:10.57,Default,be the same as the\Nnext one over.
+Dialogue: 0,0:57:11.06,0:57:11.48,Default,We'll do that.
+Dialogue: 0,0:57:12.34,0:57:13.58,Default,You can even see the, see,
+Dialogue: 0,0:57:13.58,0:57:14.95,Default,here's what they\Nlook like, equals.
+Dialogue: 0,0:57:15.40,0:57:18.15,Default,See? So let's go and run\Nand see if that fixed it.
+Dialogue: 0,0:57:19.48,0:57:20.13,Default,And it did.
+Dialogue: 0,0:57:20.69,0:57:23.51,Default,Okay? So, whichever\Nway, by the way,
+Dialogue: 0,0:57:23.51,0:57:24.73,Default,why does it not rotate here?
+Dialogue: 0,0:57:24.73,0:57:27.10,Default,Because this is the upside\Ndown, portrait upside down,
+Dialogue: 0,0:57:27.42,0:57:30.85,Default,and in our [pause]\Nproject settings,
+Dialogue: 0,0:57:30.85,0:57:32.71,Default,we said we don't support\Nportrait upside down,
+Dialogue: 0,0:57:32.77,0:57:34.10,Default,so that's why it\Njust does nothing.
+Dialogue: 0,0:57:34.10,0:57:35.81,Default,When you go to portrait\Nupside down, it does nothing.
+Dialogue: 0,0:57:36.39,0:57:38.19,Default,But when we stay with\Nportrait right-side up,
+Dialogue: 0,0:57:38.19,0:57:40.29,Default,or between either the\Ntwo of the landscapes,
+Dialogue: 0,0:57:40.69,0:57:45.04,Default,it seems to be doing exactly\Nwhat we want here in this view.
+Dialogue: 0,0:57:45.89,0:57:50.80,Default,And, the only problem is,\Nif we look at our console,
+Dialogue: 0,0:57:50.80,0:57:52.71,Default,we're getting all\Nkinds of errors here.
+Dialogue: 0,0:57:53.49,0:57:55.11,Default,Okay? This doesn't\Nlook too good.
+Dialogue: 0,0:57:55.60,0:57:58.38,Default,Okay? And what is this\Nprimary error we're getting.
+Dialogue: 0,0:57:58.78,0:58:02.68,Default,Unable to simultaneously\Nsatisfy constraints.
+Dialogue: 0,0:58:03.52,0:58:07.96,Default,Okay? So, this looked all\Ngood over here, there was no,
+Dialogue: 0,0:58:07.96,0:58:10.65,Default,I don't see anything,\Nthere's no yellow things.
+Dialogue: 0,0:58:10.65,0:58:12.30,Default,If I bring up my\Ndocument outline,
+Dialogue: 0,0:58:12.89,0:58:14.30,Default,there's nothing yellow here.
+Dialogue: 0,0:58:14.56,0:58:16.68,Default,My auto layout constraints\Nare good!
+Dialogue: 0,0:58:16.94,0:58:18.07,Default,Well, actually they're not.
+Dialogue: 0,0:58:18.31,0:58:20.48,Default,Okay? Because it's unable
+Dialogue: 0,0:58:20.48,0:58:23.01,Default,to satisfy the constraints\Nat run time.
+Dialogue: 0,0:58:23.08,0:58:24.75,Default,Okay? Well why is\Nthat happening?
+Dialogue: 0,0:58:24.75,0:58:27.26,Default,Well, it'd actually\Ngive you a lot of help
+Dialogue: 0,0:58:27.48,0:58:30.36,Default,as to why that's happening,\Nlet me make this wider.
+Dialogue: 0,0:58:30.94,0:58:35.41,Default,Here, and it gives you\Neven kind of ASCII text,
+Dialogue: 0,0:58:35.77,0:58:38.71,Default,kind of descriptions\Nof the layouts.
+Dialogue: 0,0:58:39.15,0:58:40.95,Default,You see? How everything's\Nlaid out?
+Dialogue: 0,0:58:41.31,0:58:43.48,Default,But I can probably guess already
+Dialogue: 0,0:58:43.68,0:58:46.43,Default,that since I just introduced\Nthis error, it has something
+Dialogue: 0,0:58:46.43,0:58:48.23,Default,to do with what I just did.
+Dialogue: 0,0:58:48.68,0:58:51.56,Default,Okay? Which is to make\Nthose widths be the same.
+Dialogue: 0,0:58:51.89,0:58:54.88,Default,So, let's take a look at the\Nconstraints of these buttons
+Dialogue: 0,0:58:54.88,0:58:56.46,Default,and see if we can see\Nsomething obvious.
+Dialogue: 0,0:58:56.55,0:58:59.62,Default,Okay? Anyone see\Nanything obvious in here?
+Dialogue: 0,0:59:00.25,0:59:05.56,Default,That doesn't look very good?
+Dialogue: 0,0:59:05.90,0:59:06.86,Default,[Pause] Speak up.
+Dialogue: 0,0:59:07.05,0:59:07.40,Default,[Inaudible background\Ncomment] Yeah,
+Dialogue: 0,0:59:07.40,0:59:10.55,Default,the width equals 64\Nhere is hardcoded, okay,
+Dialogue: 0,0:59:10.55,0:59:12.37,Default,that's a magic number,\Nthat's bad.
+Dialogue: 0,0:59:12.37,0:59:15.11,Default,And, in fact, we know that\Nwhen we go to landscape,
+Dialogue: 0,0:59:15.22,0:59:17.09,Default,the width's not going\Nto be 64 anyway!
+Dialogue: 0,0:59:17.43,0:59:19.30,Default,Right? They all get a\Nlittle wider in landscape.
+Dialogue: 0,0:59:19.79,0:59:21.28,Default,So this is the problem.
+Dialogue: 0,0:59:21.36,0:59:23.76,Default,It's trying to make those\Nbuttons all the same width,
+Dialogue: 0,0:59:23.89,0:59:26.02,Default,but you're trying\Nto keep them all 64,
+Dialogue: 0,0:59:26.12,0:59:29.80,Default,or at least to keep this one\Nand this one and this one 64,
+Dialogue: 0,0:59:29.80,0:59:33.62,Default,this one seems to not have\Nthat 64, which is nice.
+Dialogue: 0,0:59:33.62,0:59:35.18,Default,So this is easy to fix.
+Dialogue: 0,0:59:35.23,0:59:38.95,Default,I'm just going to delete\Nthese width equals 64's,
+Dialogue: 0,0:59:38.95,0:59:40.20,Default,it's not the height equals 64.
+Dialogue: 0,0:59:40.63,0:59:42.47,Default,So let's delete the\Nwidth equals 64,
+Dialogue: 0,0:59:42.47,0:59:47.03,Default,let's delete this width equals\N64, and we'll delete this one.
+Dialogue: 0,0:59:47.28,0:59:51.47,Default,Okay? So, this height,\Nnothing turned yellow, okay?
+Dialogue: 0,0:59:51.47,0:59:53.86,Default,Nothing was like missing\Nconstraints, okay,
+Dialogue: 0,0:59:53.86,0:59:57.82,Default,it's all completely still\Nspecified, and now if we run.
+Dialogue: 0,0:59:59.66,1:00:01.62,Default,Okay, and we rotate\Nback and forth.
+Dialogue: 0,1:00:02.63,1:00:05.20,Default,Still working, still\Nmaking the buttons wider,
+Dialogue: 0,1:00:05.20,1:00:07.53,Default,and we're not getting\Nanything in our console here.
+Dialogue: 0,1:00:08.52,1:00:10.53,Default,So sometimes you'll\Nget the constraints,
+Dialogue: 0,1:00:10.53,1:00:12.88,Default,you won't have any\Nproblems in Xcode,
+Dialogue: 0,1:00:12.88,1:00:14.69,Default,but you still might\Nhave some conflicts,
+Dialogue: 0,1:00:14.69,1:00:16.06,Default,so you should be\Nlooking at your console
+Dialogue: 0,1:00:16.06,1:00:17.28,Default,to see if there's conflicts.
+Dialogue: 0,1:00:17.92,1:00:21.08,Default,Question? [Inaudible background\Nquestion] Okay, so the question,
+Dialogue: 0,1:00:21.08,1:00:24.30,Default,why did I keep the height\Nequals 64 magic number,
+Dialogue: 0,1:00:24.30,1:00:25.39,Default,and that's a super\Ngood question.
+Dialogue: 0,1:00:25.39,1:00:27.82,Default,Now, it's okay that I\Nhave a magic number here.
+Dialogue: 0,1:00:28.15,1:00:29.62,Default,And why is that okay here?
+Dialogue: 0,1:00:30.08,1:00:32.08,Default,That's because there's\Nno text in that button.
+Dialogue: 0,1:00:32.58,1:00:34.45,Default,It's almost like\Nan image, right?
+Dialogue: 0,1:00:34.77,1:00:37.33,Default,So, what size would\Nit be otherwise?
+Dialogue: 0,1:00:37.60,1:00:40.83,Default,There's nothing, if you look\Nfrom top to bottom in this view,
+Dialogue: 0,1:00:40.98,1:00:42.86,Default,there's nothing that\Nwould specify what size
+Dialogue: 0,1:00:42.86,1:00:45.97,Default,because this is not a fixed\Nwidth, or height rather,
+Dialogue: 0,1:00:46.30,1:00:49.07,Default,this is a fixed height\Nand so is this and this,
+Dialogue: 0,1:00:49.38,1:00:52.23,Default,but then how much space goes to\Nthis and how much goes to this?
+Dialogue: 0,1:00:52.51,1:00:56.12,Default,By fixing this one at 64,\Nthis one gets the rest.
+Dialogue: 0,1:00:56.42,1:00:58.36,Default,Now, I actually could\Ndo this another way.
+Dialogue: 0,1:00:58.36,1:01:02.47,Default,If I kind of wanted, you know,\Nthe text view to have most
+Dialogue: 0,1:01:02.47,1:01:05.33,Default,of the space and this,\Nsome of it, and I want it
+Dialogue: 0,1:01:05.33,1:01:07.48,Default,to be a minimum layer,\Nminimum size,
+Dialogue: 0,1:01:07.65,1:01:11.52,Default,I could actually set the size\Nhere to be greater than or equal
+Dialogue: 0,1:01:11.52,1:01:12.75,Default,to some particular size,
+Dialogue: 0,1:01:12.87,1:01:15.18,Default,and I could use the\Ncontent hugging priority
+Dialogue: 0,1:01:15.18,1:01:18.46,Default,and compression priority\Nbetween these two to make sure
+Dialogue: 0,1:01:18.70,1:01:21.28,Default,that whichever I wanted\Nto get the extra space,
+Dialogue: 0,1:01:21.28,1:01:24.58,Default,when it got taller,\Nlike this, okay?
+Dialogue: 0,1:01:26.04,1:01:29.11,Default,I could make that be defined,\Nbut by fixing this one,
+Dialogue: 0,1:01:29.58,1:01:31.65,Default,I'm guaranteeing this one\Ngets all the extra space.
+Dialogue: 0,1:01:31.99,1:01:33.04,Default,So when you have an image,
+Dialogue: 0,1:01:33.04,1:01:36.20,Default,I said that sometimes a magic\Nnumber's okay, usually it's
+Dialogue: 0,1:01:36.20,1:01:37.83,Default,when you have an\Nimage, some artwork
+Dialogue: 0,1:01:38.13,1:01:42.49,Default,that somebody has drawn has a\Nsize to it that that's it size.
+Dialogue: 0,1:01:42.79,1:01:45.32,Default,And here, these squares, I\Nwant them to be this size, so,
+Dialogue: 0,1:01:45.70,1:01:46.83,Default,like I said, I'm glad\Nyou brought that up
+Dialogue: 0,1:01:46.83,1:01:48.46,Default,because that's a good question.
+Dialogue: 0,1:01:48.46,1:01:51.16,Default,Okay, the other thing I'm\Ngoing to do here is play
+Dialogue: 0,1:01:51.16,1:01:52.73,Default,around with this, so\Nthis is working fine,
+Dialogue: 0,1:01:52.73,1:01:53.85,Default,nothing to change here.
+Dialogue: 0,1:01:54.12,1:01:55.11,Default,What about this guy over here?
+Dialogue: 0,1:01:55.11,1:01:56.85,Default,Well, this one's pretty bad.
+Dialogue: 0,1:01:57.11,1:02:01.83,Default,I kind of dragged these in here\Nwithout using the, the lines
+Dialogue: 0,1:02:01.83,1:02:03.69,Default,or something, so they're\Nkind of in random spots.
+Dialogue: 0,1:02:03.97,1:02:06.81,Default,So here's a good chance to show\Nyou how to put these things
+Dialogue: 0,1:02:06.81,1:02:10.52,Default,in their place, not using\Nsuggested constraints.
+Dialogue: 0,1:02:10.79,1:02:13.67,Default,Okay? In other words,\Nactually specifying.
+Dialogue: 0,1:02:14.31,1:02:17.23,Default,So I'll show you\Nboth ways to do it.
+Dialogue: 0,1:02:17.23,1:02:19.41,Default,The both non-suggested\Nconstraints.
+Dialogue: 0,1:02:19.44,1:02:23.53,Default,So let's put outline text in\Nthis corner down here, and,
+Dialogue: 0,1:02:23.53,1:02:25.98,Default,or we'll color it, put\Ncolor down there, whichever,
+Dialogue: 0,1:02:26.28,1:02:29.14,Default,and then we'll have the other\None stacked on top of it.
+Dialogue: 0,1:02:29.14,1:02:31.85,Default,So I eventually want it to\Nlook like this and this,
+Dialogue: 0,1:02:31.85,1:02:34.71,Default,but I'm not going to use\Nthe guidelines, okay?
+Dialogue: 0,1:02:34.83,1:02:36.14,Default,Because I want to show you\Na different way to do it.
+Dialogue: 0,1:02:36.14,1:02:37.95,Default,So, here I have colorful\Ncharacters.
+Dialogue: 0,1:02:38.32,1:02:40.03,Default,So it has no constraints,\Ncurrently,
+Dialogue: 0,1:02:40.03,1:02:42.39,Default,because when I said reset\Nsuggest constraints,
+Dialogue: 0,1:02:42.57,1:02:44.71,Default,I was doing that for\Nthis guy only, right?
+Dialogue: 0,1:02:44.71,1:02:46.33,Default,When you go here to\Nthe Thai fighter,
+Dialogue: 0,1:02:46.58,1:02:48.53,Default,it says in attributor\Nview controller,
+Dialogue: 0,1:02:48.65,1:02:51.21,Default,it doesn't say stats view\Ncontroller, so it only did it
+Dialogue: 0,1:02:51.21,1:02:54.02,Default,in that one, and I\Ndidn't reset it here,
+Dialogue: 0,1:02:54.02,1:02:55.56,Default,so these things have\Nno constraints.
+Dialogue: 0,1:02:56.08,1:02:59.61,Default,So let's set this one to be\Nin this lower left-hand corner
+Dialogue: 0,1:02:59.78,1:03:01.22,Default,without using the guidelines.
+Dialogue: 0,1:03:01.54,1:03:04.93,Default,So I'm going to do\Nthat with this guy.
+Dialogue: 0,1:03:05.80,1:03:09.36,Default,Okay? So this little button\Nright here, it lets you specify,
+Dialogue: 0,1:03:09.36,1:03:10.90,Default,this is where we\Ndid equal widths,
+Dialogue: 0,1:03:11.21,1:03:12.80,Default,but here I only have\None thing selected,
+Dialogue: 0,1:03:12.80,1:03:14.26,Default,so I can't even pick\Nequal widths,
+Dialogue: 0,1:03:14.26,1:03:17.23,Default,I'd have to pick two things for\Nthat, but up here at the top,
+Dialogue: 0,1:03:17.23,1:03:19.08,Default,you'll notice, you can specify
+Dialogue: 0,1:03:19.36,1:03:23.03,Default,that this thing is tied\Nto views around it.
+Dialogue: 0,1:03:23.03,1:03:24.96,Default,Either its super-view\Nor its other views.
+Dialogue: 0,1:03:25.56,1:03:29.53,Default,Okay? And also, I can pick\Nthe standard value here.
+Dialogue: 0,1:03:29.93,1:03:32.56,Default,So I'm using the\Ndefault value, okay?
+Dialogue: 0,1:03:33.65,1:03:35.36,Default,Which you generally want\Nto do, you don't want
+Dialogue: 0,1:03:35.36,1:03:37.91,Default,to have a magic number,\Nlike 100 and 71, in here,
+Dialogue: 0,1:03:38.21,1:03:39.84,Default,but I'm not picking\Nthese high beams,
+Dialogue: 0,1:03:39.84,1:03:41.02,Default,so those are not\Ngoing to be affected.
+Dialogue: 0,1:03:41.02,1:03:43.39,Default,And do you see, it wants to\Nadd those two constraints,
+Dialogue: 0,1:03:43.39,1:03:44.36,Default,that's this one and this one.
+Dialogue: 0,1:03:44.36,1:03:47.74,Default,I'm also going to show\Nyou this, update frames.
+Dialogue: 0,1:03:48.08,1:03:51.54,Default,You can update the frames,\Nin other words, move the view
+Dialogue: 0,1:03:51.54,1:03:54.41,Default,as it currently is showing the\Nscene, either all the frames
+Dialogue: 0,1:03:54.41,1:03:56.48,Default,in the entire container,\Nor just the frames
+Dialogue: 0,1:03:56.48,1:03:57.85,Default,that got new constraints.
+Dialogue: 0,1:03:58.30,1:03:59.45,Default,Usually you're going\Nto pick this one,
+Dialogue: 0,1:03:59.52,1:04:01.24,Default,items with new constraints.
+Dialogue: 0,1:04:01.24,1:04:03.83,Default,So I'm going to hit this, and\Nwatch what's going to happen,
+Dialogue: 0,1:04:04.09,1:04:05.62,Default,that colorful thing,\Nit's going to jump
+Dialogue: 0,1:04:05.73,1:04:07.33,Default,to lower left-hand corner,
+Dialogue: 0,1:04:07.33,1:04:09.48,Default,standard distance\Naway, automatically.
+Dialogue: 0,1:04:10.45,1:04:15.23,Default,Okay? So that's another\Nway to set the constraints,
+Dialogue: 0,1:04:15.23,1:04:16.97,Default,see it put standard\Ndistances here,
+Dialogue: 0,1:04:17.16,1:04:18.50,Default,it's got these standard\Nconstraints,
+Dialogue: 0,1:04:18.78,1:04:19.74,Default,and how about this guy?
+Dialogue: 0,1:04:20.35,1:04:24.93,Default,We want this guy to be\Nlined up on top of this one.
+Dialogue: 0,1:04:24.93,1:04:27.67,Default,We could do that,\Nalso, with this, okay?
+Dialogue: 0,1:04:27.67,1:04:30.18,Default,We could set the high beam\Nhere and all that stuff,
+Dialogue: 0,1:04:30.23,1:04:32.39,Default,but I'm going to use the\Ncontrol dragging to do that,
+Dialogue: 0,1:04:32.39,1:04:33.94,Default,so I'm going to hold\Ndown control,
+Dialogue: 0,1:04:33.94,1:04:37.88,Default,and I drag from this guy\Nto this guy, and I'm going
+Dialogue: 0,1:04:37.88,1:04:41.28,Default,to have the vertical spacing,\NI'm suing shift, by the way,
+Dialogue: 0,1:04:41.51,1:04:44.85,Default,vertical spacing, and left,\Nin this case, the left edge,
+Dialogue: 0,1:04:44.90,1:04:47.34,Default,I want those lined up, and then\NI'm just going to hit return,
+Dialogue: 0,1:04:47.91,1:04:49.72,Default,and it created me two\Nconstraints for that.
+Dialogue: 0,1:04:50.41,1:04:52.04,Default,Bottom space and\Ncolorful character.
+Dialogue: 0,1:04:52.30,1:04:53.69,Default,So let's go see what\Nthat looks like.
+Dialogue: 0,1:04:54.25,1:04:57.30,Default,Alright, so we have\Nthis, we do stats,
+Dialogue: 0,1:04:57.30,1:04:58.58,Default,it stays in the lower left.
+Dialogue: 0,1:04:59.12,1:05:01.33,Default,Whether we're portrait\Nor landscape.
+Dialogue: 0,1:05:01.94,1:05:04.47,Default,So that worked perfectly, and\Nthey stay stacked on each other.
+Dialogue: 0,1:05:04.47,1:05:07.48,Default,One thing I want to show\Nyou is this, watch this.
+Dialogue: 0,1:05:07.79,1:05:09.44,Default,Let's pick a whole\Nbunch of text here
+Dialogue: 0,1:05:10.37,1:05:11.99,Default,and make it outlined\Nand colored.
+Dialogue: 0,1:05:12.29,1:05:12.98,Default,And go to stats.
+Dialogue: 0,1:05:13.54,1:05:18.29,Default,And you see how these, these\Nnicely show the whole word,
+Dialogue: 0,1:05:18.29,1:05:19.97,Default,two [inaudible] colorful\Ncharacters.
+Dialogue: 0,1:05:19.97,1:05:21.49,Default,In other words, they\Ndon't get cut off.
+Dialogue: 0,1:05:21.54,1:05:24.63,Default,That's because these two things\Nare their intrinsic size.
+Dialogue: 0,1:05:25.01,1:05:29.35,Default,What happens if, instead,\NI fix the size of one,
+Dialogue: 0,1:05:29.56,1:05:30.40,Default,and this is why you're going
+Dialogue: 0,1:05:30.40,1:05:32.51,Default,to see these intrinsic\Nsize being fixed is bad.
+Dialogue: 0,1:05:32.51,1:05:34.22,Default,So I'm going to take this\Ncolorful character one,
+Dialogue: 0,1:05:34.50,1:05:36.18,Default,I'm going to fix its\Nwidth and I'm going to do
+Dialogue: 0,1:05:36.18,1:05:39.29,Default,that by control dragging\Nto itself, okay?
+Dialogue: 0,1:05:39.65,1:05:41.91,Default,And saying width,\NI could also do it
+Dialogue: 0,1:05:41.91,1:05:43.13,Default,with these buttons down here.
+Dialogue: 0,1:05:43.46,1:05:46.64,Default,And there it is, width equals\N157, which is its current width,
+Dialogue: 0,1:05:46.64,1:05:47.80,Default,I'm just going to\Nleave it that way.
+Dialogue: 0,1:05:48.03,1:05:51.87,Default,Okay, not let's run\Nand see what happens.
+Dialogue: 0,1:05:51.93,1:05:54.55,Default,Okay, so it seems like no\Nproblem, everything's good.
+Dialogue: 0,1:05:54.78,1:05:58.34,Default,But let's select a\Nlot of text again.
+Dialogue: 0,1:05:58.54,1:05:59.69,Default,Oh, not so good.
+Dialogue: 0,1:06:00.55,1:06:04.04,Default,You see? Since this thing\Nis not its intrinsic size,
+Dialogue: 0,1:06:04.38,1:06:07.89,Default,it couldn't fit when I went to\N127 characters instead of 0.
+Dialogue: 0,1:06:08.41,1:06:10.52,Default,Right? So it just went\Ndot, dot, dot, I can't fit.
+Dialogue: 0,1:06:10.72,1:06:13.15,Default,Okay? It always does,\Nyou can control this,
+Dialogue: 0,1:06:13.15,1:06:15.95,Default,but by default it does this\Ndot, dot, dot, if it can't fit.
+Dialogue: 0,1:06:16.49,1:06:17.88,Default,Okay, so do you see the hazards
+Dialogue: 0,1:06:18.21,1:06:21.95,Default,of having these hardwired\Nwidths in here?
+Dialogue: 0,1:06:22.35,1:06:28.20,Default,So if I take this and delete it,\Nand run again, now when we go
+Dialogue: 0,1:06:28.20,1:06:36.06,Default,to the stats, even if we have\Na lot of stuff, it'll fit.
+Dialogue: 0,1:06:37.71,1:06:41.01,Default,Okay? Alright, one other thing\NI guess I'll show you real quick
+Dialogue: 0,1:06:41.35,1:06:42.42,Default,is [pause] what happens,
+Dialogue: 0,1:06:42.69,1:06:45.81,Default,let me show you the document\Noutline piece of this.
+Dialogue: 0,1:06:46.03,1:06:47.88,Default,Okay, so nothing's wrong\Nin here, but I'm going
+Dialogue: 0,1:06:47.88,1:06:49.99,Default,to make something wrong,\Nlet me go to this guy
+Dialogue: 0,1:06:49.99,1:06:53.16,Default,and let's delete it's\Naligned leading, okay,
+Dialogue: 0,1:06:53.16,1:06:55.55,Default,so it's no longer\Nlined up with this.
+Dialogue: 0,1:06:55.93,1:06:58.68,Default,Okay? When I do that, notice\Nthis one turns yellow,
+Dialogue: 0,1:06:58.91,1:07:01.91,Default,because it is a constraint\Nfor an object
+Dialogue: 0,1:07:02.12,1:07:05.00,Default,that has problems, okay?
+Dialogue: 0,1:07:05.35,1:07:07.36,Default,So anytime you have an\Nobject that has problems,
+Dialogue: 0,1:07:07.36,1:07:09.49,Default,all its constraints will\Nbe yellow, or even red,
+Dialogue: 0,1:07:09.59,1:07:10.52,Default,if they're conflicting.
+Dialogue: 0,1:07:10.89,1:07:13.69,Default,So you can see we've got this\Nlittle red guy here saying
+Dialogue: 0,1:07:13.69,1:07:14.91,Default,that there's a problem\Nwith this guy,
+Dialogue: 0,1:07:14.91,1:07:16.33,Default,and we know what the\Nproblem is, right?
+Dialogue: 0,1:07:16.54,1:07:19.95,Default,We don't know where it is\Nhorizontally, we only know
+Dialogue: 0,1:07:19.95,1:07:22.01,Default,where it is vertically, okay?
+Dialogue: 0,1:07:22.40,1:07:23.30,Default,So let's go do that.
+Dialogue: 0,1:07:23.85,1:07:26.86,Default,And it says needs constraint\Nfor X position, again,
+Dialogue: 0,1:07:26.86,1:07:28.78,Default,I can click on this\Nlittle red thing.
+Dialogue: 0,1:07:29.08,1:07:31.87,Default,It'll say add missing\Nconstraints, it's smart,
+Dialogue: 0,1:07:31.87,1:07:34.81,Default,it knows these two were\Nlined up on the left it said,
+Dialogue: 0,1:07:34.91,1:07:37.83,Default,it's nearby, it said,\Noh, it probably wants
+Dialogue: 0,1:07:37.90,1:07:42.46,Default,to be left-aligned, so it\Nput a left align in there.
+Dialogue: 0,1:07:42.67,1:07:44.30,Default,Okay? One other thing\NI'll show you real quick,
+Dialogue: 0,1:07:44.30,1:07:45.45,Default,you see it moved this guy.
+Dialogue: 0,1:07:45.79,1:07:47.79,Default,Okay? You see how\Nnow these are yellow,
+Dialogue: 0,1:07:47.79,1:07:51.46,Default,because this doesn't match up,\Nthis is where the dotted box is,
+Dialogue: 0,1:07:51.74,1:07:54.89,Default,again, in the outline, if I\Nclick this, I have these choices
+Dialogue: 0,1:07:54.89,1:07:57.37,Default,up here, I'll update the\Nframe to put it back.
+Dialogue: 0,1:07:58.04,1:08:00.57,Default,One other thing, notice\Nthat in all this moving
+Dialogue: 0,1:08:00.57,1:08:04.86,Default,around this got set to 8,\Ninstead of the standard space,
+Dialogue: 0,1:08:04.86,1:08:07.64,Default,that sometimes happens, I'm\Nnot really sure why it lost its
+Dialogue: 0,1:08:07.64,1:08:10.70,Default,default space we didn't really\Ndo anything to specify that,
+Dialogue: 0,1:08:10.83,1:08:14.73,Default,but you can edit, select and\Nedit, or you can even, okay,
+Dialogue: 0,1:08:14.73,1:08:17.15,Default,so we could edit here and\Nchange this to standard,
+Dialogue: 0,1:08:17.41,1:08:19.62,Default,or watch this little trick,\NYou see that little guy?
+Dialogue: 0,1:08:19.62,1:08:21.14,Default,I'm going to double\Nclick on that.
+Dialogue: 0,1:08:21.96,1:08:23.75,Default,Okay, if you double\Nclick on a constraint,
+Dialogue: 0,1:08:24.11,1:08:26.95,Default,all this stuff will\Nappear right you are.
+Dialogue: 0,1:08:27.42,1:08:29.55,Default,So, in this case, I'm\Ngoing to switch from 8
+Dialogue: 0,1:08:29.83,1:08:31.13,Default,to the standard value.
+Dialogue: 0,1:08:32.10,1:08:35.11,Default,Okay? When I hit return, 8 is\Nthe standard value it turns out,
+Dialogue: 0,1:08:35.11,1:08:37.35,Default,so nothing changed,\Nbut just wanted
+Dialogue: 0,1:08:37.35,1:08:40.97,Default,to show you there how you can\Ndouble click on a constraint
+Dialogue: 0,1:08:41.21,1:08:44.03,Default,to set things like it's\Npriority and stuff like that.
+Dialogue: 0,1:08:44.18,1:08:46.41,Default,Okay? So that's it!
+Dialogue: 0,1:08:46.41,1:08:49.24,Default,For your homework, you only\Nhave a little bit of auto layout
+Dialogue: 0,1:08:49.24,1:08:50.15,Default,to do because you only have a,
+Dialogue: 0,1:08:50.26,1:08:53.30,Default,besides the card-containing\Nview, you may have redeal,
+Dialogue: 0,1:08:53.54,1:08:55.73,Default,add more cards, score,\NI don't know,
+Dialogue: 0,1:08:55.92,1:08:58.04,Default,because I let you delete\Nsome of the other stuff
+Dialogue: 0,1:08:58.33,1:09:00.32,Default,from previous assignment.
+Dialogue: 0,1:09:00.32,1:09:02.26,Default,So, auto layout should be\Npretty simple for this,
+Dialogue: 0,1:09:02.56,1:09:05.03,Default,but for the rest of this\Nclass, all quarter-long,
+Dialogue: 0,1:09:05.24,1:09:06.75,Default,you should always be\Nusing auto layout.
+Dialogue: 0,1:09:06.99,1:09:09.56,Default,Your app should always work\Nin landscape and portrait
+Dialogue: 0,1:09:09.56,1:09:11.82,Default,for the rest of this class,\Nokay, all assignments.
+Dialogue: 0,1:09:11.82,1:09:14.05,Default,It'll be in the assignments,\Nbut, just so you know.
+Dialogue: 0,1:09:15.37,1:09:15.98,Default,Thank you very much!
+Dialogue: 0,1:09:18.08,1:09:21.31,Default,>> For more, please visit\Nus at standford.edu.

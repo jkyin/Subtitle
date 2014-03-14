@@ -1,0 +1,1739 @@
+[Script Info]
+ScriptType: v4.00+
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
+Style: Default,Arial,16,&Hffffff,&Hffffff,&H0,&H0,0,0,0,1,1,0,2,10,10,10,0,0
+
+[Events]
+Format: Layer, Start, End, Style, Text
+Dialogue: 0,0:00:00.51,0:00:04.85,Default,[ Music ]
+Dialogue: 0,0:00:05.35,0:00:06.35,Default,>> Stanford University.
+Dialogue: 0,0:00:08.81,0:00:15.45,Default,>> Okay, well welcome to CS193p,\NLecture 12 of fall 2013 and 14,
+Dialogue: 0,0:00:15.85,0:00:17.21,Default,and today we have one topic
+Dialogue: 0,0:00:17.21,0:00:18.93,Default,and one topic only,\Nwhich is core data.
+Dialogue: 0,0:00:19.62,0:00:24.28,Default,And, as someone was asking\Nearlier, assignment 5 is due
+Dialogue: 0,0:00:24.28,0:00:26.86,Default,on Wednesday and then your\Nlast assignment, assignment 6,
+Dialogue: 0,0:00:26.86,0:00:28.65,Default,will go out then and\Nbe due a week later.
+Dialogue: 0,0:00:29.37,0:00:32.10,Default,ON Wednesday, I'm\Ngoing to be going
+Dialogue: 0,0:00:32.10,0:00:35.44,Default,over the final project\Nrequirements and we're going
+Dialogue: 0,0:00:35.44,0:00:37.86,Default,to continue with core data a\Nlittle bit, talk about core data
+Dialogue: 0,0:00:38.44,0:00:40.76,Default,with table, UI table view.
+Dialogue: 0,0:00:40.76,0:00:42.38,Default,And then I'm going\Nto do a big demo.
+Dialogue: 0,0:00:42.38,0:00:44.60,Default,So today's lecture is\Ngoing to be all slides.
+Dialogue: 0,0:00:45.00,0:00:47.08,Default,I don't usually like to do that\Njust because it's an awful lot
+Dialogue: 0,0:00:47.08,0:00:50.21,Default,of slides all at once, but\Nit makes sense in this case
+Dialogue: 0,0:00:50.40,0:00:52.79,Default,and I'll be doing the demo for\Ntoday's stuff on Wednesday,
+Dialogue: 0,0:00:52.79,0:00:56.65,Default,and then next week we'll start\Ntalking about advanced segwaying
+Dialogue: 0,0:00:56.65,0:00:58.92,Default,and maybe we'll do some\Nmap kit, multitasking,
+Dialogue: 0,0:00:58.92,0:01:01.04,Default,I'm not quite sure what I'm\Ngoing to cover next week
+Dialogue: 0,0:01:01.04,0:01:03.45,Default,because you won't have a\Nhomework assignment ton that.
+Dialogue: 0,0:01:03.45,0:01:06.70,Default,This core data stuff that we're\Ncovering today and Wednesday,
+Dialogue: 0,0:01:06.70,0:01:09.57,Default,that's going to be the topic of\Nyour last homework assignment
+Dialogue: 0,0:01:09.70,0:01:10.70,Default,that goes out on Wednesday.
+Dialogue: 0,0:01:12.08,0:01:14.79,Default,So, core data, what\Nis core data?
+Dialogue: 0,0:01:15.10,0:01:17.23,Default,Core data is an object-oriented\Ndatabase.
+Dialogue: 0,0:01:17.23,0:01:18.17,Default,Why do we need it?
+Dialogue: 0,0:01:18.53,0:01:21.23,Default,Because in any kind of\Nsignificant application
+Dialogue: 0,0:01:21.23,0:01:22.93,Default,where we have a lot\Nof data to crunch on,
+Dialogue: 0,0:01:23.21,0:01:26.90,Default,we can't be storing it in NS\Nuser defaults or not storing it
+Dialogue: 0,0:01:26.90,0:01:30.23,Default,at all, or always fetching\Nit down from Flickr, right?
+Dialogue: 0,0:01:30.23,0:01:33.11,Default,So your current assignment,\Nfor the Shutterbug demo
+Dialogue: 0,0:01:33.11,0:01:34.09,Default,that we did last week,
+Dialogue: 0,0:01:34.09,0:01:37.31,Default,we're just always [pause]\Nfetching our entire model,
+Dialogue: 0,0:01:37.31,0:01:40.16,Default,basically, every time\Nwe want it from Flickr,
+Dialogue: 0,0:01:40.16,0:01:43.55,Default,but what if we had a very large\Ndatabase of photos, thousands
+Dialogue: 0,0:01:43.55,0:01:46.88,Default,or tens of thousands of\Nlittle pieces of information
+Dialogue: 0,0:01:46.88,0:01:49.89,Default,about photos, we couldn't be\Nfetching that down every time
+Dialogue: 0,0:01:49.89,0:01:51.28,Default,and we couldn't store\Nit in NS user default
+Dialogue: 0,0:01:51.28,0:01:52.87,Default,so we need a real database.
+Dialogue: 0,0:01:52.92,0:01:56.37,Default,Plus, a read database allows\Nus to make really smart queries
+Dialogue: 0,0:01:56.59,0:01:58.76,Default,about what's, our\Ndata is right now.
+Dialogue: 0,0:01:58.76,0:02:01.58,Default,We can't really query it at\Nall, or almost not at all,
+Dialogue: 0,0:02:01.86,0:02:03.64,Default,we're just kind of\Ndisplaying it all in tables,
+Dialogue: 0,0:02:03.64,0:02:05.96,Default,so to take the next\Nlevel of sophistication
+Dialogue: 0,0:02:05.96,0:02:07.99,Default,in our app, we need to do that.
+Dialogue: 0,0:02:07.99,0:02:12.19,Default,So, core data is a very, very\Npowerful framework in iOS7,
+Dialogue: 0,0:02:12.19,0:02:15.46,Default,one of the most powerful\Nin terms of what it can do.
+Dialogue: 0,0:02:15.91,0:02:19.24,Default,I can only just barely\Nscratch the surface
+Dialogue: 0,0:02:19.24,0:02:21.59,Default,in a lecture, in a little bit.
+Dialogue: 0,0:02:21.85,0:02:24.34,Default,This week, I'm just going to\Ntry and get you the basics
+Dialogue: 0,0:02:24.34,0:02:25.74,Default,and you're going to\Nhave to, you know,
+Dialogue: 0,0:02:25.74,0:02:28.41,Default,if you want to do a serious\Ndatabase app in your future,
+Dialogue: 0,0:02:28.49,0:02:30.68,Default,maybe for your final\Nproject or beyond,
+Dialogue: 0,0:02:30.68,0:02:32.76,Default,you'll need to do a\Nlittle bit of extra reading
+Dialogue: 0,0:02:32.76,0:02:35.18,Default,up because core data\Nis massive, okay?
+Dialogue: 0,0:02:35.77,0:02:40.69,Default,But fundamentally, it's a base,\Nit's a way of creating objects,
+Dialogue: 0,0:02:40.83,0:02:43.10,Default,objective C objects that\Nyou are going to deal
+Dialogue: 0,0:02:43.10,0:02:50.30,Default,with that are mapped, or linked,\Nto SQL, or XML, databases, okay?
+Dialogue: 0,0:02:50.99,0:02:54.60,Default,So, it's kind of a bridge\Nbetween object-oriented land
+Dialogue: 0,0:02:54.92,0:02:58.38,Default,and database land, and\Ndatabase land is dominated
+Dialogue: 0,0:02:58.38,0:02:59.37,Default,by things like sequel.
+Dialogue: 0,0:02:59.37,0:03:01.90,Default,Okay? How many people\Nhere know what SQL is?
+Dialogue: 0,0:03:01.98,0:03:04.28,Default,Not know how to program\NSQL, but know what it is?
+Dialogue: 0,0:03:04.40,0:03:05.82,Default,Yeah, so everyone, pretty much.
+Dialogue: 0,0:03:05.82,0:03:08.45,Default,So that's mostly what\Ncore data is hooked
+Dialogue: 0,0:03:08.45,0:03:10.18,Default,up is, is sequel backend.
+Dialogue: 0,0:03:10.39,0:03:12.22,Default,So how does core data work?
+Dialogue: 0,0:03:12.94,0:03:16.38,Default,First, you create a visual\Nmap using a tool in Xcode.
+Dialogue: 0,0:03:16.65,0:03:19.19,Default,Okay? So dragging and\Ndropping and all that stuff,
+Dialogue: 0,0:03:19.23,0:03:22.29,Default,so creating a mapping between\Nan object-oriented view
+Dialogue: 0,0:03:22.29,0:03:25.59,Default,of your data and\Nthe sequel or tables
+Dialogue: 0,0:03:25.90,0:03:28.95,Default,and rows [pause]\Nversion of your data.
+Dialogue: 0,0:03:30.02,0:03:32.88,Default,And core data allows really
+Dialogue: 0,0:03:32.88,0:03:35.44,Default,that to be pretty seamless once\Nyou've created this mapping,
+Dialogue: 0,0:03:35.82,0:03:37.94,Default,and we'll talk all about\Nthat and how it does that,
+Dialogue: 0,0:03:37.94,0:03:41.33,Default,but let's start by looking\Nhow we create this visual map
+Dialogue: 0,0:03:41.83,0:03:42.58,Default,in Xcode.
+Dialogue: 0,0:03:43.41,0:03:46.78,Default,Okay? So, first, we create\Nthe map by doing new file,
+Dialogue: 0,0:03:46.78,0:03:49.35,Default,anytime we want to add\Nsomething new to our project,
+Dialogue: 0,0:03:49.35,0:03:52.87,Default,we're going to do new file, but\Nin new file, instead of doing
+Dialogue: 0,0:03:52.87,0:03:56.47,Default,like Cocoa Touch, objective C\Nclass, we're going to go down to
+Dialogue: 0,0:03:56.47,0:03:58.52,Default,where it says core\Ndata, see that?
+Dialogue: 0,0:03:58.85,0:04:01.89,Default,And pick data model, don't\Naccidentally pick mapping model,
+Dialogue: 0,0:04:01.89,0:04:03.74,Default,its data model that\Nyou want here, okay,
+Dialogue: 0,0:04:03.74,0:04:05.12,Default,the data model is the mapping
+Dialogue: 0,0:04:05.12,0:04:08.15,Default,between the object-oriented\Nworld and the database world.
+Dialogue: 0,0:04:08.40,0:04:10.69,Default,So you click that, it's going\Nto ask you where, what you want
+Dialogue: 0,0:04:10.69,0:04:12.18,Default,to call it and where\Nyou want to put it.
+Dialogue: 0,0:04:12.50,0:04:15.79,Default,Some people like to call\Ntheir model file, model,
+Dialogue: 0,0:04:15.79,0:04:16.83,Default,if they only have one.
+Dialogue: 0,0:04:17.23,0:04:20.15,Default,Some people like to name it\Nthe name of the application.
+Dialogue: 0,0:04:20.38,0:04:22.55,Default,So like of last week, if we were\Ndoing core data we might have
+Dialogue: 0,0:04:22.55,0:04:24.70,Default,called Shutterbug, the name.
+Dialogue: 0,0:04:24.70,0:04:27.00,Default,Sometimes you might\Nhave multiple mappings,
+Dialogue: 0,0:04:27.00,0:04:29.00,Default,and it is totally possible
+Dialogue: 0,0:04:29.00,0:04:31.34,Default,and in a big application\Nyou might well have multiple
+Dialogue: 0,0:04:31.34,0:04:33.36,Default,databases, multiple mappings,
+Dialogue: 0,0:04:33.36,0:04:36.54,Default,and so you would have multiple\Nfiles, so you want to pick names
+Dialogue: 0,0:04:36.54,0:04:39.03,Default,for your mappings that\Nkind of correspond
+Dialogue: 0,0:04:39.03,0:04:40.82,Default,to what their purpose is\Ninside your application,
+Dialogue: 0,0:04:40.82,0:04:43.26,Default,so here we're going to take the\Ndefault, which is just model,
+Dialogue: 0,0:04:43.71,0:04:46.06,Default,and you can see there,\Nit creates this new file.
+Dialogue: 0,0:04:46.06,0:04:47.58,Default,If you look over in the\Nnavigator over there,
+Dialogue: 0,0:04:47.81,0:04:51.07,Default,model dot xc data model d. Okay?
+Dialogue: 0,0:04:51.90,0:04:55.27,Default,And this is our mapping,\Nour visual mapping file,
+Dialogue: 0,0:04:55.60,0:04:59.62,Default,and you can see here that it has\Nsome components, and we're going
+Dialogue: 0,0:04:59.62,0:05:00.82,Default,to talk about most of them.
+Dialogue: 0,0:05:01.11,0:05:03.29,Default,The components are\Nentities, attributes,
+Dialogue: 0,0:05:03.29,0:05:05.83,Default,relationships, and\Nfetch properties.
+Dialogue: 0,0:05:05.88,0:05:05.97,Default,Okay?
+Dialogue: 0,0:05:06.48,0:05:09.38,Default,So entities are kind of\Nlike objects, they're going
+Dialogue: 0,0:05:09.38,0:05:10.61,Default,to map to our objects.
+Dialogue: 0,0:05:10.61,0:05:13.48,Default,In the database world,\Nthey are tables, okay?
+Dialogue: 0,0:05:14.19,0:05:17.79,Default,Attributes are kind of like the\Ncolumns in a table in database.
+Dialogue: 0,0:05:18.06,0:05:19.57,Default,In our object-oriented\Nworld, they're going
+Dialogue: 0,0:05:19.57,0:05:21.57,Default,to be properties\Non objects, okay?
+Dialogue: 0,0:05:22.00,0:05:24.71,Default,Relationships are also\Nproperties on objects,
+Dialogue: 0,0:05:24.93,0:05:28.18,Default,but they are pointers to other\Nobjects in the database, okay,
+Dialogue: 0,0:05:28.18,0:05:30.99,Default,or pointers to a bunch\Nof other objects, okay,
+Dialogue: 0,0:05:30.99,0:05:34.58,Default,so this would be kind of\Nlike joins between tables
+Dialogue: 0,0:05:34.69,0:05:35.96,Default,in the database sense.
+Dialogue: 0,0:05:36.27,0:05:40.24,Default,Fetch properties are kind of a\Ncalculated way to have a pointer
+Dialogue: 0,0:05:40.24,0:05:41.44,Default,to some other properties.
+Dialogue: 0,0:05:41.74,0:05:44.85,Default,I just have to cut something for\Ntime, so we're not going to talk
+Dialogue: 0,0:05:44.85,0:05:46.28,Default,about fetch properties,\Nthey're really not
+Dialogue: 0,0:05:46.28,0:05:48.65,Default,that complicated once you\Nunderstand how fetching works,
+Dialogue: 0,0:05:48.77,0:05:53.05,Default,much later in this lecture then\Nyou'll kind of get the idea.
+Dialogue: 0,0:05:53.05,0:05:55.18,Default,Oh, I can see how maybe\Nfetch properties would work
+Dialogue: 0,0:05:55.18,0:05:56.88,Default,and then you can read the\Ndocumentation and figure it out.
+Dialogue: 0,0:05:56.88,0:05:59.53,Default,So, that's what the data\Nmodel consists of, entities,
+Dialogue: 0,0:05:59.53,0:06:00.80,Default,attributes, relationships.
+Dialogue: 0,0:06:01.31,0:06:02.73,Default,That's what we're\Ngoing to talk about.
+Dialogue: 0,0:06:03.14,0:06:05.58,Default,Let's, for our example today,
+Dialogue: 0,0:06:05.78,0:06:09.37,Default,let's say we had a\NShutterbug-like application
+Dialogue: 0,0:06:09.63,0:06:12.61,Default,that had photos and\Nphotographers.
+Dialogue: 0,0:06:13.03,0:06:16.39,Default,Okay? So your homework is going\Nto be more places and photos.
+Dialogue: 0,0:06:16.73,0:06:20.10,Default,Our demo here, and the demo I\Ndo on Wednesday, and the slides,
+Dialogue: 0,0:06:20.10,0:06:21.88,Default,are going to be photos\Nand photographers.
+Dialogue: 0,0:06:21.88,0:06:23.79,Default,So those are the two things that\Nare going to be in our database,
+Dialogue: 0,0:06:23.79,0:06:25.18,Default,photos and photographers.
+Dialogue: 0,0:06:25.18,0:06:28.01,Default,So, let's create an\Nentity for the photos.
+Dialogue: 0,0:06:28.60,0:06:30.93,Default,So we click add entity\Ndown there at the bottom
+Dialogue: 0,0:06:30.93,0:06:31.85,Default,and we get this entity.
+Dialogue: 0,0:06:31.85,0:06:34.84,Default,I'm going to change the\Nname from entity to photo,
+Dialogue: 0,0:06:34.84,0:06:38.05,Default,so this is going to be my\Nphoto object in the database.
+Dialogue: 0,0:06:38.05,0:06:42.10,Default,And then I can add attributes\Nto my photo object by clicking
+Dialogue: 0,0:06:42.10,0:06:44.86,Default,on that little plus underneath\Nwhere it says attributes there.
+Dialogue: 0,0:06:45.29,0:06:47.42,Default,And when I add one, it\Nadds one called attribute,
+Dialogue: 0,0:06:47.42,0:06:49.76,Default,I'm going to change the\Nname of that to title,
+Dialogue: 0,0:06:49.76,0:06:52.41,Default,so photos have a title, so I'm\Ngoing to put a title in there.
+Dialogue: 0,0:06:52.71,0:06:55.24,Default,And you notice as I do\Nthis, I get an error,
+Dialogue: 0,0:06:55.24,0:06:57.48,Default,a little red error\Nwarning up there.
+Dialogue: 0,0:06:57.81,0:06:58.58,Default,Why is that?
+Dialogue: 0,0:06:58.58,0:07:02.63,Default,That's because the type\Nof my title is undefined.
+Dialogue: 0,0:07:02.63,0:07:05.86,Default,You see where it says type,\Nundefined next to title there?
+Dialogue: 0,0:07:06.15,0:07:07.11,Default,So that's not allowed.
+Dialogue: 0,0:07:07.26,0:07:10.42,Default,You have to specify the\Ntype of all the properties
+Dialogue: 0,0:07:10.42,0:07:13.83,Default,in your database, and so you\Njust click on that undefined,
+Dialogue: 0,0:07:13.83,0:07:15.83,Default,I'm going to set this one\Nto be a string, the title,
+Dialogue: 0,0:07:15.83,0:07:17.29,Default,obviously, is a string.
+Dialogue: 0,0:07:17.29,0:07:21.71,Default,Now, what can some of these\Nthings be, besides strings?
+Dialogue: 0,0:07:21.71,0:07:23.74,Default,Well they can be\Nnumbers, either integers
+Dialogue: 0,0:07:23.74,0:07:24.83,Default,or floating point numbers,
+Dialogue: 0,0:07:25.20,0:07:27.87,Default,those are all representing\Nthe database as,
+Dialogue: 0,0:07:27.87,0:07:30.32,Default,in your object world\Nrather, as NS numbers.
+Dialogue: 0,0:07:30.55,0:07:33.42,Default,Okay? All your properties,\Nin fact, all the attributes
+Dialogue: 0,0:07:33.42,0:07:36.65,Default,in your objects in the database,\Nall their properties are going
+Dialogue: 0,0:07:36.65,0:07:38.05,Default,to be objects of some sort.
+Dialogue: 0,0:07:38.05,0:07:40.25,Default,So NS string objects\Nif their strings.
+Dialogue: 0,0:07:40.99,0:07:44.63,Default,NS numbers if they're integers,\Nfloats, or double, or bullions.
+Dialogue: 0,0:07:45.11,0:07:47.28,Default,NS date if they're dates.
+Dialogue: 0,0:07:47.43,0:07:50.96,Default,NS datas if they're binary data,\Nthat's the second to the bottom.
+Dialogue: 0,0:07:51.25,0:07:53.40,Default,And then transformable is\Nkind of an interesting one,
+Dialogue: 0,0:07:53.40,0:07:55.10,Default,those will be NS data objects,
+Dialogue: 0,0:07:55.36,0:07:58.11,Default,which will provide a\Nlittle transformable object
+Dialogue: 0,0:07:58.11,0:08:00.35,Default,that will convert them\Nto some other type,
+Dialogue: 0,0:08:00.35,0:08:02.47,Default,like even a [inaudible]\Nstruct, or something like that,
+Dialogue: 0,0:08:02.47,0:08:04.22,Default,and we're not going to\Ntalk about transformables,
+Dialogue: 0,0:08:04.56,0:08:06.95,Default,but it is possible to\Nstore really any data type
+Dialogue: 0,0:08:07.22,0:08:10.65,Default,in the database as long as you\Nprovide a transformation object
+Dialogue: 0,0:08:10.65,0:08:13.02,Default,that will convert them back\Nand forth between NS data.
+Dialogue: 0,0:08:13.90,0:08:16.82,Default,Okay? So here, title is a\Nsimple one, it's a string,
+Dialogue: 0,0:08:17.14,0:08:19.13,Default,I'm going to add a whole\Nbunch of other attributes here
+Dialogue: 0,0:08:19.13,0:08:21.95,Default,that you kind of look, no\Nmore error there right now,
+Dialogue: 0,0:08:21.95,0:08:23.46,Default,that I set it as string\Nthere's no more error.
+Dialogue: 0,0:08:23.83,0:08:25.28,Default,If I add a whole bunch more,
+Dialogue: 0,0:08:25.28,0:08:28.45,Default,you can see I've added\Nan upload date that I got
+Dialogue: 0,0:08:28.45,0:08:29.95,Default,from Flickr, so that's a date.
+Dialogue: 0,0:08:30.42,0:08:34.92,Default,Even thumbnail data, so let's\Nsay I downloaded the thumbnail
+Dialogue: 0,0:08:35.22,0:08:38.00,Default,image data, the image date for\Na little thumbnail of my photo
+Dialogue: 0,0:08:38.00,0:08:39.74,Default,from Flickr, I can\Nactually put that data
+Dialogue: 0,0:08:40.25,0:08:42.25,Default,in the database as an NS data.
+Dialogue: 0,0:08:42.82,0:08:45.65,Default,Some people ask, how big an\NNS data could I put in there?
+Dialogue: 0,0:08:45.65,0:08:48.51,Default,For example, could I put an NS\Ndata that is the real photo,
+Dialogue: 0,0:08:48.51,0:08:51.95,Default,the big, you know, maybe\Na megabyte-size photo,
+Dialogue: 0,0:08:51.95,0:08:55.00,Default,and the answer is absolutely,\Nyou can put them in here,
+Dialogue: 0,0:08:55.00,0:08:57.28,Default,in fact, there's a little\Nswitch that you can turn
+Dialogue: 0,0:08:57.28,0:08:59.58,Default,on that says I'm going to\Nput something big here,
+Dialogue: 0,0:08:59.88,0:09:01.52,Default,store it in another file.
+Dialogue: 0,0:09:01.88,0:09:04.71,Default,Okay? But even if you store\Nit in the sequel file,
+Dialogue: 0,0:09:04.71,0:09:07.20,Default,it can usually manage it,\Nit's probably not the best,
+Dialogue: 0,0:09:07.20,0:09:09.15,Default,most efficient way\Nto do it, but yes,
+Dialogue: 0,0:09:09.15,0:09:12.46,Default,you can store big data\Nblobs in core data, as well.
+Dialogue: 0,0:09:13.32,0:09:15.57,Default,So, there's some\Nexample attributes.
+Dialogue: 0,0:09:15.87,0:09:18.00,Default,Let's look at this\Na different way.
+Dialogue: 0,0:09:18.00,0:09:19.19,Default,If you see down at\Nthe bottom there
+Dialogue: 0,0:09:19.19,0:09:22.65,Default,where it says editor style,\Nright, I clicked on that
+Dialogue: 0,0:09:22.65,0:09:24.88,Default,and it switched over to\Nshowing the same thing,
+Dialogue: 0,0:09:25.08,0:09:26.44,Default,but in a graphical format.
+Dialogue: 0,0:09:26.44,0:09:28.06,Default,So you see, here's\Nmy photo entity,
+Dialogue: 0,0:09:28.06,0:09:30.51,Default,I can see the attributes,\Nsee them there, listed there?
+Dialogue: 0,0:09:31.00,0:09:34.31,Default,And I can still create an entity\Nin this view, so I'm going
+Dialogue: 0,0:09:34.31,0:09:36.36,Default,to create another entity,\Nwhich is my photographer.
+Dialogue: 0,0:09:36.73,0:09:39.65,Default,I create that, entity, I'm\Ngoing to change the name
+Dialogue: 0,0:09:39.65,0:09:41.86,Default,to photographer, it changes it.
+Dialogue: 0,0:09:42.08,0:09:45.65,Default,Okay? I can also add\Nattributes in this view.
+Dialogue: 0,0:09:45.65,0:09:48.35,Default,So I just go down to this\Nbutton here, add attribute,
+Dialogue: 0,0:09:48.35,0:09:50.37,Default,I'm going to add an\Nattribute here and I'm going
+Dialogue: 0,0:09:50.37,0:09:53.35,Default,to call it name, so that's\Nthe name of the photographer.
+Dialogue: 0,0:09:54.09,0:09:56.35,Default,You can also edit\Nthese attributes,
+Dialogue: 0,0:09:56.50,0:09:58.71,Default,here in this view,\Nby clicking on them.
+Dialogue: 0,0:09:58.80,0:10:01.43,Default,Alright, by clicking on\Nthe name, and then going
+Dialogue: 0,0:10:01.43,0:10:04.38,Default,up to this attributes\Ninspector up here, okay?
+Dialogue: 0,0:10:04.71,0:10:06.59,Default,So this is kind of like\Nthe attributes inspector
+Dialogue: 0,0:10:06.59,0:10:10.27,Default,in other environments inside of\NXcode, so if I click on that,
+Dialogue: 0,0:10:10.58,0:10:14.24,Default,you can see I get a bunch of\Nattributes of my attributes.
+Dialogue: 0,0:10:14.31,0:10:17.70,Default,So here's the name one, and you\Ncan see there's the name of it
+Dialogue: 0,0:10:17.89,0:10:20.69,Default,and there's the attribute type,\Nwhich you can see is undefined,
+Dialogue: 0,0:10:20.69,0:10:22.57,Default,that's why we have\Nthe error up there.
+Dialogue: 0,0:10:22.71,0:10:24.13,Default,It's the attribute\Ntype undefined.
+Dialogue: 0,0:10:24.13,0:10:26.92,Default,So I'm going to click on that\Npopup right there and change
+Dialogue: 0,0:10:26.92,0:10:28.64,Default,that undefined to be string.
+Dialogue: 0,0:10:28.78,0:10:30.45,Default,The photographers\Nname is also a string.
+Dialogue: 0,0:10:31.21,0:10:31.98,Default,Okay? So we got that.
+Dialogue: 0,0:10:32.61,0:10:35.63,Default,I can also create relationships\Nbetween these objects,
+Dialogue: 0,0:10:35.63,0:10:37.65,Default,photos and photographers,\Nclearly a photo
+Dialogue: 0,0:10:37.65,0:10:39.45,Default,and a photographer have\Na relationship, right?
+Dialogue: 0,0:10:39.45,0:10:41.18,Default,A photographer takes photos.
+Dialogue: 0,0:10:41.47,0:10:43.18,Default,A photo is taken\Nby a photographer.
+Dialogue: 0,0:10:43.18,0:10:46.72,Default,So I can create relationships\Nbetween them by control,
+Dialogue: 0,0:10:46.72,0:10:48.93,Default,dragging, that's how\Nwe like to do things
+Dialogue: 0,0:10:48.93,0:10:50.48,Default,in Xcode, we control, drag.
+Dialogue: 0,0:10:50.48,0:10:51.44,Default,So I'm going to control,
+Dialogue: 0,0:10:51.44,0:10:53.67,Default,drag between the photo\Nand the photographer.
+Dialogue: 0,0:10:53.67,0:10:56.95,Default,And it's going to create this\Nnew relationship between them.
+Dialogue: 0,0:10:57.33,0:11:00.43,Default,Now, the relationship will have\Na different name on each side.
+Dialogue: 0,0:11:01.17,0:11:03.41,Default,On the photo side, we're going\Nto call this relationship
+Dialogue: 0,0:11:03.57,0:11:06.27,Default,who took, because\Nthis relationship is
+Dialogue: 0,0:11:06.55,0:11:08.06,Default,for the photo, who took it.
+Dialogue: 0,0:11:08.61,0:11:11.32,Default,And on the photographer side,\Nwe're going to call to photos,
+Dialogue: 0,0:11:11.32,0:11:14.50,Default,because a photographer\Ncan take multiple photos,
+Dialogue: 0,0:11:14.50,0:11:15.71,Default,so we'll call it photos.
+Dialogue: 0,0:11:16.09,0:11:18.47,Default,Okay? So this is the same\Nrelationship, but it's going
+Dialogue: 0,0:11:18.47,0:11:21.48,Default,to have a property on\Neach of these two objects,
+Dialogue: 0,0:11:21.48,0:11:23.71,Default,photos and photographers,\Nit's a little different.
+Dialogue: 0,0:11:23.92,0:11:26.57,Default,Now, notice that from a\Nphotographer's standpoint,
+Dialogue: 0,0:11:26.57,0:11:29.23,Default,this relationship is\Nnot just a one-to-one,
+Dialogue: 0,0:11:29.23,0:11:31.51,Default,because a photographer\Ncan take multiple photos,
+Dialogue: 0,0:11:31.78,0:11:33.99,Default,and you can see them in\Nthe inspector for photos,
+Dialogue: 0,0:11:33.99,0:11:37.56,Default,on photographer, there's a\Ntype that says 2, 1, okay?
+Dialogue: 0,0:11:37.56,0:11:40.06,Default,That means it's a 1,\N2, 1, relationship.
+Dialogue: 0,0:11:40.30,0:11:44.43,Default,I can actually change that to\Ntoo many, and when I do that,
+Dialogue: 0,0:11:44.47,0:11:48.53,Default,you're going to see that I get a\Ndouble arrow head, on that side
+Dialogue: 0,0:11:48.53,0:11:49.25,Default,of the pointer there,
+Dialogue: 0,0:11:49.50,0:11:52.40,Default,that's saying a photographer\Ncan have multiple photos.
+Dialogue: 0,0:11:53.07,0:11:55.96,Default,Now, we talked about\Nhow title is a string
+Dialogue: 0,0:11:55.96,0:12:01.26,Default,and upload date is a date, what\Ntype is who took and photos?
+Dialogue: 0,0:12:01.40,0:12:02.30,Default,What type are those?
+Dialogue: 0,0:12:02.30,0:12:05.01,Default,Because they're just properties,\Nas well, of these objects,
+Dialogue: 0,0:12:05.01,0:12:06.35,Default,but what's their type?
+Dialogue: 0,0:12:06.77,0:12:10.30,Default,And it turns out that\Nsomething like photos,
+Dialogue: 0,0:12:10.30,0:12:13.00,Default,which is a too many,\Nis an NS set.
+Dialogue: 0,0:12:13.86,0:12:15.46,Default,Okay? That's going\Nto be its type.
+Dialogue: 0,0:12:15.85,0:12:19.13,Default,Just like title is a NS\Nstring, photos is an NS set.
+Dialogue: 0,0:12:19.66,0:12:20.72,Default,What about who took?
+Dialogue: 0,0:12:21.19,0:12:25.82,Default,Who took turns out to be\Na NS-managed object star,
+Dialogue: 0,0:12:25.82,0:12:28.53,Default,so it's a pointer to\Nan NS-managed object.
+Dialogue: 0,0:12:28.84,0:12:33.27,Default,NS-managed object is the\Nsuper class for all objects
+Dialogue: 0,0:12:33.27,0:12:35.85,Default,in the database, okay,\Nso photo is going
+Dialogue: 0,0:12:35.85,0:12:38.19,Default,to be an NS managed-object,\Na photographer is going
+Dialogue: 0,0:12:38.19,0:12:39.29,Default,to be a NS-managed object.
+Dialogue: 0,0:12:39.60,0:12:41.36,Default,In our objective C\Ncode, they're all going
+Dialogue: 0,0:12:41.36,0:12:44.61,Default,to be NS-managed objects, so,\Nof course, the who took pointer,
+Dialogue: 0,0:12:44.61,0:12:46.04,Default,which is a pointer\Nto a photographer,
+Dialogue: 0,0:12:46.29,0:12:48.93,Default,is going to be an NS-managed\Nobject star, and we're going
+Dialogue: 0,0:12:48.93,0:12:51.11,Default,to see how we can\Nsubclass NS-managed object
+Dialogue: 0,0:12:51.11,0:12:53.64,Default,to add all these properties,\Nand all this stuff,
+Dialogue: 0,0:12:53.64,0:12:55.32,Default,and then it would be\Na photographer star,
+Dialogue: 0,0:12:55.32,0:12:57.20,Default,but that's what who took is.
+Dialogue: 0,0:12:57.20,0:12:59.14,Default,It's going to be exactly what\Nyou would expect, it's a pointer
+Dialogue: 0,0:12:59.39,0:13:01.26,Default,to an object, which\Nis that other object.
+Dialogue: 0,0:13:02.03,0:13:07.38,Default,Okay? [Pause] This little delete\Nrule right there, I'm not going
+Dialogue: 0,0:13:07.38,0:13:09.03,Default,to go into detail about this,
+Dialogue: 0,0:13:09.36,0:13:13.32,Default,but the delete rule specifies\Nwhat to do to who took, okay,
+Dialogue: 0,0:13:13.37,0:13:15.22,Default,this is the delete\Nrule for photos,
+Dialogue: 0,0:13:15.22,0:13:17.99,Default,you see I'm inspecting photos\Nthere, this is the delete rule
+Dialogue: 0,0:13:17.99,0:13:20.16,Default,that says if I delete\Na photographer,
+Dialogue: 0,0:13:20.24,0:13:21.51,Default,what happens to who took?
+Dialogue: 0,0:13:22.53,0:13:24.96,Default,Okay? Because who took was\Npointing to this photographer
+Dialogue: 0,0:13:24.96,0:13:26.77,Default,and if I delete that\Nphotographer from the database,
+Dialogue: 0,0:13:26.77,0:13:29.83,Default,and the answer here, this\Ndelete rule is nullify,
+Dialogue: 0,0:13:29.83,0:13:31.50,Default,which means who took\Nwould be set to nil.
+Dialogue: 0,0:13:32.29,0:13:36.76,Default,Okay? But there are other\Nrules, for example, cascade,
+Dialogue: 0,0:13:36.87,0:13:39.31,Default,which means delete, when\Nyou delete the photographer,
+Dialogue: 0,0:13:39.44,0:13:42.09,Default,delete every single\Nphoto that it points to.
+Dialogue: 0,0:13:42.24,0:13:45.14,Default,Alright? Cascade the delete\Nthroughout the database.
+Dialogue: 0,0:13:45.21,0:13:47.02,Default,So, you really want to know\Nwhat you're doing here.
+Dialogue: 0,0:13:47.19,0:13:49.65,Default,The safest one is usually\Nnullify, set things to nil,
+Dialogue: 0,0:13:49.85,0:13:51.85,Default,but if your database doesn't\Nmake sense if a pointer points
+Dialogue: 0,0:13:51.85,0:13:54.76,Default,to nil, you might need more\Ncomplicated delete rules there,
+Dialogue: 0,0:13:55.39,0:13:57.78,Default,but, in your homework, you won't\Nneed anything more complicated
+Dialogue: 0,0:13:57.78,0:13:58.86,Default,than that.
+Dialogue: 0,0:13:59.32,0:14:02.96,Default,So that's basically how we\Nbuild this map between objects
+Dialogue: 0,0:14:03.22,0:14:04.92,Default,and the database, okay?
+Dialogue: 0,0:14:05.19,0:14:06.45,Default,So, there's a lot of things
+Dialogue: 0,0:14:06.45,0:14:08.39,Default,that you can do once\Nyou have this map.
+Dialogue: 0,0:14:08.69,0:14:12.18,Default,We're going to focus on the\Ncreating entities, attributes,
+Dialogue: 0,0:14:12.41,0:14:15.36,Default,and relationships, and then\Nsetting their attributes
+Dialogue: 0,0:14:15.36,0:14:17.28,Default,and then querying for\Nthem and things like that.
+Dialogue: 0,0:14:17.54,0:14:19.25,Default,But there's a lot of other\Nthings you can do in core data,
+Dialogue: 0,0:14:19.58,0:14:22.53,Default,I'll mention some of them at the\Nend and you can go read up on it
+Dialogue: 0,0:14:22.56,0:14:25.39,Default,if you want to do more\Nsophisticated database things.
+Dialogue: 0,0:14:25.54,0:14:29.05,Default,So, how do we access all\Nof this stuff in our code,
+Dialogue: 0,0:14:29.05,0:14:30.11,Default,once we've created this map?
+Dialogue: 0,0:14:30.11,0:14:34.03,Default,And the answer is we need an\NNS-managed object context.
+Dialogue: 0,0:14:34.44,0:14:36.20,Default,Okay? An NS-managed\Nobject context.
+Dialogue: 0,0:14:36.20,0:14:41.54,Default,This context is kind of the hook\Nwe need to go create objects
+Dialogue: 0,0:14:41.54,0:14:44.53,Default,in the database, set attributes\Nof objects in the database,
+Dialogue: 0,0:14:44.62,0:14:46.06,Default,query for objects\Nfor the database,
+Dialogue: 0,0:14:46.06,0:14:48.14,Default,we all do these through\Nthis context.
+Dialogue: 0,0:14:48.14,0:14:50.05,Default,So, how do we get a context?
+Dialogue: 0,0:14:50.05,0:14:51.78,Default,Well, there's really\Ntwo ways to do it.
+Dialogue: 0,0:14:52.04,0:14:55.93,Default,One is you use this class UI\Nmanaged object, which I'm ,
+Dialogue: 0,0:14:56.10,0:14:58.54,Default,or managed document rather,\Nwhich I'm going to talk about.
+Dialogue: 0,0:14:59.07,0:15:01.66,Default,And the second way, which\NI'm not going to talk about,
+Dialogue: 0,0:15:01.70,0:15:05.14,Default,is that you can alloc init\Na NS-managed object context.
+Dialogue: 0,0:15:05.14,0:15:06.57,Default,The reason I'm not going\Nto talk about it is,
+Dialogue: 0,0:15:06.91,0:15:10.32,Default,you got to know a little bit\Nabout context and how they work
+Dialogue: 0,0:15:10.32,0:15:13.11,Default,and how they do thread\Nsafety and things like that,
+Dialogue: 0,0:15:13.11,0:15:15.07,Default,that I really don't want\Nto get into the details of,
+Dialogue: 0,0:15:15.34,0:15:18.60,Default,and that UI-managed document\Ntakes care of it all for us.
+Dialogue: 0,0:15:18.89,0:15:18.98,Default,Okay?
+Dialogue: 0,0:15:19.05,0:15:22.06,Default,So that's why I'm going to focus\Non the UI-managed document way.
+Dialogue: 0,0:15:22.32,0:15:24.53,Default,If you want to see how the way
+Dialogue: 0,0:15:24.53,0:15:26.77,Default,of alloc initing an\NNS-managed object context,
+Dialogue: 0,0:15:26.77,0:15:29.07,Default,because there's more then that\Nyou need to do, like you've got
+Dialogue: 0,0:15:29.07,0:15:32.01,Default,to specify where the file is,\Nthe persistent store for it,
+Dialogue: 0,0:15:32.01,0:15:34.38,Default,you got to get this\Nmap into the picture.
+Dialogue: 0,0:15:34.64,0:15:36.45,Default,All that stuff you'd\Nhave to do manually
+Dialogue: 0,0:15:36.45,0:15:38.06,Default,if you don't use\NUI-managed document.
+Dialogue: 0,0:15:38.50,0:15:40.39,Default,If you go when creating\Na new project
+Dialogue: 0,0:15:40.39,0:15:43.78,Default,and say master detail instead\Nof single view controller,
+Dialogue: 0,0:15:44.04,0:15:46.67,Default,it'll actually have a button\Nthat says use core data
+Dialogue: 0,0:15:46.67,0:15:49.24,Default,and when you create that new\None, you'll see a whole bunch
+Dialogue: 0,0:15:49.24,0:15:53.14,Default,of core data code that does\Nall this business in there.
+Dialogue: 0,0:15:53.14,0:15:55.64,Default,Okay? But, there's no need\Nfor you to go look at that,
+Dialogue: 0,0:15:55.64,0:15:57.80,Default,UI-managed document\Nis a much simpler,
+Dialogue: 0,0:15:57.80,0:16:00.01,Default,cleaner way to get\Nyourself a UI,
+Dialogue: 0,0:16:00.01,0:16:02.56,Default,or an NS-managed object context,
+Dialogue: 0,0:16:02.56,0:16:03.71,Default,which is what we're\Ntrying to do.
+Dialogue: 0,0:16:04.07,0:16:07.16,Default,So let's talk about UI-managed\Ndocument and how that works.
+Dialogue: 0,0:16:07.48,0:16:10.01,Default,It inherits from a class\Ncalled UI document.
+Dialogue: 0,0:16:10.01,0:16:12.97,Default,UI document is a whole\Nbunch of mechanism
+Dialogue: 0,0:16:12.97,0:16:15.39,Default,for managing some storage, okay?
+Dialogue: 0,0:16:15.64,0:16:19.84,Default,UI-managed document puts a\Ncore database in some storage.
+Dialogue: 0,0:16:20.12,0:16:23.14,Default,So you're managing the storage\Nof your core data database,
+Dialogue: 0,0:16:23.18,0:16:26.55,Default,so you can think of UI-managed\Ndocument as just like a thing
+Dialogue: 0,0:16:26.73,0:16:29.25,Default,that contains your core\Ndata database for you.
+Dialogue: 0,0:16:29.73,0:16:35.15,Default,And all you ever really do\Nis open, or save, or open
+Dialogue: 0,0:16:35.15,0:16:36.78,Default,and create, a UI-managed\Ndocument
+Dialogue: 0,0:16:36.78,0:16:38.93,Default,and then grab its\Nmanaged object context,
+Dialogue: 0,0:16:38.99,0:16:40.57,Default,and then use it to\Ndo your database.
+Dialogue: 0,0:16:40.78,0:16:41.15,Default,That's it.
+Dialogue: 0,0:16:41.66,0:16:43.24,Default,Okay? So that's what\Nwe're going to talk about.
+Dialogue: 0,0:16:43.47,0:16:46.70,Default,How to open, or create,\Na UI-managed document,
+Dialogue: 0,0:16:46.70,0:16:49.33,Default,and then get its managed object\Ncontext and we'll dive back
+Dialogue: 0,0:16:49.33,0:16:51.88,Default,into now that we have a\Ncontext, how do we do core data?
+Dialogue: 0,0:16:52.62,0:16:55.73,Default,So here's how you create\Na UI-managed document.
+Dialogue: 0,0:16:55.87,0:16:56.86,Default,You alloc init it.
+Dialogue: 0,0:16:56.86,0:17:00.97,Default,Its designated initializer\Nis init with file URL,
+Dialogue: 0,0:17:01.28,0:17:02.75,Default,you have to give it the URL
+Dialogue: 0,0:17:02.75,0:17:06.27,Default,where this core data database\Nis going to be stored, okay?
+Dialogue: 0,0:17:06.67,0:17:09.58,Default,I've put these four lines\Nof code that are in white,
+Dialogue: 0,0:17:09.75,0:17:11.24,Default,that are before the yellow here,
+Dialogue: 0,0:17:11.98,0:17:15.16,Default,they describe how you would\Ncreate a document called My
+Dialogue: 0,0:17:15.16,0:17:18.88,Default,Document in the users\Ndocuments directory, okay?
+Dialogue: 0,0:17:19.08,0:17:21.25,Default,So when you're, we\Nhaven't really talked
+Dialogue: 0,0:17:21.25,0:17:23.29,Default,about storing files, right?
+Dialogue: 0,0:17:23.29,0:17:25.35,Default,We haven't accessed\Nthe file system at all,
+Dialogue: 0,0:17:25.35,0:17:27.58,Default,in anything we've ever done.
+Dialogue: 0,0:17:27.68,0:17:30.14,Default,We do this with this\Nclass NS file manager.
+Dialogue: 0,0:17:30.14,0:17:32.40,Default,I'm not really going to\Ncover that this week.
+Dialogue: 0,0:17:32.73,0:17:36.49,Default,Suffice it to say the file\Nmanager can give you the URL
+Dialogue: 0,0:17:36.49,0:17:39.24,Default,of the documents\Ndirectory, for the user,
+Dialogue: 0,0:17:39.24,0:17:41.20,Default,that's what the second\Nline of code there is,
+Dialogue: 0,0:17:41.43,0:17:43.97,Default,and then you can just append\Nwhatever you want the name
+Dialogue: 0,0:17:43.97,0:17:48.06,Default,of your document to be, like\Nmy document or Flickr database,
+Dialogue: 0,0:17:48.06,0:17:49.52,Default,or whatever you would\Nwant to call it.
+Dialogue: 0,0:17:49.77,0:17:51.67,Default,This is going to be the\NURL where it's going to put
+Dialogue: 0,0:17:51.67,0:17:53.21,Default,that core data database for you.
+Dialogue: 0,0:17:53.69,0:17:57.05,Default,So now you have the URL,\Nyou just say alloc init
+Dialogue: 0,0:17:57.23,0:17:58.85,Default,to create a UI-managed document.
+Dialogue: 0,0:17:59.44,0:18:01.98,Default,Okay? So, this UI-managed\Ndocument though,
+Dialogue: 0,0:18:01.98,0:18:04.75,Default,you've only alloc init it, you\Nhaven't actually created it
+Dialogue: 0,0:18:04.75,0:18:05.75,Default,on disk, it doesn't exist.
+Dialogue: 0,0:18:05.75,0:18:08.16,Default,It doesn't exist\Non disc yet, okay?
+Dialogue: 0,0:18:08.48,0:18:12.39,Default,So, we've got some work to do to\Nmake this thing exist on disc,
+Dialogue: 0,0:18:12.71,0:18:13.48,Default,and how do we do that?
+Dialogue: 0,0:18:14.04,0:18:18.87,Default,Well, we have to create\Nit if it doesn't exist,
+Dialogue: 0,0:18:19.09,0:18:21.59,Default,and we have to open\Nit if it does exist.
+Dialogue: 0,0:18:21.84,0:18:23.42,Default,In other words, we've\Nused it before.
+Dialogue: 0,0:18:23.93,0:18:26.49,Default,So to find out whether\Nit exists on disc,
+Dialogue: 0,0:18:26.49,0:18:30.27,Default,we have to do this file manager\Nthing, file exist that path.
+Dialogue: 0,0:18:30.43,0:18:32.05,Default,So you have the URL\Nto it, you say,
+Dialogue: 0,0:18:32.52,0:18:34.09,Default,NS file manager default manager,
+Dialogue: 0,0:18:34.09,0:18:35.57,Default,that's like a shared\Nfile manager.
+Dialogue: 0,0:18:35.90,0:18:38.46,Default,File existed path, it returns\Na bullion whether the file
+Dialogue: 0,0:18:38.46,0:18:39.58,Default,already exists.
+Dialogue: 0,0:18:39.70,0:18:42.06,Default,If it does exist, in other\Nwords the file exists,
+Dialogue: 0,0:18:42.31,0:18:44.18,Default,then we're going to open\Nit, and the way we're going
+Dialogue: 0,0:18:44.18,0:18:47.06,Default,to open it is with the\NUI-managed document method open
+Dialogue: 0,0:18:47.06,0:18:48.14,Default,with completion handler.
+Dialogue: 0,0:18:48.74,0:18:53.52,Default,If it doesn't exist, then we're\Ngoing to create that document
+Dialogue: 0,0:18:53.52,0:18:56.46,Default,on disc with save to URL.
+Dialogue: 0,0:18:56.75,0:18:59.23,Default,For save operation,\NUI document save
+Dialogue: 0,0:18:59.23,0:19:00.86,Default,for creating is the\Nargument we want there,
+Dialogue: 0,0:19:00.86,0:19:03.45,Default,because we're creating this\Nfile, completion handler.
+Dialogue: 0,0:19:04.56,0:19:07.51,Default,Okay? What's that completion\Nhandler business all about?
+Dialogue: 0,0:19:07.68,0:19:11.81,Default,Okay, why do these open and save\Nand create this, it says save
+Dialogue: 0,0:19:11.81,0:19:14.04,Default,to URL, but really\Nit's create at URL.
+Dialogue: 0,0:19:14.44,0:19:16.30,Default,Why do they have this\Ncompletion handler?
+Dialogue: 0,0:19:16.97,0:19:19.88,Default,Well, it's because\Nthese are asynchronous.
+Dialogue: 0,0:19:20.53,0:19:23.21,Default,These two methods open\Nand create, basically,
+Dialogue: 0,0:19:23.70,0:19:26.21,Default,are asynchronous, they\Ndon't happen immediately.
+Dialogue: 0,0:19:26.38,0:19:30.08,Default,When you ask the UI-managed\Ndocument please open this
+Dialogue: 0,0:19:30.15,0:19:31.68,Default,or please create this for me,
+Dialogue: 0,0:19:32.02,0:19:33.76,Default,it might take it a\Nlittle bit of time.
+Dialogue: 0,0:19:34.23,0:19:36.19,Default,Okay? Why might it\Ntake some time?
+Dialogue: 0,0:19:36.34,0:19:38.68,Default,Well, it's possible it\Ncould take some time
+Dialogue: 0,0:19:38.68,0:19:41.36,Default,because the file system takes\Na certain amount of time, but,
+Dialogue: 0,0:19:41.36,0:19:43.29,Default,yeah, there's other things\Ninvolved that we're not going
+Dialogue: 0,0:19:43.29,0:19:46.34,Default,to talk about, like\NiCloud, where maybe it needs
+Dialogue: 0,0:19:46.34,0:19:49.93,Default,to go check something with\Nsome network cache or something
+Dialogue: 0,0:19:49.93,0:19:53.98,Default,like that, because this document\Nis going to be on iCloud,
+Dialogue: 0,0:19:54.17,0:19:55.34,Default,okay, in other devices.
+Dialogue: 0,0:19:56.02,0:19:58.94,Default,Now, one great thing about\NUI-managed document and using
+Dialogue: 0,0:19:58.94,0:20:01.21,Default,that to do your core\Ndata database,
+Dialogue: 0,0:20:01.45,0:20:04.29,Default,is you're on the\Nfast-track to iCloud.
+Dialogue: 0,0:20:04.67,0:20:07.26,Default,Okay? iCloud much easier,\Nmore straightforward
+Dialogue: 0,0:20:07.26,0:20:08.76,Default,if you just start with\NUI-managed document.
+Dialogue: 0,0:20:09.55,0:20:12.11,Default,But anyway, suffice it\Nto say, these two things,
+Dialogue: 0,0:20:12.11,0:20:15.17,Default,opening a document and creating\Ndocument, are asynchronous,
+Dialogue: 0,0:20:15.17,0:20:16.75,Default,which means that\Ncompletion handler,
+Dialogue: 0,0:20:16.75,0:20:19.03,Default,that little syntax there,
+Dialogue: 0,0:20:19.03,0:20:22.10,Default,but that completion\Nhandler gets called back
+Dialogue: 0,0:20:22.29,0:20:25.95,Default,on the thread you called these\Nmethods on, which has got
+Dialogue: 0,0:20:25.95,0:20:28.62,Default,to be the main thread because\Nthis is UI-managed document,
+Dialogue: 0,0:20:28.62,0:20:31.12,Default,this is a UI kit object, you\Nhave to call these methods
+Dialogue: 0,0:20:31.26,0:20:32.98,Default,on the main thread,\Nthe main queue.
+Dialogue: 0,0:20:32.98,0:20:35.80,Default,So that completion handler\Nwill get called back
+Dialogue: 0,0:20:35.80,0:20:37.45,Default,on the main queue\Nwhen it's done.
+Dialogue: 0,0:20:38.33,0:20:40.70,Default,Okay? No matter how long it\Ntakes, it'll get called later
+Dialogue: 0,0:20:40.78,0:20:42.78,Default,when it's done, and\Nthen in that block,
+Dialogue: 0,0:20:42.78,0:20:44.58,Default,you just start doing\Nwhat you want to do.
+Dialogue: 0,0:20:44.90,0:20:46.88,Default,Alright? So let's talk\Nabout what you might,
+Dialogue: 0,0:20:47.06,0:20:50.49,Default,how this might look to\N[pause] see if the file exists
+Dialogue: 0,0:20:50.49,0:20:54.17,Default,and if it does open it and\Nif it doesn't, create it,
+Dialogue: 0,0:20:54.34,0:20:55.39,Default,it looks something like this.
+Dialogue: 0,0:20:55.60,0:20:57.20,Default,And inside that completion\Nhandler,
+Dialogue: 0,0:20:57.56,0:21:00.59,Default,if you successfully opened\Nor successfully created it,
+Dialogue: 0,0:21:00.75,0:21:02.52,Default,you're going to call\Nsome method of yours,
+Dialogue: 0,0:21:02.52,0:21:04.79,Default,I've called it document\Nis ready, you can call
+Dialogue: 0,0:21:04.79,0:21:07.87,Default,that method anything you\Nwant, that says okay,
+Dialogue: 0,0:21:08.07,0:21:10.72,Default,the documents ready to\Ngo, now you can go use it.
+Dialogue: 0,0:21:11.27,0:21:13.19,Default,Alright? And I'm doing the\Nsame thing in either case.
+Dialogue: 0,0:21:13.24,0:21:16.56,Default,It's a little bit of a bummer\Nthat there's no method like open
+Dialogue: 0,0:21:16.56,0:21:18.90,Default,or create, and it just does\Nit all in once, that you have
+Dialogue: 0,0:21:18.90,0:21:21.90,Default,to do this file exist business,\Nbut you do, so you're going
+Dialogue: 0,0:21:21.90,0:21:25.33,Default,to have this little sequence\Nof code in almost any app
+Dialogue: 0,0:21:25.51,0:21:28.05,Default,that uses a UI-managed\Ndocument, okay?
+Dialogue: 0,0:21:28.08,0:21:32.83,Default,It's kind of silly, because it's\Nall very, very simple, similar,
+Dialogue: 0,0:21:33.14,0:21:35.44,Default,if then there, but that's\Nwhat it looks like, okay?
+Dialogue: 0,0:21:35.63,0:21:38.69,Default,So now, what does that document\Nis ready method look like?
+Dialogue: 0,0:21:38.69,0:21:39.82,Default,It looks something like this.
+Dialogue: 0,0:21:40.17,0:21:42.60,Default,One thing I might\Ndo at the beginning
+Dialogue: 0,0:21:42.60,0:21:46.36,Default,of my document is ready is check\Nthe state of the document to see
+Dialogue: 0,0:21:46.36,0:21:47.65,Default,if it's in the normal state,
+Dialogue: 0,0:21:47.65,0:21:49.82,Default,normal state means this\Nguys is ready to go.
+Dialogue: 0,0:21:50.69,0:21:52.74,Default,Okay? What other\Nstates could it be in?
+Dialogue: 0,0:21:52.96,0:21:55.17,Default,Well it could be in\Nthe state closed,
+Dialogue: 0,0:21:55.42,0:21:57.62,Default,closed means you\Nhaven't opened it yet
+Dialogue: 0,0:21:57.68,0:21:59.16,Default,or you haven't created it yet.
+Dialogue: 0,0:21:59.33,0:22:01.06,Default,Either case it's\Ngoing to be closed.
+Dialogue: 0,0:22:01.24,0:22:03.22,Default,You cannot use a document\Nonce in the closed state.
+Dialogue: 0,0:22:03.63,0:22:06.81,Default,Some of these other states,\Nlike there was a saving error
+Dialogue: 0,0:22:06.81,0:22:08.94,Default,or editing is temporarily\Ndisabled
+Dialogue: 0,0:22:08.94,0:22:11.78,Default,because someone else is\Nediting this document in iCloud
+Dialogue: 0,0:22:12.05,0:22:13.76,Default,and its updating, for example.
+Dialogue: 0,0:22:13.76,0:22:16.19,Default,You're not going to run\Ninto those in this class,
+Dialogue: 0,0:22:16.46,0:22:18.28,Default,but you should know\Nthat they are there.
+Dialogue: 0,0:22:18.58,0:22:22.28,Default,So, checking that, at the\Nbeginning to, you know,
+Dialogue: 0,0:22:22.28,0:22:24.65,Default,it's a bit mask there, that's\Nwhy I'm using that ampersand,
+Dialogue: 0,0:22:24.65,0:22:25.82,Default,right, I'm just checking\Nthat bit,
+Dialogue: 0,0:22:25.82,0:22:27.08,Default,do my documents stay normal?
+Dialogue: 0,0:22:27.34,0:22:28.97,Default,Just to see if the\Ndocument is ready to go.
+Dialogue: 0,0:22:28.97,0:22:31.17,Default,So that might be the first\Nthing I do is check its state
+Dialogue: 0,0:22:31.17,0:22:32.59,Default,to make sure it's ready\Nto go, if it's not,
+Dialogue: 0,0:22:32.59,0:22:34.73,Default,like if it was closed, then\NI might go back and try
+Dialogue: 0,0:22:34.73,0:22:36.24,Default,to open it, or create it again.
+Dialogue: 0,0:22:36.24,0:22:40.16,Default,If it's got an error, I might\Nwait awhile and try this again,
+Dialogue: 0,0:22:40.16,0:22:41.36,Default,or something like that.
+Dialogue: 0,0:22:41.55,0:22:45.39,Default,So anyway, let's say I have\Nthis document in a normal state,
+Dialogue: 0,0:22:45.39,0:22:46.33,Default,now what am I going to do?
+Dialogue: 0,0:22:46.33,0:22:49.29,Default,Now I'm going to grab that\NNS-managed object context
+Dialogue: 0,0:22:49.29,0:22:50.92,Default,and go start doing\Nsome core data stuff.
+Dialogue: 0,0:22:51.85,0:22:53.47,Default,And that's it.
+Dialogue: 0,0:22:53.70,0:22:55.80,Default,Okay? So this is\Nhow we get started.
+Dialogue: 0,0:22:56.13,0:22:58.69,Default,Now, before we dive into\Nwhat we're going to do
+Dialogue: 0,0:22:58.69,0:23:01.12,Default,with that NS-managed object\Ncontext, a couple more things
+Dialogue: 0,0:23:01.12,0:23:06.38,Default,about UI-managed document, one\Nis that it is auto saved, okay?
+Dialogue: 0,0:23:06.79,0:23:08.26,Default,You do not have to save it.
+Dialogue: 0,0:23:09.10,0:23:11.69,Default,And you can save it using\Nthis method you see here,
+Dialogue: 0,0:23:12.04,0:23:14.81,Default,but generally we don't,\Nwe let it auto save.
+Dialogue: 0,0:23:15.73,0:23:18.00,Default,Okay? The way we save it\Nis with the same method
+Dialogue: 0,0:23:18.00,0:23:19.85,Default,that we used before, but\Nwe say UI document save
+Dialogue: 0,0:23:19.85,0:23:22.74,Default,for overwriting, but generally,\Nwe don't call this method.
+Dialogue: 0,0:23:22.92,0:23:24.15,Default,We let it auto save.
+Dialogue: 0,0:23:24.90,0:23:26.81,Default,Okay? So that's an\Nimportant thing to understand.
+Dialogue: 0,0:23:27.92,0:23:31.28,Default,Okay? Second thing,\Nclosing the document.
+Dialogue: 0,0:23:31.63,0:23:34.45,Default,Well, it kind of\Nauto closes, as well.
+Dialogue: 0,0:23:34.68,0:23:35.65,Default,When does it close?
+Dialogue: 0,0:23:35.85,0:23:37.62,Default,When there are no more\Nstrong pointers to it.
+Dialogue: 0,0:23:37.88,0:23:39.81,Default,In other words, when there are\Nno more strong pointers to it,
+Dialogue: 0,0:23:39.89,0:23:41.13,Default,when it's going to\Nleave the heap,
+Dialogue: 0,0:23:41.39,0:23:43.61,Default,it gets closed automatically.
+Dialogue: 0,0:23:44.13,0:23:45.98,Default,So you generally don't\Ncall a close either,
+Dialogue: 0,0:23:46.40,0:23:47.46,Default,but you can do that as well.
+Dialogue: 0,0:23:47.46,0:23:51.11,Default,And close, just like\Nsaving, are asynchronous,
+Dialogue: 0,0:23:51.19,0:23:53.04,Default,and you got to implement\Nthese completion handlers
+Dialogue: 0,0:23:53.04,0:23:53.93,Default,to do whatever you want
+Dialogue: 0,0:23:53.99,0:23:56.16,Default,when they're done\Nclosing or done saving.
+Dialogue: 0,0:23:56.29,0:23:56.64,Default,Question?
+Dialogue: 0,0:23:57.52,0:24:00.72,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,0:24:01.22,0:24:01.88,Default,Correct. Yes.
+Dialogue: 0,0:24:01.88,0:24:04.24,Default,So the question, does it\Nauto save before closing?
+Dialogue: 0,0:24:04.24,0:24:04.90,Default,Absolutely.
+Dialogue: 0,0:24:04.90,0:24:08.20,Default,If you say close, or if you stop\Nhaving a strong pointer to it,
+Dialogue: 0,0:24:08.20,0:24:10.05,Default,it will save and then close.
+Dialogue: 0,0:24:10.92,0:24:17.11,Default,Okay? One thing I will say\Nabout saving, the auto saving,
+Dialogue: 0,0:24:17.11,0:24:18.43,Default,when you're in debugging,\Nyou know,
+Dialogue: 0,0:24:18.43,0:24:20.72,Default,when you're in development\Nmode and you're debugging,
+Dialogue: 0,0:24:20.89,0:24:22.97,Default,sometimes students will\Nget a little confused,
+Dialogue: 0,0:24:22.97,0:24:24.74,Default,because they'll go and\Nthey'll do something,
+Dialogue: 0,0:24:24.74,0:24:27.76,Default,update their database, and then\Nthey'll stop in the debugger,
+Dialogue: 0,0:24:27.76,0:24:29.16,Default,made a code change\Nand run again,
+Dialogue: 0,0:24:29.26,0:24:30.40,Default,and the data won't be there.
+Dialogue: 0,0:24:30.40,0:24:32.29,Default,Well, because it didn't\Nhave a chance to auto save.
+Dialogue: 0,0:24:32.76,0:24:35.14,Default,So when you're in develop\Nmode, you might want to throw
+Dialogue: 0,0:24:35.14,0:24:37.64,Default,in some explicit saves if\Nyou're going to be hitting stop
+Dialogue: 0,0:24:38.14,0:24:39.69,Default,in the debugger all the time.
+Dialogue: 0,0:24:40.06,0:24:43.66,Default,Okay? Alright, so let's talk\Nabout multiple instances
+Dialogue: 0,0:24:43.66,0:24:46.25,Default,of UI-managed document\Non the same document.
+Dialogue: 0,0:24:47.01,0:24:49.86,Default,Am I allowed to alloc\Ninit file URL
+Dialogue: 0,0:24:50.10,0:24:52.55,Default,to create a UI-managed document,\Nand then somewhere else
+Dialogue: 0,0:24:52.55,0:24:57.09,Default,in my code, alloc init file\NURL, the same URL, and have two
+Dialogue: 0,0:24:57.09,0:25:00.14,Default,of them looking at the same\Ndocument, you might think,
+Dialogue: 0,0:25:00.23,0:25:02.24,Default,oh that can't work,\Nbut actually it does,
+Dialogue: 0,0:25:02.24,0:25:03.15,Default,it works perfectly fine.
+Dialogue: 0,0:25:03.59,0:25:05.72,Default,Okay? It works absolutely\Nno problem,
+Dialogue: 0,0:25:06.00,0:25:09.01,Default,the two have their own\Nmanaged object context
+Dialogue: 0,0:25:09.01,0:25:11.23,Default,that are different, but they're\Nboth, contexts are looking
+Dialogue: 0,0:25:11.23,0:25:14.34,Default,at the same database and\Nwhen they both make changes,
+Dialogue: 0,0:25:14.34,0:25:15.18,Default,it's going to save.
+Dialogue: 0,0:25:15.40,0:25:19.19,Default,There is the possible problem\Nthat one set of changes
+Dialogue: 0,0:25:19.19,0:25:21.76,Default,in this instance of the\NUI-managed document,
+Dialogue: 0,0:25:21.90,0:25:23.06,Default,and this one might conflict.
+Dialogue: 0,0:25:23.10,0:25:25.48,Default,They might be trying to, one's\Ntrying to delete an object,
+Dialogue: 0,0:25:25.48,0:25:27.12,Default,but another one is\Ntrying to set an attribute
+Dialogue: 0,0:25:27.12,0:25:27.96,Default,of it at the same time.
+Dialogue: 0,0:25:28.29,0:25:31.37,Default,So, if you do have this, it\Nis possible to get conflicts,
+Dialogue: 0,0:25:31.37,0:25:33.39,Default,but usually if we have\Nmultiple instances,
+Dialogue: 0,0:25:33.39,0:25:36.10,Default,it's because we have one\Nwriter and many readers.
+Dialogue: 0,0:25:36.53,0:25:40.00,Default,It's pretty rare to have\Ntwo separate controllers
+Dialogue: 0,0:25:40.00,0:25:41.84,Default,or something, each\Nhaving a document
+Dialogue: 0,0:25:41.84,0:25:43.68,Default,and their both making\Nchanges, that's pretty rare.
+Dialogue: 0,0:25:44.00,0:25:46.30,Default,Okay? Especially both making\Nchanges at the same time,
+Dialogue: 0,0:25:46.30,0:25:50.54,Default,there's only so much screen for\Nchanges to be being made on.
+Dialogue: 0,0:25:51.15,0:25:54.35,Default,One thing to be careful\Nof here is
+Dialogue: 0,0:25:54.35,0:25:57.52,Default,that if one document\Nchanges the database,
+Dialogue: 0,0:25:57.76,0:26:00.81,Default,the other one doesn't\Nautomatically see those changes.
+Dialogue: 0,0:26:01.33,0:26:04.02,Default,Okay? It's not like\Noh I added an object
+Dialogue: 0,0:26:04.02,0:26:07.09,Default,in one managed document, oh, I\Ndon't see it in the other one.
+Dialogue: 0,0:26:07.35,0:26:08.21,Default,Why don't you see it?
+Dialogue: 0,0:26:08.27,0:26:10.47,Default,Well you don't see it because\Nthey have different context,
+Dialogue: 0,0:26:10.47,0:26:12.31,Default,different NS-managed\Nobject contexts,
+Dialogue: 0,0:26:12.31,0:26:14.30,Default,but you're still\Nmodifying the same database.
+Dialogue: 0,0:26:14.34,0:26:16.85,Default,So how could you find\Nout, if you wanted to find
+Dialogue: 0,0:26:16.85,0:26:18.48,Default,out if another document\Nis doing,
+Dialogue: 0,0:26:18.48,0:26:20.19,Default,and the answer is,\Nthe radio station.
+Dialogue: 0,0:26:20.74,0:26:23.51,Default,Okay? We could use\NNS notification.
+Dialogue: 0,0:26:23.81,0:26:26.99,Default,And so, here's an example\Nof having a controller,
+Dialogue: 0,0:26:26.99,0:26:29.96,Default,when it comes on screen,\Nstart listening at,
+Dialogue: 0,0:26:30.37,0:26:34.34,Default,to the managed object context,\Nthere, of a different document.
+Dialogue: 0,0:26:35.06,0:26:37.19,Default,Not the document it has\Nopen, but some other [pause],
+Dialogue: 0,0:26:37.49,0:26:40.75,Default,some other instance of\Na UI-managed document,
+Dialogue: 0,0:26:41.06,0:26:43.40,Default,and it's looking for\Nthe radio station,
+Dialogue: 0,0:26:43.40,0:26:46.19,Default,NS-managed object context\Ndid save notification.
+Dialogue: 0,0:26:46.23,0:26:50.17,Default,So whenever that other document\Nauto saves, then it's going
+Dialogue: 0,0:26:50.17,0:26:53.11,Default,to get a NS notification\Nsaying oh, it changed.
+Dialogue: 0,0:26:53.77,0:26:56.54,Default,Alright? And I'm going to call\Nthis method context changed
+Dialogue: 0,0:26:56.54,0:26:56.96,Default,or whatever.
+Dialogue: 0,0:26:57.20,0:26:59.79,Default,And what would I do\Nwhen that happens?
+Dialogue: 0,0:27:00.13,0:27:04.72,Default,Well, two things, one, I could\Njust refetch all my objects.
+Dialogue: 0,0:27:05.10,0:27:06.70,Default,Okay, I know the\Ndatabase is changed,
+Dialogue: 0,0:27:06.87,0:27:08.84,Default,I'll just refetch them all, we\Nhaven't talked about fetching,
+Dialogue: 0,0:27:08.84,0:27:11.41,Default,but I could refetch and get\Na fresh set of everything.
+Dialogue: 0,0:27:11.79,0:27:15.52,Default,But, actually this context\Nchange did save notification,
+Dialogue: 0,0:27:15.72,0:27:19.40,Default,gives you an array, inside of\Nits user info is a dictionary,
+Dialogue: 0,0:27:19.74,0:27:21.73,Default,with three arrays\Nthat are a list
+Dialogue: 0,0:27:21.73,0:27:23.41,Default,of all the objects that changed.
+Dialogue: 0,0:27:24.21,0:27:28.26,Default,Okay? And you can\Nmerge those changes
+Dialogue: 0,0:27:28.26,0:27:31.46,Default,into your context using this\NNS-managed object context
+Dialogue: 0,0:27:31.46,0:27:34.27,Default,method, merge changes from\Ncontext did save notification,
+Dialogue: 0,0:27:34.27,0:27:35.62,Default,you just give it\Nthe notification,
+Dialogue: 0,0:27:35.86,0:27:37.64,Default,and it'll automatically\Nmerge all those changes
+Dialogue: 0,0:27:37.64,0:27:39.67,Default,into your context,\Nwhich is pretty cool.
+Dialogue: 0,0:27:39.79,0:27:41.12,Default,This is a very cool method.
+Dialogue: 0,0:27:41.47,0:27:44.71,Default,Very underappreciated\Ncoolness of this method, okay?
+Dialogue: 0,0:27:44.71,0:27:46.77,Default,So you're watching some\Nother context that's
+Dialogue: 0,0:27:46.77,0:27:49.08,Default,on the same database as yours,\Nbut it's a different context,
+Dialogue: 0,0:27:49.31,0:27:51.89,Default,you get a notification, you can\Nmerge those changes into yours,
+Dialogue: 0,0:27:52.00,0:27:53.51,Default,as if you had made\Nthose changes.
+Dialogue: 0,0:27:53.91,0:27:56.82,Default,And it's all going to be\Nfine when both documents save
+Dialogue: 0,0:27:56.82,0:28:00.41,Default,because you're merging in\Nthe same changes and this is,
+Dialogue: 0,0:28:00.41,0:28:01.71,Default,core data automatically deals
+Dialogue: 0,0:28:01.71,0:28:03.63,Default,with when the same\Nchange is being made
+Dialogue: 0,0:28:03.63,0:28:04.75,Default,by two different contexts,
+Dialogue: 0,0:28:04.75,0:28:07.87,Default,only when conflicting ones\Nhappen is it a problem for you.
+Dialogue: 0,0:28:08.63,0:28:10.59,Default,Okay? So this all kind\Nof just magically works.
+Dialogue: 0,0:28:11.18,0:28:12.90,Default,So that's watching\Nanother context.
+Dialogue: 0,0:28:12.90,0:28:14.42,Default,Probably not going to be\Nnecessary in homework,
+Dialogue: 0,0:28:14.42,0:28:17.27,Default,because you're probably going\Nto take a different strategy,
+Dialogue: 0,0:28:17.27,0:28:20.30,Default,which is have one managed\Ndocument, UI-managed document,
+Dialogue: 0,0:28:20.30,0:28:23.12,Default,and you use its context\Neverywhere in your app.
+Dialogue: 0,0:28:23.41,0:28:25.06,Default,That's kind of a\Nsimple way to do it,
+Dialogue: 0,0:28:25.06,0:28:27.10,Default,and that's what I\Nrecommend for your homework.
+Dialogue: 0,0:28:27.10,0:28:29.82,Default,And we'll see in the demo, I'm\Ngoing to do that in the demo.
+Dialogue: 0,0:28:31.06,0:28:33.72,Default,Alright. So now we have an\NNS-managed object context
+Dialogue: 0,0:28:33.72,0:28:36.16,Default,that we got from our document,\Nwhat can we do with it?
+Dialogue: 0,0:28:36.44,0:28:38.83,Default,Well, we can insert\Nand delete objects,
+Dialogue: 0,0:28:38.83,0:28:41.62,Default,we can change attributes,\Nand we can query for objects.
+Dialogue: 0,0:28:41.62,0:28:43.63,Default,So let's talk about\Ndoing all those things.
+Dialogue: 0,0:28:43.63,0:28:44.65,Default,Let's start with inserting.
+Dialogue: 0,0:28:45.01,0:28:48.41,Default,So let's say I want to put a new\Nphoto, or put a new photographer
+Dialogue: 0,0:28:48.41,0:28:50.92,Default,into the database, I do that\Nwith this method right here,
+Dialogue: 0,0:28:51.05,0:28:54.71,Default,it's a class method on NS entity\Ndescription called insert new
+Dialogue: 0,0:28:54.71,0:28:58.25,Default,object for entity for name\Nin managed object context.
+Dialogue: 0,0:28:58.25,0:29:01.17,Default,So you can see, I\Ncan't insert an object
+Dialogue: 0,0:29:01.17,0:29:02.31,Default,without having a context.
+Dialogue: 0,0:29:02.31,0:29:05.97,Default,The context is the hook\Nthat lets you insert things
+Dialogue: 0,0:29:06.08,0:29:08.20,Default,in the database or\Nquery or anything,
+Dialogue: 0,0:29:08.20,0:29:09.44,Default,so you have to have a context.
+Dialogue: 0,0:29:09.84,0:29:12.70,Default,And, that first argument,\Nat sign photo,
+Dialogue: 0,0:29:13.07,0:29:15.14,Default,that is the name of the entity.
+Dialogue: 0,0:29:15.48,0:29:18.42,Default,So remember in the mapping\Nthing when I made a photo entity
+Dialogue: 0,0:29:18.42,0:29:20.10,Default,and I made a photographer\Nentity,
+Dialogue: 0,0:29:20.29,0:29:21.66,Default,this is a string\Nwhich is the name.
+Dialogue: 0,0:29:22.36,0:29:24.11,Default,So here I am making a photo.
+Dialogue: 0,0:29:24.67,0:29:25.90,Default,And what does it return?
+Dialogue: 0,0:29:26.07,0:29:29.24,Default,It returns NS-managed object\Nstar photo, and I told you
+Dialogue: 0,0:29:29.24,0:29:33.18,Default,that all of the objects in the\Ndatabase are NS-managed objects
+Dialogue: 0,0:29:33.44,0:29:34.73,Default,or subclasses thereof.
+Dialogue: 0,0:29:35.28,0:29:36.77,Default,And, in fact, that's\Nexactly what happened.
+Dialogue: 0,0:29:36.77,0:29:39.18,Default,So this is just going to make\None for you and return it.
+Dialogue: 0,0:29:39.39,0:29:42.69,Default,It's going to be\Nblank, or empty.
+Dialogue: 0,0:29:42.94,0:29:45.98,Default,Now, that could mean that all\Nof its attributes are nil,
+Dialogue: 0,0:29:46.27,0:29:48.77,Default,but we didn't see\Nthis in Xcode, but it,
+Dialogue: 0,0:29:48.77,0:29:50.34,Default,when you inspect a\Nproperty in Xcode,
+Dialogue: 0,0:29:50.34,0:29:52.19,Default,you can actually\Nspecify a default value,
+Dialogue: 0,0:29:52.19,0:29:53.89,Default,and it'll have that value.
+Dialogue: 0,0:29:54.31,0:29:57.99,Default,So maybe you want it\Nto have the upload date
+Dialogue: 0,0:29:57.99,0:30:01.16,Default,by default be the date the\Nobject was created or something,
+Dialogue: 0,0:30:01.16,0:30:05.43,Default,you can go in and create\N[pause] some fixed date
+Dialogue: 0,0:30:05.43,0:30:08.49,Default,or you want the title to always\Nbe at least the empty string
+Dialogue: 0,0:30:08.49,0:30:10.83,Default,or something like that,\Nyou can set defaults,
+Dialogue: 0,0:30:10.83,0:30:15.24,Default,they have to be constants\Nbasically, in Xcode, to do that
+Dialogue: 0,0:30:15.24,0:30:17.57,Default,and NS object will come\Nback with those defaults set
+Dialogue: 0,0:30:17.57,0:30:19.93,Default,in those fields, and\Notherwise nil, okay?
+Dialogue: 0,0:30:20.09,0:30:21.63,Default,But if you don't do any\Nof that default setting,
+Dialogue: 0,0:30:21.95,0:30:24.56,Default,all the properties in\Nthis photo will be nil.
+Dialogue: 0,0:30:24.78,0:30:26.89,Default,So the title will be nil,\Nsubtitle will be nil,
+Dialogue: 0,0:30:27.08,0:30:30.16,Default,the who took will be nil,\Nit'll all be nil, okay?
+Dialogue: 0,0:30:30.63,0:30:36.13,Default,So, great, now I have an object,\Nhow do I set those attributes?
+Dialogue: 0,0:30:36.16,0:30:37.56,Default,I want to set the title.
+Dialogue: 0,0:30:37.56,0:30:39.87,Default,I want to set the subtitle,\NI even want to set who took?
+Dialogue: 0,0:30:40.31,0:30:41.10,Default,How do I do that?
+Dialogue: 0,0:30:41.39,0:30:45.14,Default,You do that using the key\Nvalue coding protocol.
+Dialogue: 0,0:30:45.63,0:30:47.75,Default,And you've already used\Nthis protocol actually.
+Dialogue: 0,0:30:47.75,0:30:52.77,Default,It is value for key, set value\Nfor key, value for key path,
+Dialogue: 0,0:30:53.01,0:30:54.33,Default,and set value for key path.
+Dialogue: 0,0:30:55.30,0:31:00.51,Default,Okay? So this protocol, which\Nis implemented by NS dictionary,
+Dialogue: 0,0:31:00.81,0:31:03.35,Default,for example, that's how\Nwe used value for key path
+Dialogue: 0,0:31:03.54,0:31:06.62,Default,in those NS dictionaries, to do\Nthe things like description dot
+Dialogue: 0,0:31:06.62,0:31:10.28,Default,under bar contents,\Nremember that, from Flickr?
+Dialogue: 0,0:31:10.50,0:31:12.69,Default,This is how NS-managed\Nobject works.
+Dialogue: 0,0:31:12.85,0:31:16.19,Default,It implements all these and\Nyou can say value for key,
+Dialogue: 0,0:31:16.37,0:31:20.07,Default,at sign quote title, and you\Ncan get the title of a photo.
+Dialogue: 0,0:31:20.28,0:31:22.22,Default,Or you can say set\Nvalue, whatever you want,
+Dialogue: 0,0:31:22.27,0:31:25.08,Default,for key at sign quote\Ntitle, and set the value
+Dialogue: 0,0:31:25.19,0:31:27.05,Default,of a title, simple as that.
+Dialogue: 0,0:31:27.84,0:31:29.52,Default,Okay? Value for key,\Nset value for key.
+Dialogue: 0,0:31:29.52,0:31:31.95,Default,Any questions about that?
+Dialogue: 0,0:31:32.13,0:31:35.56,Default,Okay. So, the, the key is\Nobviously just a string,
+Dialogue: 0,0:31:35.61,0:31:37.43,Default,the name of the property\Nin your visual map
+Dialogue: 0,0:31:37.43,0:31:38.49,Default,that we built earlier.
+Dialogue: 0,0:31:39.04,0:31:43.16,Default,The value would be just an\Nobject, like an NS string,
+Dialogue: 0,0:31:43.16,0:31:46.92,Default,if it was a title, and NS\Ndate if it was the upload date
+Dialogue: 0,0:31:46.92,0:31:49.03,Default,and NS data if it\Nwas the thumbnail UR,
+Dialogue: 0,0:31:49.11,0:31:50.46,Default,thumbnail data or whatever.
+Dialogue: 0,0:31:51.57,0:31:53.35,Default,You can also set,\Nstring set value
+Dialogue: 0,0:31:53.35,0:31:55.04,Default,for key, the relationships.
+Dialogue: 0,0:31:55.20,0:31:57.99,Default,So if you had a photographer,\Nwhich maybe you inserted
+Dialogue: 0,0:31:57.99,0:31:59.62,Default,with that entity\Ndescription thing,
+Dialogue: 0,0:31:59.62,0:32:02.70,Default,so now you have photographer,\Nas well, you can just say the,
+Dialogue: 0,0:32:02.70,0:32:06.99,Default,the photo set value, quote\Nwho took, set the value,
+Dialogue: 0,0:32:06.99,0:32:09.37,Default,the photographer, for\Nthe key quote who took.
+Dialogue: 0,0:32:10.14,0:32:13.98,Default,Alright? Now, what' really\Ninteresting is that if you set
+Dialogue: 0,0:32:14.24,0:32:19.27,Default,that value who took, the photo\Nset, in the photographer,
+Dialogue: 0,0:32:19.48,0:32:21.07,Default,will automatically be updated.
+Dialogue: 0,0:32:21.99,0:32:24.54,Default,You do not have to set both\Nsides of the relationship.
+Dialogue: 0,0:32:24.73,0:32:25.49,Default,And vice versa.
+Dialogue: 0,0:32:25.67,0:32:30.73,Default,If I have a photographer and I\Nadd a photo to its photos set,
+Dialogue: 0,0:32:31.69,0:32:32.97,Default,it'll automatically\Nset who took.
+Dialogue: 0,0:32:34.17,0:32:36.78,Default,Okay? And that's\Nbecause this database has
+Dialogue: 0,0:32:36.78,0:32:39.82,Default,to maintain self\Ninternal consistency
+Dialogue: 0,0:32:39.82,0:32:42.78,Default,and so core data does that all\Nfor you, which is really cool?
+Dialogue: 0,0:32:43.18,0:32:44.90,Default,Okay? So you can set either side
+Dialogue: 0,0:32:44.90,0:32:46.40,Default,and it'll automatically\Nset the other side.
+Dialogue: 0,0:32:46.92,0:32:51.32,Default,As I said before, the too\Nmany ones are NS sets,
+Dialogue: 0,0:32:51.54,0:32:55.69,Default,and the non-too many ones are\Njust NS-managed object stars.
+Dialogue: 0,0:32:56.74,0:33:00.10,Default,Okay? Now, all these\Nchanges that you're making,
+Dialogue: 0,0:33:00.10,0:33:02.73,Default,inserting objects, setting\Nall those properties,
+Dialogue: 0,0:33:02.92,0:33:04.20,Default,those only happen in memory.
+Dialogue: 0,0:33:04.34,0:33:07.96,Default,They're not happening on disc,\Nuntil the context is saved.
+Dialogue: 0,0:33:08.24,0:33:10.18,Default,Now the context has\Na save method.
+Dialogue: 0,0:33:10.18,0:33:12.76,Default,Okay? If you go look in\NNS-managed object context,
+Dialogue: 0,0:33:12.76,0:33:15.15,Default,it has a save method, but\Nyou're not going to call that,
+Dialogue: 0,0:33:15.15,0:33:16.11,Default,because you're going
+Dialogue: 0,0:33:16.11,0:33:19.38,Default,to let UI-managed documents\Nauto save, save the context.
+Dialogue: 0,0:33:20.05,0:33:22.31,Default,Alright? So if you\Nsave the document
+Dialogue: 0,0:33:22.52,0:33:24.43,Default,or you can actually\Nsend a message
+Dialogue: 0,0:33:24.43,0:33:25.90,Default,to the context to save itself.
+Dialogue: 0,0:33:25.90,0:33:29.59,Default,Either way, it will save\Nout to disc, but until then,
+Dialogue: 0,0:33:29.66,0:33:31.69,Default,all the changes you're\Nmaking are just in memory.
+Dialogue: 0,0:33:32.16,0:33:36.25,Default,Okay? Now, core data\Nhas an incredible undo
+Dialogue: 0,0:33:36.25,0:33:37.71,Default,and redo built into it.
+Dialogue: 0,0:33:37.93,0:33:41.22,Default,To, you make some changes, you\Nsay undo, it undoes them, okay?
+Dialogue: 0,0:33:41.50,0:33:44.01,Default,And you can batch them up and\Nyou can undo things as a group
+Dialogue: 0,0:33:44.01,0:33:46.00,Default,and can undo just the\Nlast chain, I can't,
+Dialogue: 0,0:33:46.00,0:33:47.65,Default,I don't have time to\Ntalk about any of that,
+Dialogue: 0,0:33:47.65,0:33:49.21,Default,but it's really,\Nreally cool, okay?
+Dialogue: 0,0:33:49.21,0:33:52.28,Default,So anytime you have a situation\Nwhere you're changing database
+Dialogue: 0,0:33:52.28,0:33:54.56,Default,and the user wants to\Nbe able to maybe undo,
+Dialogue: 0,0:33:54.56,0:33:58.01,Default,core data's awesome for that.
+Dialogue: 0,0:33:58.01,0:33:59.58,Default,[Pause] Just like you get UI,
+Dialogue: 0,0:33:59.58,0:34:02.89,Default,or NS-managed object\Ndid save notifications,
+Dialogue: 0,0:34:02.89,0:34:06.05,Default,you can also get UI-managed\Ndocument did save notification.
+Dialogue: 0,0:34:06.05,0:34:09.06,Default,So you can sign up for that\Nradio broadcast and find
+Dialogue: 0,0:34:09.06,0:34:10.48,Default,out when the whole\Ndocument did save.
+Dialogue: 0,0:34:10.88,0:34:12.93,Default,Kind of six, one-half dozen\Nin the other in this case,
+Dialogue: 0,0:34:12.98,0:34:14.48,Default,because if the documents\Nget saved,
+Dialogue: 0,0:34:14.79,0:34:19.54,Default,then definitely the context\Nis going to be saved, as well.
+Dialogue: 0,0:34:20.49,0:34:23.10,Default,Okay. [Pause] Calling value\Nfor key and set value for a key
+Dialogue: 0,0:34:23.10,0:34:25.74,Default,like this though, it kind of\Nresults in some ugly code.
+Dialogue: 0,0:34:26.22,0:34:29.19,Default,Because it's not type\Nchecked, right, value for key
+Dialogue: 0,0:34:29.19,0:34:32.45,Default,and set value for key, that\Nshould be set value colon
+Dialogue: 0,0:34:32.45,0:34:36.33,Default,for key colon, that\Njust takes ID.
+Dialogue: 0,0:34:36.85,0:34:39.40,Default,Right? Returns ID, so it's\Nreally not type checking any
+Dialogue: 0,0:34:39.40,0:34:42.70,Default,of that stuff, and also, you\Nend up with a literal strings,
+Dialogue: 0,0:34:42.70,0:34:46.99,Default,like at sign quote thumbnail URL\Nand if you ever changed the name
+Dialogue: 0,0:34:46.99,0:34:48.15,Default,of that in your visual map,
+Dialogue: 0,0:34:48.15,0:34:50.53,Default,all your code would just\Nstop working silently
+Dialogue: 0,0:34:50.53,0:34:51.53,Default,and you wouldn't know, so,
+Dialogue: 0,0:34:51.95,0:34:54.88,Default,really what we want\Nhere is properties.
+Dialogue: 0,0:34:55.02,0:34:58.60,Default,We want to be to set the title\Nand subtitle and thumbnail URL
+Dialogue: 0,0:34:58.60,0:35:02.35,Default,and all that stuff in my\Nphoto using properties
+Dialogue: 0,0:35:02.35,0:35:03.27,Default,and dot notation.
+Dialogue: 0,0:35:03.79,0:35:08.54,Default,So, all we need to do to do that\Nis create subclasses for photo,
+Dialogue: 0,0:35:08.54,0:35:09.97,Default,and a subclass for photographer.
+Dialogue: 0,0:35:10.45,0:35:12.39,Default,Subclasses of NS-managed\Nobject, right?
+Dialogue: 0,0:35:12.70,0:35:15.06,Default,And the subclasses will\Nimplement all these properties,
+Dialogue: 0,0:35:15.34,0:35:19.11,Default,and, of course, because Xcode\Nis so nice, it's going to do
+Dialogue: 0,0:35:19.11,0:35:21.58,Default,that for you, so let's\Ntalk about now how
+Dialogue: 0,0:35:21.58,0:35:24.27,Default,in Xcode we can make\Nit generate subclasses
+Dialogue: 0,0:35:24.84,0:35:26.12,Default,for photo and photographer.
+Dialogue: 0,0:35:26.43,0:35:29.09,Default,So I'm going back to my visual\Nmap, I'm going to select photo
+Dialogue: 0,0:35:29.09,0:35:32.55,Default,and photographer, and then I'm\Ngoing to, from the editor menu,
+Dialogue: 0,0:35:32.55,0:35:35.68,Default,I'm going to pick this all\Nimportant menu item called
+Dialogue: 0,0:35:35.78,0:35:38.86,Default,create NS-managed\Nobject subclass, okay?
+Dialogue: 0,0:35:38.86,0:35:40.61,Default,Because that's exactly\Nwhat's it going to do.
+Dialogue: 0,0:35:40.85,0:35:42.85,Default,And when I do that,\Nit's going to say okay,
+Dialogue: 0,0:35:42.98,0:35:45.94,Default,which of your models,\Nokay, we only have one,
+Dialogue: 0,0:35:45.94,0:35:49.01,Default,model dot xc data model d,\Nbut you could have multiple,
+Dialogue: 0,0:35:49.20,0:35:50.31,Default,which of your models do you want
+Dialogue: 0,0:35:50.31,0:35:54.16,Default,to generate managed\Nobject subclasses for?
+Dialogue: 0,0:35:54.16,0:35:57.42,Default,So we'll just pick model,\Nand then, it says okay, well,
+Dialogue: 0,0:35:57.42,0:35:59.95,Default,which of the classes, which\Nof the entities you want
+Dialogue: 0,0:35:59.95,0:36:00.78,Default,to create a subclass for?
+Dialogue: 0,0:36:00.84,0:36:04.75,Default,We'll pick them both, both photo\Nand photographer here, and,
+Dialogue: 0,0:36:05.36,0:36:07.22,Default,it's going to say where\Ndo you want to store them,
+Dialogue: 0,0:36:07.34,0:36:09.66,Default,we'll store then where we store\Neverything else, and then,
+Dialogue: 0,0:36:09.66,0:36:13.73,Default,bingo, photo dot m and h,\Nand photographer dot m and h,
+Dialogue: 0,0:36:13.73,0:36:16.74,Default,you see those there,\Nthat got created for us?
+Dialogue: 0,0:36:17.03,0:36:20.06,Default,So, those are subclasses\Nof NS-managed object,
+Dialogue: 0,0:36:20.21,0:36:23.68,Default,and when you insert an object\Nin the database, or get one back
+Dialogue: 0,0:36:23.68,0:36:24.97,Default,on a fetch, which we\Nhaven't talked about,
+Dialogue: 0,0:36:25.24,0:36:27.57,Default,if you insert an object in the\Ndatabase, when it comes back,
+Dialogue: 0,0:36:27.57,0:36:29.59,Default,instead of being an\NNS-managed object star,
+Dialogue: 0,0:36:29.59,0:36:33.23,Default,it's going to be a photo star,\Nor a photographer star, okay?
+Dialogue: 0,0:36:33.23,0:36:36.40,Default,It's just going to automatically\Nwork, that insert entity for,
+Dialogue: 0,0:36:37.10,0:36:39.17,Default,for entity for name method,
+Dialogue: 0,0:36:39.35,0:36:42.07,Default,which I can never remember\Nthe name of, that will return,
+Dialogue: 0,0:36:42.31,0:36:45.21,Default,if there's a subclass\Nto be had, the subclass.
+Dialogue: 0,0:36:46.26,0:36:47.97,Default,Alright, so let's look\Nat the code of this,
+Dialogue: 0,0:36:47.97,0:36:50.82,Default,let's look at photo dot h,\Nfor example, so you can see,
+Dialogue: 0,0:36:50.82,0:36:53.61,Default,that photo dot h has made\Nan at sign property for all
+Dialogue: 0,0:36:53.61,0:36:57.73,Default,of my database properties for\Nphotos, see title, photo URL,
+Dialogue: 0,0:36:57.73,0:36:59.92,Default,they're the right\Ntype, NS date, NS data,
+Dialogue: 0,0:37:00.19,0:37:02.90,Default,even who took is\Nthe right class.
+Dialogue: 0,0:37:03.24,0:37:05.18,Default,You see who took is\Na photographer star.
+Dialogue: 0,0:37:05.63,0:37:07.86,Default,Now, sometimes you'll\Njust, do this
+Dialogue: 0,0:37:07.91,0:37:10.71,Default,and who took will still be\Nan NS-managed object star.
+Dialogue: 0,0:37:11.15,0:37:12.06,Default,Why does that happen?
+Dialogue: 0,0:37:12.55,0:37:14.79,Default,That's because this is\Na one-pass generation,
+Dialogue: 0,0:37:14.79,0:37:17.70,Default,and if it happens to generate\Nphoto before it generated
+Dialogue: 0,0:37:17.70,0:37:20.20,Default,photographer, it won't\Nknow about photographer
+Dialogue: 0,0:37:20.20,0:37:21.33,Default,and it won't be able to do this.
+Dialogue: 0,0:37:21.33,0:37:23.52,Default,If that happens, just\Ngo back to your map
+Dialogue: 0,0:37:23.62,0:37:26.07,Default,and generate them again, and\Nthis time they'll both exist,
+Dialogue: 0,0:37:26.35,0:37:29.05,Default,beforehand, and so it'll, it'll\Nmake the right thing, okay?
+Dialogue: 0,0:37:29.05,0:37:31.17,Default,So you can regenerate as many\Ntimes as you want, and, in fact,
+Dialogue: 0,0:37:31.17,0:37:33.98,Default,we're going to be regenerating\Nas we change scheme,
+Dialogue: 0,0:37:33.98,0:37:36.36,Default,add more entities,\Nadd more properties,
+Dialogue: 0,0:37:36.36,0:37:38.29,Default,we're going to be redoing\Nthat regenerate all the time.
+Dialogue: 0,0:37:38.29,0:37:38.50,Default,Question?
+Dialogue: 0,0:37:39.52,0:37:57.14,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,0:37:57.64,0:38:00.38,Default,Yes. So, let's, the question\Nis tell me about that
+Dialogue: 0,0:38:00.38,0:38:02.40,Default,at sign class photographer\Ntowards the top there.
+Dialogue: 0,0:38:02.40,0:38:04.76,Default,Why is that not pound sign\Nimport photographer dot h, well,
+Dialogue: 0,0:38:04.76,0:38:08.19,Default,in objective c, if all you want\Nto be able to do is declare
+Dialogue: 0,0:38:08.19,0:38:09.95,Default,that something is\Nof a certain type,
+Dialogue: 0,0:38:09.95,0:38:12.56,Default,and you don't need all the\Nmethods, you're not going
+Dialogue: 0,0:38:12.56,0:38:16.46,Default,to call any of the methods\Nor anything like that,
+Dialogue: 0,0:38:16.46,0:38:20.35,Default,then you can just do this\Nat sign class directive,
+Dialogue: 0,0:38:20.35,0:38:21.95,Default,you can do the same\Nthing for protocols,
+Dialogue: 0,0:38:21.95,0:38:25.28,Default,you can say at sign protocol,\Nwhatever, and just declare
+Dialogue: 0,0:38:25.28,0:38:30.35,Default,that protocol exists, so I\Ndon't, I'm not going to call any
+Dialogue: 0,0:38:30.35,0:38:33.00,Default,of the methods in it or\Nimplement any of the methods.
+Dialogue: 0,0:38:33.59,0:38:37.79,Default,So it's kind of a\Nforward declaration
+Dialogue: 0,0:38:37.79,0:38:43.81,Default,because eventually anyone who's\Ngoing to use this is going
+Dialogue: 0,0:38:43.81,0:38:50.30,Default,to start calling photographer\Nmethods and they're going
+Dialogue: 0,0:38:50.30,0:38:54.96,Default,to import it, but this\Nis just a way to suppress
+Dialogue: 0,0:38:55.22,0:38:56.79,Default,that compiler warning,
+Dialogue: 0,0:38:56.87,0:39:02.88,Default,so it doesn't say unknown class\Nphotographer, without having
+Dialogue: 0,0:39:02.95,0:39:04.55,Default,to import photographer\N[inaudible].
+Dialogue: 0,0:39:04.71,0:39:07.55,Default,That kind of keeps\Nthem independent,
+Dialogue: 0,0:39:07.86,0:39:10.47,Default,that way you wouldn't have to\Ngenerate photographer dot h
+Dialogue: 0,0:39:10.47,0:39:14.73,Default,if you didn't want to, you\Njust wanted photo and then
+Dialogue: 0,0:39:14.78,0:39:18.23,Default,that could be, although,\Nthat wouldn't be true
+Dialogue: 0,0:39:18.23,0:39:21.13,Default,because then it would be\NNS-managed project, but anyway,
+Dialogue: 0,0:39:21.13,0:39:24.25,Default,if you have NS-managed\Nobject, there,
+Dialogue: 0,0:39:24.25,0:39:26.04,Default,then just generate them again.
+Dialogue: 0,0:39:26.27,0:39:29.06,Default,Alright, so let's look\Nat photographer dot h,
+Dialogue: 0,0:39:29.06,0:39:33.17,Default,you can see it has name and\Nphotos, right, as promised.
+Dialogue: 0,0:39:33.30,0:39:35.75,Default,Photos is an NS set,\Nyou see that?
+Dialogue: 0,0:39:36.28,0:39:41.45,Default,It also gave me a whole bunch of\Nmethods here for adding photos
+Dialogue: 0,0:39:41.45,0:39:43.72,Default,to the photo set,\Nbecause that NS set,
+Dialogue: 0,0:39:43.72,0:39:47.75,Default,that's an NS immutable set,\Nso if I wanted to set the list
+Dialogue: 0,0:39:47.75,0:39:49.38,Default,of photos, I'd have to\Ncreate a mutable set,
+Dialogue: 0,0:39:49.52,0:39:52.41,Default,put all the photo objects\Nthat I wanted in there,
+Dialogue: 0,0:39:52.41,0:39:53.56,Default,and then set the whole thing.
+Dialogue: 0,0:39:53.56,0:39:54.76,Default,You know, say, you know,
+Dialogue: 0,0:39:55.51,0:39:58.44,Default,my photographer dot\Nphotos equals a whole set.
+Dialogue: 0,0:39:58.44,0:40:00.99,Default,With add photos object,\Nor remove photos object,
+Dialogue: 0,0:40:00.99,0:40:02.94,Default,I can just add one\Nphoto at a time.
+Dialogue: 0,0:40:02.94,0:40:04.71,Default,Right? So it's just kind of,\Nthose are convenience methods
+Dialogue: 0,0:40:04.71,0:40:06.68,Default,for adding photos\Nto that photoset.
+Dialogue: 0,0:40:06.68,0:40:08.42,Default,So let's look at the\Ndot m's of these though.
+Dialogue: 0,0:40:08.42,0:40:09.71,Default,Okay? And what do you imagine\Nthese dot m's look like?
+Dialogue: 0,0:40:09.74,0:40:10.43,Default,Like set setters and getters?
+Dialogue: 0,0:40:10.46,0:40:11.60,Default,Or, at sign synthesizes\Nor something like that?
+Dialogue: 0,0:40:11.63,0:40:12.50,Default,And the answer is\Nnone of that, okay?
+Dialogue: 0,0:40:12.53,0:40:13.97,Default,The implementations of these\Njust say at sign dynamic
+Dialogue: 0,0:40:14.00,0:40:14.63,Default,for all of the properties.
+Dialogue: 0,0:40:14.66,0:40:15.59,Default,Now, what the heck\Nis at sign dynamic,
+Dialogue: 0,0:40:15.62,0:40:16.25,Default,we never seen that before?
+Dialogue: 0,0:40:16.28,0:40:17.69,Default,At sign dynamic basically means\Nhey I know what I'm doing,
+Dialogue: 0,0:40:17.72,0:40:18.68,Default,don't generate a\Nwarning for this, okay?
+Dialogue: 0,0:40:18.71,0:40:19.97,Default,And what does NS-managed\Nobject do, in this case,
+Dialogue: 0,0:40:20.00,0:40:21.26,Default,since there's no at sign\Nsynthesize, there's no setters
+Dialogue: 0,0:40:21.29,0:40:21.68,Default,and getters here,
+Dialogue: 0,0:40:21.71,0:40:23.09,Default,the implantation just suppresses\Nthe warning, basically,
+Dialogue: 0,0:40:23.12,0:40:24.23,Default,and the answer is\Nobjective C, the run time,
+Dialogue: 0,0:40:24.26,0:40:25.61,Default,has a trapping mechanism\Nwhere if you send a message
+Dialogue: 0,0:40:25.64,0:40:27.14,Default,to an object, and it doesn't\Nunderstand that method, right,
+Dialogue: 0,0:40:27.17,0:40:28.22,Default,it doesn't implement\Nthat, it can trap.
+Dialogue: 0,0:40:28.25,0:40:29.42,Default,And go try to figure out\Nsomething else to do.
+Dialogue: 0,0:40:29.45,0:40:30.98,Default,Okay? Without crashing or saying\Ndoes not respond to selector.
+Dialogue: 0,0:40:31.13,0:40:34.05,Default,And, NS-managed object, when it\Ngets sent a message it doesn't
+Dialogue: 0,0:40:34.05,0:40:36.60,Default,understand, it tries\Nto do value for key,
+Dialogue: 0,0:40:37.05,0:40:38.93,Default,or set value for key on it.
+Dialogue: 0,0:40:39.45,0:40:41.21,Default,Alright? And if that\Ndoesn't work,
+Dialogue: 0,0:40:41.45,0:40:43.37,Default,then it says does not\Nrecognize selector,
+Dialogue: 0,0:40:43.59,0:40:45.68,Default,but if it does work,\Nthen it just works.
+Dialogue: 0,0:40:46.03,0:40:49.31,Default,Okay? So that's what's going on\Nhere, NS-managed object traps
+Dialogue: 0,0:40:49.67,0:40:52.11,Default,when setters and getters\Nor any method is sent to it
+Dialogue: 0,0:40:52.11,0:40:54.67,Default,and it tries to do value for\Nkey and set value for key,
+Dialogue: 0,0:40:54.89,0:40:57.68,Default,and if it can, all is good,\Nand if it can't, then it says,
+Dialogue: 0,0:40:57.78,0:40:59.06,Default,does not understand selected.
+Dialogue: 0,0:40:59.78,0:41:01.49,Default,Everyone understand that?
+Dialogue: 0,0:41:01.71,0:41:04.78,Default,So this at sign dynamic just\Nsays don't generate a warning
+Dialogue: 0,0:41:04.94,0:41:06.60,Default,that I don't implement\Nthe setter and getter,
+Dialogue: 0,0:41:06.60,0:41:09.50,Default,because I know what I'm doing.
+Dialogue: 0,0:41:09.88,0:41:11.14,Default,Okay? Alright.
+Dialogue: 0,0:41:11.43,0:41:15.72,Default,So, so now that I have these\Nsubclasses, how do I use them
+Dialogue: 0,0:41:15.72,0:41:19.52,Default,to access my attributes\Nusing dot notation,
+Dialogue: 0,0:41:19.76,0:41:23.24,Default,and so now when I say NS entity\Ndescription, insert new object
+Dialogue: 0,0:41:23.24,0:41:25.77,Default,for entity for name, in\Nmanaged object context,
+Dialogue: 0,0:41:25.77,0:41:29.43,Default,instead of saying NS-managed\Nobject star photo equals that,
+Dialogue: 0,0:41:29.43,0:41:33.01,Default,I say photo star photo equals\Nthat, insert a new object
+Dialogue: 0,0:41:33.01,0:41:35.22,Default,for entity for name, by\Nthe way, returns an ID,
+Dialogue: 0,0:41:35.42,0:41:37.87,Default,so the complier is\Nnot going to warn you
+Dialogue: 0,0:41:37.87,0:41:40.29,Default,or give an error in either case.
+Dialogue: 0,0:41:40.81,0:41:42.83,Default,But if you say photo\Nstar photo equals that,
+Dialogue: 0,0:41:43.31,0:41:45.92,Default,then you can just say\Nphoto dot title equals,
+Dialogue: 0,0:41:46.32,0:41:47.56,Default,whatever you want\Nthe title to be,
+Dialogue: 0,0:41:47.56,0:41:49.12,Default,like if I'm downloading\Nthis Flickr,
+Dialogue: 0,0:41:49.12,0:41:51.88,Default,I might say Flickr data object\Nfor key Flickr photo title,
+Dialogue: 0,0:41:52.41,0:41:54.26,Default,get it out of that dictionary\Nthat came from Flickr
+Dialogue: 0,0:41:54.26,0:41:56.87,Default,and I'm just setting that\Ntitle in my database.
+Dialogue: 0,0:41:57.22,0:42:00.89,Default,Okay? Exactly 100 percent what\Nyou would think it would be.
+Dialogue: 0,0:42:01.29,0:42:03.38,Default,Here's a whole bunch of other\Nexamples of what you would do,
+Dialogue: 0,0:42:03.38,0:42:05.78,Default,you can also obviously\Ncall the getter,
+Dialogue: 0,0:42:05.78,0:42:09.37,Default,so I could NS string star my\Nthumbnail equals photo dot
+Dialogue: 0,0:42:09.37,0:42:10.41,Default,thumbnail URL, okay?
+Dialogue: 0,0:42:11.04,0:42:13.53,Default,Get that thumbnail URL\Nout of there, that,
+Dialogue: 0,0:42:13.53,0:42:15.43,Default,notice that you can't put\NURL's in the database,
+Dialogue: 0,0:42:15.43,0:42:18.74,Default,you have to put strings\Nand convert them to URL's.
+Dialogue: 0,0:42:19.89,0:42:24.01,Default,I could say photo dot last view\Ndate equals NS date date, okay,
+Dialogue: 0,0:42:24.01,0:42:26.64,Default,the date method in NS date\Ngives the current date and time,
+Dialogue: 0,0:42:26.64,0:42:29.35,Default,I could set that as the\Nphoto's last viewed date.
+Dialogue: 0,0:42:29.78,0:42:32.45,Default,I can even, I can\Nobviously do photo dot
+Dialogue: 0,0:42:32.45,0:42:34.71,Default,who took equals some\Nphotographer object,
+Dialogue: 0,0:42:35.05,0:42:36.90,Default,but I can even say photo dot
+Dialogue: 0,0:42:36.90,0:42:40.81,Default,who took dot name equals the\Nname of the photographer.
+Dialogue: 0,0:42:41.13,0:42:43.54,Default,So if I have a photo,\Na photo star,
+Dialogue: 0,0:42:43.54,0:42:45.48,Default,I can actually set the name
+Dialogue: 0,0:42:45.48,0:42:48.04,Default,of the photographer\Nwho took that photo.
+Dialogue: 0,0:42:49.44,0:42:51.12,Default,Okay? So I'm just\Nusing dot notations
+Dialogue: 0,0:42:51.12,0:42:52.23,Default,and normal dot notation,
+Dialogue: 0,0:42:52.23,0:42:54.19,Default,it's just that photographer\Nimplements name
+Dialogue: 0,0:42:54.53,0:42:57.35,Default,and photo implements who took\Nand who took is a photographer,
+Dialogue: 0,0:42:57.35,0:42:58.93,Default,therefore, photo dot\Nwho took dot name.
+Dialogue: 0,0:42:59.36,0:42:59.69,Default,Question?
+Dialogue: 0,0:43:00.52,0:43:04.99,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,0:43:05.49,0:43:08.35,Default,Alright, so the question is\Nwould it auto create, if,
+Dialogue: 0,0:43:08.35,0:43:10.18,Default,if photo dot who took was nil,
+Dialogue: 0,0:43:10.95,0:43:14.45,Default,would it automatically create\Na photographer in the database,
+Dialogue: 0,0:43:14.56,0:43:16.30,Default,so that it can say dot\Nname equals whatever.
+Dialogue: 0,0:43:16.55,0:43:17.72,Default,And the answer is no.
+Dialogue: 0,0:43:17.72,0:43:19.90,Default,This is normal properties.
+Dialogue: 0,0:43:19.95,0:43:21.40,Default,If photo dot who took is nil,
+Dialogue: 0,0:43:21.59,0:43:25.62,Default,then the set name will just be\Nsent to nil, it will do nothing.
+Dialogue: 0,0:43:25.62,0:43:28.52,Default,So the only way to get things\Nin the database is insert
+Dialogue: 0,0:43:28.68,0:43:31.47,Default,for entity for name, the\Nthing we saw above there,
+Dialogue: 0,0:43:31.47,0:43:33.35,Default,insert new object for\Nentity for name, okay,
+Dialogue: 0,0:43:33.35,0:43:36.47,Default,it doesn't auto create\Nthe [inaudible].
+Dialogue: 0,0:43:36.71,0:43:38.88,Default,Okay. So that's how I\Naccess my attributes.
+Dialogue: 0,0:43:39.31,0:43:42.90,Default,What if I, though, wanted\Nto add code to my photo
+Dialogue: 0,0:43:43.13,0:43:44.89,Default,or my photographer classes?
+Dialogue: 0,0:43:45.95,0:43:48.43,Default,I could put that code\Nin photo dot m and h,
+Dialogue: 0,0:43:49.05,0:43:50.60,Default,but that would be a problem.
+Dialogue: 0,0:43:51.08,0:43:51.89,Default,And why is that?
+Dialogue: 0,0:43:52.50,0:43:55.76,Default,Well, that might be a problem\Nbecause, well, first of all,
+Dialogue: 0,0:43:55.76,0:43:56.83,Default,why would I want to do that?
+Dialogue: 0,0:43:57.57,0:44:00.74,Default,Let's say I wanted to add\Na class method to photo
+Dialogue: 0,0:44:00.92,0:44:05.00,Default,that took a Flickr database, a\NFlickr dictionary as an argument
+Dialogue: 0,0:44:05.00,0:44:08.87,Default,and created a photo\Nin, in the database,
+Dialogue: 0,0:44:08.87,0:44:10.98,Default,that would be an awfully\Nconvenient utility method
+Dialogue: 0,0:44:10.98,0:44:13.90,Default,to have in photo, right, I\Ncould open square bracket photo,
+Dialogue: 0,0:44:14.60,0:44:17.87,Default,make a photo with this\NFlickr data, in a context,
+Dialogue: 0,0:44:17.87,0:44:19.69,Default,and it could do it, right,\Nso that would be cool.
+Dialogue: 0,0:44:19.69,0:44:21.87,Default,Or if I want to derive\Na property, like,
+Dialogue: 0,0:44:22.12,0:44:24.54,Default,I've got this nice\Nproperty thumbnail URL,
+Dialogue: 0,0:44:24.74,0:44:27.23,Default,but unfortunately it's a\Nstring, what if I wanted
+Dialogue: 0,0:44:27.23,0:44:30.77,Default,to have a UI image which\Nwas the thumbnail UI image,
+Dialogue: 0,0:44:30.88,0:44:32.65,Default,then I could have a\Nlittle method in photo
+Dialogue: 0,0:44:32.87,0:44:36.85,Default,that just self dot thumbnail\NURL, turn it into URL,
+Dialogue: 0,0:44:37.16,0:44:40.32,Default,go look it up somewhere,\Npreferably not on the internet,
+Dialogue: 0,0:44:40.32,0:44:42.26,Default,but maybe, maybe it\Nwould just be a blocking,
+Dialogue: 0,0:44:42.26,0:44:44.04,Default,a method that would\Nblock, I don't know.
+Dialogue: 0,0:44:44.57,0:44:46.90,Default,So that would be cool to\Nadd to photo, as well,
+Dialogue: 0,0:44:46.90,0:44:47.61,Default,so in other words,\Nit would be nice
+Dialogue: 0,0:44:47.61,0:44:49.86,Default,if we could put all\Nour photo-related stuff
+Dialogue: 0,0:44:49.86,0:44:52.39,Default,in photo dot m and h, not\Njust the setters and getters
+Dialogue: 0,0:44:52.39,0:44:54.53,Default,for all our properties.
+Dialogue: 0,0:44:54.77,0:44:57.01,Default,Why this is a problem\Nthough, the problem is
+Dialogue: 0,0:44:57.20,0:45:00.23,Default,as you change your visual\Nmap, you're constantly calling
+Dialogue: 0,0:45:00.23,0:45:03.64,Default,in that regenerate method,\Nyou know, menu item,
+Dialogue: 0,0:45:03.64,0:45:04.95,Default,the create NS-managed object,
+Dialogue: 0,0:45:04.95,0:45:07.65,Default,so it's called always\Nrewriting them, okay,
+Dialogue: 0,0:45:07.65,0:45:10.64,Default,it's always blasting what's\Nin there, so we can't do it.
+Dialogue: 0,0:45:10.96,0:45:14.10,Default,Okay? If we edit photo m and\Nh then we can no longer go
+Dialogue: 0,0:45:14.10,0:45:16.44,Default,into Xcode and say create\Nmanaged object subclasses
+Dialogue: 0,0:45:16.47,0:45:18.28,Default,for me anymore, and\Nthat's a bummer.
+Dialogue: 0,0:45:18.28,0:45:20.57,Default,Because, especially in\Ndevelopment, we're iterating,
+Dialogue: 0,0:45:20.57,0:45:22.88,Default,we're adding some properties,\Nwe're adding some entities,
+Dialogue: 0,0:45:23.06,0:45:25.29,Default,changing some relationships, we\Nwant to constantly be going back
+Dialogue: 0,0:45:25.29,0:45:27.30,Default,and regenerating\Nthose things, okay?
+Dialogue: 0,0:45:27.88,0:45:28.30,Default,Question?
+Dialogue: 0,0:45:29.52,0:45:44.64,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,0:45:45.14,0:45:48.36,Default,Yeah, so, the question is\Ncould I set the default for the
+Dialogue: 0,0:45:48.36,0:45:51.72,Default,who took property to be\Nphotographer alloc init,
+Dialogue: 0,0:45:51.72,0:45:53.90,Default,basically, so the, the\Ndefault would always default
+Dialogue: 0,0:45:53.90,0:45:54.92,Default,to creating a photographer
+Dialogue: 0,0:45:54.92,0:45:57.03,Default,and unfortunately you can't\Ndo that, but that'd be cool.
+Dialogue: 0,0:45:57.03,0:46:00.11,Default,The defaults all have to be kind
+Dialogue: 0,0:46:00.30,0:46:04.11,Default,of like I say, static,\N[inaudible].
+Dialogue: 0,0:46:04.45,0:46:07.05,Default,Alright, so, what are we going\Nto do then, because we want
+Dialogue: 0,0:46:07.05,0:46:09.53,Default,to add methods to\Nphoto dot m and h,
+Dialogue: 0,0:46:09.53,0:46:11.40,Default,and we want to add methods\Nto photographer at m and h,
+Dialogue: 0,0:46:11.40,0:46:13.28,Default,but we don't want to have\Nto touch those files.
+Dialogue: 0,0:46:13.63,0:46:16.98,Default,Well, we're going to use a new\Nobjective C language feature.
+Dialogue: 0,0:46:16.98,0:46:19.08,Default,The last one I'm going\Nto teach you, okay?
+Dialogue: 0,0:46:19.25,0:46:22.15,Default,I think you know them all\Nafter this, called categories.
+Dialogue: 0,0:46:22.43,0:46:29.21,Default,Okay? Categories, let's\Nyou add a method to a class
+Dialogue: 0,0:46:29.54,0:46:31.22,Default,without sub classing it.
+Dialogue: 0,0:46:31.80,0:46:36.44,Default,Okay? And, you don't even\Nhave to have the source
+Dialogue: 0,0:46:36.72,0:46:38.57,Default,for that class that you're\Nadding the method to.
+Dialogue: 0,0:46:39.55,0:46:41.52,Default,Okay? So what are some\Nof examples of this?
+Dialogue: 0,0:46:41.72,0:46:45.48,Default,Well, in the UI kit, there's\Na method NS attributed string,
+Dialogue: 0,0:46:45.48,0:46:48.04,Default,draw at point, okay, well\NNS attribute a string is
+Dialogue: 0,0:46:48.04,0:46:50.08,Default,in foundation, it's\Nnot a UI kit thing,
+Dialogue: 0,0:46:50.30,0:46:53.27,Default,it's just a generic\Nattributes on a string thing,
+Dialogue: 0,0:46:53.54,0:46:56.27,Default,but UI kit adds all these,\Nyou know, draw at point,
+Dialogue: 0,0:46:56.27,0:46:59.01,Default,and it defines all these other\Nattributes that can be on there,
+Dialogue: 0,0:46:59.28,0:47:01.32,Default,and it does all that in UI kit,
+Dialogue: 0,0:47:01.35,0:47:04.20,Default,and it doesn't even need the\Nsource for NS attributed string.
+Dialogue: 0,0:47:04.40,0:47:06.70,Default,Okay? It just needs to\Nknow that class exists.
+Dialogue: 0,0:47:06.77,0:47:08.34,Default,Same thing, NS index path.
+Dialogue: 0,0:47:08.34,0:47:11.69,Default,I told you NS index path\Nonly had two methods on it,
+Dialogue: 0,0:47:11.69,0:47:14.64,Default,row and section, but actually\NNS index path has a whole bunch
+Dialogue: 0,0:47:14.64,0:47:16.36,Default,of methods on it,\Nit's in foundation,
+Dialogue: 0,0:47:16.55,0:47:20.04,Default,it's just a generic index\Npointer into an arbitrary,
+Dialogue: 0,0:47:20.04,0:47:22.51,Default,you know, linked list of items,
+Dialogue: 0,0:47:22.68,0:47:24.90,Default,it's just that UI table\Nview wants to call it row
+Dialogue: 0,0:47:24.90,0:47:27.91,Default,and section, so it adds the\Nproperty's row and section
+Dialogue: 0,0:47:28.33,0:47:32.62,Default,to NS index path, even though,\Nagain, table view is in UI kit,
+Dialogue: 0,0:47:32.96,0:47:34.45,Default,NS index path is in foundation,
+Dialogue: 0,0:47:34.45,0:47:36.46,Default,not even the same\Nframework, okay?
+Dialogue: 0,0:47:36.73,0:47:38.59,Default,So, how does this work?
+Dialogue: 0,0:47:38.94,0:47:40.02,Default,And it looks like this.
+Dialogue: 0,0:47:40.80,0:47:42.88,Default,You have an interface\Nand implementation,
+Dialogue: 0,0:47:43.04,0:47:45.70,Default,just like the class, but\Nyou say, instead of saying
+Dialogue: 0,0:47:45.70,0:47:49.45,Default,at sign interface, name of\Nclass, colon, superclass,
+Dialogue: 0,0:47:49.45,0:47:51.76,Default,you say at sign interface,\Nthe name of the class I want
+Dialogue: 0,0:47:51.76,0:47:55.17,Default,to add methods to, and then\Nin parentheses, what I'm going
+Dialogue: 0,0:47:55.17,0:47:57.41,Default,to call this category, and you\Ncan call it anything you want.
+Dialogue: 0,0:47:57.41,0:48:00.24,Default,SO here I've called it add on,\Nbut you could call it Flickr,
+Dialogue: 0,0:48:00.24,0:48:02.05,Default,you could call it Create,\Nwhatever you wanted to do.
+Dialogue: 0,0:48:02.05,0:48:04.68,Default,And then you just list all\Nthe methods you want to add
+Dialogue: 0,0:48:04.68,0:48:06.75,Default,to this class, and\Nthey can be properties,
+Dialogue: 0,0:48:07.13,0:48:10.24,Default,here I have a read-only\Nproperty and another method.
+Dialogue: 0,0:48:10.24,0:48:12.75,Default,You just add, put them on\Nthere, and then at sign end.
+Dialogue: 0,0:48:13.28,0:48:15.03,Default,Okay? So that's all\Nyou need to do.
+Dialogue: 0,0:48:15.26,0:48:17.46,Default,Now anyone who wants to\Ncall these methods just has
+Dialogue: 0,0:48:17.46,0:48:19.67,Default,to import this header file\Nthat has this in there.
+Dialogue: 0,0:48:20.73,0:48:23.42,Default,Now, there's a big\Nrestriction on categories,
+Dialogue: 0,0:48:23.69,0:48:27.18,Default,gigantic restriction, you can't\Nuse any instance variables.
+Dialogue: 0,0:48:27.66,0:48:29.09,Default,Okay? So the implementation
+Dialogue: 0,0:48:29.09,0:48:31.75,Default,of your methods cannot\Nuse an instance variables,
+Dialogue: 0,0:48:32.06,0:48:33.38,Default,or any stored data at all.
+Dialogue: 0,0:48:34.25,0:48:36.71,Default,Okay? There are ways\Nkind of around it,
+Dialogue: 0,0:48:36.76,0:48:37.78,Default,but they're hacks, okay?
+Dialogue: 0,0:48:37.78,0:48:41.13,Default,So generally, categories is four\Nmethods, they have no state,
+Dialogue: 0,0:48:41.32,0:48:42.31,Default,well what good is that?
+Dialogue: 0,0:48:42.47,0:48:45.14,Default,Well, the object that you're\Nadding the methods to,
+Dialogue: 0,0:48:45.14,0:48:46.29,Default,it has a lot of state
+Dialogue: 0,0:48:46.29,0:48:48.41,Default,and so these methods\Nwould be all implemented
+Dialogue: 0,0:48:48.49,0:48:51.10,Default,by using the state of the object\Nyou're adding the methods to.
+Dialogue: 0,0:48:51.95,0:48:54.71,Default,Okay? So, like let's at an\Nexample for these two methods.
+Dialogue: 0,0:48:55.30,0:48:57.62,Default,So here's the implementation,\Nthe at sign implementation
+Dialogue: 0,0:48:57.62,0:49:00.77,Default,of photo, photos\Nadd on category,
+Dialogue: 0,0:49:00.77,0:49:03.26,Default,so I'm adding these two\Nmethods to the photo class,
+Dialogue: 0,0:49:03.26,0:49:06.23,Default,which is that thing we\Ngenerated in Xcode, image,
+Dialogue: 0,0:49:06.23,0:49:11.37,Default,you see it just uses self dot\Nphoto URL, self, is the photo,
+Dialogue: 0,0:49:11.37,0:49:13.57,Default,because these methods are\Nbeing added to photo class.
+Dialogue: 0,0:49:13.57,0:49:16.90,Default,So, self is a photo,\Ndot photo URL gets
+Dialogue: 0,0:49:16.90,0:49:19.05,Default,that attribute, gets\Nthat, that data.
+Dialogue: 0,0:49:19.05,0:49:23.36,Default,That's probably, it actually\Nprobably would be self,
+Dialogue: 0,0:49:23.69,0:49:28.36,Default,it would NS URL from string,\Nself dot photo URL string,
+Dialogue: 0,0:49:28.36,0:49:30.34,Default,because we can't put URL's\Ndirectly in the database,
+Dialogue: 0,0:49:30.34,0:49:32.42,Default,but anyway, and then it\Nwould say return UI image,
+Dialogue: 0,0:49:32.42,0:49:34.76,Default,image with data, and\Nreturn the image.
+Dialogue: 0,0:49:35.15,0:49:37.24,Default,Okay? So no instance\Nvariables there,
+Dialogue: 0,0:49:37.24,0:49:39.18,Default,it's not using any [inaudible],\Nsame thing with is old,
+Dialogue: 0,0:49:39.18,0:49:41.87,Default,it might say self dot\Nupload date, time interval
+Dialogue: 0,0:49:41.87,0:49:44.09,Default,since now is greater\Nthan a day ago.
+Dialogue: 0,0:49:44.43,0:49:45.93,Default,Okay? Question?
+Dialogue: 0,0:49:46.52,0:49:51.01,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,0:49:51.51,0:49:53.57,Default,No I mean you cannot\Ndeclare any new ones.
+Dialogue: 0,0:49:54.02,0:49:56.79,Default,Okay? So you cannot use any\Ninstance variables here,
+Dialogue: 0,0:49:56.87,0:49:58.60,Default,you could only use instance\Nvariables in the class,
+Dialogue: 0,0:49:58.60,0:50:00.00,Default,you're adding a two if\Nthey make them public,
+Dialogue: 0,0:50:00.00,0:50:00.98,Default,via properties or whatever.
+Dialogue: 0,0:50:01.52,0:50:08.75,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,0:50:09.25,0:50:11.05,Default,Okay. You can't have\Nany instance variables
+Dialogue: 0,0:50:11.05,0:50:12.27,Default,in a category, period.
+Dialogue: 0,0:50:12.47,0:50:13.58,Default,Okay, you cannot declare any.
+Dialogue: 0,0:50:14.47,0:50:16.12,Default,If you want to use\Ninstance variables
+Dialogue: 0,0:50:16.22,0:50:19.00,Default,of the class you're adding\Nthe methods to, right?
+Dialogue: 0,0:50:19.30,0:50:20.38,Default,Then they have to be public
+Dialogue: 0,0:50:20.38,0:50:23.21,Default,because all you can do is\Nsee the public header file,
+Dialogue: 0,0:50:23.21,0:50:24.96,Default,you don't see the\Nimplementation of photo,
+Dialogue: 0,0:50:25.23,0:50:26.80,Default,you're adding these\Nmethods to it blind,
+Dialogue: 0,0:50:26.80,0:50:28.86,Default,you don't know anything\Nabout its implementation.
+Dialogue: 0,0:50:29.70,0:50:34.03,Default,So anyway, so this is called\Ncategories, I don't teach this
+Dialogue: 0,0:50:34.03,0:50:37.21,Default,to you early on because this\Nis easily abused, alright?
+Dialogue: 0,0:50:37.25,0:50:39.64,Default,You could add methods\Nto UI kit classes,
+Dialogue: 0,0:50:39.64,0:50:40.85,Default,there's no reason you couldn't.
+Dialogue: 0,0:50:40.85,0:50:44.26,Default,You could add methods to,\Nyou know, foundation classes,
+Dialogue: 0,0:50:44.26,0:50:45.49,Default,completely unrestricted.
+Dialogue: 0,0:50:45.72,0:50:48.57,Default,The only thing is when you start\Ndoing that, you're code can kind
+Dialogue: 0,0:50:48.57,0:50:50.61,Default,of get a little obfuscated,\Npeople are like what,
+Dialogue: 0,0:50:50.61,0:50:53.91,Default,I didn't know that, you\Nknow, this UI kit class had
+Dialogue: 0,0:50:53.91,0:50:56.35,Default,that method, and it's because\Nyou've added it as a category
+Dialogue: 0,0:50:56.35,0:50:58.43,Default,over here and so it's just\Nkind of hard to understand,
+Dialogue: 0,0:50:58.58,0:51:02.01,Default,but sometimes like this, we\Nwant to do that because it kind
+Dialogue: 0,0:51:02.01,0:51:04.59,Default,of it, it collects our code\Nand it makes things look nicer.
+Dialogue: 0,0:51:04.73,0:51:05.10,Default,Question?
+Dialogue: 0,0:51:06.52,0:51:09.92,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,0:51:10.42,0:51:14.18,Default,So the question is can I\Noverride or overwrite, really,
+Dialogue: 0,0:51:14.40,0:51:16.29,Default,a method that already exists?
+Dialogue: 0,0:51:16.29,0:51:18.28,Default,And the answer is don't do that.
+Dialogue: 0,0:51:19.06,0:51:21.57,Default,Okay? That is really\Nhard to understand
+Dialogue: 0,0:51:21.57,0:51:23.99,Default,for people reading your\Ncode, what you mean by that.
+Dialogue: 0,0:51:24.28,0:51:28.79,Default,So only add methods, don't\Ntry to replace or otherwise,
+Dialogue: 0,0:51:29.05,0:51:31.50,Default,you know, use the same method.
+Dialogue: 0,0:51:31.75,0:51:32.56,Default,That's a good question.
+Dialogue: 0,0:51:33.67,0:51:37.49,Default,Alright, so, here's a common\Ncategory method we add
+Dialogue: 0,0:51:37.49,0:51:40.65,Default,for subclasses of NS-managed\Nobject, which is creation.
+Dialogue: 0,0:51:40.65,0:51:45.26,Default,So, imagine I had this\Ncategory called photo create,
+Dialogue: 0,0:51:45.87,0:51:48.32,Default,and I'm going to have this\Nmethod that I'm going to add
+Dialogue: 0,0:51:48.32,0:51:50.10,Default,to photo called photo\Nwith Flickr data
+Dialogue: 0,0:51:50.34,0:51:53.85,Default,in managed object context,\Nand it's going to query
+Dialogue: 0,0:51:53.85,0:51:56.27,Default,that database, see if\Nthat photo already exists,
+Dialogue: 0,0:51:56.27,0:51:58.21,Default,it's going to return\Nit if it does, if not,
+Dialogue: 0,0:51:58.21,0:52:00.35,Default,it's going to insert new\Nobject for entity for name,
+Dialogue: 0,0:52:00.54,0:52:02.96,Default,initialize the photo from\Nthe dictionary you sent,
+Dialogue: 0,0:52:02.96,0:52:06.11,Default,etc. etc. etc. It's going to do\Nall the work, all in one method.
+Dialogue: 0,0:52:06.52,0:52:07.29,Default,So that if someone wants
+Dialogue: 0,0:52:07.29,0:52:09.78,Default,to create a new photo\Nusing Flickr data,
+Dialogue: 0,0:52:10.06,0:52:12.69,Default,they can just call this one\Nmethod, class method in photo.
+Dialogue: 0,0:52:13.39,0:52:16.32,Default,Okay? So this is a classic\Nreason why we would do this.
+Dialogue: 0,0:52:17.25,0:52:20.21,Default,Okay? So, how do we\Ncreate a category.
+Dialogue: 0,0:52:20.65,0:52:23.13,Default,So we go to objective\NC, new file, of course,
+Dialogue: 0,0:52:23.19,0:52:25.74,Default,and instead of saying\Nobjective C class, right,
+Dialogue: 0,0:52:25.74,0:52:28.91,Default,you see objective C class there,\Nyou say objective C category,
+Dialogue: 0,0:52:29.55,0:52:32.41,Default,and instead of asking you the\Nclass and the super class,
+Dialogue: 0,0:52:32.41,0:52:35.02,Default,it's going to say what class\Ndo you want to add a method to
+Dialogue: 0,0:52:35.13,0:52:36.64,Default,and what do you want\Nto call this category.
+Dialogue: 0,0:52:36.64,0:52:38.59,Default,So I'm going to add methods\Nto photo, and I'm going
+Dialogue: 0,0:52:38.59,0:52:40.19,Default,to call the category Flickr.
+Dialogue: 0,0:52:41.09,0:52:44.85,Default,And then it creates\Nphoto plus Flickr dot h
+Dialogue: 0,0:52:44.85,0:52:48.20,Default,and photo plus Flickr\Ndot m. Now, this is kind
+Dialogue: 0,0:52:48.20,0:52:51.15,Default,of the standard naming\Nconvention, for a category.
+Dialogue: 0,0:52:51.15,0:52:53.52,Default,You call it name of the class\Nyou're adding the methods
+Dialogue: 0,0:52:53.52,0:52:56.05,Default,to plus the name\Nof the category.
+Dialogue: 0,0:52:56.55,0:52:58.45,Default,Okay, the plus as a separator,
+Dialogue: 0,0:52:58.45,0:53:00.89,Default,and also because plus means\Nyou're adding these methods
+Dialogue: 0,0:53:00.89,0:53:01.16,Default,to it.
+Dialogue: 0,0:53:01.54,0:53:02.75,Default,So it's kind of a\Nnaming convention.
+Dialogue: 0,0:53:02.75,0:53:04.03,Default,You could call those header file
+Dialogue: 0,0:53:04.03,0:53:05.82,Default,and the implementation file\Nanything you want, really,
+Dialogue: 0,0:53:06.17,0:53:08.71,Default,but this is what we one hundred\Npercent of the time call it.
+Dialogue: 0,0:53:09.01,0:53:11.31,Default,Okay? Name of class,\Nplus category.
+Dialogue: 0,0:53:11.57,0:53:13.45,Default,And you can see that it's\Ncreated a dot h for me
+Dialogue: 0,0:53:13.45,0:53:16.35,Default,and a dot m, and I just put\Nthe methods I want to add
+Dialogue: 0,0:53:16.35,0:53:19.09,Default,in the dot h and then I\Nimplement them in the dot m,
+Dialogue: 0,0:53:19.09,0:53:20.90,Default,it's just that I\Ncan't, unfortunately,
+Dialogue: 0,0:53:20.90,0:53:22.00,Default,have any instance variables.
+Dialogue: 0,0:53:23.60,0:53:23.85,Default,[Pause] Okay?
+Dialogue: 0,0:53:24.16,0:53:24.76,Default,Yeah, question.
+Dialogue: 0,0:53:25.52,0:53:33.75,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,0:53:34.25,0:53:37.67,Default,Yeah, so the question is instead\Nof using new file, category,
+Dialogue: 0,0:53:37.67,0:53:40.17,Default,if I just created an empty file
+Dialogue: 0,0:53:40.17,0:53:41.83,Default,and started typing\Nthis stuff in,
+Dialogue: 0,0:53:42.11,0:53:46.15,Default,how does objective C know\Nthis is a category, well, the,
+Dialogue: 0,0:53:46.15,0:53:48.10,Default,when you go new file\Nin category,
+Dialogue: 0,0:53:48.28,0:53:50.16,Default,that's just a convenience,\Nit's just creating this
+Dialogue: 0,0:53:50.16,0:53:51.33,Default,for you as a convenience.
+Dialogue: 0,0:53:51.36,0:53:52.99,Default,You could certainly\Njust type this stuff in,
+Dialogue: 0,0:53:53.18,0:53:56.19,Default,it knows it's a category because\Nit's at sign interface photo,
+Dialogue: 0,0:53:56.19,0:53:57.82,Default,parentheses Flickr, right,
+Dialogue: 0,0:53:57.82,0:53:59.77,Default,it knows that that\Nparentheses thing,
+Dialogue: 0,0:53:59.77,0:54:02.70,Default,if you have at sign parentheses\Nwith some word in there,
+Dialogue: 0,0:54:02.70,0:54:04.80,Default,it knows that means a\Ncategory, and then same thing
+Dialogue: 0,0:54:04.80,0:54:06.44,Default,on the implementation\Nside, you say okay,
+Dialogue: 0,0:54:06.44,0:54:08.33,Default,I'm providing implementation\Nof that category.
+Dialogue: 0,0:54:08.69,0:54:10.17,Default,So the answer is\Nyeah, you can do that,
+Dialogue: 0,0:54:10.51,0:54:12.42,Default,new file is just\Nmaking it easy for you
+Dialogue: 0,0:54:12.42,0:54:13.80,Default,so it does this, that's all.
+Dialogue: 0,0:54:15.13,0:54:16.57,Default,Okay, any question about this?
+Dialogue: 0,0:54:16.57,0:54:18.66,Default,And we'll see this in\Nthe demo on Wednesday
+Dialogue: 0,0:54:18.66,0:54:20.60,Default,where it will add a\Ncategory, to photo.
+Dialogue: 0,0:54:22.25,0:54:24.32,Default,Okay. So now you know how to\Ninsert an object, you know how
+Dialogue: 0,0:54:24.32,0:54:26.04,Default,to change their properties.
+Dialogue: 0,0:54:26.04,0:54:28.81,Default,We know how to create the custom\Nsubclass, so we can do all this
+Dialogue: 0,0:54:28.81,0:54:31.43,Default,with dot notation, what\Nabout deleting objects
+Dialogue: 0,0:54:31.43,0:54:32.55,Default,from the database, okay?
+Dialogue: 0,0:54:32.71,0:54:34.94,Default,This is all too easy, okay,
+Dialogue: 0,0:54:34.94,0:54:36.76,Default,as Darth Vader would\Nsay, all too easy.
+Dialogue: 0,0:54:36.76,0:54:40.06,Default,You just call delete\Nobject on the context,
+Dialogue: 0,0:54:40.43,0:54:42.74,Default,give the object,\Nbam, it deletes it.
+Dialogue: 0,0:54:43.42,0:54:46.62,Default,Now, deleting the object\Ncan have ramifications.
+Dialogue: 0,0:54:46.90,0:54:48.64,Default,Right? You delete a\Nphotographer, it's going to set
+Dialogue: 0,0:54:48.64,0:54:50.59,Default,that who took to nil, okay?
+Dialogue: 0,0:54:50.64,0:54:52.79,Default,Assuming you don't do\Nthat cascade delete rule
+Dialogue: 0,0:54:52.79,0:54:54.88,Default,in which case it would delete\Nthe photographer, but, okay,
+Dialogue: 0,0:54:54.88,0:54:57.20,Default,so deleting, you know,\Nhas ramifications,
+Dialogue: 0,0:54:57.20,0:54:58.06,Default,you got to know what\Nyou're doing
+Dialogue: 0,0:54:58.06,0:55:00.38,Default,and deleting, it's\Nvery easy to do.
+Dialogue: 0,0:55:01.27,0:55:02.59,Default,Two things to think about this.
+Dialogue: 0,0:55:02.59,0:55:05.08,Default,One, remember it doesn't\Nactually delete the photo
+Dialogue: 0,0:55:05.29,0:55:08.37,Default,or delete the object until you\Nsave, so the auto save comes
+Dialogue: 0,0:55:08.37,0:55:09.57,Default,around and it'll be deleted.
+Dialogue: 0,0:55:09.57,0:55:11.33,Default,That's just a minor point,\Nit's kind of obvious.
+Dialogue: 0,0:55:11.33,0:55:13.94,Default,Same thing with all the changes\Nyou make, that they don't happen
+Dialogue: 0,0:55:13.94,0:55:16.26,Default,on the database until\Nthat auto save happens,
+Dialogue: 0,0:55:16.35,0:55:17.53,Default,or until you explicitly save.
+Dialogue: 0,0:55:18.01,0:55:19.41,Default,But the second thing\Nwith deletion,
+Dialogue: 0,0:55:19.41,0:55:22.38,Default,you got to be really careful\Nis, see that argument photo?
+Dialogue: 0,0:55:22.38,0:55:23.69,Default,Delete object colon photo?
+Dialogue: 0,0:55:24.33,0:55:28.82,Default,If that photo is a strongly-held\Ntwo pointer, you better set it
+Dialogue: 0,0:55:28.82,0:55:30.04,Default,to nil right after this.
+Dialogue: 0,0:55:30.56,0:55:32.75,Default,Okay? Because you cannot access
+Dialogue: 0,0:55:32.75,0:55:35.11,Default,that photo anymore,\Nit is invalid.
+Dialogue: 0,0:55:36.20,0:55:39.30,Default,Right? After you hit delete\Nphoto, or delete object rather,
+Dialogue: 0,0:55:39.97,0:55:42.85,Default,that thing you deleted, get\Nrid of all your strong pointers
+Dialogue: 0,0:55:42.85,0:55:44.32,Default,to it, because it's no good.
+Dialogue: 0,0:55:44.92,0:55:45.75,Default,Right? It's been deleted.
+Dialogue: 0,0:55:46.58,0:55:49.78,Default,So if you tried to say photo\Ndot title equals something
+Dialogue: 0,0:55:49.78,0:55:52.06,Default,on the next line, I don't\Neven know what would happen,
+Dialogue: 0,0:55:52.06,0:55:53.46,Default,something bad, don't do it.
+Dialogue: 0,0:55:54.11,0:55:55.92,Default,Okay? I mean, that's\Ncompletely obvious, right?
+Dialogue: 0,0:55:55.92,0:55:58.43,Default,But, it's something people\Nforget and then they're like,
+Dialogue: 0,0:55:58.43,0:55:59.37,Default,wow, it's not working,.
+Dialogue: 0,0:56:00.02,0:56:04.43,Default,Okay? One of the things about\Ndeletion that's kind of cool.
+Dialogue: 0,0:56:04.89,0:56:09.47,Default,Core data will send the\Nmethod, send a message,
+Dialogue: 0,0:56:09.58,0:56:12.96,Default,prepare for deletion\Nto all objects
+Dialogue: 0,0:56:13.93,0:56:15.74,Default,when you send delete object.
+Dialogue: 0,0:56:16.00,0:56:19.25,Default,Okay? So if I say delete object\Nphoto, that photo will be sent,
+Dialogue: 0,0:56:19.25,0:56:21.12,Default,if it implements it,\Nprepare for deletion.
+Dialogue: 0,0:56:21.12,0:56:23.51,Default,And the cool thing is,\Nyou can put this prepare
+Dialogue: 0,0:56:23.57,0:56:24.97,Default,for deletion in a category.
+Dialogue: 0,0:56:25.72,0:56:28.96,Default,So you can add the prepare\Nfor deletion method to photo,
+Dialogue: 0,0:56:29.01,0:56:30.87,Default,or photographer, in a category.
+Dialogue: 0,0:56:31.29,0:56:33.52,Default,Now what would you do in that\Nprepare for deletion, well,
+Dialogue: 0,0:56:33.97,0:56:37.11,Default,you don't need to do anything\Nwith the who took or the photos
+Dialogue: 0,0:56:37.11,0:56:38.76,Default,or anything that, that's all\Ntaken care of you for you,
+Dialogue: 0,0:56:39.03,0:56:41.60,Default,but what if you had\Nanother property somewhere
+Dialogue: 0,0:56:41.60,0:56:44.85,Default,in the database, which\Nwas counting the photos,
+Dialogue: 0,0:56:44.85,0:56:48.16,Default,or something like that, and\Ndeleting this photo would change
+Dialogue: 0,0:56:48.16,0:56:51.41,Default,that count, and why would\Nyou have such a thing?
+Dialogue: 0,0:56:51.41,0:56:54.11,Default,Because it's possible to just\Nquery the counted photos,
+Dialogue: 0,0:56:54.45,0:56:56.28,Default,that a photographer\Nhas, for example.
+Dialogue: 0,0:56:56.80,0:57:00.32,Default,Maybe, you know, it's your,\Nits account, for efficiency,
+Dialogue: 0,0:57:00.32,0:57:01.86,Default,you're checking something\Nabout the photo
+Dialogue: 0,0:57:01.86,0:57:02.65,Default,and keeping this count.
+Dialogue: 0,0:57:02.86,0:57:04.35,Default,And maybe if you delete\Nthe photo you need
+Dialogue: 0,0:57:04.35,0:57:05.25,Default,to update that count.
+Dialogue: 0,0:57:05.36,0:57:07.09,Default,Well you can do that, all\Nthat kind of stuff here
+Dialogue: 0,0:57:07.09,0:57:08.05,Default,and prepare for deletion.
+Dialogue: 0,0:57:08.60,0:57:09.70,Default,Okay? You can basically\Ndo anything
+Dialogue: 0,0:57:09.70,0:57:12.60,Default,in the database you want to\Nprepare, prepare for deletion,
+Dialogue: 0,0:57:12.73,0:57:15.11,Default,and the thing that's being\Ndeleted is not yet deleted.
+Dialogue: 0,0:57:15.71,0:57:17.82,Default,Okay? So it's still it the\Ndatabase that this is called.
+Dialogue: 0,0:57:18.24,0:57:21.78,Default,But after you return from this\Nmethod, then the object's going
+Dialogue: 0,0:57:21.78,0:57:23.76,Default,to be deleted, so you have\Nbetter have updated the database
+Dialogue: 0,0:57:23.76,0:57:24.39,Default,however you need.
+Dialogue: 0,0:57:25.38,0:57:28.85,Default,Okay? Got that?
+Dialogue: 0,0:57:29.00,0:57:32.46,Default,Alright. So, now you can\Ncreate objects with insert,
+Dialogue: 0,0:57:32.65,0:57:33.97,Default,you can get inside\Nthe properties,
+Dialogue: 0,0:57:34.14,0:57:35.28,Default,you can delete the objects.
+Dialogue: 0,0:57:35.48,0:57:39.07,Default,One last thing to want to do\Nin a database, query, okay,
+Dialogue: 0,0:57:39.07,0:57:41.93,Default,which means go out into the\Ndatabase and get me objects
+Dialogue: 0,0:57:42.00,0:57:43.28,Default,that match some criteria.
+Dialogue: 0,0:57:44.06,0:57:48.01,Default,Okay? So, we do this,\Nin core data,
+Dialogue: 0,0:57:48.01,0:57:50.72,Default,with an object called\NNS fetch request.
+Dialogue: 0,0:57:51.25,0:57:53.79,Default,Alright? It's exactly what you\Nthink it is, you're requesting
+Dialogue: 0,0:57:53.79,0:57:55.59,Default,to fetch some objects\Nfrom the database.
+Dialogue: 0,0:57:55.97,0:57:58.47,Default,You need four things to\Nmake an NS fetch request.
+Dialogue: 0,0:57:58.79,0:58:01.33,Default,The entity to fetch, and\Nthis is an interesting one
+Dialogue: 0,0:58:01.33,0:58:04.77,Default,because when you fetch from the\Ndatabase, you can only fetch,
+Dialogue: 0,0:58:04.77,0:58:08.22,Default,fetch, when you execute it, it\Nreturns an array of objects,
+Dialogue: 0,0:58:08.22,0:58:09.81,Default,an array of NS-managed objects,
+Dialogue: 0,0:58:09.81,0:58:11.88,Default,or subclasses thereof,\Nas you might imagine.
+Dialogue: 0,0:58:12.29,0:58:15.44,Default,That array all have to be\Nthe same type of entity.
+Dialogue: 0,0:58:16.30,0:58:18.61,Default,Okay? So there are no way\Nto do a fetch in a database
+Dialogue: 0,0:58:18.61,0:58:20.89,Default,that gives you an array back,\Nsome of the things are photos
+Dialogue: 0,0:58:20.89,0:58:21.94,Default,and some are photographers.
+Dialogue: 0,0:58:22.35,0:58:24.97,Default,They all have to be photos,\Nall have to be photographers.
+Dialogue: 0,0:58:25.29,0:58:27.10,Default,So you have to specify\Nthe entity
+Dialogue: 0,0:58:27.27,0:58:29.64,Default,that you're trying\Nto fetch, okay?
+Dialogue: 0,0:58:30.31,0:58:31.32,Default,Understand what I mean by that?
+Dialogue: 0,0:58:32.12,0:58:33.44,Default,That's the most important\Nthing, in fact, the,
+Dialogue: 0,0:58:33.44,0:58:36.18,Default,the way you create\Nthe fetch request is
+Dialogue: 0,0:58:36.18,0:58:38.29,Default,by specifying what kind of\Nentity you're trying to fetch.
+Dialogue: 0,0:58:39.50,0:58:41.09,Default,Then you can specify,\Noptionally,
+Dialogue: 0,0:58:41.22,0:58:43.63,Default,how many of those objects\Nyou're willing to accept
+Dialogue: 0,0:58:43.85,0:58:47.94,Default,and how big a batch, if, if\Nyou're fetching a whole bunch
+Dialogue: 0,0:58:47.94,0:58:50.75,Default,of them, you can specify\Nhow many to get at a time,
+Dialogue: 0,0:58:50.95,0:58:54.35,Default,because it's not going to, if\Nyou say get me these photos
+Dialogue: 0,0:58:54.35,0:58:57.90,Default,and it matches 10,000, it's\Nnot going to load 10,000 things
+Dialogue: 0,0:58:57.90,0:58:59.63,Default,out of the database\Nand into memory.
+Dialogue: 0,0:58:59.99,0:59:02.70,Default,Okay? It's going to kind of\Ngive you 10,000 placeholders
+Dialogue: 0,0:59:02.70,0:59:05.44,Default,and then it's going to fetch\Nthem in little batches,
+Dialogue: 0,0:59:05.44,0:59:07.76,Default,and you can specify the\Nbatch size depending
+Dialogue: 0,0:59:07.76,0:59:09.45,Default,on how you're going\Nto use the object,
+Dialogue: 0,0:59:09.45,0:59:11.34,Default,if you use the information,\Nif you're displaying it
+Dialogue: 0,0:59:11.34,0:59:13.62,Default,in a table view, well you can\Nset the batch size real small,
+Dialogue: 0,0:59:13.69,0:59:16.59,Default,like 10 or 20, however\Nmany, you know, would scroll
+Dialogue: 0,0:59:16.59,0:59:17.58,Default,around on a table view.
+Dialogue: 0,0:59:17.78,0:59:20.25,Default,We can only see, you\Nknow, 10 or 20 at a time,
+Dialogue: 0,0:59:20.25,0:59:21.50,Default,so you've got a small\Nbatch size.
+Dialogue: 0,0:59:22.15,0:59:23.76,Default,So you control that.
+Dialogue: 0,0:59:23.76,0:59:25.55,Default,Sort descriptors, which\Nwe're going to talk about,
+Dialogue: 0,0:59:25.55,0:59:26.85,Default,which is how to sort\Nthe results,
+Dialogue: 0,0:59:26.85,0:59:29.58,Default,because the results are\Nan array, not a set.
+Dialogue: 0,0:59:30.00,0:59:33.14,Default,So the array means it's ordered,\Nso you got to specify what order
+Dialogue: 0,0:59:33.21,0:59:34.60,Default,to give those objects back in.
+Dialogue: 0,0:59:35.12,0:59:37.41,Default,And then, most importantly,\Nthe predicate,
+Dialogue: 0,0:59:37.41,0:59:41.28,Default,and the predicate says which\Nof those entities you want,
+Dialogue: 0,0:59:41.58,0:59:42.31,Default,which photos?
+Dialogue: 0,0:59:42.41,0:59:43.48,Default,Which photographers?
+Dialogue: 0,0:59:44.09,0:59:45.70,Default,Okay? So let's look\Nat these four things.
+Dialogue: 0,0:59:46.14,0:59:48.27,Default,Here's what a fetch\Nrequest looks like.
+Dialogue: 0,0:59:48.32,0:59:50.67,Default,You create it with fetch\Nrequest with entity name,
+Dialogue: 0,0:59:50.87,0:59:52.82,Default,that tells you what you're\Nfetching out of there,
+Dialogue: 0,0:59:53.15,0:59:55.32,Default,and then you can set\Nthings like the batch size
+Dialogue: 0,0:59:55.32,0:59:58.18,Default,and the batch limit, they're\Njust properties on the request,
+Dialogue: 0,0:59:58.56,1:00:01.58,Default,and then the sort descriptors\Nis an array of sort descriptors,
+Dialogue: 0,1:00:01.58,1:00:02.91,Default,we'll talk about\Nwhy that's an array.
+Dialogue: 0,1:00:03.58,1:00:05.89,Default,And then the predicate\Nis, is NS predicate.
+Dialogue: 0,1:00:05.89,1:00:07.80,Default,So this is how you would\Nset up a fetch request.
+Dialogue: 0,1:00:08.79,1:00:10.49,Default,Okay? Very simple.
+Dialogue: 0,1:00:10.76,1:00:15.78,Default,So, you can look up in NS fetch\Nrequest how batch size works,
+Dialogue: 0,1:00:15.78,1:00:17.68,Default,how fetch limits works, I'm\Nnot going to get into detail
+Dialogue: 0,1:00:17.68,1:00:19.89,Default,about that for time reasons,\Nbut I am going to focus
+Dialogue: 0,1:00:19.89,1:00:21.31,Default,on sort descriptors\Nand predicate
+Dialogue: 0,1:00:21.31,1:00:22.89,Default,because those are really\Nimportant, so let's look
+Dialogue: 0,1:00:22.89,1:00:23.85,Default,at the sort descriptor.
+Dialogue: 0,1:00:23.85,1:00:27.36,Default,You create a sort\Ndescriptor using this class NS
+Dialogue: 0,1:00:27.36,1:00:28.26,Default,sort descriptor.
+Dialogue: 0,1:00:28.65,1:00:31.94,Default,And it has quite a number of\Nclass methods to create it,
+Dialogue: 0,1:00:31.94,1:00:33.50,Default,so you should go look\Nat the documentation
+Dialogue: 0,1:00:33.50,1:00:35.50,Default,and familiarize yourself,\Nbut they're generally
+Dialogue: 0,1:00:35.50,1:00:39.23,Default,of the form sort descriptor with\Nkey, so that's the key you want
+Dialogue: 0,1:00:39.23,1:00:41.76,Default,to sort by, so if I were\Nfetching for photos,
+Dialogue: 0,1:00:41.76,1:00:45.49,Default,I want to get the result sorted\Nby the title of the photo,
+Dialogue: 0,1:00:45.70,1:00:46.76,Default,that would be a classic thing.
+Dialogue: 0,1:00:47.02,1:00:49.10,Default,Ascending is whether\Nit's alphabetical order
+Dialogue: 0,1:00:49.10,1:00:50.43,Default,or reverse alphabetical order,
+Dialogue: 0,1:00:50.95,1:00:53.08,Default,and then the selector\Nis interesting there.
+Dialogue: 0,1:00:53.28,1:00:58.26,Default,That is the method that will\Nbe used to compare photos,
+Dialogue: 0,1:00:59.23,1:01:02.24,Default,while it's sorting them.
+Dialogue: 0,1:01:02.24,1:01:07.61,Default,Okay? So, it's going to sort\Nthe results by the title,
+Dialogue: 0,1:01:07.61,1:01:09.41,Default,and it's going to be\Nusing the method here,
+Dialogue: 0,1:01:09.41,1:01:13.38,Default,localized standard compare\Nto compare the titles
+Dialogue: 0,1:01:13.57,1:01:17.23,Default,to know how to sort them, okay?
+Dialogue: 0,1:01:17.23,1:01:20.02,Default,Now, A, what is localized\Nstandard compare?
+Dialogue: 0,1:01:20.26,1:01:23.00,Default,Localized standard compare means\Nsort them like they would look
+Dialogue: 0,1:01:23.00,1:01:25.21,Default,in the Mac finder, basically.
+Dialogue: 0,1:01:26.24,1:01:29.00,Default,Or, that's kind of a local way\Nof saying it, but basically,
+Dialogue: 0,1:01:29.10,1:01:33.26,Default,sort them how real people\Nthink things should be sorted,
+Dialogue: 0,1:01:33.59,1:01:36.02,Default,not case insensitively,\Ndo the right thing
+Dialogue: 0,1:01:36.02,1:01:38.55,Default,with diacritic marks, if it's\Na language that has a lot
+Dialogue: 0,1:01:38.55,1:01:40.65,Default,of diacritics, that\Nkind of thing, okay?
+Dialogue: 0,1:01:40.65,1:01:42.60,Default,That's what localized\Nstandard compare is.
+Dialogue: 0,1:01:42.88,1:01:45.83,Default,There are other selectors\Nthat are sensible
+Dialogue: 0,1:01:45.83,1:01:48.33,Default,if it was a string\Ntype property,
+Dialogue: 0,1:01:48.60,1:01:52.95,Default,like localize case insensitive\Ncompare, which sounds the same,
+Dialogue: 0,1:01:53.12,1:01:54.34,Default,case insensitive sorting,
+Dialogue: 0,1:01:54.60,1:01:57.11,Default,but the diacritics are handled\Ndifferently in that case.
+Dialogue: 0,1:01:57.30,1:01:58.92,Default,So that's why you would want\Nto use standard compare.
+Dialogue: 0,1:01:58.99,1:02:01.77,Default,So you can look up in sort\Ndescriptors, see what kind
+Dialogue: 0,1:02:01.77,1:02:03.65,Default,of methods are kind of built in.
+Dialogue: 0,1:02:04.10,1:02:07.46,Default,If you were, you can sort\Nby things besides strings,
+Dialogue: 0,1:02:07.46,1:02:09.94,Default,you can say sort descriptor\Nwith key upload date,
+Dialogue: 0,1:02:10.31,1:02:13.15,Default,and then the selector would\Nwant to be compare colon.
+Dialogue: 0,1:02:13.72,1:02:16.88,Default,Compare colon is a method\Nmost things, if not all,
+Dialogue: 0,1:02:16.88,1:02:21.70,Default,except for NS data maybe, things\Nin the database will respond to,
+Dialogue: 0,1:02:21.70,1:02:23.52,Default,compare colon, it's kind\Nof the default compare,
+Dialogue: 0,1:02:23.61,1:02:24.82,Default,but it's not going\Nto do what you want,
+Dialogue: 0,1:02:24.82,1:02:27.25,Default,usually with reverse string,\Nso you want a better one,
+Dialogue: 0,1:02:27.38,1:02:30.29,Default,but it will work for\Ndates and things like,
+Dialogue: 0,1:02:30.29,1:02:31.73,Default,and numbers, things like that.
+Dialogue: 0,1:02:32.54,1:02:34.62,Default,So that's the selector.
+Dialogue: 0,1:02:34.62,1:02:36.99,Default,You can leave that selector off,
+Dialogue: 0,1:02:37.36,1:02:39.10,Default,when you create the\Nsort descriptor,
+Dialogue: 0,1:02:39.10,1:02:41.00,Default,just say sort descriptor\Nwith key ascending,
+Dialogue: 0,1:02:41.20,1:02:44.37,Default,close square bracket, and\Nyou'll get compare, okay?
+Dialogue: 0,1:02:44.37,1:02:48.20,Default,So, compare is kind of\Nthe default one you get.
+Dialogue: 0,1:02:48.20,1:02:52.30,Default,Why do we give an array of these\Nthings to the fetch request?
+Dialogue: 0,1:02:52.58,1:02:55.44,Default,Okay, when, we saw request\Ndot sort descriptors,
+Dialogue: 0,1:02:56.08,1:02:57.70,Default,it was an array of these,
+Dialogue: 0,1:02:58.06,1:03:00.24,Default,well that's the old last\Nname, first name thing.
+Dialogue: 0,1:03:00.71,1:03:03.54,Default,If I said hey, I'm going\Nto fetch some people,
+Dialogue: 0,1:03:03.80,1:03:06.31,Default,some employees out of\Nan employee database,
+Dialogue: 0,1:03:06.69,1:03:08.61,Default,and I want you to\Nsort it by last name.
+Dialogue: 0,1:03:08.75,1:03:10.93,Default,Well, of course, all the\NSmith's would all sort
+Dialogue: 0,1:03:10.93,1:03:11.65,Default,to the same thing.
+Dialogue: 0,1:03:12.20,1:03:15.24,Default,So, you want to then sort\Nthose by the first name.
+Dialogue: 0,1:03:15.48,1:03:18.13,Default,So you provide sort descriptors,\None that sorts by last name,
+Dialogue: 0,1:03:18.13,1:03:20.11,Default,that's the primary\Nsorting, and then one
+Dialogue: 0,1:03:20.15,1:03:21.95,Default,by first name is the\Nsecondary sorting.
+Dialogue: 0,1:03:22.27,1:03:24.82,Default,Another common one is a\Ntable view, pay attention,
+Dialogue: 0,1:03:24.82,1:03:26.17,Default,because your homework,\Nyou might have to do this,
+Dialogue: 0,1:03:26.64,1:03:28.37,Default,is maybe I'm doing\Nthe table view
+Dialogue: 0,1:03:28.37,1:03:32.42,Default,like you're doing your current\Nassignment, and I'm sorting,
+Dialogue: 0,1:03:32.42,1:03:36.23,Default,you know, basically by the name\Nof the place, in the place one,
+Dialogue: 0,1:03:36.53,1:03:39.16,Default,but I'm supposed to do it by\Ncountries, sections by country,
+Dialogue: 0,1:03:39.35,1:03:41.59,Default,so really I need to\Nsort first by country,
+Dialogue: 0,1:03:42.19,1:03:45.10,Default,then I sort by the name of\Nthe place in the country.
+Dialogue: 0,1:03:45.71,1:03:47.87,Default,Okay? So, that's an example
+Dialogue: 0,1:03:47.87,1:03:49.41,Default,where you might use\Ntwo sort descriptors.
+Dialogue: 0,1:03:50.27,1:03:52.27,Default,Country sort then the place.
+Dialogue: 0,1:03:52.38,1:03:54.68,Default,That's so that I can get\Nthem in order so that the,
+Dialogue: 0,1:03:54.68,1:03:56.09,Default,their by country first.
+Dialogue: 0,1:03:56.52,1:03:59.11,Default,Okay? That make sense?
+Dialogue: 0,1:03:59.11,1:04:01.80,Default,Alright, predicates, so this\Nis the guts, this is the thing
+Dialogue: 0,1:04:01.80,1:04:03.87,Default,that says which photos\Ndo I want,
+Dialogue: 0,1:04:03.93,1:04:06.11,Default,which photographers\Ndo I want, and,
+Dialogue: 0,1:04:06.21,1:04:10.28,Default,and this predicate looks\Na lot like NS string
+Dialogue: 0,1:04:10.56,1:04:11.78,Default,when it comes to creating them.
+Dialogue: 0,1:04:12.19,1:04:14.32,Default,So just like we have NS\Nstring, string with format,
+Dialogue: 0,1:04:14.55,1:04:18.18,Default,we actually have NS predicate,\Npredicate with format, okay?
+Dialogue: 0,1:04:18.18,1:04:20.40,Default,And you can specify\Nthis arbitrary string.
+Dialogue: 0,1:04:20.40,1:04:22.48,Default,Now, this is good and bad.
+Dialogue: 0,1:04:22.80,1:04:25.66,Default,The good news is this\Nis incredibly flexible
+Dialogue: 0,1:04:25.66,1:04:30.56,Default,and you can specify unbelievable\Nkinds of [pause] criteria
+Dialogue: 0,1:04:30.56,1:04:32.95,Default,for finding what things\Nyou want in the database.
+Dialogue: 0,1:04:32.95,1:04:34.82,Default,The bad thing is, it's a\Nlittle bit for you to learn,
+Dialogue: 0,1:04:34.82,1:04:36.18,Default,because it's almost like you\Nhave to learn a little bit
+Dialogue: 0,1:04:36.18,1:04:38.30,Default,of a language here,\Nthe predicate language
+Dialogue: 0,1:04:38.30,1:04:40.12,Default,for how you specify\Nwhat you want to choose.
+Dialogue: 0,1:04:40.70,1:04:46.56,Default,The basic format [pause]\Nallows you to do the percent
+Dialogue: 0,1:04:46.56,1:04:48.96,Default,at sign replacement, just\Nlike you could with NS string,
+Dialogue: 0,1:04:48.96,1:04:50.19,Default,so here, for example,
+Dialogue: 0,1:04:50.19,1:04:52.69,Default,I'm looking for all the\Nthumbnail URLs that come off
+Dialogue: 0,1:04:52.69,1:04:54.12,Default,of Flickr five server.
+Dialogue: 0,1:04:54.52,1:04:58.14,Default,So I'm saying predicate is\Nthumbnail URL contains Flickr
+Dialogue: 0,1:04:58.14,1:05:00.86,Default,five, but I don't put the\NFlickr five right in there,
+Dialogue: 0,1:05:00.86,1:05:03.37,Default,I use percent at sign,\Nand it's an argument.
+Dialogue: 0,1:05:03.72,1:05:05.43,Default,So I can use percent at\Nsign for replacement,
+Dialogue: 0,1:05:05.55,1:05:09.21,Default,and I can replace not only the\Nright side, what's contained,
+Dialogue: 0,1:05:09.42,1:05:12.74,Default,but I can replace the left\Nside, like which property I want
+Dialogue: 0,1:05:12.74,1:05:14.96,Default,to search to see if it\Ncontains Flickr five, okay?
+Dialogue: 0,1:05:14.96,1:05:17.38,Default,And we'll talk about contains\Nin a second, question?
+Dialogue: 0,1:05:18.52,1:05:25.39,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,1:05:25.89,1:05:29.43,Default,Correct. Yeah so, this is\Nnot just, the question is
+Dialogue: 0,1:05:29.43,1:05:31.46,Default,that just making a\Nstring and passing it off
+Dialogue: 0,1:05:31.46,1:05:33.91,Default,and the answer is no, NS\Npredicate is actually looking
+Dialogue: 0,1:05:33.91,1:05:36.51,Default,at what you're par\Nseeing and, now it's,
+Dialogue: 0,1:05:36.51,1:05:39.41,Default,it can't know what database\Nyou're doing a fetch into,
+Dialogue: 0,1:05:39.41,1:05:42.00,Default,so it won't be until fetch\Ntime that it might fail.
+Dialogue: 0,1:05:42.30,1:05:45.46,Default,If you say thumbnail\Nfoo, contains whatever,
+Dialogue: 0,1:05:45.61,1:05:47.71,Default,its predicate is going to let\Nyou create that predicate,
+Dialogue: 0,1:05:47.71,1:05:49.14,Default,but then when you go to\Ndo the fetch it's going
+Dialogue: 0,1:05:49.14,1:05:52.60,Default,to say no property thumbnail\Nfoo in this database.
+Dialogue: 0,1:05:53.91,1:05:56.64,Default,Okay, so, you see\Nthis one's contained.
+Dialogue: 0,1:05:56.64,1:05:59.28,Default,Contains means, you know,\Nthat string is contained
+Dialogue: 0,1:05:59.28,1:06:00.76,Default,in the other string,\Nexactly what you want,
+Dialogue: 0,1:06:00.76,1:06:03.32,Default,so contains is one of the\Nwords in this little language
+Dialogue: 0,1:06:03.32,1:06:04.66,Default,for setting up predicates.
+Dialogue: 0,1:06:04.66,1:06:05.94,Default,Here's a whole bunch\Nof other examples.
+Dialogue: 0,1:06:05.94,1:06:08.43,Default,I'm not going to teach you all\Nof predicate today, you're going
+Dialogue: 0,1:06:08.43,1:06:10.44,Default,to have to look at NS\Npredicate documentation,
+Dialogue: 0,1:06:10.44,1:06:12.19,Default,see what it can do, but\Nhere's a bunch of examples.
+Dialogue: 0,1:06:12.19,1:06:13.59,Default,Obviously, you have equals,
+Dialogue: 0,1:06:14.01,1:06:17.34,Default,so you can say unique ID\Nequals percent at sign,
+Dialogue: 0,1:06:17.34,1:06:21.88,Default,maybe the Flickr object, the\NFlickr photos, unique ID,
+Dialogue: 0,1:06:22.70,1:06:26.31,Default,you can say name contains\Nwith square bracket C,
+Dialogue: 0,1:06:26.60,1:06:29.21,Default,that means contains\Ncase insensitively.
+Dialogue: 0,1:06:30.26,1:06:32.76,Default,Okay? So that's part of the,\Nyou can have greater than
+Dialogue: 0,1:06:32.76,1:06:36.64,Default,and less than, so if I had a,\Na date property called viewed,
+Dialogue: 0,1:06:36.64,1:06:39.49,Default,I could say if viewed is\Ngreater than a certain date,
+Dialogue: 0,1:06:39.49,1:06:42.70,Default,like today's date, for example,\Nor, it would be, I guess,
+Dialogue: 0,1:06:42.70,1:06:44.06,Default,less than today's date or less
+Dialogue: 0,1:06:44.06,1:06:46.07,Default,than today's date minus\N24 hours, whatever,
+Dialogue: 0,1:06:46.07,1:06:47.65,Default,so you can use greater\Nthan or less than.
+Dialogue: 0,1:06:47.65,1:06:50.96,Default,You can use dot notation\Nto follow relationships.
+Dialogue: 0,1:06:51.39,1:06:56.49,Default,So you can say who took dot name\Nequals CS193p instructor, right?
+Dialogue: 0,1:06:56.52,1:06:59.51,Default,So you could have, this would\Nbe a query or a predicate
+Dialogue: 0,1:06:59.51,1:07:03.19,Default,for searching in the photos,\Nentities, so you're trying
+Dialogue: 0,1:07:03.19,1:07:07.04,Default,to get photos entities, but you\Nwant photos entities where the
+Dialogue: 0,1:07:07.04,1:07:10.21,Default,who took name is some\Nphotographers name.
+Dialogue: 0,1:07:10.94,1:07:15.10,Default,So, the things you're getting\Nare photos, but the query,
+Dialogue: 0,1:07:15.10,1:07:16.70,Default,the predicate you're\Nusing to find them,
+Dialogue: 0,1:07:16.86,1:07:19.52,Default,is looking over at the\Nphotographer using dot notation,
+Dialogue: 0,1:07:20.59,1:07:21.29,Default,you understand this?
+Dialogue: 0,1:07:22.10,1:07:23.27,Default,Okay? You definitely need
+Dialogue: 0,1:07:23.27,1:07:24.58,Default,to understand this\Nfor your homework.
+Dialogue: 0,1:07:24.58,1:07:26.02,Default,And you can do really\Npowerful searches
+Dialogue: 0,1:07:26.02,1:07:31.35,Default,like give me any photo who's\Ntitle contains, sorry, give me,
+Dialogue: 0,1:07:31.35,1:07:33.13,Default,this would be a photographer\Nquery,
+Dialogue: 0,1:07:33.13,1:07:34.60,Default,so let's say I'm\Nsearching photographers,
+Dialogue: 0,1:07:34.84,1:07:37.58,Default,give me any photographer\Nwhere any
+Dialogue: 0,1:07:37.58,1:07:40.43,Default,of its photos title\Ncontains this.
+Dialogue: 0,1:07:41.07,1:07:43.74,Default,Okay? So that any is\Nkind of a special thing,
+Dialogue: 0,1:07:43.74,1:07:47.25,Default,and that means I'm the\Nphotographer, look at all my,
+Dialogue: 0,1:07:47.25,1:07:49.25,Default,look at, in the database\Nat all the photographers,
+Dialogue: 0,1:07:49.54,1:07:52.14,Default,look through their,\Ntheir photos set,
+Dialogue: 0,1:07:52.78,1:07:55.32,Default,to look at all their photos,\Nlook at all the titles
+Dialogue: 0,1:07:55.32,1:07:58.03,Default,of all those photos, see\Nif it contains this string,
+Dialogue: 0,1:07:58.03,1:08:00.22,Default,and if it does, return\Nthat photographer.
+Dialogue: 0,1:08:01.25,1:08:04.32,Default,Okay? Now this seems, I'm sure\Nyou're like whoa, that is going
+Dialogue: 0,1:08:04.32,1:08:08.50,Default,to take a lot of computing power\Nif I had thousands of photos
+Dialogue: 0,1:08:08.50,1:08:11.72,Default,and hundreds of photographers,\Nbut actually, databases know how
+Dialogue: 0,1:08:11.72,1:08:12.96,Default,to do this really, really well.
+Dialogue: 0,1:08:13.63,1:08:16.99,Default,Okay? And all this stuff that\Nyou're doing is generating stuff
+Dialogue: 0,1:08:16.99,1:08:19.19,Default,that happens on the sequel\Nside, so you're going
+Dialogue: 0,1:08:19.19,1:08:21.19,Default,to get a big sequel\Nstatement generated here
+Dialogue: 0,1:08:21.19,1:08:23.94,Default,to join these tables,\Ndo these searches,
+Dialogue: 0,1:08:23.94,1:08:26.60,Default,it's going to be incredibly\Nefficient, and one thing
+Dialogue: 0,1:08:26.60,1:08:30.05,Default,to understand about core data\Nis it's very efficient, okay?
+Dialogue: 0,1:08:30.05,1:08:34.16,Default,The sequel it generates is\Ntotally tuned to the max.
+Dialogue: 0,1:08:34.67,1:08:37.77,Default,Okay? Having said that,\Nthere are certain queries
+Dialogue: 0,1:08:37.77,1:08:39.07,Default,that are more efficient\Nthan others
+Dialogue: 0,1:08:39.07,1:08:40.68,Default,that can accomplish\Nthe same goals.
+Dialogue: 0,1:08:40.97,1:08:44.05,Default,So, if you get to be\Na core data expert
+Dialogue: 0,1:08:44.05,1:08:45.37,Default,and you start building\Nbig databases
+Dialogue: 0,1:08:45.37,1:08:47.80,Default,and you're making a lot of\Nbig queries on big data sets,
+Dialogue: 0,1:08:47.89,1:08:50.65,Default,you will eventually learn\Nwhat makes a good query,
+Dialogue: 0,1:08:50.65,1:08:53.75,Default,what makes a not so good\Nquery, etc. For your homework,
+Dialogue: 0,1:08:53.75,1:08:54.89,Default,you don't have to\Nworry about that yet.
+Dialogue: 0,1:08:55.06,1:08:56.71,Default,Okay? Let's get the\Nbasics first.
+Dialogue: 0,1:08:57.52,1:09:03.55,Default,[ Inaudible Background\NQuestion ]
+Dialogue: 0,1:09:04.05,1:09:06.63,Default,So the question, you mean like\Nthe greater than and less than,
+Dialogue: 0,1:09:06.63,1:09:08.27,Default,can I pass that in\Nas a percent sign?
+Dialogue: 0,1:09:09.52,1:09:13.55,Default,[ Inaudible Background Comment ]
+Dialogue: 0,1:09:14.05,1:09:15.71,Default,Yes. You can't do sequel,
+Dialogue: 0,1:09:15.71,1:09:18.16,Default,the question is can I do sequel\Ninjection by using the percent
+Dialogue: 0,1:09:18.16,1:09:22.26,Default,at sign to, to basically make\Nthe operator be, you know,
+Dialogue: 0,1:09:22.48,1:09:24.41,Default,configurable, and the\Nanswer is you can't do that.
+Dialogue: 0,1:09:24.48,1:09:27.20,Default,NS predicate would\Ncomplain about that.
+Dialogue: 0,1:09:27.20,1:09:30.61,Default,NS predicate does know when a\Npercent at sign is a right-hand
+Dialogue: 0,1:09:30.61,1:09:33.00,Default,or a left-hand of one\Nof these expressions,
+Dialogue: 0,1:09:33.00,1:09:34.17,Default,so the answer is no.
+Dialogue: 0,1:09:34.32,1:09:34.99,Default,You can't do that.
+Dialogue: 0,1:09:36.25,1:09:39.32,Default,Okay, so there's a bunch of\Nexamples, again, I'm just trying
+Dialogue: 0,1:09:39.32,1:09:41.52,Default,to give you the examples,\Nwe're not, we're not trying
+Dialogue: 0,1:09:41.52,1:09:42.80,Default,to teach you predicate here.
+Dialogue: 0,1:09:44.44,1:09:46.26,Default,There's also a compound\Npredicate.
+Dialogue: 0,1:09:46.49,1:09:49.36,Default,In the NS predicate,\Nyou can say and or or.
+Dialogue: 0,1:09:50.03,1:09:52.17,Default,So you could say name\Nequals percent at sign
+Dialogue: 0,1:09:52.17,1:09:55.20,Default,or title equals percent at\Nsign, okay, if you had an object
+Dialogue: 0,1:09:55.20,1:09:56.40,Default,that had a name and a title.
+Dialogue: 0,1:09:56.82,1:09:59.64,Default,Or you could say who took\Ndot name equals blah,
+Dialogue: 0,1:09:59.84,1:10:01.53,Default,or title equals blah, it kind
+Dialogue: 0,1:10:01.59,1:10:03.06,Default,of wouldn't make much\Nsense, but you could.
+Dialogue: 0,1:10:03.51,1:10:07.97,Default,You can also create compound\Npredicates in code by doing,
+Dialogue: 0,1:10:07.97,1:10:10.30,Default,using and predicate\Nor or an predicate
+Dialogue: 0,1:10:10.30,1:10:11.72,Default,in NS compound predicate.
+Dialogue: 0,1:10:11.78,1:10:14.40,Default,And it just takes an\Narray of other predicates
+Dialogue: 0,1:10:14.40,1:10:16.47,Default,and makes a compound one, okay?
+Dialogue: 0,1:10:16.92,1:10:19.63,Default,That's like if you want the\Nand-ing and or-ing to kind of be
+Dialogue: 0,1:10:20.16,1:10:21.95,Default,if then, okay, in code,
+Dialogue: 0,1:10:21.95,1:10:23.86,Default,as opposed to just\Nbuilt into the string.
+Dialogue: 0,1:10:25.17,1:10:28.54,Default,Advanced querying, for time\Nreasons I'm going to skip this,
+Dialogue: 0,1:10:28.83,1:10:31.72,Default,but key value coding,\Nwhich is the thing
+Dialogue: 0,1:10:31.72,1:10:35.10,Default,that lets you use dot\Nnotation to search down inside
+Dialogue: 0,1:10:35.10,1:10:38.59,Default,of a dictionary, right, it's\Nthe value for key path business.
+Dialogue: 0,1:10:38.63,1:10:41.83,Default,You can kind of do value for\Nkey path in the database,
+Dialogue: 0,1:10:42.26,1:10:44.58,Default,and there is, we\Ndidn't talk about this,
+Dialogue: 0,1:10:44.81,1:10:47.50,Default,but there is a really cool\Nthing in key value coding,
+Dialogue: 0,1:10:47.69,1:10:50.34,Default,which is functions, and\None of the functions,
+Dialogue: 0,1:10:50.34,1:10:51.78,Default,which you probably will\Nneed for your homework,
+Dialogue: 0,1:10:51.78,1:10:54.77,Default,so pay attention,\Nis at sign count.
+Dialogue: 0,1:10:55.38,1:11:00.49,Default,So, if you put at sign count in\Nthe thing you're querying for,
+Dialogue: 0,1:11:01.13,1:11:04.82,Default,as long as the thing to the left\Nof it is an array, or a set,
+Dialogue: 0,1:11:04.82,1:11:08.64,Default,sorry, a set, one of these\NNS sets, then it will replace
+Dialogue: 0,1:11:08.64,1:11:11.72,Default,that with the count of how\Nmany things are in that set.
+Dialogue: 0,1:11:12.51,1:11:16.01,Default,So, for example, if I wanted to\Nfind out all the photographers,
+Dialogue: 0,1:11:16.01,1:11:17.26,Default,give me back all of\Nthe photographers
+Dialogue: 0,1:11:17.26,1:11:19.01,Default,who have taken more\Nthan five photos,
+Dialogue: 0,1:11:19.43,1:11:21.28,Default,my predicate would be photos dot
+Dialogue: 0,1:11:21.28,1:11:23.38,Default,at sign count is\Ngreater than five.
+Dialogue: 0,1:11:24.80,1:11:28.60,Default,Okay? And there are other at\Nsigns, at sign average, at sign,
+Dialogue: 0,1:11:28.60,1:11:30.68,Default,you can look through and find\Nout what there is, I put a link
+Dialogue: 0,1:11:30.68,1:11:32.31,Default,in here, you know I don't,\NI usually don't put links
+Dialogue: 0,1:11:32.31,1:11:34.88,Default,in my slides, but this\None is worth looking at.
+Dialogue: 0,1:11:34.88,1:11:38.72,Default,And, this also works, it works\Nfor any key value coding things,
+Dialogue: 0,1:11:38.72,1:11:42.45,Default,like for dictionaries, so\Ngo back to the shutter bug
+Dialogue: 0,1:11:42.77,1:11:45.40,Default,and try doing property list\Nresults, value for key path,
+Dialogue: 0,1:11:45.67,1:11:48.14,Default,photos dot photo dot\Naverage dot latitude.
+Dialogue: 0,1:11:49.70,1:11:51.41,Default,Anyone hazard what that returns?
+Dialogue: 0,1:11:54.97,1:11:55.49,Default,[Pause] Yeah?
+Dialogue: 0,1:11:56.52,1:11:58.99,Default,[ Inaudible Background Comment ]
+Dialogue: 0,1:11:59.49,1:12:02.12,Default,Correct. It returns\Nthe average latitude
+Dialogue: 0,1:12:02.12,1:12:04.27,Default,of all the photos, okay?
+Dialogue: 0,1:12:04.90,1:12:06.96,Default,So, that's something for\Nyou to, to have fun with.
+Dialogue: 0,1:12:07.95,1:12:10.28,Default,You can build even more\Ncomplicated expressions
+Dialogue: 0,1:12:10.59,1:12:13.06,Default,and there's a mechanism\Nto query into the database
+Dialogue: 0,1:12:13.06,1:12:15.95,Default,and not get back an array\Nof NS-managed objects,
+Dialogue: 0,1:12:15.95,1:12:17.82,Default,but to actually get, you know,
+Dialogue: 0,1:12:17.95,1:12:20.77,Default,kind of data that's\Nbeen calculated from,
+Dialogue: 0,1:12:20.77,1:12:22.69,Default,from what's in there,\Nand when you do that,
+Dialogue: 0,1:12:22.69,1:12:24.34,Default,instead of getting an array\Nof NS-managed objects,
+Dialogue: 0,1:12:24.34,1:12:26.19,Default,you get an array\Nof NS dictionaries,
+Dialogue: 0,1:12:26.34,1:12:28.31,Default,and those dictionaries\Ncontain keys and values,
+Dialogue: 0,1:12:28.31,1:12:29.62,Default,which is the data you look for.
+Dialogue: 0,1:12:29.62,1:12:32.26,Default,This is all super advanced,\Nsee the title of this thing,
+Dialogue: 0,1:12:32.26,1:12:35.19,Default,advanced querying, not going\Nto talk about it in this class,
+Dialogue: 0,1:12:35.54,1:12:39.08,Default,but just so you know, that\Nfetch request can be used
+Dialogue: 0,1:12:39.30,1:12:42.08,Default,to create something that's\Nactually fetching data rather
+Dialogue: 0,1:12:42.08,1:12:44.33,Default,than just fetching\Nmanaged objects, okay?
+Dialogue: 0,1:12:44.84,1:12:48.57,Default,Alright. So, let's put it\Nall together for the request.
+Dialogue: 0,1:12:48.63,1:12:51.16,Default,So I created, this\Nis a request, okay?
+Dialogue: 0,1:12:51.16,1:12:52.80,Default,That's going to get\Nall the photographers,
+Dialogue: 0,1:12:52.99,1:12:55.05,Default,so I say fetch request\N[mumbling] photographer,
+Dialogue: 0,1:12:55.05,1:12:57.49,Default,who have taken a photo\Nin the last 24 hours,
+Dialogue: 0,1:12:57.72,1:13:00.69,Default,so I get yesterday, which is NS\Ndate, date with time interval
+Dialogue: 0,1:13:00.69,1:13:02.48,Default,since now minus 24 hours.
+Dialogue: 0,1:13:03.78,1:13:07.27,Default,Predicate, any photos\Ndot upload date greater
+Dialogue: 0,1:13:07.27,1:13:09.70,Default,than whatever, okay?
+Dialogue: 0,1:13:09.70,1:13:10.28,Default,Yesterday.
+Dialogue: 0,1:13:10.67,1:13:13.10,Default,And then I'm going to sort it\Nby the photographer's name,
+Dialogue: 0,1:13:13.10,1:13:15.54,Default,so an array of one\Nsort descriptor,
+Dialogue: 0,1:13:15.66,1:13:16.89,Default,where the sort descriptor's\Nthe name,
+Dialogue: 0,1:13:16.89,1:13:18.67,Default,it's going to be\Nusing compare here,
+Dialogue: 0,1:13:18.67,1:13:20.99,Default,which is probably not good, I\Nprobably want to say selector
+Dialogue: 0,1:13:20.99,1:13:23.34,Default,at sign localized compare.
+Dialogue: 0,1:13:23.34,1:13:26.09,Default,Okay? So that's I\Nwould create a request.
+Dialogue: 0,1:13:26.09,1:13:28.86,Default,Now that I have a request,\Nhow do I execute it?
+Dialogue: 0,1:13:29.29,1:13:32.73,Default,And the answer is we use the\Nmethod execute fetch request
+Dialogue: 0,1:13:33.12,1:13:34.92,Default,in NS-managed object context.
+Dialogue: 0,1:13:34.98,1:13:37.58,Default,So I told you NS manage object\Ncontext is the hub of everything
+Dialogue: 0,1:13:37.90,1:13:39.77,Default,and it's the hub of\Nquerying, as well.
+Dialogue: 0,1:13:40.25,1:13:42.25,Default,And you can see it has a\Nlittle extra argument there,
+Dialogue: 0,1:13:42.25,1:13:45.02,Default,error colon, at sign error,\Nwhich will return an NS error
+Dialogue: 0,1:13:45.02,1:13:47.63,Default,and tell you what went\Nwrong if things went wrong,
+Dialogue: 0,1:13:47.89,1:13:50.42,Default,and you can tell things went\Nwrong with the fetch request
+Dialogue: 0,1:13:50.66,1:13:53.44,Default,if execute fetch\Nrequest returns nil.
+Dialogue: 0,1:13:54.51,1:13:56.45,Default,Okay? If execute fetch\Nrequest returns nil,
+Dialogue: 0,1:13:56.60,1:13:58.13,Default,something went wrong, and that
+Dialogue: 0,1:13:58.13,1:14:00.10,Default,at sign error will be\Nfilled out with some error.
+Dialogue: 0,1:14:00.36,1:14:04.57,Default,If it returns an empty array,\N[pause] that's not nil,
+Dialogue: 0,1:14:04.75,1:14:08.50,Default,empty array, that means nothing\Nmatches what you're requesting.
+Dialogue: 0,1:14:09.21,1:14:10.04,Default,So no error.
+Dialogue: 0,1:14:10.11,1:14:12.63,Default,It's just that you requested\Nobjects and there aren't any
+Dialogue: 0,1:14:12.63,1:14:13.81,Default,that match that predicate.
+Dialogue: 0,1:14:14.63,1:14:18.31,Default,Okay? Otherwise, it's\Ngoing to return an array
+Dialogue: 0,1:14:18.31,1:14:19.58,Default,of NS-managed objects.
+Dialogue: 0,1:14:20.47,1:14:23.60,Default,Okay? Or, subclasses\Nthereof, photos stars,
+Dialogue: 0,1:14:23.69,1:14:25.92,Default,photographer stars, whatever\Nyou set as the entity name,
+Dialogue: 0,1:14:26.27,1:14:28.84,Default,it's going to pass\Nan array of them.
+Dialogue: 0,1:14:28.84,1:14:29.97,Default,Okay? That's it.
+Dialogue: 0,1:14:29.97,1:14:31.58,Default,It could not be simpler\Nto query.
+Dialogue: 0,1:14:32.97,1:14:35.42,Default,One thing about the query\Nresults, by the way,
+Dialogue: 0,1:14:35.42,1:14:37.61,Default,if you query 10,000\Nthings, you're not going
+Dialogue: 0,1:14:37.61,1:14:41.32,Default,to get 10,000 things, you're\Ngoing to get 10,000 placeholders
+Dialogue: 0,1:14:41.37,1:14:43.70,Default,and as you start looking\Nat the attributes,
+Dialogue: 0,1:14:43.92,1:14:46.16,Default,then it'll start faulting\Nthem in from the database.
+Dialogue: 0,1:14:46.67,1:14:49.13,Default,Okay? So there's a lot of\Nperformance optimization going
+Dialogue: 0,1:14:49.13,1:14:51.37,Default,on behind the scenes that you\Ndon't really need to know about,
+Dialogue: 0,1:14:51.79,1:14:53.84,Default,but faulting is happening,\Nfor those of you
+Dialogue: 0,1:14:53.84,1:14:55.39,Default,who are database heads and\Nyou're probably worried
+Dialogue: 0,1:14:55.39,1:14:58.85,Default,about this, no worries, it's not\Nactually pulling all that data
+Dialogue: 0,1:14:58.85,1:15:02.89,Default,out of those tables, it faults\Nthem in as you access them.
+Dialogue: 0,1:15:03.25,1:15:06.61,Default,Quick thing about core\Ndata thread safety.
+Dialogue: 0,1:15:06.86,1:15:10.07,Default,NS-managed object is not\Nthread safe, in other words,
+Dialogue: 0,1:15:10.30,1:15:12.28,Default,you can't just use it\Nin multiple threads,
+Dialogue: 0,1:15:12.57,1:15:15.04,Default,but you can safely access them.
+Dialogue: 0,1:15:15.07,1:15:17.99,Default,Most managed objects, we\Ncreate them with this kind
+Dialogue: 0,1:15:17.99,1:15:21.79,Default,of thread containment,\Nthread concurrency mechanism.
+Dialogue: 0,1:15:22.18,1:15:24.91,Default,There's a method in\NNS-managed object context,
+Dialogue: 0,1:15:24.91,1:15:27.18,Default,which you will want to\Nuse, called perform block,
+Dialogue: 0,1:15:27.40,1:15:29.27,Default,it just takes a block\Nwith no arguments.
+Dialogue: 0,1:15:29.79,1:15:32.66,Default,Anything you want to do on a\Ncontext, inserting objects,
+Dialogue: 0,1:15:32.66,1:15:36.11,Default,querying, anything, do it\Ninside a perform block.
+Dialogue: 0,1:15:36.92,1:15:37.77,Default,Why do you do that?
+Dialogue: 0,1:15:38.09,1:15:41.58,Default,It'll do it on the safe\Nqueue for that context,
+Dialogue: 0,1:15:41.74,1:15:44.08,Default,and it'll guaranteed to\Nbe safe, thread safe.
+Dialogue: 0,1:15:44.12,1:15:46.45,Default,Now, that safe queue\Nmight be the main queue,
+Dialogue: 0,1:15:46.45,1:15:49.62,Default,so this will not necessarily\Ngive you multithreaded, okay?
+Dialogue: 0,1:15:50.17,1:15:52.50,Default,But it will be safe, so get\Nin the habit of doing this,
+Dialogue: 0,1:15:52.95,1:15:54.74,Default,because if you do\Ncome, come to a day
+Dialogue: 0,1:15:54.74,1:15:56.52,Default,when you're using\NNS-managed object context
+Dialogue: 0,1:15:56.52,1:15:58.10,Default,and you're creating them\Non different queues,
+Dialogue: 0,1:15:58.36,1:16:00.27,Default,so you can load the database\Nin one queue while you look
+Dialogue: 0,1:16:00.27,1:16:02.29,Default,at another, whatever,\Nwhich is all doable,
+Dialogue: 0,1:16:02.57,1:16:04.87,Default,you need to be doing this\Nperformed block, it doesn't hurt
+Dialogue: 0,1:16:04.87,1:16:07.49,Default,to do it, so might\Nas well do it.
+Dialogue: 0,1:16:07.49,1:16:10.09,Default,And parent context I don't\Nhave time to talk about.
+Dialogue: 0,1:16:10.47,1:16:12.13,Default,There is a ton other\Nstuff, actually,
+Dialogue: 0,1:16:12.13,1:16:13.81,Default,in core data I don't have time\Nto talk about because we're
+Dialogue: 0,1:16:13.81,1:16:14.88,Default,at the end of lecture today.
+Dialogue: 0,1:16:15.23,1:16:20.69,Default,Optimistic locking, rolling back\Nunsaved changes to, you know,
+Dialogue: 0,1:16:20.69,1:16:23.89,Default,states that make sense, undo\Nand redo I talked about.
+Dialogue: 0,1:16:24.06,1:16:26.93,Default,Staleness, you do a fetch and\Nit sits around for a long time,
+Dialogue: 0,1:16:26.98,1:16:29.51,Default,the data could be stale, it\Nmight need to be refetched,
+Dialogue: 0,1:16:29.51,1:16:30.46,Default,thrown out and refetched.
+Dialogue: 0,1:16:31.11,1:16:34.43,Default,It just, a massive amount of\Nstuff, can't talk about it.
+Dialogue: 0,1:16:34.64,1:16:36.66,Default,When you walk out of\Nhere, what you really want
+Dialogue: 0,1:16:36.66,1:16:37.94,Default,to be comfortable\Nwith is you know how
+Dialogue: 0,1:16:38.13,1:16:41.79,Default,to create the visual map, insert\Nobjects, make the subclasses,
+Dialogue: 0,1:16:41.96,1:16:43.76,Default,use dot notation to access them,
+Dialogue: 0,1:16:44.07,1:16:46.11,Default,delete objects, and\Nquery for them.
+Dialogue: 0,1:16:46.47,1:16:49.50,Default,Okay, that's the fundamentals of\Ncore data, that's what we talked
+Dialogue: 0,1:16:49.50,1:16:50.88,Default,about today, that's\Nwhat you should,
+Dialogue: 0,1:16:51.13,1:16:52.82,Default,need to know how to\Ndo for this class.
+Dialogue: 0,1:16:53.20,1:16:54.92,Default,And then outside of that,\Nyou just need to know
+Dialogue: 0,1:16:54.92,1:16:56.27,Default,that there's a lot more,\Nand if you're going
+Dialogue: 0,1:16:56.27,1:17:00.14,Default,to do serious database work, you\Nneed to some reading up on that.
+Dialogue: 0,1:17:00.71,1:17:02.28,Default,Okay, so that's it.
+Dialogue: 0,1:17:02.28,1:17:05.16,Default,Sorry to keep you a couple\Nminutes over and I will see you
+Dialogue: 0,1:17:05.16,1:17:07.57,Default,on Wednesday with a big\Ndemo of all this stuff.
+Dialogue: 0,1:17:08.98,1:17:12.27,Default,>> For more, please\Nvisit us at stanford.edu.

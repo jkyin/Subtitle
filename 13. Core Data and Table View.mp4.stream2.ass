@@ -1,0 +1,1668 @@
+[Script Info]
+ScriptType: v4.00+
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding
+Style: Default,Arial,16,&Hffffff,&Hffffff,&H0,&H0,0,0,0,1,1,0,2,10,10,10,0,0
+
+[Events]
+Format: Layer, Start, End, Style, Text
+Dialogue: 0,0:00:00.04,0:00:04.49,Default,>> [music] Stanford University
+Dialogue: 0,0:00:05.52,0:00:10.26,Default,[ Silence ]
+Dialogue: 0,0:00:10.76,0:00:15.70,Default,>> Welcome to number\N13 of Stanford CS1-93B,
+Dialogue: 0,0:00:15.70,0:00:19.04,Default,the fall of 2013-14, and\Ntoday, I'm going to go
+Dialogue: 0,0:00:19.04,0:00:21.21,Default,over the requirements\Nfor your final project,
+Dialogue: 0,0:00:21.48,0:00:24.21,Default,and then I'm going to talk a\Nlittle more, a few more slides
+Dialogue: 0,0:00:24.21,0:00:28.16,Default,about Core Data, and how it\Nhooks up with UI TableView,
+Dialogue: 0,0:00:28.16,0:00:29.82,Default,because those two are\Na match made in heaven,
+Dialogue: 0,0:00:29.82,0:00:32.35,Default,and then I'm going to do\Nthis gigantic Core Data
+Dialogue: 0,0:00:32.95,0:00:34.57,Default,with TableViews demo.
+Dialogue: 0,0:00:36.01,0:00:37.46,Default,Alright, so you're\Nfinal projects.
+Dialogue: 0,0:00:38.12,0:00:40.56,Default,There's kind of two phases\Nto your final project;
+Dialogue: 0,0:00:40.56,0:00:42.48,Default,one is you have to\Nsubmit a proposal
+Dialogue: 0,0:00:42.48,0:00:43.82,Default,for us, which we'll review.
+Dialogue: 0,0:00:43.82,0:00:45.95,Default,We're mostly just\Nreviewing it for scope,
+Dialogue: 0,0:00:45.95,0:00:48.15,Default,to make sure you haven't\Npicked too big a project
+Dialogue: 0,0:00:48.41,0:00:49.62,Default,or too small a project.
+Dialogue: 0,0:00:49.91,0:00:52.65,Default,Okay, we're not, you\Nknow, looking in detail
+Dialogue: 0,0:00:52.65,0:00:53.86,Default,of every single thing\Nyou're going to do.
+Dialogue: 0,0:00:53.86,0:00:55.53,Default,We're just trying to\Nmake sure you're headed
+Dialogue: 0,0:00:55.53,0:00:56.40,Default,in the right direction.
+Dialogue: 0,0:00:56.40,0:00:58.85,Default,Because over the course of the\Nfinal project, you're going
+Dialogue: 0,0:00:58.85,0:01:01.69,Default,to of course talk to us, and\Nask us questions and interact
+Dialogue: 0,0:01:01.69,0:01:04.03,Default,with us to kind of get an\Nidea of getting, you know,
+Dialogue: 0,0:01:04.03,0:01:04.99,Default,hitting a good target\Nat the end.
+Dialogue: 0,0:01:04.99,0:01:06.16,Default,So, that is really,\Ndo immediate.
+Dialogue: 0,0:01:06.16,0:01:07.75,Default,We'd like you to get\Nus your proposal.
+Dialogue: 0,0:01:07.75,0:01:08.75,Default,If you know what\Nyou're going to do,
+Dialogue: 0,0:01:08.75,0:01:10.20,Default,please submit a proposal\Nas soon as possible.
+Dialogue: 0,0:01:10.20,0:01:11.40,Default,If you know what\Nyou're going to do,
+Dialogue: 0,0:01:11.40,0:01:13.55,Default,please submit a proposal\Nas soon as possible.
+Dialogue: 0,0:01:13.90,0:01:16.42,Default,If you don't get on it right\Naway, and submit it as soon
+Dialogue: 0,0:01:16.42,0:01:17.93,Default,as possible, really though
+Dialogue: 0,0:01:17.93,0:01:20.16,Default,by next Wednesday would\Nbe the latest we'd want
+Dialogue: 0,0:01:20.16,0:01:21.29,Default,to hear from you.
+Dialogue: 0,0:01:21.29,0:01:23.90,Default,And, I hate to say that,\Nbecause I know a lot of you wait
+Dialogue: 0,0:01:23.90,0:01:26.91,Default,until the day before deadline\Nto do anything, and I understand
+Dialogue: 0,0:01:27.49,0:01:29.66,Default,that impulse, but this is\Nsomething where you want to get
+Dialogue: 0,0:01:29.66,0:01:32.18,Default,that proposal in sooner,\Nin case we have issues,
+Dialogue: 0,0:01:32.18,0:01:33.57,Default,and we can get back to\Nyou, and you either write,
+Dialogue: 0,0:01:33.57,0:01:36.20,Default,maybe come up with a whole new\Nproposal if what you're thinking
+Dialogue: 0,0:01:36.20,0:01:38.41,Default,about is just not going to work.
+Dialogue: 0,0:01:38.41,0:01:40.33,Default,Then the second phase is\Nthe final project itself,
+Dialogue: 0,0:01:40.53,0:01:43.64,Default,and that project, the\Ncode for the project,
+Dialogue: 0,0:01:43.64,0:01:46.48,Default,along with the keynote,\Nset of keynote slides
+Dialogue: 0,0:01:46.53,0:01:49.15,Default,for a two minute presentation\Nabout your project are due
+Dialogue: 0,0:01:49.15,0:01:52.31,Default,on Friday, December 6, okay?
+Dialogue: 0,0:01:52.31,0:01:55.24,Default,So, that seems like\Nthat's far away, I know,
+Dialogue: 0,0:01:55.24,0:01:56.42,Default,that's over a month away, right.
+Dialogue: 0,0:01:56.42,0:01:59.53,Default,It's November 6 right now, but\Nyou got Thanksgiving in there,
+Dialogue: 0,0:01:59.53,0:02:04.11,Default,so it's really not that far\Naway, and so your final project,
+Dialogue: 0,0:02:04.11,0:02:05.57,Default,like a final project\Nin your class,
+Dialogue: 0,0:02:05.66,0:02:07.77,Default,where you get multiple weeks to\Ndo it, you do not want to wait
+Dialogue: 0,0:02:07.77,0:02:10.39,Default,to the last week to get started.
+Dialogue: 0,0:02:10.39,0:02:11.82,Default,So, get started immediately.
+Dialogue: 0,0:02:11.82,0:02:13.22,Default,You have everything you need now
+Dialogue: 0,0:02:13.22,0:02:15.18,Default,to start building\Nan application.
+Dialogue: 0,0:02:15.72,0:02:18.20,Default,Yeah, no late days on\Nthe final project at all.
+Dialogue: 0,0:02:18.31,0:02:19.63,Default,Simply will not accept it late.
+Dialogue: 0,0:02:19.63,0:02:22.57,Default,Whatever you have on December\N6 at midnight, submit it.
+Dialogue: 0,0:02:22.73,0:02:24.69,Default,I don't care what it is;\Nsubmit it, because that's all.
+Dialogue: 0,0:02:24.69,0:02:25.84,Default,I'm not going to\Naccept anything.
+Dialogue: 0,0:02:26.12,0:02:28.45,Default,I just can't, because\NI've got a lot of students
+Dialogue: 0,0:02:28.45,0:02:31.27,Default,who are taking this for a grade\Nespecially, and that's a lot
+Dialogue: 0,0:02:31.27,0:02:33.73,Default,of time I have to be fair\Nto those people, and also,
+Dialogue: 0,0:02:33.73,0:02:35.25,Default,I have to get started\Ngrading immediately.
+Dialogue: 0,0:02:35.84,0:02:38.43,Default,The presentation that you're\Ngoing to do, two minutes,
+Dialogue: 0,0:02:38.73,0:02:42.99,Default,it's really just going to be\Npitching your project to us,
+Dialogue: 0,0:02:42.99,0:02:44.48,Default,to your fellow classmates.
+Dialogue: 0,0:02:44.48,0:02:48.04,Default,If you can imagine, it's like\Nyou're trying to pitch a VC
+Dialogue: 0,0:02:48.04,0:02:51.18,Default,to invest in your\Ncompany or to do the app,
+Dialogue: 0,0:02:51.18,0:02:53.57,Default,or you're just trying to get\Npeople to buy it, or whatever.
+Dialogue: 0,0:02:53.57,0:02:54.63,Default,It's that kind of presentation.
+Dialogue: 0,0:02:54.63,0:02:55.42,Default,I'll leave it up to you.
+Dialogue: 0,0:02:55.66,0:02:57.99,Default,You can certainly do a\Nlive demo if you want.
+Dialogue: 0,0:02:58.29,0:03:02.71,Default,You'll need iPhone 4S or\Nlater, or you'll need an iPad 2
+Dialogue: 0,0:03:02.71,0:03:03.99,Default,or later, in order to hook
+Dialogue: 0,0:03:03.99,0:03:08.13,Default,up to this wonder projection\Nsystem we have using Apple
+Dialogue: 0,0:03:08.13,0:03:08.92,Default,TV mirroring.
+Dialogue: 0,0:03:09.62,0:03:12.53,Default,But, you don't have\Nto do a live demo.
+Dialogue: 0,0:03:12.61,0:03:17.77,Default,Live demos are perilous, as you\Ncan see, what I do each lecture,
+Dialogue: 0,0:03:17.77,0:03:20.71,Default,but they also kind of can be\Neffective, and a really good way
+Dialogue: 0,0:03:20.71,0:03:22.60,Default,to show off your app, so\Nit's kind of up to you.
+Dialogue: 0,0:03:22.77,0:03:24.52,Default,And, that presentation\Nis required.
+Dialogue: 0,0:03:24.86,0:03:26.43,Default,I will have an alternate\Npresentation,
+Dialogue: 0,0:03:26.58,0:03:28.64,Default,which is the last\Nlecture of the quarter,
+Dialogue: 0,0:03:28.72,0:03:31.11,Default,which is the week before\Nthe final exam period.
+Dialogue: 0,0:03:32.64,0:03:35.78,Default,So, that's that.
+Dialogue: 0,0:03:36.55,0:03:38.93,Default,Yeah, the scope is\Nbasically three weeks
+Dialogue: 0,0:03:38.93,0:03:40.11,Default,of homework worth of work.
+Dialogue: 0,0:03:40.39,0:03:43.55,Default,You should know by now\Napproximately what that is.
+Dialogue: 0,0:03:43.55,0:03:44.70,Default,Remember in the past\Nwhen the people have
+Dialogue: 0,0:03:44.70,0:03:46.16,Default,to pass both the\Nhomework section
+Dialogue: 0,0:03:46.16,0:03:47.39,Default,and the final project\Nseparately.
+Dialogue: 0,0:03:47.39,0:03:49.33,Default,You can't bomb one, and get an A
+Dialogue: 0,0:03:49.33,0:03:51.37,Default,on the other, and\Npass this class.
+Dialogue: 0,0:03:52.13,0:03:53.90,Default,Your final project has\Nto work on hardware.
+Dialogue: 0,0:03:53.90,0:03:56.24,Default,You have to show it\Nworking, either in a demo
+Dialogue: 0,0:03:56.24,0:03:59.28,Default,in your two minutes, or if\Nyou don't show a live demo
+Dialogue: 0,0:03:59.28,0:04:02.84,Default,in your two minutes, you\Nhave to show your TA.
+Dialogue: 0,0:04:03.14,0:04:08.08,Default,Only iOS-SD code counts, so\Nif your app has a backend,
+Dialogue: 0,0:04:08.08,0:04:09.85,Default,some server somewhere,\Nyou get no credit
+Dialogue: 0,0:04:09.85,0:04:10.67,Default,for any of that really.
+Dialogue: 0,0:04:10.67,0:04:14.75,Default,You're only getting\Ncredit for iOS code, okay.
+Dialogue: 0,0:04:14.94,0:04:17.50,Default,So, simulate your\Nbackend if you have to,
+Dialogue: 0,0:04:17.50,0:04:20.62,Default,or if you have the backend from\Nsomewhere else, that's fine,
+Dialogue: 0,0:04:20.62,0:04:23.75,Default,but don't waste time\Ndoing non-iOS code
+Dialogue: 0,0:04:23.75,0:04:24.94,Default,in this three weeks,\Nbecause you're not going
+Dialogue: 0,0:04:24.94,0:04:26.53,Default,to get any credit for that work.
+Dialogue: 0,0:04:27.07,0:04:29.75,Default,And, you'll be graded on\Nyour proper use of the SDK,
+Dialogue: 0,0:04:29.75,0:04:33.03,Default,and also proper object-oriented\Nprogramming,
+Dialogue: 0,0:04:33.44,0:04:35.59,Default,and your aesthetics will matter.
+Dialogue: 0,0:04:35.88,0:04:40.66,Default,So, don't put a big\Njunky-looking UI that just like,
+Dialogue: 0,0:04:40.66,0:04:43.46,Default,really looks terrible, and yeah,
+Dialogue: 0,0:04:43.46,0:04:45.71,Default,don't get sidetracked\Non non-iOS code.
+Dialogue: 0,0:04:45.71,0:04:47.64,Default,That's kind of a repeat of\Nall that slide there, so.
+Dialogue: 0,0:04:48.10,0:04:51.85,Default,The presentation quality\Nmatters a tiny bit.
+Dialogue: 0,0:04:52.10,0:04:53.31,Default,It does matter.
+Dialogue: 0,0:04:53.63,0:04:54.67,Default,Giving your presentation,
+Dialogue: 0,0:04:54.67,0:04:57.04,Default,effective presentation is a\Nvery important skill to have.
+Dialogue: 0,0:04:57.55,0:05:00.82,Default,All of you at Stanford should be\Ngood at that by the time you get
+Dialogue: 0,0:05:00.82,0:05:02.85,Default,out of here, so here's\Njust another chance
+Dialogue: 0,0:05:02.85,0:05:05.04,Default,to really practice doing\Na good presentation.
+Dialogue: 0,0:05:05.04,0:05:06.84,Default,Time it; see how long\Nit's going to take.
+Dialogue: 0,0:05:07.17,0:05:10.95,Default,You know, run through it\Na couple times practicing.
+Dialogue: 0,0:05:11.56,0:05:13.93,Default,You proposal needs to\Nhave sections in it.
+Dialogue: 0,0:05:14.28,0:05:17.45,Default,Okay, the first section is\Nkind of an overall description.
+Dialogue: 0,0:05:17.45,0:05:18.20,Default,What am I doing?
+Dialogue: 0,0:05:18.37,0:05:22.00,Default,This is best shown by example,\Nso I have this example here,
+Dialogue: 0,0:05:22.00,0:05:24.07,Default,which is a Shakespeare\NDirector App,
+Dialogue: 0,0:05:24.07,0:05:29.22,Default,so let's say you're a\Ndirector at a theater company,
+Dialogue: 0,0:05:29.22,0:05:31.82,Default,and you're going to be direction\Nsome Shakespeare plays,
+Dialogue: 0,0:05:31.82,0:05:33.31,Default,and this is an app\Nto help you do that.
+Dialogue: 0,0:05:33.31,0:05:37.78,Default,And so, it has a way to\Nbring up a Shakespeare play
+Dialogue: 0,0:05:37.83,0:05:41.05,Default,from the folio database,\Nand then you can lay
+Dialogue: 0,0:05:41.05,0:05:44.07,Default,out the blocking, which is\Nlike where the scene is set up,
+Dialogue: 0,0:05:44.07,0:05:46.03,Default,where the people are\Nstanding and all that stuff
+Dialogue: 0,0:05:46.11,0:05:51.11,Default,of each scene, lined\Nup with the dialogue.
+Dialogue: 0,0:05:51.30,0:05:53.77,Default,And then, it's also got\Na dialogue learning mode
+Dialogue: 0,0:05:54.18,0:05:57.55,Default,for people who want to learn\Nthe dialogue, learn their lines.
+Dialogue: 0,0:05:57.55,0:06:01.69,Default,It will say the other parts, and\Nthen you can say your own part.
+Dialogue: 0,0:06:01.69,0:06:04.41,Default,So, you can see that this\Nis kind of a description
+Dialogue: 0,0:06:04.41,0:06:08.30,Default,of what it does, as opposed\Nto how you're going to do it.
+Dialogue: 0,0:06:08.53,0:06:11.69,Default,Section 2 is what parts\Nof iOS are you going
+Dialogue: 0,0:06:11.69,0:06:12.48,Default,to use to implement it.
+Dialogue: 0,0:06:12.48,0:06:14.82,Default,Okay, it's going to have\NTableView with custom cells.
+Dialogue: 0,0:06:14.82,0:06:15.88,Default,It's going to use the camera.
+Dialogue: 0,0:06:16.38,0:06:19.11,Default,It's going; you know text\Nfields with in popovers.
+Dialogue: 0,0:06:19.11,0:06:20.46,Default,It's going to use AV foundation.
+Dialogue: 0,0:06:20.46,0:06:21.87,Default,It's going to NS Timer.
+Dialogue: 0,0:06:21.87,0:06:22.90,Default,It's going to have Core Data,
+Dialogue: 0,0:06:22.90,0:06:24.77,Default,and where there are\Ngoing to be my entities.
+Dialogue: 0,0:06:24.77,0:06:29.58,Default,It's going to print out the\Nblocking things to printer,
+Dialogue: 0,0:06:29.58,0:06:32.71,Default,which is something we\Ndon't cover in class.
+Dialogue: 0,0:06:32.71,0:06:35.51,Default,And, you're required to\Nhave one feature, at least,
+Dialogue: 0,0:06:35.71,0:06:37.26,Default,that it was not covered\Nin lecture.
+Dialogue: 0,0:06:37.83,0:06:41.01,Default,Okay, and so that task is on\Nthere; not only so you have
+Dialogue: 0,0:06:41.01,0:06:42.47,Default,to learn something\Nfrom a documentation,
+Dialogue: 0,0:06:42.47,0:06:44.92,Default,instead of my kind of\Ngetting you started with it,
+Dialogue: 0,0:06:45.21,0:06:47.91,Default,but also so that you\Nperuse all of iOS
+Dialogue: 0,0:06:47.91,0:06:48.82,Default,and find out what's in there.
+Dialogue: 0,0:06:48.82,0:06:51.51,Default,So, don't come to me and say,\Noh, can you tell me a feature
+Dialogue: 0,0:06:51.51,0:06:54.02,Default,to do for non-iOS not\Ncovered in lecture?
+Dialogue: 0,0:06:54.20,0:06:56.07,Default,It's like, that's part of\Nthe task for you to go figure
+Dialogue: 0,0:06:56.07,0:06:57.48,Default,out what's out there\Nand pick something.
+Dialogue: 0,0:06:57.62,0:07:00.45,Default,Okay. So, that's what\Nyour proposal needs
+Dialogue: 0,0:07:00.45,0:07:01.74,Default,to have, these two sections.
+Dialogue: 0,0:07:01.86,0:07:03.01,Default,What it is you're opting to do,
+Dialogue: 0,0:07:03.01,0:07:06.66,Default,and then what iOS apage you're\Ngoing to use that you know
+Dialogue: 0,0:07:06.66,0:07:07.92,Default,of right now to implement.
+Dialogue: 0,0:07:07.92,0:07:12.62,Default,Okay? And, here's some\Nnotes, again, you're going
+Dialogue: 0,0:07:13.05,0:07:16.86,Default,to review these slides offline\Nto really get a good feel
+Dialogue: 0,0:07:16.86,0:07:20.15,Default,for what makes a good proposal,\Nand you can ask on Piazza
+Dialogue: 0,0:07:20.21,0:07:24.68,Default,for clarifications, etc. Okay,\Nso, the next topic I want
+Dialogue: 0,0:07:24.68,0:07:26.31,Default,to talk about is\NCore Data still,
+Dialogue: 0,0:07:26.57,0:07:28.09,Default,but its Core Data and TableView.
+Dialogue: 0,0:07:28.09,0:07:30.60,Default,How Core Data and\NTableView go together.
+Dialogue: 0,0:07:30.75,0:07:33.53,Default,Because Core Data is a\Nbunch of, you know, objects,
+Dialogue: 0,0:07:33.53,0:07:36.54,Default,a big object graph, and\NTableViews are really good
+Dialogue: 0,0:07:36.61,0:07:39.73,Default,for traversing through\Nobject graphs, okay?
+Dialogue: 0,0:07:40.37,0:07:41.82,Default,So, how do we do this?
+Dialogue: 0,0:07:41.85,0:07:43.19,Default,There's a great class
+Dialogue: 0,0:07:43.19,0:07:46.07,Default,in iOS called NSFetched\NResults Controller.
+Dialogue: 0,0:07:46.30,0:07:50.38,Default,This class' only purpose in life\Nis to link an NSFetchRequest,
+Dialogue: 0,0:07:50.50,0:07:51.43,Default,which hopefully you'll remember
+Dialogue: 0,0:07:51.43,0:07:54.07,Default,from two days' ago lecture\Nwith a UI TableView.
+Dialogue: 0,0:07:54.40,0:07:55.51,Default,That's what it does,
+Dialogue: 0,0:07:55.94,0:07:58.42,Default,it basically bonds those\Ntwo things together,
+Dialogue: 0,0:07:58.84,0:08:00.30,Default,so that the Fetch; anything
+Dialogue: 0,0:08:00.30,0:08:02.66,Default,that Fetch would be fetching is\Nalways showing in the TableView,
+Dialogue: 0,0:08:02.66,0:08:05.68,Default,even if the database is changing\Nunderneath that FetchRequest.
+Dialogue: 0,0:08:06.03,0:08:08.06,Default,Okay, it's still going to\Nbe updating the TableView.
+Dialogue: 0,0:08:08.25,0:08:12.14,Default,So, the way this works,\Nit's really two parts
+Dialogue: 0,0:08:12.14,0:08:13.32,Default,for the Fetched Results\NController.
+Dialogue: 0,0:08:13.32,0:08:15.34,Default,One is it answers\Nall the questions
+Dialogue: 0,0:08:15.34,0:08:17.41,Default,in the UI-TableView\Ndata source protocol,
+Dialogue: 0,0:08:17.41,0:08:20.02,Default,like how many sections,\Nhow many rows and sections,
+Dialogue: 0,0:08:20.26,0:08:21.74,Default,and even some ones that\Nyou don't know about,
+Dialogue: 0,0:08:21.74,0:08:22.64,Default,some more advanced ones.
+Dialogue: 0,0:08:22.64,0:08:24.10,Default,It answers those\Nquestions as well.
+Dialogue: 0,0:08:24.38,0:08:26.05,Default,So, it's able to answer\Nall those questions,
+Dialogue: 0,0:08:26.05,0:08:28.99,Default,using code kind of like that.
+Dialogue: 0,0:08:28.99,0:08:33.37,Default,Also, it can tell you\Nat any given time,
+Dialogue: 0,0:08:33.91,0:08:35.80,Default,what thing in your database,
+Dialogue: 0,0:08:35.80,0:08:38.15,Default,what entity in your\Ndatabase is being shown
+Dialogue: 0,0:08:38.15,0:08:39.60,Default,in a given row, okay?
+Dialogue: 0,0:08:39.78,0:08:42.06,Default,There's a one to one mapping\Nbetween a row in the table
+Dialogue: 0,0:08:42.06,0:08:43.95,Default,and some object in the database.
+Dialogue: 0,0:08:44.39,0:08:47.39,Default,Alright, of course we know\Nwhen you do a FetchRequest,
+Dialogue: 0,0:08:47.39,0:08:48.60,Default,it can only return objects
+Dialogue: 0,0:08:49.04,0:08:51.01,Default,of a certain kind;\Nan array of objects.
+Dialogue: 0,0:08:51.01,0:08:52.69,Default,And so, this will\Nlet you get it.
+Dialogue: 0,0:08:52.69,0:08:54.47,Default,And, it's a very important\Nmethod to understand,
+Dialogue: 0,0:08:54.47,0:08:56.01,Default,which is object to\Nthe index path.
+Dialogue: 0,0:08:56.45,0:08:58.54,Default,Okay, you send that to the\NFetched Results Controller,
+Dialogue: 0,0:08:58.64,0:09:00.84,Default,and it will return\Nyou a photo star,
+Dialogue: 0,0:09:00.84,0:09:02.58,Default,or a photograph photographer\Nstar
+Dialogue: 0,0:09:02.58,0:09:05.66,Default,or some NS Managed ObjectStar,\Nwhich is the object that's
+Dialogue: 0,0:09:05.66,0:09:08.32,Default,at that row, and then you\Ncan pull out the attributes,
+Dialogue: 0,0:09:08.32,0:09:10.77,Default,and put them in to\Nyour UI-TableView cell
+Dialogue: 0,0:09:10.77,0:09:12.13,Default,in self row index path.
+Dialogue: 0,0:09:13.01,0:09:15.28,Default,Okay? It's really important\Nto understand that method.
+Dialogue: 0,0:09:15.70,0:09:19.66,Default,How to you create one of these\NNS Fetched Results Controller.
+Dialogue: 0,0:09:19.93,0:09:22.10,Default,Okay, its Allocinit\Nlooks like this.
+Dialogue: 0,0:09:22.47,0:09:25.59,Default,It takes a FetchRequest,\Na context.
+Dialogue: 0,0:09:25.77,0:09:27.81,Default,That's obvious where we're\Ngoing to be doing the fetching.
+Dialogue: 0,0:09:27.94,0:09:31.81,Default,Right? It will even do\Nsection headers, so you specify
+Dialogue: 0,0:09:31.81,0:09:35.30,Default,which attribute in the\Nobjects that your the section,
+Dialogue: 0,0:09:35.30,0:09:36.31,Default,the name of the section,
+Dialogue: 0,0:09:36.31,0:09:38.08,Default,and then it will divide\Nthe table into sections.
+Dialogue: 0,0:09:38.48,0:09:40.56,Default,And, it can also do\Ncaching, okay, so we'll talk
+Dialogue: 0,0:09:40.56,0:09:42.38,Default,about those last two\Nthings in a minute here.
+Dialogue: 0,0:09:42.64,0:09:44.12,Default,But, let's take a\Nlook at what kind
+Dialogue: 0,0:09:44.12,0:09:46.68,Default,of FetchRequest we\Nmight create to put
+Dialogue: 0,0:09:46.68,0:09:48.81,Default,into a Fetched Requests\NController,
+Dialogue: 0,0:09:48.81,0:09:51.39,Default,so here I'm creating a\Nphoto request, so I'm going
+Dialogue: 0,0:09:51.39,0:09:52.45,Default,to be fetching photos.
+Dialogue: 0,0:09:52.82,0:09:54.32,Default,I need a sort descriptor
+Dialogue: 0,0:09:54.32,0:09:56.28,Default,that says what order these\Nphotos are going to be
+Dialogue: 0,0:09:56.28,0:09:58.25,Default,in in the TableView,\Nso I'll sort them
+Dialogue: 0,0:09:58.25,0:09:59.56,Default,by their table, let's say.
+Dialogue: 0,0:09:59.97,0:10:01.28,Default,And, then a predicate.
+Dialogue: 0,0:10:01.28,0:10:03.56,Default,I'm going to get all the\Npredicates that were taken,
+Dialogue: 0,0:10:03.56,0:10:06.69,Default,all the photos rather that\Nwere taken by a photographer
+Dialogue: 0,0:10:06.69,0:10:08.41,Default,with a given name, photog name.
+Dialogue: 0,0:10:08.71,0:10:10.06,Default,Okay, so I just specify\Nthe predicate.
+Dialogue: 0,0:10:10.06,0:10:12.57,Default,So, you I just basically create\Na normal NS FetchRequest,
+Dialogue: 0,0:10:12.86,0:10:17.11,Default,and then I just do this fetch\Nresults controller alec,
+Dialogue: 0,0:10:17.54,0:10:20.86,Default,FetchRequest context,\Nsection key name and cache.
+Dialogue: 0,0:10:21.15,0:10:23.25,Default,It's as simple as that, okay?
+Dialogue: 0,0:10:23.65,0:10:26.30,Default,Now, oh, yeah, so,\Nthose last two items.
+Dialogue: 0,0:10:26.30,0:10:29.05,Default,The cache by way, one\Nthing about the cache,
+Dialogue: 0,0:10:29.15,0:10:31.23,Default,if you specify nil,\Nit won't cache.
+Dialogue: 0,0:10:31.26,0:10:34.75,Default,Caching means that it will\Ncache the results of that fetch
+Dialogue: 0,0:10:34.97,0:10:36.13,Default,between launching of your app.
+Dialogue: 0,0:10:36.19,0:10:37.60,Default,In other words, it\Nwill permanently,
+Dialogue: 0,0:10:37.60,0:10:39.27,Default,you know, on disc, cache it.
+Dialogue: 0,0:10:39.27,0:10:40.46,Default,This is not caching it member.
+Dialogue: 0,0:10:40.46,0:10:42.95,Default,You know, it's always going\Nto do it in memory caching.
+Dialogue: 0,0:10:42.95,0:10:43.86,Default,Core Data does that.
+Dialogue: 0,0:10:44.13,0:10:45.67,Default,So, this will make\Nso between launches,
+Dialogue: 0,0:10:45.67,0:10:49.22,Default,it has this result cached, but\Nif you set that to non-Nil,
+Dialogue: 0,0:10:49.65,0:10:52.90,Default,okay, you better keep your\NFetchRequest exactly the same.
+Dialogue: 0,0:10:52.90,0:10:55.36,Default,If you change anything about\Nyour FetchRequest, and come back
+Dialogue: 0,0:10:55.36,0:10:57.93,Default,and try to use your\Ncache, it's going to fail.
+Dialogue: 0,0:10:58.00,0:10:59.88,Default,So, this is only\Nreally for TableViews
+Dialogue: 0,0:10:59.88,0:11:02.89,Default,that have the same Fetch\NRequest all the time,
+Dialogue: 0,0:11:02.89,0:11:04.84,Default,exact same predicates\Nor descriptors.
+Dialogue: 0,0:11:04.84,0:11:05.64,Default,Everything's the same.
+Dialogue: 0,0:11:06.21,0:11:10.61,Default,If you're going to use\Nthat section key thing,
+Dialogue: 0,0:11:10.61,0:11:13.35,Default,try and put sections in your\Ntable, the sort descriptors have
+Dialogue: 0,0:11:13.43,0:11:15.25,Default,to match up with\Nthe section keys.
+Dialogue: 0,0:11:15.25,0:11:16.95,Default,In other words, the\Nrows in the table,
+Dialogue: 0,0:11:16.95,0:11:19.82,Default,the photos that you fetch, have\Nto be in the exact same order
+Dialogue: 0,0:11:19.94,0:11:21.34,Default,that section headers would be,
+Dialogue: 0,0:11:21.34,0:11:23.46,Default,and this is a normal\NTableView thing, right?
+Dialogue: 0,0:11:23.46,0:11:24.78,Default,The section headers\Nalways have to be
+Dialogue: 0,0:11:24.78,0:11:25.87,Default,in the same order as the rows.
+Dialogue: 0,0:11:25.87,0:11:26.92,Default,Well, that's true here too.
+Dialogue: 0,0:11:27.42,0:11:30.79,Default,So, almost always, your first\Nsort descriptor will be the
+Dialogue: 0,0:11:30.79,0:11:33.59,Default,section key header, to make\Nsure everything is sorting
+Dialogue: 0,0:11:33.65,0:11:36.43,Default,in the same order.
+Dialogue: 0,0:11:37.15,0:11:39.60,Default,The Fetched Results\NController also has a delegate,
+Dialogue: 0,0:11:39.94,0:11:43.25,Default,and using that delegate, it\Ncan watch what's happening
+Dialogue: 0,0:11:43.25,0:11:45.80,Default,in Core Data, and\Nwhen something changes
+Dialogue: 0,0:11:45.80,0:11:47.54,Default,that would affect\Nyour FetchRequest,
+Dialogue: 0,0:11:47.77,0:11:50.65,Default,it will change your table,\Nwhich is incredibly cool.
+Dialogue: 0,0:11:50.90,0:11:52.69,Default,Okay, that means if\Nyou added a photo,
+Dialogue: 0,0:11:52.88,0:11:54.83,Default,and if it would have\Nmatched your FetchRequest,
+Dialogue: 0,0:11:54.96,0:11:56.88,Default,it will add a row to the\Ntable, and you don't have
+Dialogue: 0,0:11:56.88,0:11:58.06,Default,to do anything, because\Nit's watching.
+Dialogue: 0,0:11:58.06,0:12:01.48,Default,It's using that NS\NObject Managed Context,
+Dialogue: 0,0:12:01.48,0:12:04.76,Default,objects did change radio\Nstation, it's listening to that,
+Dialogue: 0,0:12:05.07,0:12:07.71,Default,and it's changing it with\Nmethods like this, okay?
+Dialogue: 0,0:12:08.26,0:12:09.45,Default,So, there's really two things
+Dialogue: 0,0:12:09.45,0:12:11.52,Default,to get a Fetched\NRequest Controller hooked
+Dialogue: 0,0:12:11.52,0:12:12.19,Default,up to your table.
+Dialogue: 0,0:12:12.19,0:12:13.25,Default,One is, you've got to use it
+Dialogue: 0,0:12:13.25,0:12:15.45,Default,to implement all those\NUI-TableView data source things,
+Dialogue: 0,0:12:15.45,0:12:17.09,Default,and two, is you've got\Nto set its delegate,
+Dialogue: 0,0:12:17.09,0:12:19.50,Default,and then use all these\Nmethods to have it watch,
+Dialogue: 0,0:12:19.83,0:12:21.57,Default,but we've made that\Neasy for you.
+Dialogue: 0,0:12:21.57,0:12:24.37,Default,I've created a class called\NCore Data TableView Controller,
+Dialogue: 0,0:12:24.67,0:12:26.72,Default,and I'm going to make\Nit available to you.
+Dialogue: 0,0:12:26.84,0:12:29.53,Default,All it does it those two things,\Nand you're welcome to look
+Dialogue: 0,0:12:29.53,0:12:30.51,Default,at the implementation of it.
+Dialogue: 0,0:12:30.65,0:12:32.26,Default,It's all pretty much\Njust one liners
+Dialogue: 0,0:12:32.52,0:12:35.15,Default,that are just using the\NFetched Results Controller
+Dialogue: 0,0:12:35.69,0:12:37.48,Default,to implement the data source,
+Dialogue: 0,0:12:37.48,0:12:41.04,Default,and to do the delegate\Nbusiness, okay?
+Dialogue: 0,0:12:41.87,0:12:44.62,Default,And, the only thing\Nyou need to know
+Dialogue: 0,0:12:44.62,0:12:46.39,Default,to use Core Data\NTableView Controller,
+Dialogue: 0,0:12:46.68,0:12:49.55,Default,it has a property called\NFetch Results Controller
+Dialogue: 0,0:12:49.86,0:12:52.35,Default,and you just set that to a\NFetch Results Controller,
+Dialogue: 0,0:12:52.35,0:12:53.20,Default,and it will just work.
+Dialogue: 0,0:12:54.13,0:12:55.51,Default,Nothing else required to do.
+Dialogue: 0,0:12:55.51,0:12:59.04,Default,You just set that, and Core Data\NTableView Controlled will then
+Dialogue: 0,0:12:59.04,0:13:01.03,Default,use it to answer all those\Ndata source questions,
+Dialogue: 0,0:13:01.07,0:13:02.40,Default,and also it will\Nset the delegates
+Dialogue: 0,0:13:02.40,0:13:03.76,Default,of the Fetched Results\NController,
+Dialogue: 0,0:13:03.76,0:13:05.79,Default,and make it so it watches\Nthe database properly.
+Dialogue: 0,0:13:06.29,0:13:09.60,Default,Okay? So, that will be\Nincluded in your homework.
+Dialogue: 0,0:13:09.60,0:13:10.74,Default,You will definitely want\Nthat for your homework.
+Dialogue: 0,0:13:10.74,0:13:12.09,Default,I will be using that\Nin the demo today.
+Dialogue: 0,0:13:12.70,0:13:14.11,Default,Alright, so speaking\Nof the demo.
+Dialogue: 0,0:13:14.41,0:13:15.88,Default,This is a huge demo.
+Dialogue: 0,0:13:16.22,0:13:18.05,Default,I may not get all\Nthe way through it.
+Dialogue: 0,0:13:18.27,0:13:20.57,Default,It covers some things that I\Nhaven't covered in lecture yet,
+Dialogue: 0,0:13:20.57,0:13:21.61,Default,and that's kind of\Nintentionally.
+Dialogue: 0,0:13:21.61,0:13:23.11,Default,This is the only\Nlecture I really do that,
+Dialogue: 0,0:13:23.11,0:13:25.05,Default,but I just wanted to kind\Nof show you some things
+Dialogue: 0,0:13:25.05,0:13:27.26,Default,that I didn't really want\Nto spend lecture time on.
+Dialogue: 0,0:13:27.26,0:13:30.29,Default,I might come back to these in\Nfuture lecture, but anyway,
+Dialogue: 0,0:13:30.29,0:13:31.97,Default,there's a lot, lot\Nthere to cover,
+Dialogue: 0,0:13:31.97,0:13:33.38,Default,and you have these\Nslides in front of you.
+Dialogue: 0,0:13:33.38,0:13:35.23,Default,Hopefully you can see\Nwhat the list there is.
+Dialogue: 0,0:13:35.64,0:13:39.39,Default,I'm not going to back to\Nthe slide, so coming up;
+Dialogue: 0,0:13:39.50,0:13:40.80,Default,today's your last homework.
+Dialogue: 0,0:13:41.10,0:13:45.70,Default,We have an instrument, which is\Nperformance monitoring adjunct
+Dialogue: 0,0:13:45.70,0:13:48.36,Default,to X code on Friday's\Nsection, and then next week,
+Dialogue: 0,0:13:48.36,0:13:49.91,Default,we're going to talk a little\Nbit about multitasking.
+Dialogue: 0,0:13:49.91,0:13:52.04,Default,I say more multitasking, because\NI'm going to do some of that
+Dialogue: 0,0:13:52.04,0:13:55.16,Default,in the demo today,\Nand then we're going
+Dialogue: 0,0:13:55.16,0:13:56.63,Default,to do some more advancing\NSegway.
+Dialogue: 0,0:13:56.63,0:13:59.75,Default,So far the only Segwaying\Nwe've done is,
+Dialogue: 0,0:13:59.79,0:14:02.41,Default,UI-Navigation Controller\Npushed Segways basically,
+Dialogue: 0,0:14:02.41,0:14:04.22,Default,and then also, we\Ntalked a little bit
+Dialogue: 0,0:14:04.22,0:14:05.90,Default,about iPad replace Segways,
+Dialogue: 0,0:14:05.90,0:14:07.53,Default,where you replace the\Nentire detail view,
+Dialogue: 0,0:14:07.53,0:14:08.65,Default,which is kind of a weird Segway.
+Dialogue: 0,0:14:08.65,0:14:10.97,Default,We're going to talk about\Nsome more kinds of Segways
+Dialogue: 0,0:14:11.26,0:14:12.15,Default,that we can do as well.
+Dialogue: 0,0:14:12.44,0:14:14.27,Default,And, maybe we'll get\Nto Mapkit next week
+Dialogue: 0,0:14:14.27,0:14:15.39,Default,or maybe the week after.
+Dialogue: 0,0:14:16.35,0:14:19.25,Default,Okay? Alright, any\Nquestions before I dive
+Dialogue: 0,0:14:19.25,0:14:20.55,Default,into this monster demo?
+Dialogue: 0,0:14:21.55,0:14:22.79,Default,Okay, feel free to stop me.
+Dialogue: 0,0:14:23.13,0:14:24.98,Default,A lot of time when I'm\Ndemo, I'm typing away,
+Dialogue: 0,0:14:24.98,0:14:27.72,Default,I'm not seeing you raise your\Nhand, so feel free to shout out.
+Dialogue: 0,0:14:27.93,0:14:32.83,Default,So, I'm going to create a new\Nproject here, and I'm going
+Dialogue: 0,0:14:32.83,0:14:34.76,Default,to do single view application,\Neven though I'm going
+Dialogue: 0,0:14:34.76,0:14:37.28,Default,to use Core Data, and I told you\Nthat if you click on this one,
+Dialogue: 0,0:14:37.59,0:14:39.68,Default,you can see some\Ngenerated Core Data code.
+Dialogue: 0,0:14:39.68,0:14:41.92,Default,I'm actually going to use the\Ncode that's generated here,
+Dialogue: 0,0:14:42.19,0:14:46.00,Default,but I put it off into a category\Nof my application delegates,
+Dialogue: 0,0:14:46.00,0:14:48.01,Default,so that you don't really\Nneed to look at it.
+Dialogue: 0,0:14:48.38,0:14:50.85,Default,I'll include it in the\Ndemo, and you can see it.
+Dialogue: 0,0:14:51.13,0:14:52.59,Default,But, for your homework,\Nyou're going
+Dialogue: 0,0:14:52.59,0:14:55.47,Default,to do your Core Data\Nstuff using a documented.
+Dialogue: 0,0:14:55.47,0:14:58.19,Default,UI-managed documented, and\NI'm not going to show that.
+Dialogue: 0,0:14:58.27,0:15:00.77,Default,Because I want you to kind of\Ngo through the process of trying
+Dialogue: 0,0:15:00.77,0:15:01.83,Default,to figure that out for yourself.
+Dialogue: 0,0:15:01.83,0:15:03.33,Default,So, I'm just going to create\Nour normal view single view
+Dialogue: 0,0:15:03.33,0:15:04.76,Default,application like we usually do.
+Dialogue: 0,0:15:04.76,0:15:07.87,Default,I'm going to call is Photo\NMania, and it's going
+Dialogue: 0,0:15:08.23,0:15:10.67,Default,to be universal app,\Nalthough I'm only going
+Dialogue: 0,0:15:10.67,0:15:11.59,Default,to use the iPhone version.
+Dialogue: 0,0:15:11.59,0:15:14.60,Default,I'm only going to do the bare\Nbones of this application.
+Dialogue: 0,0:15:14.84,0:15:17.43,Default,What this application is\Ngoing to do, it's just going
+Dialogue: 0,0:15:17.43,0:15:19.74,Default,to query Flickr those URL,
+Dialogue: 0,0:15:19.74,0:15:22.18,Default,the URL for recent geo\Nreference photo theme,
+Dialogue: 0,0:15:22.18,0:15:23.56,Default,the same thing we\Ndid for Shutterbug.
+Dialogue: 0,0:15:23.99,0:15:26.52,Default,But instead of just\Nshowing the photos,
+Dialogue: 0,0:15:26.69,0:15:29.12,Default,it's going to show you\Nthe list of photographers
+Dialogue: 0,0:15:29.12,0:15:30.22,Default,who took those photos.
+Dialogue: 0,0:15:31.01,0:15:33.64,Default,And then, you know, after this\Ndemo, you could easily make it
+Dialogue: 0,0:15:33.64,0:15:34.86,Default,so if you click on\Na photographer,
+Dialogue: 0,0:15:34.86,0:15:36.88,Default,it shows you the photos\Nby that photographer.
+Dialogue: 0,0:15:37.11,0:15:39.23,Default,Click on the photo; use\Nthe image view controller
+Dialogue: 0,0:15:39.61,0:15:40.86,Default,to show you an image.
+Dialogue: 0,0:15:40.86,0:15:41.34,Default,So, that's kind
+Dialogue: 0,0:15:41.34,0:15:42.54,Default,of the application\Nwe're trying to build.
+Dialogue: 0,0:15:42.54,0:15:45.36,Default,We won't get all the way to\Nbuilding those other TableViews.
+Dialogue: 0,0:15:45.36,0:15:47.26,Default,We're just going to do\Nthis main TableView,
+Dialogue: 0,0:15:47.26,0:15:49.15,Default,but that's what this\Nis going to do.
+Dialogue: 0,0:15:49.79,0:15:51.89,Default,And, the way it's going to\Ndo that; the way it's going
+Dialogue: 0,0:15:51.89,0:15:53.64,Default,to show those photographers\Nis kind
+Dialogue: 0,0:15:53.64,0:15:54.86,Default,of a little bit different\Nstrategy
+Dialogue: 0,0:15:54.86,0:15:56.26,Default,than we saw with Shutterbug.
+Dialogue: 0,0:15:56.26,0:15:59.82,Default,I'm going, in the background,\Nbasically of my application,
+Dialogue: 0,0:15:59.88,0:16:02.96,Default,be constantly querying\NFlickr every once in awhile,
+Dialogue: 0,0:16:03.26,0:16:04.76,Default,and getting more\Nand more photos,
+Dialogue: 0,0:16:04.76,0:16:07.15,Default,and then just throwing them\Ninto a Core Data database.
+Dialogue: 0,0:16:07.51,0:16:09.35,Default,Okay, just throwing them\Nin there in the background.
+Dialogue: 0,0:16:09.60,0:16:11.27,Default,Meanwhile, I'm going to have\NTableViews that are going
+Dialogue: 0,0:16:11.27,0:16:12.41,Default,to be looking at that data.
+Dialogue: 0,0:16:12.69,0:16:14.61,Default,Looking at the photographers,\Nclicking on them,
+Dialogue: 0,0:16:14.61,0:16:16.68,Default,looking at them, looking at the\Nphotos, and that's just going
+Dialogue: 0,0:16:16.68,0:16:18.69,Default,to be always be updating\Nautomatically, all the time.
+Dialogue: 0,0:16:19.24,0:16:21.36,Default,Okay, so that's the app\Nthat we're going to build.
+Dialogue: 0,0:16:21.36,0:16:22.99,Default,So, there's some things\Nto talk about here.
+Dialogue: 0,0:16:23.25,0:16:25.63,Default,How to build a Core\NData database.
+Dialogue: 0,0:16:25.80,0:16:27.20,Default,How to hook it up to a TableView
+Dialogue: 0,0:16:27.20,0:16:28.66,Default,with the Fetched\NResults Controller.
+Dialogue: 0,0:16:28.85,0:16:30.87,Default,How to fetch things\Nin the background.
+Dialogue: 0,0:16:31.25,0:16:32.19,Default,Okay? We're going to talk
+Dialogue: 0,0:16:32.19,0:16:34.27,Default,about all those things\Ntoday if we have time.
+Dialogue: 0,0:16:34.81,0:16:37.01,Default,Alright, I'm going to\Ncall this Photo Mania.
+Dialogue: 0,0:16:37.01,0:16:39.09,Default,I'm put it the developer\Nwhere I usually put things.
+Dialogue: 0,0:16:39.19,0:16:39.75,Default,Here it is.
+Dialogue: 0,0:16:39.75,0:16:45.27,Default,I'm going to dive right in\Nwith building my data model.
+Dialogue: 0,0:16:45.27,0:16:48.68,Default,My schema, as you would call\Nit in the database world.
+Dialogue: 0,0:16:48.68,0:16:52.14,Default,This is a description of all\Nthe entities and all that stuff.
+Dialogue: 0,0:16:52.22,0:16:54.24,Default,We saw how to do this all\Nin the slide, so I'm going
+Dialogue: 0,0:16:54.24,0:16:56.55,Default,to just going to show you\Nwhat it looks like live.
+Dialogue: 0,0:16:56.72,0:17:00.13,Default,So, when I want to create a\Nnew schema, I do new file.
+Dialogue: 0,0:17:00.13,0:17:02.26,Default,Okay, so I'm going\Nto do new file.
+Dialogue: 0,0:17:02.65,0:17:06.48,Default,I'm going to go up here to Core\NData, and pick this data model,
+Dialogue: 0,0:17:06.48,0:17:09.94,Default,not mapping model, data model\Nright here, so click that.
+Dialogue: 0,0:17:09.94,0:17:12.24,Default,We can call it anything\Nyou want.
+Dialogue: 0,0:17:12.24,0:17:15.55,Default,I'm going to call this one the\Nname of my app, photo mania,
+Dialogue: 0,0:17:16.04,0:17:18.56,Default,and it's asking where do you\Nwant to put it, and I'm going
+Dialogue: 0,0:17:18.56,0:17:20.43,Default,to put it at the top level here
+Dialogue: 0,0:17:20.43,0:17:21.69,Default,where all the rest\Nof my stuff is.
+Dialogue: 0,0:17:21.69,0:17:24.30,Default,Here's my controller and\Ndelegates something like that,
+Dialogue: 0,0:17:24.30,0:17:26.58,Default,so I'll put this data\Nmodeling file there.
+Dialogue: 0,0:17:27.10,0:17:28.88,Default,And, so it creates this\Ndata modeling file.
+Dialogue: 0,0:17:28.88,0:17:30.15,Default,You can see it's empty.
+Dialogue: 0,0:17:30.15,0:17:33.25,Default,I've no entities or\Nattributes or Fetch Properties
+Dialogue: 0,0:17:33.25,0:17:34.05,Default,or any of that business.
+Dialogue: 0,0:17:34.08,0:17:36.34,Default,So, let's just start\Nadding some.
+Dialogue: 0,0:17:36.34,0:17:38.61,Default,So, I'm going to go down here\Nto the bottom, add entity.
+Dialogue: 0,0:17:39.15,0:17:39.74,Default,Click that.
+Dialogue: 0,0:17:39.74,0:17:41.29,Default,It added one, called entity.
+Dialogue: 0,0:17:41.29,0:17:43.27,Default,I'm going to double\Nclick, and call it photo.
+Dialogue: 0,0:17:43.74,0:17:46.14,Default,So, I need photo, and I\Ndisplay photographers too,
+Dialogue: 0,0:17:46.14,0:17:48.20,Default,so I better add photographer.
+Dialogue: 0,0:17:49.28,0:17:50.66,Default,Now one thing that's\Nreally important
+Dialogue: 0,0:17:50.66,0:17:54.39,Default,when you make a schema is\Nyou want to put the entities
+Dialogue: 0,0:17:54.39,0:17:57.61,Default,and the attributes in\Nthere that support the kind
+Dialogue: 0,0:17:57.61,0:17:58.74,Default,of UI you're building.
+Dialogue: 0,0:17:58.86,0:18:00.00,Default,Okay, and that's\Nreally important for you
+Dialogue: 0,0:18:00.00,0:18:01.12,Default,to understand in your homework.
+Dialogue: 0,0:18:01.42,0:18:03.73,Default,Okay, this homework that\NI'm assigning you is pretty
+Dialogue: 0,0:18:04.07,0:18:06.85,Default,straightforward, as long\Nas you pick a good schema.
+Dialogue: 0,0:18:07.24,0:18:10.23,Default,If you pick the right entities\Nand attributes in the database,
+Dialogue: 0,0:18:10.37,0:18:13.15,Default,it's just really easy to just\Nthrow up tables of information.
+Dialogue: 0,0:18:13.41,0:18:16.22,Default,If you don't, if you have\Nkind of the wrong schema
+Dialogue: 0,0:18:16.22,0:18:18.16,Default,or just too simplistic of\Na schema, you don't put
+Dialogue: 0,0:18:18.16,0:18:20.77,Default,in a couple of attributes that\Nyou need to make your UI work,
+Dialogue: 0,0:18:21.06,0:18:23.46,Default,it can be like ah, how do\NI get that information.
+Dialogue: 0,0:18:23.46,0:18:25.90,Default,So, the schema is your slave,
+Dialogue: 0,0:18:25.90,0:18:27.81,Default,you get to make the schema\Nhowever, you think it's going
+Dialogue: 0,0:18:27.81,0:18:31.00,Default,to best support the application\Nthat you're building, okay?
+Dialogue: 0,0:18:31.28,0:18:34.43,Default,So, photo and photographer.
+Dialogue: 0,0:18:34.43,0:18:37.47,Default,What kind of attributes\Ndoes a photo have?
+Dialogue: 0,0:18:37.47,0:18:40.03,Default,Well, let's see, of\Ncourse it has its title,
+Dialogue: 0,0:18:40.35,0:18:42.18,Default,and it has a subtitle.
+Dialogue: 0,0:18:42.18,0:18:44.17,Default,That's that little\Ndescription from Flickr.
+Dialogue: 0,0:18:44.45,0:18:47.88,Default,It has the URL of its\Nimage from Flickr.
+Dialogue: 0,0:18:47.88,0:18:50.40,Default,Probably has the URL of\Nits thumbnail as well.
+Dialogue: 0,0:18:51.12,0:18:53.30,Default,In fact, we could even\Nstore the thumbnail data,
+Dialogue: 0,0:18:53.30,0:18:55.67,Default,which you're going to want to\Nin your homework, right in here,
+Dialogue: 0,0:18:55.67,0:19:00.78,Default,put the data in, not just the\NURLs, and also importantly,
+Dialogue: 0,0:19:01.02,0:19:03.83,Default,photos have a unique identifier\Nthat comes from Flickr.
+Dialogue: 0,0:19:03.83,0:19:07.00,Default,Because when I get data from\NFlickr, I don't want to be,
+Dialogue: 0,0:19:07.00,0:19:09.35,Default,sometimes you click Flickr,\Nyou get the same photo again,
+Dialogue: 0,0:19:09.35,0:19:10.78,Default,and I don't want\Nto be duplicating
+Dialogue: 0,0:19:10.78,0:19:12.16,Default,that in my Core Data database.
+Dialogue: 0,0:19:12.16,0:19:14.13,Default,So, I'm going to look at\Nthat unique ID from Flickr,
+Dialogue: 0,0:19:14.46,0:19:17.23,Default,and make those unique in my\NCore Data database as well.
+Dialogue: 0,0:19:17.33,0:19:19.69,Default,So, I've added these, but\NI've got to set their,
+Dialogue: 0,0:19:19.69,0:19:21.73,Default,you can tab warning\Nhere, or any error,
+Dialogue: 0,0:19:21.73,0:19:23.11,Default,because I haven't set these.
+Dialogue: 0,0:19:23.11,0:19:24.31,Default,If I click on this, you'll see.
+Dialogue: 0,0:19:24.67,0:19:27.40,Default,Must have a defined type, so\Nwe got to set a type for these.
+Dialogue: 0,0:19:27.40,0:19:29.93,Default,These all happen to be\Nstrings; all four of these,
+Dialogue: 0,0:19:30.31,0:19:33.05,Default,but you could image\Nputting things like dates,
+Dialogue: 0,0:19:33.05,0:19:36.36,Default,like for your recent\Ntab in your homework.
+Dialogue: 0,0:19:36.36,0:19:38.79,Default,You probably want to have\Nsome sort of last viewed date
+Dialogue: 0,0:19:38.79,0:19:39.70,Default,or something like that.
+Dialogue: 0,0:19:39.91,0:19:41.38,Default,That's perfectly\Nreasonable to put in here,
+Dialogue: 0,0:19:41.78,0:19:42.97,Default,and numbers and all that stuff.
+Dialogue: 0,0:19:42.97,0:19:44.15,Default,So, we'll just do that.
+Dialogue: 0,0:19:44.74,0:19:46.53,Default,Photographers are\Na little simpler.
+Dialogue: 0,0:19:46.53,0:19:47.61,Default,They just have a name.
+Dialogue: 0,0:19:47.61,0:19:49.31,Default,Okay, a photographer has a name.
+Dialogue: 0,0:19:49.31,0:19:49.97,Default,That's a string.
+Dialogue: 0,0:19:50.30,0:19:51.03,Default,That's about it.
+Dialogue: 0,0:19:51.03,0:19:52.99,Default,And, remember I told\Nyou we could look
+Dialogue: 0,0:19:52.99,0:19:55.01,Default,at these entities graphically
+Dialogue: 0,0:19:55.01,0:19:56.24,Default,with this little\Nbutton down here.
+Dialogue: 0,0:19:56.82,0:19:57.49,Default,Here it is right here.
+Dialogue: 0,0:19:57.49,0:19:58.85,Default,They're kind of smashed\Non top of each other,
+Dialogue: 0,0:19:58.85,0:20:00.50,Default,but I can pick them\Nup and move them.
+Dialogue: 0,0:20:00.81,0:20:04.23,Default,And, you can see that as I move\None, it kind of makes space,
+Dialogue: 0,0:20:04.23,0:20:07.23,Default,alright, keep them, and if I\Nhave relationships between them,
+Dialogue: 0,0:20:07.23,0:20:11.56,Default,it will keep those relationships\Nsensible as I move them around.
+Dialogue: 0,0:20:11.56,0:20:13.17,Default,So, let's create a relationship.
+Dialogue: 0,0:20:13.37,0:20:15.80,Default,What is the relationship between\Na photo and photographer?
+Dialogue: 0,0:20:15.80,0:20:18.21,Default,As we saw on the slides,\Nwho took, basically,
+Dialogue: 0,0:20:18.21,0:20:19.66,Default,so I'm just control dragging.
+Dialogue: 0,0:20:19.66,0:20:23.04,Default,I'm holding down control right\Nnow, and dragging from photo
+Dialogue: 0,0:20:23.21,0:20:26.43,Default,to photographer, and I have\Nthis new relationship created.
+Dialogue: 0,0:20:26.67,0:20:28.84,Default,And again, if I move\Nthese things around,
+Dialogue: 0,0:20:29.46,0:20:31.83,Default,this things will stay\Nwith, so let's go ahead
+Dialogue: 0,0:20:31.83,0:20:33.66,Default,and give these relationships\Nnames.
+Dialogue: 0,0:20:33.81,0:20:36.17,Default,On the photo side, this is\Nthe who took relationship,
+Dialogue: 0,0:20:36.17,0:20:39.48,Default,and on the photographer\Nside, this is the photos,
+Dialogue: 0,0:20:39.84,0:20:42.40,Default,and we can inspect\Nthis right here
+Dialogue: 0,0:20:42.40,0:20:44.44,Default,with this little guy\Nright here; the inspector.
+Dialogue: 0,0:20:44.77,0:20:46.61,Default,And, we can see all\Nkinds of things
+Dialogue: 0,0:20:46.61,0:20:48.84,Default,about our particular properties.
+Dialogue: 0,0:20:48.84,0:20:51.39,Default,This is true for properties,\Nand also for relationships.
+Dialogue: 0,0:20:51.82,0:20:53.00,Default,And, of course, we know
+Dialogue: 0,0:20:53.00,0:20:55.09,Default,that this is a too many\Nrelationship, right?
+Dialogue: 0,0:20:55.09,0:20:57.26,Default,Because a photographer\Ncan have many photos,
+Dialogue: 0,0:20:57.48,0:20:58.75,Default,so we get this double\Narrow here.
+Dialogue: 0,0:20:58.75,0:21:01.36,Default,But, it's a two one relationship\Nhere, because a photo,
+Dialogue: 0,0:21:01.36,0:21:02.70,Default,only one guy took the photo.
+Dialogue: 0,0:21:03.55,0:21:05.42,Default,And so, if you move\Nthese things around,
+Dialogue: 0,0:21:05.42,0:21:09.17,Default,it will keep this all\Nkind of looking okay.
+Dialogue: 0,0:21:09.54,0:21:11.17,Default,Alright? So, now,\Nwe've kind of set
+Dialogue: 0,0:21:11.17,0:21:12.90,Default,up everything here that we need.
+Dialogue: 0,0:21:12.90,0:21:14.90,Default,This is a pretty\Nsimple application,
+Dialogue: 0,0:21:14.90,0:21:16.49,Default,so we don't need\Nany more attributes.
+Dialogue: 0,0:21:16.49,0:21:18.57,Default,But, in your application, you're\Ngoing to have at least one
+Dialogue: 0,0:21:18.57,0:21:20.77,Default,or more two more entities\Nand some attributes on there,
+Dialogue: 0,0:21:20.77,0:21:24.47,Default,and some more attributes\Non photo.
+Dialogue: 0,0:21:24.61,0:21:27.97,Default,So, I left with some work to do.
+Dialogue: 0,0:21:28.46,0:21:31.89,Default,Okay, so now that we have\Nthis, we want to be able
+Dialogue: 0,0:21:31.89,0:21:33.20,Default,to access all this stuff
+Dialogue: 0,0:21:33.20,0:21:37.32,Default,in our objective C\Ncode using properties
+Dialogue: 0,0:21:37.32,0:21:38.82,Default,and normal class syntax.
+Dialogue: 0,0:21:39.07,0:21:40.71,Default,So, we're going to do this\Nthing we talked about,
+Dialogue: 0,0:21:40.71,0:21:44.91,Default,which is generating\Nmanage object subclasses.
+Dialogue: 0,0:21:44.91,0:21:47.31,Default,So, I'm going to pick\Nthe classes that I want.
+Dialogue: 0,0:21:47.31,0:21:49.64,Default,I'm going to go here and say\Ncreate NS managed objects
+Dialogue: 0,0:21:49.64,0:21:53.49,Default,subclass for photo\Nmania, and we'll do photo
+Dialogue: 0,0:21:53.49,0:21:54.74,Default,and photographer, both of them.
+Dialogue: 0,0:21:54.74,0:21:56.84,Default,And, we click this, says\Nwhere do you want them?
+Dialogue: 0,0:21:56.84,0:21:58.07,Default,I'll put those also at the top.
+Dialogue: 0,0:21:58.07,0:22:00.10,Default,I'm going to put everything\Nat the top level here.
+Dialogue: 0,0:22:00.40,0:22:04.25,Default,And here, I have my photo and\Nphotographer, and I can see
+Dialogue: 0,0:22:04.25,0:22:05.75,Default,that photo looks okay.
+Dialogue: 0,0:22:05.75,0:22:07.28,Default,It's got photographer who took,
+Dialogue: 0,0:22:07.57,0:22:09.75,Default,but photographer,\Nnot so much, right?
+Dialogue: 0,0:22:09.75,0:22:12.42,Default,It's got NS manage object\Nfor remove photos object.
+Dialogue: 0,0:22:12.42,0:22:15.47,Default,This should really be photo\Nstar, so I'm just going
+Dialogue: 0,0:22:15.47,0:22:16.92,Default,to generate these things again.
+Dialogue: 0,0:22:17.40,0:22:19.11,Default,Okay. And really, it's too bad
+Dialogue: 0,0:22:19.11,0:22:22.40,Default,that it doesn't automatically\Ndo this two pass generation,
+Dialogue: 0,0:22:22.40,0:22:23.90,Default,but you end up doing\Nit yourself.
+Dialogue: 0,0:22:23.90,0:22:25.43,Default,Get used to doing this generate,
+Dialogue: 0,0:22:25.43,0:22:26.52,Default,because you're going\Nto do it a lot.
+Dialogue: 0,0:22:26.69,0:22:28.80,Default,You're going to be\Nconstantly adding entities,
+Dialogue: 0,0:22:28.80,0:22:31.12,Default,changing attributes, like\Nthat, and you're just going
+Dialogue: 0,0:22:31.12,0:22:33.78,Default,to constantly be regenerating\Nthese things, and it's going
+Dialogue: 0,0:22:33.78,0:22:37.08,Default,to ask you to replace them,\Nand so don't be uncomfortable
+Dialogue: 0,0:22:37.08,0:22:38.26,Default,about doing that regenerate.
+Dialogue: 0,0:22:38.26,0:22:39.86,Default,It's a common thing\Nto want to do,
+Dialogue: 0,0:22:39.86,0:22:41.16,Default,and so now we're winning here.
+Dialogue: 0,0:22:42.38,0:22:45.87,Default,Okay, so we have\Nthese nice classes,
+Dialogue: 0,0:22:45.87,0:22:50.83,Default,and now we can use properties\Nto access all their attitudes.
+Dialogue: 0,0:22:51.04,0:22:53.83,Default,My photo dot title to get\Nat the title for example.
+Dialogue: 0,0:22:54.33,0:22:57.90,Default,But, as I said before, we might\Nwant to add code, and I do want
+Dialogue: 0,0:22:57.90,0:22:59.63,Default,to add code to photo here.
+Dialogue: 0,0:22:59.63,0:23:02.04,Default,I want to add code\Nto create a photo.
+Dialogue: 0,0:23:02.53,0:23:03.98,Default,Okay. To make so that I can add,
+Dialogue: 0,0:23:04.07,0:23:07.67,Default,insert a photo object\Ninto the database.
+Dialogue: 0,0:23:07.67,0:23:09.74,Default,And so, I'm going to do\Nthat using categories.
+Dialogue: 0,0:23:09.74,0:23:12.16,Default,Remember categories is that new\Nobjective C thing I was telling
+Dialogue: 0,0:23:12.16,0:23:14.71,Default,you about, where we\Ncan add code to a class
+Dialogue: 0,0:23:14.71,0:23:17.43,Default,without sub-classing it,\Nso I'm going to add code
+Dialogue: 0,0:23:17.43,0:23:20.25,Default,to this photo class, right here,\Nwithout sub-classing photo.
+Dialogue: 0,0:23:20.95,0:23:23.35,Default,Okay, so I do that\Nwith file, new file,
+Dialogue: 0,0:23:24.42,0:23:27.02,Default,and instead of picking\Nobjective C class,
+Dialogue: 0,0:23:27.02,0:23:28.72,Default,I'm going to pick\Nobjective C category.
+Dialogue: 0,0:23:29.61,0:23:32.14,Default,And when I do, it's going to\Nsay, what class do you want
+Dialogue: 0,0:23:32.14,0:23:34.55,Default,to make a category on, I'm\Ngoing to make a category
+Dialogue: 0,0:23:34.55,0:23:37.30,Default,on the class photo, and\NI'm going to call it Flickr
+Dialogue: 0,0:23:37.30,0:23:39.99,Default,because that's what\Nthis method that I'm,
+Dialogue: 0,0:23:39.99,0:23:42.25,Default,these methods I'm going to\Nadd to photo are all kind
+Dialogue: 0,0:23:42.44,0:23:45.16,Default,of hooking Flickr up to the\Ndatabase, so Flickr seems
+Dialogue: 0,0:23:45.16,0:23:46.61,Default,like a good name\Nfor that category.
+Dialogue: 0,0:23:47.20,0:23:49.51,Default,And, it wants to know where\NI'm going to put them.
+Dialogue: 0,0:23:49.83,0:23:53.04,Default,Put them in the same places\Neverywhere as everything,
+Dialogue: 0,0:23:53.72,0:23:55.98,Default,and so here's my .H\Nand here's my .M,
+Dialogue: 0,0:23:56.11,0:23:58.42,Default,and it's asking me what\Ndo you want to do here.
+Dialogue: 0,0:23:58.83,0:24:04.44,Default,So, the method that I want\Nto implement here is a method
+Dialogue: 0,0:24:04.65,0:24:06.79,Default,that essentially takes\Na Flickr dictionary
+Dialogue: 0,0:24:07.19,0:24:10.70,Default,and adds a photo\Nobject to the database,
+Dialogue: 0,0:24:10.70,0:24:12.17,Default,and returns the pointer\Nto it to me.
+Dialogue: 0,0:24:12.92,0:24:14.12,Default,Everyone understand what\NI'm going to do here?
+Dialogue: 0,0:24:14.81,0:24:17.49,Default,So, I'm going to call\Nthis thing, photo,
+Dialogue: 0,0:24:17.61,0:24:19.09,Default,make sure I pick the same name,
+Dialogue: 0,0:24:19.09,0:24:20.91,Default,so that I don't get\Nsidetracked here.
+Dialogue: 0,0:24:21.00,0:24:27.53,Default,Photo with Flickr info and\Nthis is going be NS Dictionary,
+Dialogue: 0,0:24:28.75,0:24:31.69,Default,photo dictionary, and\Nwhat else do I need beside
+Dialogue: 0,0:24:31.69,0:24:34.29,Default,that photo dictionary to create\Nan object in the database?
+Dialogue: 0,0:24:34.77,0:24:38.09,Default,A hook to the database.
+Dialogue: 0,0:24:38.17,0:24:39.88,Default,Okay, I got to know which\Ndatabase you want me
+Dialogue: 0,0:24:39.88,0:24:40.84,Default,to add this photo too.
+Dialogue: 0,0:24:40.84,0:24:44.57,Default,So, I also need in\Nmanaged object context,
+Dialogue: 0,0:24:45.18,0:24:48.41,Default,NS managed object\Nmanaged context context.
+Dialogue: 0,0:24:48.91,0:24:49.92,Default,Okay, and that's all I need;
+Dialogue: 0,0:24:49.92,0:24:52.06,Default,just the Flickr information\Nand the context.
+Dialogue: 0,0:24:52.06,0:24:52.77,Default,That's the place you want me
+Dialogue: 0,0:24:52.77,0:24:55.22,Default,to create this photo,\Nand I will, okay?
+Dialogue: 0,0:24:55.73,0:24:59.73,Default,And, I'm also going to have\Nanother one here; because I know
+Dialogue: 0,0:24:59.73,0:25:02.17,Default,that I'm going to be\Ndownloading these Flickr photos
+Dialogue: 0,0:25:02.17,0:25:03.12,Default,in big bunches.
+Dialogue: 0,0:25:03.12,0:25:05.74,Default,Every time I call URL,\Ngeo reference photos
+Dialogue: 0,0:25:05.74,0:25:07.39,Default,or whatever it's called, I'm\Ngoing to get a whole bunch
+Dialogue: 0,0:25:07.39,0:25:09.43,Default,of them, like a hundred\Nor 200 of them.
+Dialogue: 0,0:25:09.43,0:25:16.53,Default,So, I'm going to have a\Nbulk load one that I'm going
+Dialogue: 0,0:25:16.77,0:25:23.19,Default,to call load photos from\NFlickr array, NS-Array photos
+Dialogue: 0,0:25:23.92,0:25:30.43,Default,of Flickr NS dictionary\Ninto managed object context.
+Dialogue: 0,0:25:30.85,0:25:36.84,Default,Whoops, NS managed\Nobject context context.
+Dialogue: 0,0:25:36.88,0:25:38.39,Default,Okay, so that's just\Ngoing to bulk.
+Dialogue: 0,0:25:38.39,0:25:41.50,Default,It's going to call this\Nbasically repeatedly,
+Dialogue: 0,0:25:41.50,0:25:43.84,Default,although that might not be the\Nmost efficient way to do that,
+Dialogue: 0,0:25:43.84,0:25:46.56,Default,and we'll talk about\Nthat in a little bit.
+Dialogue: 0,0:25:46.71,0:25:48.98,Default,So, let me implement\Nthese two methods.
+Dialogue: 0,0:25:48.98,0:25:51.22,Default,Okay, this is the\Ninterface of my category,
+Dialogue: 0,0:25:51.61,0:25:53.67,Default,and so here's the\Nimplementation of my category.
+Dialogue: 0,0:25:53.67,0:25:57.02,Default,Now, I can do whatever I want\Nto implement these, except,
+Dialogue: 0,0:25:57.30,0:26:00.72,Default,I can't use any instance\Nvariables,
+Dialogue: 0,0:26:00.72,0:26:03.43,Default,so I can't have any properties\Nthat are, you know, here,
+Dialogue: 0,0:26:03.43,0:26:06.45,Default,so I have to implement them\Nbasically in terms of photo,
+Dialogue: 0,0:26:06.85,0:26:08.23,Default,if that makes sense that way.
+Dialogue: 0,0:26:08.23,0:26:10.87,Default,So, this is going to return\Na photo, so I'm going to say,
+Dialogue: 0,0:26:10.87,0:26:16.49,Default,photo equal nil, and down here,\Nreturn photo, and in between,
+Dialogue: 0,0:26:16.49,0:26:19.41,Default,I got to go find this photo\Nin the database, or create it,
+Dialogue: 0,0:26:19.41,0:26:22.16,Default,or whatever it may be.
+Dialogue: 0,0:26:22.16,0:26:26.64,Default,So, let's start with\Nasking the database,
+Dialogue: 0,0:26:26.64,0:26:27.97,Default,do you already have this photo?
+Dialogue: 0,0:26:28.71,0:26:30.22,Default,And, so how am I going\Nto ask the database
+Dialogue: 0,0:26:30.45,0:26:33.03,Default,if the photo is already\Nthere, and the answer is,
+Dialogue: 0,0:26:33.10,0:26:35.01,Default,I'm going to try and fetch it.
+Dialogue: 0,0:26:35.07,0:26:39.01,Default,So, I'm going to have a\NFetch Request, and it's going
+Dialogue: 0,0:26:39.01,0:26:44.52,Default,to be a Fetch Request\Ninto the photo table,
+Dialogue: 0,0:26:44.96,0:26:48.94,Default,if you know anything\Nabout it, or into photos.
+Dialogue: 0,0:26:48.94,0:26:50.54,Default,It's going to return\Nphotos, okay,
+Dialogue: 0,0:26:50.54,0:26:52.29,Default,because I'm trying\Nto find this photo.
+Dialogue: 0,0:26:52.75,0:26:55.25,Default,And then, the request\Nneeds a predicate,
+Dialogue: 0,0:26:55.40,0:26:56.58,Default,and what is the predicate.
+Dialogue: 0,0:26:56.98,0:26:58.66,Default,Which photo am I looking for?
+Dialogue: 0,0:26:58.66,0:27:04.90,Default,Well, I'm looking for the photo\Nwhose unique equals the same
+Dialogue: 0,0:27:05.32,0:27:10.37,Default,unique that is photo\Ndictionary right here,
+Dialogue: 0,0:27:11.49,0:27:12.37,Default,so let's go get that.
+Dialogue: 0,0:27:13.06,0:27:16.44,Default,NS-string star unique\Nequals, and we're going
+Dialogue: 0,0:27:16.44,0:27:23.46,Default,to need our Flickr Fetcher\Nimport, Flickr Fetcher .H,
+Dialogue: 0,0:27:23.63,0:27:26.04,Default,so I'm going to grab\NFlickr Fetcher .H
+Dialogue: 0,0:27:26.37,0:27:29.83,Default,from the thing we did\Nbefore, which was Shutterbug.
+Dialogue: 0,0:27:30.65,0:27:33.08,Default,So, here's Shutterbug,\Nand here's Flickr Fetcher.
+Dialogue: 0,0:27:33.08,0:27:34.99,Default,I'm just going to dray that\Nwhole thing right in here.
+Dialogue: 0,0:27:36.42,0:27:39.74,Default,Alright, so now I have\NFlickr Fetcher .H,
+Dialogue: 0,0:27:40.30,0:27:46.56,Default,and inside Flickr Fletcher .H,\Nwe can get the photos unique ID
+Dialogue: 0,0:27:46.56,0:27:47.99,Default,with this Flickr photo ID.
+Dialogue: 0,0:27:47.99,0:27:50.91,Default,Okay? So, I'm going to\Ngo down here and say,
+Dialogue: 0,0:27:51.74,0:27:57.30,Default,photo dictionary,\NFlickr photo ID.
+Dialogue: 0,0:27:58.42,0:28:01.10,Default,Now, I might want to do\Nvalue for key path here,
+Dialogue: 0,0:28:01.25,0:28:06.08,Default,just in case this Flickr\Nphoto ID might have dots
+Dialogue: 0,0:28:06.08,0:28:09.06,Default,in it or whatever, Flickr.
+Dialogue: 0,0:28:09.15,0:28:12.21,Default,You know, it might have dots\Nin it like the description has.
+Dialogue: 0,0:28:12.43,0:28:14.06,Default,Okay, I'll leave\Nit this way here,
+Dialogue: 0,0:28:14.06,0:28:15.90,Default,but value for key\Nmight be a good idea.
+Dialogue: 0,0:28:15.90,0:28:19.29,Default,So, I'm basically going to\Nfetch into the database to try
+Dialogue: 0,0:28:19.29,0:28:22.73,Default,and find this unique photo;\Nsee if it's already there.
+Dialogue: 0,0:28:23.34,0:28:26.09,Default,And, I do that by saying\NI need an NS error here,
+Dialogue: 0,0:28:26.09,0:28:31.69,Default,and then I'm going to say NS\Narray matches equals context,
+Dialogue: 0,0:28:31.69,0:28:34.02,Default,because we always have to\Nask a context to do a fetch.
+Dialogue: 0,0:28:34.38,0:28:37.38,Default,Okay? Execute Fetch\NRequest, that request,
+Dialogue: 0,0:28:37.67,0:28:39.42,Default,and if there's an\Nerror, return an error.
+Dialogue: 0,0:28:40.45,0:28:43.44,Default,Okay? So, now I've\Ngot those photos.
+Dialogue: 0,0:28:43.44,0:28:46.43,Default,Those photos hopefully, in\Nthis case a matching photo
+Dialogue: 0,0:28:46.43,0:28:47.99,Default,or maybe not, has\Nbeen pulled out.
+Dialogue: 0,0:28:47.99,0:28:50.57,Default,Now, this matches\Ncan have a number
+Dialogue: 0,0:28:50.57,0:28:53.63,Default,of different states\Nor different values.
+Dialogue: 0,0:28:53.91,0:28:56.16,Default,One thing is, it might be nil.
+Dialogue: 0,0:28:56.61,0:29:06.47,Default,If it's nil, okay, or if this\Nerror is not nil, let's say
+Dialogue: 0,0:29:06.47,0:29:10.67,Default,or error or another\Nerror condition here is
+Dialogue: 0,0:29:10.67,0:29:19.09,Default,that the matches, matches\Ncount is greater than one.
+Dialogue: 0,0:29:19.38,0:29:21.75,Default,Okay, because these are\Nsupposed to be unique,
+Dialogue: 0,0:29:22.35,0:29:26.02,Default,and so if I somehow got\Nmultiple photos by doing this,
+Dialogue: 0,0:29:26.17,0:29:27.63,Default,that would also be\Nan error condition,
+Dialogue: 0,0:29:27.63,0:29:31.32,Default,so I have to handle error here.
+Dialogue: 0,0:29:31.85,0:29:32.73,Default,Handle error.
+Dialogue: 0,0:29:33.35,0:29:35.34,Default,I'm not going to do that\Ntoday, but you can imagine.
+Dialogue: 0,0:29:36.04,0:29:45.10,Default,Okay, otherwise, if the\Nmatches found something,
+Dialogue: 0,0:29:45.52,0:29:48.22,Default,then we can just\Nreturn it, okay?
+Dialogue: 0,0:29:48.43,0:29:49.43,Default,So, how do we return it?
+Dialogue: 0,0:29:49.43,0:29:52.59,Default,This is in array, but this\Narray is going to have the one
+Dialogue: 0,0:29:52.59,0:29:57.49,Default,and only one match, so I'm going\Nto say matches first object.
+Dialogue: 0,0:29:58.43,0:29:59.93,Default,Could also say last object.
+Dialogue: 0,0:30:00.92,0:30:04.59,Default,Otherwise, this matches\Ndot count is 0,
+Dialogue: 0,0:30:04.82,0:30:06.97,Default,so it returned an\Narray, an empty array.
+Dialogue: 0,0:30:06.97,0:30:09.66,Default,That means I looked for that\Nphoto that had that unique,
+Dialogue: 0,0:30:09.66,0:30:11.71,Default,I couldn't find it, so\Nthat photo doesn't exist.
+Dialogue: 0,0:30:11.75,0:30:12.91,Default,I now need to create it.
+Dialogue: 0,0:30:13.70,0:30:14.80,Default,Okay, everyone remember how
+Dialogue: 0,0:30:14.80,0:30:16.32,Default,to create an object\Nin the database?
+Dialogue: 0,0:30:16.32,0:30:22.01,Default,NS entity description, insert\Nnew object for entity for name,
+Dialogue: 0,0:30:22.52,0:30:25.33,Default,we're inserting a photo,\Nand we obviously have
+Dialogue: 0,0:30:25.36,0:30:26.74,Default,to specify the context.
+Dialogue: 0,0:30:26.74,0:30:28.28,Default,Okay? So, we created a photo.
+Dialogue: 0,0:30:28.76,0:30:29.46,Default,Excellent.
+Dialogue: 0,0:30:29.94,0:30:34.45,Default,And, now, let's go ahead and\Nset the attributes of the photo.
+Dialogue: 0,0:30:34.45,0:30:37.94,Default,I'm also going to set the\Nphoto's unique, go to unique.
+Dialogue: 0,0:30:39.12,0:30:41.06,Default,Alright, so here I'm\Nsetting the photos title,
+Dialogue: 0,0:30:41.06,0:30:43.07,Default,subtitle, image URL.
+Dialogue: 0,0:30:43.65,0:30:47.23,Default,So here I'm just setting the\Ntitle using value for key path
+Dialogue: 0,0:30:47.23,0:30:49.53,Default,out of the Flickr\Ndictionary, the subtitle,
+Dialogue: 0,0:30:49.53,0:30:51.38,Default,given the description, the URL.
+Dialogue: 0,0:30:51.38,0:30:53.67,Default,I'm using this URL for\Nphoto format thing.
+Dialogue: 0,0:30:53.67,0:30:56.78,Default,I have to turn it into a\Nstring, okay, because can't URLs
+Dialogue: 0,0:30:56.78,0:30:58.35,Default,in the database, but we\Ncan put strings there,
+Dialogue: 0,0:30:58.35,0:31:00.36,Default,and then I also have\Nthe photographer name,
+Dialogue: 0,0:31:00.68,0:31:03.22,Default,but I have a relationship\Nto photographer entity,
+Dialogue: 0,0:31:03.22,0:31:05.87,Default,so now I need to create\Na photographer as well.
+Dialogue: 0,0:31:06.15,0:31:09.51,Default,So here, loading a\Nphoto, right from Flickr,
+Dialogue: 0,0:31:09.60,0:31:12.42,Default,is causing a photographer\Nalso to be created.
+Dialogue: 0,0:31:12.92,0:31:15.59,Default,Okay, and this is happen in\Nyour homework too in spades.
+Dialogue: 0,0:31:15.59,0:31:17.64,Default,Okay, where you're going\Nto download these photos
+Dialogue: 0,0:31:17.91,0:31:20.78,Default,from Flickr, and you're going\Nto build your entire database.
+Dialogue: 0,0:31:20.78,0:31:23.24,Default,Lots of entities are going\Nto be created all the time,
+Dialogue: 0,0:31:23.24,0:31:25.60,Default,every time things come\Nback from Flickr, okay?
+Dialogue: 0,0:31:26.21,0:31:28.52,Default,So, how do we create\Na photographer?
+Dialogue: 0,0:31:28.74,0:31:31.02,Default,Well, I'm going to do the\Nsame thing I did here,
+Dialogue: 0,0:31:31.25,0:31:33.98,Default,where I have this photo\Ncategory that creates that,
+Dialogue: 0,0:31:33.98,0:31:35.89,Default,I'm going to do the same\Nthing for photographers.
+Dialogue: 0,0:31:35.89,0:31:38.54,Default,I'm going to say new\Nfile, another category.
+Dialogue: 0,0:31:38.88,0:31:41.62,Default,This is going to be a category\Nin photography, photographer.
+Dialogue: 0,0:31:41.62,0:31:43.17,Default,This one's not Flickr specific,
+Dialogue: 0,0:31:43.17,0:31:45.20,Default,because photographer only\Nhas a name, so I'm going
+Dialogue: 0,0:31:45.20,0:31:46.87,Default,to call this category,\Njust to be different,
+Dialogue: 0,0:31:46.92,0:31:48.39,Default,create, instead of Flickr.
+Dialogue: 0,0:31:49.44,0:31:51.52,Default,Okay? So, we'll put\Nthis in the same place.
+Dialogue: 0,0:31:51.94,0:31:52.94,Default,Here it is right here.
+Dialogue: 0,0:31:53.87,0:31:59.01,Default,Put this up here, and\NPhotographer, yeah.
+Dialogue: 0,0:31:59.01,0:32:00.64,Default,It's very similar.
+Dialogue: 0,0:32:00.64,0:32:01.80,Default,It looks almost exactly\Nthe same.
+Dialogue: 0,0:32:01.80,0:32:02.96,Default,We're going to fetch for it.
+Dialogue: 0,0:32:02.96,0:32:04.92,Default,We'll handle, if\Nwe can't find it,
+Dialogue: 0,0:32:04.92,0:32:06.56,Default,set the name, all that business.
+Dialogue: 0,0:32:07.10,0:32:10.02,Default,So, we put that in\Nthe other file, okay.
+Dialogue: 0,0:32:11.52,0:32:13.74,Default,Just trying to speed it\Nup a little bit here.
+Dialogue: 0,0:32:14.38,0:32:16.57,Default,You wouldn't learn anything\Nnew by my doing this all again.
+Dialogue: 0,0:32:16.77,0:32:19.45,Default,Okay? But, now I have a way\Nto create a photographer,
+Dialogue: 0,0:32:19.45,0:32:21.68,Default,given a name in a given context.
+Dialogue: 0,0:32:22.01,0:32:23.44,Default,So, we'll use that over here,
+Dialogue: 0,0:32:23.44,0:32:28.19,Default,and we'll just say photo.whotook\Nequals, and we've got
+Dialogue: 0,0:32:28.19,0:32:30.02,Default,to import that little category.
+Dialogue: 0,0:32:30.60,0:32:33.49,Default,Photographer create.
+Dialogue: 0,0:32:35.73,0:32:41.39,Default,Photographer, oops,\Nphotographer with name
+Dialogue: 0,0:32:41.39,0:32:44.29,Default,and the name is the\Nphotographer name that we got
+Dialogue: 0,0:32:44.29,0:32:46.84,Default,out of the Flickr\Nthing, and same context.
+Dialogue: 0,0:32:48.86,0:32:52.69,Default,Okay? Everyone understand\Nthis method right here.
+Dialogue: 0,0:32:53.61,0:32:57.41,Default,So, this method is going to, if\Nwe give it a Flickr dictionary
+Dialogue: 0,0:32:57.41,0:33:01.04,Default,from photo info, it's going\Nto give us back a photo object
+Dialogue: 0,0:33:01.04,0:33:02.82,Default,in the database,\Neither by creating it
+Dialogue: 0,0:33:02.82,0:33:06.26,Default,or by finding one that's already\Nthere, and it will return nil
+Dialogue: 0,0:33:06.26,0:33:07.99,Default,if it has a problem with it.
+Dialogue: 0,0:33:09.02,0:33:11.53,Default,Everybody got that.
+Dialogue: 0,0:33:11.76,0:33:13.44,Default,Okay. So, now that\Nwe have this thing,
+Dialogue: 0,0:33:13.44,0:33:15.20,Default,we have these nice\Nways to access it.
+Dialogue: 0,0:33:15.42,0:33:17.22,Default,Let's talk a little bit\Nabout the TableView,
+Dialogue: 0,0:33:17.54,0:33:20.15,Default,and how we're going to display\Nthis stuff in a TableView,
+Dialogue: 0,0:33:20.53,0:33:22.48,Default,and it's really a simple matter
+Dialogue: 0,0:33:22.48,0:33:29.86,Default,of creating a new TableView\Nsubclass that implements
+Dialogue: 0,0:33:29.86,0:33:31.54,Default,that Fetch Results\NController business.
+Dialogue: 0,0:33:31.84,0:33:33.06,Default,And I told you that\Nyou were going
+Dialogue: 0,0:33:33.06,0:33:35.69,Default,to have this Core Data\Nthing to make that easy,
+Dialogue: 0,0:33:35.69,0:33:36.49,Default,so we're going to use that.
+Dialogue: 0,0:33:36.49,0:33:38.56,Default,Here is the Core Data\NTableView controller.
+Dialogue: 0,0:33:38.56,0:33:39.32,Default,We'll drag it in.
+Dialogue: 0,0:33:39.32,0:33:40.54,Default,We'll take a look at it here.
+Dialogue: 0,0:33:41.04,0:33:43.89,Default,Alright, so here's the\NCore Data TableView.
+Dialogue: 0,0:33:44.28,0:33:45.44,Default,Here's its header file.
+Dialogue: 0,0:33:45.44,0:33:48.42,Default,You can see, it just has this\NFetch Results Controller thing.
+Dialogue: 0,0:33:48.42,0:33:50.15,Default,It also has a way to\Nforce it to Fetch,
+Dialogue: 0,0:33:50.15,0:33:51.19,Default,but you don't ever\Nhave to do that.
+Dialogue: 0,0:33:51.19,0:33:52.14,Default,It will happen automatically.
+Dialogue: 0,0:33:52.55,0:33:53.82,Default,So, it has this property,\Nand if you look
+Dialogue: 0,0:33:53.82,0:33:55.27,Default,at this implementation\Nof this thing.
+Dialogue: 0,0:33:55.27,0:33:58.29,Default,Besides setting the\NFetcher Results Controller,
+Dialogue: 0,0:33:58.41,0:34:02.18,Default,which is mostly just a bunch of\Nlogs, okay, that I put in there.
+Dialogue: 0,0:34:02.60,0:34:06.55,Default,It's implementing UI-TableView\Ndata source, you see,
+Dialogue: 0,0:34:07.48,0:34:09.45,Default,in terms of the Fetch\NResult Controller.
+Dialogue: 0,0:34:09.45,0:34:11.75,Default,And then, it's also doing\Nthis delegate business,
+Dialogue: 0,0:34:11.75,0:34:13.94,Default,where it's watching for\Nchanges in the database.
+Dialogue: 0,0:34:14.83,0:34:15.47,Default,Okay, and that's it.
+Dialogue: 0,0:34:15.47,0:34:16.23,Default,That's all it does.
+Dialogue: 0,0:34:16.80,0:34:18.59,Default,And this code is\Nactually copied and pasted
+Dialogue: 0,0:34:18.59,0:34:21.15,Default,from the documentation for\NNS Fetch Results Controller,
+Dialogue: 0,0:34:21.15,0:34:23.82,Default,so this is nothing\Nexciting in here.
+Dialogue: 0,0:34:24.61,0:34:27.65,Default,So, when we create a\NTableView that wants to look
+Dialogue: 0,0:34:27.71,0:34:30.70,Default,in the database, okay, we've\Ncreated objectives in face,
+Dialogue: 0,0:34:30.70,0:34:32.12,Default,we're going to make\Nit be a subclass
+Dialogue: 0,0:34:32.12,0:34:33.54,Default,of Core Data TableView\NController.
+Dialogue: 0,0:34:33.82,0:34:34.99,Default,So, I'm going to create\None, and I'm going
+Dialogue: 0,0:34:34.99,0:34:39.00,Default,to call it photographers,\NI'm going to call it CDTVC,
+Dialogue: 0,0:34:39.16,0:34:40.50,Default,Core Data TableView Controller.
+Dialogue: 0,0:34:41.01,0:34:43.10,Default,Okay, it's kind of a naming\Nconvention some people
+Dialogue: 0,0:34:43.41,0:34:45.61,Default,like to use, and so\NI'm going to do that.
+Dialogue: 0,0:34:45.61,0:34:46.97,Default,Because it displays\Nphotographer;
+Dialogue: 0,0:34:46.97,0:34:47.73,Default,that's what it does.
+Dialogue: 0,0:34:48.14,0:34:49.14,Default,So, let's create that.
+Dialogue: 0,0:34:49.40,0:34:52.73,Default,Let's put it top level; same\Nplace as everywhere else.
+Dialogue: 0,0:34:53.52,0:34:54.17,Default,Here it is.
+Dialogue: 0,0:34:54.47,0:34:55.14,Default,It's created it.
+Dialogue: 0,0:34:55.14,0:34:57.11,Default,I don't need any of\Nthis business for that.
+Dialogue: 0,0:34:57.74,0:34:59.89,Default,And, let's think\Nabout its public API.
+Dialogue: 0,0:35:00.04,0:35:01.54,Default,What does this thing need?
+Dialogue: 0,0:35:01.72,0:35:03.94,Default,Well, it needs what\Nmost things need
+Dialogue: 0,0:35:03.94,0:35:05.27,Default,that are doing database stuff.
+Dialogue: 0,0:35:05.56,0:35:12.15,Default,It needs an NS managed object\Ncontext, and so, this class,
+Dialogue: 0,0:35:12.15,0:35:13.71,Default,its job in life is going to be,
+Dialogue: 0,0:35:13.71,0:35:15.66,Default,it will show you all\Nthe photographers
+Dialogue: 0,0:35:15.97,0:35:18.27,Default,in a given context,\Nthe given database.
+Dialogue: 0,0:35:18.44,0:35:20.34,Default,You give it a point or two\Ndatabases; it will look in there
+Dialogue: 0,0:35:20.34,0:35:21.56,Default,and show you all the\Nphotographers in it.
+Dialogue: 0,0:35:21.56,0:35:23.85,Default,That's what this thing\Nis going to do, okay?
+Dialogue: 0,0:35:24.28,0:35:28.81,Default,So, to make that happen,\Nall it needs to do is set
+Dialogue: 0,0:35:28.81,0:35:32.00,Default,that Fetch Results Controller\Nthing in its super class, right?
+Dialogue: 0,0:35:32.00,0:35:34.42,Default,Which is its Core Data\NTableView controller,
+Dialogue: 0,0:35:34.58,0:35:35.42,Default,so I'm going to do that.
+Dialogue: 0,0:35:35.42,0:35:39.77,Default,As soon as someone sets\Nthe managed object context.
+Dialogue: 0,0:35:39.77,0:35:45.06,Default,Let's call this managed\Nobject context,
+Dialogue: 0,0:35:45.06,0:35:45.98,Default,so it's a little clearer.
+Dialogue: 0,0:35:46.19,0:35:49.73,Default,As soon as someone sets\Nthis managed object context,
+Dialogue: 0,0:35:50.31,0:35:54.77,Default,I'm going to be able to set up\Nmy Fetch Results Controller.
+Dialogue: 0,0:35:54.77,0:35:56.82,Default,I can't set up my Fetch\NResults Controller
+Dialogue: 0,0:35:56.82,0:35:58.12,Default,until I have the context.
+Dialogue: 0,0:35:58.36,0:36:01.37,Default,Sometimes, the context comes\Nto me via public API like this.
+Dialogue: 0,0:36:01.71,0:36:05.13,Default,Some view controllers\Nwill get their context
+Dialogue: 0,0:36:05.23,0:36:06.26,Default,from other objects.
+Dialogue: 0,0:36:06.55,0:36:09.01,Default,Most notably, and pay attention\Nhere for your homework,
+Dialogue: 0,0:36:09.32,0:36:12.14,Default,if someone gives you a\Nmanaged object like a photo
+Dialogue: 0,0:36:12.14,0:36:14.71,Default,or a photographer, you\Nnow have the context,
+Dialogue: 0,0:36:15.31,0:36:17.64,Default,because NS managed\Nobject has a method
+Dialogue: 0,0:36:17.64,0:36:19.99,Default,in it called managed\Nobject context.
+Dialogue: 0,0:36:19.99,0:36:21.20,Default,It will give you the context
+Dialogue: 0,0:36:21.37,0:36:22.85,Default,that that object\Ncame out of, okay?
+Dialogue: 0,0:36:23.08,0:36:24.52,Default,So, it's really important\Nto understand.
+Dialogue: 0,0:36:24.52,0:36:26.46,Default,If someone gives you a photo,
+Dialogue: 0,0:36:26.56,0:36:27.94,Default,you have a managed\Nobject context,
+Dialogue: 0,0:36:27.94,0:36:29.69,Default,but this thing is\Nat the top level.
+Dialogue: 0,0:36:29.69,0:36:30.98,Default,It's showing all\Nthe photographers.
+Dialogue: 0,0:36:31.39,0:36:33.50,Default,We don't have anything yet out\Nof the database, so someone has
+Dialogue: 0,0:36:33.50,0:36:34.46,Default,to tell us the context.
+Dialogue: 0,0:36:34.46,0:36:36.45,Default,Which database to fetch\Nthese things out of?
+Dialogue: 0,0:36:37.04,0:36:38.41,Default,So, now I just need to say,
+Dialogue: 0,0:36:38.75,0:36:41.44,Default,Fetch Results Controller equals\Nsomething, and so I'm going
+Dialogue: 0,0:36:41.44,0:36:43.29,Default,to create a new Fetch\NResults Controller.
+Dialogue: 0,0:36:44.85,0:36:52.37,Default,Alec in it, and it's in it\Nhas all these arguments here.
+Dialogue: 0,0:36:52.59,0:36:54.88,Default,It needs a Fetch Request, okay.
+Dialogue: 0,0:36:54.88,0:36:57.97,Default,Actually, let's, so we don't\Nget this kind of blackiness,
+Dialogue: 0,0:36:57.97,0:37:00.38,Default,let's go ahead and make\Nall the arguments first.
+Dialogue: 0,0:37:00.71,0:37:01.94,Default,It needs a Fetch Request,
+Dialogue: 0,0:37:02.10,0:37:04.48,Default,because that's what it does\Nis hook up a Fetch Request
+Dialogue: 0,0:37:04.89,0:37:09.34,Default,to something, and\Nso, this is a request
+Dialogue: 0,0:37:09.34,0:37:14.65,Default,into the photographer table,\Nright, so we want photographer.
+Dialogue: 0,0:37:14.69,0:37:17.21,Default,We're going to show\Nall the photographers.
+Dialogue: 0,0:37:17.21,0:37:19.71,Default,The predicate for\Nthis thing is nil.
+Dialogue: 0,0:37:19.71,0:37:22.05,Default,What does that mean\Npredicate nil?
+Dialogue: 0,0:37:22.48,0:37:25.78,Default,Predicate nil means all of them.
+Dialogue: 0,0:37:25.78,0:37:28.23,Default,Okay? So, if you\Nsay predicate nil,
+Dialogue: 0,0:37:28.23,0:37:29.85,Default,that means give me\Nall the photographers.
+Dialogue: 0,0:37:30.51,0:37:33.17,Default,And sort descriptor, yea,\Nlet's sort these things.
+Dialogue: 0,0:37:33.47,0:37:39.56,Default,Let's sort them by, let's see,\Nsort descriptor with key, well,
+Dialogue: 0,0:37:39.56,0:37:41.47,Default,let's sort photographers\Nby their name.
+Dialogue: 0,0:37:41.69,0:37:45.73,Default,Okay? Amazingly, you can\Nactually sort things by things
+Dialogue: 0,0:37:45.73,0:37:46.80,Default,through relationships.
+Dialogue: 0,0:37:46.93,0:37:49.15,Default,So, you can sort it be other\Nobjects properties if you want.
+Dialogue: 0,0:37:49.15,0:37:51.17,Default,But here, photographer,\Nwe're going to have it sort
+Dialogue: 0,0:37:51.55,0:37:54.54,Default,by its name, and yes, we're\Ngoing to have it descending,
+Dialogue: 0,0:37:54.58,0:37:59.28,Default,and we're going to use the\Nselector here called localized
+Dialogue: 0,0:37:59.28,0:38:00.92,Default,standard compare, okay.
+Dialogue: 0,0:38:01.91,0:38:04.73,Default,Which is what we use mostly for\Nstings that are going to appear
+Dialogue: 0,0:38:05.09,0:38:06.60,Default,when these interface, okay.
+Dialogue: 0,0:38:07.22,0:38:09.70,Default,We need to close\Nour array there,
+Dialogue: 0,0:38:09.70,0:38:11.17,Default,because this is an array\Nof sort descriptors.
+Dialogue: 0,0:38:11.17,0:38:13.41,Default,We only need one, and\Nwe could limit like,
+Dialogue: 0,0:38:13.41,0:38:15.71,Default,for example we could say,\Nonly give us a hundred.
+Dialogue: 0,0:38:15.84,0:38:18.28,Default,We only want to see a\Nhundred photographers,
+Dialogue: 0,0:38:18.49,0:38:19.94,Default,which would be kind of silly
+Dialogue: 0,0:38:20.05,0:38:21.86,Default,because we are sorting\Nalphabetically,
+Dialogue: 0,0:38:21.86,0:38:23.54,Default,so this would not make sense,\Nbecause we wouldn't get
+Dialogue: 0,0:38:23.57,0:38:26.13,Default,to see the people whose names\Nunfortunately happen to be end
+Dialogue: 0,0:38:26.13,0:38:27.56,Default,of the alphabet, but\Nwe wouldn't do it here.
+Dialogue: 0,0:38:27.56,0:38:28.71,Default,But, in other cases you would.
+Dialogue: 0,0:38:28.71,0:38:30.83,Default,In your homework, you\Nvery well might do that.
+Dialogue: 0,0:38:31.77,0:38:34.32,Default,Alright, so now, we\Nhave the request,
+Dialogue: 0,0:38:34.88,0:38:36.66,Default,we have the managed\Nobject context.
+Dialogue: 0,0:38:36.66,0:38:39.36,Default,That's an argument to\Nthis method is what we're
+Dialogue: 0,0:38:39.36,0:38:40.17,Default,setting actually.
+Dialogue: 0,0:38:40.45,0:38:41.59,Default,Here's the section thing.
+Dialogue: 0,0:38:41.59,0:38:43.59,Default,We could make sections here,\Nbut there's really nothing
+Dialogue: 0,0:38:43.59,0:38:45.71,Default,in a photographer to do\Nthat, so we won't do that,
+Dialogue: 0,0:38:45.98,0:38:47.88,Default,and we're not going\Nto catch, okay?
+Dialogue: 0,0:38:48.49,0:38:49.69,Default,So, that's it.
+Dialogue: 0,0:38:49.69,0:38:51.83,Default,That's really all\Nthat's required
+Dialogue: 0,0:38:51.97,0:38:54.62,Default,to make this TableView\Nwork, except for one thing,
+Dialogue: 0,0:38:55.26,0:38:57.46,Default,which is that Fetch\NResults Controller,
+Dialogue: 0,0:38:57.46,0:38:59.86,Default,I told you it implemented all\Nthe UI-TableView data source
+Dialogue: 0,0:38:59.86,0:39:02.11,Default,things, but there's one\Nof them it can't implement
+Dialogue: 0,0:39:02.33,0:39:03.93,Default,which is self row\Nand index path.
+Dialogue: 0,0:39:04.85,0:39:07.67,Default,Okay, it doesn't really\Nknow what attributes
+Dialogue: 0,0:39:07.67,0:39:09.95,Default,of the object you want\Nto put in which parts
+Dialogue: 0,0:39:09.95,0:39:11.28,Default,of the UI-TableView cell.
+Dialogue: 0,0:39:11.44,0:39:14.33,Default,Right? The title, the subtitle,\Nit doesn't know those things.
+Dialogue: 0,0:39:14.33,0:39:16.44,Default,So, we have to implement\Nthat ourselves.
+Dialogue: 0,0:39:16.44,0:39:22.92,Default,So, that's UI-TableView\Ncell, self erode index path.
+Dialogue: 0,0:39:22.92,0:39:25.14,Default,You should be very, very,\Nvery familiar with this thing.
+Dialogue: 0,0:39:25.19,0:39:30.77,Default,It just looks like this, cell\Nequal, self.tableview DQ,
+Dialogue: 0,0:39:31.77,0:39:34.37,Default,and well, these are\Nphotographers,
+Dialogue: 0,0:39:34.37,0:39:35.88,Default,so we'll call this\Nphotographer cells.
+Dialogue: 0,0:39:35.88,0:39:38.54,Default,We got to make sure you guys\Nare going to keep me honest.
+Dialogue: 0,0:39:38.54,0:39:40.33,Default,Make sure I remember to\Nset that in the story board
+Dialogue: 0,0:39:40.33,0:39:41.94,Default,when we create one of\Nthese in the story board.
+Dialogue: 0,0:39:42.53,0:39:49.35,Default,And now, I need the photographer\Nthat is at this row and section.
+Dialogue: 0,0:39:50.12,0:39:53.21,Default,So, I'm going to import\Nphotographer first of all,
+Dialogue: 0,0:39:53.78,0:39:58.98,Default,not create, .H. Okay, so\Nthere's the photographer.
+Dialogue: 0,0:39:58.98,0:40:01.37,Default,And, then I'm going to\Nsay photographer equals,
+Dialogue: 0,0:40:01.37,0:40:06.13,Default,and how do I do this,\Nphotographer equals self.
+Dialogue: 0,0:40:06.32,0:40:10.06,Default,Fetch results controller,\Nobjected index path, index path.
+Dialogue: 0,0:40:10.74,0:40:13.47,Default,Now I have the photographer\Nthat's in this row, okay?
+Dialogue: 0,0:40:13.99,0:40:15.85,Default,So, now that I have\Nthat, I can do things
+Dialogue: 0,0:40:15.85,0:40:21.07,Default,like text label.text equals\Nlet's say the photographers name
+Dialogue: 0,0:40:21.07,0:40:21.88,Default,of course.
+Dialogue: 0,0:40:22.52,0:40:24.27,Default,Also, how about something\Ncool like this,
+Dialogue: 0,0:40:24.27,0:40:29.11,Default,cell.detail text label\Nequals a string with format.
+Dialogue: 0,0:40:29.62,0:40:33.92,Default,What if I wanted to put how many\Nphotos this photographer has
+Dialogue: 0,0:40:33.92,0:40:37.14,Default,taken, well that information\Nis readily available to me
+Dialogue: 0,0:40:37.14,0:40:39.39,Default,in the database,\Npercent D photos,
+Dialogue: 0,0:40:40.08,0:40:43.96,Default,photographer.photos count.
+Dialogue: 0,0:40:45.67,0:40:50.10,Default,Okay, X code, shoot,\Nthe way it does that.
+Dialogue: 0,0:40:50.66,0:40:51.82,Default,Okay. Right.
+Dialogue: 0,0:40:52.03,0:40:55.20,Default,So, I just go through that thing\Nthat goes through that thing
+Dialogue: 0,0:40:55.20,0:40:56.95,Default,that who took photos\Nrelationship.
+Dialogue: 0,0:40:56.95,0:40:58.09,Default,I just grab the photos side.
+Dialogue: 0,0:40:58.26,0:40:59.14,Default,It's an NS set.
+Dialogue: 0,0:40:59.40,0:41:00.61,Default,NS set implements count.
+Dialogue: 0,0:41:01.12,0:41:03.50,Default,I got what I need, okay?
+Dialogue: 0,0:41:03.83,0:41:05.49,Default,And, then let's return\Nthis cell.
+Dialogue: 0,0:41:05.82,0:41:10.32,Default,Okay, every one understand\Nthis self erode index map.
+Dialogue: 0,0:41:10.42,0:41:10.74,Default,Question?
+Dialogue: 0,0:41:10.87,0:41:13.99,Default,>> Fetch Controller came in\Nfrom Core Data table controller
+Dialogue: 0,0:41:14.15,0:41:14.81,Default,that was subclass?
+Dialogue: 0,0:41:15.07,0:41:17.91,Default,>> Yes, this property spectral\Ncontroller is inherited
+Dialogue: 0,0:41:17.98,0:41:18.99,Default,from Core Data TableView.
+Dialogue: 0,0:41:19.52,0:41:22.11,Default,That's actually a good question.
+Dialogue: 0,0:41:22.20,0:41:24.22,Default,Okay, so let's go ahead
+Dialogue: 0,0:41:24.22,0:41:27.76,Default,and build our story board\Nwhile we're at this,
+Dialogue: 0,0:41:27.76,0:41:29.10,Default,and while we have this\Nfresh in our minds.
+Dialogue: 0,0:41:29.10,0:41:29.86,Default,So, here it is.
+Dialogue: 0,0:41:29.86,0:41:31.96,Default,This is the kind of\Ndefault one that we got.
+Dialogue: 0,0:41:31.96,0:41:32.76,Default,Let's get rid this.
+Dialogue: 0,0:41:32.76,0:41:33.57,Default,We don't want this.
+Dialogue: 0,0:41:33.88,0:41:35.23,Default,Let's go bring out a TableView.
+Dialogue: 0,0:41:35.23,0:41:38.43,Default,So, here I'm just going to\Ndrag a TableView out here.
+Dialogue: 0,0:41:38.76,0:41:45.85,Default,I'm going to set it to be\Na photographers Core Data
+Dialogue: 0,0:41:45.85,0:41:48.97,Default,TableView Controller,\Nright, and then let's set
+Dialogue: 0,0:41:48.97,0:41:50.21,Default,up our cell the way we want.
+Dialogue: 0,0:41:50.57,0:41:52.83,Default,We want it to be\Nsubtitled, because it's going
+Dialogue: 0,0:41:52.83,0:41:54.54,Default,to have the photographer name
+Dialogue: 0,0:41:54.54,0:41:56.08,Default,and then how many\Nphotos they took.
+Dialogue: 0,0:41:56.40,0:41:59.74,Default,We need to make sure that\Nits photographer cell is our
+Dialogue: 0,0:41:59.74,0:42:01.13,Default,reuse identifier.
+Dialogue: 0,0:42:01.84,0:42:03.14,Default,Otherwise, we're ready to go.
+Dialogue: 0,0:42:03.61,0:42:05.45,Default,So, if we had stuff\Nin our database,
+Dialogue: 0,0:42:05.45,0:42:08.09,Default,and we hit run right\Nnow, this would work.
+Dialogue: 0,0:42:08.66,0:42:10.17,Default,That's all we needed to do.
+Dialogue: 0,0:42:10.17,0:42:12.90,Default,An incredibly small\Namount of code to hook
+Dialogue: 0,0:42:12.90,0:42:14.19,Default,up a table view to Core Data.
+Dialogue: 0,0:42:14.53,0:42:16.59,Default,But, of course, we have\Nno data in our databases.
+Dialogue: 0,0:42:16.68,0:42:19.12,Default,Nowhere in our code are\Nwe querying from Flickr
+Dialogue: 0,0:42:19.12,0:42:23.50,Default,or loading stuff in, and so I'm\Ngoing to use the opportunity
+Dialogue: 0,0:42:23.50,0:42:26.54,Default,of our needing that to\Nintroduce you for the first time
+Dialogue: 0,0:42:26.82,0:42:29.02,Default,to your application delegate.
+Dialogue: 0,0:42:29.27,0:42:33.02,Default,So, I've always been moving\Ndown to supporting files.
+Dialogue: 0,0:42:33.02,0:42:34.56,Default,Don't look at them, you know,
+Dialogue: 0,0:42:34.93,0:42:36.98,Default,and show now I'm going show you\Na little bit what's in here.
+Dialogue: 0,0:42:36.98,0:42:41.15,Default,So, your application\Ndelegate is kind of like,
+Dialogue: 0,0:42:41.33,0:42:42.85,Default,it is watching what's going
+Dialogue: 0,0:42:42.85,0:42:45.41,Default,on at the highest level\Nof your application.
+Dialogue: 0,0:42:45.62,0:42:47.44,Default,It sees your application\Nhas launched.
+Dialogue: 0,0:42:47.62,0:42:51.48,Default,Okay. It sees that your\Napplication has resigned being
+Dialogue: 0,0:42:51.48,0:42:52.40,Default,the active application.
+Dialogue: 0,0:42:52.40,0:42:54.84,Default,It sees that your application\Nis entering the background.
+Dialogue: 0,0:42:55.24,0:42:57.08,Default,Okay, we know then\NiOS, the apps,
+Dialogue: 0,0:42:57.54,0:43:00.14,Default,when you go to another app,\Nthey don't quit, they just kind
+Dialogue: 0,0:43:00.14,0:43:01.69,Default,of move into this\Nbackground state,
+Dialogue: 0,0:43:01.92,0:43:02.91,Default,right, so we can find that.
+Dialogue: 0,0:43:03.07,0:43:04.94,Default,You can find it when you move\Nback into the foreground.
+Dialogue: 0,0:43:05.19,0:43:06.83,Default,If you become the\Nactive application.
+Dialogue: 0,0:43:07.04,0:43:09.47,Default,If someone's quitting\Nyour application,
+Dialogue: 0,0:43:09.47,0:43:10.61,Default,you find that out as well.
+Dialogue: 0,0:43:10.86,0:43:13.58,Default,So, it finds out all these\Nthings, and we're going to learn
+Dialogue: 0,0:43:13.58,0:43:15.42,Default,about those later in the\Nquarter, so I'm going
+Dialogue: 0,0:43:15.42,0:43:18.20,Default,to delete all those now, but we\Nare going to look at this one.
+Dialogue: 0,0:43:18.29,0:43:20.14,Default,This one is did finish\Nlaunching with option,
+Dialogue: 0,0:43:20.14,0:43:23.22,Default,so here it's tell you your\Napplication finished launching.
+Dialogue: 0,0:43:23.77,0:43:25.60,Default,Okay? This is a great\Ntime to do things
+Dialogue: 0,0:43:25.60,0:43:28.43,Default,like kick off some Flickr\Nfetching or something.
+Dialogue: 0,0:43:28.73,0:43:32.15,Default,Now, if I'm going to be\Ndoing my Flickr fetching here
+Dialogue: 0,0:43:32.15,0:43:34.94,Default,in my application\Ndelegate, I need the context.
+Dialogue: 0,0:43:35.25,0:43:37.57,Default,Okay, now in your\Nhomework, you're going to do
+Dialogue: 0,0:43:37.57,0:43:39.67,Default,that by creating a UI\Nmanaged documented.
+Dialogue: 0,0:43:40.46,0:43:46.79,Default,But, here, I have a little\Npiece of code that I got
+Dialogue: 0,0:43:46.91,0:43:48.76,Default,from that other template\Nthat I was telling you
+Dialogue: 0,0:43:48.76,0:43:51.11,Default,about that I'm going\Nto bring in here.
+Dialogue: 0,0:43:51.79,0:43:52.51,Default,It looks like this.
+Dialogue: 0,0:43:52.51,0:43:56.46,Default,It's a little category,\Nand it has this method,
+Dialogue: 0,0:43:56.46,0:43:58.86,Default,create main cue managed\Nobject context.
+Dialogue: 0,0:43:58.86,0:44:01.35,Default,So, that's a managed\Nobject context that attaches
+Dialogue: 0,0:44:01.35,0:44:04.94,Default,to a database, the\Ndatabase for this app.
+Dialogue: 0,0:44:04.94,0:44:09.57,Default,This only has one luckily, and\Ngives me; it's on the main cue,
+Dialogue: 0,0:44:09.57,0:44:13.19,Default,just like a UI document one is,\Nso this code can be similar.
+Dialogue: 0,0:44:13.31,0:44:14.34,Default,And then also, I can save it.
+Dialogue: 0,0:44:14.34,0:44:16.78,Default,Now, I don't need this save\Ncontext message for you
+Dialogue: 0,0:44:16.78,0:44:18.57,Default,on managed document,\Nbecause it auto saves.
+Dialogue: 0,0:44:18.67,0:44:21.50,Default,But, here if I create this\Nmanage object context not using
+Dialogue: 0,0:44:21.50,0:44:23.67,Default,a document, then\NI have to do that.
+Dialogue: 0,0:44:23.67,0:44:26.26,Default,So, this is, like I said,\Nthe other way to do it,
+Dialogue: 0,0:44:26.26,0:44:28.67,Default,which you're not going to do for\Nyour homework, but I just wanted
+Dialogue: 0,0:44:28.67,0:44:31.03,Default,to show you, I didn't\Nreally didn't want
+Dialogue: 0,0:44:31.03,0:44:32.48,Default,to show you the UI managed\Ndocument, because I wanted you
+Dialogue: 0,0:44:32.48,0:44:33.40,Default,to figure that out on your own,
+Dialogue: 0,0:44:33.80,0:44:34.76,Default,so we're going to\Nmanage this one.
+Dialogue: 0,0:44:35.66,0:44:37.29,Default,Okay, so I've added this.
+Dialogue: 0,0:44:37.33,0:44:40.97,Default,This is a, you can see that\Nthe photo mania app delegate
+Dialogue: 0,0:44:41.31,0:44:44.60,Default,category, so it simply\Nadded these two methods
+Dialogue: 0,0:44:44.87,0:44:48.17,Default,to my app delegate, okay?
+Dialogue: 0,0:44:48.17,0:44:53.02,Default,No, what I'm going to do\Nhere is I am just going to,
+Dialogue: 0,0:44:53.02,0:44:56.36,Default,first of all, let me\Ncreate some property.
+Dialogue: 0,0:44:56.36,0:44:59.34,Default,So, this is some stuff that I\Njust created, some properties
+Dialogue: 0,0:44:59.34,0:45:00.69,Default,that I need and stuff like that.
+Dialogue: 0,0:45:00.69,0:45:02.08,Default,For time, I'm just going\Nto put them in here,
+Dialogue: 0,0:45:02.08,0:45:04.93,Default,but as we use them,\NI will refer to them.
+Dialogue: 0,0:45:04.93,0:45:06.11,Default,But one of them I'm going
+Dialogue: 0,0:45:06.11,0:45:08.91,Default,to use right here is this\Nphoto database context.
+Dialogue: 0,0:45:08.91,0:45:11.22,Default,So, I'm going to keep a\Nproperty in my app delegate,
+Dialogue: 0,0:45:11.37,0:45:14.47,Default,which is the context that\Nwe're going to be fetching into
+Dialogue: 0,0:45:14.47,0:45:15.82,Default,and that we're going\Nto be reading out of.
+Dialogue: 0,0:45:15.82,0:45:17.54,Default,So, I'm going to\Nset that right here,
+Dialogue: 0,0:45:17.86,0:45:24.83,Default,photo data with context\Nequals self create, oops,
+Dialogue: 0,0:45:25.09,0:45:32.09,Default,got to import that,\Nimport photo mania MOC.
+Dialogue: 0,0:45:32.24,0:45:36.12,Default,I'm just importing the category\Nheader file that has that create
+Dialogue: 0,0:45:36.12,0:45:39.40,Default,in that, so create main\Ncue managed object context.
+Dialogue: 0,0:45:39.40,0:45:41.76,Default,So, again, you're going to set\Nthis as well, but you're going
+Dialogue: 0,0:45:41.76,0:45:44.44,Default,to set it from your\NUI managed document.
+Dialogue: 0,0:45:44.58,0:45:46.69,Default,So, now, I have a context,
+Dialogue: 0,0:45:46.89,0:45:49.99,Default,and I want to start doing some\NFlickr Fetches, so I'm going
+Dialogue: 0,0:45:49.99,0:45:55.28,Default,to call another method here,\Nstart, what did I call this,
+Dialogue: 0,0:45:55.28,0:45:59.48,Default,star Flickr fetch,\NI think, okay?
+Dialogue: 0,0:45:59.67,0:46:02.13,Default,So, that's just going to\Nfire off a Flickr fetch
+Dialogue: 0,0:46:02.19,0:46:03.31,Default,as soon as we launch.
+Dialogue: 0,0:46:04.01,0:46:05.02,Default,Okay, we just launched.
+Dialogue: 0,0:46:05.40,0:46:07.53,Default,Get this message gets\Nset to us when we launch,
+Dialogue: 0,0:46:07.74,0:46:09.82,Default,and I'm just going to\Nfire off a Flickr fetch.
+Dialogue: 0,0:46:09.82,0:46:11.06,Default,So, that's one of\Nthe times we're going
+Dialogue: 0,0:46:11.06,0:46:12.32,Default,to fetch is as soon\Nas we launch.
+Dialogue: 0,0:46:12.32,0:46:13.89,Default,We're going to fetch some\Nother times, so we're going
+Dialogue: 0,0:46:13.89,0:46:15.18,Default,to fetch as soon as we launch.
+Dialogue: 0,0:46:15.37,0:46:20.01,Default,So, I'm going to go ahead\Nand put this in here
+Dialogue: 0,0:46:20.01,0:46:22.58,Default,so we can look it, instead of\Nmy typing it in line by line,
+Dialogue: 0,0:46:23.74,0:46:27.58,Default,and this is something\Nwhere it's got some stuff
+Dialogue: 0,0:46:27.58,0:46:31.74,Default,that I didn't teach really\Nin detail in lecture,
+Dialogue: 0,0:46:31.74,0:46:33.37,Default,but you should mostly\Nbe able to understand.
+Dialogue: 0,0:46:33.67,0:46:36.70,Default,Mostly what this is doing\Nhere is it creates a session,
+Dialogue: 0,0:46:36.90,0:46:40.81,Default,so you know about URL sessions,\Nso I'm creating this session.
+Dialogue: 0,0:46:41.12,0:46:42.53,Default,This session is a\Nlittle different
+Dialogue: 0,0:46:42.53,0:46:45.11,Default,than the one we created before,\Nbecause look, it has a delegate.
+Dialogue: 0,0:46:45.80,0:46:46.33,Default,You see that.
+Dialogue: 0,0:46:46.61,0:46:48.39,Default,We didn't specify\Na delegate before.
+Dialogue: 0,0:46:48.72,0:46:49.80,Default,Okay, we had delegate nil.
+Dialogue: 0,0:46:50.42,0:46:52.88,Default,And, why do we want a delegate,\Nand why are we making it so.
+Dialogue: 0,0:46:53.25,0:46:55.96,Default,Well, that's because we\Nwant these Flickr Fetchers
+Dialogue: 0,0:46:55.96,0:46:57.34,Default,that we're starting\Noff in the background.
+Dialogue: 0,0:46:57.53,0:46:59.82,Default,If they finish while our\Napplication is no longer
+Dialogue: 0,0:46:59.82,0:47:02.86,Default,running, we want it to launch\Nour application and tell us.
+Dialogue: 0,0:47:03.45,0:47:04.75,Default,Or, if we're in the background,
+Dialogue: 0,0:47:05.02,0:47:06.86,Default,we're not the application\Nthe user is using right now,
+Dialogue: 0,0:47:07.12,0:47:09.84,Default,and this URL Flickr comes\Nback with some information,
+Dialogue: 0,0:47:10.03,0:47:13.09,Default,we want it to you know, make\Nus, wake us up a little bit
+Dialogue: 0,0:47:13.24,0:47:14.28,Default,and let us process it.
+Dialogue: 0,0:47:14.60,0:47:17.02,Default,Okay, so by doing this delegate,
+Dialogue: 0,0:47:17.78,0:47:21.64,Default,along with a background\Nsession, we can do that.
+Dialogue: 0,0:47:21.64,0:47:24.09,Default,So, I'm going to show you\Nthis delegate implementation.
+Dialogue: 0,0:47:24.09,0:47:26.18,Default,So, I create this session,\Nand then I'm doing here
+Dialogue: 0,0:47:26.18,0:47:29.86,Default,on start Flickr Fetch is\Ncreating a task and resuming it.
+Dialogue: 0,0:47:30.27,0:47:32.63,Default,So, this is the exact same\Nthing that we did before, right?
+Dialogue: 0,0:47:32.70,0:47:33.85,Default,We had a URL session.
+Dialogue: 0,0:47:33.85,0:47:35.11,Default,We created a download task.
+Dialogue: 0,0:47:35.42,0:47:38.66,Default,The only difference is last time\Nwe did with completion handler,
+Dialogue: 0,0:47:38.66,0:47:40.20,Default,and we had a little\Nblock that would happen
+Dialogue: 0,0:47:40.20,0:47:41.41,Default,when the download came back.
+Dialogue: 0,0:47:41.92,0:47:44.31,Default,Now instead, our delegate's\Ngoing to get called
+Dialogue: 0,0:47:44.69,0:47:47.75,Default,when the URL gets\Nloaded and comes back.
+Dialogue: 0,0:47:48.01,0:47:49.56,Default,Does everyone understand\Nthe difference
+Dialogue: 0,0:47:49.56,0:47:51.10,Default,between what we did before\Nand what we're doing here?
+Dialogue: 0,0:47:51.89,0:47:53.30,Default,Okay, no completion handler.
+Dialogue: 0,0:47:53.30,0:47:54.42,Default,Here, we're going\Nto use a delegate.
+Dialogue: 0,0:47:54.79,0:47:56.52,Default,So, let's look at what\Nthat delegate looks like.
+Dialogue: 0,0:47:57.23,0:47:58.54,Default,It looks like this.
+Dialogue: 0,0:47:58.91,0:48:00.36,Default,Okay, there are three\Nmethods in it.
+Dialogue: 0,0:48:00.83,0:48:02.17,Default,These three methods right here.
+Dialogue: 0,0:48:03.05,0:48:07.45,Default,One is your file just finished\Ndownloading, and here it is
+Dialogue: 0,0:48:07.45,0:48:09.09,Default,as a local file,\Nso this looks a lot
+Dialogue: 0,0:48:09.09,0:48:11.87,Default,like that completion handler,\Nand then, here's a couple
+Dialogue: 0,0:48:11.87,0:48:13.59,Default,that we're not going to\Nuse, like giving you,
+Dialogue: 0,0:48:13.84,0:48:17.55,Default,this gives you some progress,\Nhow many bytes its read so far,
+Dialogue: 0,0:48:17.55,0:48:20.16,Default,if it does it in\Nchunks, and this also,
+Dialogue: 0,0:48:20.16,0:48:22.99,Default,download sessions can get\Ninterrupted and then resumed.
+Dialogue: 0,0:48:22.99,0:48:25.78,Default,We're definitely not going to\Ntalk about that, but anyway.
+Dialogue: 0,0:48:26.40,0:48:29.09,Default,Now, you can see I have an error\Nhere, okay, so what do we do.
+Dialogue: 0,0:48:29.09,0:48:31.79,Default,So, this is what we would have\Ndone in our completion handler.
+Dialogue: 0,0:48:32.22,0:48:35.19,Default,And, all we're going to\Ndo here is we are going
+Dialogue: 0,0:48:35.19,0:48:38.90,Default,to get the context, our\Nlittle photo database context
+Dialogue: 0,0:48:38.90,0:48:39.64,Default,that we set up there
+Dialogue: 0,0:48:39.64,0:48:40.94,Default,and application did\Nfinish launching.
+Dialogue: 0,0:48:41.33,0:48:44.81,Default,We are going to download\Nthose photos from Flickr,
+Dialogue: 0,0:48:44.81,0:48:48.63,Default,so Flickr photos is this, which\Nyou're very used to, right?
+Dialogue: 0,0:48:48.85,0:48:52.49,Default,Data with contents of URL,\NJasson, de-Jassonize it,
+Dialogue: 0,0:48:52.81,0:48:55.21,Default,grab the results out of that.
+Dialogue: 0,0:48:55.77,0:48:57.41,Default,Okay. So, we're going\Nto do that little thing.
+Dialogue: 0,0:48:57.41,0:49:01.81,Default,This needs to be happening,\Nyou know, this is a local URL,
+Dialogue: 0,0:49:01.81,0:49:03.86,Default,so it can be happening on\Nthe main thread, no problem.
+Dialogue: 0,0:49:04.40,0:49:06.83,Default,Now, we're going to do\Nsomething in this context,
+Dialogue: 0,0:49:06.83,0:49:08.40,Default,and notice I'm doing\Nperform block.
+Dialogue: 0,0:49:08.69,0:49:11.52,Default,I didn't do perform block over\Nin the photo creating one,
+Dialogue: 0,0:49:11.52,0:49:12.65,Default,because it's kind of implicit.
+Dialogue: 0,0:49:12.65,0:49:13.61,Default,I'm creating a photo.
+Dialogue: 0,0:49:13.61,0:49:16.71,Default,Of course, I'm doing it on\Nthat context, so whoever calls
+Dialogue: 0,0:49:16.71,0:49:18.66,Default,that would want to do that\Nin perform block, and that's,
+Dialogue: 0,0:49:18.66,0:49:19.91,Default,in fact, what I'm doing here.
+Dialogue: 0,0:49:20.36,0:49:22.20,Default,I'm calling that\Nmethod we just wrote,
+Dialogue: 0,0:49:22.20,0:49:24.38,Default,load photos with\NFlickr data, okay.
+Dialogue: 0,0:49:25.13,0:49:27.07,Default,We didn't actually write that\Nmethod, so let's look at that.
+Dialogue: 0,0:49:27.49,0:49:28.27,Default,So, that's over here.
+Dialogue: 0,0:49:28.85,0:49:30.66,Default,Okay, we have photo\Nwith Flickr info,
+Dialogue: 0,0:49:30.66,0:49:31.83,Default,and here's loading the photos.
+Dialogue: 0,0:49:32.17,0:49:33.30,Default,So, how do we load the photos?
+Dialogue: 0,0:49:33.30,0:49:38.16,Default,I'm just going to say, 4NS\Ndictionary photo in photos,
+Dialogue: 0,0:49:38.86,0:49:41.10,Default,okay, so give me each\NFlickr photo one by one,
+Dialogue: 0,0:49:41.48,0:49:44.73,Default,and then self photo\Nwith Flickr info,
+Dialogue: 0,0:49:44.79,0:49:47.16,Default,photo in manage context,\Ncontext.
+Dialogue: 0,0:49:48.64,0:49:52.23,Default,Now, this turns out to be\Nreally an inefficient way
+Dialogue: 0,0:49:52.23,0:49:54.69,Default,of loading those\Nhundred Flickr photos,
+Dialogue: 0,0:49:54.99,0:50:02.14,Default,because every time I call\Nthis, I am doing this Fetch.
+Dialogue: 0,0:50:02.69,0:50:04.22,Default,So, if I want to load\Na hundred photos,
+Dialogue: 0,0:50:04.22,0:50:06.95,Default,I got to do a hundred fetches\Nto see if those are unique.
+Dialogue: 0,0:50:07.35,0:50:09.12,Default,Okay, there are much\Nbetter ways to do this,
+Dialogue: 0,0:50:09.12,0:50:11.03,Default,and one of your extra credit\Nitems is for you to try
+Dialogue: 0,0:50:11.03,0:50:12.59,Default,and figure out a\Nbetter way to do this.
+Dialogue: 0,0:50:13.06,0:50:16.64,Default,Okay, and one way is to\Nlook at the unique ID's
+Dialogue: 0,0:50:16.64,0:50:19.24,Default,of all hundred photos,\Nfetch them all at once,
+Dialogue: 0,0:50:19.51,0:50:20.94,Default,and see which ones\Nare in the database,
+Dialogue: 0,0:50:21.18,0:50:22.69,Default,because you can get a\Nlist of them back, right?
+Dialogue: 0,0:50:22.69,0:50:25.88,Default,The ones that are in there,\Nand then one by one, you can go
+Dialogue: 0,0:50:25.88,0:50:27.14,Default,and create the ones\Nthat aren't there.
+Dialogue: 0,0:50:27.85,0:50:28.98,Default,Okay, so that's one\Nway to do it.
+Dialogue: 0,0:50:29.82,0:50:33.38,Default,Okay, but this cheap and simple\Nway is good for a demo, okay.
+Dialogue: 0,0:50:33.38,0:50:34.92,Default,So, back to our app delegate
+Dialogue: 0,0:50:35.35,0:50:37.39,Default,and now we have this load\Nphotos with Flickr array.
+Dialogue: 0,0:50:37.39,0:50:40.56,Default,Let's go ahead and import that\Nheader file, which I do, oh,
+Dialogue: 0,0:50:40.56,0:50:42.34,Default,maybe I called it\Nsomething different there.
+Dialogue: 0,0:50:42.34,0:50:43.57,Default,What's the problem?
+Dialogue: 0,0:50:43.79,0:50:47.64,Default,Let's see, yeah, I probably\Ncalled it something different.
+Dialogue: 0,0:50:48.78,0:50:51.72,Default,Call it the same thing.
+Dialogue: 0,0:50:52.24,0:50:55.19,Default,Here's my delegate, here it is.
+Dialogue: 0,0:50:55.19,0:50:57.04,Default,There we close, I called it\N[inaudible] Flickr, right?
+Dialogue: 0,0:50:57.04,0:50:58.48,Default,So, that's going to\Nload all these photos.
+Dialogue: 0,0:50:58.81,0:51:00.79,Default,Notice, I'm saving\Nmy context here.
+Dialogue: 0,0:51:00.79,0:51:03.75,Default,Okay this is a method, manage\Nobject context was saved.
+Dialogue: 0,0:51:03.75,0:51:05.36,Default,This is an error,\Nwhich I'm ignoring.
+Dialogue: 0,0:51:05.76,0:51:07.26,Default,Don't really need to do this
+Dialogue: 0,0:51:07.33,0:51:09.45,Default,for your UI managed\Ndocumented, but it doesn't hurt.
+Dialogue: 0,0:51:09.63,0:51:10.58,Default,You can do it if you want.
+Dialogue: 0,0:51:10.75,0:51:13.00,Default,This would not break\Nanything if you had a context
+Dialogue: 0,0:51:13.00,0:51:15.39,Default,from UI managed document,\Nbut mine's not,
+Dialogue: 0,0:51:15.39,0:51:17.09,Default,so that's why I'm\Nexplicitly saving here
+Dialogue: 0,0:51:17.09,0:51:21.36,Default,after I load some\Nphotos in, okay?
+Dialogue: 0,0:51:21.70,0:51:22.96,Default,Okay, so that's cool.
+Dialogue: 0,0:51:23.36,0:51:26.23,Default,So, let's go look at our tables.
+Dialogue: 0,0:51:26.71,0:51:31.79,Default,What is our tables, public\NAPI, managed object context?
+Dialogue: 0,0:51:31.94,0:51:32.75,Default,We never set that.
+Dialogue: 0,0:51:33.18,0:51:36.37,Default,Okay. We need to set this\Ntables managed object context.
+Dialogue: 0,0:51:36.90,0:51:39.81,Default,Okay. When and how are\Nwe going to do that?
+Dialogue: 0,0:51:40.00,0:51:41.51,Default,We have this application\Ndelegate.
+Dialogue: 0,0:51:41.51,0:51:43.40,Default,It's kind of this global thing,
+Dialogue: 0,0:51:43.40,0:51:45.89,Default,and it is managing this\Nglobal database, but it needs
+Dialogue: 0,0:51:45.89,0:51:49.83,Default,to be able to communicate this\Nthing out to anyone who needs
+Dialogue: 0,0:51:49.83,0:51:52.24,Default,to use it, and the way\Nwe're going to that is,
+Dialogue: 0,0:51:52.76,0:51:56.75,Default,whenever we set this photo\Ndatabase context, we are going
+Dialogue: 0,0:51:56.75,0:51:59.93,Default,to post a notification,\Nthe radio station thing.
+Dialogue: 0,0:52:00.30,0:52:01.68,Default,So, this is the first time\Nyou're going to see how
+Dialogue: 0,0:52:01.68,0:52:05.17,Default,to post an notification, not\Njust listen with that observer,
+Dialogue: 0,0:52:05.40,0:52:07.35,Default,you're going to actually post\Nit right here, so let's do that,
+Dialogue: 0,0:52:07.88,0:52:11.30,Default,and when you post a notification\Nyou almost always 100%
+Dialogue: 0,0:52:11.30,0:52:14.01,Default,of the time, want to create\Na header file, so I'm going
+Dialogue: 0,0:52:14.01,0:52:14.91,Default,to create a header file.
+Dialogue: 0,0:52:15.45,0:52:18.16,Default,Just go here to header\Nfile, C, C++ header file,
+Dialogue: 0,0:52:18.76,0:52:21.52,Default,and that header file is\Ngoing to contain the name
+Dialogue: 0,0:52:21.52,0:52:23.85,Default,of the notification, and also\Nthe name of anything that's
+Dialogue: 0,0:52:23.85,0:52:26.00,Default,in the user info,\Nfor the notification.
+Dialogue: 0,0:52:26.42,0:52:30.73,Default,So, let's go ahead and make\Nsure it's in the right place.
+Dialogue: 0,0:52:30.73,0:52:35.62,Default,It is. I'm going to call this\Nphoto database availability,
+Dialogue: 0,0:52:35.67,0:52:37.82,Default,because that's what this\Nnotification is about.
+Dialogue: 0,0:52:37.82,0:52:38.83,Default,This radio station talks
+Dialogue: 0,0:52:38.83,0:52:41.22,Default,about whether the photo database\Nis available, so I'm going
+Dialogue: 0,0:52:41.22,0:52:44.19,Default,to create this header file,\Nand inside this header file,
+Dialogue: 0,0:52:44.41,0:52:46.11,Default,I'm just going to\Nput pound defines.
+Dialogue: 0,0:52:46.11,0:52:51.90,Default,One is photo database\Navailability notification.
+Dialogue: 0,0:52:52.00,0:52:53.80,Default,That's the name of\Nthe notification.
+Dialogue: 0,0:52:53.90,0:52:55.52,Default,I'm going to call it this.
+Dialogue: 0,0:52:55.93,0:52:58.08,Default,I can call it anything I want,\Nbut I'm going to call it that,
+Dialogue: 0,0:52:58.08,0:53:01.32,Default,and then also when the\Nnotification goes out,
+Dialogue: 0,0:53:01.53,0:53:05.38,Default,I'm going to include the context\Nin the radio station broadcast,
+Dialogue: 0,0:53:05.65,0:53:08.04,Default,so the person can just get it\Nwhen they get the notification.
+Dialogue: 0,0:53:08.39,0:53:13.60,Default,I'll do that with photo\Ndatabase availability context.
+Dialogue: 0,0:53:14.46,0:53:16.85,Default,And, I'll use the same,\Nwell, just say context.
+Dialogue: 0,0:53:16.85,0:53:18.33,Default,It can be anything\Nyou want it to.
+Dialogue: 0,0:53:18.38,0:53:20.56,Default,Okay, so this is going to be\Nthe name of the notification.
+Dialogue: 0,0:53:20.71,0:53:23.64,Default,This is going to be the key into\Nthe dictionary of information
+Dialogue: 0,0:53:23.64,0:53:26.33,Default,that comes along with the\Nnotification, alright?
+Dialogue: 0,0:53:26.64,0:53:29.57,Default,So, now, let's send that\Nnotification, and I'm going
+Dialogue: 0,0:53:29.57,0:53:33.84,Default,to do that every time we set\Nthis photo database context.
+Dialogue: 0,0:53:35.04,0:53:35.37,Default,Question?
+Dialogue: 0,0:53:35.87,0:53:42.16,Default,[ Background Conversation ]
+Dialogue: 0,0:53:42.66,0:53:43.84,Default,>> Oh, yeah, probably.
+Dialogue: 0,0:53:44.02,0:53:45.12,Default,Good point.
+Dialogue: 0,0:53:45.12,0:53:46.21,Default,Yeah, no equals there.
+Dialogue: 0,0:53:46.38,0:53:48.74,Default,Thanks, very good.
+Dialogue: 0,0:53:49.06,0:53:50.47,Default,This is just a pound\Nsign defined.
+Dialogue: 0,0:53:50.53,0:53:55.71,Default,If it was a constant,\Nwe wouldn't do that.
+Dialogue: 0,0:53:55.71,0:54:03.07,Default,Okay, alright, so let's set\Nthis photo database context,
+Dialogue: 0,0:54:03.07,0:54:05.90,Default,so in the set; I think I might\Nhave a thing for that actually.
+Dialogue: 0,0:54:05.90,0:54:06.83,Default,Set photo data.
+Dialogue: 0,0:54:06.83,0:54:07.23,Default,Yeah, I do.
+Dialogue: 0,0:54:07.63,0:54:11.21,Default,So, here when we set this photo\Ndatabase context, we are going
+Dialogue: 0,0:54:11.21,0:54:14.07,Default,to post this notification.
+Dialogue: 0,0:54:14.69,0:54:18.13,Default,And we do that using the NS\NNotification Center default
+Dialogue: 0,0:54:18.13,0:54:20.11,Default,center, post notification name.
+Dialogue: 0,0:54:20.11,0:54:21.91,Default,We just specific the\Nname, which is this.
+Dialogue: 0,0:54:21.96,0:54:26.61,Default,For this to work, we need to\Nimport that photo availability,
+Dialogue: 0,0:54:26.66,0:54:29.09,Default,photo database availability\Nheader, okay?
+Dialogue: 0,0:54:30.00,0:54:31.89,Default,So, we're just going to\Npost this notification,
+Dialogue: 0,0:54:31.89,0:54:34.24,Default,and we're going to give this\Nuser info along with it,
+Dialogue: 0,0:54:34.41,0:54:38.55,Default,and these are info, it's just\Na dictionary that has one key,
+Dialogue: 0,0:54:38.55,0:54:40.46,Default,which is that context,\Nand the value
+Dialogue: 0,0:54:40.46,0:54:43.81,Default,of that key is the context.
+Dialogue: 0,0:54:44.30,0:54:49.05,Default,Okay. So, this is how you post\Nin the radio station model.
+Dialogue: 0,0:54:49.65,0:54:51.31,Default,Any questions about that?
+Dialogue: 0,0:54:52.80,0:54:56.11,Default,And now, I'm going to show you\Nlistening to a radio station
+Dialogue: 0,0:54:56.42,0:55:00.37,Default,without having to create another\Nmethod and all this stuff,
+Dialogue: 0,0:55:00.37,0:55:02.62,Default,basically really\Nstraightforward listening,
+Dialogue: 0,0:55:02.91,0:55:04.11,Default,and who needs to listen to this?
+Dialogue: 0,0:55:04.11,0:55:08.35,Default,Well, this guy does,\Nthis photographer guy,
+Dialogue: 0,0:55:08.35,0:55:09.29,Default,he needs to listen to it.
+Dialogue: 0,0:55:09.55,0:55:14.29,Default,So, basically, as soon as this\Nguy awakes, and I might do this
+Dialogue: 0,0:55:14.34,0:55:18.26,Default,in it with style, or whatever\Nthe designated initialize is
+Dialogue: 0,0:55:18.26,0:55:20.39,Default,for TableView, but I'm just\Ngoing to it in a wait for nib
+Dialogue: 0,0:55:20.39,0:55:21.92,Default,for here, because we know\Nthis TableView is coming
+Dialogue: 0,0:55:21.92,0:55:23.32,Default,out of the story board.
+Dialogue: 0,0:55:23.32,0:55:25.86,Default,I'm just going to say,\Nnotification center.
+Dialogue: 0,0:55:26.62,0:55:30.37,Default,First let's import that\Navailability thing.
+Dialogue: 0,0:55:30.83,0:55:34.31,Default,So, I'm going to do NS\NNotification Center,
+Dialogue: 0,0:55:34.84,0:55:35.77,Default,default center.
+Dialogue: 0,0:55:36.56,0:55:37.05,Default,Watch this.
+Dialogue: 0,0:55:37.11,0:55:38.64,Default,Add observer.
+Dialogue: 0,0:55:38.68,0:55:41.15,Default,Normally, we do it with a\Nselector and all this stuff.
+Dialogue: 0,0:55:41.15,0:55:42.99,Default,I'm going to do a\Nblock-based one.
+Dialogue: 0,0:55:42.99,0:55:43.93,Default,I couldn't show you this before,
+Dialogue: 0,0:55:43.93,0:55:45.50,Default,because you didn't know\Nblock, but it's this one.
+Dialogue: 0,0:55:45.80,0:55:48.29,Default,Add observer for name,\Nand we give the name,
+Dialogue: 0,0:55:48.29,0:55:52.39,Default,which is photo database\Navailability notification.
+Dialogue: 0,0:55:52.48,0:55:55.43,Default,The object is who can send it,
+Dialogue: 0,0:55:55.43,0:55:57.14,Default,and I'll let anyone\Nsend this to me.
+Dialogue: 0,0:55:57.14,0:55:58.28,Default,It's going to be\Nthe app delegate,
+Dialogue: 0,0:55:58.28,0:55:59.24,Default,but it could be anybody.
+Dialogue: 0,0:55:59.66,0:56:02.96,Default,The cue, I'm going to do it\Non the cue that I'm on now.
+Dialogue: 0,0:56:03.09,0:56:06.32,Default,That's what nil means, but I\Ncould say NS Operation main cue,
+Dialogue: 0,0:56:06.57,0:56:09.23,Default,or some other cue even,\Nbut I'm going to say nil,
+Dialogue: 0,0:56:09.23,0:56:11.00,Default,which means whatever\Ncue I'm on right now
+Dialogue: 0,0:56:11.00,0:56:14.62,Default,when this is being executed,\Nusing block, so I'm going
+Dialogue: 0,0:56:14.62,0:56:16.15,Default,to double click here\Nto put a block.
+Dialogue: 0,0:56:17.03,0:56:18.89,Default,Okay, and then that's\Nthe end of that,
+Dialogue: 0,0:56:19.16,0:56:20.50,Default,and what's going to\Nbe in this block?
+Dialogue: 0,0:56:21.01,0:56:23.17,Default,This is one line of code.
+Dialogue: 0,0:56:24.03,0:56:29.45,Default,Self.manage object context\Nequals this notification,
+Dialogue: 0,0:56:30.59,0:56:36.00,Default,its user info, photo\Ndatabase context.
+Dialogue: 0,0:56:40.49,0:56:42.51,Default,Okay. Sorry for the very,\Nvery long line there.
+Dialogue: 0,0:56:42.51,0:56:43.50,Default,I think it will fit,\Nyeah it will.
+Dialogue: 0,0:56:44.12,0:56:46.78,Default,Okay? So, I'm getting\Nthis block.
+Dialogue: 0,0:56:46.78,0:56:49.80,Default,It's executed whenever this\Nradio station broadcasts,
+Dialogue: 0,0:56:49.91,0:56:53.09,Default,and because I put this\Nuser info of the context,
+Dialogue: 0,0:56:53.09,0:56:54.09,Default,now I have the context,
+Dialogue: 0,0:56:54.09,0:56:56.92,Default,and I just set my own managed\Nobject context, and voila,
+Dialogue: 0,0:56:56.92,0:56:58.08,Default,it's going to load this table.
+Dialogue: 0,0:56:59.62,0:57:00.46,Default,Questions about that?
+Dialogue: 0,0:57:01.61,0:57:03.98,Default,So, that's notifying both\Non posting and receiving.
+Dialogue: 0,0:57:04.77,0:57:06.09,Default,Alright, so now hopefully\Nit will work.
+Dialogue: 0,0:57:06.17,0:57:09.44,Default,Let's go take a look at\Nthis, and there it is.
+Dialogue: 0,0:57:09.71,0:57:12.15,Default,Okay, now it went\Nreally fast there,
+Dialogue: 0,0:57:12.41,0:57:15.17,Default,because it actually\Ndid the load last time,
+Dialogue: 0,0:57:15.17,0:57:17.29,Default,but we just didn't see it,\Nso the database was loaded.
+Dialogue: 0,0:57:17.29,0:57:19.24,Default,So, I'm going to show it what\Nit looked like to load up.
+Dialogue: 0,0:57:19.63,0:57:21.68,Default,So, how do I clean this out?
+Dialogue: 0,0:57:21.68,0:57:23.71,Default,Okay, how do I clean\Nmy database out?
+Dialogue: 0,0:57:23.71,0:57:24.92,Default,So, really watch this, okay?
+Dialogue: 0,0:57:24.92,0:57:28.68,Default,If you want to get\Nrid of your database,
+Dialogue: 0,0:57:28.68,0:57:30.54,Default,especially if you want\Nto change its schema.
+Dialogue: 0,0:57:30.84,0:57:33.16,Default,Because if you change its\Nschema, and then you relaunch,
+Dialogue: 0,0:57:33.43,0:57:35.19,Default,it's going to say\Nincompatible database type.
+Dialogue: 0,0:57:35.61,0:57:38.25,Default,So, if you want to get rid of\Nit, just press the home key.
+Dialogue: 0,0:57:38.78,0:57:41.87,Default,I also recommend\Nquitting in X code first.
+Dialogue: 0,0:57:45.86,0:57:50.19,Default,Then press the home key,\Nhold down, press to hold,
+Dialogue: 0,0:57:50.19,0:57:52.41,Default,you can do this on your\Ndevice too, and then,
+Dialogue: 0,0:57:52.41,0:57:54.90,Default,you get these jigglies,\Nand then press the X
+Dialogue: 0,0:57:55.42,0:57:56.98,Default,to delete that application.
+Dialogue: 0,0:57:56.98,0:57:58.63,Default,That will delete the\Nentire application,
+Dialogue: 0,0:57:58.91,0:58:05.15,Default,including the database, and now,\Nwhen I launch again in X code,
+Dialogue: 0,0:58:06.09,0:58:07.83,Default,it is going to start up blank,
+Dialogue: 0,0:58:08.34,0:58:10.32,Default,doing the Flickr Fetch\Nin the background.
+Dialogue: 0,0:58:10.64,0:58:13.76,Default,When that manage object\Ncontent is filled up with data,
+Dialogue: 0,0:58:13.76,0:58:17.16,Default,it magically automatically\Nappears in the TableView.
+Dialogue: 0,0:58:17.69,0:58:19.76,Default,That's because that Fetch\NResults Controller is watching
+Dialogue: 0,0:58:19.92,0:58:21.06,Default,the context.
+Dialogue: 0,0:58:21.98,0:58:23.67,Default,Okay? Questions.
+Dialogue: 0,0:58:23.67,0:58:23.99,Default,[ Background Conversation ]
+Dialogue: 0,0:58:23.99,0:58:30.54,Default,Yeah, let's go back\Nand look at that.
+Dialogue: 0,0:58:30.88,0:58:33.27,Default,The question is where\Ndid I set this user info,
+Dialogue: 0,0:58:33.27,0:58:36.33,Default,this little user info right\Nhere, where did I set that,
+Dialogue: 0,0:58:36.33,0:58:41.13,Default,and that was when I posted\Nthe notification here
+Dialogue: 0,0:58:41.19,0:58:45.14,Default,in my app delegate, which I\Ndid when I set the context,
+Dialogue: 0,0:58:45.14,0:58:46.32,Default,which I did when I launched.
+Dialogue: 0,0:58:46.90,0:58:47.89,Default,Right, so I launch.
+Dialogue: 0,0:58:48.31,0:58:49.19,Default,Here's launch.
+Dialogue: 0,0:58:49.19,0:58:52.60,Default,When I launch, I create\Nthe context, you're going
+Dialogue: 0,0:58:52.60,0:58:54.00,Default,to create it with U\Nunmanaged document.
+Dialogue: 0,0:58:54.27,0:58:55.72,Default,I set right here.
+Dialogue: 0,0:58:55.87,0:58:57.17,Default,This is the setter for that.
+Dialogue: 0,0:58:58.12,0:58:59.09,Default,Okay, I set it.
+Dialogue: 0,0:58:59.29,0:59:05.01,Default,Then I post it to\Navailable to everybody else.
+Dialogue: 0,0:59:05.44,0:59:06.92,Default,Okay? Question.
+Dialogue: 0,0:59:06.92,0:59:08.73,Default,[ Background Conversation ]
+Dialogue: 0,0:59:08.73,0:59:14.22,Default,Yeah, so the question\Nis, how can I make sure
+Dialogue: 0,0:59:14.22,0:59:19.34,Default,that the view controller\Nexists, and is listening in time
+Dialogue: 0,0:59:19.39,0:59:22.37,Default,to hear this, because the\Napplication delegate is posting
+Dialogue: 0,0:59:22.37,0:59:24.01,Default,this pretty early,\Nright after launch.
+Dialogue: 0,0:59:24.01,0:59:26.87,Default,It's sending out this\Nnotification, and the answer
+Dialogue: 0,0:59:26.87,0:59:31.83,Default,to that is that's why I do this\Nin awake from nib, really early
+Dialogue: 0,0:59:31.83,0:59:33.84,Default,in the view controller's\Nlife cycle, right?
+Dialogue: 0,0:59:33.84,0:59:35.84,Default,When it's first created, so\Nit has the maximum chance
+Dialogue: 0,0:59:35.84,0:59:38.56,Default,of getting it, but\Nit's possible.
+Dialogue: 0,0:59:39.13,0:59:40.71,Default,It's unlikely, but it's possible
+Dialogue: 0,0:59:40.71,0:59:42.26,Default,that some view controller\Nyou might create later
+Dialogue: 0,0:59:42.26,0:59:44.11,Default,in time might need\Nit, and in that case,
+Dialogue: 0,0:59:44.11,0:59:45.65,Default,you might need a different\Nmechanism, or you might need
+Dialogue: 0,0:59:45.65,0:59:48.27,Default,to report or you might\Nneed to pass it along.
+Dialogue: 0,0:59:48.72,0:59:51.63,Default,Okay, a lot of times, we don't\Nwant to use this mechanism
+Dialogue: 0,0:59:51.83,0:59:54.29,Default,to give the context\Nto view controllers,
+Dialogue: 0,0:59:54.29,0:59:56.66,Default,exactly because the view\Ncontroller doesn't exist yet,
+Dialogue: 0,0:59:56.97,0:59:59.90,Default,until when this availability\Nhappens, it's not even there.
+Dialogue: 0,1:00:00.25,1:00:03.13,Default,So, there are other ways to\Npass you manage object context
+Dialogue: 0,1:00:03.13,1:00:04.23,Default,around, and you always want
+Dialogue: 0,1:00:04.23,1:00:06.44,Default,to use those before\Na way like this.
+Dialogue: 0,1:00:07.19,1:00:09.24,Default,Okay, and I mentioned that in\Nthe hints, so the homework is,
+Dialogue: 0,1:00:09.76,1:00:12.64,Default,pass the manage object context
+Dialogue: 0,1:00:12.64,1:00:16.69,Default,to a view controller that's\NNS vector results controlled
+Dialogue: 0,1:00:17.16,1:00:19.14,Default,in a sensible way in a\Nway that makes sense.
+Dialogue: 0,1:00:19.28,1:00:23.35,Default,If you're segwaying to it, pass\Nit to it by preparing it, right?
+Dialogue: 0,1:00:24.07,1:00:26.70,Default,You wouldn't want to rely\Non something like this.
+Dialogue: 0,1:00:27.56,1:00:29.88,Default,Okay. Alright, now let's talk
+Dialogue: 0,1:00:29.88,1:00:31.41,Default,about loading our\Ndatabase some more.
+Dialogue: 0,1:00:31.68,1:00:35.18,Default,Okay, right now, we only\Nloaded our database on launch.
+Dialogue: 0,1:00:35.46,1:00:37.63,Default,Here's the application that did\Nfinish loading with options.
+Dialogue: 0,1:00:37.93,1:00:41.40,Default,We load our database right here\Nand Flickr fetch that's it.
+Dialogue: 0,1:00:41.83,1:00:43.92,Default,Okay? Well, that's\Nnot very good,
+Dialogue: 0,1:00:44.02,1:00:46.35,Default,that just means we only\Nget one batch of data ever,
+Dialogue: 0,1:00:46.43,1:00:47.61,Default,when we launch our\Napp, we have to quit,
+Dialogue: 0,1:00:47.61,1:00:48.94,Default,or have to relaunch\Nit all the time.
+Dialogue: 0,1:00:49.30,1:00:52.34,Default,So, what about kind of\Nloading this Flickr information
+Dialogue: 0,1:00:52.34,1:00:54.57,Default,in the background,\Nand we can do that,
+Dialogue: 0,1:00:55.17,1:00:57.61,Default,but there's really two\Ndifferent background conditions
+Dialogue: 0,1:00:57.61,1:00:58.19,Default,to consider.
+Dialogue: 0,1:00:58.48,1:01:02.04,Default,One is background, and our\Napp is in the background.
+Dialogue: 0,1:01:02.04,1:01:04.86,Default,In other words, the user is not\Ncurrently using our app, okay.
+Dialogue: 0,1:01:04.97,1:01:06.88,Default,They were using it, but\Nnow it's in the background.
+Dialogue: 0,1:01:07.61,1:01:09.35,Default,Okay, how do I fetch\Nwhen that happens.
+Dialogue: 0,1:01:09.35,1:01:12.29,Default,Well, fetching there is kind\Nof limited by the system.
+Dialogue: 0,1:01:12.45,1:01:15.76,Default,The system is not going let you\Njust go hog wild fetching things
+Dialogue: 0,1:01:15.76,1:01:17.55,Default,when you're not the app\Nthat the user is using,
+Dialogue: 0,1:01:17.89,1:01:20.20,Default,but it will let you\Ndo it sometimes, okay?
+Dialogue: 0,1:01:20.52,1:01:24.03,Default,And, the way you can get the\Nsystem to kind of wake you up
+Dialogue: 0,1:01:24.03,1:01:26.62,Default,and let you fetch\Nsometimes in the background,
+Dialogue: 0,1:01:26.62,1:01:28.96,Default,every once in awhile, I don't\Nknow, a few times a day,
+Dialogue: 0,1:01:28.96,1:01:32.52,Default,who knows what, but sometimes,\Nit's using background fetching,
+Dialogue: 0,1:01:32.52,1:01:35.80,Default,which is a multitasking\NAPI, new for iOS 7.
+Dialogue: 0,1:01:35.80,1:01:40.07,Default,So, I'm just going to show you\Nthis as an example of what some
+Dialogue: 0,1:01:40.07,1:01:42.79,Default,of the multitasking\NAPIs look like.
+Dialogue: 0,1:01:43.17,1:01:45.76,Default,Now, the way you turn this is\Non, is you edit your project.
+Dialogue: 0,1:01:45.76,1:01:47.84,Default,You see this is my project\NI clicked on up here,
+Dialogue: 0,1:01:47.84,1:01:49.13,Default,and now you're going to go
+Dialogue: 0,1:01:49.13,1:01:51.15,Default,to this tab right\Nhere, capabilities.
+Dialogue: 0,1:01:51.53,1:01:54.45,Default,So, I go to capabilities, and\Nthere's a lot of capabilities.
+Dialogue: 0,1:01:54.64,1:01:55.86,Default,This really kind of\Ngives you a feeling
+Dialogue: 0,1:01:55.86,1:01:58.82,Default,of how we're only skimming the\Nsurface of iOS, when you look
+Dialogue: 0,1:01:58.82,1:02:00.17,Default,at all these things you can do.
+Dialogue: 0,1:02:00.59,1:02:02.22,Default,But, anyway, we're going\Nto do this one right here,
+Dialogue: 0,1:02:02.22,1:02:04.66,Default,background modes, and I'm\Ngoing to turn this on.
+Dialogue: 0,1:02:05.18,1:02:07.77,Default,When I turn it on, there's\Nall kinds of background modes,
+Dialogue: 0,1:02:07.77,1:02:10.06,Default,things that I can be allowed\Nto do in the background.
+Dialogue: 0,1:02:10.52,1:02:13.07,Default,That is to say when my app\Nis not currently being used
+Dialogue: 0,1:02:13.07,1:02:15.27,Default,by the user, and I'm going\Nto pick this one down here,
+Dialogue: 0,1:02:15.40,1:02:19.69,Default,background fetch, and if I turn\Nthis on, okay, background fetch,
+Dialogue: 0,1:02:19.92,1:02:23.89,Default,then I will occasionally by\Nthe system at its discretion,
+Dialogue: 0,1:02:24.15,1:02:25.85,Default,send a message to\Nmy app delegate,
+Dialogue: 0,1:02:26.19,1:02:28.41,Default,perhaps even launching\Nme to do it.
+Dialogue: 0,1:02:29.32,1:02:32.10,Default,Okay? And what is that\Nmessage that gets sent.
+Dialogue: 0,1:02:32.24,1:02:33.40,Default,I'll show it to you right here.
+Dialogue: 0,1:02:33.40,1:02:36.65,Default,It is called, we're\Ngoing to type it in.
+Dialogue: 0,1:02:36.75,1:02:39.29,Default,Application, so you can look at\Nall the things you can receive
+Dialogue: 0,1:02:39.29,1:02:39.94,Default,from your application.
+Dialogue: 0,1:02:39.94,1:02:41.62,Default,There is just a billion\Nof them here.
+Dialogue: 0,1:02:41.92,1:02:42.80,Default,See them, okay?
+Dialogue: 0,1:02:43.30,1:02:45.71,Default,So, we'll cover some of\Nthose, but not all of them,
+Dialogue: 0,1:02:45.71,1:02:47.62,Default,but there's quite a\Nfew of them in here.
+Dialogue: 0,1:02:47.96,1:02:51.72,Default,But, the one you get when you\Ndo this is this one right here,
+Dialogue: 0,1:02:51.72,1:02:56.52,Default,perform fetch with completion\Nhandler, okay, so this gets sent
+Dialogue: 0,1:02:56.52,1:02:58.95,Default,to you, and it's\Nbasically saying, okay,
+Dialogue: 0,1:02:58.95,1:03:00.59,Default,I'm giving you an\Nopportunity to go do something
+Dialogue: 0,1:03:00.59,1:03:02.93,Default,in the background, a fetch\Nor whatever you want to do.
+Dialogue: 0,1:03:02.93,1:03:04.69,Default,Usually it's a fetch,\Nbut you can kind
+Dialogue: 0,1:03:04.69,1:03:05.82,Default,of do whatever you want here,
+Dialogue: 0,1:03:06.16,1:03:10.24,Default,and the only responsibility\Nyou have in doing this is
+Dialogue: 0,1:03:10.24,1:03:11.99,Default,to call this completion\Nhandler when you're done.
+Dialogue: 0,1:03:12.89,1:03:14.52,Default,That's the only thing you\Nabsolutely have to do.
+Dialogue: 0,1:03:14.70,1:03:16.52,Default,If you don't call that\Nin a timely manner,
+Dialogue: 0,1:03:16.71,1:03:19.92,Default,the system will grow tired of\Nyou, and it will stop fetching.
+Dialogue: 0,1:03:19.92,1:03:21.61,Default,It will stop sending\Nyou this message.
+Dialogue: 0,1:03:22.07,1:03:25.26,Default,So, more timely we respond to\Nthis, the more likely it's going
+Dialogue: 0,1:03:25.26,1:03:27.09,Default,to let you fetch\Nin the background.
+Dialogue: 0,1:03:27.55,1:03:29.43,Default,Okay, so what are\Nwe going to do here?
+Dialogue: 0,1:03:29.72,1:03:31.45,Default,Well, it turns out,\Nall we're going to do
+Dialogue: 0,1:03:31.45,1:03:37.81,Default,in here is start a Flickr fetch,\Nand then we're immediately going
+Dialogue: 0,1:03:37.81,1:03:39.97,Default,to call this completion handler.
+Dialogue: 0,1:03:40.43,1:03:41.91,Default,We're not done.
+Dialogue: 0,1:03:41.91,1:03:43.57,Default,This fetch, we just started it.
+Dialogue: 0,1:03:43.57,1:03:46.83,Default,It's going to take awhile to\Ncome back later, but we're done,
+Dialogue: 0,1:03:46.83,1:03:48.87,Default,as far as this background\Nfetch thing is continued.
+Dialogue: 0,1:03:48.95,1:03:51.63,Default,Okay, getting the result and\Ndoing all that, that's going
+Dialogue: 0,1:03:51.63,1:03:53.85,Default,to happen at some other\Ntime, but here, we're done,
+Dialogue: 0,1:03:54.21,1:03:55.93,Default,and we have to, the argument
+Dialogue: 0,1:03:55.93,1:04:00.69,Default,to this completion handler is\Na UI background fetch result,
+Dialogue: 0,1:04:00.69,1:04:05.15,Default,which is whether whatever you\Ndid in here changed your UI.
+Dialogue: 0,1:04:05.24,1:04:09.12,Default,Because if it did, we need to\Nupdate the little task switcher.
+Dialogue: 0,1:04:09.12,1:04:11.77,Default,Okay, does everyone know what\Nthe task switcher is in iOS 7?
+Dialogue: 0,1:04:11.77,1:04:14.61,Default,It looks like this, okay,\Nhere's the task switcher.
+Dialogue: 0,1:04:14.82,1:04:16.75,Default,It lets you go through\Nand look at very apps,
+Dialogue: 0,1:04:16.75,1:04:18.45,Default,if my apps are doing\Nanything here.
+Dialogue: 0,1:04:18.78,1:04:20.00,Default,Let's launch an app.
+Dialogue: 0,1:04:20.00,1:04:21.36,Default,Let's launch safari here.
+Dialogue: 0,1:04:21.77,1:04:24.52,Default,Okay, so now I go into task\Nswitcher, and here's Safari.
+Dialogue: 0,1:04:24.52,1:04:27.68,Default,See how it's showing me\Nwhat's actually in Safari?
+Dialogue: 0,1:04:27.96,1:04:30.86,Default,It's not really showing me\Nwhat's in Safari right now.
+Dialogue: 0,1:04:30.86,1:04:35.35,Default,It's kind of showing me Safari\Nthe last time I left Safari.
+Dialogue: 0,1:04:35.76,1:04:37.65,Default,Or, if I get this\Nbackground fetch
+Dialogue: 0,1:04:37.84,1:04:43.11,Default,and this completion handler,\NI say UI background fetch,
+Dialogue: 0,1:04:43.20,1:04:46.78,Default,new data, then it would\Nredraw that thing for me.
+Dialogue: 0,1:04:46.90,1:04:48.98,Default,It would give me a\Nchance to redraw it.
+Dialogue: 0,1:04:49.27,1:04:51.30,Default,But, I don't actually\Nhave any new data.
+Dialogue: 0,1:04:51.30,1:04:54.15,Default,I have no data here, because\NI haven't gotten the data
+Dialogue: 0,1:04:54.18,1:04:54.85,Default,from this yet.
+Dialogue: 0,1:04:55.18,1:04:56.94,Default,This Flickr fetch has\Nnot come back yet,
+Dialogue: 0,1:04:57.65,1:04:59.38,Default,so it's not going\Nto do anything.
+Dialogue: 0,1:05:00.64,1:05:01.95,Default,Okay? So, this is great.
+Dialogue: 0,1:05:02.29,1:05:05.37,Default,This lets me occasionally\Nfire off a background fetch,
+Dialogue: 0,1:05:05.63,1:05:09.68,Default,but when the data comes\Nback in, then what do I do.
+Dialogue: 0,1:05:09.98,1:05:11.58,Default,Well, if I'm in the background,
+Dialogue: 0,1:05:11.94,1:05:16.52,Default,none of these URL things\Nare going to get called.
+Dialogue: 0,1:05:17.55,1:05:20.26,Default,Okay? Because I'm back-grounded.
+Dialogue: 0,1:05:21.61,1:05:25.23,Default,Now, it's not strictly true\Nthat these won't get called,
+Dialogue: 0,1:05:25.79,1:05:29.94,Default,because what will happen is\Nif the URL returns while I'm
+Dialogue: 0,1:05:29.94,1:05:32.10,Default,in the background, so I\Nstarted it in the background,
+Dialogue: 0,1:05:32.10,1:05:35.41,Default,if it returns, I'll get\Nanother application thing called
+Dialogue: 0,1:05:35.41,1:05:40.13,Default,application handle events for\Nbackground URL session, okay?
+Dialogue: 0,1:05:40.55,1:05:43.57,Default,And, it also has a completion\Nhandler, a little different one.
+Dialogue: 0,1:05:44.31,1:05:47.46,Default,Okay, so this is called whenever\Nthings happen in the background.
+Dialogue: 0,1:05:47.65,1:05:49.43,Default,Now, what's interesting\Nabout this one is,
+Dialogue: 0,1:05:49.49,1:05:51.57,Default,I don't actually need to do\Nanything in this one either.
+Dialogue: 0,1:05:52.07,1:05:54.04,Default,Because if I implement\Nthis method,
+Dialogue: 0,1:05:54.25,1:05:55.88,Default,then these delegate methods
+Dialogue: 0,1:05:55.88,1:05:57.79,Default,down here will automatically\Nget called,
+Dialogue: 0,1:05:58.38,1:06:03.29,Default,and they already know how to\Nunpackage the data from Flickr
+Dialogue: 0,1:06:03.29,1:06:04.40,Default,and put it in my database.
+Dialogue: 0,1:06:04.40,1:06:05.44,Default,They already know\Nhow to do all that,
+Dialogue: 0,1:06:05.67,1:06:07.53,Default,but I still do have\Nthis responsibility
+Dialogue: 0,1:06:07.53,1:06:10.31,Default,for the completion handler\Non this one too, okay?
+Dialogue: 0,1:06:10.63,1:06:15.38,Default,Now, this completion handler, we\Nreally do want to wait to call
+Dialogue: 0,1:06:15.63,1:06:18.43,Default,until we've actually\Nhandled this URL coming back
+Dialogue: 0,1:06:18.43,1:06:18.94,Default,from Flickr.
+Dialogue: 0,1:06:19.40,1:06:21.97,Default,Okay, this is handling a\NURL coming back from Flickr.
+Dialogue: 0,1:06:22.19,1:06:22.94,Default,So, now we're going to wait.
+Dialogue: 0,1:06:22.94,1:06:24.47,Default,So, I'm going to\Nhave to hold onto it.
+Dialogue: 0,1:06:24.73,1:06:25.78,Default,So, I'm going to.
+Dialogue: 0,1:06:26.13,1:06:29.38,Default,I have an instance variable\Nhere, where I'm going to hold
+Dialogue: 0,1:06:29.38,1:06:30.79,Default,onto this completion handler,
+Dialogue: 0,1:06:31.14,1:06:33.11,Default,and here's the instance\Nvariable right here.
+Dialogue: 0,1:06:33.78,1:06:35.44,Default,Okay. It's a void.
+Dialogue: 0,1:06:35.89,1:06:38.87,Default,It takes no arguments,\Njust properties.
+Dialogue: 0,1:06:39.11,1:06:41.85,Default,All blocks by the way,\Nwant to be copy properties.
+Dialogue: 0,1:06:42.36,1:06:44.16,Default,Blocks want to be\Ncopied into the heap
+Dialogue: 0,1:06:44.36,1:06:45.76,Default,when you keep a handle to them.
+Dialogue: 0,1:06:46.11,1:06:47.27,Default,Something to know.
+Dialogue: 0,1:06:47.71,1:06:52.59,Default,So, anyway, all I need to do is\Nkeep this thing, and then I need
+Dialogue: 0,1:06:52.59,1:06:56.53,Default,to call this when I'm done,\Nso I have a method down here
+Dialogue: 0,1:06:57.14,1:06:58.49,Default,that I use to do that with.
+Dialogue: 0,1:06:58.49,1:07:01.93,Default,It's called Flickr download\Ntasks might be complete,
+Dialogue: 0,1:07:02.32,1:07:04.74,Default,because I might have multiple\Ndownload tasks happening,
+Dialogue: 0,1:07:05.06,1:07:07.95,Default,and so what I do here\Nis, I get all the tasks
+Dialogue: 0,1:07:07.95,1:07:10.21,Default,that my Flickr download\Nsession is doing,
+Dialogue: 0,1:07:10.21,1:07:12.85,Default,that's what this method does,\Nand it has a little block
+Dialogue: 0,1:07:12.85,1:07:14.89,Default,that gets called, because it\Ncan't do that immediately.
+Dialogue: 0,1:07:14.89,1:07:17.11,Default,Sometimes it takes a little\Ntime to figure that out,
+Dialogue: 0,1:07:17.58,1:07:20.33,Default,and then if there are no\Ndownload tasks left, right?
+Dialogue: 0,1:07:20.64,1:07:23.49,Default,Not download task\Ncount, then I'm going
+Dialogue: 0,1:07:23.49,1:07:25.09,Default,to call this completion handler.
+Dialogue: 0,1:07:25.49,1:07:28.49,Default,This Flickr download backload\Nbackground inclusion handler,
+Dialogue: 0,1:07:28.53,1:07:29.52,Default,and say that I'm done.
+Dialogue: 0,1:07:30.07,1:07:32.18,Default,Okay, so now I've\Nfinished downloading it,
+Dialogue: 0,1:07:32.35,1:07:35.64,Default,I've redrawn my UI, and I'm\Ncalling the completion handler,
+Dialogue: 0,1:07:35.85,1:07:39.88,Default,and this completion handler\Ndoesn't have the little UI no
+Dialogue: 0,1:07:39.88,1:07:42.56,Default,data thing, because it always\Nassumes that you're going
+Dialogue: 0,1:07:42.56,1:07:44.23,Default,to update your UI, okay?
+Dialogue: 0,1:07:44.61,1:07:45.64,Default,So, it's always assuming.
+Dialogue: 0,1:07:45.64,1:07:48.02,Default,It's always going to\Nredraw when you do that.
+Dialogue: 0,1:07:48.93,1:07:51.76,Default,Okay. So, let's see what this,\Nokay, to see what this is going
+Dialogue: 0,1:07:51.76,1:07:53.41,Default,to look like, there's\Na really cool way.
+Dialogue: 0,1:07:53.41,1:07:55.63,Default,Well let's, okay, let's\Ndo this two part here.
+Dialogue: 0,1:07:55.63,1:07:56.80,Default,I'm going to run this.
+Dialogue: 0,1:07:57.01,1:07:57.80,Default,Here it is right here.
+Dialogue: 0,1:07:58.13,1:08:00.05,Default,You can actually\Nsimulate fetching
+Dialogue: 0,1:08:00.05,1:08:01.95,Default,in the background in X code.
+Dialogue: 0,1:08:02.45,1:08:03.77,Default,So, I'm going back to X code.
+Dialogue: 0,1:08:03.99,1:08:04.44,Default,Here's my UI.
+Dialogue: 0,1:08:04.44,1:08:08.65,Default,Okay, I'm going to say,\Nfrom X code, under debug,
+Dialogue: 0,1:08:09.00,1:08:11.06,Default,simulate background fetch, and\Nwatch what's going to happen
+Dialogue: 0,1:08:11.06,1:08:13.84,Default,to my UI, oop, I got\Nput in the background.
+Dialogue: 0,1:08:14.52,1:08:15.95,Default,Okay. And it's doing a fetch.
+Dialogue: 0,1:08:16.29,1:08:17.32,Default,It's going in Flickr.
+Dialogue: 0,1:08:17.32,1:08:20.13,Default,It's downloading to Flickr\Nand doing all that stuff,
+Dialogue: 0,1:08:20.13,1:08:22.27,Default,and actually if I went\Nlike this when it was done,
+Dialogue: 0,1:08:22.27,1:08:23.83,Default,I would see the results in here.
+Dialogue: 0,1:08:24.73,1:08:27.26,Default,Okay, now that's hard for\Nyou to see here, so I'm going
+Dialogue: 0,1:08:27.26,1:08:28.08,Default,to show you another way
+Dialogue: 0,1:08:28.08,1:08:30.58,Default,to simulate a background\Nfetch besides this,
+Dialogue: 0,1:08:30.82,1:08:33.89,Default,so let's delete photo mania\Nso that our tables are empty.
+Dialogue: 0,1:08:33.89,1:08:36.16,Default,You'll really be able to\Nsee it clearly here, oops,
+Dialogue: 0,1:08:36.31,1:08:38.58,Default,I should have quit X code first.
+Dialogue: 0,1:08:39.28,1:08:41.48,Default,Put that in the step.
+Dialogue: 0,1:08:41.73,1:08:45.08,Default,And, so what I'm going to\Ndo here is there's a way
+Dialogue: 0,1:08:45.08,1:08:49.35,Default,to launch your application\Nas if it just got launched
+Dialogue: 0,1:08:49.35,1:08:54.50,Default,from a background fetch, and the\Nway to do that is edit scheme.
+Dialogue: 0,1:08:54.72,1:08:56.07,Default,If you edit this little scheme,
+Dialogue: 0,1:08:56.07,1:08:58.24,Default,the scheme is how\Nit's launching you.
+Dialogue: 0,1:08:58.24,1:09:00.17,Default,In this case, it's\Nlaunching us in a simulator.
+Dialogue: 0,1:09:00.45,1:09:02.60,Default,So, if you edit scheme,\Nand you go over to options,
+Dialogue: 0,1:09:03.01,1:09:04.50,Default,there's this little switch here,
+Dialogue: 0,1:09:04.66,1:09:06.95,Default,launch due to a background\Nfetch.
+Dialogue: 0,1:09:06.95,1:09:10.15,Default,In other words, when I hit run,\Npretend I just got launched,
+Dialogue: 0,1:09:10.15,1:09:13.02,Default,because a background fetch\Ngot sent to me, okay,
+Dialogue: 0,1:09:13.02,1:09:14.24,Default,so that's what that means.
+Dialogue: 0,1:09:14.24,1:09:16.55,Default,Now, normally, we're not\Ngoing to set that switch
+Dialogue: 0,1:09:16.55,1:09:17.62,Default,and leave it set like that.
+Dialogue: 0,1:09:17.86,1:09:20.80,Default,You can actually duplicate this\Nscheme, so I have the schema;
+Dialogue: 0,1:09:20.80,1:09:21.47,Default,I'm going to duplicate it.
+Dialogue: 0,1:09:21.47,1:09:23.66,Default,I'm going to call\Nit my BFF scheme.
+Dialogue: 0,1:09:23.80,1:09:27.14,Default,That means background\NFlickr fetcher.
+Dialogue: 0,1:09:27.67,1:09:32.08,Default,It's my BFF scheme, and in my\NBFF scheme, I'm going to have
+Dialogue: 0,1:09:32.31,1:09:34.59,Default,that switch set, okay.
+Dialogue: 0,1:09:34.76,1:09:38.29,Default,In my other scheme, if I go\Nback to this scheme and edit it,
+Dialogue: 0,1:09:38.67,1:09:40.68,Default,that switch is not set, okay.
+Dialogue: 0,1:09:41.21,1:09:44.33,Default,So, if I want to\Npretend that's happening,
+Dialogue: 0,1:09:44.33,1:09:48.37,Default,I go to my BFF scheme,\Nand I press run.
+Dialogue: 0,1:09:48.37,1:09:50.99,Default,Now, when I run, see it\Nran me in the background.
+Dialogue: 0,1:09:51.92,1:09:55.24,Default,So, the other two things --\Nthe other thing I really wanted
+Dialogue: 0,1:09:55.24,1:09:57.58,Default,to show you here, which I\Ndon't really have time to do.
+Dialogue: 0,1:09:57.58,1:09:59.92,Default,Oh, actually I'll do it real\Nquick is, how about fetching
+Dialogue: 0,1:09:59.92,1:10:01.54,Default,when I'm the foreground app.
+Dialogue: 0,1:10:02.24,1:10:04.74,Default,What happens if the user\Nis currently using me,
+Dialogue: 0,1:10:04.97,1:10:06.47,Default,and I want to fetch\Nperiodically.
+Dialogue: 0,1:10:06.78,1:10:08.28,Default,Okay, that's a totally\Ndifferent thing.
+Dialogue: 0,1:10:08.58,1:10:11.36,Default,To do that, we're going to\Nuse a class called NS timer.
+Dialogue: 0,1:10:11.79,1:10:13.58,Default,Okay, so I'm going\Nto put this here.
+Dialogue: 0,1:10:13.58,1:10:16.40,Default,Once the database context\Nis available, then I'm going
+Dialogue: 0,1:10:16.40,1:10:20.09,Default,to fire off a timer using\Nthis NS timer method,
+Dialogue: 0,1:10:20.09,1:10:21.81,Default,schedule timer with\Ntime interval.
+Dialogue: 0,1:10:21.81,1:10:22.85,Default,I want to do this one.
+Dialogue: 0,1:10:23.21,1:10:26.11,Default,How often should we\Ndo our Flickr fetch?
+Dialogue: 0,1:10:26.11,1:10:28.38,Default,Well, it doesn't seem like\NFlickr updates it more
+Dialogue: 0,1:10:28.38,1:10:30.17,Default,than once every 10\Nor 15 minutes,
+Dialogue: 0,1:10:30.17,1:10:32.58,Default,so let's do it every 20 minutes.
+Dialogue: 0,1:10:33.25,1:10:34.66,Default,So, this is in seconds.
+Dialogue: 0,1:10:34.84,1:10:38.50,Default,So, I'll do 20 minutes, and the\Ntarget is going to be myself.
+Dialogue: 0,1:10:38.50,1:10:40.80,Default,In other words, every 20\Nminutes, send me a method,
+Dialogue: 0,1:10:40.80,1:10:46.71,Default,and the method to send\Nme is start Flickr fetch,
+Dialogue: 0,1:10:47.51,1:10:49.64,Default,and the argument.
+Dialogue: 0,1:10:49.64,1:10:51.32,Default,And, no user info.
+Dialogue: 0,1:10:51.64,1:10:55.15,Default,Sorry, this has to be a colon.
+Dialogue: 0,1:10:55.57,1:10:57.60,Default,I'll show you why in a second.
+Dialogue: 0,1:10:57.60,1:11:01.69,Default,And repeat, yes, so I want this\Nto just be every 20 minutes
+Dialogue: 0,1:11:01.78,1:11:02.72,Default,at sending this timer.
+Dialogue: 0,1:11:04.06,1:11:08.28,Default,Okay. So, why is this start\NFlickr fetch here have
+Dialogue: 0,1:11:08.28,1:11:09.04,Default,to have colon?
+Dialogue: 0,1:11:09.42,1:11:12.08,Default,That's because this timer\Nwhen it sends its message,
+Dialogue: 0,1:11:12.08,1:11:16.37,Default,it always has an argument,\Nand if I do start Flickr fetch
+Dialogue: 0,1:11:16.77,1:11:20.81,Default,with the argument, it's the\NNS timer that sent it to you.
+Dialogue: 0,1:11:21.34,1:11:23.90,Default,But, in this case, I don't care.
+Dialogue: 0,1:11:23.90,1:11:25.89,Default,I'm just going to\Nstart Flickr fetch.
+Dialogue: 0,1:11:25.93,1:11:29.38,Default,So, every 20 minutes, I'm going\Nto fire off this Flickr fetch.
+Dialogue: 0,1:11:29.87,1:11:31.79,Default,Okay, so that's easy.
+Dialogue: 0,1:11:31.79,1:11:35.00,Default,So, if you're in the foreground,\Nnow this timer will not fire
+Dialogue: 0,1:11:35.27,1:11:36.08,Default,when you're in the background.
+Dialogue: 0,1:11:36.08,1:11:38.38,Default,It just will not fire, but\Nthat's okay, because we have
+Dialogue: 0,1:11:38.38,1:11:40.15,Default,that background fetching\Nthing firing it,
+Dialogue: 0,1:11:40.24,1:11:41.78,Default,not as often, but occasionally.
+Dialogue: 0,1:11:42.33,1:11:43.86,Default,Okay, but now all the time,
+Dialogue: 0,1:11:43.86,1:11:48.80,Default,our app is getting new Flickr\Ninformation all the time.
+Dialogue: 0,1:11:49.45,1:11:50.59,Default,Make sense?
+Dialogue: 0,1:11:50.76,1:11:52.65,Default,Okay, so that's all\NI wanted to show you.
+Dialogue: 0,1:11:52.73,1:11:53.28,Default,Hopefully.
+Dialogue: 0,1:11:53.41,1:11:55.23,Default,There's a lot of\Ninformation there I know.
+Dialogue: 0,1:11:55.23,1:11:56.09,Default,We have background fetching.
+Dialogue: 0,1:11:56.09,1:11:56.95,Default,We have foreground fetching.
+Dialogue: 0,1:11:56.95,1:11:58.79,Default,You've got creating\Nthe database model.
+Dialogue: 0,1:11:58.99,1:12:01.38,Default,You got doing the categories\Nto create the adding things.
+Dialogue: 0,1:12:01.60,1:12:04.02,Default,We got the TableView with\NNS Fetch Results Controller.
+Dialogue: 0,1:12:04.02,1:12:05.31,Default,I'm going to post all this code.
+Dialogue: 0,1:12:05.53,1:12:07.21,Default,I'll throw some comments\Nin there tonight,
+Dialogue: 0,1:12:07.21,1:12:10.23,Default,so you can remember what\Nall these things do,
+Dialogue: 0,1:12:10.71,1:12:12.45,Default,and you'll be good to go.
+Dialogue: 0,1:12:13.14,1:12:15.35,Default,Alright? Good luck\Nwith your homework,
+Dialogue: 0,1:12:15.59,1:12:16.81,Default,and I'll see you on Monday.
+Dialogue: 0,1:12:18.64,1:12:21.95,Default,>> For more, please\Nvisit us at Stanford.edu.
