@@ -1,12 +1,11 @@
-斯坦福大学公开课：iOS 7应用开发
-====================
+斯坦福大学公开课：iOS 7 应用开发
+===============================
 
-*业余爱好*
 
 Demo
 ----
 
-![Demo1](http://ww4.sinaimg.cn/large/69fe98c3gw1eelg25qchaj211y0lc0x1.jpg)
+![](http://ww4.sinaimg.cn/large/69fe98c3gw1eelg25qchaj211y0lc0x1.jpg)
 
 ![](http://ww2.sinaimg.cn/large/69fe98c3gw1eelg2b8yesj211y0lctdi.jpg)
 
@@ -15,7 +14,7 @@ Demo
 
 * 字体为 Hiragino Sans GB W3。
 * 中文字体大小为 20 号，英文字体大小为 12 号。
-* Hiragino Sans GB W3.TTF为「冬青黑体简体中文 W3」字体文件。
+* Hiragino Sans GB W3.TTF 为「冬青黑体简体中文 W3」字体文件。
 
 成品
 ----
@@ -27,6 +26,6 @@ Demo
 ----
 
 感谢 [@jannerchang](https://github.com/jannerchang) 提供的字幕。  
-同步网易[斯坦福大学公开课：iOS 7应用开发](http://v.163.com/special/opencourse/ios7.html)字幕文件。方便合成高清视频观看。
+同步网易[斯坦福大学公开课：iOS 7 应用开发](http://v.163.com/special/opencourse/ios7.html)字幕文件。方便合成高清视频观看。
 
 
