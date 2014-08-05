@@ -15,6 +15,7 @@ Demo
 * 字体为 Hiragino Sans GB W3。
 * 中文字体大小为 20 号，英文字体大小为 12 号。
 * Hiragino Sans GB W3.TTF 为「冬青黑体简体中文 W3」字体文件。
+* **注意：**字幕带 stream2.ass 后缀的是英文原字幕。
 
 成品
 ----
