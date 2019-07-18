@@ -21,10 +21,10 @@ Demo
 ----
 
 成品已上传百度网盘，基本可以与网易同步  
-链接: http://pan.baidu.com/s/1bnF02Kn
+链接: ~~http://pan.baidu.com/s/1bnF02Kn~~
 
 如果你想要的是原版英文视频：  
-请戳链接：http://pan.baidu.com/s/1c0zU148
+请戳链接：链接: https://pan.baidu.com/s/1si5hs1qmpoS_dLu6HbUZGg 提取码: fdga 
 
 说明
 ----
